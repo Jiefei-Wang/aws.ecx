@@ -1,0 +1,29 @@
+Package: simpleECS
+Title: Communicating with Amazon Web Services(AWS) Elastic Container Service(ECS)
+using AWS REST APIs
+Version: 0.99.0
+Authors@R: 
+    person(given = "Jiefei",
+           family = "Wang",
+           role = c("aut", "cre"),
+           email = "szwjf08@gmail.com")
+Description: The package provides the most basic commands for communicating 
+    with AWS ECS. The functions will have the prefix `ecs_` or
+    `ec2_` depending on the class of the API. The request will be sent via the REST 
+    APIs and the parameter is given by an R list object. See `?AWS_APIs` for the details
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+  rjson,
+  aws.signature,
+  httr,
+  xml2
+URL: https://github.com/Jiefei-Wang/simpleECS
+BugReports: https://github.com/Jiefei-Wang/simpleECS/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
