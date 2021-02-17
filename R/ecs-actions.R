@@ -5,12 +5,14 @@ ecs_deregister_task_definition <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ecs_create_cluster <- function(json = list()){
     response <- ecs_post(target = "CreateCluster", json = json)
     response
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -19,19 +21,6 @@ ecs_delete_cluster <- function(json = list()){
     response
 }
 
-#' @rdname AWS_APIs
-#' @export
-ecs_create_subnet <- function(json = list()){
-    response <- ecs_post(target = "CreateSubnet", json = json)
-    response
-}
-
-#' @rdname AWS_APIs
-#' @export
-ecs_delete_subnet <- function(json = list()){
-    response <- ecs_post(target = "DeleteSubnet", json = json)
-    response
-}
 
 #' @rdname AWS_APIs
 #' @export
@@ -40,6 +29,7 @@ ecs_run_task <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ecs_stop_task <- function(json = list()){
@@ -47,12 +37,14 @@ ecs_stop_task <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ecs_describe_tasks <- function(json = list()){
     response <- ecs_post(target = "DescribeTasks", json = json)
     response
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -68,6 +60,7 @@ ecs_list_task_definitions<-function(json = list()){
     results
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ecs_list_clusters<-function(json = list()){
@@ -82,6 +75,7 @@ ecs_list_clusters<-function(json = list()){
     results
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ecs_list_tasks<-function(json = list()){
@@ -95,3 +89,4 @@ ecs_list_tasks<-function(json = list()){
     }
     results
 }
+

@@ -12,6 +12,8 @@
 \alias{ec2_authorize_security_group_ingress}
 \alias{ec2_create_vpc}
 \alias{ec2_delete_vpc}
+\alias{ec2_create_subnet}
+\alias{ec2_delete_subnet}
 \alias{ec2_describe_internet_gateways}
 \alias{ec2_describe_route_tables}
 \alias{ec2_describe_security_groups}
@@ -20,8 +22,6 @@
 \alias{ecs_deregister_task_definition}
 \alias{ecs_create_cluster}
 \alias{ecs_delete_cluster}
-\alias{ecs_create_subnet}
-\alias{ecs_delete_subnet}
 \alias{ecs_stop_task}
 \alias{ecs_describe_tasks}
 \alias{ecs_list_task_definitions}
@@ -47,6 +47,10 @@ ec2_create_vpc(json = list())
 
 ec2_delete_vpc(json = list())
 
+ec2_create_subnet(json = list())
+
+ec2_delete_subnet(json = list())
+
 ec2_describe_internet_gateways(json = list())
 
 ec2_describe_route_tables(json = list())
@@ -62,10 +66,6 @@ ecs_deregister_task_definition(json = list())
 ecs_create_cluster(json = list())
 
 ecs_delete_cluster(json = list())
-
-ecs_create_subnet(json = list())
-
-ecs_delete_subnet(json = list())
 
 ecs_run_task(json = list())
 

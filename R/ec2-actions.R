@@ -6,6 +6,7 @@ ec2_create_internet_gateway <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_delete_internet_gateway <- function(json = list()){
@@ -13,6 +14,7 @@ ec2_delete_internet_gateway <- function(json = list()){
     response <- ec2_get(action = action, query = json)
     response
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -22,6 +24,7 @@ ec2_attach_internet_gateway <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_detach_internet_gateway <- function(json = list()){
@@ -29,6 +32,7 @@ ec2_detach_internet_gateway <- function(json = list()){
     response <- ec2_get(action = action, query = json)
     response
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -38,6 +42,7 @@ ec2_create_security_group <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_delete_security_group <- function(json = list()){
@@ -45,6 +50,7 @@ ec2_delete_security_group <- function(json = list()){
     response <- ec2_get(action = action, query = json)
     response
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -54,6 +60,7 @@ ec2_authorize_security_group_ingress <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_create_vpc <- function(json = list()){
@@ -62,6 +69,7 @@ ec2_create_vpc <- function(json = list()){
     response
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_delete_vpc <- function(json = list()){
@@ -69,6 +77,25 @@ ec2_delete_vpc <- function(json = list()){
     response <- ec2_get(action = action, query = json)
     response
 }
+
+
+#' @rdname AWS_APIs
+#' @export
+ec2_create_subnet <- function(json = list()){
+    action <- "CreateSubnet"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
+ec2_delete_subnet <- function(json = list()){
+    action <- "DeleteSubnet"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -87,6 +114,7 @@ ec2_describe_internet_gateways<-function(json = list()){
     result
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_describe_route_tables<-function(json = list()){
@@ -103,6 +131,7 @@ ec2_describe_route_tables<-function(json = list()){
     }
     result
 }
+
 
 #' @rdname AWS_APIs
 #' @export
@@ -121,6 +150,7 @@ ec2_describe_security_groups<-function(json = list()){
     result
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_describe_vpcs<-function(json = list()){
@@ -138,6 +168,7 @@ ec2_describe_vpcs<-function(json = list()){
     result
 }
 
+
 #' @rdname AWS_APIs
 #' @export
 ec2_describe_subnets<-function(json = list()){
@@ -154,3 +185,4 @@ ec2_describe_subnets<-function(json = list()){
     }
     result
 }
+

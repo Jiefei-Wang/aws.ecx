@@ -23,5 +23,4 @@
 #' A vector/list object depending on the API type
 #' @rdname AWS_APIs
 #' @name ecs_run_task
-#' @export
 NULL

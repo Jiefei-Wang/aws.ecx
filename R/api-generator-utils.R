@@ -1,3 +1,8 @@
+get_api_template <- function(file_name){
+    file_path <- file.path("R","template",file_name)
+    readChar(file_path, file.info(file_path)$size)
+}
+
 generate_apis <- function(){
     generate_ec2_apis()
     generate_ecs_apis()

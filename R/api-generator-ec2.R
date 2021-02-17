@@ -1,4 +1,3 @@
-
 ec2_get_simple_apis <- c(
     "CreateInternetGateway",
     "DeleteInternetGateway",
@@ -46,13 +45,7 @@ generate_ec2_apis <- function(){
 
 
 generate_ec2_simple_api <- function(target, rd_name){
-    template <- ("#' @rdname %rd_name%
-#' @export
-%function_name% <- function(json = list()){
-    action <- \"%target%\"
-    response <- ec2_get(action = action, query = json)
-    response
-}")
+    template <- get_api_template("ec2_simple_template.R")
     template <- replace_ec2_template(template, target, rd_name)
     template
 }
@@ -60,22 +53,7 @@ generate_ec2_simple_api <- function(target, rd_name){
 
 
 generate_ec2_list_api <- function(target, result_getter, rd_name){
-    template<-("#' @rdname %rd_name%
-#' @export
-%function_name%<-function(json = list()){
-    action <- \"%target%\"
-    response <- ec2_get(action = action, query = json)
-    result <- %result_getter%
-    while(!is.null(response$nextToken)){
-        query$NextToken <- response$nextToken
-        response <- ec2_get(action = action, query = query)
-        result <- c(
-            result,
-            %result_getter%
-        )
-    }
-    result
-}")
+    template <- get_api_template("ec2_list_template.R")
     template <- replace_ec2_template(template, target, rd_name)
     template <- gsub("%result_getter%", result_getter, template, fixed = TRUE)
     template

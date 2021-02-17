@@ -36,29 +36,12 @@ generate_ecs_apis <- function(){
 }
 
 generate_ecs_simple_api <- function(target, rd_name){
-    template <- ("#' @rdname %rd_name%
-#' @export
-%function_name% <- function(json = list()){
-    response <- ecs_post(target = \"%target%\", json = json)
-    response
-}")
+    template <- get_api_template("ecs_simple_template.R")
     replace_ecs_template(template, target, rd_name)
 }
 
 generate_ecs_list_api <- function(target, result_getter, rd_name){
-    template<-("#' @rdname %rd_name%
-#' @export
-%function_name%<-function(json = list()){
-    target <- \"%target%\"
-    response <- ecs_post(target = target, json = json)
-    results <- %result_getter%
-    while(!is.null(response$nextToken)){
-        json$nextToken <- response$nextToken
-        response <- ecs_post(target = target, json = json)
-        results <- c(results, %result_getter%)
-    }
-    results
-}")
+    template <- get_api_template("ecs_list_template.R")
     template <- replace_ecs_template(template, target, rd_name)
     template <- gsub("%result_getter%", result_getter, template, fixed = TRUE)
     template
