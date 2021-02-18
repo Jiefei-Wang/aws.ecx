@@ -11,7 +11,7 @@ vignette: >
 
 
 # Introduction
-This package aims to provide the basic functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. However, it contains the APIs from both EC2 and ECS as most network settings are done via the EC2 APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose function has the prefix `aws_`
+This package aims to provide the basic functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. However, it contains the APIs from both EC2 and ECS as most network settings are done via the EC2 APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`
 
 # Authentication
 Credentials must be provided for using the package. This can be done via `aws_set_credentials()`. 
@@ -66,6 +66,9 @@ Here are the current available AWS-related functions in the package. For EC2
 #> ec2_describe_subnets
 #> ec2_describe_vpcs
 #> ec2_detach_internet_gateway
+#> ec2_get
+#> ec2_get_list_apis
+#> ec2_get_simple_apis
 ```
 For ECS
 
@@ -77,7 +80,11 @@ For ECS
 #> ecs_list_clusters
 #> ecs_list_task_definitions
 #> ecs_list_tasks
+#> ecs_post
+#> ecs_post_list_apis
+#> ecs_post_simple_apis
 #> ecs_register_task_definition
+#> ecs_REST_request
 #> ecs_run_task
 #> ecs_stop_task
 ```
@@ -118,14 +125,18 @@ sessionInfo()
 #> [1] simpleECS_0.99.0
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] rstudioapi_0.13     knitr_1.30          xml2_1.3.2          magrittr_1.5       
-#>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
-#>  [9] rlang_0.4.8         fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
-#> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.0     yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
-#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
-#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
-#> [29] stringi_1.5.3       compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
+#>  [1] Rcpp_1.0.5          compiler_4.1.0      prettyunits_1.1.1   base64enc_0.1-3    
+#>  [5] remotes_2.2.0       tools_4.1.0         testthat_3.0.0      digest_0.6.27      
+#>  [9] pkgbuild_1.1.0      pkgload_1.1.0       jsonlite_1.7.1      evaluate_0.14      
+#> [13] memoise_1.1.0       rlang_0.4.8         cli_2.1.0           rstudioapi_0.13    
+#> [17] commonmark_1.7      curl_4.3            yaml_2.2.1          xfun_0.19          
+#> [21] roxygen2_7.1.1      withr_2.3.0         httr_1.4.2          stringr_1.4.0      
+#> [25] xml2_1.3.2          knitr_1.30          fs_1.5.0            desc_1.2.0         
+#> [29] devtools_2.3.2      rprojroot_2.0.2     glue_1.4.2          R6_2.5.0           
+#> [33] processx_3.4.4      fansi_0.4.1         rmarkdown_2.5       sessioninfo_1.1.1  
+#> [37] purrr_0.3.4         callr_3.5.1         magrittr_1.5        usethis_1.6.3      
+#> [41] ps_1.4.0            htmltools_0.5.0     ellipsis_0.3.1      assertthat_0.2.1   
+#> [45] aws.signature_0.6.0 stringi_1.5.3       crayon_1.3.4        rjson_0.2.20
 ```
 
 
