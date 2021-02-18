@@ -83,7 +83,18 @@ For ECS
 ```
 
 # Package settings
-You can control how the package handles the network issue via `aws_set_retry_time`, `aws_set_print_on_error` and `aws_set_network_timeout`. `retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails.
+The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`. 
+
+
+```r
+aws_get_retry_time()
+#> [1] 3
+aws_get_print_on_error()
+#> [1] TRUE
+aws_get_network_timeout()
+#> [1] 10
+```
+`retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`).
 
 # Session info
 
@@ -111,10 +122,10 @@ sessionInfo()
 #>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
 #>  [9] rlang_0.4.8         fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
 #> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.0     assertthat_0.2.1    rprojroot_2.0.2     digest_0.6.27      
-#> [21] crayon_1.3.4        base64enc_0.1-3     testthat_3.0.0      curl_4.3           
-#> [25] glue_1.4.2          evaluate_0.14       stringi_1.5.3       compiler_4.1.0     
-#> [29] desc_1.2.0          jsonlite_1.7.1
+#> [17] htmltools_0.5.0     yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
+#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
+#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
+#> [29] stringi_1.5.3       compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
 ```
 
 

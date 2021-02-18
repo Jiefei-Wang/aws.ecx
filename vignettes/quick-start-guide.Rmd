@@ -21,8 +21,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(simpleECS)
-simpleECS::aws_set_retry_time(10)
-simpleECS::aws_set_print_on_error(FALSE)
+# simpleECS::aws_set_retry_time(10)
+# simpleECS::aws_set_print_on_error(FALSE)
 ```
 # Introduction
 This package aims to provide the basic functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. However, it contains the APIs from both EC2 and ECS as most network settings are done via the EC2 APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose function has the prefix `aws_`
@@ -56,7 +56,14 @@ cat(paste0(sort(x[startsWith(x, "ecs_")]),collapse = "\n"))
 ```
 
 # Package settings
-You can control how the package handles the network issue via `aws_set_retry_time`, `aws_set_print_on_error` and `aws_set_network_timeout`. `retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails.
+The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`. 
+
+```{r}
+aws_get_retry_time()
+aws_get_print_on_error()
+aws_get_network_timeout()
+```
+`retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`).
 
 # Session info
 ```{r}

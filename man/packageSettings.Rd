@@ -6,6 +6,7 @@
 \alias{aws_set_network_timeout}
 \alias{aws_get_retry_time}
 \alias{aws_get_print_on_error}
+\alias{aws_get_network_timeout}
 \title{Get or set the package settings}
 \usage{
 aws_set_retry_time(x)
@@ -18,7 +19,7 @@ aws_get_retry_time()
 
 aws_get_print_on_error()
 
-aws_get_print_on_error()
+aws_get_network_timeout()
 }
 \arguments{
 \item{x}{the value to be set. For the timeout setting, the unit is seconds.}

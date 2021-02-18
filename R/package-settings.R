@@ -45,6 +45,6 @@ aws_get_print_on_error <- function(){
 }
 #' @rdname packageSettings
 #' @export
-aws_get_print_on_error <- function(){
+aws_get_network_timeout <- function(){
     package_setting$network_timeout
 }
