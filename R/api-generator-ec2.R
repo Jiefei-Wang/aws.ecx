@@ -9,7 +9,11 @@ ec2_get_simple_apis <- c(
     "CreateVpc",
     "DeleteVpc",
     "CreateSubnet",
-    "DeleteSubnet"
+    "DeleteSubnet",
+    "CreateRoute",
+    "DeleteRoute",
+    "CreateRouteTable",
+    "DeleteRouteTable"
 )
 
 ec2_get_list_apis <- list(

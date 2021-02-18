@@ -23,7 +23,6 @@ knitr::opts_chunk$set(
 library(simpleECS)
 simpleECS::aws_set_retry_time(10)
 simpleECS::aws_set_print_on_error(FALSE)
-# knitr::knit("vignettes/vignette.Rmd", output = "README.md")
 ```
 # Introduction
 This package aims to provide the basic functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. However, it contains the APIs from both EC2 and ECS as most network settings are done via the EC2 APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose function has the prefix `aws_`

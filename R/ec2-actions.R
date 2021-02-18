@@ -99,6 +99,42 @@ ec2_delete_subnet <- function(json = list()){
 
 #' @rdname AWS_APIs
 #' @export
+ec2_create_route <- function(json = list()){
+    action <- "CreateRoute"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
+ec2_delete_route <- function(json = list()){
+    action <- "DeleteRoute"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
+ec2_create_route_table <- function(json = list()){
+    action <- "CreateRouteTable"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
+ec2_delete_route_table <- function(json = list()){
+    action <- "DeleteRouteTable"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
 ec2_describe_internet_gateways<-function(json = list()){
     action <- "DescribeInternetGateways"
     response <- ec2_get(action = action, query = json)

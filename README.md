@@ -49,10 +49,14 @@ Here are the current available AWS-related functions in the package. For EC2
 #> ec2_attach_internet_gateway
 #> ec2_authorize_security_group_ingress
 #> ec2_create_internet_gateway
+#> ec2_create_route
+#> ec2_create_route_table
 #> ec2_create_security_group
 #> ec2_create_subnet
 #> ec2_create_vpc
 #> ec2_delete_internet_gateway
+#> ec2_delete_route
+#> ec2_delete_route_table
 #> ec2_delete_security_group
 #> ec2_delete_subnet
 #> ec2_delete_vpc
