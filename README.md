@@ -2,7 +2,7 @@
 title: "Quick-Start-Guide"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{quick-start-guide}
+  %\VignetteIndexEntry{Quick-Start-Guide}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -43,9 +43,33 @@ ecs_list_task_definitions()
 #> [1] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-worker-task-definition:1"
 #> [2] "arn:aws:ecs:us-east-1:020007817719:task-definition/test:1"
 ```
+Here are the current available ECS related functions in the package
+
+```r
+x <- names(getNamespace("simpleECS"))
+cat(paste0(sort(x[startsWith(x, c("ecs_","ec2"))]),collapse = "\n"))
+#> ec2_attach_internet_gateway
+#> ec2_authorize_security_group_ingress
+#> ec2_create_internet_gateway
+#> ec2_create_security_group
+#> ec2_create_vpc
+#> ec2_delete_security_group
+#> ec2_describe_internet_gateways
+#> ec2_describe_route_tables
+#> ec2_describe_security_groups
+#> ec2_get
+#> ec2_get_simple_apis
+#> ecs_list_clusters
+#> ecs_list_tasks
+#> ecs_post
+#> ecs_post_list_apis
+#> ecs_post_simple_apis
+#> ecs_REST_request
+#> ecs_run_task
+```
 
 # Package settings
-You can control how the package handles the network issue via `aws_set_retry_time`, `aws_set_print_on_error`, `aws_set_network_timeout`. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request.
+You can control how the package handles the network issue via `aws_set_retry_time`, `aws_set_print_on_error` and `aws_set_network_timeout`. `retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails.
 
 # Session info
 
@@ -66,17 +90,15 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] simpleECS_0.99.0 rjson_0.2.20    
+#> [1] simpleECS_0.99.0
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] rstudioapi_0.13     knitr_1.30          xml2_1.3.2          magrittr_1.5       
-#>  [5] pkgload_1.1.0       aws.signature_0.6.0 R6_2.5.0            rlang_0.4.8        
-#>  [9] fansi_0.4.1         stringr_1.4.0       httr_1.4.2          tools_4.1.0        
-#> [13] xfun_0.19           cli_2.1.0           withr_2.3.0         htmltools_0.5.0    
-#> [17] yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2     digest_0.6.27      
-#> [21] crayon_1.3.4        base64enc_0.1-3     curl_4.3            testthat_3.0.0     
-#> [25] glue_1.4.2          evaluate_0.14       rmarkdown_2.5       stringi_1.5.3      
-#> [29] compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
+#>  [1] digest_0.6.27       aws.signature_0.6.0 R6_2.5.0            jsonlite_1.7.1     
+#>  [5] magrittr_1.5        evaluate_0.14       httr_1.4.2          stringi_1.5.3      
+#>  [9] rlang_0.4.8         curl_4.3            xml2_1.3.2          rmarkdown_2.5      
+#> [13] rjson_0.2.20        tools_4.1.0         stringr_1.4.0       xfun_0.19          
+#> [17] yaml_2.2.1          compiler_4.1.0      base64enc_0.1-3     htmltools_0.5.0    
+#> [21] knitr_1.30
 ```
 
 

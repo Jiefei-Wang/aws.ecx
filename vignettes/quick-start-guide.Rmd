@@ -2,7 +2,7 @@
 title: "Quick-Start-Guide"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{quick-start-guide}
+  %\VignetteIndexEntry{Quick-Start-Guide}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -45,6 +45,11 @@ Users can find the details on how the credentials are located from `?aws.signatu
 After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the current task definitions on ECS by
 ```{r}
 ecs_list_task_definitions()
+```
+Here are the current available ECS related functions in the package
+```{r}
+x <- names(getNamespace("simpleECS"))
+cat(paste0(sort(x[startsWith(x, c("ecs_","ec2"))]),collapse = "\n"))
 ```
 
 # Package settings
