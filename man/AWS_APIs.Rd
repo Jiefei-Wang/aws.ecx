@@ -19,6 +19,7 @@
 \alias{ec2_describe_security_groups}
 \alias{ec2_describe_vpcs}
 \alias{ec2_describe_subnets}
+\alias{ecs_register_task_definition}
 \alias{ecs_deregister_task_definition}
 \alias{ecs_create_cluster}
 \alias{ecs_delete_cluster}
@@ -60,6 +61,8 @@ ec2_describe_security_groups(json = list())
 ec2_describe_vpcs(json = list())
 
 ec2_describe_subnets(json = list())
+
+ecs_register_task_definition(json = list())
 
 ecs_deregister_task_definition(json = list())
 

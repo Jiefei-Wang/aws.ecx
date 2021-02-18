@@ -46,10 +46,14 @@ After doing the authentication, you can call the ECS functions now. The function
 ```{r}
 ecs_list_task_definitions()
 ```
-Here are the current available ECS related functions in the package
-```{r}
-x <- names(getNamespace("simpleECS"))
-cat(paste0(sort(x[startsWith(x, c("ecs_","ec2"))]),collapse = "\n"))
+Here are the current available AWS-related functions in the package. For EC2
+```{r, echo=FALSE}
+x <- getNamespaceExports(getNamespace("simpleECS"))
+cat(paste0(sort(x[startsWith(x, "ec2_")]),collapse = "\n"))
+```
+For ECS
+```{r, echo=FALSE}
+cat(paste0(sort(x[startsWith(x, "ecs_")]),collapse = "\n"))
 ```
 
 # Package settings

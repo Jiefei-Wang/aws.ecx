@@ -1,5 +1,13 @@
 #' @rdname AWS_APIs
 #' @export
+ecs_register_task_definition <- function(json = list()){
+    response <- ecs_post(target = "RegisterTaskDefinition", json = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
 ecs_deregister_task_definition <- function(json = list()){
     response <- ecs_post(target = "DeregisterTaskDefinition", json = json)
     response
