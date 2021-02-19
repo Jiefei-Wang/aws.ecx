@@ -13,8 +13,7 @@ ec2_get_simple_apis <- c(
     "CreateRoute",
     "DeleteRoute",
     "CreateRouteTable",
-    "DeleteRouteTable",
-    "DescribeNetworkInterfaces"
+    "DeleteRouteTable"
 )
 
 ec2_get_list_apis <- list(
@@ -22,7 +21,8 @@ ec2_get_list_apis <- list(
     DescribeRouteTables="response[[\"routeTableSet\"]]",
     DescribeSecurityGroups="response[[\"securityGroupInfo\"]]",
     DescribeVpcs="response[[\"vpcSet\"]]",
-    DescribeSubnets = "response[[\"subnetSet\"]]"
+    DescribeSubnets = "response[[\"subnetSet\"]]",
+    DescribeNetworkInterfaces = "response[[\"networkInterfaceSet\"]]"
 )
 
 generate_ec2_apis <- function(){

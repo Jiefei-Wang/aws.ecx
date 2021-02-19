@@ -4,8 +4,10 @@ get_api_template <- function(file_name){
 }
 
 generate_apis <- function(){
+    devtools::load_all(".")
     generate_ec2_apis()
     generate_ecs_apis()
+    devtools::document()
 }
 
 

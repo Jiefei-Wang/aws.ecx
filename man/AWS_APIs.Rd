@@ -18,12 +18,12 @@
 \alias{ec2_delete_route}
 \alias{ec2_create_route_table}
 \alias{ec2_delete_route_table}
-\alias{ec2_describe_network_interfaces}
 \alias{ec2_describe_internet_gateways}
 \alias{ec2_describe_route_tables}
 \alias{ec2_describe_security_groups}
 \alias{ec2_describe_vpcs}
 \alias{ec2_describe_subnets}
+\alias{ec2_describe_network_interfaces}
 \alias{ecs_register_task_definition}
 \alias{ecs_deregister_task_definition}
 \alias{ecs_create_cluster}
@@ -65,8 +65,6 @@ ec2_create_route_table(json = list())
 
 ec2_delete_route_table(json = list())
 
-ec2_describe_network_interfaces(json = list())
-
 ec2_describe_internet_gateways(json = list())
 
 ec2_describe_route_tables(json = list())
@@ -76,6 +74,8 @@ ec2_describe_security_groups(json = list())
 ec2_describe_vpcs(json = list())
 
 ec2_describe_subnets(json = list())
+
+ec2_describe_network_interfaces(json = list())
 
 ecs_register_task_definition(json = list())
 
