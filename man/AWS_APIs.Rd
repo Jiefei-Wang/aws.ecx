@@ -18,6 +18,7 @@
 \alias{ec2_delete_route}
 \alias{ec2_create_route_table}
 \alias{ec2_delete_route_table}
+\alias{ec2_describe_network_interfaces}
 \alias{ec2_describe_internet_gateways}
 \alias{ec2_describe_route_tables}
 \alias{ec2_describe_security_groups}
@@ -63,6 +64,8 @@ ec2_delete_route(json = list())
 ec2_create_route_table(json = list())
 
 ec2_delete_route_table(json = list())
+
+ec2_describe_network_interfaces(json = list())
 
 ec2_describe_internet_gateways(json = list())
 

@@ -13,7 +13,8 @@ ec2_get_simple_apis <- c(
     "CreateRoute",
     "DeleteRoute",
     "CreateRouteTable",
-    "DeleteRouteTable"
+    "DeleteRouteTable",
+    "DescribeNetworkInterfaces"
 )
 
 ec2_get_list_apis <- list(

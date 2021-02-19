@@ -135,6 +135,15 @@ ec2_delete_route_table <- function(json = list()){
 
 #' @rdname AWS_APIs
 #' @export
+ec2_describe_network_interfaces <- function(json = list()){
+    action <- "DescribeNetworkInterfaces"
+    response <- ec2_get(action = action, query = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
 ec2_describe_internet_gateways<-function(json = list()){
     action <- "DescribeInternetGateways"
     response <- ec2_get(action = action, query = json)
