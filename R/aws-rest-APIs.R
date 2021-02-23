@@ -10,6 +10,7 @@ retry_on_error <- function(func, ..., n_try){
     if(package_setting$print_on_error)
       cat("REST request failed, retrying\n")
   }
+    NULL
 }
 
 GET_EX <- function(..., n_try = 3){
@@ -57,6 +58,9 @@ ecs_REST_request <-function(method, target, headers, body){
     ),
     body = sig$Body
   )
+  if(is.null(response)){
+      Stop("Fail to connect to the server")
+  }
   if(httr::http_error(response)){
     stop(content(response, type = "text"))
   }
@@ -113,6 +117,9 @@ ec2_get <-
       r <- GET_EX(url, H, query = query)
     } else {
       r <- GET_EX(url, H)
+    }
+    if(is.null(r)){
+        Stop("Fail to connect to the server")
     }
     if (httr::http_error(r)) {
       tmp <- gsub("\n\\s*", "", httr::content(r, "text", encoding = "UTF-8"))
