@@ -39,13 +39,10 @@ Users can find the details on how the credentials are located from `?aws.signatu
 After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the current task definitions on ECS by
 
 ```r
-ecs_list_task_definitions()
+head(ecs_list_task_definitions(), n=3)
 #> [1] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:1"
 #> [2] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:2"
-#> [3] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-worker-task-definition:1"
-#> [4] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-worker-task-definition:2"
-#> [5] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-worker-task-definition:3"
-#> [6] "arn:aws:ecs:us-east-1:020007817719:task-definition/test:1"
+#> [3] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:3"
 ```
 Here are the current available AWS-related functions in the package. For EC2
 
@@ -78,6 +75,7 @@ For ECS
 #> ecs_create_cluster
 #> ecs_delete_cluster
 #> ecs_deregister_task_definition
+#> ecs_describe_task_definition
 #> ecs_describe_tasks
 #> ecs_list_clusters
 #> ecs_list_task_definitions
@@ -127,10 +125,10 @@ sessionInfo()
 #>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
 #>  [9] rlang_0.4.8         fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
 #> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.0     assertthat_0.2.1    rprojroot_2.0.2     digest_0.6.27      
-#> [21] crayon_1.3.4        base64enc_0.1-3     testthat_3.0.0      curl_4.3           
-#> [25] glue_1.4.2          evaluate_0.14       stringi_1.5.3       compiler_4.1.0     
-#> [29] desc_1.2.0          jsonlite_1.7.1
+#> [17] htmltools_0.5.0     yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
+#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     testthat_3.0.0     
+#> [25] curl_4.3            glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
+#> [29] stringi_1.5.3       compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
 ```
 
 

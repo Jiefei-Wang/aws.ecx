@@ -43,7 +43,7 @@ Users can find the details on how the credentials are located from `?aws.signatu
 # Call the functions
 After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the current task definitions on ECS by
 ```{r}
-ecs_list_task_definitions()
+head(ecs_list_task_definitions(), n=3)
 ```
 Here are the current available AWS-related functions in the package. For EC2
 ```{r, echo=FALSE}

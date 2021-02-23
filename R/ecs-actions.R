@@ -16,6 +16,14 @@ ecs_deregister_task_definition <- function(json = list()){
 
 #' @rdname AWS_APIs
 #' @export
+ecs_describe_task_definition <- function(json = list()){
+    response <- ecs_post(target = "DescribeTaskDefinition", json = json)
+    response
+}
+
+
+#' @rdname AWS_APIs
+#' @export
 ecs_create_cluster <- function(json = list()){
     response <- ecs_post(target = "CreateCluster", json = json)
     response

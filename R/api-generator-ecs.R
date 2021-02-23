@@ -1,6 +1,7 @@
 ecs_post_simple_apis <- c(
     "RegisterTaskDefinition",
     "DeregisterTaskDefinition",
+    "DescribeTaskDefinition",
     "CreateCluster",
     "DeleteCluster",
     "RunTask",

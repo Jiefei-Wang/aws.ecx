@@ -26,6 +26,7 @@
 \alias{ec2_describe_network_interfaces}
 \alias{ecs_register_task_definition}
 \alias{ecs_deregister_task_definition}
+\alias{ecs_describe_task_definition}
 \alias{ecs_create_cluster}
 \alias{ecs_delete_cluster}
 \alias{ecs_stop_task}
@@ -80,6 +81,8 @@ ec2_describe_network_interfaces(json = list())
 ecs_register_task_definition(json = list())
 
 ecs_deregister_task_definition(json = list())
+
+ecs_describe_task_definition(json = list())
 
 ecs_create_cluster(json = list())
 
