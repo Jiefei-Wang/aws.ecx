@@ -36,13 +36,11 @@ You can either explicitly provide the credentials by the function arguments or r
 Users can find the details on how the credentials are located from `?aws.signature::locate_credentials`.
 
 # Call the functions
-After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the current task definitions on ECS by
+After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the clusters on ECS by
 
 ```r
-head(ecs_list_task_definitions(), n=3)
-#> [1] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:1"
-#> [2] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:2"
-#> [3] "arn:aws:ecs:us-east-1:020007817719:task-definition/R-server-task-definition:3"
+ecs_list_clusters()
+#> [1] "arn:aws:ecs:us-east-1:020007817719:cluster/R-worker-cluster"
 ```
 Here are the current available AWS-related functions in the package. For EC2
 
@@ -72,17 +70,56 @@ Here are the current available AWS-related functions in the package. For EC2
 For ECS
 
 ```
+#> ecs_create_capacity_provider
 #> ecs_create_cluster
+#> ecs_create_service
+#> ecs_create_task_set
+#> ecs_delete_account_setting
+#> ecs_delete_attributes
+#> ecs_delete_capacity_provider
 #> ecs_delete_cluster
+#> ecs_delete_service
+#> ecs_delete_task_set
+#> ecs_deregister_container_instance
 #> ecs_deregister_task_definition
+#> ecs_describe_capacity_providers
+#> ecs_describe_clusters
+#> ecs_describe_container_instances
+#> ecs_describe_services
 #> ecs_describe_task_definition
+#> ecs_describe_task_sets
 #> ecs_describe_tasks
+#> ecs_discover_poll_endpoint
+#> ecs_list_account_settings
+#> ecs_list_attributes
 #> ecs_list_clusters
+#> ecs_list_container_instances
+#> ecs_list_services
+#> ecs_list_tags_for_resource
+#> ecs_list_task_definition_families
 #> ecs_list_task_definitions
 #> ecs_list_tasks
+#> ecs_put_account_setting
+#> ecs_put_account_setting_default
+#> ecs_put_attributes
+#> ecs_put_cluster_capacity_providers
+#> ecs_register_container_instance
 #> ecs_register_task_definition
 #> ecs_run_task
+#> ecs_start_task
 #> ecs_stop_task
+#> ecs_submit_attachment_state_changes
+#> ecs_submit_container_state_change
+#> ecs_submit_task_state_change
+#> ecs_tag_resource
+#> ecs_untag_resource
+#> ecs_update_capacity_provider
+#> ecs_update_cluster_settings
+#> ecs_update_container_agent
+#> ecs_update_container_instances_state
+#> ecs_update_service
+#> ecs_update_service_primary_task_set
+#> ecs_update_task_set
 ```
 
 # Package settings
@@ -91,7 +128,7 @@ The package handles the network issue via the parameter `retry_time`, `print_on_
 
 ```r
 aws_get_retry_time()
-#> [1] 3
+#> [1] 5
 aws_get_print_on_error()
 #> [1] TRUE
 aws_get_network_timeout()
@@ -126,8 +163,8 @@ sessionInfo()
 #>  [9] rlang_0.4.8         fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
 #> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
 #> [17] htmltools_0.5.0     yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
-#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     testthat_3.0.0     
-#> [25] curl_4.3            glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
+#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
+#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
 #> [29] stringi_1.5.3       compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
 ```
 

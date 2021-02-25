@@ -24,84 +24,206 @@
 \alias{ec2_describe_vpcs}
 \alias{ec2_describe_subnets}
 \alias{ec2_describe_network_interfaces}
-\alias{ecs_register_task_definition}
-\alias{ecs_deregister_task_definition}
-\alias{ecs_describe_task_definition}
+\alias{ecs_create_capacity_provider}
 \alias{ecs_create_cluster}
+\alias{ecs_create_service}
+\alias{ecs_create_task_set}
+\alias{ecs_delete_account_setting}
+\alias{ecs_delete_attributes}
+\alias{ecs_delete_capacity_provider}
 \alias{ecs_delete_cluster}
-\alias{ecs_stop_task}
+\alias{ecs_delete_service}
+\alias{ecs_delete_task_set}
+\alias{ecs_deregister_container_instance}
+\alias{ecs_deregister_task_definition}
+\alias{ecs_describe_clusters}
+\alias{ecs_describe_container_instances}
+\alias{ecs_describe_services}
+\alias{ecs_describe_task_definition}
 \alias{ecs_describe_tasks}
-\alias{ecs_list_task_definitions}
+\alias{ecs_describe_task_sets}
+\alias{ecs_discover_poll_endpoint}
+\alias{ecs_list_tags_for_resource}
+\alias{ecs_put_account_setting}
+\alias{ecs_put_account_setting_default}
+\alias{ecs_put_attributes}
+\alias{ecs_put_cluster_capacity_providers}
+\alias{ecs_register_container_instance}
+\alias{ecs_register_task_definition}
+\alias{ecs_start_task}
+\alias{ecs_stop_task}
+\alias{ecs_submit_attachment_state_changes}
+\alias{ecs_submit_container_state_change}
+\alias{ecs_submit_task_state_change}
+\alias{ecs_tag_resource}
+\alias{ecs_untag_resource}
+\alias{ecs_update_capacity_provider}
+\alias{ecs_update_cluster_settings}
+\alias{ecs_update_container_agent}
+\alias{ecs_update_container_instances_state}
+\alias{ecs_update_service}
+\alias{ecs_update_service_primary_task_set}
+\alias{ecs_update_task_set}
+\alias{ecs_describe_capacity_providers}
+\alias{ecs_list_account_settings}
+\alias{ecs_list_attributes}
 \alias{ecs_list_clusters}
+\alias{ecs_list_container_instances}
+\alias{ecs_list_services}
+\alias{ecs_list_task_definition_families}
+\alias{ecs_list_task_definitions}
 \alias{ecs_list_tasks}
 \title{AWS actions}
 \usage{
-ec2_create_internet_gateway(json = list())
+ec2_create_internet_gateway(..., json = list())
 
-ec2_delete_internet_gateway(json = list())
+ec2_delete_internet_gateway(..., json = list())
 
-ec2_attach_internet_gateway(json = list())
+ec2_attach_internet_gateway(..., json = list())
 
-ec2_detach_internet_gateway(json = list())
+ec2_detach_internet_gateway(..., json = list())
 
-ec2_create_security_group(json = list())
+ec2_create_security_group(..., json = list())
 
-ec2_delete_security_group(json = list())
+ec2_delete_security_group(..., json = list())
 
-ec2_authorize_security_group_ingress(json = list())
+ec2_authorize_security_group_ingress(..., json = list())
 
-ec2_create_vpc(json = list())
+ec2_create_vpc(..., json = list())
 
-ec2_delete_vpc(json = list())
+ec2_delete_vpc(..., json = list())
 
-ec2_create_subnet(json = list())
+ec2_create_subnet(..., json = list())
 
-ec2_delete_subnet(json = list())
+ec2_delete_subnet(..., json = list())
 
-ec2_create_route(json = list())
+ec2_create_route(..., json = list())
 
-ec2_delete_route(json = list())
+ec2_delete_route(..., json = list())
 
-ec2_create_route_table(json = list())
+ec2_create_route_table(..., json = list())
 
-ec2_delete_route_table(json = list())
+ec2_delete_route_table(..., json = list())
 
-ec2_describe_internet_gateways(json = list())
+ec2_describe_internet_gateways(..., json = list(), simplify = TRUE)
 
-ec2_describe_route_tables(json = list())
+ec2_describe_route_tables(..., json = list(), simplify = TRUE)
 
-ec2_describe_security_groups(json = list())
+ec2_describe_security_groups(..., json = list(), simplify = TRUE)
 
-ec2_describe_vpcs(json = list())
+ec2_describe_vpcs(..., json = list(), simplify = TRUE)
 
-ec2_describe_subnets(json = list())
+ec2_describe_subnets(..., json = list(), simplify = TRUE)
 
-ec2_describe_network_interfaces(json = list())
+ec2_describe_network_interfaces(..., json = list(), simplify = TRUE)
 
-ecs_register_task_definition(json = list())
+ecs_create_capacity_provider(..., json = list())
 
-ecs_deregister_task_definition(json = list())
+ecs_create_cluster(..., json = list())
 
-ecs_describe_task_definition(json = list())
+ecs_create_service(..., json = list())
 
-ecs_create_cluster(json = list())
+ecs_create_task_set(..., json = list())
 
-ecs_delete_cluster(json = list())
+ecs_delete_account_setting(..., json = list())
 
-ecs_run_task(json = list())
+ecs_delete_attributes(..., json = list())
 
-ecs_stop_task(json = list())
+ecs_delete_capacity_provider(..., json = list())
 
-ecs_describe_tasks(json = list())
+ecs_delete_cluster(..., json = list())
 
-ecs_list_task_definitions(json = list())
+ecs_delete_service(..., json = list())
 
-ecs_list_clusters(json = list())
+ecs_delete_task_set(..., json = list())
 
-ecs_list_tasks(json = list())
+ecs_deregister_container_instance(..., json = list())
+
+ecs_deregister_task_definition(..., json = list())
+
+ecs_describe_clusters(..., json = list())
+
+ecs_describe_container_instances(..., json = list())
+
+ecs_describe_services(..., json = list())
+
+ecs_describe_task_definition(..., json = list())
+
+ecs_describe_tasks(..., json = list())
+
+ecs_describe_task_sets(..., json = list())
+
+ecs_discover_poll_endpoint(..., json = list())
+
+ecs_list_tags_for_resource(..., json = list())
+
+ecs_put_account_setting(..., json = list())
+
+ecs_put_account_setting_default(..., json = list())
+
+ecs_put_attributes(..., json = list())
+
+ecs_put_cluster_capacity_providers(..., json = list())
+
+ecs_register_container_instance(..., json = list())
+
+ecs_register_task_definition(..., json = list())
+
+ecs_run_task(..., json = list())
+
+ecs_start_task(..., json = list())
+
+ecs_stop_task(..., json = list())
+
+ecs_submit_attachment_state_changes(..., json = list())
+
+ecs_submit_container_state_change(..., json = list())
+
+ecs_submit_task_state_change(..., json = list())
+
+ecs_tag_resource(..., json = list())
+
+ecs_untag_resource(..., json = list())
+
+ecs_update_capacity_provider(..., json = list())
+
+ecs_update_cluster_settings(..., json = list())
+
+ecs_update_container_agent(..., json = list())
+
+ecs_update_container_instances_state(..., json = list())
+
+ecs_update_service(..., json = list())
+
+ecs_update_service_primary_task_set(..., json = list())
+
+ecs_update_task_set(..., json = list())
+
+ecs_describe_capacity_providers(..., json = list(), simplify = TRUE)
+
+ecs_list_account_settings(..., json = list(), simplify = TRUE)
+
+ecs_list_attributes(..., json = list(), simplify = TRUE)
+
+ecs_list_clusters(..., json = list(), simplify = TRUE)
+
+ecs_list_container_instances(..., json = list(), simplify = TRUE)
+
+ecs_list_services(..., json = list(), simplify = TRUE)
+
+ecs_list_task_definition_families(..., json = list(), simplify = TRUE)
+
+ecs_list_task_definitions(..., json = list(), simplify = TRUE)
+
+ecs_list_tasks(..., json = list(), simplify = TRUE)
 }
 \arguments{
+\item{...}{Named arguments that will be added into the request parameter}
+
 \item{json}{A list object containing the request parameters}
+
+\item{simplify}{Whether to simplify the result and handle \code{nextToken}
+in the response}
 }
 \value{
 A vector/list object depending on the API type
@@ -110,16 +232,16 @@ A vector/list object depending on the API type
 AWS actions for communicating with ECS.
 }
 \details{
-These functions provide a minimum set of APIs for controlling the ECS instance.
+These functions provide a set of APIs for controlling the ECS instance.
 Please refer to \href{https://docs.aws.amazon.com/index.html}{AWS Documentation}
 for the API documentation. The credentials must be provided before sending the
 REST request. The credentials can be found by the environment variables or
 set via \code{aws_set_credentials}.
 
 For the actions which use \code{nextToken} to return the result by parts
-(e.g. \code{ecs_list_task_definitions}), the token will be handled
-automatically and the complete result will be returned by the function. There is
-no need to include \code{nextToken} parameter in your request.
+(e.g. \code{ecs_list_task_definitions}), the token can be handled
+automatically and the complete result can be returned by the function
+if the argument \code{simplify = TRUE}.
 
 If you find any ECS API useful but not listed here, please consider to submit an issue
 to the package repository described in the DESCRIPTION file.

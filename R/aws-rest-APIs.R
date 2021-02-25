@@ -1,16 +1,23 @@
 retry_on_error <- function(func, ..., n_try){
   for(i in seq_len(n_try)){
+    response <- NULL
     response <- tryCatch(
       func(...),
-      error = function(e) NULL
+      error = function(e) e
     )
-    if(!is.null(response)){
+    ## If the response is NULL, it means
+    ## the user sends a stop signal
+    if(is.null(response)){
+      break
+    }
+    if(!is(response, "error")){
       return(response)
     }
     if(package_setting$print_on_error)
-      cat("REST request failed, retrying\n")
+      cat("REST request failed with the message:\n",
+          response$message,"\n")
   }
-    NULL
+  NULL
 }
 
 GET_EX <- function(..., n_try = 3){
@@ -20,6 +27,36 @@ GET_EX <- function(..., n_try = 3){
 POST_EX <- function(..., n_try = 3){
   retry_on_error(func = httr::POST, ..., n_try=package_setting$retry_time,
                  timeout(package_setting$network_timeout))
+}
+
+
+
+ecs_post<-function(action, query = list(), headers=c()){
+  if(is.null(query)||length(query)==0){
+    body = "{}"
+  }else{
+    if(!is.character(query)){
+      body <- toJSON(query)
+    }else{
+      body <- query
+    }
+  }
+  ecs_REST_request(method= "POST", target=action,
+                   headers=headers,
+                   body=body)
+}
+
+ec2_get <- function(action, query = list(), headers = list()) {
+  if(is.null(query) || length(query)==0){
+    query <- list()
+  }else{
+    if(is.character(query)){
+      query <- fromJSON(query, simplify = FALSE)
+    }
+  }
+  ec2_get_request(action = action,
+                  query = query,
+                  headers = headers)
 }
 
 
@@ -59,7 +96,7 @@ ecs_REST_request <-function(method, target, headers, body){
     body = sig$Body
   )
   if(is.null(response)){
-      Stop("Fail to connect to the server")
+    Stop("Fail to connect to the server")
   }
   if(httr::http_error(response)){
     stop(content(response, type = "text"))
@@ -69,29 +106,19 @@ ecs_REST_request <-function(method, target, headers, body){
 }
 
 
-ecs_post<-function(target, json = NULL, headers=c()){
-  if(is.null(json)||length(json)==0){
-    body = "{}"
-  }else{
-    body <- toJSON(json)
-  }
-  ecs_REST_request(method= "POST", target=target,
-                   headers=headers,
-                   body=body)
-}
 
 
+ec2_api_version = "2016-11-15"
 ## Code from: https://github.com/cloudyr/aws.ec2/blob/master/R/ec2HTTP.R
-ec2_get <-
+ec2_get_request <-
   function(
     action,
     query = list(),
     headers = list()
   ) {
-    version = "2016-11-15"
     region <- aws_get_region()
     query$Action = action
-    query$Version <- version
+    query$Version <- ec2_api_version
     url <- paste0("https://ec2.", region, ".amazonaws.com")
     datetime <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")
     Sig <- aws.signature::signature_v4_auth(
@@ -119,7 +146,7 @@ ec2_get <-
       r <- GET_EX(url, H)
     }
     if(is.null(r)){
-        Stop("Fail to connect to the server")
+      Stop("Fail to connect to the server")
     }
     if (httr::http_error(r)) {
       tmp <- gsub("\n\\s*", "", httr::content(r, "text", encoding = "UTF-8"))
