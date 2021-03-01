@@ -29,45 +29,81 @@ POST_EX <- function(..., n_try = 3){
                  timeout(package_setting$network_timeout))
 }
 
-
-
-ecs_post<-function(action, query = list(), headers=c()){
-  if(is.null(query)||length(query)==0){
-    body = "{}"
-  }else{
-    if(!is.character(query)){
-      body <- toJSON(query)
-    }else{
-      body <- query
-    }
-  }
-  ecs_REST_request(method= "POST", target=action,
-                   headers=headers,
-                   body=body)
-}
-
-ec2_get <- function(action, query = list(), headers = list()) {
-  if(is.null(query) || length(query)==0){
+# ec2_request("DescribeVpcs",list(`Filter.1.tag`="vpc-0519332012da051c3"))
+# action <- "DescribeVpcs"
+# parameters <- list(`Filter.1.Name`="vpc-id",`Filter.1.Value`="vpc-aaa")
+ec2_request <- function(action, parameters = list()){
+  if(is.null(parameters) || length(parameters)==0){
     query <- list()
   }else{
-    if(is.character(query)){
-      query <- fromJSON(query, simplify = FALSE)
+    if(is.character(parameters)){
+      query <- fromJSON(parameters, simplify = FALSE)
+    }else{
+      query <- parameters
     }
   }
-  ec2_get_request(action = action,
-                  query = query,
-                  headers = headers)
+  query$Action = action
+  query$Version <- ec2_api_version
+  response <- aws_request(method = "GET",
+                          service = "ec2",
+                          query = query)
+  tmp <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
+  x <- try(xml2::as_list(xml2::read_xml(tmp)), silent = TRUE)
+  x
 }
 
+# action <- "ListClusters"
+# parameters <- NULL
+ecs_request <- function(action, parameters = list()){
+  if(is.null(parameters)||length(parameters)==0){
+    body = "{}"
+  }else{
+    if(!is.character(parameters)){
+      body <- toJSON(parameters)
+    }else{
+      body <- parameters
+    }
+  }
+  amz_target <- paste0(SERVICE_ID, ".", action)
+  headers <- list(
+    `Content-Type` = "application/x-amz-json-1.1",
+    `X-Amz-Target` = amz_target
+  )
+  response <- aws_request(method = "POST",
+                       service = "ecs",
+                       headers=headers,
+                       body=body)
 
-SERVICE_ID <- "AmazonEC2ContainerServiceV20141113"
+  text_response <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
+  if (httr::http_error(response)) {
+    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
+    if(!is.null(x$Response$Errors$Error)){
+      msg <- paste0(x$Response$Errors$Error$Code,"\nMessage: ",x$Response$Errors$Error$Message)
+    }else{
+      msg <- paste0(x, collapse = "\n")
+    }
+    stop(msg, call. = FALSE)
+  } else {
+    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
+    if (inherits(x, "try-error")) {
+      stop("Fail to convert the response to a list object")
+    }
+  }
+  x
+}
 
-ecs_REST_request <-function(method, target, headers, body){
-  service= "ecs"
+# query$Action = "DescribeVpcs"
+# query$Version <- ec2_api_version
+
+aws_request <- function(method = c("POST","GET"),
+                     service = "ecs",
+                     query = list(),
+                     headers = c(),
+                     body = ""){
+  method <- match.arg(method)
   region <- aws_get_region()
   host <- paste0(service, ".", region,".amazonaws.com")
-  url <- paste0("https://", host)
-  amz_target <- paste0(SERVICE_ID, ".", target)
+  url <- paste0("https://",host)
   datetime <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")
   sig <- aws.signature::signature_v4_auth(
     datetime = datetime,
@@ -76,94 +112,30 @@ ecs_REST_request <-function(method, target, headers, body){
     request_body = body,
     key = aws_get_access_key_id(),
     secret = aws_get_secret_access_key(),
+    query_args = query,
     canonical_headers = c(
       Host = host,
-      `Content-Type` = "application/x-amz-json-1.1",
-      `X-Amz-Target` = amz_target,
       `X-Amz-Date` = datetime,
       headers
     )
   )
-  response <- POST_EX(
+  ## get the function that can send the rest request
+  rest_func <- get(paste0(method,"_EX"))
+
+  # browser()
+  response <- rest_func(
     url,
     add_headers(
-      `Content-Type` = "application/x-amz-json-1.1",
       `X-Amz-Date` = datetime,
-      `X-Amz-Target` = amz_target,
       Authorization= sig$SignatureHeader,
-      .headers = as.character(headers)
+      .headers = unlist(headers)
     ),
-    body = sig$Body
+    body = sig$Body,
+    query = query
   )
   if(is.null(response)){
-    Stop("Fail to connect to the server")
+    stop("Fail to connect to the server")
   }
-  if(httr::http_error(response)){
-    stop(content(response, type = "text"))
-  }
-  #stop_for_status(response)
-  content(response, type = "application/json")
+  response
 }
 
-
-
-
-ec2_api_version = "2016-11-15"
-## Code from: https://github.com/cloudyr/aws.ec2/blob/master/R/ec2HTTP.R
-ec2_get_request <-
-  function(
-    action,
-    query = list(),
-    headers = list()
-  ) {
-    region <- aws_get_region()
-    query$Action = action
-    query$Version <- ec2_api_version
-    url <- paste0("https://ec2.", region, ".amazonaws.com")
-    datetime <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")
-    Sig <- aws.signature::signature_v4_auth(
-      datetime = datetime,
-      region = region,
-      service = "ec2",
-      verb = "GET",
-      action = "/",
-      query_args = query,
-      canonical_headers = list(
-        host = paste0("ec2.", region, ".amazonaws.com"),
-        `X-Amz-Date` = datetime
-      ),
-      request_body = "",
-      key = aws_get_access_key_id(),
-      secret = aws_get_secret_access_key())
-    headers[["x-amz-date"]] <- datetime
-    headers[["Authorization"]] <- Sig$SignatureHeader
-    H <- do.call(httr::add_headers, headers)
-
-    # execute request
-    if (length(query)) {
-      r <- GET_EX(url, H, query = query)
-    } else {
-      r <- GET_EX(url, H)
-    }
-    if(is.null(r)){
-      Stop("Fail to connect to the server")
-    }
-    if (httr::http_error(r)) {
-      tmp <- gsub("\n\\s*", "", httr::content(r, "text", encoding = "UTF-8"))
-      x <- try(xml2::as_list(xml2::read_xml(tmp)), silent = TRUE)
-      if(!is.null(x$Response$Errors$Error)){
-        msg <- paste0(x$Response$Errors$Error$Code,"\nMessage: ",x$Response$Errors$Error$Message)
-      }else{
-        msg <- paste0(x, collapse = "\n")
-      }
-      stop(msg, call. = FALSE)
-    } else {
-      tmp <- gsub("\n\\s*", "", httr::content(r, "text", encoding = "UTF-8"))
-      out <- try(xml2::as_list(xml2::read_xml(tmp)), silent = TRUE)
-      if (inherits(out, "try-error")) {
-        out <- structure(httr::content(r, "text", encoding = "UTF-8"))
-      }
-    }
-    out <- out[[1]]
-    return(out)
-  }

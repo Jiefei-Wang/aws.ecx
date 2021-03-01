@@ -28,6 +28,14 @@ ec2_apis_with_simplify <- list(
 generate_ec2_apis <- function(){
     file_name <- "R/ec2-actions.R"
     rd_name <- "AWS_APIs"
+
+
+    api <- get_aws_api("ec2")
+    operations <- get_operation_definitions(api)
+
+    operations$POST_AcceptReservedInstancesExchangeQuote
+
+
     if(file.exists(file_name)){
         file.remove(file_name)
     }
@@ -59,3 +67,16 @@ generate_ec2_list_api <- function(target, result_getter, rd_name){
     template <- gsub("`result_getter`", result_getter, template, fixed = TRUE)
     template
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

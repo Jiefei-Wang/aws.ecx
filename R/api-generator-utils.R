@@ -40,3 +40,17 @@ pascal_to_camel <- function(x) {
              gsub("(.)([A-Z][a-z]+)", "\\1_\\2", x))
     )
 }
+
+get_yaml_path <- function(service){
+    filePath <- paste0("R/openapi/",service,".yaml")
+    filePath
+}
+
+get_aws_api <- function(service){
+    filePath <- get_yaml_path(service)
+    api <- suppressWarnings(get_api(filePath))
+    api
+}
+
+
+
