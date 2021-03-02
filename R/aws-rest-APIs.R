@@ -1,3 +1,6 @@
+ec2_api_version <- "2016-11-15"
+ecs_service_id <- "AmazonEC2ContainerServiceV20141113"
+
 retry_on_error <- function(func, ..., n_try){
   for(i in seq_len(n_try)){
     response <- NULL
@@ -49,7 +52,7 @@ ec2_request <- function(action, parameters = list()){
                           query = query)
   tmp <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
   x <- try(xml2::as_list(xml2::read_xml(tmp)), silent = TRUE)
-  x
+  x[[1]]
 }
 
 # action <- "ListClusters"
@@ -64,7 +67,7 @@ ecs_request <- function(action, parameters = list()){
       body <- parameters
     }
   }
-  amz_target <- paste0(SERVICE_ID, ".", action)
+  amz_target <- paste0(ecs_service_id, ".", action)
   headers <- list(
     `Content-Type` = "application/x-amz-json-1.1",
     `X-Amz-Target` = amz_target

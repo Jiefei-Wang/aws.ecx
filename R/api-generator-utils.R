@@ -29,28 +29,6 @@ replace_ec2_template<-function(template, target, rd_name){
 }
 
 
-output_to_file <- function(content, file_path){
-    write(content,file=file_path,append=TRUE)
-}
-
-pascal_to_camel <- function(x) {
-    tolower(
-        gsub("([a-z0-9])([A-Z])",
-             "\\1_\\2",
-             gsub("(.)([A-Z][a-z]+)", "\\1_\\2", x))
-    )
-}
-
-get_yaml_path <- function(service){
-    filePath <- paste0("R/openapi/",service,".yaml")
-    filePath
-}
-
-get_aws_api <- function(service){
-    filePath <- get_yaml_path(service)
-    api <- suppressWarnings(get_api(filePath))
-    api
-}
 
 
 
