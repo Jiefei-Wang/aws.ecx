@@ -20,55 +20,56 @@ ec2_create_vpc(
 \arguments{
 \item{CidrBlock}{String. The IPv4 network range for the VPC, in CIDR notation.}
 
-\item{AmazonProvidedIpv6CidrBlock}{Boolean. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.(optional)}
+\item{AmazonProvidedIpv6CidrBlock}{Boolean. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.\link{optional}}
 
-\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. (optional)}
+\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.\link{optional}}
 
-\item{Ipv6CidrBlock}{String. The IPv6 CIDR block from the IPv6 address pool.(optional)}
+\item{Ipv6CidrBlock}{String.   The IPv6 CIDR block from the IPv6 address pool.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{InstanceTenancy}{String. The tenancy options for instances launched into the VPC.(optional)}
+\item{InstanceTenancy}{String.   The tenancy options for instances launched into the VPC.\link{optional}}
 
-\item{Ipv6CidrBlockNetworkBorderGroup}{String. The name of the location from which we advertise the IPV6 CIDR block.(optional)}
+\item{Ipv6CidrBlockNetworkBorderGroup}{String.   The name of the location from which we advertise the IPV6 CIDR block.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the VPC. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you
-can create uses a /28 netmask (16 IPv4 addresses), and the largest uses
-a /16 netmask (65,536 IPv4 addresses). For more information about how
-large to make your VPC, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html}{Your VPC and Subnets}
-in the \emph{Amazon Virtual Private Cloud User Guide}.
+Create Vpc
 }
 \section{CidrBlock}{
 
-The IPv4 network range for the VPC, in CIDR notation. For example,
-\verb{10.0.0.0/16}. We modify the specified CIDR block to its canonical form;
-for example, if you specify \verb{100.68.0.18/18}, we modify it to
-\verb{100.68.0.0/18}.
+The IPv4 network range for the VPC, in CIDR
+notation. For example, \verb{10.0.0.0/16}. We modify the specified CIDR block
+to its canonical form; for example, if you specify \verb{100.68.0.18/18}, we
+modify it to \verb{100.68.0.0/18}.
 }
 
 \section{AmazonProvidedIpv6CidrBlock}{
 
-Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for
-the VPC. You cannot specify the range of IP addresses, or the size of
-the CIDR block.
+Requests an
+Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
+You cannot specify the range of IP addresses, or the size of the CIDR
+block.
 }
 
 \section{Ipv6Pool}{
 
-The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
-block.
+The ID of an IPv6 address pool from which to
+allocate the IPv6 CIDR block.
 }
 
 \section{Ipv6CidrBlock}{
+
 
 The IPv6 CIDR block from the IPv6 address pool. You must also specify
 \code{Ipv6Pool} in the request.
@@ -78,13 +79,15 @@ To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{InstanceTenancy}{
+
 
 The tenancy options for instances launched into the VPC. For \code{default},
 instances are launched with shared tenancy by default. You can launch
@@ -101,6 +104,7 @@ Default: \code{default}
 
 \section{Ipv6CidrBlockNetworkBorderGroup}{
 
+
 The name of the location from which we advertise the IPV6 CIDR block.
 Use this parameter to limit the address to this location.
 
@@ -110,6 +114,7 @@ parameter.
 
 \section{TagSpecification}{
 
-The tags to assign to the VPC.
+The tags to assign to the
+VPC.
 }
 

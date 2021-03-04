@@ -17,40 +17,48 @@ ec2_modify_transit_gateway_vpc_attachment(
 \arguments{
 \item{TransitGatewayAttachmentId}{String. The ID of the attachment.}
 
-\item{AddSubnetIds}{List or named list. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone. (optional)}
+\item{AddSubnetIds}{Array. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.\link{optional}}
 
-\item{RemoveSubnetIds}{List or named list. The IDs of one or more subnets to remove. (optional)}
+\item{RemoveSubnetIds}{Array. The IDs of one or more subnets to remove.\link{optional}}
 
-\item{Options}{Object. The new VPC attachment options.  You cannot modify the IPv6 options. (optional)}
+\item{Options}{Object.   The new VPC attachment options.  You cannot modify the IPv6 options.  \link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified VPC attachment.
+Modifies the specified VPC
+attachment.
 }
 \section{TransitGatewayAttachmentId}{
 
-The ID of the attachment.
+The ID of the
+attachment.
 }
 
 \section{AddSubnetIds}{
 
-The IDs of one or more subnets to add. You can specify at most one
-subnet per Availability Zone.
+The IDs of one or more subnets to add.
+You can specify at most one subnet per Availability
+Zone.
 }
 
 \section{RemoveSubnetIds}{
 
-The IDs of one or more subnets to remove.
+The IDs of one or more subnets to
+remove.
 }
 
 \section{Options}{
+
 
 The new VPC attachment options.
 
@@ -59,9 +67,10 @@ You cannot modify the IPv6 options.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

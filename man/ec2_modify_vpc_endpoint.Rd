@@ -23,37 +23,42 @@ ec2_modify_vpc_endpoint(
 \arguments{
 \item{VpcEndpointId}{String. The ID of the endpoint.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ResetPolicy}{Boolean. (Gateway endpoint) Specify \code{true} to reset the policy document to the default policy.(optional)}
+\item{ResetPolicy}{Boolean. (Gateway endpoint) Specify \code{true} to reset the policy document to the default policy.\link{optional}}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...(see below)(optional)}
+\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...\link{optional}}
 
-\item{AddRouteTableId}{List or named list. (Gateway endpoint) One or more route tables IDs to associate with the endpoint. (optional)}
+\item{AddRouteTableId}{Array. (Gateway endpoint) One or more route tables IDs to associate with the endpoint.\link{optional}}
 
-\item{RemoveRouteTableId}{List or named list. (Gateway endpoint) One or more route table IDs to disassociate from the endpoint. (optional)}
+\item{RemoveRouteTableId}{Array. (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.\link{optional}}
 
-\item{AddSubnetId}{List or named list. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the...(see below)(optional)}
+\item{AddSubnetId}{Array. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the...\link{optional}}
 
-\item{RemoveSubnetId}{List or named list. (Interface endpoint) One or more subnets IDs in which to remove the endpoint. (optional)}
+\item{RemoveSubnetId}{Array. (Interface endpoint) One or more subnets IDs in which to remove the endpoint.\link{optional}}
 
-\item{AddSecurityGroupId}{List or named list. (Interface endpoint) One or more security group IDs to associate with the network interface. (optional)}
+\item{AddSecurityGroupId}{Array. (Interface endpoint) One or more security group IDs to associate with the network interface.\link{optional}}
 
-\item{RemoveSecurityGroupId}{List or named list. (Interface endpoint) One or more security group IDs to disassociate from the network interface. (optional)}
+\item{RemoveSecurityGroupId}{Array. (Interface endpoint) One or more security group IDs to disassociate from the network interface.\link{optional}}
 
-\item{PrivateDnsEnabled}{Boolean. (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC. (optional)}
+\item{PrivateDnsEnabled}{Boolean. (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies attributes of a specified VPC endpoint. The attributes that you
-can modify depend on the type of VPC endpoint (interface, gateway, or
-Gateway Load Balancer). For more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html}{VPC Endpoints}
-in the \emph{Amazon Virtual Private Cloud User Guide}.
+Modifies attributes of a specified VPC
+endpoint. The attributes that you can modify depend on the type of VPC
+endpoint (interface, gateway, or Gateway Load Balancer). For more
+information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html}{VPC Endpoints}
+in the \emph{Amazon Virtual Private Cloud User
+Guide}.
 }
 \section{VpcEndpointId}{
 
@@ -62,7 +67,8 @@ The ID of the endpoint.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -70,57 +76,64 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{ResetPolicy}{
 
-(Gateway endpoint) Specify \code{true} to reset the policy document to the
-default policy. The default policy allows full access to the service.
+(Gateway
+endpoint) Specify \code{true} to reset the policy document to the default
+policy. The default policy allows full access to the
+service.
 }
 
 \section{PolicyDocument}{
 
-(Interface and gateway endpoints) A policy to attach to the endpoint
-that controls access to the service. The policy must be in valid JSON
-format.
+(Interface and gateway endpoints) A policy
+to attach to the endpoint that controls access to the service. The
+policy must be in valid JSON format.
 }
 
 \section{AddRouteTableId}{
 
-(Gateway endpoint) One or more route tables IDs to associate with the
+(Gateway
+endpoint) One or more route tables IDs to associate with the
 endpoint.
 }
 
 \section{RemoveRouteTableId}{
 
-(Gateway endpoint) One or more route table IDs to disassociate from the
-endpoint.
+(Gateway endpoint) One or more route table
+IDs to disassociate from the endpoint.
 }
 
 \section{AddSubnetId}{
 
-(Interface and Gateway Load Balancer endpoints) One or more subnet IDs
-in which to serve the endpoint. For a Gateway Load Balancer endpoint,
-you can specify only one subnet.
+(Interface
+and Gateway Load Balancer endpoints) One or more subnet IDs in which to
+serve the endpoint. For a Gateway Load Balancer endpoint, you can
+specify only one subnet.
 }
 
 \section{RemoveSubnetId}{
 
-(Interface endpoint) One or more subnets IDs in which to remove the
+(Interface endpoint) One or
+more subnets IDs in which to remove the
 endpoint.
 }
 
 \section{AddSecurityGroupId}{
 
-(Interface endpoint) One or more security group IDs to associate with
-the network interface.
+(Interface endpoint) One or more security
+group IDs to associate with the network
+interface.
 }
 
 \section{RemoveSecurityGroupId}{
 
-(Interface endpoint) One or more security group IDs to disassociate from
-the network interface.
+(Interface endpoint) One or more security
+group IDs to disassociate from the network
+interface.
 }
 
 \section{PrivateDnsEnabled}{
 
-(Interface endpoint) Indicates whether a private hosted zone is
-associated with the VPC.
+(Interface endpoint) Indicates whether a
+private hosted zone is associated with the VPC.
 }
 

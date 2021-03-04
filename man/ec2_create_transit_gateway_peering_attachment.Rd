@@ -24,53 +24,59 @@ ec2_create_transit_gateway_peering_attachment(
 
 \item{PeerRegion}{String. The Region where the peer transit gateway is located.}
 
-\item{TagSpecification}{List or named list. The tags to apply to the transit gateway peering attachment. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the transit gateway peering attachment.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Requests a transit gateway peering attachment between the specified
-transit gateway (requester) and a peer transit gateway (accepter). The
-transit gateways must be in different Regions. The peer transit gateway
-can be in your account or a different AWS account.
+Create Transit Gateway Peering Attachment
 }
 \section{TransitGatewayId}{
 
-The ID of the transit gateway.
+The ID of the transit
+gateway.
 }
 
 \section{PeerTransitGatewayId}{
 
-The ID of the peer transit gateway with which to create the peering
-attachment.
+The ID of the peer transit gateway with
+which to create the peering attachment.
 }
 
 \section{PeerAccountId}{
 
-The AWS account ID of the owner of the peer transit gateway.
+The AWS
+account ID of the owner of the peer transit
+gateway.
 }
 
 \section{PeerRegion}{
 
-The Region where the peer transit gateway is located.
+The Region where the peer transit gateway
+is located.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the transit gateway peering attachment.
+The tags to apply to the transit gateway
+peering attachment.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

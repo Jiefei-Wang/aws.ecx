@@ -16,24 +16,29 @@ ec2_associate_iam_instance_profile(
 
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Associates an IAM instance profile with a running or stopped instance.
-You cannot associate more than one IAM instance profile with an
-instance.
+Associates an IAM instance profile with a running
+or stopped instance. You cannot associate more than one IAM instance
+profile with an instance.
 }
 \section{IamInstanceProfile}{
 
-The IAM instance profile.
+The IAM instance
+profile.
 }
 
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of the
+instance.
 }
 

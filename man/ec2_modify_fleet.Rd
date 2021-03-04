@@ -17,50 +17,58 @@ ec2_modify_fleet(
 \arguments{
 \item{FleetId}{String. The ID of the EC2 Fleet.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...(see below)(optional)}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...\link{optional}}
 
-\item{LaunchTemplateConfig}{List or named list. The launch template and overrides. (optional)}
+\item{LaunchTemplateConfig}{Array. The launch template and overrides.\link{optional}}
 
-\item{TargetCapacitySpecification}{Object. The size of the EC2 Fleet. (optional)}
+\item{TargetCapacitySpecification}{Object. The size of the EC2 Fleet.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified EC2 Fleet.
+Modify Fleet
 }
 \section{FleetId}{
 
-The ID of the EC2 Fleet.
+The ID of the EC2
+Fleet.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ExcessCapacityTerminationPolicy}{
 
-Indicates whether running instances should be terminated if the total
-target capacity of the EC2 Fleet is decreased below the current size of
-the EC2 Fleet.
+Indicates whether running
+instances should be terminated if the total target capacity of the EC2
+Fleet is decreased below the current size of the EC2
+Fleet.
 }
 
 \section{LaunchTemplateConfig}{
 
-The launch template and overrides.
+The launch template and
+overrides.
 }
 
 \section{TargetCapacitySpecification}{
 
-The size of the EC2 Fleet.
+The size of the EC2
+Fleet.
 }
 

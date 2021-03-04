@@ -16,40 +16,41 @@ ec2_create_vpc_peering_connection(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{PeerOwnerId}{String. The AWS account ID of the owner of the accepter VPC.  Default: Your AWS account ID (optional)}
+\item{PeerOwnerId}{String.   The AWS account ID of the owner of the accepter VPC.  Default: Your AWS account ID  \link{optional}}
 
-\item{PeerVpcId}{String. The ID of the VPC with which you are creating the VPC peering connection.(optional)}
+\item{PeerVpcId}{String. The ID of the VPC with which you are creating the VPC peering connection.\link{optional}}
 
-\item{VpcId}{String. The ID of the requester VPC. You must specify this parameter in the request. (optional)}
+\item{VpcId}{String. The ID of the requester VPC. You must specify this parameter in the request.\link{optional}}
 
-\item{PeerRegion}{String. The Region code for the accepter VPC, if the accepter VPC is located in a Region other than...(see below)(optional)}
+\item{PeerRegion}{String.   The Region code for the accepter VPC, if the accepter VPC is located in a Region other than...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the peering connection. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the peering connection.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Requests a VPC peering connection between two VPCs: a requester VPC that
-you own and an accepter VPC with which to create the connection. The
-accepter VPC can belong to another AWS account and can be in a different
-Region to the requester VPC. The requester VPC and accepter VPC cannot
-have overlapping CIDR blocks.
+Create Vpc Peering Connection
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 
 \section{PeerOwnerId}{
+
 
 The AWS account ID of the owner of the accepter VPC.
 
@@ -58,17 +59,19 @@ Default: Your AWS account ID
 
 \section{PeerVpcId}{
 
-The ID of the VPC with which you are creating the VPC peering
-connection. You must specify this parameter in the request.
+The ID of the VPC with which you are creating the
+VPC peering connection. You must specify this parameter in the
+request.
 }
 
 \section{VpcId}{
 
-The ID of the requester VPC. You must specify this parameter in the
-request.
+The ID of the requester VPC. You must
+specify this parameter in the request.
 }
 
 \section{PeerRegion}{
+
 
 The Region code for the accepter VPC, if the accepter VPC is located in
 a Region other than the Region in which you make the request.
@@ -78,6 +81,7 @@ Default: The Region in which you make the request.
 
 \section{TagSpecification}{
 
-The tags to assign to the peering connection.
+The tags to assign to the peering
+connection.
 }
 

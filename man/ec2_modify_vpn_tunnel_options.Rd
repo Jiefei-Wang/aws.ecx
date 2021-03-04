@@ -20,41 +20,48 @@ ec2_modify_vpn_tunnel_options(
 
 \item{TunnelOptions}{Object. The tunnel options to modify.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN
-connection. You can modify multiple options for a tunnel in a single
-request, but you can only modify one tunnel at a time. For more
-information, see \href{https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html}{Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN Connection}
+Modifies the options for a VPN tunnel
+in an AWS Site-to-Site VPN connection. You can modify multiple options
+for a tunnel in a single request, but you can only modify one tunnel at
+a time. For more information, see \href{https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html}{Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN Connection}
 in the \emph{AWS Site-to-Site VPN User Guide}.
 }
 \section{VpnConnectionId}{
 
-The ID of the AWS Site-to-Site VPN connection.
+The ID of the AWS
+Site-to-Site VPN connection.
 }
 
 \section{VpnTunnelOutsideIpAddress}{
 
-The external IP address of the VPN tunnel.
+The external IP address
+of the VPN tunnel.
 }
 
 \section{TunnelOptions}{
 
-The tunnel options to modify.
+The tunnel options to
+modify.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

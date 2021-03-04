@@ -17,17 +17,21 @@ ec2_describe_vpc_attribute(
 
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified attribute of the specified VPC. You can specify
-only one attribute at a time.
+Describes the specified attribute of the specified
+VPC. You can specify only one attribute at a
+time.
 }
 \section{Attribute}{
 
@@ -36,14 +40,16 @@ The VPC attribute.
 
 \section{VpcId}{
 
-The ID of the VPC.
+The
+ID of the VPC.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -15,26 +15,30 @@ ec2_create_security_group(
 )
 }
 \arguments{
-\item{GroupDescription}{String. A description for the security group.}
+\item{GroupDescription}{String.   A description for the security group.}
 
-\item{GroupName}{String. The name of the security group.}
+\item{GroupName}{String.   The name of the security group.}
 
-\item{VpcId}{String. [EC2-VPC] The ID of the VPC. Required for EC2-VPC. (optional)}
+\item{VpcId}{String. [EC2-VPC] The ID of the VPC. Required for EC2-VPC.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the security group. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the security group.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a security group.
+Create Security Group
 }
 \section{GroupDescription}{
+
 
 A description for the security group. This is informational only.
 
@@ -48,6 +52,7 @@ Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 
 \section{GroupName}{
 
+
 The name of the security group.
 
 Constraints: Up to 255 characters in length. Cannot start with \verb{sg-}.
@@ -60,19 +65,22 @@ Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 
 \section{VpcId}{
 
-[EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+[EC2-VPC] The ID of the VPC. Required for
+EC2-VPC.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to the security group.
+The tags to assign to the security
+group.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

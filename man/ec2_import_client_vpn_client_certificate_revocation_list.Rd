@@ -17,35 +17,38 @@ ec2_import_client_vpn_client_certificate_revocation_list(
 
 \item{CertificateRevocationList}{String. The client certificate revocation list file.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Uploads a client certificate revocation list to the specified Client VPN
-endpoint. Uploading a client certificate revocation list overwrites the
-existing client certificate revocation list.
+Import Client Vpn Client Certificate Revocation List
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint to which the client certificate
-revocation list applies.
+The ID of the Client VPN
+endpoint to which the client certificate revocation list
+applies.
 }
 
 \section{CertificateRevocationList}{
 
-The client certificate revocation list file. For more information, see
-\href{https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate}{Generate a Client Certificate Revocation List}
+The client certificate revocation list
+file. For more information, see \href{https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate}{Generate a Client Certificate Revocation List}
 in the \emph{AWS Client VPN Administrator Guide}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.

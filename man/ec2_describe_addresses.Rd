@@ -14,26 +14,28 @@ ec2_describe_addresses(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{PublicIp}{List or named list. One or more Elastic IP addresses.  Default: Describes all your Elastic IP addresses. (optional)}
+\item{PublicIp}{Array.   One or more Elastic IP addresses.  Default: Describes all your Elastic IP addresses.  \link{optional}}
 
-\item{AllocationId}{List or named list. [EC2-VPC] Information about the allocation IDs. (optional)}
+\item{AllocationId}{Array. [EC2-VPC] Information about the allocation IDs.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified Elastic IP addresses or all of your Elastic IP
-addresses.
+Describe Addresses
 }
 \section{Filter}{
+
 
 One or more filters. Filter names and values are case-sensitive.
 \itemize{
@@ -64,6 +66,7 @@ regardless of the tag value.
 
 \section{PublicIp}{
 
+
 One or more Elastic IP addresses.
 
 Default: Describes all your Elastic IP addresses.
@@ -71,14 +74,16 @@ Default: Describes all your Elastic IP addresses.
 
 \section{AllocationId}{
 
-[EC2-VPC] Information about the allocation IDs.
+[EC2-VPC] Information about the allocation
+IDs.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

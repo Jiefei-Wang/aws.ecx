@@ -13,26 +13,26 @@ ec2_create_key_pair(
 )
 }
 \arguments{
-\item{KeyName}{String. A unique name for the key pair.  Constraints: Up to 255 ASCII characters}
+\item{KeyName}{String.   A unique name for the key pair.  Constraints: Up to 255 ASCII characters}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the new key pair. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the new key pair.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
-stores the public key and displays the private key for you to save to a
-file. The private key is returned as an unencrypted PEM encoded PKCS\#1
-private key. If a key with the specified name already exists, Amazon EC2
-returns an error.
+Create Key Pair
 }
 \section{KeyName}{
+
 
 A unique name for the key pair.
 
@@ -41,14 +41,16 @@ Constraints: Up to 255 ASCII characters
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the new key pair.
+The tags to apply to the
+new key pair.
 }
 

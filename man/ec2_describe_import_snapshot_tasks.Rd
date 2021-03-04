@@ -15,45 +15,54 @@ ec2_describe_import_snapshot_tasks(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Filters}{List or named list. The filters. (optional)}
+\item{Filters}{Array. The filters.\link{optional}}
 
-\item{ImportTaskId}{List or named list. A list of import snapshot task IDs. (optional)}
+\item{ImportTaskId}{Array. A list of import snapshot task IDs.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes your import snapshot tasks.
+Describes your import snapshot
+tasks.
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 
 \section{Filters}{
 
-The filters.
+The
+filters.
 }
 
 \section{ImportTaskId}{
 
-A list of import snapshot task IDs.
+A list of import snapshot task
+IDs.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. To retrieve
-the remaining results, make another call with the returned \code{NextToken}
-value.
+The maximum number of results to return in a
+single call. To retrieve the remaining results, make another call with
+the returned \code{NextToken} value.
 }
 

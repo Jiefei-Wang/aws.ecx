@@ -16,47 +16,50 @@ ec2_create_reserved_instances_listing(
 \arguments{
 \item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of your listings.}
 
-\item{InstanceCount}{Integer. The number of instances that are a part of a Reserved Instance account to be listed in the...(see below)}
+\item{InstanceCount}{Integer. The number of instances that are a part of a Reserved Instance account to be listed in the...}
 
-\item{PriceSchedules}{List or named list. A list specifying the price of the Standard Reserved Instance for each month remaining in...(see below)}
+\item{PriceSchedules}{Array. A list specifying the price of the Standard Reserved Instance for each month remaining in...}
 
 \item{ReservedInstancesId}{String. The ID of the active Standard Reserved Instance.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a listing for Amazon EC2 Standard Reserved Instances to be sold
-in the Reserved Instance Marketplace. You can submit one Standard
-Reserved Instance listing at a time. To get a list of your Standard
-Reserved Instances, you can use the DescribeReservedInstances operation.
+Create Reserved Instances Listing
 }
 \section{ClientToken}{
 
-Unique, case-sensitive identifier you provide to ensure idempotency of
-your listings. This helps avoid duplicate listings. For more
-information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+Unique, case-sensitive identifier you provide
+to ensure idempotency of your listings. This helps avoid duplicate
+listings. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 
 \section{InstanceCount}{
 
-The number of instances that are a part of a Reserved Instance account
-to be listed in the Reserved Instance Marketplace. This number should be
-less than or equal to the instance count associated with the Reserved
+The
+number of instances that are a part of a Reserved Instance account to be
+listed in the Reserved Instance Marketplace. This number should be less
+than or equal to the instance count associated with the Reserved
 Instance ID specified in this call.
 }
 
 \section{PriceSchedules}{
 
-A list specifying the price of the Standard Reserved Instance for each
-month remaining in the Reserved Instance term.
+A list
+specifying the price of the Standard Reserved Instance for each month
+remaining in the Reserved Instance term.
 }
 
 \section{ReservedInstancesId}{
 
-The ID of the active Standard Reserved Instance.
+The ID of
+the active Standard Reserved Instance.
 }
 

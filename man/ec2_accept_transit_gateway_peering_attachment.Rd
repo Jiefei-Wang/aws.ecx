@@ -14,28 +14,34 @@ ec2_accept_transit_gateway_peering_attachment(
 \arguments{
 \item{TransitGatewayAttachmentId}{String. The ID of the transit gateway attachment.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Accepts a transit gateway peering attachment request. The peering
-attachment must be in the \code{pendingAcceptance} state.
+Accepts a transit gateway peering attachment
+request. The peering attachment must be in the \code{pendingAcceptance}
+state.
 }
 \section{TransitGatewayAttachmentId}{
 
-The ID of the transit gateway attachment.
+The ID of the transit
+gateway attachment.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

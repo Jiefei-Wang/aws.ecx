@@ -21,64 +21,72 @@ ec2_create_vpn_connection(
 
 \item{Type}{String. The type of VPN connection (\code{ipsec.1}).}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway.(optional)}
+\item{VpnGatewayId}{String. The ID of the virtual private gateway.\link{optional}}
 
-\item{TransitGatewayId}{String. The ID of the transit gateway.(optional)}
+\item{TransitGatewayId}{String. The ID of the transit gateway.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Options}{Object. The options for the VPN connection. (optional)}
+\item{Options}{Object. The options for the VPN connection.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the VPN connection. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the VPN connection.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a VPN connection between an existing virtual private gateway or
-transit gateway and a customer gateway. The supported connection type is
-\code{ipsec.1}.
+Create Vpn Connection
 }
 \section{CustomerGatewayId}{
 
-The ID of the customer gateway.
+The ID of the customer
+gateway.
 }
 
 \section{Type}{
 
-The type of VPN connection (\code{ipsec.1}).
+The type of VPN connection
+(\code{ipsec.1}).
 }
 
 \section{VpnGatewayId}{
 
-The ID of the virtual private gateway. If you specify a virtual private
-gateway, you cannot specify a transit gateway.
+The ID of the virtual private gateway.
+If you specify a virtual private gateway, you cannot specify a transit
+gateway.
 }
 
 \section{TransitGatewayId}{
 
-The ID of the transit gateway. If you specify a transit gateway, you
-cannot specify a virtual private gateway.
+The ID of the transit gateway. If you
+specify a transit gateway, you cannot specify a virtual private
+gateway.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Options}{
 
-The options for the VPN connection.
+The options for the VPN
+connection.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the VPN connection.
+The tags to apply to the VPN
+connection.
 }
 

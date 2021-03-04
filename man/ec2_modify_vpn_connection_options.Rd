@@ -18,31 +18,36 @@ ec2_modify_vpn_connection_options(
 \arguments{
 \item{VpnConnectionId}{String. The ID of the Site-to-Site VPN connection.}
 
-\item{LocalIpv4NetworkCidr}{String. The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.(optional)}
+\item{LocalIpv4NetworkCidr}{String.   The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.\link{optional}}
 
-\item{RemoteIpv4NetworkCidr}{String. The IPv4 CIDR on the AWS side of the VPN connection.  Default: \verb{0.0.0.0/0} (optional)}
+\item{RemoteIpv4NetworkCidr}{String.   The IPv4 CIDR on the AWS side of the VPN connection.  Default: \verb{0.0.0.0/0}  \link{optional}}
 
-\item{LocalIpv6NetworkCidr}{String. The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.  Default: \verb{::/0} (optional)}
+\item{LocalIpv6NetworkCidr}{String.   The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.\link{optional}}
 
-\item{RemoteIpv6NetworkCidr}{String. The IPv6 CIDR on the AWS side of the VPN connection.  Default: \verb{::/0} (optional)}
+\item{RemoteIpv6NetworkCidr}{String.   The IPv6 CIDR on the AWS side of the VPN connection.  Default: \verb{::/0}  \link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the connection options for your Site-to-Site VPN connection.
+Modify Vpn Connection Options
 }
 \section{VpnConnectionId}{
 
-The ID of the Site-to-Site VPN connection.
+The ID of the Site-to-Site
+VPN connection.
 }
 
 \section{LocalIpv4NetworkCidr}{
+
 
 The IPv4 CIDR on the customer gateway (on-premises) side of the VPN
 connection.
@@ -52,12 +57,14 @@ Default: \verb{0.0.0.0/0}
 
 \section{RemoteIpv4NetworkCidr}{
 
+
 The IPv4 CIDR on the AWS side of the VPN connection.
 
 Default: \verb{0.0.0.0/0}
 }
 
 \section{LocalIpv6NetworkCidr}{
+
 
 The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
 connection.
@@ -67,6 +74,7 @@ Default: \verb{::/0}
 
 \section{RemoteIpv6NetworkCidr}{
 
+
 The IPv6 CIDR on the AWS side of the VPN connection.
 
 Default: \verb{::/0}
@@ -74,9 +82,10 @@ Default: \verb{::/0}
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

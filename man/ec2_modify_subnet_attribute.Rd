@@ -17,23 +17,26 @@ ec2_modify_subnet_attribute(
 \arguments{
 \item{SubnetId}{String. The ID of the subnet.}
 
-\item{AssignIpv6AddressOnCreation}{Object. Specify \code{true} to indicate that network interfaces created in the specified subnet should...(see below)(optional)}
+\item{AssignIpv6AddressOnCreation}{Object.   Specify \code{true} to indicate that network interfaces created in the specified subnet should...\link{optional}}
 
-\item{MapPublicIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...(see below)(optional)}
+\item{MapPublicIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...\link{optional}}
 
-\item{MapCustomerOwnedIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...(see below)(optional)}
+\item{MapCustomerOwnedIpOnLaunch}{Object.   Specify \code{true} to indicate that network interfaces attached to instances created in the...\link{optional}}
 
-\item{CustomerOwnedIpv4Pool}{String. The customer-owned IPv4 address pool associated with the subnet.(optional)}
+\item{CustomerOwnedIpv4Pool}{String.   The customer-owned IPv4 address pool associated with the subnet.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies a subnet attribute. You can only modify one attribute at a
-time.
+Modifies a subnet attribute. You can only modify
+one attribute at a time.
 }
 \section{SubnetId}{
 
@@ -41,6 +44,7 @@ The ID of the subnet.
 }
 
 \section{AssignIpv6AddressOnCreation}{
+
 
 Specify \code{true} to indicate that network interfaces created in the
 specified subnet should be assigned an IPv6 address. This includes a
@@ -54,12 +58,13 @@ using version \code{2016-11-15} or later of the Amazon EC2 API.
 
 \section{MapPublicIpOnLaunch}{
 
-Specify \code{true} to indicate that network interfaces attached to instances
-created in the specified subnet should be assigned a public IPv4
-address.
+Specify \code{true} to indicate that network interfaces
+attached to instances created in the specified subnet should be assigned
+a public IPv4 address.
 }
 
 \section{MapCustomerOwnedIpOnLaunch}{
+
 
 Specify \code{true} to indicate that network interfaces attached to instances
 created in the specified subnet should be assigned a customer-owned IPv4
@@ -70,6 +75,7 @@ using \code{CustomerOwnedIpv4Pool}.
 }
 
 \section{CustomerOwnedIpv4Pool}{
+
 
 The customer-owned IPv4 address pool associated with the subnet.
 

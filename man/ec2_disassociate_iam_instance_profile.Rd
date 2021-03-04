@@ -13,18 +13,21 @@ ec2_disassociate_iam_instance_profile(
 \arguments{
 \item{AssociationId}{String. The ID of the IAM instance profile association.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disassociates an IAM instance profile from a running or stopped
-instance.
+Disassociate Iam Instance Profile
 }
 \section{AssociationId}{
 
-The ID of the IAM instance profile association.
+The ID of the IAM instance
+profile association.
 }
 

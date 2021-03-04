@@ -15,40 +15,47 @@ ec2_describe_capacity_reservations(
 )
 }
 \arguments{
-\item{CapacityReservationId}{List or named list. The ID of the Capacity Reservation. (optional)}
+\item{CapacityReservationId}{Array. The ID of the Capacity Reservation.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes one or more of your Capacity Reservations. The results
-describe only the Capacity Reservations in the AWS Region that you\'re
-currently using.
+Describes one or more of your Capacity
+Reservations. The results describe only the Capacity Reservations in the
+AWS Region that you\'re currently using.
 }
 \section{CapacityReservationId}{
 
-The ID of the Capacity Reservation.
+The ID of the Capacity
+Reservation.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return for the request in a single
-page. The remaining results can be seen by sending another request with
-the returned \code{nextToken} value. This value can be between 5 and 500. If
-\code{maxResults} is given a larger value than 500, you receive an error.
+The maximum number of results to
+return for the request in a single page. The remaining results can be
+seen by sending another request with the returned \code{nextToken} value.
+This value can be between 5 and 500. If \code{maxResults} is given a larger
+value than 500, you receive an error.
 }
 
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -121,9 +128,10 @@ the reserved capacity.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

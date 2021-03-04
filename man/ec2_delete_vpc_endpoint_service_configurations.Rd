@@ -12,32 +12,38 @@ ec2_delete_vpc_endpoint_service_configurations(
 )
 }
 \arguments{
-\item{ServiceId}{List or named list. The IDs of one or more services.}
+\item{ServiceId}{Array. The IDs of one or more services.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes one or more VPC endpoint service configurations in your account.
-Before you delete the endpoint service configuration, you must reject
-any \code{Available} or \code{PendingAcceptance} interface endpoint connections
-that are attached to the service.
+Deletes one or more VPC endpoint
+service configurations in your account. Before you delete the endpoint
+service configuration, you must reject any \code{Available} or
+\code{PendingAcceptance} interface endpoint connections that are attached to
+the service.
 }
 \section{ServiceId}{
 
-The IDs of one or more services.
+The IDs of one or more
+services.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

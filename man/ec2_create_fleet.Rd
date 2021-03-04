@@ -23,89 +23,101 @@ ec2_create_fleet(
 )
 }
 \arguments{
-\item{LaunchTemplateConfigs}{List or named list. The configuration for the EC2 Fleet.}
+\item{LaunchTemplateConfigs}{Array. The configuration for the EC2 Fleet.}
 
 \item{TargetCapacitySpecification}{Object. The number of units to request.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{SpotOptions}{Object. Describes the configuration of Spot Instances in an EC2 Fleet. (optional)}
+\item{SpotOptions}{Object. Describes the configuration of Spot Instances in an EC2 Fleet.\link{optional}}
 
-\item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet. (optional)}
+\item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.\link{optional}}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...(see below)(optional)}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...\link{optional}}
 
-\item{TerminateInstancesWithExpiration}{Boolean. Indicates whether running instances should be terminated when the EC2 Fleet expires. (optional)}
+\item{TerminateInstancesWithExpiration}{Boolean. Indicates whether running instances should be terminated when the EC2 Fleet expires.\link{optional}}
 
-\item{Type}{String. The type of request.(optional)}
+\item{Type}{String.   The type of request.\link{optional}}
 
-\item{ValidFrom}{String. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....(see below)(optional)}
+\item{ValidFrom}{String. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....\link{optional}}
 
-\item{ValidUntil}{String. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....(see below)(optional)}
+\item{ValidUntil}{String. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....\link{optional}}
 
-\item{ReplaceUnhealthyInstances}{Boolean. Indicates whether EC2 Fleet should replace unhealthy Spot Instances.(optional)}
+\item{ReplaceUnhealthyInstances}{Boolean. Indicates whether EC2 Fleet should replace unhealthy Spot Instances.\link{optional}}
 
-\item{TagSpecification}{List or named list. The key-value pair for tagging the EC2 Fleet request on creation.(optional)}
+\item{TagSpecification}{Array. The key-value pair for tagging the EC2 Fleet request on creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Launches an EC2 Fleet.
+Create Fleet
 }
 \section{LaunchTemplateConfigs}{
 
-The configuration for the EC2 Fleet.
+The
+configuration for the EC2 Fleet.
 }
 
 \section{TargetCapacitySpecification}{
 
-The number of units to request.
+The number of units
+to request.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 
 \section{SpotOptions}{
 
-Describes the configuration of Spot Instances in an EC2 Fleet.
+Describes
+the configuration of Spot Instances in an EC2
+Fleet.
 }
 
 \section{OnDemandOptions}{
 
-Describes the configuration of On-Demand Instances in an EC2 Fleet.
+Describes the configuration of On-Demand
+Instances in an EC2 Fleet.
 }
 
 \section{ExcessCapacityTerminationPolicy}{
 
-Indicates whether running instances should be terminated if the total
-target capacity of the EC2 Fleet is decreased below the current size of
-the EC2 Fleet.
+Indicates whether running
+instances should be terminated if the total target capacity of the EC2
+Fleet is decreased below the current size of the EC2
+Fleet.
 }
 
 \section{TerminateInstancesWithExpiration}{
 
-Indicates whether running instances should be terminated when the EC2
-Fleet expires.
+Indicates whether running instances should be
+terminated when the EC2 Fleet expires.
 }
 
 \section{Type}{
+
 
 The type of request. The default value is \code{maintain}.
 \itemize{
@@ -127,32 +139,35 @@ in the \emph{Amazon EC2 User Guide}.
 
 \section{ValidFrom}{
 
-The start date and time of the request, in UTC format (for example,
-\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z). The default is to start fulfilling
-the request immediately.
+The start date and time of the request, in UTC
+format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z). The default is
+to start fulfilling the request immediately.
 }
 
 \section{ValidUntil}{
 
-The end date and time of the request, in UTC format (for example,
+The end
+date and time of the request, in UTC format (for example,
 \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z). At this point, no new EC2 Fleet
 requests are placed or able to fulfill the request. If no value is
-specified, the request remains until you cancel it.
+specified, the request remains until you cancel
+it.
 }
 
 \section{ReplaceUnhealthyInstances}{
 
-Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
-Supported only for fleets of type \code{maintain}. For more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks}{EC2 Fleet health checks}
+Indicates whether EC2 Fleet should replace
+unhealthy Spot Instances. Supported only for fleets of type \code{maintain}.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks}{EC2 Fleet health checks}
 in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{TagSpecification}{
 
-The key-value pair for tagging the EC2 Fleet request on creation. The
-value for \code{ResourceType} must be \code{fleet}, otherwise the fleet request
-fails. To tag instances at launch, specify the tags in the \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template}{launch template}.
+The key-value pair
+for tagging the EC2 Fleet request on creation. The value for
+\code{ResourceType} must be \code{fleet}, otherwise the fleet request fails. To
+tag instances at launch, specify the tags in the \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template}{launch template}.
 For information about tagging after launch, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources}{Tagging your resources}.
 }
 

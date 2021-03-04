@@ -17,32 +17,34 @@ ec2_create_managed_prefix_list(
 )
 }
 \arguments{
-\item{PrefixListName}{String. A name for the prefix list.}
+\item{PrefixListName}{String.   A name for the prefix list.}
 
 \item{MaxEntries}{Integer. The maximum number of entries for the prefix list.}
 
-\item{AddressFamily}{String. The IP address type.  Valid Values: \code{IPv4} \| \code{IPv6}}
+\item{AddressFamily}{String.   The IP address type.  Valid Values: \code{IPv4} \| \code{IPv6}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Entry}{List or named list. One or more entries for the prefix list. (optional)}
+\item{Entry}{Array. One or more entries for the prefix list.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the prefix list during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the prefix list during creation.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a managed prefix list. You can specify one or more entries for
-the prefix list. Each entry consists of a CIDR block and an optional
-description.
+Create Managed Prefix List
 }
 \section{PrefixListName}{
+
 
 A name for the prefix list.
 
@@ -52,10 +54,12 @@ Constraints: Up to 255 characters in length. The name cannot start with
 
 \section{MaxEntries}{
 
-The maximum number of entries for the prefix list.
+The maximum number of entries for the prefix
+list.
 }
 
 \section{AddressFamily}{
+
 
 The IP address type.
 
@@ -64,23 +68,27 @@ Valid Values: \code{IPv4} \| \code{IPv6}
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Entry}{
 
-One or more entries for the prefix list.
+One or more entries for the
+prefix list.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the prefix list during creation.
+The tags to apply to the prefix list
+during creation.
 }
 
 \section{ClientToken}{
+
 
 Unique, case-sensitive identifier you provide to ensure the idempotency
 of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.

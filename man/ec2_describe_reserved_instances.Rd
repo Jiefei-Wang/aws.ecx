@@ -15,27 +15,30 @@ ec2_describe_reserved_instances(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{OfferingClass}{String. Describes whether the Reserved Instance is Standard or Convertible. (optional)}
+\item{OfferingClass}{String. Describes whether the Reserved Instance is Standard or Convertible.\link{optional}}
 
-\item{ReservedInstancesId}{List or named list. One or more Reserved Instance IDs.(optional)}
+\item{ReservedInstancesId}{Array.   One or more Reserved Instance IDs.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{OfferingType}{String. The Reserved Instance offering type.(optional)}
+\item{OfferingType}{String. The Reserved Instance offering type.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes one or more of the Reserved Instances that you purchased.
+Describe Reserved Instances
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -84,10 +87,12 @@ regardless of the tag value.
 
 \section{OfferingClass}{
 
-Describes whether the Reserved Instance is Standard or Convertible.
+Describes whether the Reserved Instance is Standard
+or Convertible.
 }
 
 \section{ReservedInstancesId}{
+
 
 One or more Reserved Instance IDs.
 
@@ -97,16 +102,18 @@ specified.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{OfferingType}{
 
-The Reserved Instance offering type. If you are using tools that predate
-the 2011-11-01 API version, you only have access to the
-\verb{Medium Utilization} Reserved Instance offering type.
+The Reserved Instance
+offering type. If you are using tools that predate the 2011-11-01 API
+version, you only have access to the \verb{Medium Utilization} Reserved
+Instance offering type.
 }
 

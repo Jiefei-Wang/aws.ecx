@@ -47,91 +47,94 @@ ec2_run_instances(
 )
 }
 \arguments{
-\item{MaxCount}{Integer. The maximum number of instances to launch.}
+\item{MaxCount}{Integer.   The maximum number of instances to launch.}
 
-\item{MinCount}{Integer. The minimum number of instances to launch.}
+\item{MinCount}{Integer.   The minimum number of instances to launch.}
 
-\item{BlockDeviceMapping}{List or named list. The block device mapping entries. (optional)}
+\item{BlockDeviceMapping}{Array. The block device mapping entries.\link{optional}}
 
-\item{ImageId}{String. The ID of the AMI.(optional)}
+\item{ImageId}{String. The ID of the AMI.\link{optional}}
 
-\item{InstanceType}{String. The instance type.(optional)}
+\item{InstanceType}{String.   The instance type.\link{optional}}
 
-\item{Ipv6AddressCount}{Integer. [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.(optional)}
+\item{Ipv6AddressCount}{Integer.   [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.\link{optional}}
 
-\item{Ipv6Address}{List or named list. [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary...(see below)(optional)}
+\item{Ipv6Address}{Array.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary...\link{optional}}
 
-\item{KernelId}{String. The ID of the kernel.(optional)}
+\item{KernelId}{String.   The ID of the kernel.\link{optional}}
 
-\item{KeyName}{String. The name of the key pair.(optional)}
+\item{KeyName}{String.   The name of the key pair.\link{optional}}
 
-\item{Monitoring}{Object. Specifies whether detailed monitoring is enabled for the instance. (optional)}
+\item{Monitoring}{Object. Specifies whether detailed monitoring is enabled for the instance.\link{optional}}
 
-\item{Placement}{Object. The placement for the instance. (optional)}
+\item{Placement}{Object. The placement for the instance.\link{optional}}
 
-\item{RamdiskId}{String. The ID of the RAM disk to select.(optional)}
+\item{RamdiskId}{String.   The ID of the RAM disk to select.\link{optional}}
 
-\item{SecurityGroupId}{List or named list. The IDs of the security groups.(optional)}
+\item{SecurityGroupId}{Array.   The IDs of the security groups.\link{optional}}
 
-\item{SecurityGroup}{List or named list. [EC2-Classic, default VPC] The names of the security groups.(optional)}
+\item{SecurityGroup}{Array.   [EC2-Classic, default VPC] The names of the security groups.\link{optional}}
 
-\item{SubnetId}{String. [EC2-VPC] The ID of the subnet to launch the instance into.(optional)}
+\item{SubnetId}{String.   [EC2-VPC] The ID of the subnet to launch the instance into.\link{optional}}
 
-\item{UserData}{String. The user data to make available to the instance.(optional)}
+\item{UserData}{String. The user data to make available to the instance.\link{optional}}
 
-\item{AdditionalInfo}{String. Reserved. (optional)}
+\item{AdditionalInfo}{String. Reserved.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DisableApiTermination}{Boolean. If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon EC2...(see below)(optional)}
+\item{DisableApiTermination}{Boolean.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon...\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EbsOptimized}{Boolean. Indicates whether the instance is optimized for Amazon EBS I/O.(optional)}
+\item{EbsOptimized}{Boolean.   Indicates whether the instance is optimized for Amazon EBS I/O.\link{optional}}
 
-\item{IamInstanceProfile}{Object. The name or Amazon Resource Name (ARN) of an IAM instance profile. (optional)}
+\item{IamInstanceProfile}{Object. The name or Amazon Resource Name (ARN) of an IAM instance profile.\link{optional}}
 
-\item{InstanceInitiatedShutdownBehavior}{String. Indicates whether an instance stops or terminates when you initiate shutdown from the instance...(see below)(optional)}
+\item{InstanceInitiatedShutdownBehavior}{String.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...\link{optional}}
 
-\item{NetworkInterface}{List or named list. The network interfaces to associate with the instance.(optional)}
+\item{NetworkInterface}{Array. The network interfaces to associate with the instance.\link{optional}}
 
-\item{PrivateIpAddress}{String. [EC2-VPC] The primary IPv4 address.(optional)}
+\item{PrivateIpAddress}{String.   [EC2-VPC] The primary IPv4 address.\link{optional}}
 
-\item{ElasticGpuSpecification}{List or named list. An elastic GPU to associate with the instance.(optional)}
+\item{ElasticGpuSpecification}{Array. An elastic GPU to associate with the instance.\link{optional}}
 
-\item{ElasticInferenceAccelerator}{List or named list. An elastic inference accelerator to associate with the instance.(optional)}
+\item{ElasticInferenceAccelerator}{Array.   An elastic inference accelerator to associate with the instance.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the resources during launch.(optional)}
+\item{TagSpecification}{Array. The tags to apply to the resources during launch.\link{optional}}
 
-\item{LaunchTemplate}{Object. The launch template to use to launch the instances.(optional)}
+\item{LaunchTemplate}{Object. The launch template to use to launch the instances.\link{optional}}
 
-\item{InstanceMarketOptions}{Object. The market (purchasing) option for the instances.(optional)}
+\item{InstanceMarketOptions}{Object.   The market (purchasing) option for the instances.\link{optional}}
 
-\item{CreditSpecification}{Object. The credit option for CPU usage of the burstable performance instance.(optional)}
+\item{CreditSpecification}{Object.   The credit option for CPU usage of the burstable performance instance.\link{optional}}
 
-\item{CpuOptions}{Object. The CPU options for the instance.(optional)}
+\item{CpuOptions}{Object. The CPU options for the instance.\link{optional}}
 
-\item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.(optional)}
+\item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.\link{optional}}
 
-\item{HibernationOptions}{Object. Indicates whether an instance is enabled for hibernation.(optional)}
+\item{HibernationOptions}{Object.   Indicates whether an instance is enabled for hibernation.\link{optional}}
 
-\item{LicenseSpecification}{List or named list. The license configurations. (optional)}
+\item{LicenseSpecification}{Array. The license configurations.\link{optional}}
 
-\item{MetadataOptions}{Object. The metadata options for the instance.(optional)}
+\item{MetadataOptions}{Object. The metadata options for the instance.\link{optional}}
 
-\item{EnclaveOptions}{Object. Indicates whether the instance is enabled for AWS Nitro Enclaves.(optional)}
+\item{EnclaveOptions}{Object.   Indicates whether the instance is enabled for AWS Nitro Enclaves.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Launches the specified number of instances using an AMI for which you
-have permissions.
+Run Instances
 }
 \section{MaxCount}{
+
 
 The maximum number of instances to launch. If you specify more instances
 than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
@@ -145,6 +148,7 @@ in the Amazon EC2 FAQ.
 
 \section{MinCount}{
 
+
 The minimum number of instances to launch. If you specify a minimum that
 is more instances than Amazon EC2 can launch in the target Availability
 Zone, Amazon EC2 launches no instances.
@@ -157,16 +161,19 @@ in the Amazon EC2 General FAQ.
 
 \section{BlockDeviceMapping}{
 
-The block device mapping entries.
+The block device mapping
+entries.
 }
 
 \section{ImageId}{
 
-The ID of the AMI. An AMI ID is required to launch an instance and must
-be specified here or in a launch template.
+The ID of the AMI. An AMI ID is required to
+launch an instance and must be specified here or in a launch
+template.
 }
 
 \section{InstanceType}{
+
 
 The instance type. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html}{Instance types}
 in the \emph{Amazon EC2 User Guide}.
@@ -175,6 +182,7 @@ Default: \code{m1.small}
 }
 
 \section{Ipv6AddressCount}{
+
 
 [EC2-VPC] The number of IPv6 addresses to associate with the primary
 network interface. Amazon EC2 chooses the IPv6 addresses from the range
@@ -188,6 +196,7 @@ same request.
 
 \section{Ipv6Address}{
 
+
 [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
 with the primary network interface. You cannot specify this option and
 the option to assign a number of IPv6 addresses in the same request. You
@@ -200,6 +209,7 @@ same request.
 
 \section{KernelId}{
 
+
 The ID of the kernel.
 
 We recommend that you use PV-GRUB instead of kernels and RAM disks. For
@@ -209,6 +219,7 @@ in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{KeyName}{
+
 
 The name of the key pair. You can create a key pair using
 \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html}{CreateKeyPair}
@@ -222,15 +233,18 @@ to log in.
 
 \section{Monitoring}{
 
-Specifies whether detailed monitoring is enabled for the instance.
+Specifies whether detailed monitoring is enabled
+for the instance.
 }
 
 \section{Placement}{
 
-The placement for the instance.
+The placement for the
+instance.
 }
 
 \section{RamdiskId}{
+
 
 The ID of the RAM disk to select. Some kernels require additional
 drivers at launch. Check the kernel requirements for information about
@@ -245,6 +259,7 @@ in the \emph{Amazon EC2 User Guide}.
 
 \section{SecurityGroupId}{
 
+
 The IDs of the security groups. You can create a security group using
 \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html}{CreateSecurityGroup}.
 
@@ -253,6 +268,7 @@ as part of the network interface.
 }
 
 \section{SecurityGroup}{
+
 
 [EC2-Classic, default VPC] The names of the security groups. For a
 nondefault VPC, you must use security group IDs instead.
@@ -265,6 +281,7 @@ Default: Amazon EC2 uses the default security group.
 
 \section{SubnetId}{
 
+
 [EC2-VPC] The ID of the subnet to launch the instance into.
 
 If you specify a network interface, you must specify any subnets as part
@@ -273,12 +290,13 @@ of the network interface.
 
 \section{UserData}{
 
-The user data to make available to the instance. For more information,
-see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html}{Running commands on your Linux instance at launch}
+The user data to make available to the instance.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html}{Running commands on your Linux instance at launch}
 (Linux) and \href{https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data}{Adding User Data}
 (Windows). If you are using a command line tool, base64-encoding is
 performed for you, and you can load the text from a file. Otherwise, you
-must provide base64-encoded text. User data is limited to 16 KB.
+must provide base64-encoded text. User data is limited to 16
+KB.
 }
 
 \section{AdditionalInfo}{
@@ -287,6 +305,7 @@ Reserved.
 }
 
 \section{ClientToken}{
+
 
 Unique, case-sensitive identifier you provide to ensure the idempotency
 of the request. If you do not specify a client token, a randomly
@@ -298,6 +317,7 @@ Constraints: Maximum 64 ASCII characters
 }
 
 \section{DisableApiTermination}{
+
 
 If you set this parameter to \code{true}, you can\'t terminate the instance
 using the Amazon EC2 console, CLI, or API; otherwise, you can. To change
@@ -312,13 +332,15 @@ Default: \code{false}
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{EbsOptimized}{
+
 
 Indicates whether the instance is optimized for Amazon EBS I/O. This
 optimization provides dedicated throughput to Amazon EBS and an
@@ -331,10 +353,12 @@ Default: \code{false}
 
 \section{IamInstanceProfile}{
 
-The name or Amazon Resource Name (ARN) of an IAM instance profile.
+The name or Amazon Resource Name (ARN) of an IAM
+instance profile.
 }
 
 \section{InstanceInitiatedShutdownBehavior}{
+
 
 Indicates whether an instance stops or terminates when you initiate
 shutdown from the instance (using the operating system command for
@@ -345,12 +369,14 @@ Default: \code{stop}
 
 \section{NetworkInterface}{
 
-The network interfaces to associate with the instance. If you specify a
-network interface, you must specify any security groups and subnets as
-part of the network interface.
+The network interfaces to associate with the
+instance. If you specify a network interface, you must specify any
+security groups and subnets as part of the network
+interface.
 }
 
 \section{PrivateIpAddress}{
+
 
 [EC2-VPC] The primary IPv4 address. You must specify a value from the
 IPv4 address range of the subnet.
@@ -367,14 +393,15 @@ same request.
 
 \section{ElasticGpuSpecification}{
 
-An elastic GPU to associate with the instance. An Elastic GPU is a GPU
-resource that you can attach to your Windows instance to accelerate the
-graphics performance of your applications. For more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html}{Amazon EC2 Elastic GPUs}
+An elastic GPU to associate with the instance. An
+Elastic GPU is a GPU resource that you can attach to your Windows
+instance to accelerate the graphics performance of your applications.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html}{Amazon EC2 Elastic GPUs}
 in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{ElasticInferenceAccelerator}{
+
 
 An elastic inference accelerator to associate with the instance. Elastic
 inference accelerators are a resource you can attach to your Amazon EC2
@@ -386,22 +413,24 @@ request.
 
 \section{TagSpecification}{
 
-The tags to apply to the resources during launch. You can only tag
-instances and volumes on launch. The specified tags are applied to all
-instances or volumes that are created during launch. To tag a resource
-after it has been created, see
+The tags to apply to the resources during launch.
+You can only tag instances and volumes on launch. The specified tags are
+applied to all instances or volumes that are created during launch. To
+tag a resource after it has been created, see
 \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html}{CreateTags}.
 }
 
 \section{LaunchTemplate}{
 
-The launch template to use to launch the instances. Any parameters that
-you specify in RunInstances override the same parameters in the launch
+The
+launch template to use to launch the instances. Any parameters that you
+specify in RunInstances override the same parameters in the launch
 template. You can specify either the name or ID of a launch template,
 but not both.
 }
 
 \section{InstanceMarketOptions}{
+
 
 The market (purchasing) option for the instances.
 
@@ -411,6 +440,7 @@ when \strong{InstanceInterruptionBehavior} is set to either \code{hibernate} or
 }
 
 \section{CreditSpecification}{
+
 
 The credit option for CPU usage of the burstable performance instance.
 Valid values are \code{standard} and \code{unlimited}. To change this attribute
@@ -424,20 +454,23 @@ Default: \code{standard} (T2 instances) or \code{unlimited} (T3/T3a instances)
 
 \section{CpuOptions}{
 
-The CPU options for the instance. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html}{Optimizing CPU options}
+The CPU options for the instance. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html}{Optimizing CPU options}
 in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{CapacityReservationSpecification}{
 
-Information about the Capacity Reservation targeting option. If you do
-not specify this parameter, the instance\'s Capacity Reservation
-preference defaults to \code{open}, which enables it to run in any open
-Capacity Reservation that has matching attributes (instance type,
-platform, Availability Zone).
+Information about
+the Capacity Reservation targeting option. If you do not specify this
+parameter, the instance\'s Capacity Reservation preference defaults to
+\code{open}, which enables it to run in any open Capacity Reservation that
+has matching attributes (instance type, platform, Availability
+Zone).
 }
 
 \section{HibernationOptions}{
+
 
 Indicates whether an instance is enabled for hibernation. For more
 information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html}{Hibernate your instance}
@@ -454,11 +487,12 @@ The license configurations.
 
 \section{MetadataOptions}{
 
-The metadata options for the instance. For more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html}{Instance metadata and user data}.
+The
+metadata options for the instance. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html}{Instance metadata and user data}.
 }
 
 \section{EnclaveOptions}{
+
 
 Indicates whether the instance is enabled for AWS Nitro Enclaves. For
 more information, see \href{https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html}{What is AWS Nitro Enclaves?}

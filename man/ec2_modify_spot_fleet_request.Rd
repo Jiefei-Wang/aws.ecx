@@ -17,50 +17,58 @@ ec2_modify_spot_fleet_request(
 \arguments{
 \item{SpotFleetRequestId}{String. The ID of the Spot Fleet request.}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running Spot Instances should be terminated if the target capacity of the...(see below)(optional)}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running Spot Instances should be terminated if the target capacity of the...\link{optional}}
 
-\item{LaunchTemplateConfig}{List or named list. The launch template and overrides.(optional)}
+\item{LaunchTemplateConfig}{Array. The launch template and overrides.\link{optional}}
 
-\item{TargetCapacity}{Integer. The size of the fleet. (optional)}
+\item{TargetCapacity}{Integer. The size of the fleet.\link{optional}}
 
-\item{OnDemandTargetCapacity}{Integer. The number of On-Demand Instances in the fleet. (optional)}
+\item{OnDemandTargetCapacity}{Integer. The number of On-Demand Instances in the fleet.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified Spot Fleet request.
+Modify Spot Fleet Request
 }
 \section{SpotFleetRequestId}{
 
-The ID of the Spot Fleet request.
+The ID of the Spot Fleet
+request.
 }
 
 \section{ExcessCapacityTerminationPolicy}{
 
-Indicates whether running Spot Instances should be terminated if the
-target capacity of the Spot Fleet request is decreased below the current
-size of the Spot Fleet.
+Indicates whether running Spot Instances
+should be terminated if the target capacity of the Spot Fleet request is
+decreased below the current size of the Spot
+Fleet.
 }
 
 \section{LaunchTemplateConfig}{
 
-The launch template and overrides. You can only use this parameter if
-you specified a launch template (\code{LaunchTemplateConfigs}) in your Spot
-Fleet request. If you specified \code{LaunchSpecifications} in your Spot
-Fleet request, then omit this parameter.
+The launch template and overrides. You can
+only use this parameter if you specified a launch template
+(\code{LaunchTemplateConfigs}) in your Spot Fleet request. If you specified
+\code{LaunchSpecifications} in your Spot Fleet request, then omit this
+parameter.
 }
 
 \section{TargetCapacity}{
 
-The size of the fleet.
+The size of the
+fleet.
 }
 
 \section{OnDemandTargetCapacity}{
 
-The number of On-Demand Instances in the fleet.
+The number of On-Demand Instances in the
+fleet.
 }
 

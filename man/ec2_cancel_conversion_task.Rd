@@ -15,38 +15,40 @@ ec2_cancel_conversion_task(
 \arguments{
 \item{ConversionTaskId}{String. The ID of the conversion task.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ReasonMessage}{String. The reason for canceling the conversion task. (optional)}
+\item{ReasonMessage}{String. The reason for canceling the conversion task.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels an active conversion task. The task can be the import of an
-instance or volume. The action removes all artifacts of the conversion,
-including a partially uploaded volume or instance. If the conversion is
-complete or is in the process of transferring the final disk image, the
-command fails and returns an exception.
+Cancel Conversion Task
 }
 \section{ConversionTaskId}{
 
-The ID of the conversion task.
+The ID of the conversion
+task.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ReasonMessage}{
 
-The reason for canceling the conversion task.
+The reason for canceling
+the conversion task.
 }
 

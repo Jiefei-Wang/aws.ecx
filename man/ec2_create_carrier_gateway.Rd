@@ -16,44 +16,51 @@ ec2_create_carrier_gateway(
 \arguments{
 \item{VpcId}{String. The ID of the VPC to associate with the carrier gateway.}
 
-\item{TagSpecification}{List or named list. The tags to associate with the carrier gateway. (optional)}
+\item{TagSpecification}{Array. The tags to associate with the carrier gateway.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a carrier gateway. For more information about carrier gateways,
-see \href{https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway}{Carrier gateways}
+Creates a carrier gateway. For more information
+about carrier gateways, see \href{https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway}{Carrier gateways}
 in the \emph{AWS Wavelength Developer Guide}.
 }
 \section{VpcId}{
 
-The ID of the VPC to associate with the carrier gateway.
+The ID of the VPC to
+associate with the carrier gateway.
 }
 
 \section{TagSpecification}{
 
-The tags to associate with the carrier gateway.
+The tags to
+associate with the carrier gateway.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique,
+case-sensitive identifier that you provide to ensure the idempotency of
+the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 

@@ -14,28 +14,35 @@ ec2_describe_iam_instance_profile_associations(
 )
 }
 \arguments{
-\item{AssociationId}{List or named list. The IAM instance profile associations. (optional)}
+\item{AssociationId}{Array. The IAM instance profile associations.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes your IAM instance profile associations.
+Describes your IAM instance profile
+associations.
 }
 \section{AssociationId}{
 
-The IAM instance profile associations.
+The IAM instance profile
+associations.
 }
 
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -47,8 +54,8 @@ The filters.
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. To retrieve
-the remaining results, make another call with the returned \code{NextToken}
-value.
+The maximum number of results to return in a single
+call. To retrieve the remaining results, make another call with the
+returned \code{NextToken} value.
 }
 

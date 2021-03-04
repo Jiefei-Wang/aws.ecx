@@ -12,21 +12,24 @@ ec2_modify_ebs_default_kms_key_id(
 )
 }
 \arguments{
-\item{KmsKeyId}{String. The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use...(see below)}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Changes the default customer master key (CMK) for EBS encryption by
-default for your account in this Region.
+Modify Ebs Default Kms Key Id
 }
 \section{KmsKeyId}{
+
 
 The identifier of the AWS Key Management Service (AWS KMS) customer
 master key (CMK) to use for Amazon EBS encryption. If this parameter is
@@ -52,9 +55,10 @@ Amazon EBS does not support asymmetric CMKs.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

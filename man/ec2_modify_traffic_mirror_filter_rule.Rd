@@ -24,90 +24,105 @@ ec2_modify_traffic_mirror_filter_rule(
 \arguments{
 \item{TrafficMirrorFilterRuleId}{String. The ID of the Traffic Mirror rule.}
 
-\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule. (optional)}
+\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.\link{optional}}
 
-\item{RuleNumber}{Integer. The number of the Traffic Mirror rule.(optional)}
+\item{RuleNumber}{Integer. The number of the Traffic Mirror rule.\link{optional}}
 
-\item{RuleAction}{String. The action to assign to the rule. (optional)}
+\item{RuleAction}{String. The action to assign to the rule.\link{optional}}
 
-\item{DestinationPortRange}{Object. The destination ports that are associated with the Traffic Mirror rule. (optional)}
+\item{DestinationPortRange}{Object. The destination ports that are associated with the Traffic Mirror rule.\link{optional}}
 
-\item{SourcePortRange}{Object. The port range to assign to the Traffic Mirror rule. (optional)}
+\item{SourcePortRange}{Object. The port range to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{Protocol}{Integer. The protocol, for example TCP, to assign to the Traffic Mirror rule. (optional)}
+\item{Protocol}{Integer. The protocol, for example TCP, to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule. (optional)}
+\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule. (optional)}
+\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{Description}{String. The description to assign to the Traffic Mirror rule. (optional)}
+\item{Description}{String. The description to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{RemoveField}{List or named list. The properties that you want to remove from the Traffic Mirror filter rule.(optional)}
+\item{RemoveField}{Array.   The properties that you want to remove from the Traffic Mirror filter rule.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified Traffic Mirror rule.
+Modify Traffic Mirror Filter Rule
 }
 \section{TrafficMirrorFilterRuleId}{
 
-The ID of the Traffic Mirror rule.
+The ID of the Traffic
+Mirror rule.
 }
 
 \section{TrafficDirection}{
 
-The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.
+The type of traffic (\code{ingress} \|
+\code{egress}) to assign to the rule.
 }
 
 \section{RuleNumber}{
 
-The number of the Traffic Mirror rule. This number must be unique for
-each Traffic Mirror rule in a given direction. The rules are processed
-in ascending order by rule number.
+The number of the
+Traffic Mirror rule. This number must be unique for each Traffic Mirror
+rule in a given direction. The rules are processed in ascending order by
+rule number.
 }
 
 \section{RuleAction}{
 
-The action to assign to the rule.
+The action to assign to the
+rule.
 }
 
 \section{DestinationPortRange}{
 
-The destination ports that are associated with the Traffic Mirror rule.
+The destination ports that are associated with
+the Traffic Mirror rule.
 }
 
 \section{SourcePortRange}{
 
-The port range to assign to the Traffic Mirror rule.
+The port range to assign to
+the Traffic Mirror rule.
 }
 
 \section{Protocol}{
 
-The protocol, for example TCP, to assign to the Traffic Mirror rule.
+The protocol, for example
+TCP, to assign to the Traffic Mirror rule.
 }
 
 \section{DestinationCidrBlock}{
 
-The destination CIDR block to assign to the Traffic Mirror rule.
+The
+destination CIDR block to assign to the Traffic Mirror
+rule.
 }
 
 \section{SourceCidrBlock}{
 
-The source CIDR block to assign to the Traffic Mirror rule.
+The source CIDR block to assign to the Traffic
+Mirror rule.
 }
 
 \section{Description}{
 
-The description to assign to the Traffic Mirror rule.
+The description to assign to the
+Traffic Mirror rule.
 }
 
 \section{RemoveField}{
+
 
 The properties that you want to remove from the Traffic Mirror filter
 rule.
@@ -118,9 +133,10 @@ property is set to the default.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

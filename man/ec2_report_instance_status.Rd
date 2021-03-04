@@ -17,39 +17,40 @@ ec2_report_instance_status(
 )
 }
 \arguments{
-\item{InstanceId}{List or named list. The instances.}
+\item{InstanceId}{Array. The instances.}
 
-\item{ReasonCode}{List or named list. The reason codes that describe the health state of your instance.}
+\item{ReasonCode}{Array.   The reason codes that describe the health state of your instance.}
 
 \item{Status}{String. The status of all instances listed.}
 
-\item{Description}{String. Descriptive text about the health state of your instance. (optional)}
+\item{Description}{String. Descriptive text about the health state of your instance.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EndTime}{String. The time at which the reported instance health state ended. (optional)}
+\item{EndTime}{String. The time at which the reported instance health state ended.\link{optional}}
 
-\item{StartTime}{String. The time at which the reported instance health state began. (optional)}
+\item{StartTime}{String. The time at which the reported instance health state began.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Submits feedback about the status of an instance. The instance must be
-in the \code{running} state. If your experience with the instance differs
-from the instance status returned by DescribeInstanceStatus, use
-ReportInstanceStatus to report your experience with the instance. Amazon
-EC2 collects this information to improve the accuracy of status checks.
+Report Instance Status
 }
 \section{InstanceId}{
 
-The instances.
+The
+instances.
 }
 
 \section{ReasonCode}{
+
 
 The reason codes that describe the health state of your instance.
 \itemize{
@@ -74,29 +75,34 @@ problems.
 
 \section{Status}{
 
-The status of all instances listed.
+The status of all instances
+listed.
 }
 
 \section{Description}{
 
-Descriptive text about the health state of your instance.
+Descriptive text about the health state of
+your instance.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{EndTime}{
 
-The time at which the reported instance health state ended.
+The time at which the
+reported instance health state ended.
 }
 
 \section{StartTime}{
 
-The time at which the reported instance health state began.
+The time at
+which the reported instance health state began.
 }
 

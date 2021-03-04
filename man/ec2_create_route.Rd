@@ -27,114 +27,130 @@ ec2_create_route(
 \arguments{
 \item{RouteTableId}{String. The ID of the route table for the route.}
 
-\item{DestinationCidrBlock}{String. The IPv4 CIDR address block used for the destination match.(optional)}
+\item{DestinationCidrBlock}{String. The IPv4 CIDR address block used for the destination match.\link{optional}}
 
-\item{DestinationIpv6CidrBlock}{String. The IPv6 CIDR block used for the destination match.(optional)}
+\item{DestinationIpv6CidrBlock}{String. The IPv6 CIDR block used for the destination match.\link{optional}}
 
-\item{DestinationPrefixListId}{String. The ID of a prefix list used for the destination match. (optional)}
+\item{DestinationPrefixListId}{String. The ID of a prefix list used for the destination match.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{VpcEndpointId}{String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only. (optional)}
+\item{VpcEndpointId}{String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.\link{optional}}
 
-\item{EgressOnlyInternetGatewayId}{String. [IPv6 traffic only] The ID of an egress-only internet gateway. (optional)}
+\item{EgressOnlyInternetGatewayId}{String. [IPv6 traffic only] The ID of an egress-only internet gateway.\link{optional}}
 
-\item{GatewayId}{String. The ID of an internet gateway or virtual private gateway attached to your VPC. (optional)}
+\item{GatewayId}{String. The ID of an internet gateway or virtual private gateway attached to your VPC.\link{optional}}
 
-\item{InstanceId}{String. The ID of a NAT instance in your VPC.(optional)}
+\item{InstanceId}{String. The ID of a NAT instance in your VPC.\link{optional}}
 
-\item{NatGatewayId}{String. [IPv4 traffic only] The ID of a NAT gateway. (optional)}
+\item{NatGatewayId}{String. [IPv4 traffic only] The ID of a NAT gateway.\link{optional}}
 
-\item{TransitGatewayId}{String. The ID of a transit gateway. (optional)}
+\item{TransitGatewayId}{String. The ID of a transit gateway.\link{optional}}
 
-\item{LocalGatewayId}{String. The ID of the local gateway. (optional)}
+\item{LocalGatewayId}{String. The ID of the local gateway.\link{optional}}
 
-\item{CarrierGatewayId}{String. The ID of the carrier gateway.(optional)}
+\item{CarrierGatewayId}{String.   The ID of the carrier gateway.\link{optional}}
 
-\item{NetworkInterfaceId}{String. The ID of a network interface. (optional)}
+\item{NetworkInterfaceId}{String. The ID of a network interface.\link{optional}}
 
-\item{VpcPeeringConnectionId}{String. The ID of a VPC peering connection. (optional)}
+\item{VpcPeeringConnectionId}{String. The ID of a VPC peering connection.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a route in a route table within a VPC.
+Create Route
 }
 \section{RouteTableId}{
 
-The ID of the route table for the route.
+The ID of the
+route table for the route.
 }
 
 \section{DestinationCidrBlock}{
 
-The IPv4 CIDR address block used for the destination match. Routing
-decisions are based on the most specific match. We modify the specified
-CIDR block to its canonical form; for example, if you specify
-\verb{100.68.0.18/18}, we modify it to \verb{100.68.0.0/18}.
+The IPv4 CIDR address
+block used for the destination match. Routing decisions are based on the
+most specific match. We modify the specified CIDR block to its canonical
+form; for example, if you specify \verb{100.68.0.18/18}, we modify it to
+\verb{100.68.0.0/18}.
 }
 
 \section{DestinationIpv6CidrBlock}{
 
-The IPv6 CIDR block used for the destination match. Routing decisions
-are based on the most specific match.
+The IPv6 CIDR block used for the
+destination match. Routing decisions are based on the most specific
+match.
 }
 
 \section{DestinationPrefixListId}{
 
-The ID of a prefix list used for the destination match.
+The ID of a prefix list used for the
+destination match.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{VpcEndpointId}{
 
-The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints
+The ID of a VPC endpoint.
+Supported for Gateway Load Balancer endpoints
 only.
 }
 
 \section{EgressOnlyInternetGatewayId}{
 
-[IPv6 traffic only] The ID of an egress-only internet gateway.
+[IPv6 traffic only] The ID of an egress-only
+internet gateway.
 }
 
 \section{GatewayId}{
 
-The ID of an internet gateway or virtual private gateway attached to
-your VPC.
+The ID of an internet gateway or
+virtual private gateway attached to your VPC.
 }
 
 \section{InstanceId}{
 
-The ID of a NAT instance in your VPC. The operation fails if you specify
-an instance ID unless exactly one network interface is attached.
+The ID
+of a NAT instance in your VPC. The operation fails if you specify an
+instance ID unless exactly one network interface is
+attached.
 }
 
 \section{NatGatewayId}{
 
-[IPv4 traffic only] The ID of a NAT gateway.
+[IPv4 traffic only] The ID of a NAT
+gateway.
 }
 
 \section{TransitGatewayId}{
 
-The ID of a transit gateway.
+The ID of a transit
+gateway.
 }
 
 \section{LocalGatewayId}{
 
-The ID of the local gateway.
+The ID of the local
+gateway.
 }
 
 \section{CarrierGatewayId}{
+
 
 The ID of the carrier gateway.
 
@@ -144,11 +160,13 @@ associated with a Wavelength Zone.
 
 \section{NetworkInterfaceId}{
 
-The ID of a network interface.
+The ID of a network
+interface.
 }
 
 \section{VpcPeeringConnectionId}{
 
-The ID of a VPC peering connection.
+The ID of a VPC peering
+connection.
 }
 

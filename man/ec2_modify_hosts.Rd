@@ -15,49 +15,50 @@ ec2_modify_hosts(
 )
 }
 \arguments{
-\item{HostId}{List or named list. The IDs of the Dedicated Hosts to modify.}
+\item{HostId}{Array. The IDs of the Dedicated Hosts to modify.}
 
-\item{AutoPlacement}{String. Specify whether to enable or disable auto-placement. (optional)}
+\item{AutoPlacement}{String. Specify whether to enable or disable auto-placement.\link{optional}}
 
-\item{HostRecovery}{String. Indicates whether to enable or disable host recovery for the Dedicated Host.(optional)}
+\item{HostRecovery}{String. Indicates whether to enable or disable host recovery for the Dedicated Host.\link{optional}}
 
-\item{InstanceType}{String. Specifies the instance type to be supported by the Dedicated Host.(optional)}
+\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Host.\link{optional}}
 
-\item{InstanceFamily}{String. Specifies the instance family to be supported by the Dedicated Host.(optional)}
+\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Host.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modify the auto-placement setting of a Dedicated Host. When
-auto-placement is enabled, any instances that you launch with a tenancy
-of \code{host} but without a specific host ID are placed onto any available
-Dedicated Host in your account that has auto-placement enabled. When
-auto-placement is disabled, you need to provide a host ID to have the
-instance launch onto a specific host. If no host ID is provided, the
-instance is launched onto a suitable host with auto-placement enabled.
+Modify Hosts
 }
 \section{HostId}{
 
-The IDs of the Dedicated Hosts to modify.
+The IDs
+of the Dedicated Hosts to modify.
 }
 
 \section{AutoPlacement}{
 
-Specify whether to enable or disable auto-placement.
+Specify whether to
+enable or disable auto-placement.
 }
 
 \section{HostRecovery}{
 
-Indicates whether to enable or disable host recovery for the Dedicated
-Host. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html}{Host recovery}
+Indicates whether
+to enable or disable host recovery for the Dedicated Host. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html}{Host recovery}
 in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{InstanceType}{
+
 
 Specifies the instance type to be supported by the Dedicated Host.
 Specify this parameter to modify a Dedicated Host to support only a
@@ -70,6 +71,7 @@ types in its current instance family, omit this parameter and specify
 }
 
 \section{InstanceFamily}{
+
 
 Specifies the instance family to be supported by the Dedicated Host.
 Specify this parameter to modify a Dedicated Host to support multiple

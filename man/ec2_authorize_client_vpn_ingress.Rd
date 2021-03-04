@@ -21,67 +21,78 @@ ec2_authorize_client_vpn_ingress(
 
 \item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being authorized.}
 
-\item{AccessGroupId}{String. The ID of the group to grant access to, for example, the Active Directory group or identity...(see below)(optional)}
+\item{AccessGroupId}{String. The ID of the group to grant access to, for example, the Active Directory group or identity...\link{optional}}
 
-\item{AuthorizeAllGroups}{Boolean. Indicates whether to grant access to all clients.(optional)}
+\item{AuthorizeAllGroups}{Boolean. Indicates whether to grant access to all clients.\link{optional}}
 
-\item{Description}{String. A brief description of the authorization rule. (optional)}
+\item{Description}{String. A brief description of the authorization rule.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Adds an ingress authorization rule to a Client VPN endpoint. Ingress
-authorization rules act as firewall rules that grant access to networks.
-You must configure ingress authorization rules to enable clients to
-access resources in AWS or on-premises networks.
+Adds an ingress authorization rule to a Client VPN
+endpoint. Ingress authorization rules act as firewall rules that grant
+access to networks. You must configure ingress authorization rules to
+enable clients to access resources in AWS or on-premises
+networks.
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint.
+The ID of the Client VPN
+endpoint.
 }
 
 \section{TargetNetworkCidr}{
 
-The IPv4 address range, in CIDR notation, of the network for which
-access is being authorized.
+The IPv4 address range, in CIDR notation,
+of the network for which access is being
+authorized.
 }
 
 \section{AccessGroupId}{
 
-The ID of the group to grant access to, for example, the Active
-Directory group or identity provider (IdP) group. Required if
-\code{AuthorizeAllGroups} is \code{false} or not specified.
+The ID of the group to grant access to,
+for example, the Active Directory group or identity provider (IdP)
+group. Required if \code{AuthorizeAllGroups} is \code{false} or not
+specified.
 }
 
 \section{AuthorizeAllGroups}{
 
-Indicates whether to grant access to all clients. Specify \code{true} to
-grant all clients who successfully establish a VPN connection access to
-the network. Must be set to \code{true} if \code{AccessGroupId} is not specified.
+Indicates whether to grant access to all
+clients. Specify \code{true} to grant all clients who successfully establish
+a VPN connection access to the network. Must be set to \code{true} if
+\code{AccessGroupId} is not specified.
 }
 
 \section{Description}{
 
-A brief description of the authorization rule.
+A brief
+description of the authorization rule.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique,
+case-sensitive identifier that you provide to ensure the idempotency of
+the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.

@@ -26,45 +26,52 @@ ec2_create_traffic_mirror_session(
 
 \item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
 
-\item{SessionNumber}{Integer. The session number determines the order in which sessions are evaluated when an interface...(see below)}
+\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface...}
 
-\item{PacketLength}{Integer. The number of bytes in each packet to mirror.(optional)}
+\item{PacketLength}{Integer.   The number of bytes in each packet to mirror.\link{optional}}
 
-\item{VirtualNetworkId}{Integer. The VXLAN ID for the Traffic Mirror session.(optional)}
+\item{VirtualNetworkId}{Integer. The VXLAN ID for the Traffic Mirror session.\link{optional}}
 
-\item{Description}{String. The description of the Traffic Mirror session. (optional)}
+\item{Description}{String. The description of the Traffic Mirror session.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to a Traffic Mirror session. (optional)}
+\item{TagSpecification}{Array. The tags to assign to a Traffic Mirror session.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a Traffic Mirror session.
+Create Traffic Mirror Session
 }
 \section{NetworkInterfaceId}{
 
-The ID of the source network interface.
+The
+ID of the source network interface.
 }
 
 \section{TrafficMirrorTargetId}{
 
-The ID of the Traffic Mirror target.
+The ID of the
+Traffic Mirror target.
 }
 
 \section{TrafficMirrorFilterId}{
 
-The ID of the Traffic Mirror filter.
+The ID of the Traffic Mirror
+filter.
 }
 
 \section{SessionNumber}{
+
 
 The session number determines the order in which sessions are evaluated
 when an interface is used by multiple sessions. The first session with a
@@ -74,6 +81,7 @@ Valid values are 1-32766.
 }
 
 \section{PacketLength}{
+
 
 The number of bytes in each packet to mirror. These are bytes after the
 VXLAN header. Do not specify this parameter when you want to mirror the
@@ -88,33 +96,37 @@ parameter to specify the number of bytes in each packet to mirror.
 
 \section{VirtualNetworkId}{
 
-The VXLAN ID for the Traffic Mirror session. For more information about
-the VXLAN protocol, see \href{https://tools.ietf.org/html/rfc7348}{RFC 7348}.
-If you do not specify a \code{VirtualNetworkId}, an account-wide unique id is
-chosen at random.
+The VXLAN ID for the Traffic Mirror session. For
+more information about the VXLAN protocol, see \href{https://tools.ietf.org/html/rfc7348}{RFC 7348}. If you do not specify a
+\code{VirtualNetworkId}, an account-wide unique id is chosen at
+random.
 }
 
 \section{Description}{
 
-The description of the Traffic Mirror session.
+The description of the Traffic Mirror
+session.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to a Traffic Mirror session.
+The tags to assign to a Traffic Mirror
+session.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 

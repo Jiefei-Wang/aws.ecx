@@ -16,29 +16,38 @@ ec2_get_capacity_reservation_usage(
 \arguments{
 \item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{MaxResults}{Integer.   The maximum number of results to return for the request in a single page.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Gets usage information about a Capacity Reservation. If the Capacity
+Gets
+usage information about a Capacity Reservation. If the Capacity
 Reservation is shared, it shows usage information for the Capacity
 Reservation owner and each AWS account that is currently using the
 shared capacity. If the Capacity Reservation is not shared, it shows
-only the Capacity Reservation owner\'s usage.
+only the Capacity Reservation owner\'s
+usage.
 }
 \section{CapacityReservationId}{
 
-The ID of the Capacity Reservation.
+The ID of
+the Capacity Reservation.
 }
 
 \section{MaxResults}{
+
 
 The maximum number of results to return for the request in a single
 page. The remaining results can be seen by sending another request with
@@ -50,9 +59,10 @@ Valid range: Minimum value of 1. Maximum value of 1000.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

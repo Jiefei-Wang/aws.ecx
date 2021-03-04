@@ -15,38 +15,45 @@ ec2_delete_network_interface_permission(
 \arguments{
 \item{NetworkInterfacePermissionId}{String. The ID of the network interface permission.}
 
-\item{Force}{Boolean. Specify \code{true} to remove the permission even if the network interface is attached to an instance. (optional)}
+\item{Force}{Boolean. Specify \code{true} to remove the permission even if the network interface is attached to an instance.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes a permission for a network interface. By default, you cannot
-delete the permission if the account for which you\'re removing the
-permission has attached the network interface to an instance. However,
-you can force delete the permission, regardless of any attachment.
+Deletes a permission for a network interface. By
+default, you cannot delete the permission if the account for which
+you\'re removing the permission has attached the network interface to an
+instance. However, you can force delete the permission, regardless of
+any attachment.
 }
 \section{NetworkInterfacePermissionId}{
 
-The ID of the network interface permission.
+The ID of the network
+interface permission.
 }
 
 \section{Force}{
 
-Specify \code{true} to remove the permission even if the network interface is
-attached to an instance.
+Specify \code{true} to remove the
+permission even if the network interface is attached to an
+instance.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -18,44 +18,47 @@ ec2_import_key_pair(
 
 \item{PublicKeyMaterial}{String. The public key.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the imported key pair. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the imported key pair.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Imports the public key from an RSA key pair that you created with a
-third-party tool. Compare this with CreateKeyPair, in which AWS creates
-the key pair and gives the keys to you (AWS keeps a copy of the public
-key). With ImportKeyPair, you create the key pair and give AWS just the
-public key. The private key is never transferred between you and AWS.
+Import Key Pair
 }
 \section{KeyName}{
 
-A unique name for the key pair.
+A unique name for the key
+pair.
 }
 
 \section{PublicKeyMaterial}{
 
-The public key. For API calls, the text must be base64-encoded. For
-command line tools, base64 encoding is performed for you.
+The public key. For API calls, the text must
+be base64-encoded. For command line tools, base64 encoding is performed
+for you.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the imported key pair.
+The tags to apply to the
+imported key pair.
 }
 

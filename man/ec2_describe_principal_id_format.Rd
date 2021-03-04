@@ -14,49 +14,54 @@ ec2_describe_principal_id_format(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Resource}{List or named list. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...(see below)(optional)}
+\item{Resource}{Array. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the ID format settings for the root user and all IAM roles and
-IAM users that have explicitly specified a longer ID (17-character ID)
-preference.
+Describe Principal Id Format
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Resource}{
 
-The type of resource: \code{bundle} \| \code{conversion-task} \|
-\code{customer-gateway} \| \code{dhcp-options} \| \code{elastic-ip-allocation} \|
-\code{elastic-ip-association} \| \code{export-task} \| \code{flow-log} \| \code{image} \|
-\code{import-task} \| \code{instance} \| \code{internet-gateway} \| \code{network-acl} \|
-\code{network-acl-association} \| \code{network-interface} \|
-\code{network-interface-attachment} \| \code{prefix-list} \| \code{reservation} \|
-\code{route-table} \| \code{route-table-association} \| \code{security-group} \|
-\code{snapshot} \| \code{subnet} \| \code{subnet-cidr-block-association} \| \code{volume} \|
-\code{vpc} \| \code{vpc-cidr-block-association} \| \code{vpc-endpoint} \|
+The type of resource:
+\code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \|
+\code{elastic-ip-allocation} \| \code{elastic-ip-association} \| \code{export-task} \|
+\code{flow-log} \| \code{image} \| \code{import-task} \| \code{instance} \|
+\code{internet-gateway} \| \code{network-acl} \| \code{network-acl-association} \|
+\code{network-interface} \| \code{network-interface-attachment} \| \code{prefix-list}
+\| \code{reservation} \| \code{route-table} \| \code{route-table-association} \|
+\code{security-group} \| \code{snapshot} \| \code{subnet} \|
+\code{subnet-cidr-block-association} \| \code{volume} \| \code{vpc} \|
+\code{vpc-cidr-block-association} \| \code{vpc-endpoint} \|
 \code{vpc-peering-connection} \| \code{vpn-connection} \| \code{vpn-gateway}
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. To retrieve
-the remaining results, make another call with the returned NextToken
-value.
+The maximum number of results to return in a single
+call. To retrieve the remaining results, make another call with the
+returned NextToken value.
 }
 

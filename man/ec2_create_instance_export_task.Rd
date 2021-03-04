@@ -21,42 +21,50 @@ ec2_create_instance_export_task(
 
 \item{TargetEnvironment}{String. The target virtualization environment.}
 
-\item{Description}{String. A description for the conversion task or the resource being exported.(optional)}
+\item{Description}{String. A description for the conversion task or the resource being exported.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the export instance task during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the export instance task during creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Exports a running or stopped instance to an Amazon S3 bucket.
+Create Instance Export Task
 }
 \section{ExportToS3}{
 
-The format and location for an export instance task.
+The format and location for an export instance
+task.
 }
 
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of the
+instance.
 }
 
 \section{TargetEnvironment}{
 
-The target virtualization environment.
+The target virtualization
+environment.
 }
 
 \section{Description}{
 
-A description for the conversion task or the resource being exported.
-The maximum length is 255 characters.
+A description for the conversion task
+or the resource being exported. The maximum length is 255
+characters.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the export instance task during creation.
+The tags to apply to the export instance
+task during creation.
 }
 

@@ -13,37 +13,43 @@ ec2_cancel_spot_fleet_requests(
 )
 }
 \arguments{
-\item{SpotFleetRequestId}{List or named list. The IDs of the Spot Fleet requests.}
+\item{SpotFleetRequestId}{Array. The IDs of the Spot Fleet requests.}
 
 \item{TerminateInstances}{Boolean. Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels the specified Spot Fleet requests.
+Cancel Spot Fleet Requests
 }
 \section{SpotFleetRequestId}{
 
-The IDs of the Spot Fleet requests.
+The IDs of the Spot
+Fleet requests.
 }
 
 \section{TerminateInstances}{
 
-Indicates whether to terminate instances for a Spot Fleet request if it
-is canceled successfully.
+Indicates whether to terminate
+instances for a Spot Fleet request if it is canceled
+successfully.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

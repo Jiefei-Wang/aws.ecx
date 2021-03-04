@@ -14,27 +14,30 @@ ec2_describe_placement_groups(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{GroupName}{List or named list. The names of the placement groups.(optional)}
+\item{GroupName}{Array.   The names of the placement groups.\link{optional}}
 
-\item{GroupId}{List or named list. The IDs of the placement groups. (optional)}
+\item{GroupId}{Array. The IDs of the placement groups.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified placement groups or all of your placement
-groups. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html}{Placement groups}
+Describes the specified placement groups
+or all of your placement groups. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html}{Placement groups}
 in the \emph{Amazon EC2 User Guide}.
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -56,13 +59,15 @@ regardless of the tag value.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{GroupName}{
+
 
 The names of the placement groups.
 
@@ -72,6 +77,7 @@ specified.
 
 \section{GroupId}{
 
-The IDs of the placement groups.
+The IDs of the placement
+groups.
 }
 

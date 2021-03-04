@@ -14,48 +14,54 @@ ec2_update_security_group_rule_descriptions_egress(
 )
 }
 \arguments{
-\item{IpPermissions}{List or named list. The IP permissions for the security group rule.}
+\item{IpPermissions}{Array. The IP permissions for the security group rule.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{GroupId}{String. The ID of the security group.(optional)}
+\item{GroupId}{String. The ID of the security group.\link{optional}}
 
-\item{GroupName}{String. [Default VPC] The name of the security group.(optional)}
+\item{GroupName}{String. [Default VPC] The name of the security group.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-[VPC only] Updates the description of an egress (outbound) security
-group rule. You can replace an existing description, or add a
-description to a rule that did not have one previously.
+Update Security Group Rule Descriptions Egress
 }
 \section{IpPermissions}{
 
-The IP permissions for the security group rule.
+The IP permissions for the
+security group rule.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{GroupId}{
 
-The ID of the security group. You must specify either the security group
-ID or the security group name in the request. For security groups in a
-nondefault VPC, you must specify the security group ID.
+The ID of the security
+group. You must specify either the security group ID or the security
+group name in the request. For security groups in a nondefault VPC, you
+must specify the security group ID.
 }
 
 \section{GroupName}{
 
-[Default VPC] The name of the security group. You must specify either
-the security group ID or the security group name in the request.
+[Default VPC]
+The name of the security group. You must specify either the security
+group ID or the security group name in the
+request.
 }
 

@@ -1,4 +1,4 @@
-excluded_response <- c("nextToken", "requestId", "RequestID")
+
 
 add_asterisk_in_middle <- function(x, begin_nchar = 2, end_nchar = 2){
   if(!is.null(x)){

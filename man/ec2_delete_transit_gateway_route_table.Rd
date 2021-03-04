@@ -14,29 +14,35 @@ ec2_delete_transit_gateway_route_table(
 \arguments{
 \item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes the specified transit gateway route table. You must disassociate
-the route table from any transit gateway route tables before you can
-delete it.
+Deletes the
+specified transit gateway route table. You must disassociate the route
+table from any transit gateway route tables before you can delete
+it.
 }
 \section{TransitGatewayRouteTableId}{
 
-The ID of the transit gateway route table.
+The ID of the transit
+gateway route table.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

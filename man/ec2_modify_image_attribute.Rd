@@ -22,92 +22,102 @@ ec2_modify_image_attribute(
 \arguments{
 \item{ImageId}{String. The ID of the AMI.}
 
-\item{Attribute}{String. The name of the attribute to modify.(optional)}
+\item{Attribute}{String. The name of the attribute to modify.\link{optional}}
 
-\item{Description}{Object. A new description for the AMI. (optional)}
+\item{Description}{Object. A new description for the AMI.\link{optional}}
 
-\item{LaunchPermission}{Object. A new launch permission for the AMI. (optional)}
+\item{LaunchPermission}{Object. A new launch permission for the AMI.\link{optional}}
 
-\item{OperationType}{String. The operation type.(optional)}
+\item{OperationType}{String. The operation type.\link{optional}}
 
-\item{ProductCode}{List or named list. The DevPay product codes. After you add a product code to an AMI, it can\'t be removed. (optional)}
+\item{ProductCode}{Array. The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.\link{optional}}
 
-\item{UserGroup}{List or named list. The user groups.(optional)}
+\item{UserGroup}{Array. The user groups.\link{optional}}
 
-\item{UserId}{List or named list. The AWS account IDs.(optional)}
+\item{UserId}{Array. The AWS account IDs.\link{optional}}
 
-\item{Value}{String. The value of the attribute being modified.(optional)}
+\item{Value}{String. The value of the attribute being modified.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified attribute of the specified AMI. You can specify
-only one attribute at a time. You can use the \code{Attribute} parameter to
-specify the attribute or one of the following parameters: \code{Description},
-\code{LaunchPermission}, or \code{ProductCode}.
+Modify Image Attribute
 }
 \section{ImageId}{
 
-The ID of the AMI.
+The ID of the
+AMI.
 }
 
 \section{Attribute}{
 
-The name of the attribute to modify. The valid values are \code{description},
-\code{launchPermission}, and \code{productCodes}.
+The name of the attribute to modify. The valid
+values are \code{description}, \code{launchPermission}, and
+\code{productCodes}.
 }
 
 \section{Description}{
 
-A new description for the AMI.
+A new description for the
+AMI.
 }
 
 \section{LaunchPermission}{
 
-A new launch permission for the AMI.
+A new launch permission for the
+AMI.
 }
 
 \section{OperationType}{
 
-The operation type. This parameter can be used only when the \code{Attribute}
-parameter is \code{launchPermission}.
+The operation type. This parameter can be used
+only when the \code{Attribute} parameter is
+\code{launchPermission}.
 }
 
 \section{ProductCode}{
 
-The DevPay product codes. After you add a product code to an AMI, it
-can\'t be removed.
+The DevPay product codes. After
+you add a product code to an AMI, it can\'t be
+removed.
 }
 
 \section{UserGroup}{
 
-The user groups. This parameter can be used only when the \code{Attribute}
-parameter is \code{launchPermission}.
+The user groups. This parameter can be used
+only when the \code{Attribute} parameter is
+\code{launchPermission}.
 }
 
 \section{UserId}{
 
-The AWS account IDs. This parameter can be used only when the
-\code{Attribute} parameter is \code{launchPermission}.
+The AWS account IDs. This
+parameter can be used only when the \code{Attribute} parameter is
+\code{launchPermission}.
 }
 
 \section{Value}{
 
-The value of the attribute being modified. This parameter can be used
-only when the \code{Attribute} parameter is \code{description} or \code{productCodes}.
+The value of the attribute being
+modified. This parameter can be used only when the \code{Attribute} parameter
+is \code{description} or \code{productCodes}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

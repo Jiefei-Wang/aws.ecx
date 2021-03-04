@@ -13,20 +13,21 @@ ec2_disassociate_vpc_cidr_block(
 \arguments{
 \item{AssociationId}{String. The association ID for the CIDR block.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disassociates a CIDR block from a VPC. To disassociate the CIDR block,
-you must specify its association ID. You can get the association ID by
-using DescribeVpcs. You must detach or delete all gateways and resources
-that are associated with the CIDR block before you can disassociate it.
+Disassociate Vpc Cidr Block
 }
 \section{AssociationId}{
 
-The association ID for the CIDR block.
+The association ID for the
+CIDR block.
 }
 

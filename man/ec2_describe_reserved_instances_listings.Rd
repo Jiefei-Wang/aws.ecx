@@ -13,24 +13,26 @@ ec2_describe_reserved_instances_listings(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{ReservedInstancesId}{String. One or more Reserved Instance IDs. (optional)}
+\item{ReservedInstancesId}{String. One or more Reserved Instance IDs.\link{optional}}
 
-\item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs. (optional)}
+\item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes your account\'s Reserved Instance listings in the Reserved
-Instance Marketplace.
+Describe Reserved Instances Listings
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -45,11 +47,13 @@ listing.
 
 \section{ReservedInstancesId}{
 
-One or more Reserved Instance IDs.
+One or more Reserved Instance
+IDs.
 }
 
 \section{ReservedInstancesListingId}{
 
-One or more Reserved Instance listing IDs.
+One or more Reserved Instance listing
+IDs.
 }
 

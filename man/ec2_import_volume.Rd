@@ -21,28 +21,32 @@ ec2_import_volume(
 
 \item{Volume}{Object. The volume size.}
 
-\item{Description}{String. A description of the volume. (optional)}
+\item{Description}{String. A description of the volume.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates an import volume task using metadata from the specified disk
-image.For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html}{Importing Disks to Amazon EBS}.
+Import Volume
 }
 \section{AvailabilityZone}{
 
-The Availability Zone for the resulting EBS volume.
+The
+Availability Zone for the resulting EBS volume.
 }
 
 \section{Image}{
 
-The disk image.
+The
+disk image.
 }
 
 \section{Volume}{
@@ -52,14 +56,16 @@ The volume size.
 
 \section{Description}{
 
-A description of the volume.
+A
+description of the volume.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

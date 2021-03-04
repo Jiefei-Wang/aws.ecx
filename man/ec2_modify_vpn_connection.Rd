@@ -17,51 +17,57 @@ ec2_modify_vpn_connection(
 \arguments{
 \item{VpnConnectionId}{String. The ID of the VPN connection.}
 
-\item{TransitGatewayId}{String. The ID of the transit gateway. (optional)}
+\item{TransitGatewayId}{String. The ID of the transit gateway.\link{optional}}
 
-\item{CustomerGatewayId}{String. The ID of the customer gateway at your end of the VPN connection. (optional)}
+\item{CustomerGatewayId}{String. The ID of the customer gateway at your end of the VPN connection.\link{optional}}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway at the AWS side of the VPN connection. (optional)}
+\item{VpnGatewayId}{String. The ID of the virtual private gateway at the AWS side of the VPN connection.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the customer gateway or the target gateway of an AWS
-Site-to-Site VPN connection. To modify the target gateway, the following
-migration options are available:
+Modify Vpn Connection
 }
 \section{VpnConnectionId}{
 
-The ID of the VPN connection.
+The ID of the VPN
+connection.
 }
 
 \section{TransitGatewayId}{
 
-The ID of the transit gateway.
+The ID of the transit
+gateway.
 }
 
 \section{CustomerGatewayId}{
 
-The ID of the customer gateway at your end of the VPN connection.
+The ID of the customer gateway at your end
+of the VPN connection.
 }
 
 \section{VpnGatewayId}{
 
-The ID of the virtual private gateway at the AWS side of the VPN
+The ID of the virtual private
+gateway at the AWS side of the VPN
 connection.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

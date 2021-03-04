@@ -16,45 +16,52 @@ ec2_terminate_client_vpn_connections(
 \arguments{
 \item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to which the client is connected.}
 
-\item{ConnectionId}{String. The ID of the client connection to be terminated. (optional)}
+\item{ConnectionId}{String. The ID of the client connection to be terminated.\link{optional}}
 
-\item{Username}{String. The name of the user who initiated the connection.(optional)}
+\item{Username}{String. The name of the user who initiated the connection.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Terminates active Client VPN endpoint connections. This action can be
-used to terminate a specific client connection, or up to five
-connections established by a specific user.
+Terminates active Client VPN endpoint connections.
+This action can be used to terminate a specific client connection, or up
+to five connections established by a specific user.
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint to which the client is connected.
+The ID of the Client VPN endpoint to which the
+client is connected.
 }
 
 \section{ConnectionId}{
 
-The ID of the client connection to be terminated.
+The ID of the client connection
+to be terminated.
 }
 
 \section{Username}{
 
-The name of the user who initiated the connection. Use this option to
-terminate all active connections for the specified user. This option can
-only be used if the user has established up to five connections.
+The name of the user who initiated
+the connection. Use this option to terminate all active connections for
+the specified user. This option can only be used if the user has
+established up to five connections.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

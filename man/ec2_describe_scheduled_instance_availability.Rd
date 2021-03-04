@@ -22,45 +22,53 @@ ec2_describe_scheduled_instance_availability(
 
 \item{Recurrence}{Object. The schedule recurrence.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{MaxSlotDurationInHours}{Integer. The maximum available duration, in hours.(optional)}
+\item{MaxSlotDurationInHours}{Integer. The maximum available duration, in hours.\link{optional}}
 
-\item{MinSlotDurationInHours}{Integer. The minimum available duration, in hours.(optional)}
+\item{MinSlotDurationInHours}{Integer. The minimum available duration, in hours.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Finds available schedules that meet the specified criteria.
+Describe Scheduled Instance Availability
 }
 \section{FirstSlotStartTimeRange}{
 
-The time period for the first schedule to start.
+The time period
+for the first schedule to start.
 }
 
 \section{Recurrence}{
 
-The schedule recurrence.
+The schedule
+recurrence.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -75,23 +83,25 @@ The filters.
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. This value can
-be between 5 and 300. The default value is 300. To retrieve the
-remaining results, make another call with the returned \code{NextToken}
-value.
+The maximum number of results to return in a single
+call. This value can be between 5 and 300. The default value is 300. To
+retrieve the remaining results, make another call with the returned
+\code{NextToken} value.
 }
 
 \section{MaxSlotDurationInHours}{
 
-The maximum available duration, in hours. This value must be greater
-than \code{MinSlotDurationInHours} and less than 1,720.
+The maximum available duration,
+in hours. This value must be greater than \code{MinSlotDurationInHours} and
+less than 1,720.
 }
 
 \section{MinSlotDurationInHours}{
 
-The minimum available duration, in hours. The minimum required duration
-is 1,200 hours per year. For example, the minimum daily schedule is 4
-hours, the minimum weekly schedule is 24 hours, and the minimum monthly
-schedule is 100 hours.
+The minimum available duration, in
+hours. The minimum required duration is 1,200 hours per year. For
+example, the minimum daily schedule is 4 hours, the minimum weekly
+schedule is 24 hours, and the minimum monthly schedule is 100
+hours.
 }
 

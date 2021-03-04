@@ -22,33 +22,36 @@ ec2_modify_fpga_image_attribute(
 \arguments{
 \item{FpgaImageId}{String. The ID of the AFI.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Attribute}{String. The name of the attribute. (optional)}
+\item{Attribute}{String. The name of the attribute.\link{optional}}
 
-\item{OperationType}{String. The operation type. (optional)}
+\item{OperationType}{String. The operation type.\link{optional}}
 
-\item{UserId}{List or named list. The AWS account IDs. This parameter is valid only when modifying the \code{loadPermission} attribute. (optional)}
+\item{UserId}{Array. The AWS account IDs. This parameter is valid only when modifying the \code{loadPermission} attribute.\link{optional}}
 
-\item{UserGroup}{List or named list. The user groups. This parameter is valid only when modifying the \code{loadPermission} attribute. (optional)}
+\item{UserGroup}{Array. The user groups. This parameter is valid only when modifying the \code{loadPermission} attribute.\link{optional}}
 
-\item{ProductCode}{List or named list. The product codes.(optional)}
+\item{ProductCode}{Array. The product codes.\link{optional}}
 
-\item{LoadPermission}{Object. The load permission for the AFI. (optional)}
+\item{LoadPermission}{Object. The load permission for the AFI.\link{optional}}
 
-\item{Description}{String. A description for the AFI. (optional)}
+\item{Description}{String. A description for the AFI.\link{optional}}
 
-\item{Name}{String. A name for the AFI. (optional)}
+\item{Name}{String. A name for the AFI.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified attribute of the specified Amazon FPGA Image
-(AFI).
+Modifies the specified attribute of the specified
+Amazon FPGA Image (AFI).
 }
 \section{FpgaImageId}{
 
@@ -57,7 +60,8 @@ The ID of the AFI.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -65,41 +69,48 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{Attribute}{
 
-The name of the attribute.
+The name
+of the attribute.
 }
 
 \section{OperationType}{
 
-The operation type.
+The operation
+type.
 }
 
 \section{UserId}{
 
-The AWS account IDs. This parameter is valid only when modifying the
-\code{loadPermission} attribute.
+The AWS account IDs. This parameter is valid
+only when modifying the \code{loadPermission}
+attribute.
 }
 
 \section{UserGroup}{
 
-The user groups. This parameter is valid only when modifying the
-\code{loadPermission} attribute.
+The user groups. This parameter is valid
+only when modifying the \code{loadPermission}
+attribute.
 }
 
 \section{ProductCode}{
 
-The product codes. After you add a product code to an AFI, it can\'t be
-removed. This parameter is valid only when modifying the \code{productCodes}
+The product codes. After you add a
+product code to an AFI, it can\'t be removed. This parameter is valid
+only when modifying the \code{productCodes}
 attribute.
 }
 
 \section{LoadPermission}{
 
-The load permission for the AFI.
+The load permission for the
+AFI.
 }
 
 \section{Description}{
 
-A description for the AFI.
+A description for the
+AFI.
 }
 
 \section{Name}{

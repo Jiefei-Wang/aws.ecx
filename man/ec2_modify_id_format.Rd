@@ -7,22 +7,24 @@
 ec2_modify_id_format(Resource, UseLongIds, simplify = TRUE, others = list())
 }
 \arguments{
-\item{Resource}{String. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...(see below)}
+\item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...}
 
 \item{UseLongIds}{Boolean. Indicate whether the resource should use longer IDs (17-character IDs).}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the ID format for the specified resource on a per-Region basis.
-You can specify that resources should receive longer IDs (17-character
-IDs) when they are created.
+Modify Id Format
 }
 \section{Resource}{
+
 
 The type of resource: \code{bundle} \| \code{conversion-task} \|
 \code{customer-gateway} \| \code{dhcp-options} \| \code{elastic-ip-allocation} \|
@@ -41,6 +43,7 @@ types that are currently within their opt-in period for longer IDs.
 
 \section{UseLongIds}{
 
-Indicate whether the resource should use longer IDs (17-character IDs).
+Indicate whether the resource should use longer IDs
+(17-character IDs).
 }
 

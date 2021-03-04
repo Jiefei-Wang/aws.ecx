@@ -14,23 +14,28 @@ ec2_describe_hosts(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{HostId}{List or named list. The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches. (optional)}
+\item{HostId}{Array. The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.(optional)}
+\item{MaxResults}{Integer.   The maximum number of results to return for the request in a single page.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified Dedicated Hosts or all your Dedicated Hosts.
+Describe Hosts
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -54,11 +59,12 @@ regardless of the tag value.
 
 \section{HostId}{
 
-The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-launches.
+The IDs of the Dedicated Hosts. The IDs are used
+for targeted instance launches.
 }
 
 \section{MaxResults}{
+
 
 The maximum number of results to return for the request in a single
 page. The remaining results can be seen by sending another request with

@@ -13,37 +13,40 @@ ec2_modify_reserved_instances(
 )
 }
 \arguments{
-\item{ReservedInstancesId}{List or named list. The IDs of the Reserved Instances to modify.}
+\item{ReservedInstancesId}{Array. The IDs of the Reserved Instances to modify.}
 
-\item{ReservedInstancesConfigurationSetItemType}{List or named list. The configuration settings for the Reserved Instances to modify.}
+\item{ReservedInstancesConfigurationSetItemType}{Array. The configuration settings for the Reserved Instances to modify.}
 
-\item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.(optional)}
+\item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the Availability Zone, instance count, instance type, or
-network platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
-The Reserved Instances to be modified must be identical, except for
-Availability Zone, network platform, and instance type.
+Modify Reserved Instances
 }
 \section{ReservedInstancesId}{
 
-The IDs of the Reserved Instances to modify.
+The IDs of the Reserved Instances to
+modify.
 }
 
 \section{ReservedInstancesConfigurationSetItemType}{
 
-The configuration settings for the Reserved Instances to modify.
+The configuration settings for the Reserved
+Instances to modify.
 }
 
 \section{ClientToken}{
 
-A unique, case-sensitive token you provide to ensure idempotency of your
-modification request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+A unique, case-sensitive token
+you provide to ensure idempotency of your modification request. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 

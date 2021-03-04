@@ -17,33 +17,34 @@ ec2_allocate_address(
 )
 }
 \arguments{
-\item{Domain}{String. Indicates whether the Elastic IP address is for use with instances in a VPC or instances in...(see below)(optional)}
+\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances...\link{optional}}
 
-\item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool. (optional)}
+\item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.\link{optional}}
 
-\item{PublicIpv4Pool}{String. The ID of an address pool that you own.(optional)}
+\item{PublicIpv4Pool}{String. The ID of an address pool that you own.\link{optional}}
 
-\item{NetworkBorderGroup}{String. A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...(see below)(optional)}
+\item{NetworkBorderGroup}{String.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\link{optional}}
 
-\item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.(optional)}
+\item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the Elastic IP address. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the Elastic IP address.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Allocates an Elastic IP address to your AWS account. After you allocate
-the Elastic IP address you can associate it with an instance or network
-interface. After you release an Elastic IP address, it is released to
-the IP address pool and can be allocated to a different AWS account.
+Allocate Address
 }
 \section{Domain}{
+
 
 Indicates whether the Elastic IP address is for use with instances in a
 VPC or instances in EC2-Classic.
@@ -54,18 +55,20 @@ Otherwise, the default is \code{vpc}.
 
 \section{Address}{
 
-[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
-address pool.
+[EC2-VPC] The Elastic IP address to recover or an
+IPv4 address from an address pool.
 }
 
 \section{PublicIpv4Pool}{
 
-The ID of an address pool that you own. Use this parameter to let Amazon
-EC2 select an address from the address pool. To specify a specific
-address from the address pool, use the \code{Address} parameter instead.
+The ID of an
+address pool that you own. Use this parameter to let Amazon EC2 select
+an address from the address pool. To specify a specific address from the
+address pool, use the \code{Address} parameter instead.
 }
 
 \section{NetworkBorderGroup}{
+
 
 A unique set of Availability Zones, Local Zones, or Wavelength Zones
 from which AWS advertises IP addresses. Use this parameter to limit the
@@ -83,21 +86,24 @@ this operation on EC2 classic, you will receive an
 
 \section{CustomerOwnedIpv4Pool}{
 
-The ID of a customer-owned address pool. Use this parameter to let
-Amazon EC2 select an address from the address pool. Alternatively,
-specify a specific address from the address pool.
+The ID of a customer-owned address pool. Use this
+parameter to let Amazon EC2 select an address from the address pool.
+Alternatively, specify a specific address from the address
+pool.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to the Elastic IP address.
+The tags to assign to the
+Elastic IP address.
 }
 

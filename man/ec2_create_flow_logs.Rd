@@ -22,41 +22,44 @@ ec2_create_flow_logs(
 )
 }
 \arguments{
-\item{ResourceId}{List or named list. The ID of the subnet, network interface, or VPC for which you want to create a flow log.}
+\item{ResourceId}{Array.   The ID of the subnet, network interface, or VPC for which you want to create a flow log.}
 
 \item{ResourceType}{String. The type of resource for which to create the flow log.}
 
 \item{TrafficType}{String. The type of traffic to log.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DeliverLogsPermissionArn}{String. The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs...(see below)(optional)}
+\item{DeliverLogsPermissionArn}{String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs...\link{optional}}
 
-\item{LogGroupName}{String. The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.(optional)}
+\item{LogGroupName}{String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your...\link{optional}}
 
-\item{LogDestinationType}{String. Specifies the type of destination to which the flow log data is to be published.(optional)}
+\item{LogDestinationType}{String.   Specifies the type of destination to which the flow log data is to be published.\link{optional}}
 
-\item{LogDestination}{String. Specifies the destination to which the flow log data is to be published.(optional)}
+\item{LogDestination}{String.   Specifies the destination to which the flow log data is to be published.\link{optional}}
 
-\item{LogFormat}{String. The fields to include in the flow log record, in the order in which they should appear.(optional)}
+\item{LogFormat}{String.   The fields to include in the flow log record, in the order in which they should appear.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the flow logs. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the flow logs.\link{optional}}
 
-\item{MaxAggregationInterval}{Integer. The maximum interval of time during which a flow of packets is captured and aggregated into...(see below)(optional)}
+\item{MaxAggregationInterval}{Integer.   The maximum interval of time during which a flow of packets is captured and aggregated into...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates one or more flow logs to capture information about IP traffic
-for a specific network interface, subnet, or VPC.
+Create Flow Logs
 }
 \section{ResourceId}{
+
 
 The ID of the subnet, network interface, or VPC for which you want to
 create a flow log.
@@ -66,32 +69,36 @@ Constraints: Maximum of 1000 resources
 
 \section{ResourceType}{
 
-The type of resource for which to create the flow log. For example, if
-you specified a VPC ID for the \code{ResourceId} property, specify \code{VPC} for
-this property.
+The type of resource for which to create the flow
+log. For example, if you specified a VPC ID for the \code{ResourceId}
+property, specify \code{VPC} for this property.
 }
 
 \section{TrafficType}{
 
-The type of traffic to log. You can log traffic that the resource
-accepts or rejects, or all traffic.
+The type
+of traffic to log. You can log traffic that the resource accepts or
+rejects, or all traffic.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{DeliverLogsPermissionArn}{
+
 
 The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
 a CloudWatch Logs log group in your account.
@@ -102,6 +109,7 @@ If you specify \code{LogDestinationType} as \code{s3}, do not specify
 
 \section{LogGroupName}{
 
+
 The name of a new or existing CloudWatch Logs log group where Amazon EC2
 publishes your flow logs.
 
@@ -110,6 +118,7 @@ If you specify \code{LogDestinationType} as \code{s3}, do not specify
 }
 
 \section{LogDestinationType}{
+
 
 Specifies the type of destination to which the flow log data is to be
 published. Flow log data can be published to CloudWatch Logs or Amazon
@@ -123,6 +132,7 @@ Default: \code{cloud-watch-logs}
 }
 
 \section{LogDestination}{
+
 
 Specifies the destination to which the flow log data is to be published.
 Flow log data can be published to a CloudWatch Logs log group or an
@@ -146,6 +156,7 @@ subfolder name. This is a reserved term.
 
 \section{LogFormat}{
 
+
 The fields to include in the flow log record, in the order in which they
 should appear. For a list of available fields, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records}{Flow Log Records}.
 If you omit this parameter, the flow log is created using the default
@@ -159,10 +170,12 @@ parameter value.
 
 \section{TagSpecification}{
 
-The tags to apply to the flow logs.
+The tags to apply to the flow
+logs.
 }
 
 \section{MaxAggregationInterval}{
+
 
 The maximum interval of time during which a flow of packets is captured
 and aggregated into a flow log record. You can specify 60 seconds (1

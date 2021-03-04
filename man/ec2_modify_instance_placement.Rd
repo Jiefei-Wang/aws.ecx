@@ -19,39 +19,44 @@ ec2_modify_instance_placement(
 \arguments{
 \item{InstanceId}{String. The ID of the instance that you are modifying.}
 
-\item{Affinity}{String. The affinity setting for the instance. (optional)}
+\item{Affinity}{String. The affinity setting for the instance.\link{optional}}
 
-\item{GroupName}{String. The name of the placement group in which to place the instance.(optional)}
+\item{GroupName}{String.   The name of the placement group in which to place the instance.\link{optional}}
 
-\item{HostId}{String. The ID of the Dedicated Host with which to associate the instance. (optional)}
+\item{HostId}{String. The ID of the Dedicated Host with which to associate the instance.\link{optional}}
 
-\item{Tenancy}{String. The tenancy for the instance. (optional)}
+\item{Tenancy}{String. The tenancy for the instance.\link{optional}}
 
-\item{PartitionNumber}{Integer. Reserved for future use. (optional)}
+\item{PartitionNumber}{Integer. Reserved for future use.\link{optional}}
 
-\item{HostResourceGroupArn}{String. The ARN of the host resource group in which to place the instance. (optional)}
+\item{HostResourceGroupArn}{String. The ARN of the host resource group in which to place the instance.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the placement attributes for a specified instance. You can do
-the following:
+Modify Instance Placement
 }
 \section{InstanceId}{
 
-The ID of the instance that you are modifying.
+The ID of the instance that
+you are modifying.
 }
 
 \section{Affinity}{
 
-The affinity setting for the instance.
+The affinity setting for the
+instance.
 }
 
 \section{GroupName}{
+
 
 The name of the placement group in which to place the instance. For
 spread placement groups, the instance must have a tenancy of \code{default}.
@@ -64,21 +69,25 @@ To remove an instance from a placement group, specify an empty string
 
 \section{HostId}{
 
-The ID of the Dedicated Host with which to associate the instance.
+The ID of the Dedicated Host with which to
+associate the instance.
 }
 
 \section{Tenancy}{
 
-The tenancy for the instance.
+The tenancy for the
+instance.
 }
 
 \section{PartitionNumber}{
 
-Reserved for future use.
+Reserved for future
+use.
 }
 
 \section{HostResourceGroupArn}{
 
-The ARN of the host resource group in which to place the instance.
+The ARN of the host resource group in which to
+place the instance.
 }
 

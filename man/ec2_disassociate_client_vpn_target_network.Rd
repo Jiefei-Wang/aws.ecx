@@ -17,35 +17,39 @@ ec2_disassociate_client_vpn_target_network(
 
 \item{AssociationId}{String. The ID of the target network association.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disassociates a target network from the specified Client VPN endpoint.
-When you disassociate the last target network from a Client VPN, the
-following happens:
+Disassociate Client Vpn Target Network
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint from which to disassociate the target
+The ID of the Client VPN
+endpoint from which to disassociate the target
 network.
 }
 
 \section{AssociationId}{
 
-The ID of the target network association.
+The ID of the target network
+association.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -16,39 +16,45 @@ ec2_create_egress_only_internet_gateway(
 \arguments{
 \item{VpcId}{String. The ID of the VPC for which to create the egress-only internet gateway.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the egress-only internet gateway. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the egress-only internet gateway.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-[IPv6 only] Creates an egress-only internet gateway for your VPC. An
-egress-only internet gateway is used to enable outbound communication
-over IPv6 from instances in your VPC to the internet, and prevents hosts
-outside of your VPC from initiating an IPv6 connection with your
-instance.
+[IPv6 only] Creates an egress-only internet
+gateway for your VPC. An egress-only internet gateway is used to enable
+outbound communication over IPv6 from instances in your VPC to the
+internet, and prevents hosts outside of your VPC from initiating an IPv6
+connection with your instance.
 }
 \section{VpcId}{
 
-The ID of the VPC for which to create the egress-only internet gateway.
+The ID of the VPC for which
+to create the egress-only internet gateway.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique,
+case-sensitive identifier that you provide to ensure the idempotency of
+the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -56,6 +62,7 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{TagSpecification}{
 
-The tags to assign to the egress-only internet gateway.
+The tags
+to assign to the egress-only internet gateway.
 }
 

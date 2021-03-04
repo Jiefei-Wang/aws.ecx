@@ -16,28 +16,32 @@ ec2_describe_host_reservation_offerings(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxDuration}{Integer. This is the maximum duration of the reservation to purchase, specified in seconds.(optional)}
+\item{MaxDuration}{Integer. This is the maximum duration of the reservation to purchase, specified in seconds.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.\link{optional}}
 
-\item{MinDuration}{Integer. This is the minimum duration of the reservation you\'d like to purchase, specified in seconds.(optional)}
+\item{MinDuration}{Integer. This is the minimum duration of the reservation you\'d like to purchase, specified in seconds.\link{optional}}
 
-\item{OfferingId}{String. The ID of the reservation offering. (optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{OfferingId}{String. The ID of the reservation offering.\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the Dedicated Host reservations that are available to
-purchase.
+Describe Host Reservation Offerings
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -50,32 +54,36 @@ example, \code{m4}).
 
 \section{MaxDuration}{
 
-This is the maximum duration of the reservation to purchase, specified
-in seconds. Reservations are available in one-year and three-year terms.
-The number of seconds specified must be the number of seconds in a year
-(365x24x60x60) times one of the supported durations (1 or 3). For
-example, specify 94608000 for three years.
+This is the maximum duration of the reservation to
+purchase, specified in seconds. Reservations are available in one-year
+and three-year terms. The number of seconds specified must be the number
+of seconds in a year (365x24x60x60) times one of the supported durations
+(1 or 3). For example, specify 94608000 for three
+years.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return for the request in a single
-page. The remaining results can be seen by sending another request with
-the returned \code{nextToken} value. This value can be between 5 and 500. If
-\code{maxResults} is given a larger value than 500, you receive an error.
+The maximum number of results to return for
+the request in a single page. The remaining results can be seen by
+sending another request with the returned \code{nextToken} value. This value
+can be between 5 and 500. If \code{maxResults} is given a larger value than
+500, you receive an error.
 }
 
 \section{MinDuration}{
 
-This is the minimum duration of the reservation you\'d like to purchase,
-specified in seconds. Reservations are available in one-year and
-three-year terms. The number of seconds specified must be the number of
-seconds in a year (365x24x60x60) times one of the supported durations (1
-or 3). For example, specify 31536000 for one year.
+This is the minimum
+duration of the reservation you\'d like to purchase, specified in
+seconds. Reservations are available in one-year and three-year terms.
+The number of seconds specified must be the number of seconds in a year
+(365x24x60x60) times one of the supported durations (1 or 3). For
+example, specify 31536000 for one year.
 }
 
 \section{OfferingId}{
 
-The ID of the reservation offering.
+The ID of
+the reservation offering.
 }
 

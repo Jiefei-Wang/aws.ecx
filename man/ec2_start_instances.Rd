@@ -13,24 +13,28 @@ ec2_start_instances(
 )
 }
 \arguments{
-\item{InstanceId}{List or named list. The IDs of the instances.}
+\item{InstanceId}{Array. The IDs of the instances.}
 
-\item{AdditionalInfo}{String. Reserved. (optional)}
+\item{AdditionalInfo}{String. Reserved.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Starts an Amazon EBS-backed instance that you\'ve previously stopped.
+Start Instances
 }
 \section{InstanceId}{
 
-The IDs of the instances.
+The IDs of the
+instances.
 }
 
 \section{AdditionalInfo}{
@@ -40,7 +44,8 @@ Reserved.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.

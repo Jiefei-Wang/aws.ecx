@@ -7,24 +7,23 @@
 ec2_release_hosts(HostId, simplify = TRUE, others = list())
 }
 \arguments{
-\item{HostId}{List or named list. The IDs of the Dedicated Hosts to release.}
+\item{HostId}{Array. The IDs of the Dedicated Hosts to release.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-When you no longer want to use an On-Demand Dedicated Host it can be
-released. On-Demand billing is stopped and the host goes into \code{released}
-state. The host ID of Dedicated Hosts that have been released can no
-longer be specified in another request, for example, to modify the host.
-You must stop or terminate all instances on a host before it can be
-released.
+Release Hosts
 }
 \section{HostId}{
 
-The IDs of the Dedicated Hosts to release.
+The IDs of the Dedicated
+Hosts to release.
 }
 

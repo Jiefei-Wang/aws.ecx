@@ -25,58 +25,60 @@ ec2_create_vpc_endpoint(
 
 \item{ServiceName}{String. The service name.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{VpcEndpointType}{String. The type of endpoint.  Default: Gateway (optional)}
+\item{VpcEndpointType}{String.   The type of endpoint.  Default: Gateway  \link{optional}}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...(see below)(optional)}
+\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...\link{optional}}
 
-\item{RouteTableId}{List or named list. (Gateway endpoint) One or more route table IDs. (optional)}
+\item{RouteTableId}{Array. (Gateway endpoint) One or more route table IDs.\link{optional}}
 
-\item{SubnetId}{List or named list. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...(see below)(optional)}
+\item{SubnetId}{Array. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...\link{optional}}
 
-\item{SecurityGroupId}{List or named list. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...(see below)(optional)}
+\item{SecurityGroupId}{Array. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{PrivateDnsEnabled}{Boolean. (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.(optional)}
+\item{PrivateDnsEnabled}{Boolean.   (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to associate with the endpoint. (optional)}
+\item{TagSpecification}{Array. The tags to associate with the endpoint.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a VPC endpoint for a specified service. An endpoint enables you
-to create a private connection between your VPC and the service. The
-service may be provided by AWS, an AWS Marketplace Partner, or another
-AWS account. For more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html}{VPC Endpoints}
-in the \emph{Amazon Virtual Private Cloud User Guide}.
+Create Vpc Endpoint
 }
 \section{VpcId}{
 
-The ID of the VPC in which the endpoint will be used.
+The ID of the VPC in which the endpoint will be
+used.
 }
 
 \section{ServiceName}{
 
-The service name. To get a list of available services, use the
-DescribeVpcEndpointServices request, or get the name from the service
-provider.
+The service name. To get a list of available
+services, use the DescribeVpcEndpointServices request, or get the name
+from the service provider.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{VpcEndpointType}{
+
 
 The type of endpoint.
 
@@ -85,37 +87,43 @@ Default: Gateway
 
 \section{PolicyDocument}{
 
-(Interface and gateway endpoints) A policy to attach to the endpoint
-that controls access to the service. The policy must be in valid JSON
-format. If this parameter is not specified, we attach a default policy
-that allows full access to the service.
+(Interface and gateway endpoints) A policy to
+attach to the endpoint that controls access to the service. The policy
+must be in valid JSON format. If this parameter is not specified, we
+attach a default policy that allows full access to the
+service.
 }
 
 \section{RouteTableId}{
 
-(Gateway endpoint) One or more route table IDs.
+(Gateway endpoint) One or more route table
+IDs.
 }
 
 \section{SubnetId}{
 
-(Interface and Gateway Load Balancer endpoints) The ID of one or more
-subnets in which to create an endpoint network interface. For a Gateway
-Load Balancer endpoint, you can specify one subnet only.
+(Interface and Gateway Load Balancer endpoints)
+The ID of one or more subnets in which to create an endpoint network
+interface. For a Gateway Load Balancer endpoint, you can specify one
+subnet only.
 }
 
 \section{SecurityGroupId}{
 
-(Interface endpoint) The ID of one or more security groups to associate
-with the endpoint network interface.
+(Interface endpoint) The ID of one or
+more security groups to associate with the endpoint network
+interface.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive identifier that
+you provide to ensure the idempotency of the request. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{PrivateDnsEnabled}{
+
 
 (Interface endpoint) Indicates whether to associate a private hosted
 zone with the specified VPC. The private hosted zone contains a record
@@ -135,6 +143,7 @@ Default: \code{true}
 
 \section{TagSpecification}{
 
-The tags to associate with the endpoint.
+The tags to associate with the
+endpoint.
 }
 

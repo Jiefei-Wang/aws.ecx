@@ -17,33 +17,40 @@ ec2_enable_transit_gateway_route_table_propagation(
 
 \item{TransitGatewayAttachmentId}{String. The ID of the attachment.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Enables the specified attachment to propagate routes to the specified
-propagation route table.
+Enables the specified attachment to propagate
+routes to the specified propagation route
+table.
 }
 \section{TransitGatewayRouteTableId}{
 
-The ID of the propagation route table.
+The ID of the propagation
+route table.
 }
 
 \section{TransitGatewayAttachmentId}{
 
-The ID of the attachment.
+The ID of the
+attachment.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

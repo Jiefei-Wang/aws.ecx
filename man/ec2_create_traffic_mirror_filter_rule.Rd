@@ -34,70 +34,83 @@ ec2_create_traffic_mirror_filter_rule(
 
 \item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.}
 
-\item{DestinationPortRange}{Object. The destination port range. (optional)}
+\item{DestinationPortRange}{Object. The destination port range.\link{optional}}
 
-\item{SourcePortRange}{Object. The source port range. (optional)}
+\item{SourcePortRange}{Object. The source port range.\link{optional}}
 
-\item{Protocol}{Integer. The protocol, for example UDP, to assign to the Traffic Mirror rule.(optional)}
+\item{Protocol}{Integer.   The protocol, for example UDP, to assign to the Traffic Mirror rule.\link{optional}}
 
-\item{Description}{String. The description of the Traffic Mirror rule. (optional)}
+\item{Description}{String. The description of the Traffic Mirror rule.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a Traffic Mirror filter rule.
+Create Traffic Mirror Filter Rule
 }
 \section{TrafficMirrorFilterId}{
 
-The ID of the filter that this rule is associated with.
+The
+ID of the filter that this rule is associated
+with.
 }
 
 \section{TrafficDirection}{
 
-The type of traffic (\code{ingress} \| \code{egress}).
+The type of traffic (\code{ingress} \|
+\code{egress}).
 }
 
 \section{RuleNumber}{
 
-The number of the Traffic Mirror rule. This number must be unique for
-each Traffic Mirror rule in a given direction. The rules are processed
-in ascending order by rule number.
+The number of the Traffic Mirror rule.
+This number must be unique for each Traffic Mirror rule in a given
+direction. The rules are processed in ascending order by rule
+number.
 }
 
 \section{RuleAction}{
 
-The action to take (\code{accept} \| \code{reject}) on the filtered traffic.
+The action to take (\code{accept} \| \code{reject}) on
+the filtered traffic.
 }
 
 \section{DestinationCidrBlock}{
 
-The destination CIDR block to assign to the Traffic Mirror rule.
+The destination CIDR block to
+assign to the Traffic Mirror rule.
 }
 
 \section{SourceCidrBlock}{
 
-The source CIDR block to assign to the Traffic Mirror rule.
+The source CIDR
+block to assign to the Traffic Mirror rule.
 }
 
 \section{DestinationPortRange}{
 
-The destination port range.
+The
+destination port range.
 }
 
 \section{SourcePortRange}{
 
-The source port range.
+The source port
+range.
 }
 
 \section{Protocol}{
+
 
 The protocol, for example UDP, to assign to the Traffic Mirror rule.
 
@@ -107,20 +120,23 @@ on the Internet Assigned Numbers Authority (IANA) website.
 
 \section{Description}{
 
-The description of the Traffic Mirror rule.
+The description of the Traffic Mirror
+rule.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 

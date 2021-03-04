@@ -18,52 +18,62 @@ ec2_describe_network_insights_analyses(
 )
 }
 \arguments{
-\item{NetworkInsightsAnalysisId}{List or named list. The ID of the network insights analyses. You must specify either analysis IDs or a path ID. (optional)}
+\item{NetworkInsightsAnalysisId}{Array. The ID of the network insights analyses. You must specify either analysis IDs or a path ID.\link{optional}}
 
-\item{NetworkInsightsPathId}{String. The ID of the path. You must specify either a path ID or analysis IDs. (optional)}
+\item{NetworkInsightsPathId}{String. The ID of the path. You must specify either a path ID or analysis IDs.\link{optional}}
 
-\item{AnalysisStartTime}{String. The time when the network insights analyses started. (optional)}
+\item{AnalysisStartTime}{String. The time when the network insights analyses started.\link{optional}}
 
-\item{AnalysisEndTime}{String. The time when the network insights analyses ended. (optional)}
+\item{AnalysisEndTime}{String. The time when the network insights analyses ended.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes one or more of your network insights analyses.
+Describes one or more of your network insights
+analyses.
 }
 \section{NetworkInsightsAnalysisId}{
 
-The ID of the network insights analyses. You must specify either
-analysis IDs or a path ID.
+The ID of the
+network insights analyses. You must specify either analysis IDs or a
+path ID.
 }
 
 \section{NetworkInsightsPathId}{
 
-The ID of the path. You must specify either a path ID or analysis IDs.
+The ID of the path. You must specify either
+a path ID or analysis IDs.
 }
 
 \section{AnalysisStartTime}{
 
-The time when the network insights analyses started.
+The time when the network
+insights analyses started.
 }
 
 \section{AnalysisEndTime}{
 
-The time when the network insights analyses ended.
+The time when the network
+insights analyses ended.
 }
 
 \section{Filter}{
+
 
 The filters. The following are possible values:
 \itemize{
@@ -76,16 +86,17 @@ failed).
 
 \section{MaxResults}{
 
-The maximum number of results to return with a single call. To retrieve
-the remaining results, make another call with the returned \code{nextToken}
-value.
+The maximum number of results to return with a
+single call. To retrieve the remaining results, make another call with
+the returned \code{nextToken} value.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you
+have the required permissions for the action, without actually making
+the request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

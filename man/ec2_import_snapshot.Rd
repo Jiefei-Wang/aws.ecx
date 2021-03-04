@@ -19,71 +19,82 @@ ec2_import_snapshot(
 )
 }
 \arguments{
-\item{ClientData}{Object. The client-specific data. (optional)}
+\item{ClientData}{Object. The client-specific data.\link{optional}}
 
-\item{ClientToken}{String. Token to enable idempotency for VM import requests. (optional)}
+\item{ClientToken}{String. Token to enable idempotency for VM import requests.\link{optional}}
 
-\item{Description}{String. The description string for the import snapshot task. (optional)}
+\item{Description}{String. The description string for the import snapshot task.\link{optional}}
 
-\item{DiskContainer}{Object. Information about the disk container. (optional)}
+\item{DiskContainer}{Object. Information about the disk container.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Encrypted}{Boolean. Specifies whether the destination snapshot of the imported image should be encrypted.(optional)}
+\item{Encrypted}{Boolean. Specifies whether the destination snapshot of the imported image should be encrypted.\link{optional}}
 
-\item{KmsKeyId}{String. An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...(see below)(optional)}
+\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
 
-\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'. (optional)}
+\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the import snapshot task during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the import snapshot task during creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Imports a disk into an EBS snapshot.
+Imports a disk into an EBS
+snapshot.
 }
 \section{ClientData}{
 
-The client-specific data.
+The client-specific
+data.
 }
 
 \section{ClientToken}{
 
-Token to enable idempotency for VM import requests.
+Token to enable idempotency for VM import
+requests.
 }
 
 \section{Description}{
 
-The description string for the import snapshot task.
+The description string for the import
+snapshot task.
 }
 
 \section{DiskContainer}{
 
-Information about the disk container.
+Information about the disk
+container.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Encrypted}{
 
-Specifies whether the destination snapshot of the imported image should
-be encrypted. The default CMK for EBS is used unless you specify a
-non-default AWS Key Management Service (AWS KMS) CMK using \code{KmsKeyId}.
-For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS Encryption}
+Specifies whether the
+destination snapshot of the imported image should be encrypted. The
+default CMK for EBS is used unless you specify a non-default AWS Key
+Management Service (AWS KMS) CMK using \code{KmsKeyId}. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS Encryption}
 in the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 
 \section{KmsKeyId}{
+
 
 An identifier for the symmetric AWS Key Management Service (AWS KMS)
 customer master key (CMK) to use when creating the encrypted snapshot.
@@ -121,12 +132,13 @@ Amazon EBS does not support asymmetric CMKs.
 
 \section{RoleName}{
 
-The name of the role to use when not using the default role,
-\'vmimport\'.
+The name of the role to use when not using the
+default role, \'vmimport\'.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the import snapshot task during creation.
+The tags to apply to the
+import snapshot task during creation.
 }
 

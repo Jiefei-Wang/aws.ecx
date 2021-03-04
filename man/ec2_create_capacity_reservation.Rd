@@ -30,72 +30,82 @@ ec2_create_capacity_reservation(
 
 \item{InstanceCount}{Integer. The number of instances for which to reserve capacity.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{AvailabilityZone}{String. The Availability Zone in which to create the Capacity Reservation. (optional)}
+\item{AvailabilityZone}{String. The Availability Zone in which to create the Capacity Reservation.\link{optional}}
 
-\item{AvailabilityZoneId}{String. The ID of the Availability Zone in which to create the Capacity Reservation. (optional)}
+\item{AvailabilityZoneId}{String. The ID of the Availability Zone in which to create the Capacity Reservation.\link{optional}}
 
-\item{Tenancy}{String. Indicates the tenancy of the Capacity Reservation.(optional)}
+\item{Tenancy}{String.   Indicates the tenancy of the Capacity Reservation.\link{optional}}
 
-\item{EbsOptimized}{Boolean. Indicates whether the Capacity Reservation supports EBS-optimized instances.(optional)}
+\item{EbsOptimized}{Boolean. Indicates whether the Capacity Reservation supports EBS-optimized instances.\link{optional}}
 
-\item{EphemeralStorage}{Boolean. Indicates whether the Capacity Reservation supports instances with temporary, block-level storage. (optional)}
+\item{EphemeralStorage}{Boolean. Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.\link{optional}}
 
-\item{EndDate}{String. The date and time at which the Capacity Reservation expires.(optional)}
+\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.\link{optional}}
 
-\item{EndDateType}{String. Indicates the way in which the Capacity Reservation ends.(optional)}
+\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.\link{optional}}
 
-\item{InstanceMatchCriteria}{String. Indicates the type of instance launches that the Capacity Reservation accepts.(optional)}
+\item{InstanceMatchCriteria}{String.   Indicates the type of instance launches that the Capacity Reservation accepts.\link{optional}}
 
-\item{TagSpecifications}{List or named list. The tags to apply to the Capacity Reservation during launch. (optional)}
+\item{TagSpecifications}{Array. The tags to apply to the Capacity Reservation during launch.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a new Capacity Reservation with the specified attributes.
+Create Capacity Reservation
 }
 \section{InstanceType}{
 
-The instance type for which to reserve capacity. For more information,
-see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html}{Instance types}
+The instance type for which
+to reserve capacity. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html}{Instance types}
 in the \emph{Amazon EC2 User Guide}.
 }
 
 \section{InstancePlatform}{
 
-The type of operating system for which to reserve capacity.
+The type of
+operating system for which to reserve capacity.
 }
 
 \section{InstanceCount}{
 
-The number of instances for which to reserve capacity.
+The
+number of instances for which to reserve
+capacity.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensure Idempotency}.
+Unique, case-sensitive identifier that you
+provide to ensure the idempotency of the request. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensure Idempotency}.
 }
 
 \section{AvailabilityZone}{
 
-The Availability Zone in which to create the Capacity Reservation.
+The
+Availability Zone in which to create the Capacity
+Reservation.
 }
 
 \section{AvailabilityZoneId}{
 
-The ID of the Availability Zone in which to create the Capacity
-Reservation.
+The ID of the Availability Zone in
+which to create the Capacity Reservation.
 }
 
 \section{Tenancy}{
+
 
 Indicates the tenancy of the Capacity Reservation. A Capacity
 Reservation can have one of the following tenancy settings:
@@ -109,20 +119,23 @@ hardware that is dedicated to a single AWS account.
 
 \section{EbsOptimized}{
 
-Indicates whether the Capacity Reservation supports EBS-optimized
-instances. This optimization provides dedicated throughput to Amazon EBS
-and an optimized configuration stack to provide optimal I/O performance.
-This optimization isn\'t available with all instance types. Additional
-usage charges apply when using an EBS- optimized instance.
+Indicates whether the Capacity Reservation supports
+EBS-optimized instances. This optimization provides dedicated throughput
+to Amazon EBS and an optimized configuration stack to provide optimal
+I/O performance. This optimization isn\'t available with all instance
+types. Additional usage charges apply when using an EBS- optimized
+instance.
 }
 
 \section{EphemeralStorage}{
 
-Indicates whether the Capacity Reservation supports instances with
-temporary, block-level storage.
+Indicates whether the Capacity Reservation
+supports instances with temporary, block-level
+storage.
 }
 
 \section{EndDate}{
+
 
 The date and time at which the Capacity Reservation expires. When a
 Capacity Reservation expires, the reserved capacity is released and you
@@ -140,6 +153,7 @@ between 13:30:55 and 14:30:55 on 5/31/2019.
 
 \section{EndDateType}{
 
+
 Indicates the way in which the Capacity Reservation ends. A Capacity
 Reservation can have one of the following end types:
 \itemize{
@@ -153,6 +167,7 @@ specified date and time. You must provide an \code{EndDate} value if the
 }
 
 \section{InstanceMatchCriteria}{
+
 
 Indicates the type of instance launches that the Capacity Reservation
 accepts. The options include:
@@ -173,14 +188,16 @@ Default: \code{open}
 
 \section{TagSpecifications}{
 
-The tags to apply to the Capacity Reservation during launch.
+The tags to apply to the Capacity Reservation
+during launch.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

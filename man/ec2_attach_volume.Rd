@@ -20,39 +20,45 @@ ec2_attach_volume(
 
 \item{VolumeId}{String. The ID of the EBS volume. The volume and instance must be within the same Availability Zone.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Attaches an EBS volume to a running or stopped instance and exposes it
-to the instance with the specified device name.
+Attach Volume
 }
 \section{Device}{
 
-The device name (for example, \verb{/dev/sdh} or \code{xvdh}).
+The device name (for
+example, \verb{/dev/sdh} or \code{xvdh}).
 }
 
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of the
+instance.
 }
 
 \section{VolumeId}{
 
-The ID of the EBS volume. The volume and instance must be within the
-same Availability Zone.
+The ID of the EBS volume. The volume and
+instance must be within the same Availability
+Zone.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

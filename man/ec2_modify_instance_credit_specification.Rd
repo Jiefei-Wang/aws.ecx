@@ -13,39 +13,43 @@ ec2_modify_instance_credit_specification(
 )
 }
 \arguments{
-\item{InstanceCreditSpecification}{List or named list. Information about the credit option for CPU usage.}
+\item{InstanceCreditSpecification}{Array. Information about the credit option for CPU usage.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.(optional)}
+\item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the credit option for CPU usage on a running or stopped
-burstable performance instance. The credit options are \code{standard} and
-\code{unlimited}.
+Modify Instance Credit Specification
 }
 \section{InstanceCreditSpecification}{
 
-Information about the credit option for CPU usage.
+Information about the
+credit option for CPU usage.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
 
-A unique, case-sensitive token that you provide to ensure idempotency of
-your modification request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+A unique, case-sensitive
+token that you provide to ensure idempotency of your modification
+request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 

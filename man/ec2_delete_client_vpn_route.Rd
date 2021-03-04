@@ -18,43 +18,52 @@ ec2_delete_client_vpn_route(
 
 \item{DestinationCidrBlock}{String. The IPv4 address range, in CIDR notation, of the route to be deleted.}
 
-\item{TargetVpcSubnetId}{String. The ID of the target subnet used by the route. (optional)}
+\item{TargetVpcSubnetId}{String. The ID of the target subnet used by the route.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes a route from a Client VPN endpoint. You can only delete routes
-that you manually added using the \strong{CreateClientVpnRoute} action. You
-cannot delete routes that were automatically added when associating a
-subnet. To remove routes that have been automatically added,
-disassociate the target subnet from the Client VPN endpoint.
+Deletes a route from a Client VPN
+endpoint. You can only delete routes that you manually added using the
+\strong{CreateClientVpnRoute} action. You cannot delete routes that were
+automatically added when associating a subnet. To remove routes that
+have been automatically added, disassociate the target subnet from the
+Client VPN endpoint.
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint from which the route is to be deleted.
+The ID of the Client VPN
+endpoint from which the route is to be deleted.
 }
 
 \section{DestinationCidrBlock}{
 
-The IPv4 address range, in CIDR notation, of the route to be deleted.
+The
+IPv4 address range, in CIDR notation, of the route to be
+deleted.
 }
 
 \section{TargetVpcSubnetId}{
 
-The ID of the target subnet used by the route.
+The ID of the target subnet used by the
+route.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

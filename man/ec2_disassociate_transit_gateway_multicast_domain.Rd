@@ -14,44 +14,51 @@ ec2_disassociate_transit_gateway_multicast_domain(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain. (optional)}
+\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.\link{optional}}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment. (optional)}
+\item{TransitGatewayAttachmentId}{String. The ID of the attachment.\link{optional}}
 
-\item{SubnetIds}{List or named list. The IDs of the subnets; (optional)}
+\item{SubnetIds}{Array. The IDs of the subnets;\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disassociates the specified subnets from the transit gateway multicast
-domain.
+Disassociates
+the specified subnets from the transit gateway multicast domain.
 }
 \section{TransitGatewayMulticastDomainId}{
 
-The ID of the transit gateway multicast domain.
+The ID of the transit gateway multicast
+domain.
 }
 
 \section{TransitGatewayAttachmentId}{
 
-The ID of the attachment.
+The ID of the
+attachment.
 }
 
 \section{SubnetIds}{
 
-The IDs of the subnets;
+The IDs of the
+subnets;
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -15,25 +15,30 @@ ec2_describe_volumes(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{VolumeId}{List or named list. The volume IDs. (optional)}
+\item{VolumeId}{Array. The volume IDs.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of volume results returned by \code{DescribeVolumes} in paginated output.(optional)}
+\item{MaxResults}{Integer. The maximum number of volume results returned by \code{DescribeVolumes} in paginated output.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified EBS volumes or all of your EBS volumes.
+Describe Volumes
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -82,15 +87,17 @@ The volume IDs.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 
 \section{MaxResults}{
 
-The maximum number of volume results returned by \code{DescribeVolumes} in
+The
+maximum number of volume results returned by \code{DescribeVolumes} in
 paginated output. When this parameter is used, \code{DescribeVolumes} only
 returns \code{MaxResults} results in a single page along with a \code{NextToken}
 response element. The remaining results of the initial request can be

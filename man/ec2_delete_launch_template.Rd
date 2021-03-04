@@ -13,39 +13,46 @@ ec2_delete_launch_template(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.(optional)}
+\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
 
-\item{LaunchTemplateName}{String. The name of the launch template.(optional)}
+\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes a launch template. Deleting a launch template deletes all of its
+Deletes a launch
+template. Deleting a launch template deletes all of its
 versions.
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{LaunchTemplateId}{
 
-The ID of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The ID of the launch
+template. You must specify either the launch template ID or launch
+template name in the request.
 }
 
 \section{LaunchTemplateName}{
 
-The name of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The name of the launch
+template. You must specify either the launch template ID or launch
+template name in the request.
 }
 

@@ -16,25 +16,31 @@ ec2_delete_vpn_connection_route(
 
 \item{VpnConnectionId}{String. The ID of the VPN connection.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes the specified static route associated with a VPN connection
-between an existing virtual private gateway and a VPN customer gateway.
-The static route allows traffic to be routed from the virtual private
-gateway to the VPN customer gateway.
+Deletes the specified static route associated with
+a VPN connection between an existing virtual private gateway and a VPN
+customer gateway. The static route allows traffic to be routed from the
+virtual private gateway to the VPN customer
+gateway.
 }
 \section{DestinationCidrBlock}{
 
-The CIDR block associated with the local subnet of the customer network.
+The CIDR block associated
+with the local subnet of the customer network.
 }
 
 \section{VpnConnectionId}{
 
-The ID of the VPN connection.
+The
+ID of the VPN connection.
 }
 

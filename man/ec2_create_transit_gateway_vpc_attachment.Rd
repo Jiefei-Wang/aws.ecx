@@ -20,26 +20,30 @@ ec2_create_transit_gateway_vpc_attachment(
 
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{SubnetIds}{List or named list. The IDs of one or more subnets.}
+\item{SubnetIds}{Array. The IDs of one or more subnets.}
 
-\item{Options}{Object. The VPC attachment options. (optional)}
+\item{Options}{Object. The VPC attachment options.\link{optional}}
 
-\item{TagSpecifications}{List or named list. The tags to apply to the VPC attachment. (optional)}
+\item{TagSpecifications}{Array. The tags to apply to the VPC attachment.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Attaches the specified VPC to the specified transit gateway.
+Create Transit Gateway Vpc Attachment
 }
 \section{TransitGatewayId}{
 
-The ID of the transit gateway.
+The ID of the transit
+gateway.
 }
 
 \section{VpcId}{
@@ -49,27 +53,32 @@ The ID of the VPC.
 
 \section{SubnetIds}{
 
-The IDs of one or more subnets. You can specify only one subnet per
+The
+IDs of one or more subnets. You can specify only one subnet per
 Availability Zone. You must specify at least one subnet, but we
 recommend that you specify two subnets for better availability. The
-transit gateway uses one IP address from each specified subnet.
+transit gateway uses one IP address from each specified
+subnet.
 }
 
 \section{Options}{
 
-The VPC attachment options.
+The VPC attachment
+options.
 }
 
 \section{TagSpecifications}{
 
-The tags to apply to the VPC attachment.
+The tags to apply to the VPC
+attachment.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -21,81 +21,91 @@ ec2_authorize_security_group_egress(
 \arguments{
 \item{GroupId}{String. The ID of the security group.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{IpPermissions}{List or named list. The sets of IP permissions.(optional)}
+\item{IpPermissions}{Array. The sets of IP permissions.\link{optional}}
 
-\item{CidrIp}{String. Not supported. Use a set of IP permissions to specify the CIDR. (optional)}
+\item{CidrIp}{String. Not supported. Use a set of IP permissions to specify the CIDR.\link{optional}}
 
-\item{FromPort}{Integer. Not supported. Use a set of IP permissions to specify the port. (optional)}
+\item{FromPort}{Integer. Not supported. Use a set of IP permissions to specify the port.\link{optional}}
 
-\item{IpProtocol}{String. Not supported. Use a set of IP permissions to specify the protocol name or number. (optional)}
+\item{IpProtocol}{String. Not supported. Use a set of IP permissions to specify the protocol name or number.\link{optional}}
 
-\item{ToPort}{Integer. Not supported. Use a set of IP permissions to specify the port. (optional)}
+\item{ToPort}{Integer. Not supported. Use a set of IP permissions to specify the port.\link{optional}}
 
-\item{SourceSecurityGroupName}{String. Not supported. Use a set of IP permissions to specify a destination security group. (optional)}
+\item{SourceSecurityGroupName}{String. Not supported. Use a set of IP permissions to specify a destination security group.\link{optional}}
 
-\item{SourceSecurityGroupOwnerId}{String. Not supported. Use a set of IP permissions to specify a destination security group. (optional)}
+\item{SourceSecurityGroupOwnerId}{String. Not supported. Use a set of IP permissions to specify a destination security group.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-[VPC only] Adds the specified egress rules to a security group for use
-with a VPC.
+Authorize Security Group Egress
 }
 \section{GroupId}{
 
-The ID of the security group.
+The ID of
+the security group.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{IpPermissions}{
 
-The sets of IP permissions. You can\'t specify a destination security
-group and a CIDR IP address range in the same set of permissions.
+The sets of IP permissions.
+You can\'t specify a destination security group and a CIDR IP address
+range in the same set of permissions.
 }
 
 \section{CidrIp}{
 
-Not supported. Use a set of IP permissions to specify the CIDR.
+Not supported.
+Use a set of IP permissions to specify the CIDR.
 }
 
 \section{FromPort}{
 
-Not supported. Use a set of IP permissions to specify the port.
+Not
+supported. Use a set of IP permissions to specify the
+port.
 }
 
 \section{IpProtocol}{
 
-Not supported. Use a set of IP permissions to specify the protocol name
-or number.
+Not supported. Use a set of IP permissions to
+specify the protocol name or number.
 }
 
 \section{ToPort}{
 
-Not supported. Use a set of IP permissions to specify the port.
+Not supported.
+Use a set of IP permissions to specify the port.
 }
 
 \section{SourceSecurityGroupName}{
 
-Not supported. Use a set of IP permissions to specify a destination
-security group.
+Not
+supported. Use a set of IP permissions to specify a destination security
+group.
 }
 
 \section{SourceSecurityGroupOwnerId}{
 
-Not supported. Use a set of IP permissions to specify a destination
-security group.
+Not supported. Use a set of IP permissions to
+specify a destination security group.
 }
 

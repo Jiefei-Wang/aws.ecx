@@ -9,32 +9,37 @@ ec2_delete_vpc(VpcId, DryRun = NULL, simplify = TRUE, others = list())
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes the specified VPC. You must detach or delete all gateways and
-resources that are associated with the VPC before you can delete it. For
-example, you must terminate all instances running in the VPC, delete all
-security groups associated with the VPC (except the default one), delete
-all route tables associated with the VPC (except the default one), and
-so on.
+Deletes the specified VPC. You must detach or
+delete all gateways and resources that are associated with the VPC
+before you can delete it. For example, you must terminate all instances
+running in the VPC, delete all security groups associated with the VPC
+(except the default one), delete all route tables associated with the
+VPC (except the default one), and so on.
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

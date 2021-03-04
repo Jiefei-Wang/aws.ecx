@@ -14,34 +14,39 @@ ec2_move_address_to_vpc(
 \arguments{
 \item{PublicIp}{String. The Elastic IP address.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
-platform. The Elastic IP address must be allocated to your account for
-more than 24 hours, and it must not be associated with an instance.
-After the Elastic IP address is moved, it is no longer available for use
-in the EC2-Classic platform, unless you move it back using the
-RestoreAddressToClassic request. You cannot move an Elastic IP address
-that was originally allocated for use in the EC2-VPC platform to the
-EC2-Classic platform.
+Moves an Elastic IP address from the EC2-Classic
+platform to the EC2-VPC platform. The Elastic IP address must be
+allocated to your account for more than 24 hours, and it must not be
+associated with an instance. After the Elastic IP address is moved, it
+is no longer available for use in the EC2-Classic platform, unless you
+move it back using the RestoreAddressToClassic request. You cannot move
+an Elastic IP address that was originally allocated for use in the
+EC2-VPC platform to the EC2-Classic platform.
 }
 \section{PublicIp}{
 
-The Elastic IP address.
+The Elastic IP
+address.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

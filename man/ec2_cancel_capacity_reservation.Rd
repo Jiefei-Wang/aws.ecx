@@ -14,28 +14,32 @@ ec2_cancel_capacity_reservation(
 \arguments{
 \item{CapacityReservationId}{String. The ID of the Capacity Reservation to be cancelled.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels the specified Capacity Reservation, releases the reserved
-capacity, and changes the Capacity Reservation\'s state to \code{cancelled}.
+Cancel Capacity Reservation
 }
 \section{CapacityReservationId}{
 
-The ID of the Capacity Reservation to be cancelled.
+The ID of the Capacity
+Reservation to be cancelled.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

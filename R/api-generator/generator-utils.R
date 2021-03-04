@@ -1,8 +1,9 @@
 ## Generate the roxygen documentation of a function
-generate_document <- function(definition, param_table){
-    param_table <- param_table[!param_table$name%in%token_params,]
+generate_document <- function(api_info){
+    param_table <- api_info$parameters
+    param_table <- param_table[!param_table$name%in%token_names,]
 
-    descriptions <- vapply(param_table$description, html_to_markdown, character(1))
+    descriptions <- param_table$description
     short_descriptions <- vapply(seq_len(nrow(param_table)),
                                  function(i)get_short_description(
                                      param_name = param_table$name[i],
@@ -10,15 +11,16 @@ generate_document <- function(definition, param_table){
                                      required = param_table$required[i],
                                      type = param_table$type[i]),
                                  character(1))
-    description_idx <- short_descriptions!=""
+    short_descriptions[short_descriptions==""] <- "No description can be found."
 
-    function_description <- html_to_markdown(definition$description)
+    function_description <- api_info$description
+    document_title <- camel_to_title(api_info$name)
     document <- c(
-        camel_to_title(definition$`x-aws-operation-name`),
+        document_title,
         "\n",
         strsplit(function_description, "\\n\\n")[[1]][1],
         "\n",
-        paste0("@param ", param_table$name[description_idx], " ", short_descriptions[description_idx]),
+        paste0("@param ", param_table$name, " ", short_descriptions),
         "@inheritParams additionalDoc",
         "\n",
         paste0("@section ", param_table$name, ":\n", descriptions),
@@ -36,115 +38,51 @@ generate_document <- function(definition, param_table){
 
 # service <- "ec2"
 # action <- "DescribeVpcs"
-generate_function <- function(service ,action, param_table){
-    service_func_name <- paste0(service, "_request")
-    function_name <- paste0(service, "_", pascal_to_camel(action))
-    token_idx <- which(param_table$name %in% token_params)
-
-    function_header <- paste0(function_name, " <- function(",
-                              paste0(
-                                  paste0(param_table$name,
-                                         ifelse(param_table$required, "", " = NULL")
-                                  ),
-                                  collapse = ", "),
-                              ", simplify = TRUE",
-                              ", others = list()",
-                              "){")
-
-
-    if("Filter" %in% param_table$name){
-        filter_code <- "Filter <- get_filter(Filter)"
+generate_function <- function(service, api_info){
+    action <- api_info$name
+    param_table <- api_info$parameters
+    service_request <- paste0(service, "_request")
+    function_name <- paste0(service, "_", pascal_to_camel(api_info$name))
+    parameters <- paste0(
+        c(paste0(
+            param_table$name,ifelse(param_table$required, "", " = NULL")),
+          "simplify = TRUE",
+          "others = list()"),
+        collapse = ", ")
+    if(any(token_names%in%param_table$name)){
+        token_name <- token_names[token_names%in%param_table$name]
+        template <- get_template(TRUE)
     }else{
-        filter_code <- NULL
+        template <- get_template(FALSE)
     }
 
     array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]
-    array_code <- vapply(array_param,
-                         function(x)
-                             paste0(x," <- list_to_array(\"",x,"\", ",x,")" ),
-                         character(1))
+    list_to_array_process_code <- paste0(
+        vapply(array_param,
+               function(x)
+                   paste0(x," <- list_to_array(\"",x,"\", ",x,")" ),
+               character(1)),
+        collapse = "\n")
 
-    request_code <- generate_function_call(service_func_name,
-                                           action = dQuote(action, FALSE),
-                                           parameters = "parameters")
+    if("Filter" %in% param_table$name){
+        list_to_filter_process_code <- "Filter <- get_filter(Filter)"
+    }
 
     array_idx <- param_table$type=="array"
     if(any(array_idx)){
-        array_char <- paste0(", ",paste0(param_table$name[array_idx], collapse = ", "))
-    }else{
-        array_char <- NULL
+        array_combine <- paste0(", ", paste0(param_table$name[array_idx], collapse = ", "))
     }
-
     if(any(!array_idx)){
-        non_array_char <- paste0(
+        parameters_combine <- paste0(
             paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
             collapse = ", ")
-    }else{
-        non_array_char <- NULL
     }
 
-    all_paramters <- paste0(
-        "c(list(",non_array_char,"), others",array_char,")"
-    )
-
-    function_body <- c(
-        filter_code,
-        array_code,
-        paste0("parameters <- ", all_paramters),
-        paste0("parameters <- parameters[!vapply(parameters, is.null, logical(1))]"),
-        paste0("response <- ", request_code),
-        "result <- response"
-    )
-    ## If token presents, we need to handle the token
-    if(length(token_idx)){
-        token_name <- param_table$name[token_idx]
-        function_body <- c(
-            function_body,
-            "if(simplify){",
-            "while(!is.null(response[[\"nextToken\"]])){",
-            paste0("parameters[[",dQuote(token_name, FALSE),"]] <- response[[\"nextToken\"]]"),
-            paste0("response <- ", request_code),
-            paste0("result <- lapply(unique(c(names(result), names(response))),",
-                   "function(x) list(c(result[[x]], response[[x]])))"),
-            "}",
-            "}")
-    }
-
-    function_body <- c(
-        function_body,
-        "if(simplify){",
-        "result1 <- result[!names(result) %in% excluded_response]",
-        "if(length(result1) == 1){",
-        "result <- result1[[1]]",
-        "}",
-        "}",
-        "result"
-    )
-
-
-    x <- paste0(c(function_header, function_body, "}"),collapse = "\n")
-    x
+    x <- whisker::whisker.render(template)
 }
 
 
-## Generate character function code given the function name and
-## its arguments
-generate_function_call<-function(name, ...){
-    arguments_raw <- list(...)
-    arguments <- c()
-    for(i in seq_along(arguments_raw)){
-        arg_name <- names(arguments_raw)[i]
-        arg_value <- arguments_raw[i]
-        if(!is.null(arg_name)&&arg_name!=""){
-            arguments[i] <- paste0(arg_name, " = ", arg_value)
-        }else{
-            arguments[i] <- arg_value
-        }
-    }
-    paste0(name, "(", paste0(arguments , collapse = ", "),")")
-}
-
-get_parameter_table <- function(params){
+generate_parameter_table <- function(params){
     param_names <- vapply(params,function(x)x$name,character(1))
     param_types <- vapply(params,function(x)x$schema$type,character(1))
     is_required <- vapply(params,function(x)x$required,logical(1))
@@ -157,15 +95,8 @@ get_parameter_table <- function(params){
         description = descriptions
     )
     x <- rbind(x[x$required,], x[!x$required,])
-    x <- x[!x$name%in%excluded_params,]
+    x <- x[!x$name%in%excluded_request_names,]
     x
-}
-
-
-
-
-sort_params <- function(x, is_required){
-    c(x[is_required], x[!is_required])
 }
 
 
@@ -181,7 +112,6 @@ get_short_description <- function(param_name, description, required, type=NULL){
     }
     max_char <- 100
     stripped_description <- gsub("\n", " ", description)
-    # stripped_description <- gsub("  ", " ", stripped_description, fixed = TRUE)
     if(nchar(stripped_description) < max_char ){
         short_description <- stripped_description
     }else{
@@ -190,13 +120,13 @@ get_short_description <- function(param_name, description, required, type=NULL){
             short_description <- first_sentence
         }else{
             short_description <- truncate_string(first_sentence,max_char-10)
-            short_description <- paste0(short_description, "...(see below)")
+            short_description <- paste0(short_description, "...")
         }
     }
-    short_description <- paste0(short_description , ifelse(required,"","(optional)"))
+    short_description <- paste0(short_description , ifelse(required,"","[optional]"))
     if(!is.null(type)){
-        if(type=="array"){
-            type <- "list or named list"
+        if(type%in%names(type_map)){
+            type <- type_map[type]
         }
         short_description <- paste0(capitalize(type), ". ", short_description)
     }
@@ -221,7 +151,56 @@ html_to_markdown <- function(x){
     x
 }
 
+to_markdown <- function(api_info_list){
+    function_descriptions <- vapply(api_info_list,
+                                    function(x)x$description,character(1))
+    function_descriptions <- html_list_to_markdown(function_descriptions)
+    for(i in seq_along(api_info_list)){
+        api_info_list[[i]]$description <- function_descriptions[i]
+    }
 
+
+    parameter_descriptions <- unlist(lapply(api_info_list,
+                                            function(x)x$parameters$description))
+    parameter_descriptions <- html_list_to_markdown(parameter_descriptions)
+    idx <- 1
+    for(i in seq_along(api_info_list)){
+        description_num <- length(api_info_list[[i]]$parameters$description)
+        if(description_num==0)
+            next
+        api_info_list[[i]]$parameters$description <-
+            parameter_descriptions[idx:(idx+description_num-1)]
+        idx <- idx + description_num
+    }
+    api_info_list
+}
+
+
+html_list_to_markdown <- function(x){
+    separator <- "======separator======"
+    x_n <- length(x)
+    x <- paste0(x,collapse = separator)
+    x <- html_to_markdown(x)
+    x <- strsplit(x, separator, fixed = TRUE)[[1]]
+    stopifnot(length(x)==x_n)
+    x
+}
+
+write_apis_to_file <- function(api_info_list, file_path){
+    code <- c()
+    for(i in api_info_list){
+        code <- c(code,
+                  paste0(i$document,"\n",i$definition)
+                  )
+    }
+    code <- paste0(code,collapse = "\n\n")
+    code0 <- ""
+    while(code!=code0){
+        code0 <- code
+        code <- gsub("\n +\n", "\n", code)
+    }
+    output_to_file(code, file_path)
+}
 
 output_to_file <- function(content, file_path){
     write(content,file=file_path,append=FALSE)
@@ -250,14 +229,3 @@ simpleCap <- function(x) {
 }
 
 
-
-get_yaml_path <- function(service){
-    filePath <- paste0("R/api-generator/openapi/",service,".yaml")
-    filePath
-}
-
-get_aws_api <- function(service){
-    filePath <- get_yaml_path(service)
-    api <- suppressWarnings(rapiclient::get_api(filePath))
-    api
-}

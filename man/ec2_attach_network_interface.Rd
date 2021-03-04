@@ -21,46 +21,55 @@ ec2_attach_network_interface(
 
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{NetworkCardIndex}{Integer. The index of the network card.(optional)}
+\item{NetworkCardIndex}{Integer. The index of the network card.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Attaches a network interface to an instance.
+Attaches
+a network interface to an instance.
 }
 \section{DeviceIndex}{
 
-The index of the device for the network interface attachment.
+The index of the device for
+the network interface attachment.
 }
 
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of the
+instance.
 }
 
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the network
+interface.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{NetworkCardIndex}{
 
-The index of the network card. Some instance types support multiple
-network cards. The primary network interface must be assigned to network
-card index 0. The default is network card index 0.
+The index of the network
+card. Some instance types support multiple network cards. The primary
+network interface must be assigned to network card index 0. The default
+is network card index 0.
 }
 

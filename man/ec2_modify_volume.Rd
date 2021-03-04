@@ -19,48 +19,47 @@ ec2_modify_volume(
 \arguments{
 \item{VolumeId}{String. The ID of the volume.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Size}{Integer. The target size of the volume, in GiB.(optional)}
+\item{Size}{Integer.   The target size of the volume, in GiB.\link{optional}}
 
-\item{VolumeType}{String. The target EBS volume type of the volume.(optional)}
+\item{VolumeType}{String.   The target EBS volume type of the volume.\link{optional}}
 
-\item{Iops}{Integer. The target IOPS rate of the volume.(optional)}
+\item{Iops}{Integer.   The target IOPS rate of the volume.\link{optional}}
 
-\item{Throughput}{Integer. The target throughput of the volume, in MiB/s.(optional)}
+\item{Throughput}{Integer.   The target throughput of the volume, in MiB/s.\link{optional}}
 
-\item{MultiAttachEnabled}{Boolean. Specifies whether to enable Amazon EBS Multi-Attach.(optional)}
+\item{MultiAttachEnabled}{Boolean. Specifies whether to enable Amazon EBS Multi-Attach.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-You can modify several parameters of an existing EBS volume, including
-volume size, volume type, and IOPS capacity. If your EBS volume is
-attached to a current-generation EC2 instance type, you might be able to
-apply these changes without stopping the instance or detaching the
-volume from it. For more information about modifying an EBS volume
-running Linux, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html}{Modifying the size, IOPS, or type of an EBS volume on Linux}.
-For more information about modifying an EBS volume running Windows, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html}{Modifying the size, IOPS, or type of an EBS volume on Windows}.
+Modify Volume
 }
 \section{VolumeId}{
 
-The ID of the volume.
+The ID of the
+volume.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Size}{
+
 
 The target size of the volume, in GiB. The target volume size must be
 greater than or equal to the existing size of the volume.
@@ -78,6 +77,7 @@ Default: If no size is specified, the existing size is retained.
 
 \section{VolumeType}{
 
+
 The target EBS volume type of the volume. For more information, see
 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html}{Amazon EBS volume types}
 in the \emph{Amazon Elastic Compute Cloud User Guide}.
@@ -86,6 +86,7 @@ Default: If no type is specified, the existing type is retained.
 }
 
 \section{Iops}{
+
 
 The target IOPS rate of the volume. This parameter is valid only for
 \code{gp3}, \code{io1}, and \code{io2} volumes.
@@ -102,6 +103,7 @@ Default: If no IOPS value is specified, the existing value is retained.
 
 \section{Throughput}{
 
+
 The target throughput of the volume, in MiB/s. This parameter is valid
 only for \code{gp3} volumes. The maximum value is 1,000.
 
@@ -113,10 +115,12 @@ Valid Range: Minimum value of 125. Maximum value of 1000.
 
 \section{MultiAttachEnabled}{
 
-Specifies whether to enable Amazon EBS Multi-Attach. If you enable
-Multi-Attach, you can attach the volume to up to 16 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances}{Nitro-based instances}
+Specifies whether to enable Amazon EBS
+Multi-Attach. If you enable Multi-Attach, you can attach the volume to
+up to 16 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances}{Nitro-based instances}
 in the same Availability Zone. This parameter is supported with \code{io1}
 and \code{io2} volumes only. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html}{Amazon EBS Multi-Attach}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+in the \emph{Amazon Elastic Compute Cloud User
+Guide}.
 }
 

@@ -19,68 +19,73 @@ ec2_modify_snapshot_attribute(
 \arguments{
 \item{SnapshotId}{String. The ID of the snapshot.}
 
-\item{Attribute}{String. The snapshot attribute to modify. Only volume creation permissions can be modified. (optional)}
+\item{Attribute}{String. The snapshot attribute to modify. Only volume creation permissions can be modified.\link{optional}}
 
-\item{CreateVolumePermission}{Object. A JSON representation of the snapshot attribute modification. (optional)}
+\item{CreateVolumePermission}{Object. A JSON representation of the snapshot attribute modification.\link{optional}}
 
-\item{UserGroup}{List or named list. The group to modify for the snapshot. (optional)}
+\item{UserGroup}{Array. The group to modify for the snapshot.\link{optional}}
 
-\item{OperationType}{String. The type of operation to perform to the attribute. (optional)}
+\item{OperationType}{String. The type of operation to perform to the attribute.\link{optional}}
 
-\item{UserId}{List or named list. The account ID to modify for the snapshot. (optional)}
+\item{UserId}{Array. The account ID to modify for the snapshot.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Adds or removes permission settings for the specified snapshot. You may
-add or remove specified AWS account IDs from a snapshot\'s list of
-create volume permissions, but you cannot do both in a single operation.
-If you need to both add and remove account IDs for a snapshot, you must
-use multiple operations. You can make up to 500 modifications to a
-snapshot in a single operation.
+Modify Snapshot Attribute
 }
 \section{SnapshotId}{
 
-The ID of the snapshot.
+The
+ID of the snapshot.
 }
 
 \section{Attribute}{
 
-The snapshot attribute to modify. Only volume creation permissions can
-be modified.
+The snapshot attribute to
+modify. Only volume creation permissions can be
+modified.
 }
 
 \section{CreateVolumePermission}{
 
-A JSON representation of the snapshot attribute modification.
+A JSON representation of the snapshot
+attribute modification.
 }
 
 \section{UserGroup}{
 
-The group to modify for the snapshot.
+The group to modify for the
+snapshot.
 }
 
 \section{OperationType}{
 
-The type of operation to perform to the attribute.
+The type of operation to perform to the
+attribute.
 }
 
 \section{UserId}{
 
-The account ID to modify for the snapshot.
+The account ID to modify for the
+snapshot.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

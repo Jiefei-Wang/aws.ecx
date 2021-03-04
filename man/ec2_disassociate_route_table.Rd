@@ -12,30 +12,35 @@ ec2_disassociate_route_table(
 )
 }
 \arguments{
-\item{AssociationId}{String. The association ID representing the current association between the route table and subnet...(see below)}
+\item{AssociationId}{String. The association ID representing the current association between the route table and subnet...}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disassociates a subnet or gateway from a route table.
+Disassociate Route Table
 }
 \section{AssociationId}{
 
-The association ID representing the current association between the
-route table and subnet or gateway.
+The association ID representing
+the current association between the route table and subnet or
+gateway.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

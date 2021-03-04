@@ -13,41 +13,44 @@ ec2_associate_enclave_certificate_iam_role(
 )
 }
 \arguments{
-\item{CertificateArn}{String. The ARN of the ACM certificate with which to associate the IAM role. (optional)}
+\item{CertificateArn}{String. The ARN of the ACM certificate with which to associate the IAM role.\link{optional}}
 
-\item{RoleArn}{String. The ARN of the IAM role to associate with the ACM certificate.(optional)}
+\item{RoleArn}{String. The ARN of the IAM role to associate with the ACM certificate.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Associates an AWS Identity and Access Management (IAM) role with an AWS
-Certificate Manager (ACM) certificate. This enables the certificate to
-be used by the ACM for Nitro Enclaves application inside an enclave. For
-more information, see \href{https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html}{AWS Certificate Manager for Nitro Enclaves}
-in the \emph{AWS Nitro Enclaves User Guide}.
+Associate Enclave Certificate Iam Role
 }
 \section{CertificateArn}{
 
-The ARN of the ACM certificate with which to associate the IAM role.
+The ARN of
+the ACM certificate with which to associate the IAM
+role.
 }
 
 \section{RoleArn}{
 
-The ARN of the IAM role to associate with the ACM certificate. You can
-associate up to 16 IAM roles with an ACM certificate.
+The ARN of the IAM role to associate with the
+ACM certificate. You can associate up to 16 IAM roles with an ACM
+certificate.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

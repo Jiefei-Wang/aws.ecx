@@ -22,46 +22,53 @@ ec2_create_subnet(
 
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{TagSpecification}{List or named list. The tags to assign to the subnet. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the subnet.\link{optional}}
 
-\item{AvailabilityZone}{String. The Availability Zone or Local Zone for the subnet.(optional)}
+\item{AvailabilityZone}{String.   The Availability Zone or Local Zone for the subnet.\link{optional}}
 
-\item{AvailabilityZoneId}{String. The AZ ID or the Local Zone ID of the subnet. (optional)}
+\item{AvailabilityZoneId}{String. The AZ ID or the Local Zone ID of the subnet.\link{optional}}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range for the subnet, in CIDR notation.(optional)}
+\item{Ipv6CidrBlock}{String. The IPv6 network range for the subnet, in CIDR notation.\link{optional}}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.(optional)}
+\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a subnet in a specified VPC.
+Create Subnet
 }
 \section{CidrBlock}{
 
-The IPv4 network range for the subnet, in CIDR notation. For example,
-\verb{10.0.0.0/24}. We modify the specified CIDR block to its canonical form;
-for example, if you specify \verb{100.68.0.18/18}, we modify it to
+The IPv4 network range
+for the subnet, in CIDR notation. For example, \verb{10.0.0.0/24}. We modify
+the specified CIDR block to its canonical form; for example, if you
+specify \verb{100.68.0.18/18}, we modify it to
 \verb{100.68.0.0/18}.
 }
 
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to the subnet.
+The tags to assign to the
+subnet.
 }
 
 \section{AvailabilityZone}{
+
 
 The Availability Zone or Local Zone for the subnet.
 
@@ -79,24 +86,28 @@ Zone for the Outpost and specify the Outpost ARN.
 
 \section{AvailabilityZoneId}{
 
-The AZ ID or the Local Zone ID of the subnet.
+The AZ ID or the Local Zone ID of the
+subnet.
 }
 
 \section{Ipv6CidrBlock}{
 
-The IPv6 network range for the subnet, in CIDR notation. The subnet size
-must use a /64 prefix length.
+The IPv6 network range for the subnet, in
+CIDR notation. The subnet size must use a /64 prefix
+length.
 }
 
 \section{OutpostArn}{
 
-The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost
-ARN, you must also specify the Availability Zone of the Outpost subnet.
+The Amazon Resource Name (ARN) of the
+Outpost. If you specify an Outpost ARN, you must also specify the
+Availability Zone of the Outpost subnet.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.

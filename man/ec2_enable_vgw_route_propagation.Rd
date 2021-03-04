@@ -17,36 +17,43 @@ ec2_enable_vgw_route_propagation(
 
 \item{RouteTableId}{String. The ID of the route table.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Enables a virtual private gateway (VGW) to propagate routes to the
-specified route table of a VPC.
+Enables a virtual private gateway (VGW) to
+propagate routes to the specified route table of a
+VPC.
 }
 \section{GatewayId}{
 
-The ID of the virtual private gateway that is attached to a VPC. The
-virtual private gateway must be attached to the same VPC that the
-routing tables are associated with.
+The ID of the virtual
+private gateway that is attached to a VPC. The virtual private gateway
+must be attached to the same VPC that the routing tables are associated
+with.
 }
 
 \section{RouteTableId}{
 
-The ID of the route table. The routing table must be associated with the
-same VPC that the virtual private gateway is attached to.
+The ID of the route table. The routing table
+must be associated with the same VPC that the virtual private gateway is
+attached to.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

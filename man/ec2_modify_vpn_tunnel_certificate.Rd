@@ -17,32 +17,39 @@ ec2_modify_vpn_tunnel_certificate(
 
 \item{VpnTunnelOutsideIpAddress}{String. The external IP address of the VPN tunnel.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the VPN tunnel endpoint certificate.
+Modifies the VPN tunnel endpoint
+certificate.
 }
 \section{VpnConnectionId}{
 
-The ID of the AWS Site-to-Site VPN connection.
+The ID of the AWS
+Site-to-Site VPN connection.
 }
 
 \section{VpnTunnelOutsideIpAddress}{
 
-The external IP address of the VPN tunnel.
+The external IP address
+of the VPN tunnel.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

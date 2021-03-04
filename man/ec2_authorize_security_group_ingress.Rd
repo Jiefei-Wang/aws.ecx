@@ -20,36 +20,40 @@ ec2_authorize_security_group_ingress(
 )
 }
 \arguments{
-\item{CidrIp}{String. The IPv4 address range, in CIDR format.(optional)}
+\item{CidrIp}{String.   The IPv4 address range, in CIDR format.\link{optional}}
 
-\item{FromPort}{Integer. The start of port range for the TCP and UDP protocols, or an ICMP type number.(optional)}
+\item{FromPort}{Integer.   The start of port range for the TCP and UDP protocols, or an ICMP type number.\link{optional}}
 
-\item{GroupId}{String. The ID of the security group.(optional)}
+\item{GroupId}{String. The ID of the security group.\link{optional}}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.(optional)}
+\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.\link{optional}}
 
-\item{IpPermissions}{List or named list. The sets of IP permissions. (optional)}
+\item{IpPermissions}{Array. The sets of IP permissions.\link{optional}}
 
-\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.(optional)}
+\item{IpProtocol}{String.   The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.\link{optional}}
 
-\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.(optional)}
+\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.\link{optional}}
 
-\item{SourceSecurityGroupOwnerId}{String. [nondefault VPC] The AWS account ID for the source security group, if the source security...(see below)(optional)}
+\item{SourceSecurityGroupOwnerId}{String. [nondefault VPC] The AWS account ID for the source security group, if the source security...\link{optional}}
 
-\item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.(optional)}
+\item{ToPort}{Integer.   The end of port range for the TCP and UDP protocols, or an ICMP code number.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Adds the specified ingress rules to a security group.
+Authorize Security Group Ingress
 }
 \section{CidrIp}{
+
 
 The IPv4 address range, in CIDR format. You can\'t specify this
 parameter when specifying a source security group. To specify an IPv6
@@ -61,6 +65,7 @@ a description for the rule.
 
 \section{FromPort}{
 
+
 The start of port range for the TCP and UDP protocols, or an ICMP type
 number. For the ICMP type number, use \code{-1} to specify all types. If you
 specify all ICMP types, you must specify all codes.
@@ -71,24 +76,27 @@ a description for the rule.
 
 \section{GroupId}{
 
-The ID of the security group. You must specify either the security group
-ID or the security group name in the request. For security groups in a
-nondefault VPC, you must specify the security group ID.
+The ID of the security group. You must specify
+either the security group ID or the security group name in the request.
+For security groups in a nondefault VPC, you must specify the security
+group ID.
 }
 
 \section{GroupName}{
 
-[EC2-Classic, default VPC] The name of the security group. You must
-specify either the security group ID or the security group name in the
-request.
+[EC2-Classic, default VPC] The name of
+the security group. You must specify either the security group ID or the
+security group name in the request.
 }
 
 \section{IpPermissions}{
 
-The sets of IP permissions.
+The sets of IP
+permissions.
 }
 
 \section{IpProtocol}{
+
 
 The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers}).
 To specify \code{icmpv6}, use a set of IP permissions.
@@ -103,27 +111,30 @@ a description for the rule.
 
 \section{SourceSecurityGroupName}{
 
-[EC2-Classic, default VPC] The name of the source security group. You
-can\'t specify this parameter in combination with the following
-parameters: the CIDR IP address range, the start of the port range, the
-IP protocol, and the end of the port range. Creates rules that grant
-full ICMP, UDP, and TCP access. To create a rule with a specific IP
-protocol and port range, use a set of IP permissions instead. For
-EC2-VPC, the source security group must be in the same VPC.
+[EC2-Classic, default VPC] The name of the source
+security group. You can\'t specify this parameter in combination with
+the following parameters: the CIDR IP address range, the start of the
+port range, the IP protocol, and the end of the port range. Creates
+rules that grant full ICMP, UDP, and TCP access. To create a rule with a
+specific IP protocol and port range, use a set of IP permissions
+instead. For EC2-VPC, the source security group must be in the same
+VPC.
 }
 
 \section{SourceSecurityGroupOwnerId}{
 
-[nondefault VPC] The AWS account ID for the source security group, if
-the source security group is in a different account. You can\'t specify
-this parameter in combination with the following parameters: the CIDR IP
-address range, the IP protocol, the start of the port range, and the end
-of the port range. Creates rules that grant full ICMP, UDP, and TCP
-access. To create a rule with a specific IP protocol and port range, use
-a set of IP permissions instead.
+[nondefault VPC] The AWS account ID for the
+source security group, if the source security group is in a different
+account. You can\'t specify this parameter in combination with the
+following parameters: the CIDR IP address range, the IP protocol, the
+start of the port range, and the end of the port range. Creates rules
+that grant full ICMP, UDP, and TCP access. To create a rule with a
+specific IP protocol and port range, use a set of IP permissions
+instead.
 }
 
 \section{ToPort}{
+
 
 The end of port range for the TCP and UDP protocols, or an ICMP code
 number. For the ICMP code number, use \code{-1} to specify all codes. If you
@@ -135,9 +146,10 @@ a description for the rule.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

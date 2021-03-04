@@ -14,27 +14,32 @@ ec2_unassign_private_ip_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{PrivateIpAddress}{List or named list. The secondary private IP addresses to unassign from the network interface.}
+\item{PrivateIpAddress}{Array. The secondary private IP addresses to unassign from the network interface.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Unassigns one or more secondary private IP addresses from a network
-interface.
+Unassigns one or more secondary private
+IP addresses from a network interface.
 }
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the network
+interface.
 }
 
 \section{PrivateIpAddress}{
 
-The secondary private IP addresses to unassign from the network
-interface. You can specify this option multiple times to unassign more
-than one IP address.
+The secondary private IP addresses to
+unassign from the network interface. You can specify this option
+multiple times to unassign more than one IP
+address.
 }
 

@@ -14,45 +14,51 @@ ec2_register_transit_gateway_multicast_group_sources(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain. (optional)}
+\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.\link{optional}}
 
-\item{GroupIpAddress}{String. The IP address assigned to the transit gateway multicast group. (optional)}
+\item{GroupIpAddress}{String. The IP address assigned to the transit gateway multicast group.\link{optional}}
 
-\item{NetworkInterfaceIds}{List or named list. The group sources\' network interface IDs to register with the transit gateway multicast group. (optional)}
+\item{NetworkInterfaceIds}{Array. The group sources\' network interface IDs to register with the transit gateway multicast group.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Registers sources (network interfaces) with the specified transit
-gateway multicast group.
+Register Transit Gateway Multicast Group Sources
 }
 \section{TransitGatewayMulticastDomainId}{
 
-The ID of the transit gateway multicast domain.
+The ID of the transit
+gateway multicast domain.
 }
 
 \section{GroupIpAddress}{
 
-The IP address assigned to the transit gateway multicast group.
+The IP address assigned to
+the transit gateway multicast group.
 }
 
 \section{NetworkInterfaceIds}{
 
-The group sources\' network interface IDs to register with the transit
-gateway multicast group.
+The group
+sources\' network interface IDs to register with the transit gateway
+multicast group.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

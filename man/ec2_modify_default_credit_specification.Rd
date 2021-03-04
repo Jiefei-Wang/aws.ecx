@@ -15,29 +15,30 @@ ec2_modify_default_credit_specification(
 \arguments{
 \item{InstanceFamily}{String. The instance family.}
 
-\item{CpuCredits}{String. The credit option for CPU usage of the instance family.  Valid Values: \code{standard} \| \code{unlimited}}
+\item{CpuCredits}{String.   The credit option for CPU usage of the instance family.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the default credit option for CPU usage of burstable
-performance instances. The default credit option is set at the account
-level per AWS Region, and is specified per instance family. All new
-burstable performance instances in the account launch using the default
-credit option.
+Modify Default Credit Specification
 }
 \section{InstanceFamily}{
 
-The instance family.
+The instance
+family.
 }
 
 \section{CpuCredits}{
+
 
 The credit option for CPU usage of the instance family.
 
@@ -46,9 +47,10 @@ Valid Values: \code{standard} \| \code{unlimited}
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

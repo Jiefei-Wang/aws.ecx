@@ -11,26 +11,23 @@ ec2_enable_vpc_classic_link_dns_support(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC. (optional)}
+\item{VpcId}{String. The ID of the VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Enables a VPC to support DNS hostname resolution for ClassicLink. If
-enabled, the DNS hostname of a linked EC2-Classic instance resolves to
-its private IP address when addressed from an instance in the VPC to
-which it\'s linked. Similarly, the DNS hostname of an instance in a VPC
-resolves to its private IP address when addressed from a linked
-EC2-Classic instance. For more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html}{ClassicLink}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+Enable Vpc Classic Link Dns Support
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 

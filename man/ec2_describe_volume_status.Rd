@@ -15,33 +15,30 @@ ec2_describe_volume_status(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of volume results returned by \code{DescribeVolumeStatus} in paginated output.(optional)}
+\item{MaxResults}{Integer. The maximum number of volume results returned by \code{DescribeVolumeStatus} in paginated output.\link{optional}}
 
-\item{VolumeId}{List or named list. The IDs of the volumes.  Default: Describes all your volumes. (optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{VolumeId}{Array.   The IDs of the volumes.  Default: Describes all your volumes.  \link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the status of the specified volumes. Volume status provides
-the result of the checks performed on your volumes to determine events
-that can impair the performance of your volumes. The performance of a
-volume can be affected if an issue occurs on the volume\'s underlying
-host. If the volume\'s underlying host experiences a power outage or
-system issue, after the system is restored, there could be data
-inconsistencies on the volume. Volume events notify you if this occurs.
-Volume actions notify you if any action needs to be taken in response to
-the event.
+Describe Volume Status
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -70,18 +67,20 @@ The filters.
 
 \section{MaxResults}{
 
-The maximum number of volume results returned by \code{DescribeVolumeStatus}
-in paginated output. When this parameter is used, the request only
-returns \code{MaxResults} results in a single page along with a \code{NextToken}
-response element. The remaining results of the initial request can be
-seen by sending another request with the returned \code{NextToken} value.
-This value can be between 5 and 1,000; if \code{MaxResults} is given a value
-larger than 1,000, only 1,000 results are returned. If this parameter is
-not used, then \code{DescribeVolumeStatus} returns all results. You cannot
-specify this parameter and the volume IDs parameter in the same request.
+The maximum number of volume results returned by
+\code{DescribeVolumeStatus} in paginated output. When this parameter is used,
+the request only returns \code{MaxResults} results in a single page along
+with a \code{NextToken} response element. The remaining results of the
+initial request can be seen by sending another request with the returned
+\code{NextToken} value. This value can be between 5 and 1,000; if
+\code{MaxResults} is given a value larger than 1,000, only 1,000 results are
+returned. If this parameter is not used, then \code{DescribeVolumeStatus}
+returns all results. You cannot specify this parameter and the volume
+IDs parameter in the same request.
 }
 
 \section{VolumeId}{
+
 
 The IDs of the volumes.
 
@@ -90,9 +89,10 @@ Default: Describes all your volumes.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

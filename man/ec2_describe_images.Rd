@@ -15,35 +15,38 @@ ec2_describe_images(
 )
 }
 \arguments{
-\item{ExecutableBy}{List or named list. Scopes the images by users with explicit launch permissions.(optional)}
+\item{ExecutableBy}{Array. Scopes the images by users with explicit launch permissions.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{ImageId}{List or named list. The image IDs.  Default: Describes all images available to you. (optional)}
+\item{ImageId}{Array.   The image IDs.  Default: Describes all images available to you.  \link{optional}}
 
-\item{Owner}{List or named list. Scopes the results to images with the specified owners.(optional)}
+\item{Owner}{Array. Scopes the results to images with the specified owners.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified images (AMIs, AKIs, and ARIs) available to you
-or all of the images available to you.
+Describe Images
 }
 \section{ExecutableBy}{
 
-Scopes the images by users with explicit launch permissions. Specify an
-AWS account ID, \code{self} (the sender of the request), or \code{all} (public
+Scopes the
+images by users with explicit launch permissions. Specify an AWS account
+ID, \code{self} (the sender of the request), or \code{all} (public
 AMIs).
 }
 
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -111,6 +114,7 @@ regardless of the tag value.
 
 \section{ImageId}{
 
+
 The image IDs.
 
 Default: Describes all images available to you.
@@ -118,17 +122,19 @@ Default: Describes all images available to you.
 
 \section{Owner}{
 
-Scopes the results to images with the specified owners. You can specify
-a combination of AWS account IDs, \code{self}, \code{amazon}, and
-\code{aws-marketplace}. If you omit this parameter, the results include all
-images for which you have launch permissions, regardless of ownership.
+Scopes the results to images with the specified
+owners. You can specify a combination of AWS account IDs, \code{self},
+\code{amazon}, and \code{aws-marketplace}. If you omit this parameter, the results
+include all images for which you have launch permissions, regardless of
+ownership.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

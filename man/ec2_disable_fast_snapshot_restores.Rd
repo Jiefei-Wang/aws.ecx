@@ -13,37 +13,45 @@ ec2_disable_fast_snapshot_restores(
 )
 }
 \arguments{
-\item{AvailabilityZone}{List or named list. One or more Availability Zones. For example, \verb{us-east-2a}.}
+\item{AvailabilityZone}{Array. One or more Availability Zones. For example, \verb{us-east-2a}.}
 
-\item{SourceSnapshotId}{List or named list. The IDs of one or more snapshots. For example, \verb{snap-1234567890abcdef0}.}
+\item{SourceSnapshotId}{Array. The IDs of one or more snapshots. For example, \verb{snap-1234567890abcdef0}.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disables fast snapshot restores for the specified snapshots in the
-specified Availability Zones.
+Disables fast snapshot restores for the specified
+snapshots in the specified Availability
+Zones.
 }
 \section{AvailabilityZone}{
 
-One or more Availability Zones. For example, \verb{us-east-2a}.
+One or more Availability
+Zones. For example, \verb{us-east-2a}.
 }
 
 \section{SourceSnapshotId}{
 
-The IDs of one or more snapshots. For example, \verb{snap-1234567890abcdef0}.
+The IDs of one or
+more snapshots. For example,
+\verb{snap-1234567890abcdef0}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

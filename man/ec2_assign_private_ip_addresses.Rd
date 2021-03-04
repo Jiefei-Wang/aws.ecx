@@ -16,35 +16,39 @@ ec2_assign_private_ip_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{AllowReassignment}{Boolean. Indicates whether to allow an IP address that is already assigned to another network interface...(see below)(optional)}
+\item{AllowReassignment}{Boolean. Indicates whether to allow an IP address that is already assigned to another network interface...\link{optional}}
 
-\item{PrivateIpAddress}{List or named list. One or more IP addresses to be assigned as a secondary private IP address to the network interface.(optional)}
+\item{PrivateIpAddress}{Array.   One or more IP addresses to be assigned as a secondary private IP address to the network...\link{optional}}
 
-\item{SecondaryPrivateIpAddressCount}{Integer. The number of secondary IP addresses to assign to the network interface.(optional)}
+\item{SecondaryPrivateIpAddressCount}{Integer. The number of secondary IP addresses to assign to the network interface.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Assigns one or more secondary private IP addresses to the specified
-network interface.
+Assign Private Ip Addresses
 }
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the network
+interface.
 }
 
 \section{AllowReassignment}{
 
-Indicates whether to allow an IP address that is already assigned to
-another network interface or instance to be reassigned to the specified
-network interface.
+Indicates whether to allow an IP address
+that is already assigned to another network interface or instance to be
+reassigned to the specified network interface.
 }
 
 \section{PrivateIpAddress}{
+
 
 One or more IP addresses to be assigned as a secondary private IP
 address to the network interface. You can\'t specify this parameter when
@@ -56,8 +60,8 @@ IP address within the subnet range.
 
 \section{SecondaryPrivateIpAddressCount}{
 
-The number of secondary IP addresses to assign to the network interface.
-You can\'t specify this parameter when also specifying private IP
-addresses.
+The number of secondary IP addresses to assign to
+the network interface. You can\'t specify this parameter when also
+specifying private IP addresses.
 }
 

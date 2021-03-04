@@ -19,37 +19,40 @@ ec2_create_fpga_image(
 \arguments{
 \item{InputStorageLocation}{Object. The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs. (optional)}
+\item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs.\link{optional}}
 
-\item{Description}{String. A description for the AFI. (optional)}
+\item{Description}{String. A description for the AFI.\link{optional}}
 
-\item{Name}{String. A name for the AFI. (optional)}
+\item{Name}{String. A name for the AFI.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the FPGA image during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the FPGA image during creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates an Amazon FPGA Image (AFI) from the specified design checkpoint
-(DCP).
+Create Fpga Image
 }
 \section{InputStorageLocation}{
 
-The location of the encrypted design checkpoint in Amazon S3. The input
-must be a tarball.
+The location of the encrypted design checkpoint in
+Amazon S3. The input must be a tarball.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -57,27 +60,32 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{LogsStorageLocation}{
 
-The location in Amazon S3 for the output logs.
+The
+location in Amazon S3 for the output logs.
 }
 
 \section{Description}{
 
-A description for the AFI.
+A
+description for the AFI.
 }
 
 \section{Name}{
 
-A name for the AFI.
+A name for the
+AFI.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+Unique, case-sensitive identifier that you
+provide to ensure the idempotency of the request. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the FPGA image during creation.
+The
+tags to apply to the FPGA image during creation.
 }
 

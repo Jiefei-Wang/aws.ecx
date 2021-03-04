@@ -23,42 +23,46 @@ ec2_request_spot_instances(
 )
 }
 \arguments{
-\item{AvailabilityZoneGroup}{String. The user-specified name for a logical grouping of requests.(optional)}
+\item{AvailabilityZoneGroup}{String.   The user-specified name for a logical grouping of requests.\link{optional}}
 
-\item{BlockDurationMinutes}{Integer. The required duration for the Spot Instances (also known as Spot blocks), in minutes.(optional)}
+\item{BlockDurationMinutes}{Integer.   The required duration for the Spot Instances (also known as Spot blocks), in minutes.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{InstanceCount}{Integer. The maximum number of Spot Instances to launch.  Default: 1 (optional)}
+\item{InstanceCount}{Integer.   The maximum number of Spot Instances to launch.  Default: 1  \link{optional}}
 
-\item{LaunchGroup}{String. The instance launch group.(optional)}
+\item{LaunchGroup}{String.   The instance launch group.\link{optional}}
 
-\item{LaunchSpecification}{Object. The launch specification. (optional)}
+\item{LaunchSpecification}{Object. The launch specification.\link{optional}}
 
-\item{SpotPrice}{String. The maximum price per hour that you are willing to pay for a Spot Instance.(optional)}
+\item{SpotPrice}{String. The maximum price per hour that you are willing to pay for a Spot Instance.\link{optional}}
 
-\item{Type}{String. The Spot Instance request type.  Default: \code{one-time} (optional)}
+\item{Type}{String.   The Spot Instance request type.  Default: \code{one-time}  \link{optional}}
 
-\item{ValidFrom}{String. The start date of the request.(optional)}
+\item{ValidFrom}{String.   The start date of the request.\link{optional}}
 
-\item{ValidUntil}{String. The end date of the request, in UTC format (\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).(optional)}
+\item{ValidUntil}{String.   The end date of the request, in UTC format (\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).\link{optional}}
 
-\item{TagSpecification}{List or named list. The key-value pair for tagging the Spot Instance request on creation.(optional)}
+\item{TagSpecification}{Array. The key-value pair for tagging the Spot Instance request on creation.\link{optional}}
 
-\item{InstanceInterruptionBehavior}{String. The behavior when a Spot Instance is interrupted. The default is \code{terminate}. (optional)}
+\item{InstanceInterruptionBehavior}{String. The behavior when a Spot Instance is interrupted. The default is \code{terminate}.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a Spot Instance request.
+Request Spot Instances
 }
 \section{AvailabilityZoneGroup}{
+
 
 The user-specified name for a logical grouping of requests.
 
@@ -85,6 +89,7 @@ Default: Instances are launched in any available Availability Zone.
 
 \section{BlockDurationMinutes}{
 
+
 The required duration for the Spot Instances (also known as Spot
 blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
 240, 300, or 360).
@@ -105,20 +110,23 @@ Spot blocks).
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}
-in the \emph{Amazon EC2 User Guide for Linux Instances}.
+Unique, case-sensitive identifier that you provide
+to ensure the idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{How to Ensure Idempotency}
+in the \emph{Amazon EC2 User Guide for Linux
+Instances}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{InstanceCount}{
+
 
 The maximum number of Spot Instances to launch.
 
@@ -126,6 +134,7 @@ Default: 1
 }
 
 \section{LaunchGroup}{
+
 
 The instance launch group. Launch groups are Spot Instances that launch
 together and terminate together.
@@ -140,11 +149,13 @@ The launch specification.
 
 \section{SpotPrice}{
 
-The maximum price per hour that you are willing to pay for a Spot
-Instance. The default is the On-Demand price.
+The
+maximum price per hour that you are willing to pay for a Spot Instance.
+The default is the On-Demand price.
 }
 
 \section{Type}{
+
 
 The Spot Instance request type.
 
@@ -152,6 +163,7 @@ Default: \code{one-time}
 }
 
 \section{ValidFrom}{
+
 
 The start date of the request. If this is a one-time request, the
 request becomes active at this date and time and remains active until
@@ -165,6 +177,7 @@ current date and time.
 }
 
 \section{ValidUntil}{
+
 
 The end date of the request, in UTC format
 (\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
@@ -181,16 +194,16 @@ from the date the request was created.
 
 \section{TagSpecification}{
 
-The key-value pair for tagging the Spot Instance request on creation.
-The value for \code{ResourceType} must be \code{spot-instances-request}, otherwise
-the Spot Instance request fails. To tag the Spot Instance request after
-it has been created, see
+The key-value pair for tagging the Spot Instance
+request on creation. The value for \code{ResourceType} must be
+\code{spot-instances-request}, otherwise the Spot Instance request fails. To
+tag the Spot Instance request after it has been created, see
 \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html}{CreateTags}.
 }
 
 \section{InstanceInterruptionBehavior}{
 
-The behavior when a Spot Instance is interrupted. The default is
-\code{terminate}.
+The behavior when a Spot Instance is interrupted.
+The default is \code{terminate}.
 }
 

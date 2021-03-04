@@ -17,41 +17,46 @@ ec2_create_vpn_gateway(
 \arguments{
 \item{Type}{String. The type of VPN connection this virtual private gateway supports.}
 
-\item{AvailabilityZone}{String. The Availability Zone for the virtual private gateway. (optional)}
+\item{AvailabilityZone}{String. The Availability Zone for the virtual private gateway.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the virtual private gateway. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the virtual private gateway.\link{optional}}
 
-\item{AmazonSideAsn}{Integer. A private Autonomous System Number (ASN) for the Amazon side of a BGP session.(optional)}
+\item{AmazonSideAsn}{Integer.   A private Autonomous System Number (ASN) for the Amazon side of a BGP session.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a virtual private gateway. A virtual private gateway is the
-endpoint on the VPC side of your VPN connection. You can create a
-virtual private gateway before creating the VPC itself.
+Create Vpn Gateway
 }
 \section{Type}{
 
-The type of VPN connection this virtual private gateway supports.
+The type of VPN connection this virtual
+private gateway supports.
 }
 
 \section{AvailabilityZone}{
 
-The Availability Zone for the virtual private gateway.
+The Availability Zone for
+the virtual private gateway.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the virtual private gateway.
+The tags to apply to
+the virtual private gateway.
 }
 
 \section{AmazonSideAsn}{
+
 
 A private Autonomous System Number (ASN) for the Amazon side of a BGP
 session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534
@@ -63,9 +68,10 @@ Default: 64512
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

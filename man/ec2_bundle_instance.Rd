@@ -13,22 +13,26 @@ ec2_bundle_instance(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance to bundle.  Type: String  Default: None  Required: Yes}
+\item{InstanceId}{String.   The ID of the instance to bundle.  Type: String  Default: None  Required: Yes}
 
 \item{Storage}{Object. The bucket in which to store the AMI.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Bundles an Amazon instance store-backed Windows instance.
+Bundle Instance
 }
 \section{InstanceId}{
+
 
 The ID of the instance to bundle.
 
@@ -41,17 +45,18 @@ Required: Yes
 
 \section{Storage}{
 
-The bucket in which to store the AMI. You can specify a bucket that you
-already own or a new bucket that Amazon EC2 creates on your behalf. If
-you specify a bucket that belongs to someone else, Amazon EC2 returns an
-error.
+The bucket in which to store the AMI. You can
+specify a bucket that you already own or a new bucket that Amazon EC2
+creates on your behalf. If you specify a bucket that belongs to someone
+else, Amazon EC2 returns an error.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

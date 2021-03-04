@@ -20,54 +20,64 @@ ec2_copy_fpga_image(
 
 \item{SourceRegion}{String. The Region that contains the source AFI.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Description}{String. The description for the new AFI. (optional)}
+\item{Description}{String. The description for the new AFI.\link{optional}}
 
-\item{Name}{String. The name for the new AFI. The default is the name of the source AFI. (optional)}
+\item{Name}{String. The name for the new AFI. The default is the name of the source AFI.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Copies the specified Amazon FPGA Image (AFI) to the current Region.
+Copies the specified Amazon FPGA Image
+(AFI) to the current Region.
 }
 \section{SourceFpgaImageId}{
 
-The ID of the source AFI.
+The ID of the source
+AFI.
 }
 
 \section{SourceRegion}{
 
-The Region that contains the source AFI.
+The Region that contains the source
+AFI.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Description}{
 
-The description for the new AFI.
+The description for the new
+AFI.
 }
 
 \section{Name}{
 
-The name for the new AFI. The default is the name of the source AFI.
+The name for the new AFI. The default is the
+name of the source AFI.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 

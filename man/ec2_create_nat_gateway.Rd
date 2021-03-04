@@ -19,40 +19,46 @@ ec2_create_nat_gateway(
 
 \item{SubnetId}{String. The subnet in which to create the NAT gateway.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to assign to the NAT gateway. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the NAT gateway.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a NAT gateway in the specified public subnet. This action
-creates a network interface in the specified subnet with a private IP
-address from the IP address range of the subnet. Internet-bound traffic
-from a private subnet can be routed to the NAT gateway, therefore
-enabling instances in the private subnet to connect to the internet. For
-more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html}{NAT Gateways}
+Creates a NAT gateway in the specified public
+subnet. This action creates a network interface in the specified subnet
+with a private IP address from the IP address range of the subnet.
+Internet-bound traffic from a private subnet can be routed to the NAT
+gateway, therefore enabling instances in the private subnet to connect
+to the internet. For more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html}{NAT Gateways}
 in the \emph{Amazon Virtual Private Cloud User Guide}.
 }
 \section{AllocationId}{
 
-The allocation ID of an Elastic IP address to associate with the NAT
-gateway. If the Elastic IP address is associated with another resource,
-you must first disassociate it.
+The allocation ID of an Elastic IP address to
+associate with the NAT gateway. If the Elastic IP address is associated
+with another resource, you must first disassociate
+it.
 }
 
 \section{SubnetId}{
 
-The subnet in which to create the NAT gateway.
+The subnet in which to create the NAT
+gateway.
 }
 
 \section{ClientToken}{
+
 
 Unique, case-sensitive identifier that you provide to ensure the
 idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
@@ -62,14 +68,16 @@ Constraint: Maximum 64 ASCII characters.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to the NAT gateway.
+The tags to assign to the
+NAT gateway.
 }
 

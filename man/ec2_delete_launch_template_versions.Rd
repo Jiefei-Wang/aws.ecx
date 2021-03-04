@@ -14,49 +14,58 @@ ec2_delete_launch_template_versions(
 )
 }
 \arguments{
-\item{LaunchTemplateVersion}{List or named list. The version numbers of one or more launch template versions to delete.}
+\item{LaunchTemplateVersion}{Array. The version numbers of one or more launch template versions to delete.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.(optional)}
+\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
 
-\item{LaunchTemplateName}{String. The name of the launch template.(optional)}
+\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes one or more versions of a launch template. You cannot delete the
-default version of a launch template; you must first assign a different
-version as the default. If the default version is the only version for
-the launch template, you must delete the entire launch template using
+Deletes one or more versions of a launch
+template. You cannot delete the default version of a launch template;
+you must first assign a different version as the default. If the default
+version is the only version for the launch template, you must delete the
+entire launch template using
 DeleteLaunchTemplate.
 }
 \section{LaunchTemplateVersion}{
 
-The version numbers of one or more launch template versions to delete.
+The version numbers of
+one or more launch template versions to
+delete.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{LaunchTemplateId}{
 
-The ID of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The ID of the launch
+template. You must specify either the launch template ID or launch
+template name in the request.
 }
 
 \section{LaunchTemplateName}{
 
-The name of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The name of the launch
+template. You must specify either the launch template ID or launch
+template name in the request.
 }
 

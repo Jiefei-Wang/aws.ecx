@@ -50,8 +50,21 @@ ec2_request <- function(action, parameters = list()){
   response <- aws_request(method = "GET",
                           service = "ec2",
                           query = query)
-  tmp <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
-  x <- try(xml2::as_list(xml2::read_xml(tmp)), silent = TRUE)
+  text_response <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
+  if (httr::http_error(response)) {
+    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
+    if(!is.null(x$Response$Errors$Error)){
+      msg <- paste0(x$Response$Errors$Error$Code,"\nMessage: ",x$Response$Errors$Error$Message)
+    }else{
+      msg <- paste0(x, collapse = "\n")
+    }
+    stop(msg, call. = FALSE)
+  } else {
+    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
+    if (inherits(x, "try-error")) {
+      stop("Fail to convert the response to a list object")
+    }
+  }
   x[[1]]
 }
 
@@ -76,23 +89,10 @@ ecs_request <- function(action, parameters = list()){
                        service = "ecs",
                        headers=headers,
                        body=body)
-
-  text_response <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
-  if (httr::http_error(response)) {
-    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
-    if(!is.null(x$Response$Errors$Error)){
-      msg <- paste0(x$Response$Errors$Error$Code,"\nMessage: ",x$Response$Errors$Error$Message)
-    }else{
-      msg <- paste0(x, collapse = "\n")
-    }
-    stop(msg, call. = FALSE)
-  } else {
-    x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
-    if (inherits(x, "try-error")) {
-      stop("Fail to convert the response to a list object")
-    }
+  if(httr::http_error(response)){
+    stop(content(response, type = "text"))
   }
-  x
+  response
 }
 
 # query$Action = "DescribeVpcs"

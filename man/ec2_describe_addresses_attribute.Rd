@@ -15,46 +15,54 @@ ec2_describe_addresses_attribute(
 )
 }
 \arguments{
-\item{AllocationId}{List or named list. [EC2-VPC] The allocation IDs. (optional)}
+\item{AllocationId}{Array. [EC2-VPC] The allocation IDs.\link{optional}}
 
-\item{Attribute}{String. The attribute of the IP address. (optional)}
+\item{Attribute}{String. The attribute of the IP address.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the attributes of the specified Elastic IP addresses. For
-requirements, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS}{Using reverse DNS for email applications}.
+Describes the attributes of the specified Elastic
+IP addresses. For requirements, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS}{Using reverse DNS for email applications}.
 }
 \section{AllocationId}{
 
-[EC2-VPC] The allocation IDs.
+[EC2-VPC] The allocation
+IDs.
 }
 
 \section{Attribute}{
 
-The attribute of the IP address.
+The attribute of the IP
+address.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return with a single call. To retrieve
-the remaining results, make another call with the returned \code{nextToken}
-value.
+The maximum number of results to return
+with a single call. To retrieve the remaining results, make another call
+with the returned \code{nextToken} value.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

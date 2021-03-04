@@ -13,18 +13,21 @@ ec2_cancel_reserved_instances_listing(
 \arguments{
 \item{ReservedInstancesListingId}{String. The ID of the Reserved Instance listing.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels the specified Reserved Instance listing in the Reserved Instance
-Marketplace.
+Cancel Reserved Instances Listing
 }
 \section{ReservedInstancesListingId}{
 
-The ID of the Reserved Instance listing.
+The ID of
+the Reserved Instance listing.
 }
 

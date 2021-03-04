@@ -13,24 +13,26 @@ ec2_describe_reserved_instances_modifications(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{ReservedInstancesModificationId}{List or named list. IDs for the submitted modification request. (optional)}
+\item{ReservedInstancesModificationId}{Array. IDs for the submitted modification request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the modifications made to your Reserved Instances. If no
-parameter is specified, information about all your Reserved Instances
-modification requests is returned. If a modification ID is specified,
-only information about the specific modification is returned.
+Describe Reserved Instances Modifications
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -62,6 +64,7 @@ updated.
 
 \section{ReservedInstancesModificationId}{
 
-IDs for the submitted modification request.
+IDs for the submitted modification
+request.
 }
 

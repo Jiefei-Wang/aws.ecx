@@ -13,40 +13,42 @@ ec2_create_dhcp_options(
 )
 }
 \arguments{
-\item{DhcpConfiguration}{List or named list. A DHCP configuration option.}
+\item{DhcpConfiguration}{Array. A DHCP configuration option.}
 
-\item{TagSpecification}{List or named list. The tags to assign to the DHCP option. (optional)}
+\item{TagSpecification}{Array. The tags to assign to the DHCP option.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a set of DHCP options for your VPC. After creating the set, you
-must associate it with the VPC, causing all existing and new instances
-that you launch in the VPC to use this set of DHCP options. The
-following are the individual DHCP options you can specify. For more
-information about the options, see \href{http://www.ietf.org/rfc/rfc2132.txt}{RFC 2132}.
+Create Dhcp Options
 }
 \section{DhcpConfiguration}{
 
-A DHCP configuration option.
+A DHCP
+configuration option.
 }
 
 \section{TagSpecification}{
 
-The tags to assign to the DHCP option.
+The tags to assign to the DHCP
+option.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

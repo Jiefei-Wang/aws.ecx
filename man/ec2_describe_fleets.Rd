@@ -15,46 +15,54 @@ ec2_describe_fleets(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{FleetId}{List or named list. The ID of the EC2 Fleets. (optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{FleetId}{Array. The ID of the EC2 Fleets.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{Filter}{No description can be found.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified EC2 Fleets or all of your EC2 Fleets.
+Describe Fleets
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. Specify a
-value between 1 and 1000. The default value is 1000. To retrieve the
-remaining results, make another call with the returned \code{NextToken}
+The maximum number of
+results to return in a single call. Specify a value between 1 and 1000.
+The default value is 1000. To retrieve the remaining results, make
+another call with the returned \code{NextToken}
 value.
 }
 
 \section{FleetId}{
 
-The ID of the EC2 Fleets.
+The ID of the EC2
+Fleets.
 }
 
 \section{Filter}{
+
 
 The filters.
 \itemize{

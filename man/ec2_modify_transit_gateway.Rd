@@ -16,44 +16,51 @@ ec2_modify_transit_gateway(
 \arguments{
 \item{TransitGatewayId}{String. The ID of the transit gateway.}
 
-\item{Description}{String. The description for the transit gateway. (optional)}
+\item{Description}{String. The description for the transit gateway.\link{optional}}
 
-\item{Options}{Object. The options to modify. (optional)}
+\item{Options}{Object. The options to modify.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified transit gateway. When you modify a transit
-gateway, the modified options are applied to new transit gateway
-attachments only. Your existing transit gateway attachments are not
-modified.
+Modifies the specified transit gateway.
+When you modify a transit gateway, the modified options are applied to
+new transit gateway attachments only. Your existing transit gateway
+attachments are not modified.
 }
 \section{TransitGatewayId}{
 
-The ID of the transit gateway.
+The ID of the transit
+gateway.
 }
 
 \section{Description}{
 
-The description for the transit gateway.
+The description for the transit
+gateway.
 }
 
 \section{Options}{
 
-The options to modify.
+The options to
+modify.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -22,41 +22,48 @@ ec2_allocate_hosts(
 
 \item{Quantity}{Integer. The number of Dedicated Hosts to allocate to your account with these parameters.}
 
-\item{AutoPlacement}{String. Indicates whether the host accepts any untargeted instance launches that match its instance...(see below)(optional)}
+\item{AutoPlacement}{String.   Indicates whether the host accepts any untargeted instance launches that match its instance...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{InstanceType}{String. Specifies the instance type to be supported by the Dedicated Hosts.(optional)}
+\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Hosts.\link{optional}}
 
-\item{InstanceFamily}{String. Specifies the instance family to be supported by the Dedicated Hosts.(optional)}
+\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Hosts.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the Dedicated Host during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the Dedicated Host during creation.\link{optional}}
 
-\item{HostRecovery}{String. Indicates whether to enable or disable host recovery for the Dedicated Host.(optional)}
+\item{HostRecovery}{String.   Indicates whether to enable or disable host recovery for the Dedicated Host.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Allocates a Dedicated Host to your account. At a minimum, specify the
-supported instance type or instance family, the Availability Zone in
-which to allocate the host, and the number of hosts to allocate.
+Allocates a Dedicated Host to your account. At a
+minimum, specify the supported instance type or instance family, the
+Availability Zone in which to allocate the host, and the number of hosts
+to allocate.
 }
 \section{AvailabilityZone}{
 
-The Availability Zone in which to allocate the Dedicated Host.
+The Availability Zone in which
+to allocate the Dedicated Host.
 }
 
 \section{Quantity}{
 
-The number of Dedicated Hosts to allocate to your account with these
+The number of
+Dedicated Hosts to allocate to your account with these
 parameters.
 }
 
 \section{AutoPlacement}{
+
 
 Indicates whether the host accepts any untargeted instance launches that
 match its instance type configuration, or if it only accepts Host
@@ -69,11 +76,13 @@ Default: \code{on}
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
+Unique, case-sensitive identifier that you provide
+to ensure the idempotency of the request. For more information, see
+\href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
 }
 
 \section{InstanceType}{
+
 
 Specifies the instance type to be supported by the Dedicated Hosts. If
 you specify an instance type, the Dedicated Hosts support instances of
@@ -87,6 +96,7 @@ specific instance family, omit this parameter and specify
 
 \section{InstanceFamily}{
 
+
 Specifies the instance family to be supported by the Dedicated Hosts. If
 you specify an instance family, the Dedicated Hosts support multiple
 instance types within that instance family.
@@ -99,10 +109,12 @@ request.
 
 \section{TagSpecification}{
 
-The tags to apply to the Dedicated Host during creation.
+The tags to apply to the Dedicated Host during
+creation.
 }
 
 \section{HostRecovery}{
+
 
 Indicates whether to enable or disable host recovery for the Dedicated
 Host. Host recovery is disabled by default. For more information, see

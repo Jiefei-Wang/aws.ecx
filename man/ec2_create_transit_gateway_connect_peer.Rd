@@ -21,69 +21,78 @@ ec2_create_transit_gateway_connect_peer(
 
 \item{PeerAddress}{String. The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.}
 
-\item{InsideCidrBlocks}{List or named list. The range of inside IP addresses that are used for BGP peering.}
+\item{InsideCidrBlocks}{Array. The range of inside IP addresses that are used for BGP peering.}
 
-\item{TransitGatewayAddress}{String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer,...(see below)(optional)}
+\item{TransitGatewayAddress}{String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer,...\link{optional}}
 
-\item{BgpOptions}{Object. The BGP options for the Connect peer. (optional)}
+\item{BgpOptions}{Object. The BGP options for the Connect peer.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the Connect peer. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the Connect peer.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a Connect peer for a specified transit gateway Connect
-attachment between a transit gateway and an appliance.
+Create Transit Gateway Connect Peer
 }
 \section{TransitGatewayAttachmentId}{
 
-The ID of the Connect attachment.
+The ID of the Connect
+attachment.
 }
 
 \section{PeerAddress}{
 
-The peer IP address (GRE outer IP address) on the appliance side of the
-Connect peer.
+The peer IP address (GRE outer IP
+address) on the appliance side of the Connect
+peer.
 }
 
 \section{InsideCidrBlocks}{
 
-The range of inside IP addresses that are used for BGP peering. You must
-specify a size /29 IPv4 CIDR block from the \verb{169.254.0.0/16} range. The
-first address from the range must be configured on the appliance as the
-BGP IP address. You can also optionally specify a size /125 IPv6 CIDR
-block from the \verb{fd00::/8} range.
+The range of inside IP addresses that are used
+for BGP peering. You must specify a size /29 IPv4 CIDR block from the
+\verb{169.254.0.0/16} range. The first address from the range must be
+configured on the appliance as the BGP IP address. You can also
+optionally specify a size /125 IPv6 CIDR block from the \verb{fd00::/8}
+range.
 }
 
 \section{TransitGatewayAddress}{
 
-The peer IP address (GRE outer IP address) on the transit gateway side
-of the Connect peer, which must be specified from a transit gateway CIDR
-block. If not specified, Amazon automatically assigns the first
-available IP address from the transit gateway CIDR block.
+The peer IP address (GRE outer IP address) on
+the transit gateway side of the Connect peer, which must be specified
+from a transit gateway CIDR block. If not specified, Amazon
+automatically assigns the first available IP address from the transit
+gateway CIDR block.
 }
 
 \section{BgpOptions}{
 
-The BGP options for the Connect peer.
+The BGP options for the Connect
+peer.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the Connect peer.
+The tags to apply to the Connect
+peer.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

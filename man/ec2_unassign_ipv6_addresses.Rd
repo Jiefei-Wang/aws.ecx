@@ -12,26 +12,32 @@ ec2_unassign_ipv6_addresses(
 )
 }
 \arguments{
-\item{Ipv6Addresses}{List or named list. The IPv6 addresses to unassign from the network interface.}
+\item{Ipv6Addresses}{Array. The IPv6 addresses to unassign from the network interface.}
 
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Unassigns one or more IPv6 addresses from a network interface.
+Unassigns one or more IPv6 addresses from a network
+interface.
 }
 \section{Ipv6Addresses}{
 
-The IPv6 addresses to unassign from the network interface.
+The IPv6 addresses to
+unassign from the network interface.
 }
 
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the
+network interface.
 }
 

@@ -19,34 +19,38 @@ ec2_create_image(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{Name}{String. A name for the new image.}
+\item{Name}{String.   A name for the new image.}
 
-\item{BlockDeviceMapping}{List or named list. The block device mappings.(optional)}
+\item{BlockDeviceMapping}{Array. The block device mappings.\link{optional}}
 
-\item{Description}{String. A description for the new image. (optional)}
+\item{Description}{String. A description for the new image.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{NoReboot}{Boolean. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.(optional)}
+\item{NoReboot}{Boolean. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the AMI and snapshots on creation.(optional)}
+\item{TagSpecification}{Array.   The tags to apply to the AMI and snapshots on creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that
-is either running or stopped.
+Create Image
 }
 \section{InstanceId}{
 
-The ID of the instance.
+The
+ID of the instance.
 }
 
 \section{Name}{
+
 
 A name for the new image.
 
@@ -57,34 +61,39 @@ single quotes (\'), at-signs (@), or underscores(_)
 
 \section{BlockDeviceMapping}{
 
-The block device mappings. This parameter cannot be used to modify the
-encryption status of existing volumes or snapshots. To create an AMI
-with encrypted snapshots, use the CopyImage action.
+The block device mappings. This parameter cannot be
+used to modify the encryption status of existing volumes or snapshots.
+To create an AMI with encrypted snapshots, use the CopyImage
+action.
 }
 
 \section{Description}{
 
-A description for the new image.
+A description for the new
+image.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{NoReboot}{
 
-By default, Amazon EC2 attempts to shut down and reboot the instance
-before creating the image. If the \verb{No Reboot} option is set, Amazon EC2
-doesn\'t shut down the instance before creating the image. When this
-option is used, file system integrity on the created image can\'t be
+By default, Amazon EC2
+attempts to shut down and reboot the instance before creating the image.
+If the \verb{No Reboot} option is set, Amazon EC2 doesn\'t shut down the
+instance before creating the image. When this option is used, file
+system integrity on the created image can\'t be
 guaranteed.
 }
 
 \section{TagSpecification}{
+
 
 The tags to apply to the AMI and snapshots on creation. You can tag the
 AMI, the snapshots, or both.

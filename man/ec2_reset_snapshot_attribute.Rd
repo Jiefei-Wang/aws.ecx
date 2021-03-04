@@ -17,33 +17,39 @@ ec2_reset_snapshot_attribute(
 
 \item{SnapshotId}{String. The ID of the snapshot.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Resets permission settings for the specified snapshot.
+Reset Snapshot Attribute
 }
 \section{Attribute}{
 
-The attribute to reset. Currently, only the attribute for permission to
+The
+attribute to reset. Currently, only the attribute for permission to
 create volumes can be reset.
 }
 
 \section{SnapshotId}{
 
-The ID of the snapshot.
+The ID of the
+snapshot.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

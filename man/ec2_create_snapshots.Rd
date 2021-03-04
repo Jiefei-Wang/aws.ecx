@@ -18,41 +18,43 @@ ec2_create_snapshots(
 \arguments{
 \item{InstanceSpecification}{Object. The instance to specify which volumes should be included in the snapshots.}
 
-\item{Description}{String. A description propagated to every snapshot specified by the instance. (optional)}
+\item{Description}{String.  A description propagated to every snapshot specified by the instance.\link{optional}}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.(optional)}
+\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.\link{optional}}
 
-\item{TagSpecification}{List or named list. Tags to apply to every snapshot specified by the instance. (optional)}
+\item{TagSpecification}{Array. Tags to apply to every snapshot specified by the instance.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{CopyTagsFromSource}{String. Copies the tags from the specified volume to corresponding snapshot. (optional)}
+\item{CopyTagsFromSource}{String. Copies the tags from the specified volume to corresponding snapshot.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates crash-consistent snapshots of multiple EBS volumes and stores
-the data in S3. Volumes are chosen by specifying an instance. Any
-attached volumes will produce one snapshot each that is crash-consistent
-across the instance. Boot volumes can be excluded by changing the
-parameters.
+Create Snapshots
 }
 \section{InstanceSpecification}{
 
-The instance to specify which volumes should be included in the
-snapshots.
+The instance to specify
+which volumes should be included in the snapshots.
 }
 
 \section{Description}{
 
-A description propagated to every snapshot specified by the instance.
+
+A description propagated to every snapshot specified by the
+instance.
 }
 
 \section{OutpostArn}{
+
 
 The Amazon Resource Name (ARN) of the AWS Outpost on which to create the
 local snapshots.
@@ -74,19 +76,22 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 
 \section{TagSpecification}{
 
-Tags to apply to every snapshot specified by the instance.
+Tags to apply to every snapshot specified by the
+instance.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{CopyTagsFromSource}{
 
-Copies the tags from the specified volume to corresponding snapshot.
+Copies the tags from the
+specified volume to corresponding snapshot.
 }
 

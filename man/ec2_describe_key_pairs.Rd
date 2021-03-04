@@ -14,25 +14,28 @@ ec2_describe_key_pairs(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{KeyName}{List or named list. The key pair names.  Default: Describes all your key pairs. (optional)}
+\item{KeyName}{Array.   The key pair names.  Default: Describes all your key pairs.  \link{optional}}
 
-\item{KeyPairId}{List or named list. The IDs of the key pairs. (optional)}
+\item{KeyPairId}{Array. The IDs of the key pairs.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified key pairs or all of your key pairs.
+Describe Key Pairs
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -52,6 +55,7 @@ the filter name and \code{TeamA} for the filter value.
 
 \section{KeyName}{
 
+
 The key pair names.
 
 Default: Describes all your key pairs.
@@ -59,14 +63,16 @@ Default: Describes all your key pairs.
 
 \section{KeyPairId}{
 
-The IDs of the key pairs.
+The IDs of the key
+pairs.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

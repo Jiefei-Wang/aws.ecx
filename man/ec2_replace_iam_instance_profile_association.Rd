@@ -16,25 +16,27 @@ ec2_replace_iam_instance_profile_association(
 
 \item{AssociationId}{String. The ID of the existing IAM instance profile association.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Replaces an IAM instance profile for the specified running instance. You
-can use this action to change the IAM instance profile that\'s
-associated with an instance without having to disassociate the existing
-IAM instance profile first.
+Replace Iam Instance Profile Association
 }
 \section{IamInstanceProfile}{
 
-The IAM instance profile.
+The IAM instance
+profile.
 }
 
 \section{AssociationId}{
 
-The ID of the existing IAM instance profile association.
+The ID of the existing IAM instance profile
+association.
 }
 

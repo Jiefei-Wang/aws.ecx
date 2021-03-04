@@ -16,42 +16,49 @@ ec2_modify_traffic_mirror_filter_network_services(
 \arguments{
 \item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
 
-\item{AddNetworkService}{List or named list. The network service, for example Amazon DNS, that you want to mirror. (optional)}
+\item{AddNetworkService}{Array. The network service, for example Amazon DNS, that you want to mirror.\link{optional}}
 
-\item{RemoveNetworkService}{List or named list. The network service, for example Amazon DNS, that you no longer want to mirror. (optional)}
+\item{RemoveNetworkService}{Array. The network service, for example Amazon DNS, that you no longer want to mirror.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Allows or restricts mirroring network services.
+Modify Traffic Mirror Filter Network Services
 }
 \section{TrafficMirrorFilterId}{
 
-The ID of the Traffic Mirror filter.
+The ID of the Traffic Mirror
+filter.
 }
 
 \section{AddNetworkService}{
 
-The network service, for example Amazon DNS, that you want to mirror.
+The network service, for example Amazon DNS,
+that you want to mirror.
 }
 
 \section{RemoveNetworkService}{
 
-The network service, for example Amazon DNS, that you no longer want to
+The network service, for
+example Amazon DNS, that you no longer want to
 mirror.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

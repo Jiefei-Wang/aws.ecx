@@ -17,36 +17,38 @@ ec2_detach_vpn_gateway(
 
 \item{VpnGatewayId}{String. The ID of the virtual private gateway.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Detaches a virtual private gateway from a VPC. You do this if you\'re
-planning to turn off the VPC and not use it anymore. You can confirm a
-virtual private gateway has been completely detached from a VPC by
-describing the virtual private gateway (any attachments to the virtual
-private gateway are also described).
+Detach Vpn Gateway
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{VpnGatewayId}{
 
-The ID of the virtual private gateway.
+The ID of the virtual private
+gateway.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -12,29 +12,36 @@ ec2_delete_vpc_endpoint_connection_notifications(
 )
 }
 \arguments{
-\item{ConnectionNotificationId}{List or named list. One or more notification IDs.}
+\item{ConnectionNotificationId}{Array. One or more notification IDs.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes one or more VPC endpoint connection notifications.
+Deletes one
+or more VPC endpoint connection
+notifications.
 }
 \section{ConnectionNotificationId}{
 
-One or more notification IDs.
+One or more notification
+IDs.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

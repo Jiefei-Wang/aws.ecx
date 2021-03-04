@@ -4,14 +4,16 @@
 \alias{additionalDoc}
 \title{Common documents}
 \arguments{
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter value. (see below)(optional)}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
-
-\item{...}{The additional request parameters that may not present
-in the function parameters.}
+\item{NextToken}{Characters, The token for the next page of results.}
 }
 \description{
 Common documents

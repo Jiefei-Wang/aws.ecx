@@ -19,34 +19,38 @@ ec2_describe_spot_price_history(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{AvailabilityZone}{String. Filters the results by the specified Availability Zone. (optional)}
+\item{AvailabilityZone}{String. Filters the results by the specified Availability Zone.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history...(see below)(optional)}
+\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history...\link{optional}}
 
-\item{InstanceType}{List or named list. Filters the results by the specified instance types. (optional)}
+\item{InstanceType}{Array. Filters the results by the specified instance types.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{ProductDescription}{List or named list. Filters the results by the specified basic product descriptions. (optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history...(see below)(optional)}
+\item{ProductDescription}{Array. Filters the results by the specified basic product descriptions.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the Spot price history. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html}{Spot Instance pricing history}
-in the \emph{Amazon EC2 User Guide for Linux Instances}.
+Describe Spot Price History
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -69,46 +73,53 @@ supported.
 
 \section{AvailabilityZone}{
 
-Filters the results by the specified Availability Zone.
+Filters the results by the specified Availability
+Zone.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{EndTime}{
 
-The date and time, up to the current date, from which to stop retrieving
-the price history data, in UTC format (for example,
+The date and time, up to
+the current date, from which to stop retrieving the price history data,
+in UTC format (for example,
 \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
 }
 
 \section{InstanceType}{
 
-Filters the results by the specified instance types.
+Filters the
+results by the specified instance types.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. Specify a
-value between 1 and 1000. The default value is 1000. To retrieve the
-remaining results, make another call with the returned \code{NextToken}
+The maximum
+number of results to return in a single call. Specify a value between 1
+and 1000. The default value is 1000. To retrieve the remaining results,
+make another call with the returned \code{NextToken}
 value.
 }
 
 \section{ProductDescription}{
 
-Filters the results by the specified basic product descriptions.
+Filters the results by the specified basic
+product descriptions.
 }
 
 \section{StartTime}{
 
-The date and time, up to the past 90 days, from which to start
-retrieving the price history data, in UTC format (for example,
+The date and time, up to the
+past 90 days, from which to start retrieving the price history data, in
+UTC format (for example,
 \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
 }
 

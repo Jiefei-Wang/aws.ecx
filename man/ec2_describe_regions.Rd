@@ -14,25 +14,28 @@ ec2_describe_regions(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{RegionName}{List or named list. The names of the Regions.(optional)}
+\item{RegionName}{Array. The names of the Regions.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{AllRegions}{Boolean. Indicates whether to display all Regions, including Regions that are disabled for your account. (optional)}
+\item{AllRegions}{Boolean. Indicates whether to display all Regions, including Regions that are disabled for your account.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the Regions that are enabled for your account, or all Regions.
+Describe Regions
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -46,21 +49,24 @@ The filters.
 
 \section{RegionName}{
 
-The names of the Regions. You can specify any Regions, whether they are
-enabled and disabled for your account.
+The names of the Regions. You can specify any
+Regions, whether they are enabled and disabled for your
+account.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{AllRegions}{
 
-Indicates whether to display all Regions, including Regions that are
-disabled for your account.
+Indicates whether to
+display all Regions, including Regions that are disabled for your
+account.
 }
 

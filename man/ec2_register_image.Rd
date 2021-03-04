@@ -23,45 +23,46 @@ ec2_register_image(
 )
 }
 \arguments{
-\item{Name}{String. A name for your AMI.}
+\item{Name}{String.   A name for your AMI.}
 
-\item{ImageLocation}{String. The full path to your AMI manifest in Amazon S3 storage.(optional)}
+\item{ImageLocation}{String. The full path to your AMI manifest in Amazon S3 storage.\link{optional}}
 
-\item{Architecture}{String. The architecture of the AMI.(optional)}
+\item{Architecture}{String.   The architecture of the AMI.\link{optional}}
 
-\item{BlockDeviceMapping}{List or named list. The block device mapping entries.(optional)}
+\item{BlockDeviceMapping}{Array.   The block device mapping entries.\link{optional}}
 
-\item{Description}{String. A description for your AMI. (optional)}
+\item{Description}{String. A description for your AMI.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EnaSupport}{Boolean. Set to \code{true} to enable enhanced networking with ENA for the AMI and any instances that you...(see below)(optional)}
+\item{EnaSupport}{Boolean.   Set to \code{true} to enable enhanced networking with ENA for the AMI and any instances that...\link{optional}}
 
-\item{KernelId}{String. The ID of the kernel. (optional)}
+\item{KernelId}{String. The ID of the kernel.\link{optional}}
 
-\item{BillingProduct}{List or named list. The billing product codes.(optional)}
+\item{BillingProduct}{Array. The billing product codes.\link{optional}}
 
-\item{RamdiskId}{String. The ID of the RAM disk. (optional)}
+\item{RamdiskId}{String. The ID of the RAM disk.\link{optional}}
 
-\item{RootDeviceName}{String. The device name of the root device volume (for example, \verb{/dev/sda1}). (optional)}
+\item{RootDeviceName}{String. The device name of the root device volume (for example, \verb{/dev/sda1}).\link{optional}}
 
-\item{SriovNetSupport}{String. Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...(see below)(optional)}
+\item{SriovNetSupport}{String.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...\link{optional}}
 
-\item{VirtualizationType}{String. The type of virtualization (\code{hvm} \| \code{paravirtual}).  Default: \code{paravirtual} (optional)}
+\item{VirtualizationType}{String.   The type of virtualization (\code{hvm} \| \code{paravirtual}).  Default: \code{paravirtual}  \link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Registers an AMI. When you\'re creating an AMI, this is the final step
-you must complete before you can launch an instance from the AMI. For
-more information about creating AMIs, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html}{Creating your own AMIs}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+Register Image
 }
 \section{Name}{
+
 
 A name for your AMI.
 
@@ -72,14 +73,15 @@ single quotes (\'), at-signs (@), or underscores(_)
 
 \section{ImageLocation}{
 
-The full path to your AMI manifest in Amazon S3 storage. The specified
-bucket must have the \code{aws-exec-read} canned access control list (ACL) to
-ensure that it can be accessed by Amazon EC2. For more information, see
-\href{https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl}{Canned ACLs}
+The full path to your AMI manifest in Amazon S3
+storage. The specified bucket must have the \code{aws-exec-read} canned
+access control list (ACL) to ensure that it can be accessed by Amazon
+EC2. For more information, see \href{https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl}{Canned ACLs}
 in the \emph{Amazon S3 Service Developer Guide}.
 }
 
 \section{Architecture}{
+
 
 The architecture of the AMI.
 
@@ -88,6 +90,7 @@ AMIs, the architecture specified in the manifest file.
 }
 
 \section{BlockDeviceMapping}{
+
 
 The block device mapping entries.
 
@@ -103,18 +106,21 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 
 \section{Description}{
 
-A description for your AMI.
+A description for your
+AMI.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{EnaSupport}{
+
 
 Set to \code{true} to enable enhanced networking with ENA for the AMI and any
 instances that you launch from the AMI.
@@ -130,22 +136,26 @@ The ID of the kernel.
 
 \section{BillingProduct}{
 
-The billing product codes. Your account must be authorized to specify
+The
+billing product codes. Your account must be authorized to specify
 billing product codes. Otherwise, you can use the AWS Marketplace to
 bill for the use of an AMI.
 }
 
 \section{RamdiskId}{
 
-The ID of the RAM disk.
+The ID of the RAM
+disk.
 }
 
 \section{RootDeviceName}{
 
-The device name of the root device volume (for example, \verb{/dev/sda1}).
+The device name of the root device volume (for
+example, \verb{/dev/sda1}).
 }
 
 \section{SriovNetSupport}{
+
 
 Set to \code{simple} to enable enhanced networking with the Intel 82599
 Virtual Function interface for the AMI and any instances that you launch
@@ -158,6 +168,7 @@ a PV AMI can make instances launched from the AMI unreachable.
 }
 
 \section{VirtualizationType}{
+
 
 The type of virtualization (\code{hvm} \| \code{paravirtual}).
 

@@ -24,46 +24,51 @@ ec2_import_image(
 )
 }
 \arguments{
-\item{Architecture}{String. The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64} (optional)}
+\item{Architecture}{String.   The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64}  \link{optional}}
 
-\item{ClientData}{Object. The client-specific data. (optional)}
+\item{ClientData}{Object. The client-specific data.\link{optional}}
 
-\item{ClientToken}{String. The token to enable idempotency for VM import requests. (optional)}
+\item{ClientToken}{String. The token to enable idempotency for VM import requests.\link{optional}}
 
-\item{Description}{String. A description string for the import image task. (optional)}
+\item{Description}{String. A description string for the import image task.\link{optional}}
 
-\item{DiskContainer}{List or named list. Information about the disk containers. (optional)}
+\item{DiskContainer}{Array. Information about the disk containers.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Encrypted}{Boolean. Specifies whether the destination AMI of the imported image should be encrypted.(optional)}
+\item{Encrypted}{Boolean. Specifies whether the destination AMI of the imported image should be encrypted.\link{optional}}
 
-\item{Hypervisor}{String. The target hypervisor platform.  Valid values: \code{xen} (optional)}
+\item{Hypervisor}{String.   The target hypervisor platform.  Valid values: \code{xen}  \link{optional}}
 
-\item{KmsKeyId}{String. An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...(see below)(optional)}
+\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
 
-\item{LicenseType}{String. The license type to be used for the Amazon Machine Image (AMI) after importing.(optional)}
+\item{LicenseType}{String.   The license type to be used for the Amazon Machine Image (AMI) after importing.\link{optional}}
 
-\item{Platform}{String. The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux} (optional)}
+\item{Platform}{String.   The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux}  \link{optional}}
 
-\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'. (optional)}
+\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.\link{optional}}
 
-\item{LicenseSpecifications}{List or named list. The ARNs of the license configurations. (optional)}
+\item{LicenseSpecifications}{Array. The ARNs of the license configurations.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the import image task during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the import image task during creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Import single or multi-volume disk images or EBS snapshots into an
-Amazon Machine Image (AMI). For more information, see \href{https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html}{Importing a VM as an Image Using VM Import/Export}
+Import single or multi-volume disk images or EBS
+snapshots into an Amazon Machine Image (AMI). For more information, see
+\href{https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html}{Importing a VM as an Image Using VM Import/Export}
 in the \emph{VM Import/Export User Guide}.
 }
 \section{Architecture}{
+
 
 The architecture of the virtual machine.
 
@@ -77,37 +82,44 @@ The client-specific data.
 
 \section{ClientToken}{
 
-The token to enable idempotency for VM import requests.
+The
+token to enable idempotency for VM import
+requests.
 }
 
 \section{Description}{
 
-A description string for the import image task.
+A description string for the import image
+task.
 }
 
 \section{DiskContainer}{
 
-Information about the disk containers.
+Information about the disk
+containers.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Encrypted}{
 
-Specifies whether the destination AMI of the imported image should be
-encrypted. The default CMK for EBS is used unless you specify a
-non-default AWS Key Management Service (AWS KMS) CMK using \code{KmsKeyId}.
-For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS Encryption}
+Specifies whether the
+destination AMI of the imported image should be encrypted. The default
+CMK for EBS is used unless you specify a non-default AWS Key Management
+Service (AWS KMS) CMK using \code{KmsKeyId}. For more information, see
+\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS Encryption}
 in the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 
 \section{Hypervisor}{
+
 
 The target hypervisor platform.
 
@@ -115,6 +127,7 @@ Valid values: \code{xen}
 }
 
 \section{KmsKeyId}{
+
 
 An identifier for the symmetric AWS Key Management Service (AWS KMS)
 customer master key (CMK) to use when creating the encrypted AMI. This
@@ -152,6 +165,7 @@ Amazon EBS does not support asymmetric CMKs.
 
 \section{LicenseType}{
 
+
 The license type to be used for the Amazon Machine Image (AMI) after
 importing.
 
@@ -168,6 +182,7 @@ in the VM Import/Export User Guide.
 
 \section{Platform}{
 
+
 The operating system of the virtual machine.
 
 Valid values: \code{Windows} \| \code{Linux}
@@ -175,17 +190,19 @@ Valid values: \code{Windows} \| \code{Linux}
 
 \section{RoleName}{
 
-The name of the role to use when not using the default role,
-\'vmimport\'.
+The name of the role to use when not using the
+default role, \'vmimport\'.
 }
 
 \section{LicenseSpecifications}{
 
-The ARNs of the license configurations.
+The ARNs of the license
+configurations.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the import image task during creation.
+The tags to apply to the import
+image task during creation.
 }
 

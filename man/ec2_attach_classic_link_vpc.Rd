@@ -14,50 +14,51 @@ ec2_attach_classic_link_vpc(
 )
 }
 \arguments{
-\item{SecurityGroupId}{List or named list. The ID of one or more of the VPC\'s security groups.}
+\item{SecurityGroupId}{Array. The ID of one or more of the VPC\'s security groups.}
 
 \item{InstanceId}{String. The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.}
 
 \item{VpcId}{String. The ID of a ClassicLink-enabled VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Links an EC2-Classic instance to a ClassicLink-enabled VPC through one
-or more of the VPC\'s security groups. You cannot link an EC2-Classic
-instance to more than one VPC at a time. You can only link an instance
-that\'s in the \code{running} state. An instance is automatically unlinked
-from a VPC when it\'s stopped - you can link it to the VPC again when
-you restart it.
+Attach Classic Link Vpc
 }
 \section{SecurityGroupId}{
 
-The ID of one or more of the VPC\'s security groups. You cannot specify
-security groups from a different VPC.
+The ID of one or more of the VPC\'s security
+groups. You cannot specify security groups from a different
+VPC.
 }
 
 \section{InstanceId}{
 
-The ID of an EC2-Classic instance to link to the ClassicLink-enabled
-VPC.
+The ID of an EC2-Classic instance to link to
+the ClassicLink-enabled VPC.
 }
 
 \section{VpcId}{
 
-The ID of a ClassicLink-enabled VPC.
+The ID of a
+ClassicLink-enabled VPC.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

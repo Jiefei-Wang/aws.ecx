@@ -20,7 +20,7 @@ ec2_replace_network_acl_entry(
 )
 }
 \arguments{
-\item{Egress}{Boolean. Indicates whether to replace the egress rule.}
+\item{Egress}{Boolean.   Indicates whether to replace the egress rule.}
 
 \item{NetworkAclId}{String. The ID of the ACL.}
 
@@ -30,28 +30,32 @@ ec2_replace_network_acl_entry(
 
 \item{RuleNumber}{Integer. The rule number of the entry to replace.}
 
-\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}). (optional)}
+\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}).\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.(optional)}
+\item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.\link{optional}}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:bd8:1234:1a00::/64}). (optional)}
+\item{Ipv6CidrBlock}{String. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:bd8:1234:1a00::/64}).\link{optional}}
 
-\item{PortRange}{Object. TCP or UDP protocols: The range of ports the rule applies to.(optional)}
+\item{PortRange}{Object. TCP or UDP protocols: The range of ports the rule applies to.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Replaces an entry (rule) in a network ACL. For more information, see
-\href{https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html}{Network ACLs} in
+Replaces an entry (rule) in a network ACL. For more
+information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html}{Network ACLs} in
 the \emph{Amazon Virtual Private Cloud User Guide}.
 }
 \section{Egress}{
+
 
 Indicates whether to replace the egress rule.
 
@@ -65,55 +69,63 @@ The ID of the ACL.
 
 \section{Protocol}{
 
-The protocol number. A value of \'-1\' means all protocols. If you
-specify \'-1\' or a protocol number other than \'6\' (TCP), \'17\'
-(UDP), or \'1\' (ICMP), traffic on all ports is allowed, regardless of
-any ports or ICMP types or codes that you specify. If you specify
-protocol \'58\' (ICMPv6) and specify an IPv4 CIDR block, traffic for all
-ICMP types and codes allowed, regardless of any that you specify. If you
-specify protocol \'58\' (ICMPv6) and specify an IPv6 CIDR block, you
-must specify an ICMP type and code.
+The protocol
+number. A value of \'-1\' means all protocols. If you specify \'-1\' or
+a protocol number other than \'6\' (TCP), \'17\' (UDP), or \'1\' (ICMP),
+traffic on all ports is allowed, regardless of any ports or ICMP types
+or codes that you specify. If you specify protocol \'58\' (ICMPv6) and
+specify an IPv4 CIDR block, traffic for all ICMP types and codes
+allowed, regardless of any that you specify. If you specify protocol
+\'58\' (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP
+type and code.
 }
 
 \section{RuleAction}{
 
-Indicates whether to allow or deny the traffic that matches the rule.
+Indicates whether to allow or deny
+the traffic that matches the rule.
 }
 
 \section{RuleNumber}{
 
-The rule number of the entry to replace.
+The rule number
+of the entry to replace.
 }
 
 \section{CidrBlock}{
 
-The IPv4 network range to allow or deny, in CIDR notation (for example
+The IPv4 network range to
+allow or deny, in CIDR notation (for example
 \verb{172.16.0.0/24}).
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{Icmp}{
 
-ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
-protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
+ICMP protocol: The ICMP or
+ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or
+protocol 58 (ICMPv6) with an IPv6 CIDR block.
 }
 
 \section{Ipv6CidrBlock}{
 
-The IPv6 network range to allow or deny, in CIDR notation (for example
+The
+IPv6 network range to allow or deny, in CIDR notation (for example
 \verb{2001:bd8:1234:1a00::/64}).
 }
 
 \section{PortRange}{
 
-TCP or UDP protocols: The range of ports the rule applies to. Required
-if specifying protocol 6 (TCP) or 17 (UDP).
+TCP or UDP protocols:
+The range of ports the rule applies to. Required if specifying protocol
+6 (TCP) or 17 (UDP).
 }
 

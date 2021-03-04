@@ -16,42 +16,48 @@ ec2_modify_vpc_peering_connection_options(
 \arguments{
 \item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection.}
 
-\item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC. (optional)}
+\item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{RequesterPeeringConnectionOptions}{Object. The VPC peering connection options for the requester VPC. (optional)}
+\item{RequesterPeeringConnectionOptions}{Object. The VPC peering connection options for the requester VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the VPC peering connection options on one side of a VPC peering
-connection. You can do the following:
+Modify Vpc Peering Connection Options
 }
 \section{VpcPeeringConnectionId}{
 
-The ID of the VPC peering connection.
+The ID of the VPC peering
+connection.
 }
 
 \section{AccepterPeeringConnectionOptions}{
 
-The VPC peering connection options for the accepter VPC.
+The VPC peering connection options for
+the accepter VPC.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{RequesterPeeringConnectionOptions}{
 
-The VPC peering connection options for the requester VPC.
+The VPC peering connection
+options for the requester VPC.
 }
 

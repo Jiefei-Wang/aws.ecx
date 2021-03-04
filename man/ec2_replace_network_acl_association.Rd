@@ -17,36 +17,39 @@ ec2_replace_network_acl_association(
 
 \item{NetworkAclId}{String. The ID of the new network ACL to associate with the subnet.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Changes which network ACL a subnet is associated with. By default when
-you create a subnet, it\'s automatically associated with the default
-network ACL. For more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html}{Network ACLs} in
-the \emph{Amazon Virtual Private Cloud User Guide}.
+Replace Network Acl Association
 }
 \section{AssociationId}{
 
-The ID of the current association between the original network ACL and
-the subnet.
+The ID of the current association
+between the original network ACL and the subnet.
 }
 
 \section{NetworkAclId}{
 
-The ID of the new network ACL to associate with the subnet.
+The
+ID of the new network ACL to associate with the
+subnet.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

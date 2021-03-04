@@ -25,61 +25,67 @@ ec2_copy_image(
 
 \item{SourceRegion}{String. The name of the Region that contains the AMI to copy.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of the request.\link{optional}}
 
-\item{Description}{String. A description for the new AMI in the destination Region. (optional)}
+\item{Description}{String. A description for the new AMI in the destination Region.\link{optional}}
 
-\item{Encrypted}{Boolean. Specifies whether the destination snapshots of the copied image should be encrypted.(optional)}
+\item{Encrypted}{Boolean. Specifies whether the destination snapshots of the copied image should be encrypted.\link{optional}}
 
-\item{KmsKeyId}{String. The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...(see below)(optional)}
+\item{KmsKeyId}{String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
 
-\item{DestinationOutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.(optional)}
+\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Initiates the copy of an AMI. You can copy an AMI from one Region to
-another, or from a Region to an AWS Outpost. You can\'t copy an AMI from
-an Outpost to a Region, from one Outpost to another, or within the same
-Outpost.
+Copy Image
 }
 \section{Name}{
 
-The name of the new AMI in the destination Region.
+The
+name of the new AMI in the destination Region.
 }
 
 \section{SourceImageId}{
 
-The ID of the AMI to copy.
+The
+ID of the AMI to copy.
 }
 
 \section{SourceRegion}{
 
-The name of the Region that contains the AMI to copy.
+The name of the Region that
+contains the AMI to copy.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier you provide to ensure idempotency of
-the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring idempotency}
+Unique, case-sensitive
+identifier you provide to ensure idempotency of the request. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring idempotency}
 in the \emph{Amazon EC2 API Reference}.
 }
 
 \section{Description}{
 
-A description for the new AMI in the destination Region.
+A description for
+the new AMI in the destination Region.
 }
 
 \section{Encrypted}{
 
-Specifies whether the destination snapshots of the copied image should
-be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
+Specifies
+whether the destination snapshots of the copied image should be
+encrypted. You can encrypt a copy of an unencrypted snapshot, but you
 cannot create an unencrypted copy of an encrypted snapshot. The default
 CMK for EBS is used unless you specify a non-default AWS Key Management
 Service (AWS KMS) CMK using \code{KmsKeyId}. For more information, see
@@ -88,6 +94,7 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 
 \section{KmsKeyId}{
+
 
 The identifier of the symmetric AWS Key Management Service (AWS KMS)
 customer master key (CMK) to use when creating encrypted volumes. If
@@ -115,6 +122,7 @@ Amazon EBS does not support asymmetric CMKs.
 
 \section{DestinationOutpostArn}{
 
+
 The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
 Only specify this parameter when copying an AMI from an AWS Region to an
 Outpost. The AMI must be in the Region of the destination Outpost. You
@@ -127,9 +135,10 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

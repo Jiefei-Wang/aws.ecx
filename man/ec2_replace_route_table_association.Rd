@@ -17,36 +17,38 @@ ec2_replace_route_table_association(
 
 \item{RouteTableId}{String. The ID of the new route table to associate with the subnet.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Changes the route table associated with a given subnet, internet
-gateway, or virtual private gateway in a VPC. After the operation
-completes, the subnet or gateway uses the routes in the new route table.
-For more information about route tables, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html}{Route Tables}
-in the \emph{Amazon Virtual Private Cloud User Guide}.
+Replace Route Table Association
 }
 \section{AssociationId}{
 
-The association ID.
+The association
+ID.
 }
 
 \section{RouteTableId}{
 
-The ID of the new route table to associate with the subnet.
+The ID of the new route table to associate with
+the subnet.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -24,51 +24,54 @@ ec2_copy_snapshot(
 
 \item{SourceSnapshotId}{String. The ID of the EBS snapshot to copy.}
 
-\item{Description}{String. A description for the EBS snapshot. (optional)}
+\item{Description}{String. A description for the EBS snapshot.\link{optional}}
 
-\item{DestinationOutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.(optional)}
+\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.\link{optional}}
 
-\item{DestinationRegion}{String. The destination Region to use in the \code{PresignedUrl} parameter of a snapshot copy operation.(optional)}
+\item{DestinationRegion}{String.   The destination Region to use in the \code{PresignedUrl} parameter of a snapshot copy operation.\link{optional}}
 
-\item{Encrypted}{Boolean. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable...(see below)(optional)}
+\item{Encrypted}{Boolean. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable...\link{optional}}
 
-\item{KmsKeyId}{String. The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use...(see below)(optional)}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\link{optional}}
 
-\item{PresignedUrl}{String. When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply...(see below)(optional)}
+\item{PresignedUrl}{String.   When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the new snapshot. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the new snapshot.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Copies a point-in-time snapshot of an EBS volume and stores it in Amazon
-S3. You can copy a snapshot within the same Region, from one Region to
-another, or from a Region to an Outpost. You can\'t copy a snapshot from
-an Outpost to a Region, from one Outpost to another, or within the same
-Outpost.
+Copy Snapshot
 }
 \section{SourceRegion}{
 
-The ID of the Region that contains the snapshot to be copied.
+The ID of the Region that
+contains the snapshot to be copied.
 }
 
 \section{SourceSnapshotId}{
 
-The ID of the EBS snapshot to copy.
+The ID of the
+EBS snapshot to copy.
 }
 
 \section{Description}{
 
-A description for the EBS snapshot.
+A description for the EBS
+snapshot.
 }
 
 \section{DestinationOutpostArn}{
+
 
 The Amazon Resource Name (ARN) of the Outpost to which to copy the
 snapshot. Only specify this parameter when copying a snapshot from an
@@ -82,6 +85,7 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 
 \section{DestinationRegion}{
 
+
 The destination Region to use in the \code{PresignedUrl} parameter of a
 snapshot copy operation. This parameter is only valid for specifying the
 destination Region in a \code{PresignedUrl} parameter, where it is required.
@@ -94,15 +98,17 @@ Region in your AWS configuration file.
 
 \section{Encrypted}{
 
-To encrypt a copy of an unencrypted snapshot if encryption by default is
-not enabled, enable encryption using this parameter. Otherwise, omit
-this parameter. Encrypted snapshots are encrypted, even if you omit this
-parameter and encryption by default is not enabled. You cannot set this
-parameter to false. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS encryption}
+To encrypt a copy of an unencrypted snapshot if
+encryption by default is not enabled, enable encryption using this
+parameter. Otherwise, omit this parameter. Encrypted snapshots are
+encrypted, even if you omit this parameter and encryption by default is
+not enabled. You cannot set this parameter to false. For more
+information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html}{Amazon EBS encryption}
 in the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 
 \section{KmsKeyId}{
+
 
 The identifier of the AWS Key Management Service (AWS KMS) customer
 master key (CMK) to use for Amazon EBS encryption. If this parameter is
@@ -126,6 +132,7 @@ but eventually fails.
 
 \section{PresignedUrl}{
 
+
 When you copy an encrypted source snapshot using the Amazon EC2 Query
 API, you must supply a pre-signed URL. This parameter is optional for
 unencrypted snapshots. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html}{Query requests}.
@@ -143,14 +150,16 @@ asynchronously, and the snapshot will move to an \code{error} state.
 
 \section{TagSpecification}{
 
-The tags to apply to the new snapshot.
+The tags to apply to the new
+snapshot.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

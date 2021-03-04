@@ -14,34 +14,40 @@ ec2_release_address(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID. Required for EC2-VPC. (optional)}
+\item{AllocationId}{String. [EC2-VPC] The allocation ID. Required for EC2-VPC.\link{optional}}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic. (optional)}
+\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.\link{optional}}
 
-\item{NetworkBorderGroup}{String. The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...(see below)(optional)}
+\item{NetworkBorderGroup}{String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Releases the specified Elastic IP address.
+Release Address
 }
 \section{AllocationId}{
 
-[EC2-VPC] The allocation ID. Required for EC2-VPC.
+[EC2-VPC] The allocation
+ID. Required for EC2-VPC.
 }
 
 \section{PublicIp}{
 
-[EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+[EC2-Classic] The
+Elastic IP address. Required for EC2-Classic.
 }
 
 \section{NetworkBorderGroup}{
+
 
 The set of Availability Zones, Local Zones, or Wavelength Zones from
 which AWS advertises IP addresses.
@@ -56,9 +62,10 @@ this operation on EC2 classic, you will receive an
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

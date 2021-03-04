@@ -15,35 +15,41 @@ ec2_reset_network_interface_attribute(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{SourceDestCheck}{String. The source/destination checking attribute. Resets the value to \code{true}. (optional)}
+\item{SourceDestCheck}{String. The source/destination checking attribute. Resets the value to \code{true}.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Resets a network interface attribute. You can specify only one attribute
-at a time.
+Resets a network interface attribute. You can
+specify only one attribute at a time.
 }
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of
+the network interface.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{SourceDestCheck}{
 
-The source/destination checking attribute. Resets the value to \code{true}.
+The source/destination
+checking attribute. Resets the value to \code{true}.
 }
 

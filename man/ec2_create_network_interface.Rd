@@ -23,89 +23,101 @@ ec2_create_network_interface(
 \arguments{
 \item{SubnetId}{String. The ID of the subnet to associate with the network interface.}
 
-\item{Description}{String. A description for the network interface. (optional)}
+\item{Description}{String. A description for the network interface.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{SecurityGroupId}{List or named list. The IDs of one or more security groups. (optional)}
+\item{SecurityGroupId}{Array. The IDs of one or more security groups.\link{optional}}
 
-\item{Ipv6AddressCount}{Integer. The number of IPv6 addresses to assign to a network interface.(optional)}
+\item{Ipv6AddressCount}{Integer. The number of IPv6 addresses to assign to a network interface.\link{optional}}
 
-\item{Ipv6Addresses}{List or named list. One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.(optional)}
+\item{Ipv6Addresses}{Array. One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.\link{optional}}
 
-\item{PrivateIpAddress}{String. The primary private IPv4 address of the network interface.(optional)}
+\item{PrivateIpAddress}{String. The primary private IPv4 address of the network interface.\link{optional}}
 
-\item{PrivateIpAddresses}{List or named list. One or more private IPv4 addresses. (optional)}
+\item{PrivateIpAddresses}{Array. One or more private IPv4 addresses.\link{optional}}
 
-\item{SecondaryPrivateIpAddressCount}{Integer. The number of secondary private IPv4 addresses to assign to a network interface.(optional)}
+\item{SecondaryPrivateIpAddressCount}{Integer.   The number of secondary private IPv4 addresses to assign to a network interface.\link{optional}}
 
-\item{InterfaceType}{String. Indicates the type of network interface.(optional)}
+\item{InterfaceType}{String. Indicates the type of network interface.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the new network interface. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the new network interface.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a network interface in the specified subnet.
+Create Network Interface
 }
 \section{SubnetId}{
 
-The ID of the subnet to associate with the network interface.
+The ID of the subnet to
+associate with the network interface.
 }
 
 \section{Description}{
 
-A description for the network interface.
+A description
+for the network interface.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have
+the required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{SecurityGroupId}{
 
-The IDs of one or more security groups.
+The IDs of one or more
+security groups.
 }
 
 \section{Ipv6AddressCount}{
 
-The number of IPv6 addresses to assign to a network interface. Amazon
-EC2 automatically selects the IPv6 addresses from the subnet range. You
-can\'t use this option if specifying specific IPv6 addresses. If your
-subnet has the \code{AssignIpv6AddressOnCreation} attribute set to \code{true},
-you can specify \code{0} to override this setting.
+The number of IPv6 addresses to
+assign to a network interface. Amazon EC2 automatically selects the IPv6
+addresses from the subnet range. You can\'t use this option if
+specifying specific IPv6 addresses. If your subnet has the
+\code{AssignIpv6AddressOnCreation} attribute set to \code{true}, you can specify
+\code{0} to override this setting.
 }
 
 \section{Ipv6Addresses}{
 
-One or more specific IPv6 addresses from the IPv6 CIDR block range of
-your subnet. You can\'t use this option if you\'re specifying a number
-of IPv6 addresses.
+One or more specific
+IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t
+use this option if you\'re specifying a number of IPv6
+addresses.
 }
 
 \section{PrivateIpAddress}{
 
-The primary private IPv4 address of the network interface. If you don\'t
-specify an IPv4 address, Amazon EC2 selects one for you from the
-subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot
-indicate any IP addresses specified in \code{privateIpAddresses} as primary
-(only one IP address can be designated as primary).
+The primary private IPv4 address of the
+network interface. If you don\'t specify an IPv4 address, Amazon EC2
+selects one for you from the subnet\'s IPv4 CIDR range. If you specify
+an IP address, you cannot indicate any IP addresses specified in
+\code{privateIpAddresses} as primary (only one IP address can be designated
+as primary).
 }
 
 \section{PrivateIpAddresses}{
 
-One or more private IPv4 addresses.
+One or more private IPv4
+addresses.
 }
 
 \section{SecondaryPrivateIpAddressCount}{
+
 
 The number of secondary private IPv4 addresses to assign to a network
 interface. When you specify a number of secondary IPv4 addresses, Amazon
@@ -120,13 +132,16 @@ in the \emph{Amazon Virtual Private Cloud User Guide}.
 
 \section{InterfaceType}{
 
-Indicates the type of network interface. To create an Elastic Fabric
-Adapter (EFA), specify \code{efa}. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html}{Elastic Fabric Adapter}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+Indicates the type of network interface. To create
+an Elastic Fabric Adapter (EFA), specify \code{efa}. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html}{Elastic Fabric Adapter}
+in the \emph{Amazon Elastic Compute Cloud User
+Guide}.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the new network interface.
+The tags to apply to the new network
+interface.
 }
 

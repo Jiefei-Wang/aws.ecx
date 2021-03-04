@@ -18,42 +18,45 @@ ec2_associate_client_vpn_target_network(
 
 \item{SubnetId}{String. The ID of the subnet to associate with the Client VPN endpoint.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Associates a target network with a Client VPN endpoint. A target network
-is a subnet in a VPC. You can associate multiple subnets from the same
-VPC with a Client VPN endpoint. You can associate only one subnet in
-each Availability Zone. We recommend that you associate at least two
-subnets to provide Availability Zone redundancy.
+Associate Client Vpn Target Network
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint.
+The ID of the Client VPN
+endpoint.
 }
 
 \section{SubnetId}{
 
-The ID of the subnet to associate with the Client VPN endpoint.
+The ID of the subnet to associate with the
+Client VPN endpoint.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request.
+For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.

@@ -17,29 +17,25 @@ ec2_detach_volume(
 \arguments{
 \item{VolumeId}{String. The ID of the volume.}
 
-\item{Device}{String. The device name. (optional)}
+\item{Device}{String. The device name.\link{optional}}
 
-\item{Force}{Boolean. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging...(see below)(optional)}
+\item{Force}{Boolean. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging...\link{optional}}
 
-\item{InstanceId}{String. The ID of the instance.(optional)}
+\item{InstanceId}{String. The ID of the instance.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Detaches an EBS volume from an instance. Make sure to unmount any file
-systems on the device within your operating system before detaching the
-volume. Failure to do so can result in the volume becoming stuck in the
-\code{busy} state while detaching. If this happens, detachment can be delayed
-indefinitely until you unmount the volume, force detachment, reboot the
-instance, or all three. If an EBS volume is the root device of an
-instance, it can\'t be detached while the instance is running. To detach
-the root volume, stop the instance first.
+Detach Volume
 }
 \section{VolumeId}{
 
@@ -48,31 +44,35 @@ The ID of the volume.
 
 \section{Device}{
 
-The device name.
+The
+device name.
 }
 
 \section{Force}{
 
-Forces detachment if the previous detachment attempt did not occur
-cleanly (for example, logging into an instance, unmounting the volume,
-and detaching normally). This option can lead to data loss or a
-corrupted file system. Use this option only as a last resort to detach a
-volume from a failed instance. The instance won\'t have an opportunity
-to flush file system caches or file system metadata. If you use this
-option, you must perform file system check and repair procedures.
+Forces detachment if the previous
+detachment attempt did not occur cleanly (for example, logging into an
+instance, unmounting the volume, and detaching normally). This option
+can lead to data loss or a corrupted file system. Use this option only
+as a last resort to detach a volume from a failed instance. The instance
+won\'t have an opportunity to flush file system caches or file system
+metadata. If you use this option, you must perform file system check and
+repair procedures.
 }
 
 \section{InstanceId}{
 
-The ID of the instance. If you are detaching a Multi-Attach enabled
-volume, you must specify an instance ID.
+The ID of the instance. If you
+are detaching a Multi-Attach enabled volume, you must specify an
+instance ID.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

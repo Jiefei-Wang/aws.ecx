@@ -17,37 +17,42 @@ ec2_modify_instance_metadata_options(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{HttpTokens}{String. The state of token usage for your instance metadata requests.(optional)}
+\item{HttpTokens}{String.   The state of token usage for your instance metadata requests.\link{optional}}
 
-\item{HttpPutResponseHopLimit}{Integer. The desired HTTP PUT response hop limit for instance metadata requests.(optional)}
+\item{HttpPutResponseHopLimit}{Integer.   The desired HTTP PUT response hop limit for instance metadata requests.\link{optional}}
 
-\item{HttpEndpoint}{String. This parameter enables or disables the HTTP metadata endpoint on your instances.(optional)}
+\item{HttpEndpoint}{String.   This parameter enables or disables the HTTP metadata endpoint on your instances.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modify the instance metadata parameters on a running or stopped
-instance. When you modify the parameters on a stopped instance, they are
-applied when the instance is started. When you modify the parameters on
-a running instance, the API responds with a state of \emph{pending}. After
-the parameter modifications are successfully applied to the instance,
-the state of the modifications changes from \emph{pending} to \emph{applied}
-in subsequent describe-instances API calls. For more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html}{Instance metadata and user data}
+Modify the instance metadata
+parameters on a running or stopped instance. When you modify the
+parameters on a stopped instance, they are applied when the instance is
+started. When you modify the parameters on a running instance, the API
+responds with a state of \emph{pending}. After the parameter modifications
+are successfully applied to the instance, the state of the modifications
+changes from \emph{pending} to \emph{applied} in subsequent describe-instances
+API calls. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html}{Instance metadata and user data}
 in the \emph{Amazon EC2 User Guide}.
 }
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of the
+instance.
 }
 
 \section{HttpTokens}{
+
 
 The state of token usage for your instance metadata requests. If the
 parameter is not specified in the request, the default state is
@@ -67,6 +72,7 @@ role credential always returns the version 2.0 credentials; the version
 
 \section{HttpPutResponseHopLimit}{
 
+
 The desired HTTP PUT response hop limit for instance metadata requests.
 The larger the number, the further instance metadata requests can
 travel. If no parameter is specified, the existing state is maintained.
@@ -75,6 +81,7 @@ Possible values: Integers from 1 to 64
 }
 
 \section{HttpEndpoint}{
+
 
 This parameter enables or disables the HTTP metadata endpoint on your
 instances. If the parameter is not specified, the existing state is
@@ -86,9 +93,10 @@ your instance metadata.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

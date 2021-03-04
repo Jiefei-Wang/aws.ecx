@@ -21,57 +21,66 @@ ec2_modify_traffic_mirror_session(
 \arguments{
 \item{TrafficMirrorSessionId}{String. The ID of the Traffic Mirror session.}
 
-\item{TrafficMirrorTargetId}{String. The Traffic Mirror target.(optional)}
+\item{TrafficMirrorTargetId}{String. The Traffic Mirror target.\link{optional}}
 
-\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter. (optional)}
+\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.\link{optional}}
 
-\item{PacketLength}{Integer. The number of bytes in each packet to mirror.(optional)}
+\item{PacketLength}{Integer. The number of bytes in each packet to mirror.\link{optional}}
 
-\item{SessionNumber}{Integer. The session number determines the order in which sessions are evaluated when an interface...(see below)(optional)}
+\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface...\link{optional}}
 
-\item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session. (optional)}
+\item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session.\link{optional}}
 
-\item{Description}{String. The description to assign to the Traffic Mirror session. (optional)}
+\item{Description}{String. The description to assign to the Traffic Mirror session.\link{optional}}
 
-\item{RemoveField}{List or named list. The properties that you want to remove from the Traffic Mirror session.(optional)}
+\item{RemoveField}{Array.   The properties that you want to remove from the Traffic Mirror session.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies a Traffic Mirror session.
+Modifies a Traffic Mirror
+session.
 }
 \section{TrafficMirrorSessionId}{
 
-The ID of the Traffic Mirror session.
+The ID of the Traffic
+Mirror session.
 }
 
 \section{TrafficMirrorTargetId}{
 
-The Traffic Mirror target. The target must be in the same VPC as the
-source, or have a VPC peering connection with the source.
+The Traffic Mirror target. The
+target must be in the same VPC as the source, or have a VPC peering
+connection with the source.
 }
 
 \section{TrafficMirrorFilterId}{
 
-The ID of the Traffic Mirror filter.
+The ID of the Traffic
+Mirror filter.
 }
 
 \section{PacketLength}{
 
-The number of bytes in each packet to mirror. These are bytes after the
-VXLAN header. To mirror a subset, set this to the length (in bytes) to
-mirror. For example, if you set this value to 100, then the first 100
-bytes that meet the filter criteria are copied to the target. Do not
-specify this parameter when you want to mirror the entire packet.
+The number of bytes in each packet to
+mirror. These are bytes after the VXLAN header. To mirror a subset, set
+this to the length (in bytes) to mirror. For example, if you set this
+value to 100, then the first 100 bytes that meet the filter criteria are
+copied to the target. Do not specify this parameter when you want to
+mirror the entire packet.
 }
 
 \section{SessionNumber}{
+
 
 The session number determines the order in which sessions are evaluated
 when an interface is used by multiple sessions. The first session with a
@@ -82,15 +91,18 @@ Valid values are 1-32766.
 
 \section{VirtualNetworkId}{
 
-The virtual network ID of the Traffic Mirror session.
+The virtual network ID of the Traffic Mirror
+session.
 }
 
 \section{Description}{
 
-The description to assign to the Traffic Mirror session.
+The description to assign to the Traffic
+Mirror session.
 }
 
 \section{RemoveField}{
+
 
 The properties that you want to remove from the Traffic Mirror session.
 
@@ -100,9 +112,10 @@ is set to the default.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

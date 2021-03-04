@@ -18,43 +18,46 @@ ec2_provision_byoip_cidr(
 \arguments{
 \item{Cidr}{String. The public IPv4 or IPv6 address range, in CIDR notation.}
 
-\item{CidrAuthorizationContext}{Object. A signed document that proves that you are authorized to bring the specified IP address range...(see below)(optional)}
+\item{CidrAuthorizationContext}{Object. A signed document that proves that you are authorized to bring the specified IP address range...\link{optional}}
 
-\item{PubliclyAdvertisable}{Boolean. (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.(optional)}
+\item{PubliclyAdvertisable}{Boolean.   (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.\link{optional}}
 
-\item{Description}{String. A description for the address range and the address pool. (optional)}
+\item{Description}{String. A description for the address range and the address pool.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{PoolTagSpecification}{List or named list. The tags to apply to the address pool. (optional)}
+\item{PoolTagSpecification}{Array. The tags to apply to the address pool.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Provisions an IPv4 or IPv6 address range for use with your AWS resources
-through bring your own IP addresses (BYOIP) and creates a corresponding
-address pool. After the address range is provisioned, it is ready to be
-advertised using AdvertiseByoipCidr.
+Provision Byoip Cidr
 }
 \section{Cidr}{
 
-The public IPv4 or IPv6 address range, in CIDR notation. The most
-specific IPv4 prefix that you can specify is /24. The most specific IPv6
-prefix you can specify is /56. The address range cannot overlap with
-another address range that you\'ve brought to this or another Region.
+The public IPv4 or IPv6
+address range, in CIDR notation. The most specific IPv4 prefix that you
+can specify is /24. The most specific IPv6 prefix you can specify is
+/56. The address range cannot overlap with another address range that
+you\'ve brought to this or another Region.
 }
 
 \section{CidrAuthorizationContext}{
 
-A signed document that proves that you are authorized to bring the
-specified IP address range to Amazon using BYOIP.
+A signed
+document that proves that you are authorized to bring the specified IP
+address range to Amazon using BYOIP.
 }
 
 \section{PubliclyAdvertisable}{
+
 
 (IPv6 only) Indicate whether the address range will be publicly
 advertised to the internet.
@@ -64,19 +67,22 @@ Default: true
 
 \section{Description}{
 
-A description for the address range and the address pool.
+A description for the address range and the address
+pool.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{PoolTagSpecification}{
 
-The tags to apply to the address pool.
+The tags to apply to the
+address pool.
 }
 

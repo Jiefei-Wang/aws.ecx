@@ -19,36 +19,40 @@ ec2_purchase_reserved_instances_offering(
 
 \item{ReservedInstancesOfferingId}{String. The ID of the Reserved Instance offering to purchase.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LimitPrice}{Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure...(see below)(optional)}
+\item{LimitPrice}{Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure...\link{optional}}
 
-\item{PurchaseTime}{String. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....(see below)(optional)}
+\item{PurchaseTime}{String. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Purchases a Reserved Instance for use with your account. With Reserved
-Instances, you pay a lower hourly rate compared to On-Demand instance
-pricing.
+Purchase Reserved Instances Offering
 }
 \section{InstanceCount}{
 
-The number of Reserved Instances to purchase.
+The number of
+Reserved Instances to purchase.
 }
 
 \section{ReservedInstancesOfferingId}{
 
-The ID of the Reserved Instance offering to purchase.
+The ID of the
+Reserved Instance offering to purchase.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -56,14 +60,16 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{LimitPrice}{
 
-Specified for Reserved Instance Marketplace offerings to limit the total
-order and ensure that the Reserved Instances are not purchased at
-unexpected prices.
+Specified
+for Reserved Instance Marketplace offerings to limit the total order and
+ensure that the Reserved Instances are not purchased at unexpected
+prices.
 }
 
 \section{PurchaseTime}{
 
-The time at which to purchase the Reserved Instance, in UTC format (for
-example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
+The time at which to purchase the Reserved
+Instance, in UTC format (for example,
+\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
 }
 

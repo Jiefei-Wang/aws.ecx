@@ -17,36 +17,42 @@ ec2_modify_availability_zone_group(
 
 \item{OptInStatus}{String. Indicates whether you are opted in to the Local Zone group or Wavelength Zone group.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Changes the opt-in status of the Local Zone and Wavelength Zone group
-for your account.
+Modify Availability Zone Group
 }
 \section{GroupName}{
 
-The name of the Availability Zone group, Local Zone group, or Wavelength
-Zone group.
+The name of the
+Availability Zone group, Local Zone group, or Wavelength Zone
+group.
 }
 
 \section{OptInStatus}{
 
-Indicates whether you are opted in to the Local Zone group or Wavelength
-Zone group. The only valid value is \verb{opted-in}. You must contact \href{https://console.aws.amazon.com/support/home#/case/create\%3FissueType=customer-service\%26serviceCode=general-info\%26getting-started\%26categoryCode=using-aws\%26services}{AWS Support}
-to opt out of a Local Zone group, or Wavelength Zone group.
+Indicates whether you are opted in to the
+Local Zone group or Wavelength Zone group. The only valid value is
+\verb{opted-in}. You must contact \href{https://console.aws.amazon.com/support/home#/case/create\%3FissueType=customer-service\%26serviceCode=general-info\%26getting-started\%26categoryCode=using-aws\%26services}{AWS Support}
+to opt out of a Local Zone group, or Wavelength Zone
+group.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

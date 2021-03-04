@@ -12,28 +12,32 @@ ec2_describe_export_tasks(
 )
 }
 \arguments{
-\item{ExportTaskId}{List or named list. The export task IDs. (optional)}
+\item{ExportTaskId}{Array. The export task IDs.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified export instance tasks or all of your export
-instance tasks.
+Describes the specified export instance tasks
+or all of your export instance tasks.
 }
 \section{ExportTaskId}{
 
-The export task IDs.
+The export task
+IDs.
 }
 
 \section{Filter}{
 
-the filters for the export tasks.
+the filters for the export
+tasks.
 }
 

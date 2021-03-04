@@ -24,50 +24,57 @@ ec2_modify_client_vpn_endpoint(
 \arguments{
 \item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to modify.}
 
-\item{ServerCertificateArn}{String. The ARN of the server certificate to be used.(optional)}
+\item{ServerCertificateArn}{String. The ARN of the server certificate to be used.\link{optional}}
 
-\item{ConnectionLogOptions}{Object. Information about the client connection logging options.(optional)}
+\item{ConnectionLogOptions}{Object.   Information about the client connection logging options.\link{optional}}
 
-\item{DnsServers}{Object. Information about the DNS servers to be used by Client VPN connections.(optional)}
+\item{DnsServers}{Object. Information about the DNS servers to be used by Client VPN connections.\link{optional}}
 
-\item{VpnPort}{Integer. The port number to assign to the Client VPN endpoint for TCP and UDP traffic.(optional)}
+\item{VpnPort}{Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.\link{optional}}
 
-\item{Description}{String. A brief description of the Client VPN endpoint. (optional)}
+\item{Description}{String. A brief description of the Client VPN endpoint.\link{optional}}
 
-\item{SplitTunnel}{Boolean. Indicates whether the VPN is split-tunnel.(optional)}
+\item{SplitTunnel}{Boolean.   Indicates whether the VPN is split-tunnel.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{SecurityGroupId}{List or named list. The IDs of one or more security groups to apply to the target network. (optional)}
+\item{SecurityGroupId}{Array. The IDs of one or more security groups to apply to the target network.\link{optional}}
 
-\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint. (optional)}
+\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint.\link{optional}}
 
-\item{SelfServicePortal}{String. Specify whether to enable the self-service portal for the Client VPN endpoint. (optional)}
+\item{SelfServicePortal}{String. Specify whether to enable the self-service portal for the Client VPN endpoint.\link{optional}}
 
-\item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections. (optional)}
+\item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified Client VPN endpoint. Modifying the DNS server
-resets existing client connections.
+Modifies the specified Client VPN
+endpoint. Modifying the DNS server resets existing client
+connections.
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint to modify.
+The ID of the Client VPN
+endpoint to modify.
 }
 
 \section{ServerCertificateArn}{
 
-The ARN of the server certificate to be used. The server certificate
-must be provisioned in AWS Certificate Manager (ACM).
+The ARN of the server
+certificate to be used. The server certificate must be provisioned in
+AWS Certificate Manager (ACM).
 }
 
 \section{ConnectionLogOptions}{
+
 
 Information about the client connection logging options.
 
@@ -84,11 +91,13 @@ logged:
 
 \section{DnsServers}{
 
-Information about the DNS servers to be used by Client VPN connections.
-A Client VPN endpoint can have up to two DNS servers.
+Information about the DNS servers to be used by
+Client VPN connections. A Client VPN endpoint can have up to two DNS
+servers.
 }
 
 \section{VpnPort}{
+
 
 The port number to assign to the Client VPN endpoint for TCP and UDP
 traffic.
@@ -100,10 +109,12 @@ Default Value: \code{443}
 
 \section{Description}{
 
-A brief description of the Client VPN endpoint.
+A brief description of the Client VPN
+endpoint.
 }
 
 \section{SplitTunnel}{
+
 
 Indicates whether the VPN is split-tunnel.
 
@@ -113,31 +124,36 @@ in the \emph{AWS Client VPN Administrator Guide}.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{SecurityGroupId}{
 
-The IDs of one or more security groups to apply to the target network.
+The IDs of one or more
+security groups to apply to the target network.
 }
 
 \section{VpcId}{
 
-The ID of the VPC to associate with the Client VPN endpoint.
+The
+ID of the VPC to associate with the Client VPN
+endpoint.
 }
 
 \section{SelfServicePortal}{
 
-Specify whether to enable the self-service portal for the Client VPN
-endpoint.
+Specify whether to enable the self-service
+portal for the Client VPN endpoint.
 }
 
 \section{ClientConnectOptions}{
 
-The options for managing connection authorization for new client
+The options for
+managing connection authorization for new client
 connections.
 }
 

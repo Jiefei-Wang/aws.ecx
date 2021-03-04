@@ -14,28 +14,35 @@ ec2_describe_network_interface_permissions(
 )
 }
 \arguments{
-\item{NetworkInterfacePermissionId}{List or named list. One or more network interface permission IDs. (optional)}
+\item{NetworkInterfacePermissionId}{Array. One or more network interface permission IDs.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the permissions for your network interfaces.
+Describes
+the permissions for your network interfaces.
 }
 \section{NetworkInterfacePermissionId}{
 
-One or more network interface permission IDs.
+One or more network
+interface permission IDs.
 }
 
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -52,9 +59,9 @@ network interface.
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. To retrieve
-the remaining results, make another call with the returned \code{NextToken}
-value. If this parameter is not specified, up to 50 results are returned
-by default.
+The maximum number of results to return in
+a single call. To retrieve the remaining results, make another call with
+the returned \code{NextToken} value. If this parameter is not specified, up
+to 50 results are returned by default.
 }
 

@@ -19,42 +19,47 @@ ec2_create_launch_template_version(
 \arguments{
 \item{LaunchTemplateData}{Object. The information for the launch template.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.(optional)}
+\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
 
-\item{LaunchTemplateName}{String. The name of the launch template.(optional)}
+\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
 
-\item{SourceVersion}{String. The version number of the launch template version on which to base the new version.(optional)}
+\item{SourceVersion}{String. The version number of the launch template version on which to base the new version.\link{optional}}
 
-\item{VersionDescription}{String. A description for the version of the launch template. (optional)}
+\item{VersionDescription}{String. A description for the version of the launch template.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a new version for a launch template. You can specify an existing
-version of launch template from which to base the new version.
+Create Launch Template Version
 }
 \section{LaunchTemplateData}{
 
-The information for the launch template.
+The information for the launch
+template.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
+
 
 Unique, case-sensitive identifier you provide to ensure the idempotency
 of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
@@ -64,27 +69,31 @@ Constraint: Maximum 128 ASCII characters.
 
 \section{LaunchTemplateId}{
 
-The ID of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The ID of the launch template. You must specify
+either the launch template ID or launch template name in the
+request.
 }
 
 \section{LaunchTemplateName}{
 
-The name of the launch template. You must specify either the launch
-template ID or launch template name in the request.
+The name of the launch template. You must
+specify either the launch template ID or launch template name in the
+request.
 }
 
 \section{SourceVersion}{
 
-The version number of the launch template version on which to base the
-new version. The new version inherits the same launch parameters as the
-source version, except for parameters that you specify in
-\code{LaunchTemplateData}. Snapshots applied to the block device mapping are
-ignored when creating a new version unless they are explicitly included.
+The version number of the launch template
+version on which to base the new version. The new version inherits the
+same launch parameters as the source version, except for parameters that
+you specify in \code{LaunchTemplateData}. Snapshots applied to the block
+device mapping are ignored when creating a new version unless they are
+explicitly included.
 }
 
 \section{VersionDescription}{
 
-A description for the version of the launch template.
+A description for the version
+of the launch template.
 }
 

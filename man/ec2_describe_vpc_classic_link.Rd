@@ -13,23 +13,27 @@ ec2_describe_vpc_classic_link(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{VpcId}{List or named list. One or more VPCs for which you want to describe the ClassicLink status. (optional)}
+\item{VpcId}{Array. One or more VPCs for which you want to describe the ClassicLink status.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the ClassicLink status of one or more VPCs.
+Describes the ClassicLink status of one or
+more VPCs.
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -48,14 +52,16 @@ regardless of the tag value.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{VpcId}{
 
-One or more VPCs for which you want to describe the ClassicLink status.
+One or more VPCs for which
+you want to describe the ClassicLink status.
 }
 

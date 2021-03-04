@@ -19,47 +19,56 @@ ec2_create_transit_gateway_prefix_list_reference(
 
 \item{PrefixListId}{String. The ID of the prefix list that is used for destination matches.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment to which traffic is routed. (optional)}
+\item{TransitGatewayAttachmentId}{String. The ID of the attachment to which traffic is routed.\link{optional}}
 
-\item{Blackhole}{Boolean. Indicates whether to drop traffic that matches this route. (optional)}
+\item{Blackhole}{Boolean. Indicates whether to drop traffic that matches this route.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a reference (route) to a prefix list in a specified transit
-gateway route table.
+Creates a reference (route) to a prefix list in a
+specified transit gateway route table.
 }
 \section{TransitGatewayRouteTableId}{
 
-The ID of the transit gateway route table.
+The ID of the transit
+gateway route table.
 }
 
 \section{PrefixListId}{
 
-The ID of the prefix list that is used for destination matches.
+The ID of the prefix list that
+is used for destination matches.
 }
 
 \section{TransitGatewayAttachmentId}{
 
-The ID of the attachment to which traffic is routed.
+The ID of the
+attachment to which traffic is routed.
 }
 
 \section{Blackhole}{
 
-Indicates whether to drop traffic that matches this route.
+Indicates
+whether to drop traffic that matches this
+route.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

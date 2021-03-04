@@ -14,31 +14,37 @@ ec2_delete_vpc_peering_connection(
 \arguments{
 \item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes a VPC peering connection. Either the owner of the requester VPC
-or the owner of the accepter VPC can delete the VPC peering connection
-if it\'s in the \code{active} state. The owner of the requester VPC can
-delete a VPC peering connection in the \code{pending-acceptance} state. You
-cannot delete a VPC peering connection that\'s in the \code{failed} state.
+Deletes a VPC peering connection. Either the owner
+of the requester VPC or the owner of the accepter VPC can delete the VPC
+peering connection if it\'s in the \code{active} state. The owner of the
+requester VPC can delete a VPC peering connection in the
+\code{pending-acceptance} state. You cannot delete a VPC peering connection
+that\'s in the \code{failed} state.
 }
 \section{VpcPeeringConnectionId}{
 
-The ID of the VPC peering connection.
+The ID of the VPC peering
+connection.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

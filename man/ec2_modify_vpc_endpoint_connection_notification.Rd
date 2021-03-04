@@ -16,44 +16,51 @@ ec2_modify_vpc_endpoint_connection_notification(
 \arguments{
 \item{ConnectionNotificationId}{String. The ID of the notification.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ConnectionNotificationArn}{String. The ARN for the SNS topic for the notification. (optional)}
+\item{ConnectionNotificationArn}{String. The ARN for the SNS topic for the notification.\link{optional}}
 
-\item{ConnectionEvents}{List or named list. One or more events for the endpoint. Valid values are \code{Accept}, \code{Connect}, \code{Delete}, and \code{Reject}. (optional)}
+\item{ConnectionEvents}{Array. One or more events for the endpoint. Valid values are \code{Accept}, \code{Connect}, \code{Delete}, and \code{Reject}.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies a connection notification for VPC endpoint or VPC endpoint
-service. You can change the SNS topic for the notification, or the
-events for which to be notified.
+Modifies a connection notification for VPC
+endpoint or VPC endpoint service. You can change the SNS topic for the
+notification, or the events for which to be notified.
 }
 \section{ConnectionNotificationId}{
 
-The ID of the notification.
+The
+ID of the notification.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ConnectionNotificationArn}{
 
-The ARN for the SNS topic for the notification.
+The ARN for the SNS topic
+for the notification.
 }
 
 \section{ConnectionEvents}{
 
-One or more events for the endpoint. Valid values are \code{Accept},
-\code{Connect}, \code{Delete}, and \code{Reject}.
+One or more events for the
+endpoint. Valid values are \code{Accept}, \code{Connect}, \code{Delete}, and
+\code{Reject}.
 }
 

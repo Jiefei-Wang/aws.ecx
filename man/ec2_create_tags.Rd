@@ -13,26 +13,26 @@ ec2_create_tags(
 )
 }
 \arguments{
-\item{ResourceId}{List or named list. The IDs of the resources, separated by spaces.}
+\item{ResourceId}{Array.   The IDs of the resources, separated by spaces.}
 
-\item{Tag}{List or named list. The tags.}
+\item{Tag}{Array. The tags.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Adds or overwrites only the specified tags for the specified Amazon EC2
-resource or resources. When you specify an existing tag key, the value
-is overwritten with the new value. Each resource can have a maximum of
-50 tags. Each tag consists of a key and optional value. Tag keys must be
-unique per resource.
+Create Tags
 }
 \section{ResourceId}{
+
 
 The IDs of the resources, separated by spaces.
 
@@ -42,16 +42,18 @@ request into smaller batches.
 
 \section{Tag}{
 
-The tags. The \code{value} parameter is required, but if you don\'t want the
-tag to have a value, specify the parameter with no value, and we set the
-value to an empty string.
+The tags. The \code{value} parameter is required, but if
+you don\'t want the tag to have a value, specify the parameter with no
+value, and we set the value to an empty
+string.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -21,86 +21,94 @@ ec2_modify_vpc_endpoint_service_configuration(
 \arguments{
 \item{ServiceId}{String. The ID of the service.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service. (optional)}
+\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.\link{optional}}
 
-\item{RemovePrivateDnsName}{Boolean. (Interface endpoint configuration) Removes the private DNS name of the endpoint service. (optional)}
+\item{RemovePrivateDnsName}{Boolean. (Interface endpoint configuration) Removes the private DNS name of the endpoint service.\link{optional}}
 
-\item{AcceptanceRequired}{Boolean. Indicates whether requests to create an endpoint to your service must be accepted. (optional)}
+\item{AcceptanceRequired}{Boolean. Indicates whether requests to create an endpoint to your service must be accepted.\link{optional}}
 
-\item{AddNetworkLoadBalancerArn}{List or named list. The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration. (optional)}
+\item{AddNetworkLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.\link{optional}}
 
-\item{RemoveNetworkLoadBalancerArn}{List or named list. The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration....(see below)(optional)}
+\item{RemoveNetworkLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration....\link{optional}}
 
-\item{AddGatewayLoadBalancerArn}{List or named list. The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration. (optional)}
+\item{AddGatewayLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.\link{optional}}
 
-\item{RemoveGatewayLoadBalancerArn}{List or named list. The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration....(see below)(optional)}
+\item{RemoveGatewayLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration....\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the attributes of your VPC endpoint service configuration. You
-can change the Network Load Balancers or Gateway Load Balancers for your
-service, and you can specify whether acceptance is required for requests
-to connect to your endpoint service through an interface VPC endpoint.
+Modify Vpc Endpoint Service Configuration
 }
 \section{ServiceId}{
 
-The ID of the service.
+The ID of the
+service.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{PrivateDnsName}{
 
-(Interface endpoint configuration) The private DNS name to assign to the
-endpoint service.
+(Interface endpoint
+configuration) The private DNS name to assign to the endpoint
+service.
 }
 
 \section{RemovePrivateDnsName}{
 
-(Interface endpoint configuration) Removes the private DNS name of the
-endpoint service.
+(Interface endpoint configuration) Removes
+the private DNS name of the endpoint
+service.
 }
 
 \section{AcceptanceRequired}{
 
-Indicates whether requests to create an endpoint to your service must be
-accepted.
+Indicates whether requests to create an
+endpoint to your service must be accepted.
 }
 
 \section{AddNetworkLoadBalancerArn}{
 
-The Amazon Resource Names (ARNs) of Network Load Balancers to add to
-your service configuration.
+The
+Amazon Resource Names (ARNs) of Network Load Balancers to add to your
+service configuration.
 }
 
 \section{RemoveNetworkLoadBalancerArn}{
 
-The Amazon Resource Names (ARNs) of Network Load Balancers to remove
-from your service configuration.
+The Amazon Resource Names
+(ARNs) of Network Load Balancers to remove from your service
+configuration.
 }
 
 \section{AddGatewayLoadBalancerArn}{
 
-The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
-your service configuration.
+The Amazon Resource Names (ARNs) of
+Gateway Load Balancers to add to your service
+configuration.
 }
 
 \section{RemoveGatewayLoadBalancerArn}{
 
-The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
-from your service configuration.
+The Amazon Resource Names (ARNs) of
+Gateway Load Balancers to remove from your service
+configuration.
 }
 

@@ -18,48 +18,49 @@ ec2_associate_vpc_cidr_block(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{AmazonProvidedIpv6CidrBlock}{Boolean. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.(optional)}
+\item{AmazonProvidedIpv6CidrBlock}{Boolean. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.\link{optional}}
 
-\item{CidrBlock}{String. An IPv4 CIDR block to associate with the VPC. (optional)}
+\item{CidrBlock}{String. An IPv4 CIDR block to associate with the VPC.\link{optional}}
 
-\item{Ipv6CidrBlockNetworkBorderGroup}{String. The name of the location from which we advertise the IPV6 CIDR block.(optional)}
+\item{Ipv6CidrBlockNetworkBorderGroup}{String.   The name of the location from which we advertise the IPV6 CIDR block.\link{optional}}
 
-\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. (optional)}
+\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.\link{optional}}
 
-\item{Ipv6CidrBlock}{String. An IPv6 CIDR block from the IPv6 address pool.(optional)}
+\item{Ipv6CidrBlock}{String.   An IPv6 CIDR block from the IPv6 address pool.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Associates a CIDR block with your VPC. You can associate a secondary
-IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR
-block from an IPv6 address pool that you provisioned through bring your
-own IP addresses
-(\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html}{BYOIP}).
-The IPv6 CIDR block size is fixed at /56.
+Associate Vpc Cidr Block
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{AmazonProvidedIpv6CidrBlock}{
 
-Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for
-the VPC. You cannot specify the range of IPv6 addresses, or the size of
-the CIDR block.
+Requests an Amazon-provided IPv6 CIDR block
+with a /56 prefix length for the VPC. You cannot specify the range of
+IPv6 addresses, or the size of the CIDR block.
 }
 
 \section{CidrBlock}{
 
-An IPv4 CIDR block to associate with the VPC.
+An
+IPv4 CIDR block to associate with the VPC.
 }
 
 \section{Ipv6CidrBlockNetworkBorderGroup}{
+
 
 The name of the location from which we advertise the IPV6 CIDR block.
 Use this parameter to limit the CIDR block to this location.
@@ -72,11 +73,12 @@ You can have one IPv6 CIDR block association per network border group.
 
 \section{Ipv6Pool}{
 
-The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
-block.
+The ID of an IPv6 address pool from which to
+allocate the IPv6 CIDR block.
 }
 
 \section{Ipv6CidrBlock}{
+
 
 An IPv6 CIDR block from the IPv6 address pool. You must also specify
 \code{Ipv6Pool} in the request.

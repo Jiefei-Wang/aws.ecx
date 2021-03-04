@@ -18,61 +18,66 @@ ec2_create_vpc_endpoint_connection_notification(
 \arguments{
 \item{ConnectionNotificationArn}{String. The ARN of the SNS topic for the notifications.}
 
-\item{ConnectionEvents}{List or named list. One or more endpoint events for which to receive notifications.}
+\item{ConnectionEvents}{Array. One or more endpoint events for which to receive notifications.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ServiceId}{String. The ID of the endpoint service. (optional)}
+\item{ServiceId}{String. The ID of the endpoint service.\link{optional}}
 
-\item{VpcEndpointId}{String. The ID of the endpoint. (optional)}
+\item{VpcEndpointId}{String. The ID of the endpoint.\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a connection notification for a specified VPC endpoint or VPC
-endpoint service. A connection notification notifies you of specific
-endpoint events. You must create an SNS topic to receive notifications.
-For more information, see \href{https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html}{Create a Topic} in
-the \emph{Amazon Simple Notification Service Developer Guide}.
+Create Vpc Endpoint Connection Notification
 }
 \section{ConnectionNotificationArn}{
 
-The ARN of the SNS topic for the notifications.
+The ARN of the SNS topic for the
+notifications.
 }
 
 \section{ConnectionEvents}{
 
-One or more endpoint events for which to receive notifications. Valid
-values are \code{Accept}, \code{Connect}, \code{Delete}, and \code{Reject}.
+One or more endpoint events for which
+to receive notifications. Valid values are \code{Accept}, \code{Connect},
+\code{Delete}, and \code{Reject}.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ServiceId}{
 
-The ID of the endpoint service.
+The ID of the endpoint
+service.
 }
 
 \section{VpcEndpointId}{
 
-The ID of the endpoint.
+The ID of the
+endpoint.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive identifier that you
+provide to ensure the idempotency of the request. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 

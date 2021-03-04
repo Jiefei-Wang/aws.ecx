@@ -16,25 +16,30 @@ ec2_associate_subnet_cidr_block(
 
 \item{SubnetId}{String. The ID of your subnet.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Associates a CIDR block with your subnet. You can only associate a
-single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a
-prefix length of /64.
+Associates a CIDR block with your subnet. You can
+only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR
+block must have a prefix length of /64.
 }
 \section{Ipv6CidrBlock}{
 
-The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
+The IPv6 CIDR block for your
+subnet. The subnet must have a /64 prefix
 length.
 }
 
 \section{SubnetId}{
 
-The ID of your subnet.
+The ID of your
+subnet.
 }
 

@@ -17,33 +17,36 @@ ec2_import_instance(
 \arguments{
 \item{Platform}{String. The instance operating system.}
 
-\item{Description}{String. A description for the instance being imported. (optional)}
+\item{Description}{String. A description for the instance being imported.\link{optional}}
 
-\item{DiskImage}{List or named list. The disk image. (optional)}
+\item{DiskImage}{Array. The disk image.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LaunchSpecification}{Object. The launch specification. (optional)}
+\item{LaunchSpecification}{Object. The launch specification.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates an import instance task using metadata from the specified disk
-image. \code{ImportInstance} only supports single-volume VMs. To import
-multi-volume VMs, use ImportImage. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html}{Importing a Virtual Machine Using the Amazon EC2 CLI}.
+Import Instance
 }
 \section{Platform}{
 
-The instance operating system.
+The instance operating
+system.
 }
 
 \section{Description}{
 
-A description for the instance being imported.
+A description for the instance being
+imported.
 }
 
 \section{DiskImage}{
@@ -53,7 +56,8 @@ The disk image.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -61,6 +65,7 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{LaunchSpecification}{
 
-The launch specification.
+The launch
+specification.
 }
 

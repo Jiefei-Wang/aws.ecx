@@ -17,36 +17,40 @@ ec2_create_snapshot(
 \arguments{
 \item{VolumeId}{String. The ID of the EBS volume.}
 
-\item{Description}{String. A description for the snapshot. (optional)}
+\item{Description}{String. A description for the snapshot.\link{optional}}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.(optional)}
+\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the snapshot during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the snapshot during creation.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a snapshot of an EBS volume and stores it in Amazon S3. You can
-use snapshots for backups, to make copies of EBS volumes, and to save
-data before shutting down an instance.
+Create Snapshot
 }
 \section{VolumeId}{
 
-The ID of the EBS volume.
+The ID of the EBS
+volume.
 }
 
 \section{Description}{
 
-A description for the snapshot.
+A description for the
+snapshot.
 }
 
 \section{OutpostArn}{
+
 
 The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
 local snapshot.
@@ -67,14 +71,16 @@ in the \emph{Amazon Elastic Compute Cloud User Guide}.
 
 \section{TagSpecification}{
 
-The tags to apply to the snapshot during creation.
+The tags to apply to the snapshot during
+creation.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

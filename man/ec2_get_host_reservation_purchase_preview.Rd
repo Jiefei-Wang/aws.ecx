@@ -12,28 +12,32 @@ ec2_get_host_reservation_purchase_preview(
 )
 }
 \arguments{
-\item{HostIdSet}{List or named list. The IDs of the Dedicated Hosts with which the reservation is associated.}
+\item{HostIdSet}{Array. The IDs of the Dedicated Hosts with which the reservation is associated.}
 
 \item{OfferingId}{String. The offering ID of the reservation.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Preview a reservation purchase with configurations that match those of
-your Dedicated Host. You must have active Dedicated Hosts in your
-account before you purchase a reservation.
+Get Host Reservation Purchase Preview
 }
 \section{HostIdSet}{
 
-The IDs of the Dedicated Hosts with which the reservation is associated.
+The IDs of
+the Dedicated Hosts with which the reservation is
+associated.
 }
 
 \section{OfferingId}{
 
-The offering ID of the reservation.
+The offering ID of the
+reservation.
 }
 

@@ -11,24 +11,23 @@ ec2_disable_vpc_classic_link_dns_support(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC. (optional)}
+\item{VpcId}{String. The ID of the VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames
-resolve to public IP addresses when addressed between a linked
-EC2-Classic instance and instances in the VPC to which it\'s linked. For
-more information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html}{ClassicLink}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+Disable Vpc Classic Link Dns Support
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 

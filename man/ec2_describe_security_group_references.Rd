@@ -12,31 +12,37 @@ ec2_describe_security_group_references(
 )
 }
 \arguments{
-\item{GroupId}{List or named list. The IDs of the security groups in your account.}
+\item{GroupId}{Array. The IDs of the security groups in your account.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-[VPC only] Describes the VPCs on the other side of a VPC peering
-connection that are referencing the security groups you\'ve specified in
-this request.
+[VPC only] Describes the
+VPCs on the other side of a VPC peering connection that are referencing
+the security groups you\'ve specified in this
+request.
 }
 \section{GroupId}{
 
-The IDs of the security groups in your account.
+The IDs of the security groups in your
+account.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

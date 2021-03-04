@@ -24,44 +24,48 @@ ec2_create_volume(
 \arguments{
 \item{AvailabilityZone}{String. The Availability Zone in which to create the volume.}
 
-\item{Encrypted}{Boolean. Indicates whether the volume should be encrypted.(optional)}
+\item{Encrypted}{Boolean.   Indicates whether the volume should be encrypted.\link{optional}}
 
-\item{Iops}{Integer. The number of I/O operations per second (IOPS).(optional)}
+\item{Iops}{Integer.   The number of I/O operations per second (IOPS).\link{optional}}
 
-\item{KmsKeyId}{String. The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use...(see below)(optional)}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\link{optional}}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost. (optional)}
+\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.\link{optional}}
 
-\item{Size}{Integer. The size of the volume, in GiBs.(optional)}
+\item{Size}{Integer.   The size of the volume, in GiBs.\link{optional}}
 
-\item{SnapshotId}{String. The snapshot from which to create the volume.(optional)}
+\item{SnapshotId}{String. The snapshot from which to create the volume.\link{optional}}
 
-\item{VolumeType}{String. The volume type.(optional)}
+\item{VolumeType}{String.   The volume type.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the volume during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the volume during creation.\link{optional}}
 
-\item{MultiAttachEnabled}{Boolean. Indicates whether to enable Amazon EBS Multi-Attach.(optional)}
+\item{MultiAttachEnabled}{Boolean. Indicates whether to enable Amazon EBS Multi-Attach.\link{optional}}
 
-\item{Throughput}{Integer. The throughput to provision for a volume, with a maximum of 1,000 MiB/s.(optional)}
+\item{Throughput}{Integer.   The throughput to provision for a volume, with a maximum of 1,000 MiB/s.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates an EBS volume that can be attached to an instance in the same
-Availability Zone.
+Create Volume
 }
 \section{AvailabilityZone}{
 
-The Availability Zone in which to create the volume.
+The Availability Zone in
+which to create the volume.
 }
 
 \section{Encrypted}{
+
 
 Indicates whether the volume should be encrypted. The effect of setting
 the encryption state to \code{true} depends on the volume origin (new or from
@@ -74,6 +78,7 @@ Amazon EBS encryption. For more information, see \href{https://docs.aws.amazon.c
 }
 
 \section{Iops}{
+
 
 The number of I/O operations per second (IOPS). For \code{gp3}, \code{io1}, and
 \code{io2} volumes, this represents the number of IOPS that are provisioned
@@ -99,6 +104,7 @@ This parameter is required for \code{io1} and \code{io2} volumes. The default fo
 
 \section{KmsKeyId}{
 
+
 The identifier of the AWS Key Management Service (AWS KMS) customer
 master key (CMK) to use for Amazon EBS encryption. If this parameter is
 not specified, your AWS managed CMK for EBS is used. If \code{KmsKeyId} is
@@ -121,10 +127,12 @@ but eventually fails.
 
 \section{OutpostArn}{
 
-The Amazon Resource Name (ARN) of the Outpost.
+The Amazon Resource Name (ARN) of the
+Outpost.
 }
 
 \section{Size}{
+
 
 The size of the volume, in GiBs. You must specify either a snapshot ID
 or a volume size. If you specify a snapshot, the default is the snapshot
@@ -142,11 +150,12 @@ The following are the supported volumes sizes for each volume type:
 
 \section{SnapshotId}{
 
-The snapshot from which to create the volume. You must specify either a
-snapshot ID or a volume size.
+The snapshot from which to create the volume. You
+must specify either a snapshot ID or a volume size.
 }
 
 \section{VolumeType}{
+
 
 The volume type. This parameter can be one of the following values:
 \itemize{
@@ -165,27 +174,31 @@ Default: \code{gp2}
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the volume during creation.
+The tags to apply to the
+volume during creation.
 }
 
 \section{MultiAttachEnabled}{
 
-Indicates whether to enable Amazon EBS Multi-Attach. If you enable
-Multi-Attach, you can attach the volume to up to 16 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances}{Instances built on the Nitro System}
+Indicates whether to enable
+Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
+volume to up to 16 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances}{Instances built on the Nitro System}
 in the same Availability Zone. This parameter is supported with \code{io1}
 and \code{io2} volumes only. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html}{Amazon EBS Multi-Attach}
 in the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 
 \section{Throughput}{
+
 
 The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
 

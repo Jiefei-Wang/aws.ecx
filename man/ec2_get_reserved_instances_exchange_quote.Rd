@@ -13,41 +13,48 @@ ec2_get_reserved_instances_exchange_quote(
 )
 }
 \arguments{
-\item{ReservedInstanceId}{List or named list. The IDs of the Convertible Reserved Instances to exchange.}
+\item{ReservedInstanceId}{Array. The IDs of the Convertible Reserved Instances to exchange.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{TargetConfiguration}{List or named list. The configuration of the target Convertible Reserved Instance to exchange for your current...(see below)(optional)}
+\item{TargetConfiguration}{Array. The configuration of the target Convertible Reserved Instance to exchange for your current...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Returns a quote and exchange information for exchanging one or more
-specified Convertible Reserved Instances for a new Convertible Reserved
-Instance. If the exchange cannot be performed, the reason is returned in
-the response. Use AcceptReservedInstancesExchangeQuote to perform the
+Returns a quote and exchange information for
+exchanging one or more specified Convertible Reserved Instances for a
+new Convertible Reserved Instance. If the exchange cannot be performed,
+the reason is returned in the response. Use
+AcceptReservedInstancesExchangeQuote to perform the
 exchange.
 }
 \section{ReservedInstanceId}{
 
-The IDs of the Convertible Reserved Instances to exchange.
+The IDs of the Convertible
+Reserved Instances to exchange.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you
+have the required permissions for the action, without actually making
+the request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{TargetConfiguration}{
 
-The configuration of the target Convertible Reserved Instance to
-exchange for your current Convertible Reserved Instances.
+The configuration of the
+target Convertible Reserved Instance to exchange for your current
+Convertible Reserved Instances.
 }
 

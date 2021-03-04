@@ -20,107 +20,118 @@ ec2_revoke_security_group_ingress(
 )
 }
 \arguments{
-\item{CidrIp}{String. The CIDR IP address range.(optional)}
+\item{CidrIp}{String. The CIDR IP address range.\link{optional}}
 
-\item{FromPort}{Integer. The start of port range for the TCP and UDP protocols, or an ICMP type number.(optional)}
+\item{FromPort}{Integer. The start of port range for the TCP and UDP protocols, or an ICMP type number.\link{optional}}
 
-\item{GroupId}{String. The ID of the security group.(optional)}
+\item{GroupId}{String. The ID of the security group.\link{optional}}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.(optional)}
+\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.\link{optional}}
 
-\item{IpPermissions}{List or named list. The sets of IP permissions.(optional)}
+\item{IpPermissions}{Array. The sets of IP permissions.\link{optional}}
 
-\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.(optional)}
+\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.\link{optional}}
 
-\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.(optional)}
+\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.\link{optional}}
 
-\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group...(see below)(optional)}
+\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group...\link{optional}}
 
-\item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.(optional)}
+\item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Removes the specified ingress rules from a security group. To remove a
-rule, the values that you specify (for example, ports) must match the
-existing rule\'s values exactly.
+Revoke Security Group Ingress
 }
 \section{CidrIp}{
 
-The CIDR IP address range. You can\'t specify this parameter when
-specifying a source security group.
+The CIDR IP
+address range. You can\'t specify this parameter when specifying a
+source security group.
 }
 
 \section{FromPort}{
 
-The start of port range for the TCP and UDP protocols, or an ICMP type
-number. For the ICMP type number, use \code{-1} to specify all ICMP types.
+The start of port range for
+the TCP and UDP protocols, or an ICMP type number. For the ICMP type
+number, use \code{-1} to specify all ICMP types.
 }
 
 \section{GroupId}{
 
-The ID of the security group. You must specify either the security group
-ID or the security group name in the request. For security groups in a
-nondefault VPC, you must specify the security group ID.
+The ID
+of the security group. You must specify either the security group ID or
+the security group name in the request. For security groups in a
+nondefault VPC, you must specify the security group
+ID.
 }
 
 \section{GroupName}{
 
-[EC2-Classic, default VPC] The name of the security group. You must
-specify either the security group ID or the security group name in the
-request.
+[EC2-Classic, default VPC] The name of the
+security group. You must specify either the security group ID or the
+security group name in the request.
 }
 
 \section{IpPermissions}{
 
-The sets of IP permissions. You can\'t specify a source security group
-and a CIDR IP address range in the same set of permissions.
+The sets of IP
+permissions. You can\'t specify a source security group and a CIDR IP
+address range in the same set of permissions.
 }
 
 \section{IpProtocol}{
 
-The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers}).
+The IP
+protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers}).
 Use \code{-1} to specify all.
 }
 
 \section{SourceSecurityGroupName}{
 
-[EC2-Classic, default VPC] The name of the source security group. You
-can\'t specify this parameter in combination with the following
-parameters: the CIDR IP address range, the start of the port range, the
-IP protocol, and the end of the port range. For EC2-VPC, the source
-security group must be in the same VPC. To revoke a specific rule for an
-IP protocol and port range, use a set of IP permissions instead.
+[EC2-Classic, default
+VPC] The name of the source security group. You can\'t specify this
+parameter in combination with the following parameters: the CIDR IP
+address range, the start of the port range, the IP protocol, and the end
+of the port range. For EC2-VPC, the source security group must be in the
+same VPC. To revoke a specific rule for an IP protocol and port range,
+use a set of IP permissions instead.
 }
 
 \section{SourceSecurityGroupOwnerId}{
 
-[EC2-Classic] The AWS account ID of the source security group, if the
-source security group is in a different account. You can\'t specify this
-parameter in combination with the following parameters: the CIDR IP
-address range, the IP protocol, the start of the port range, and the end
-of the port range. To revoke a specific rule for an IP protocol and port
-range, use a set of IP permissions instead.
+[EC2-Classic]
+The AWS account ID of the source security group, if the source security
+group is in a different account. You can\'t specify this parameter in
+combination with the following parameters: the CIDR IP address range,
+the IP protocol, the start of the port range, and the end of the port
+range. To revoke a specific rule for an IP protocol and port range, use
+a set of IP permissions instead.
 }
 
 \section{ToPort}{
 
-The end of port range for the TCP and UDP protocols, or an ICMP code
-number. For the ICMP code number, use \code{-1} to specify all ICMP codes for
-the ICMP type.
+The end of port
+range for the TCP and UDP protocols, or an ICMP code number. For the
+ICMP code number, use \code{-1} to specify all ICMP codes for the ICMP
+type.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

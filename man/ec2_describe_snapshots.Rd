@@ -17,30 +17,34 @@ ec2_describe_snapshots(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of snapshot results returned by \code{DescribeSnapshots} in paginated output.(optional)}
+\item{MaxResults}{Integer. The maximum number of snapshot results returned by \code{DescribeSnapshots} in paginated output.\link{optional}}
 
-\item{Owner}{List or named list. Scopes the results to snapshots with the specified owners.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{RestorableBy}{List or named list. The IDs of the AWS accounts that can create volumes from the snapshot. (optional)}
+\item{Owner}{Array. Scopes the results to snapshots with the specified owners.\link{optional}}
 
-\item{SnapshotId}{List or named list. The snapshot IDs.  Default: Describes the snapshots for which you have create volume permissions. (optional)}
+\item{RestorableBy}{Array. The IDs of the AWS accounts that can create volumes from the snapshot.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{SnapshotId}{Array.   The snapshot IDs.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the specified EBS snapshots available to you or all of the EBS
-snapshots available to you.
+Describe Snapshots
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -74,30 +78,34 @@ regardless of the tag value.
 
 \section{MaxResults}{
 
-The maximum number of snapshot results returned by \code{DescribeSnapshots}
-in paginated output. When this parameter is used, \code{DescribeSnapshots}
-only returns \code{MaxResults} results in a single page along with a
-\code{NextToken} response element. The remaining results of the initial
-request can be seen by sending another \code{DescribeSnapshots} request with
-the returned \code{NextToken} value. This value can be between 5 and 1,000;
-if \code{MaxResults} is given a value larger than 1,000, only 1,000 results
-are returned. If this parameter is not used, then \code{DescribeSnapshots}
-returns all results. You cannot specify this parameter and the snapshot
-IDs parameter in the same request.
+The maximum number of snapshot results returned by
+\code{DescribeSnapshots} in paginated output. When this parameter is used,
+\code{DescribeSnapshots} only returns \code{MaxResults} results in a single page
+along with a \code{NextToken} response element. The remaining results of the
+initial request can be seen by sending another \code{DescribeSnapshots}
+request with the returned \code{NextToken} value. This value can be between 5
+and 1,000; if \code{MaxResults} is given a value larger than 1,000, only
+1,000 results are returned. If this parameter is not used, then
+\code{DescribeSnapshots} returns all results. You cannot specify this
+parameter and the snapshot IDs parameter in the same
+request.
 }
 
 \section{Owner}{
 
-Scopes the results to snapshots with the specified owners. You can
-specify a combination of AWS account IDs, \code{self}, and \code{amazon}.
+Scopes the results to snapshots with the
+specified owners. You can specify a combination of AWS account IDs,
+\code{self}, and \code{amazon}.
 }
 
 \section{RestorableBy}{
 
-The IDs of the AWS accounts that can create volumes from the snapshot.
+The IDs of the AWS accounts
+that can create volumes from the snapshot.
 }
 
 \section{SnapshotId}{
+
 
 The snapshot IDs.
 
@@ -107,9 +115,10 @@ permissions.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

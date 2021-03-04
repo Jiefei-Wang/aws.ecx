@@ -20,46 +20,54 @@ ec2_create_launch_template(
 
 \item{LaunchTemplateData}{Object. The information for the launch template.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure the idempotency of the request.(optional)}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
 
-\item{VersionDescription}{String. A description for the first version of the launch template. (optional)}
+\item{VersionDescription}{String. A description for the first version of the launch template.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to apply to the launch template during creation. (optional)}
+\item{TagSpecification}{Array. The tags to apply to the launch template during creation.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a launch template. A launch template contains the parameters to
-launch an instance. When you launch an instance using RunInstances, you
-can specify a launch template instead of providing the launch parameters
-in the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html}{Launching an instance from a launch template}in
+Creates a launch template. A launch template
+contains the parameters to launch an instance. When you launch an
+instance using RunInstances, you can specify a launch template instead
+of providing the launch parameters in the request. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html}{Launching an instance from a launch template}in
 the \emph{Amazon Elastic Compute Cloud User Guide}.
 }
 \section{LaunchTemplateName}{
 
-A name for the launch template.
+A name for the launch
+template.
 }
 
 \section{LaunchTemplateData}{
 
-The information for the launch template.
+The information for the launch
+template.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ClientToken}{
+
 
 Unique, case-sensitive identifier you provide to ensure the idempotency
 of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{Ensuring Idempotency}.
@@ -69,11 +77,13 @@ Constraint: Maximum 128 ASCII characters.
 
 \section{VersionDescription}{
 
-A description for the first version of the launch template.
+A description for the first version of the launch
+template.
 }
 
 \section{TagSpecification}{
 
-The tags to apply to the launch template during creation.
+The tags to apply to the launch template
+during creation.
 }
 

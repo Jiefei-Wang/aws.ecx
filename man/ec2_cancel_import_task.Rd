@@ -13,36 +13,43 @@ ec2_cancel_import_task(
 )
 }
 \arguments{
-\item{CancelReason}{String. The reason for canceling the task. (optional)}
+\item{CancelReason}{String. The reason for canceling the task.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{ImportTaskId}{String. The ID of the import image or import snapshot task to be canceled. (optional)}
+\item{ImportTaskId}{String. The ID of the import image or import snapshot task to be canceled.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels an in-process import virtual machine or import snapshot task.
+Cancels an in-process import virtual machine
+or import snapshot task.
 }
 \section{CancelReason}{
 
-The reason for canceling the task.
+The reason for canceling
+the task.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{ImportTaskId}{
 
-The ID of the import image or import snapshot task to be canceled.
+The ID of the import image
+or import snapshot task to be canceled.
 }
 

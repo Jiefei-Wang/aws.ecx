@@ -28,65 +28,70 @@ ec2_modify_instance_attribute(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{SourceDestCheck}{Object. Specifies whether source/destination checking is enabled.(optional)}
+\item{SourceDestCheck}{Object. Specifies whether source/destination checking is enabled.\link{optional}}
 
-\item{Attribute}{String. The name of the attribute. (optional)}
+\item{Attribute}{String. The name of the attribute.\link{optional}}
 
-\item{BlockDeviceMapping}{List or named list. Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.(optional)}
+\item{BlockDeviceMapping}{Array.   Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.\link{optional}}
 
-\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI,...(see below)(optional)}
+\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI,...\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EbsOptimized}{Object. Specifies whether the instance is optimized for Amazon EBS I/O.(optional)}
+\item{EbsOptimized}{Object. Specifies whether the instance is optimized for Amazon EBS I/O.\link{optional}}
 
-\item{EnaSupport}{Object. Set to \code{true} to enable enhanced networking with ENA for the instance.(optional)}
+\item{EnaSupport}{Object.   Set to \code{true} to enable enhanced networking with ENA for the instance.\link{optional}}
 
-\item{GroupId}{List or named list. [EC2-VPC] Changes the security groups of the instance.(optional)}
+\item{GroupId}{Array. [EC2-VPC] Changes the security groups of the instance.\link{optional}}
 
-\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...(see below)(optional)}
+\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...\link{optional}}
 
-\item{InstanceType}{Object. Changes the instance type to the specified value.(optional)}
+\item{InstanceType}{Object. Changes the instance type to the specified value.\link{optional}}
 
-\item{Kernel}{Object. Changes the instance\'s kernel to the specified value.(optional)}
+\item{Kernel}{Object. Changes the instance\'s kernel to the specified value.\link{optional}}
 
-\item{Ramdisk}{Object. Changes the instance\'s RAM disk to the specified value.(optional)}
+\item{Ramdisk}{Object. Changes the instance\'s RAM disk to the specified value.\link{optional}}
 
-\item{SriovNetSupport}{Object. Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...(see below)(optional)}
+\item{SriovNetSupport}{Object.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...\link{optional}}
 
-\item{UserData}{Object. Changes the instance\'s user data to the specified value.(optional)}
+\item{UserData}{Object. Changes the instance\'s user data to the specified value.\link{optional}}
 
-\item{Value}{String. A new value for the attribute.(optional)}
+\item{Value}{String. A new value for the attribute.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified attribute of the specified instance. You can
-specify only one attribute at a time.
+Modify Instance Attribute
 }
 \section{InstanceId}{
 
-The ID of the instance.
+The ID of
+the instance.
 }
 
 \section{SourceDestCheck}{
 
-Specifies whether source/destination checking is enabled. A value of
-\code{true} means that checking is enabled, and \code{false} means that checking
-is disabled. This value must be \code{false} for a NAT instance to perform
-NAT.
+Specifies whether source/destination
+checking is enabled. A value of \code{true} means that checking is enabled,
+and \code{false} means that checking is disabled. This value must be \code{false}
+for a NAT instance to perform NAT.
 }
 
 \section{Attribute}{
 
-The name of the attribute.
+The name of the
+attribute.
 }
 
 \section{BlockDeviceMapping}{
+
 
 Modifies the \code{DeleteOnTermination} attribute for volumes that are
 currently attached. The volume must be owned by the caller. If no value
@@ -101,29 +106,33 @@ in the \emph{Amazon EC2 User Guide}.
 
 \section{DisableApiTermination}{
 
-If the value is \code{true}, you can\'t terminate the instance using the
-Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this
-parameter for Spot Instances.
+If the value is \code{true}, you can\'t terminate the
+instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+You cannot use this parameter for Spot
+Instances.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{EbsOptimized}{
 
-Specifies whether the instance is optimized for Amazon EBS I/O. This
-optimization provides dedicated throughput to Amazon EBS and an
-optimized configuration stack to provide optimal EBS I/O performance.
-This optimization isn\'t available with all instance types. Additional
-usage charges apply when using an EBS Optimized instance.
+Specifies whether the
+instance is optimized for Amazon EBS I/O. This optimization provides
+dedicated throughput to Amazon EBS and an optimized configuration stack
+to provide optimal EBS I/O performance. This optimization isn\'t
+available with all instance types. Additional usage charges apply when
+using an EBS Optimized instance.
 }
 
 \section{EnaSupport}{
+
 
 Set to \code{true} to enable enhanced networking with ENA for the instance.
 
@@ -133,44 +142,48 @@ with a PV instance can make it unreachable.
 
 \section{GroupId}{
 
-[EC2-VPC] Changes the security groups of the instance. You must
-specify at least one security group, even if it\'s just the default
-security group for the VPC. You must specify the security group ID, not
-the security group name.
+[EC2-VPC] Changes the security groups of the
+instance. You must specify at least one security group, even if it\'s
+just the default security group for the VPC. You must specify the
+security group ID, not the security group
+name.
 }
 
 \section{InstanceInitiatedShutdownBehavior}{
 
-Specifies whether an instance stops or terminates when you initiate
-shutdown from the instance (using the operating system command for
-system shutdown).
+Specifies whether an instance stops or
+terminates when you initiate shutdown from the instance (using the
+operating system command for system
+shutdown).
 }
 
 \section{InstanceType}{
 
-Changes the instance type to the specified value. For more information,
-see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html}{Instance types}
+Changes the instance type to the
+specified value. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html}{Instance types}
 in the \emph{Amazon EC2 User Guide}. If the instance type is not valid, the
-error returned is \code{InvalidInstanceAttributeValue}.
+error returned is
+\code{InvalidInstanceAttributeValue}.
 }
 
 \section{Kernel}{
 
-Changes the instance\'s kernel to the specified value. We recommend that
-you use PV-GRUB instead of kernels and RAM disks. For more information,
-see
+Changes the
+instance\'s kernel to the specified value. We recommend that you use
+PV-GRUB instead of kernels and RAM disks. For more information, see
 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html}{PV-GRUB}.
 }
 
 \section{Ramdisk}{
 
-Changes the instance\'s RAM disk to the specified value. We recommend
-that you use PV-GRUB instead of kernels and RAM disks. For more
-information, see
+Changes
+the instance\'s RAM disk to the specified value. We recommend that you
+use PV-GRUB instead of kernels and RAM disks. For more information, see
 \href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html}{PV-GRUB}.
 }
 
 \section{SriovNetSupport}{
+
 
 Set to \code{simple} to enable enhanced networking with the Intel 82599
 Virtual Function interface for the instance.
@@ -184,16 +197,17 @@ with a PV instance can make it unreachable.
 
 \section{UserData}{
 
-Changes the instance\'s user data to the specified value. If you are
-using an AWS SDK or command line tool, base64-encoding is performed for
-you, and you can load the text from a file. Otherwise, you must provide
-base64-encoded text.
+Changes the instance\'s user data to the specified
+value. If you are using an AWS SDK or command line tool, base64-encoding
+is performed for you, and you can load the text from a file. Otherwise,
+you must provide base64-encoded text.
 }
 
 \section{Value}{
 
-A new value for the attribute. Use only with the \code{kernel}, \code{ramdisk},
-\code{userData}, \code{disableApiTermination}, or
-\code{instanceInitiatedShutdownBehavior} attribute.
+A new value
+for the attribute. Use only with the \code{kernel}, \code{ramdisk}, \code{userData},
+\code{disableApiTermination}, or \code{instanceInitiatedShutdownBehavior}
+attribute.
 }
 

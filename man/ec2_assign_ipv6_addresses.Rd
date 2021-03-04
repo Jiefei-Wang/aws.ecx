@@ -15,45 +15,43 @@ ec2_assign_ipv6_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{Ipv6AddressCount}{Integer. The number of additional IPv6 addresses to assign to the network interface.(optional)}
+\item{Ipv6AddressCount}{Integer. The number of additional IPv6 addresses to assign to the network interface.\link{optional}}
 
-\item{Ipv6Addresses}{List or named list. One or more specific IPv6 addresses to be assigned to the network interface.(optional)}
+\item{Ipv6Addresses}{Array. One or more specific IPv6 addresses to be assigned to the network interface.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Assigns one or more IPv6 addresses to the specified network interface.
-You can specify one or more specific IPv6 addresses, or you can specify
-the number of IPv6 addresses to be automatically assigned from within
-the subnet\'s IPv6 CIDR block range. You can assign as many IPv6
-addresses to a network interface as you can assign private IPv4
-addresses, and the limit varies per instance type. For information, see
-\href{https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI}{IP Addresses Per Network Interface Per Instance Type}
-in the \emph{Amazon Elastic Compute Cloud User Guide}.
+Assign Ipv6 Addresses
 }
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the network
+interface.
 }
 
 \section{Ipv6AddressCount}{
 
-The number of additional IPv6 addresses to assign to the network
-interface. The specified number of IPv6 addresses are assigned in
-addition to the existing IPv6 addresses that are already assigned to the
-network interface. Amazon EC2 automatically selects the IPv6 addresses
-from the subnet range. You can\'t use this option if specifying specific
-IPv6 addresses.
+The number of additional IPv6 addresses
+to assign to the network interface. The specified number of IPv6
+addresses are assigned in addition to the existing IPv6 addresses that
+are already assigned to the network interface. Amazon EC2 automatically
+selects the IPv6 addresses from the subnet range. You can\'t use this
+option if specifying specific IPv6 addresses.
 }
 
 \section{Ipv6Addresses}{
 
-One or more specific IPv6 addresses to be assigned to the network
-interface. You can\'t use this option if you\'re specifying a number of
-IPv6 addresses.
+One or
+more specific IPv6 addresses to be assigned to the network interface.
+You can\'t use this option if you\'re specifying a number of IPv6
+addresses.
 }
 

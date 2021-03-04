@@ -18,53 +18,62 @@ ec2_describe_fleet_history(
 \arguments{
 \item{FleetId}{String. The ID of the EC2 Fleet.}
 
-\item{StartTime}{String. The start date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....(see below)}
+\item{StartTime}{String. The start date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{EventType}{String. The type of events to describe. By default, all events are described. (optional)}
+\item{EventType}{String. The type of events to describe. By default, all events are described.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the events for the specified EC2 Fleet during the specified
-time.
+Describe Fleet History
 }
 \section{FleetId}{
 
-The ID of the EC2 Fleet.
+The ID of the EC2
+Fleet.
 }
 
 \section{StartTime}{
 
-The start date and time for the events, in UTC format (for example,
+The start date and time for the events, in
+UTC format (for example,
 \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 
 \section{EventType}{
 
-The type of events to describe. By default, all events are described.
+The type
+of events to describe. By default, all events are
+described.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. Specify a
-value between 1 and 1000. The default value is 1000. To retrieve the
-remaining results, make another call with the returned \code{NextToken}
-value.
+The maximum number of results to return
+in a single call. Specify a value between 1 and 1000. The default value
+is 1000. To retrieve the remaining results, make another call with the
+returned \code{NextToken} value.
 }
 

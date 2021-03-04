@@ -16,46 +16,51 @@ ec2_modify_vpc_endpoint_service_permissions(
 \arguments{
 \item{ServiceId}{String. The ID of the service.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{AddAllowedPrincipals}{List or named list. The Amazon Resource Names (ARN) of one or more principals.(optional)}
+\item{AddAllowedPrincipals}{Array. The Amazon Resource Names (ARN) of one or more principals.\link{optional}}
 
-\item{RemoveAllowedPrincipals}{List or named list. The Amazon Resource Names (ARN) of one or more principals.(optional)}
+\item{RemoveAllowedPrincipals}{Array. The Amazon Resource Names (ARN) of one or more principals.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the permissions for your \href{https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html}{VPC endpoint service}.
-You can add or remove permissions for service consumers (IAM users, IAM
-roles, and AWS accounts) to connect to your endpoint service.
+Modify Vpc Endpoint Service Permissions
 }
 \section{ServiceId}{
 
-The ID of the service.
+The ID of the
+service.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{AddAllowedPrincipals}{
 
-The Amazon Resource Names (ARN) of one or more principals. Permissions
-are granted to the principals in this list. To grant permissions to all
-principals, specify an asterisk (\*).
+The Amazon Resource Names
+(ARN) of one or more principals. Permissions are granted to the
+principals in this list. To grant permissions to all principals, specify
+an asterisk (\*).
 }
 
 \section{RemoveAllowedPrincipals}{
 
-The Amazon Resource Names (ARN) of one or more principals. Permissions
-are revoked for principals in this list.
+The Amazon Resource Names (ARN) of
+one or more principals. Permissions are revoked for principals in this
+list.
 }
 

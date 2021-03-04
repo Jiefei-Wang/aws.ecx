@@ -153,14 +153,6 @@ ecs_list_task_definitions(..., json = list(), simplify = TRUE)
 
 ecs_list_tasks(..., json = list(), simplify = TRUE)
 }
-\arguments{
-\item{json}{A list object containing the request parameters}
-
-\item{simplify}{Whether to simplify the result and handle \code{nextToken}
-in the response}
-
-\item{others}{Named list, Arguments that will be added into the request parameter}
-}
 \value{
 A vector/list object depending on the API type
 }

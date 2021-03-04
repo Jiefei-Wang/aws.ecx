@@ -16,38 +16,46 @@ ec2_get_groups_for_capacity_reservation(
 \arguments{
 \item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Lists the resource groups to which a Capacity Reservation has been
-added.
+Lists the resource groups to which a Capacity
+Reservation has been added.
 }
 \section{CapacityReservationId}{
 
-The ID of the Capacity Reservation.
+The ID of the Capacity
+Reservation.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return for the request in a single
-page. The remaining results can be seen by sending another request with
-the returned \code{nextToken} value. This value can be between 5 and 500. If
-\code{maxResults} is given a larger value than 500, you receive an error.
+The maximum number of results to
+return for the request in a single page. The remaining results can be
+seen by sending another request with the returned \code{nextToken} value.
+This value can be between 5 and 500. If \code{maxResults} is given a larger
+value than 500, you receive an error.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

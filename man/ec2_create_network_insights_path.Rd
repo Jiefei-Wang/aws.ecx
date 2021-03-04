@@ -27,71 +27,84 @@ ec2_create_network_insights_path(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
-\item{SourceIp}{String. The IP address of the AWS resource that is the source of the path. (optional)}
+\item{SourceIp}{String. The IP address of the AWS resource that is the source of the path.\link{optional}}
 
-\item{DestinationIp}{String. The IP address of the AWS resource that is the destination of the path. (optional)}
+\item{DestinationIp}{String. The IP address of the AWS resource that is the destination of the path.\link{optional}}
 
-\item{DestinationPort}{Integer. The destination port. (optional)}
+\item{DestinationPort}{Integer. The destination port.\link{optional}}
 
-\item{TagSpecification}{List or named list. The tags to add to the path. (optional)}
+\item{TagSpecification}{Array. The tags to add to the path.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Creates a path to analyze for reachability.
+Create Network Insights Path
 }
 \section{Source}{
 
-The AWS resource that is the source of the path.
+The AWS resource that is the
+source of the path.
 }
 
 \section{Destination}{
 
-The AWS resource that is the destination of the path.
+The AWS resource that is the
+destination of the path.
 }
 
 \section{Protocol}{
 
-The protocol.
+The
+protocol.
 }
 
 \section{ClientToken}{
 
-Unique, case-sensitive identifier that you provide to ensure the
-idempotency of the request. For more information, see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
+Unique, case-sensitive identifier that you
+provide to ensure the idempotency of the request. For more information,
+see \href{https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html}{How to Ensure Idempotency}.
 }
 
 \section{SourceIp}{
 
-The IP address of the AWS resource that is the source of the path.
+The
+IP address of the AWS resource that is the source of the
+path.
 }
 
 \section{DestinationIp}{
 
-The IP address of the AWS resource that is the destination of the path.
+The IP address of the AWS resource that is the
+destination of the path.
 }
 
 \section{DestinationPort}{
 
-The destination port.
+The destination
+port.
 }
 
 \section{TagSpecification}{
 
-The tags to add to the path.
+The tags to add to the
+path.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

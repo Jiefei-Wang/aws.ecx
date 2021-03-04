@@ -16,28 +16,33 @@ ec2_search_transit_gateway_routes(
 \arguments{
 \item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of routes to return. (optional)}
+\item{MaxResults}{Integer. The maximum number of routes to return.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Searches for routes in the specified transit gateway route table.
+Searches for routes in the specified
+transit gateway route table.
 }
 \section{TransitGatewayRouteTableId}{
 
-The ID of the transit gateway route table.
+The ID of the transit
+gateway route table.
 }
 
 \section{Filter}{
+
 
 One or more filters. The possible values are:
 \itemize{
@@ -67,14 +72,16 @@ supernet-of-match as 10.0.1.0/30, then the result returns
 
 \section{MaxResults}{
 
-The maximum number of routes to return.
+The maximum number of routes to
+return.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

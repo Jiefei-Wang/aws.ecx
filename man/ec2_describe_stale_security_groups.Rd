@@ -16,39 +16,48 @@ ec2_describe_stale_security_groups(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of items to return for this request.(optional)}
+\item{MaxResults}{Integer. The maximum number of items to return for this request.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{NextToken}{Characters, The token for the next page of results.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-[VPC only] Describes the stale security group rules for security
-groups in a specified VPC. Rules are stale when they reference a deleted
-security group in a peer VPC, or a security group in a peer VPC for
-which the VPC peering connection has been deleted.
+[VPC only] Describes the stale security group
+rules for security groups in a specified VPC. Rules are stale when they
+reference a deleted security group in a peer VPC, or a security group in
+a peer VPC for which the VPC peering connection has been
+deleted.
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{MaxResults}{
 
-The maximum number of items to return for this request. The request
-returns a token that you can specify in a subsequent call to get the
-next set of results.
+The maximum number of items
+to return for this request. The request returns a token that you can
+specify in a subsequent call to get the next set of
+results.
 }
 

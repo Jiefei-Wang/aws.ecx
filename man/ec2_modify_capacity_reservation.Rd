@@ -18,41 +18,48 @@ ec2_modify_capacity_reservation(
 \arguments{
 \item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
 
-\item{InstanceCount}{Integer. The number of instances for which to reserve capacity. (optional)}
+\item{InstanceCount}{Integer. The number of instances for which to reserve capacity.\link{optional}}
 
-\item{EndDate}{String. The date and time at which the Capacity Reservation expires.(optional)}
+\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.\link{optional}}
 
-\item{EndDateType}{String. Indicates the way in which the Capacity Reservation ends.(optional)}
+\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.\link{optional}}
 
-\item{Accept}{Boolean. Reserved. Capacity Reservations you have created are accepted by default. (optional)}
+\item{Accept}{Boolean. Reserved. Capacity Reservations you have created are accepted by default.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies a Capacity Reservation\'s capacity and the conditions under
-which it is to be released. You cannot change a Capacity Reservation\'s
-instance type, EBS optimization, instance store settings, platform,
-Availability Zone, or instance eligibility. If you need to modify any of
-these attributes, we recommend that you cancel the Capacity Reservation,
-and then create a new one with the required attributes.
+Modifies a Capacity Reservation\'s capacity and the
+conditions under which it is to be released. You cannot change a
+Capacity Reservation\'s instance type, EBS optimization, instance store
+settings, platform, Availability Zone, or instance eligibility. If you
+need to modify any of these attributes, we recommend that you cancel the
+Capacity Reservation, and then create a new one with the required
+attributes.
 }
 \section{CapacityReservationId}{
 
-The ID of the Capacity Reservation.
+The ID of the Capacity
+Reservation.
 }
 
 \section{InstanceCount}{
 
-The number of instances for which to reserve capacity.
+The number of instances for which to
+reserve capacity.
 }
 
 \section{EndDate}{
+
 
 The date and time at which the Capacity Reservation expires. When a
 Capacity Reservation expires, the reserved capacity is released and you
@@ -70,6 +77,7 @@ You must provide an \code{EndDate} value if \code{EndDateType} is \code{limited}
 
 \section{EndDateType}{
 
+
 Indicates the way in which the Capacity Reservation ends. A Capacity
 Reservation can have one of the following end types:
 \itemize{
@@ -84,15 +92,16 @@ specified date and time. You must provide an \code{EndDate} value if
 
 \section{Accept}{
 
-Reserved. Capacity Reservations you have created are accepted by
-default.
+Reserved. Capacity Reservations you have created
+are accepted by default.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

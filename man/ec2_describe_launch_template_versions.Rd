@@ -19,62 +19,70 @@ ec2_describe_launch_template_versions(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.(optional)}
+\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
 
-\item{LaunchTemplateName}{String. The name of the launch template.(optional)}
+\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
 
-\item{LaunchTemplateVersion}{List or named list. One or more versions of the launch template.(optional)}
+\item{LaunchTemplateVersion}{Array.   One or more versions of the launch template.\link{optional}}
 
-\item{MinVersion}{String. The version number after which to describe launch template versions. (optional)}
+\item{MinVersion}{String. The version number after which to describe launch template versions.\link{optional}}
 
-\item{MaxVersion}{String. The version number up to which to describe launch template versions. (optional)}
+\item{MaxVersion}{String. The version number up to which to describe launch template versions.\link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{Filter}{No description can be found.}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes one or more versions of a specified launch template. You can
-describe all versions, individual versions, or a range of versions. You
-can also describe all the latest versions or all the default versions of
-all the launch templates in your account.
+Describes one or more versions of a specified
+launch template. You can describe all versions, individual versions, or
+a range of versions. You can also describe all the latest versions or
+all the default versions of all the launch templates in your
+account.
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{LaunchTemplateId}{
 
-The ID of the launch template. To describe one or more versions of a
-specified launch template, you must specify either the launch template
-ID or the launch template name in the request. To describe all the
-latest or default launch template versions in your account, you must
-omit this parameter.
+The ID of the launch
+template. To describe one or more versions of a specified launch
+template, you must specify either the launch template ID or the launch
+template name in the request. To describe all the latest or default
+launch template versions in your account, you must omit this
+parameter.
 }
 
 \section{LaunchTemplateName}{
 
-The name of the launch template. To describe one or more versions of a
-specified launch template, you must specify either the launch template
-ID or the launch template name in the request. To describe all the
-latest or default launch template versions in your account, you must
-omit this parameter.
+The name of the launch template. To
+describe one or more versions of a specified launch template, you must
+specify either the launch template ID or the launch template name in the
+request. To describe all the latest or default launch template versions
+in your account, you must omit this parameter.
 }
 
 \section{LaunchTemplateVersion}{
+
 
 One or more versions of the launch template. Valid values depend on
 whether you are describing a specified launch template (by ID or name)
@@ -92,22 +100,26 @@ the same call. You cannot specify numbers.
 
 \section{MinVersion}{
 
-The version number after which to describe launch template versions.
+The version number after which to describe launch
+template versions.
 }
 
 \section{MaxVersion}{
 
-The version number up to which to describe launch template versions.
+The version number up to which to
+describe launch template versions.
 }
 
 \section{MaxResults}{
 
-The maximum number of results to return in a single call. To retrieve
-the remaining results, make another call with the returned \code{NextToken}
-value. This value can be between 1 and 200.
+The maximum number
+of results to return in a single call. To retrieve the remaining
+results, make another call with the returned \code{NextToken} value. This
+value can be between 1 and 200.
 }
 
 \section{Filter}{
+
 
 One or more filters.
 \itemize{

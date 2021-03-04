@@ -15,30 +15,32 @@ ec2_modify_identity_id_format(
 \arguments{
 \item{PrincipalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
 
-\item{Resource}{String. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...(see below)}
+\item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...}
 
 \item{UseLongIds}{Boolean. Indicates whether the resource should use longer IDs (17-character IDs)}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the ID format of a resource for a specified IAM user, IAM role,
-or the root user for an account; or all IAM users, IAM roles, and the
-root user for an account. You can specify that resources should receive
-longer IDs (17-character IDs) when they are created.
+Modify Identity Id Format
 }
 \section{PrincipalArn}{
 
-The ARN of the principal, which can be an IAM user, IAM role, or the
-root user. Specify \code{all} to modify the ID format for all IAM users, IAM
-roles, and the root user of the account.
+The ARN of the principal, which
+can be an IAM user, IAM role, or the root user. Specify \code{all} to modify
+the ID format for all IAM users, IAM roles, and the root user of the
+account.
 }
 
 \section{Resource}{
+
 
 The type of resource: \code{bundle} \| \code{conversion-task} \|
 \code{customer-gateway} \| \code{dhcp-options} \| \code{elastic-ip-allocation} \|
@@ -57,6 +59,7 @@ types that are currently within their opt-in period for longer IDs.
 
 \section{UseLongIds}{
 
-Indicates whether the resource should use longer IDs (17-character IDs)
+Indicates whether the resource should use longer
+IDs (17-character IDs)
 }
 

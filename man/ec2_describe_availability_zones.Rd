@@ -15,29 +15,30 @@ ec2_describe_availability_zones(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{ZoneName}{List or named list. The names of the Availability Zones, Local Zones, and Wavelength Zones. (optional)}
+\item{ZoneName}{Array. The names of the Availability Zones, Local Zones, and Wavelength Zones.\link{optional}}
 
-\item{ZoneId}{List or named list. The IDs of the Availability Zones, Local Zones, and Wavelength Zones. (optional)}
+\item{ZoneId}{Array. The IDs of the Availability Zones, Local Zones, and Wavelength Zones.\link{optional}}
 
-\item{AllAvailabilityZones}{Boolean. Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.(optional)}
+\item{AllAvailabilityZones}{Boolean.   Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in...\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the Availability Zones, Local Zones, and Wavelength Zones that
-are available to you. If there is an event impacting a zone, you can use
-this request to view the state and any provided messages for that zone.
+Describe Availability Zones
 }
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -73,15 +74,18 @@ the Wavelength Zone (for example, \code{us-east-1-wl1-bos-wlz-1}).
 
 \section{ZoneName}{
 
-The names of the Availability Zones, Local Zones, and Wavelength Zones.
+The names of the Availability Zones, Local Zones,
+and Wavelength Zones.
 }
 
 \section{ZoneId}{
 
-The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+The IDs of the Availability
+Zones, Local Zones, and Wavelength Zones.
 }
 
 \section{AllAvailabilityZones}{
+
 
 Include all Availability Zones, Local Zones, and Wavelength Zones
 regardless of your opt-in status.
@@ -92,9 +96,10 @@ the Regions where you have chosen the option to opt in.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

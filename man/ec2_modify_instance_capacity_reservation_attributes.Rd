@@ -17,35 +17,42 @@ ec2_modify_instance_capacity_reservation_attributes(
 
 \item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the Capacity Reservation settings for a stopped instance. Use
-this action to configure an instance to target a specific Capacity
-Reservation, run in any \code{open} Capacity Reservation with matching
-attributes, or run On-Demand Instance capacity.
+Modifies the Capacity Reservation settings for a
+stopped instance. Use this action to configure an instance to target a
+specific Capacity Reservation, run in any \code{open} Capacity Reservation
+with matching attributes, or run On-Demand Instance
+capacity.
 }
 \section{InstanceId}{
 
-The ID of the instance to be modified.
+The ID of the instance to be
+modified.
 }
 
 \section{CapacityReservationSpecification}{
 
-Information about the Capacity Reservation targeting option.
+Information about the Capacity Reservation
+targeting option.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

@@ -12,29 +12,36 @@ ec2_delete_queued_reserved_instances(
 )
 }
 \arguments{
-\item{ReservedInstancesId}{List or named list. The IDs of the Reserved Instances.}
+\item{ReservedInstancesId}{Array. The IDs of the Reserved Instances.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Deletes the queued purchases for the specified Reserved Instances.
+Deletes the queued
+purchases for the specified Reserved
+Instances.
 }
 \section{ReservedInstancesId}{
 
-The IDs of the Reserved Instances.
+The IDs of the Reserved
+Instances.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

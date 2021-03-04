@@ -17,35 +17,41 @@ ec2_detach_classic_link_vpc(
 
 \item{VpcId}{String. The ID of the VPC to which the instance is linked.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the
-instance has been unlinked, the VPC security groups are no longer
-associated with it. An instance is automatically unlinked from a VPC
-when it\'s stopped.
+Unlinks (detaches) a linked EC2-Classic instance
+from a VPC. After the instance has been unlinked, the VPC security
+groups are no longer associated with it. An instance is automatically
+unlinked from a VPC when it\'s stopped.
 }
 \section{InstanceId}{
 
-The ID of the instance to unlink from the VPC.
+The ID of the instance to
+unlink from the VPC.
 }
 
 \section{VpcId}{
 
-The ID of the VPC to which the instance is linked.
+The ID of the VPC to which the
+instance is linked.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the
+required permissions for the action, without actually making the
+request, and provides an error response. If you have the required
+permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 

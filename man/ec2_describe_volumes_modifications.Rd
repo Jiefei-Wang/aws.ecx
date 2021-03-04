@@ -15,39 +15,45 @@ ec2_describe_volumes_modifications(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{VolumeId}{List or named list. The IDs of the volumes. (optional)}
+\item{VolumeId}{Array. The IDs of the volumes.\link{optional}}
 
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{MaxResults}{Integer. The maximum number of results (up to a limit of 500) to be returned in a paginated request. (optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{MaxResults}{Integer. The maximum number of results (up to a limit of 500) to be returned in a paginated request.\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes the most recent volume modification request for the specified
-EBS volumes.
+Describe Volumes Modifications
 }
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{VolumeId}{
 
-The IDs of the volumes.
+The IDs of the
+volumes.
 }
 
 \section{Filter}{
+
 
 The filters.
 \itemize{
@@ -72,7 +78,8 @@ is to be enabled (true \| false).
 
 \section{MaxResults}{
 
-The maximum number of results (up to a limit of 500) to be returned in a
-paginated request.
+The maximum number of results (up
+to a limit of 500) to be returned in a paginated
+request.
 }
 

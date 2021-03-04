@@ -15,25 +15,31 @@ ec2_describe_network_interfaces(
 )
 }
 \arguments{
-\item{Filter}{Named list where the name is the filter name and the value is the
-filter value. (see below)(optional)}
+\item{Filter}{No description can be found.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{NetworkInterfaceId}{List or named list. One or more network interface IDs.  Default: Describes all your network interfaces. (optional)}
+\item{NetworkInterfaceId}{Array.   One or more network interface IDs.  Default: Describes all your network interfaces.  \link{optional}}
 
-\item{MaxResults}{Integer. The maximum number of items to return for this request.(optional)}
+\item{NextToken}{Characters, The token for the next page of results.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{MaxResults}{Integer. The maximum number of items to return for this request.\link{optional}}
+
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Describes one or more of your network interfaces.
+Describes one or more of your network
+interfaces.
 }
 \section{Filter}{
+
 
 One or more filters.
 \itemize{
@@ -114,13 +120,15 @@ regardless of the tag value.
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
-Otherwise, it is \code{UnauthorizedOperation}.
+Checks whether you have the required permissions
+for the action, without actually making the request, and provides an
+error response. If you have the required permissions, the error response
+is \code{DryRunOperation}. Otherwise, it is
+\code{UnauthorizedOperation}.
 }
 
 \section{NetworkInterfaceId}{
+
 
 One or more network interface IDs.
 
@@ -129,9 +137,10 @@ Default: Describes all your network interfaces.
 
 \section{MaxResults}{
 
-The maximum number of items to return for this request. The request
-returns a token that you can specify in a subsequent call to get the
-next set of results. You cannot specify this parameter and the network
-interface IDs parameter in the same request.
+The maximum number of items to return for
+this request. The request returns a token that you can specify in a
+subsequent call to get the next set of results. You cannot specify this
+parameter and the network interface IDs parameter in the same
+request.
 }
 

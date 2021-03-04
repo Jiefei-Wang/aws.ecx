@@ -15,25 +15,31 @@ ec2_modify_vpc_attribute(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{EnableDnsHostnames}{Object. Indicates whether the instances launched in the VPC get DNS hostnames.(optional)}
+\item{EnableDnsHostnames}{Object.   Indicates whether the instances launched in the VPC get DNS hostnames.\link{optional}}
 
-\item{EnableDnsSupport}{Object. Indicates whether the DNS resolution is supported for the VPC.(optional)}
+\item{EnableDnsSupport}{Object.   Indicates whether the DNS resolution is supported for the VPC.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified attribute of the specified VPC.
+Modifies the specified attribute of the specified
+VPC.
 }
 \section{VpcId}{
 
-The ID of the VPC.
+The ID of the
+VPC.
 }
 
 \section{EnableDnsHostnames}{
+
 
 Indicates whether the instances launched in the VPC get DNS hostnames.
 If enabled, instances in the VPC get DNS hostnames; otherwise, they do
@@ -45,6 +51,7 @@ enable DNS hostnames if you\'ve enabled DNS support.
 }
 
 \section{EnableDnsSupport}{
+
 
 Indicates whether the DNS resolution is supported for the VPC. If
 enabled, queries to the Amazon provided DNS server at the

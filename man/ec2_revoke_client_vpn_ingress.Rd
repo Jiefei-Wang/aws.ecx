@@ -19,48 +19,57 @@ ec2_revoke_client_vpn_ingress(
 
 \item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being removed.}
 
-\item{AccessGroupId}{String. The ID of the Active Directory group for which to revoke access. (optional)}
+\item{AccessGroupId}{String. The ID of the Active Directory group for which to revoke access. \link{optional}}
 
-\item{RevokeAllGroups}{Boolean. Indicates whether access should be revoked for all clients. (optional)}
+\item{RevokeAllGroups}{Boolean. Indicates whether access should be revoked for all clients.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Removes an ingress authorization rule from a Client VPN endpoint.
+Removes an ingress authorization rule
+from a Client VPN endpoint.
 }
 \section{ClientVpnEndpointId}{
 
-The ID of the Client VPN endpoint with which the authorization rule is
+The ID of the Client VPN
+endpoint with which the authorization rule is
 associated.
 }
 
 \section{TargetNetworkCidr}{
 
-The IPv4 address range, in CIDR notation, of the network for which
-access is being removed.
+The IPv4 address range, in CIDR
+notation, of the network for which access is being
+removed.
 }
 
 \section{AccessGroupId}{
 
-The ID of the Active Directory group for which to revoke access.
+The ID of the Active Directory group for
+which to revoke access.
 }
 
 \section{RevokeAllGroups}{
 
-Indicates whether access should be revoked for all clients.
+Indicates whether access
+should be revoked for all clients.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
-actually making the request, and provides an error response. If you have
-the required permissions, the error response is \code{DryRunOperation}.
+Checks whether
+you have the required permissions for the action, without actually
+making the request, and provides an error response. If you have the
+required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
 }
 

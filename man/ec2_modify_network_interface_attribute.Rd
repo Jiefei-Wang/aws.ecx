@@ -18,47 +18,54 @@ ec2_modify_network_interface_attribute(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{Attachment}{Object. Information about the interface attachment.(optional)}
+\item{Attachment}{Object. Information about the interface attachment.\link{optional}}
 
-\item{Description}{Object. A description for the network interface. (optional)}
+\item{Description}{Object. A description for the network interface.\link{optional}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...(see below)(optional)}
+\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
 
-\item{SecurityGroupId}{List or named list. Changes the security groups for the network interface.(optional)}
+\item{SecurityGroupId}{Array. Changes the security groups for the network interface.\link{optional}}
 
-\item{SourceDestCheck}{Object. Indicates whether source/destination checking is enabled.(optional)}
+\item{SourceDestCheck}{Object. Indicates whether source/destination checking is enabled.\link{optional}}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Modifies the specified network interface attribute. You can specify only
-one attribute at a time. You can use this action to attach and detach
-security groups from an existing EC2 instance.
+Modifies the specified network interface attribute.
+You can specify only one attribute at a time. You can use this action to
+attach and detach security groups from an existing EC2
+instance.
 }
 \section{NetworkInterfaceId}{
 
-The ID of the network interface.
+The ID of the network
+interface.
 }
 
 \section{Attachment}{
 
-Information about the interface attachment. If modifying the \'delete on
-termination\' attribute, you must specify the ID of the interface
-attachment.
+Information about the interface
+attachment. If modifying the \'delete on termination\' attribute, you
+must specify the ID of the interface attachment.
 }
 
 \section{Description}{
 
-A description for the network interface.
+A
+description for the network interface.
 }
 
 \section{DryRun}{
 
-Checks whether you have the required permissions for the action, without
+Checks
+whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have
 the required permissions, the error response is \code{DryRunOperation}.
 Otherwise, it is \code{UnauthorizedOperation}.
@@ -66,18 +73,21 @@ Otherwise, it is \code{UnauthorizedOperation}.
 
 \section{SecurityGroupId}{
 
-Changes the security groups for the network interface. The new set of
-groups you specify replaces the current set. You must specify at least
-one group, even if it\'s just the default security group in the VPC. You
-must specify the ID of the security group, not the name.
+Changes
+the security groups for the network interface. The new set of groups you
+specify replaces the current set. You must specify at least one group,
+even if it\'s just the default security group in the VPC. You must
+specify the ID of the security group, not the
+name.
 }
 
 \section{SourceDestCheck}{
 
-Indicates whether source/destination checking is enabled. A value of
-\code{true} means checking is enabled, and \code{false} means checking is
-disabled. This value must be \code{false} for a NAT instance to perform NAT.
-For more information, see \href{https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html}{NAT Instances}
-in the \emph{Amazon Virtual Private Cloud User Guide}.
+Indicates whether source/destination checking
+is enabled. A value of \code{true} means checking is enabled, and \code{false}
+means checking is disabled. This value must be \code{false} for a NAT
+instance to perform NAT. For more information, see \href{https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html}{NAT Instances}
+in the \emph{Amazon Virtual Private Cloud User
+Guide}.
 }
 

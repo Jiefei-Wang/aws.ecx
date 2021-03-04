@@ -9,21 +9,26 @@ ec2_cancel_export_task(ExportTaskId, simplify = TRUE, others = list())
 \arguments{
 \item{ExportTaskId}{String. The ID of the export task. This is the ID returned by \code{CreateInstanceExportTask}.}
 
-\item{simplify}{Whether to handle the nextToken value(if any)
-in the response and simplify the result.}
+\item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
+in the response}
+
+\item{others}{Named list. The parameters that are not included in the
+function parameters and need to be added into the request.}
 }
 \value{
 A list object or a character vector
 }
 \description{
-Cancels an active export task. The request removes all artifacts of the
-export, including any partially-created Amazon S3 objects. If the export
-task is complete or is in the process of transferring the final disk
-image, the command fails and returns an error.
+Cancels an active export task. The request removes
+all artifacts of the export, including any partially-created Amazon S3
+objects. If the export task is complete or is in the process of
+transferring the final disk image, the command fails and returns an
+error.
 }
 \section{ExportTaskId}{
 
-The ID of the export task. This is the ID returned by
+The ID of the export task. This
+is the ID returned by
 \code{CreateInstanceExportTask}.
 }
 
