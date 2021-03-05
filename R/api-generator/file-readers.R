@@ -9,12 +9,7 @@ get_aws_api <- function(service){
     api
 }
 
-get_template <- function(has_token = FALSE){
-    base_path <- "R/api-generator/template/"
-    if(has_token){
-        path <- paste0(base_path,"template_with_token.R")
-    }else{
-        path <- paste0(base_path,"template_without_token.R")
-    }
+get_template <- function(){
+    path <- "R/api-generator/template/template.R"
     readChar(path, file.info(path)$size)
 }

@@ -92,7 +92,7 @@ ecs_request <- function(action, parameters = list()){
   if(httr::http_error(response)){
     stop(content(response, type = "text"))
   }
-  response
+  content(response, type = "application/json")
 }
 
 # query$Action = "DescribeVpcs"

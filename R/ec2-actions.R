@@ -30,14 +30,8 @@ ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, Dry
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptReservedInstancesExchangeQuote", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptReservedInstancesExchangeQuote", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -77,14 +71,8 @@ ec2_accept_transit_gateway_multicast_domain_associations <- function(TransitGate
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptTransitGatewayMulticastDomainAssociations", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptTransitGatewayMulticastDomainAssociations", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -113,14 +101,8 @@ ec2_accept_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptTransitGatewayPeeringAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptTransitGatewayPeeringAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -145,14 +127,8 @@ ec2_accept_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptTransitGatewayVpcAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptTransitGatewayVpcAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -185,14 +161,8 @@ ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptVpcEndpointConnections", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptVpcEndpointConnections", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -218,14 +188,8 @@ ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectio
     others = list()) {
     parameters <- c(others, list(DryRun = DryRun, VpcPeeringConnectionId = VpcPeeringConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AcceptVpcPeeringConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AcceptVpcPeeringConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -250,14 +214,8 @@ ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectio
 ec2_advertise_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AdvertiseByoipCidr", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AdvertiseByoipCidr", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -327,14 +285,8 @@ ec2_allocate_address <- function(Domain = NULL, Address = NULL, PublicIpv4Pool =
         NetworkBorderGroup = NetworkBorderGroup, CustomerOwnedIpv4Pool = CustomerOwnedIpv4Pool, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AllocateAddress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AllocateAddress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -423,14 +375,8 @@ ec2_allocate_hosts <- function(AvailabilityZone, Quantity, AutoPlacement = NULL,
         ClientToken = ClientToken, InstanceType = InstanceType, InstanceFamily = InstanceFamily, 
         HostRecovery = HostRecovery), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AllocateHosts", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AllocateHosts", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -472,14 +418,8 @@ ec2_apply_security_groups_to_client_vpn_target_network <- function(ClientVpnEndp
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, VpcId = VpcId, DryRun = DryRun), 
         SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ApplySecurityGroupsToClientVpnTargetNetwork", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ApplySecurityGroupsToClientVpnTargetNetwork", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -513,14 +453,8 @@ ec2_assign_ipv6_addresses <- function(NetworkInterfaceId, Ipv6AddressCount = NUL
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Ipv6AddressCount = Ipv6AddressCount), 
         Ipv6Addresses)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssignIpv6Addresses", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssignIpv6Addresses", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -560,14 +494,8 @@ ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignmen
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, AllowReassignment = AllowReassignment, 
         SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount), PrivateIpAddress)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssignPrivateIpAddresses", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssignPrivateIpAddresses", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -632,14 +560,8 @@ ec2_associate_address <- function(AllocationId = NULL, InstanceId = NULL, Public
         AllowReassociation = AllowReassociation, DryRun = DryRun, NetworkInterfaceId = NetworkInterfaceId, 
         PrivateIpAddress = PrivateIpAddress))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateAddress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateAddress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -675,14 +597,8 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, SubnetId = SubnetId, 
         ClientToken = ClientToken, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateClientVpnTargetNetwork", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateClientVpnTargetNetwork", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -707,17 +623,12 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(DhcpOptionsId = DhcpOptionsId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateDhcpOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateDhcpOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -748,14 +659,8 @@ ec2_associate_enclave_certificate_iam_role <- function(CertificateArn = NULL, Ro
     DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CertificateArn = CertificateArn, RoleArn = RoleArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateEnclaveCertificateIamRole", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateEnclaveCertificateIamRole", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -781,14 +686,8 @@ ec2_associate_iam_instance_profile <- function(IamInstanceProfile, InstanceId, s
     others = list()) {
     parameters <- c(others, list(IamInstanceProfile = IamInstanceProfile, InstanceId = InstanceId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateIamInstanceProfile", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateIamInstanceProfile", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -822,14 +721,8 @@ ec2_associate_route_table <- function(RouteTableId, DryRun = NULL, SubnetId = NU
     parameters <- c(others, list(RouteTableId = RouteTableId, DryRun = DryRun, SubnetId = SubnetId, 
         GatewayId = GatewayId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -855,14 +748,8 @@ ec2_associate_route_table <- function(RouteTableId, DryRun = NULL, SubnetId = NU
 ec2_associate_subnet_cidr_block <- function(Ipv6CidrBlock, SubnetId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Ipv6CidrBlock = Ipv6CidrBlock, SubnetId = SubnetId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateSubnetCidrBlock", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateSubnetCidrBlock", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -898,14 +785,8 @@ ec2_associate_transit_gateway_multicast_domain <- function(TransitGatewayMultica
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateTransitGatewayMulticastDomain", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateTransitGatewayMulticastDomain", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -939,14 +820,8 @@ ec2_associate_transit_gateway_route_table <- function(TransitGatewayRouteTableId
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateTransitGatewayRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateTransitGatewayRouteTable", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -999,14 +874,8 @@ ec2_associate_vpc_cidr_block <- function(VpcId, AmazonProvidedIpv6CidrBlock = NU
         CidrBlock = CidrBlock, Ipv6CidrBlockNetworkBorderGroup = Ipv6CidrBlockNetworkBorderGroup, 
         Ipv6Pool = Ipv6Pool, Ipv6CidrBlock = Ipv6CidrBlock))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AssociateVpcCidrBlock", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AssociateVpcCidrBlock", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1041,14 +910,8 @@ ec2_attach_classic_link_vpc <- function(SecurityGroupId, InstanceId, VpcId, DryR
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun), SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AttachClassicLinkVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AttachClassicLinkVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1083,14 +946,8 @@ ec2_attach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
     others = list()) {
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AttachInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AttachInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1133,14 +990,8 @@ ec2_attach_network_interface <- function(DeviceIndex, InstanceId, NetworkInterfa
     parameters <- c(others, list(DeviceIndex = DeviceIndex, InstanceId = InstanceId, NetworkInterfaceId = NetworkInterfaceId, 
         DryRun = DryRun, NetworkCardIndex = NetworkCardIndex))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AttachNetworkInterface", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AttachNetworkInterface", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1174,14 +1025,8 @@ ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simpl
     parameters <- c(others, list(Device = Device, InstanceId = InstanceId, VolumeId = VolumeId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AttachVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AttachVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1209,14 +1054,8 @@ ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simpl
 ec2_attach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AttachVpnGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AttachVpnGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1277,14 +1116,8 @@ ec2_authorize_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkC
         AccessGroupId = AccessGroupId, AuthorizeAllGroups = AuthorizeAllGroups, Description = Description, 
         ClientToken = ClientToken, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AuthorizeClientVpnIngress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AuthorizeClientVpnIngress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1344,14 +1177,8 @@ ec2_authorize_security_group_egress <- function(GroupId, DryRun = NULL, IpPermis
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
         SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AuthorizeSecurityGroupEgress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupEgress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1455,14 +1282,8 @@ ec2_authorize_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL,
         IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
         ToPort = ToPort, DryRun = DryRun), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "AuthorizeSecurityGroupIngress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupIngress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1499,14 +1320,8 @@ ec2_authorize_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL,
 ec2_bundle_instance <- function(InstanceId, Storage, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, Storage = Storage, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "BundleInstance", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "BundleInstance", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1533,14 +1348,8 @@ ec2_bundle_instance <- function(InstanceId, Storage, DryRun = NULL, simplify = T
 ec2_cancel_bundle_task <- function(BundleId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(BundleId = BundleId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelBundleTask", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelBundleTask", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1565,14 +1374,8 @@ ec2_cancel_capacity_reservation <- function(CapacityReservationId, DryRun = NULL
     others = list()) {
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelCapacityReservation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelCapacityReservation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1601,14 +1404,8 @@ ec2_cancel_conversion_task <- function(ConversionTaskId, DryRun = NULL, ReasonMe
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(ConversionTaskId = ConversionTaskId, DryRun = DryRun, ReasonMessage = ReasonMessage))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelConversionTask", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelConversionTask", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1632,14 +1429,8 @@ ec2_cancel_conversion_task <- function(ConversionTaskId, DryRun = NULL, ReasonMe
 ec2_cancel_export_task <- function(ExportTaskId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ExportTaskId = ExportTaskId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelExportTask", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelExportTask", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1671,14 +1462,8 @@ ec2_cancel_import_task <- function(CancelReason = NULL, DryRun = NULL, ImportTas
     others = list()) {
     parameters <- c(others, list(CancelReason = CancelReason, DryRun = DryRun, ImportTaskId = ImportTaskId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelImportTask", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelImportTask", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1696,14 +1481,8 @@ ec2_cancel_reserved_instances_listing <- function(ReservedInstancesListingId, si
     others = list()) {
     parameters <- c(others, list(ReservedInstancesListingId = ReservedInstancesListingId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelReservedInstancesListing", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelReservedInstancesListing", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1734,14 +1513,8 @@ ec2_cancel_spot_fleet_requests <- function(SpotFleetRequestId, TerminateInstance
     SpotFleetRequestId <- list_to_array("SpotFleetRequestId", SpotFleetRequestId)
     parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), SpotFleetRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelSpotFleetRequests", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelSpotFleetRequests", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1767,14 +1540,8 @@ ec2_cancel_spot_instance_requests <- function(SpotInstanceRequestId, DryRun = NU
     SpotInstanceRequestId <- list_to_array("SpotInstanceRequestId", SpotInstanceRequestId)
     parameters <- c(others, list(DryRun = DryRun), SpotInstanceRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CancelSpotInstanceRequests", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CancelSpotInstanceRequests", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1809,14 +1576,8 @@ ec2_confirm_product_instance <- function(InstanceId, ProductCode, DryRun = NULL,
     others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, ProductCode = ProductCode, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ConfirmProductInstance", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ConfirmProductInstance", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1863,14 +1624,8 @@ ec2_copy_fpga_image <- function(SourceFpgaImageId, SourceRegion, DryRun = NULL, 
     parameters <- c(others, list(SourceFpgaImageId = SourceFpgaImageId, SourceRegion = SourceRegion, 
         DryRun = DryRun, Description = Description, Name = Name, ClientToken = ClientToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CopyFpgaImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CopyFpgaImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -1969,14 +1724,8 @@ ec2_copy_image <- function(Name, SourceImageId, SourceRegion, ClientToken = NULL
         ClientToken = ClientToken, Description = Description, Encrypted = Encrypted, KmsKeyId = KmsKeyId, 
         DestinationOutpostArn = DestinationOutpostArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CopyImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CopyImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2097,14 +1846,8 @@ ec2_copy_snapshot <- function(SourceRegion, SourceSnapshotId, Description = NULL
         Encrypted = Encrypted, KmsKeyId = KmsKeyId, PresignedUrl = PresignedUrl, DryRun = DryRun), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CopySnapshot", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CopySnapshot", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2230,9 +1973,9 @@ ec2_copy_snapshot <- function(SourceRegion, SourceSnapshotId, Description = NULL
 #' @return A list object or a character vector
 #' @export
 ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, InstanceCount, ClientToken = NULL, 
-    AvailabilityZone = NULL, AvailabilityZoneId = NULL, Tenancy = NULL, EbsOptimized = NULL, EphemeralStorage = NULL, 
-    EndDate = NULL, EndDateType = NULL, InstanceMatchCriteria = NULL, TagSpecifications = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+    AvailabilityZone = NULL, AvailabilityZoneId = NULL, Tenancy = NULL, EbsOptimized = NULL, 
+    EphemeralStorage = NULL, EndDate = NULL, EndDateType = NULL, InstanceMatchCriteria = NULL, 
+    TagSpecifications = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(InstanceType = InstanceType, InstancePlatform = InstancePlatform, 
         InstanceCount = InstanceCount, ClientToken = ClientToken, AvailabilityZone = AvailabilityZone, 
@@ -2240,14 +1983,8 @@ ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, Inst
         EphemeralStorage = EphemeralStorage, EndDate = EndDate, EndDateType = EndDateType, InstanceMatchCriteria = InstanceMatchCriteria, 
         DryRun = DryRun), TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateCapacityReservation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateCapacityReservation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2286,16 +2023,11 @@ ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, Inst
 ec2_create_carrier_gateway <- function(VpcId, TagSpecification = NULL, DryRun = NULL, ClientToken = NULL, 
     simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, ClientToken = ClientToken), TagSpecification)
+    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, ClientToken = ClientToken), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateCarrierGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateCarrierGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2442,14 +2174,8 @@ ec2_create_client_vpn_endpoint <- function(ClientCidrBlock, ServerCertificateArn
         VpcId = VpcId, SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), 
         Authentication, DnsServers, TagSpecification, SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateClientVpnEndpoint", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateClientVpnEndpoint", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2518,14 +2244,8 @@ ec2_create_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
         TargetVpcSubnetId = TargetVpcSubnetId, Description = Description, ClientToken = ClientToken, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateClientVpnRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateClientVpnRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2579,14 +2299,8 @@ ec2_create_customer_gateway <- function(BgpAsn, Type, IpAddress = NULL, Certific
     parameters <- c(others, list(BgpAsn = BgpAsn, Type = Type, IpAddress = IpAddress, CertificateArn = CertificateArn, 
         DeviceName = DeviceName, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateCustomerGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateCustomerGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2617,14 +2331,8 @@ ec2_create_customer_gateway <- function(BgpAsn, Type, IpAddress = NULL, Certific
 ec2_create_default_subnet <- function(AvailabilityZone, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateDefaultSubnet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateDefaultSubnet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2644,14 +2352,8 @@ ec2_create_default_subnet <- function(AvailabilityZone, DryRun = NULL, simplify 
 ec2_create_default_vpc <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateDefaultVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateDefaultVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2682,14 +2384,8 @@ ec2_create_dhcp_options <- function(DhcpConfiguration, TagSpecification = NULL, 
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun), DhcpConfiguration, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateDhcpOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateDhcpOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2729,16 +2425,11 @@ ec2_create_dhcp_options <- function(DhcpConfiguration, TagSpecification = NULL, 
 ec2_create_egress_only_internet_gateway <- function(VpcId, ClientToken = NULL, DryRun = NULL, 
     TagSpecification = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(VpcId = VpcId, ClientToken = ClientToken, DryRun = DryRun), TagSpecification)
+    parameters <- c(others, list(VpcId = VpcId, ClientToken = ClientToken, DryRun = DryRun), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateEgressOnlyInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateEgressOnlyInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2851,14 +2542,8 @@ ec2_create_fleet <- function(LaunchTemplateConfigs, TargetCapacitySpecification,
         Type = Type, ValidFrom = ValidFrom, ValidUntil = ValidUntil, ReplaceUnhealthyInstances = ReplaceUnhealthyInstances), 
         LaunchTemplateConfigs, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateFleet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateFleet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2995,14 +2680,8 @@ ec2_create_flow_logs <- function(ResourceId, ResourceType, TrafficType, DryRun =
         LogDestinationType = LogDestinationType, LogDestination = LogDestination, LogFormat = LogFormat, 
         MaxAggregationInterval = MaxAggregationInterval), ResourceId, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateFlowLogs", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateFlowLogs", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3053,14 +2732,8 @@ ec2_create_fpga_image <- function(InputStorageLocation, DryRun = NULL, LogsStora
         LogsStorageLocation = LogsStorageLocation, Description = Description, Name = Name, ClientToken = ClientToken), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateFpgaImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateFpgaImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3133,14 +2806,8 @@ ec2_create_image <- function(InstanceId, Name, BlockDeviceMapping = NULL, Descri
     parameters <- c(others, list(InstanceId = InstanceId, Name = Name, Description = Description, 
         DryRun = DryRun, NoReboot = NoReboot), BlockDeviceMapping, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3177,14 +2844,8 @@ ec2_create_instance_export_task <- function(ExportToS3, InstanceId, TargetEnviro
     parameters <- c(others, list(ExportToS3 = ExportToS3, InstanceId = InstanceId, TargetEnvironment = TargetEnvironment, 
         Description = Description), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateInstanceExportTask", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateInstanceExportTask", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3210,14 +2871,8 @@ ec2_create_internet_gateway <- function(TagSpecification = NULL, DryRun = NULL, 
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3250,14 +2905,8 @@ ec2_create_key_pair <- function(KeyName, DryRun = NULL, TagSpecification = NULL,
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(KeyName = KeyName, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateKeyPair", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateKeyPair", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3308,20 +2957,15 @@ ec2_create_key_pair <- function(KeyName, DryRun = NULL, TagSpecification = NULL,
 #' @return A list object or a character vector
 #' @export
 ec2_create_launch_template <- function(LaunchTemplateName, LaunchTemplateData, DryRun = NULL, 
-    ClientToken = NULL, VersionDescription = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+    ClientToken = NULL, VersionDescription = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(LaunchTemplateName = LaunchTemplateName, LaunchTemplateData = LaunchTemplateData, 
         DryRun = DryRun, ClientToken = ClientToken, VersionDescription = VersionDescription), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateLaunchTemplate", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateLaunchTemplate", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3380,14 +3024,8 @@ ec2_create_launch_template_version <- function(LaunchTemplateData, DryRun = NULL
         LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, SourceVersion = SourceVersion, 
         VersionDescription = VersionDescription))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateLaunchTemplateVersion", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateLaunchTemplateVersion", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3425,14 +3063,8 @@ ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         LocalGatewayVirtualInterfaceGroupId = LocalGatewayVirtualInterfaceGroupId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateLocalGatewayRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateLocalGatewayRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3470,14 +3102,8 @@ ec2_create_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
     parameters <- c(others, list(LocalGatewayRouteTableId = LocalGatewayRouteTableId, VpcId = VpcId, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateLocalGatewayRouteTableVpcAssociation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateLocalGatewayRouteTableVpcAssociation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -3537,14 +3163,8 @@ ec2_create_managed_prefix_list <- function(PrefixListName, MaxEntries, AddressFa
     parameters <- c(others, list(PrefixListName = PrefixListName, MaxEntries = MaxEntries, AddressFamily = AddressFamily, 
         DryRun = DryRun, ClientToken = ClientToken), Entry, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateManagedPrefixList", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateManagedPrefixList", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3599,14 +3219,8 @@ ec2_create_nat_gateway <- function(AllocationId, SubnetId, ClientToken = NULL, D
     parameters <- c(others, list(AllocationId = AllocationId, SubnetId = SubnetId, ClientToken = ClientToken, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNatGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNatGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3636,14 +3250,8 @@ ec2_create_network_acl <- function(VpcId, DryRun = NULL, TagSpecification = NULL
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNetworkAcl", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNetworkAcl", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3722,14 +3330,8 @@ ec2_create_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAct
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, 
         Icmp = Icmp, Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNetworkAclEntry", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNetworkAclEntry", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3789,14 +3391,8 @@ ec2_create_network_insights_path <- function(Source, Destination, Protocol, Clie
         ClientToken = ClientToken, SourceIp = SourceIp, DestinationIp = DestinationIp, DestinationPort = DestinationPort, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNetworkInsightsPath", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNetworkInsightsPath", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3890,14 +3486,8 @@ ec2_create_network_interface <- function(SubnetId, Description = NULL, DryRun = 
         Ipv6AddressCount = Ipv6AddressCount, PrivateIpAddress = PrivateIpAddress, SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount, 
         InterfaceType = InterfaceType), SecurityGroupId, Ipv6Addresses, PrivateIpAddresses, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNetworkInterface", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNetworkInterface", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3934,14 +3524,8 @@ ec2_create_network_interface_permission <- function(NetworkInterfaceId, Permissi
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Permission = Permission, 
         AwsAccountId = AwsAccountId, AwsService = AwsService, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateNetworkInterfacePermission", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateNetworkInterfacePermission", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -3984,14 +3568,8 @@ ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy
     parameters <- c(others, list(DryRun = DryRun, GroupName = GroupName, Strategy = Strategy, 
         PartitionCount = PartitionCount), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreatePlacementGroup", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreatePlacementGroup", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4029,14 +3607,8 @@ ec2_create_reserved_instances_listing <- function(ClientToken, InstanceCount, Pr
     parameters <- c(others, list(ClientToken = ClientToken, InstanceCount = InstanceCount, ReservedInstancesId = ReservedInstancesId), 
         PriceSchedules)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateReservedInstancesListing", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateReservedInstancesListing", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4132,14 +3704,8 @@ ec2_create_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
         LocalGatewayId = LocalGatewayId, CarrierGatewayId = CarrierGatewayId, NetworkInterfaceId = NetworkInterfaceId, 
         VpcPeeringConnectionId = VpcPeeringConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4169,14 +3735,8 @@ ec2_create_route_table <- function(VpcId, DryRun = NULL, TagSpecification = NULL
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4228,17 +3788,11 @@ ec2_create_route_table <- function(VpcId, DryRun = NULL, TagSpecification = NULL
 ec2_create_security_group <- function(GroupDescription, GroupName, VpcId = NULL, TagSpecification = NULL, 
     DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(GroupDescription = GroupDescription, GroupName = GroupName, VpcId = VpcId, 
-        DryRun = DryRun), TagSpecification)
+    parameters <- c(others, list(GroupDescription = GroupDescription, GroupName = GroupName, 
+        VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateSecurityGroup", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateSecurityGroup", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4294,14 +3848,8 @@ ec2_create_snapshot <- function(VolumeId, Description = NULL, OutpostArn = NULL,
     parameters <- c(others, list(VolumeId = VolumeId, Description = Description, OutpostArn = OutpostArn, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateSnapshot", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateSnapshot", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4364,14 +3912,8 @@ ec2_create_snapshots <- function(InstanceSpecification, Description = NULL, Outp
     parameters <- c(others, list(InstanceSpecification = InstanceSpecification, Description = Description, 
         OutpostArn = OutpostArn, DryRun = DryRun, CopyTagsFromSource = CopyTagsFromSource), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateSnapshots", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateSnapshots", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4409,14 +3951,8 @@ ec2_create_spot_datafeed_subscription <- function(Bucket, DryRun = NULL, Prefix 
     others = list()) {
     parameters <- c(others, list(Bucket = Bucket, DryRun = DryRun, Prefix = Prefix))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateSpotDatafeedSubscription", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateSpotDatafeedSubscription", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4487,14 +4023,8 @@ ec2_create_subnet <- function(CidrBlock, VpcId, TagSpecification = NULL, Availab
         AvailabilityZoneId = AvailabilityZoneId, Ipv6CidrBlock = Ipv6CidrBlock, OutpostArn = OutpostArn, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateSubnet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateSubnet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4530,14 +4060,8 @@ ec2_create_tags <- function(ResourceId, Tag, DryRun = NULL, simplify = TRUE, oth
     Tag <- list_to_array("Tag", Tag)
     parameters <- c(others, list(DryRun = DryRun), ResourceId, Tag)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTags", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTags", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4574,14 +4098,8 @@ ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecificatio
     parameters <- c(others, list(Description = Description, DryRun = DryRun, ClientToken = ClientToken), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTrafficMirrorFilter", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTrafficMirrorFilter", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4654,20 +4172,15 @@ ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecificatio
 #' @export
 ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, TrafficDirection, RuleNumber, 
     RuleAction, DestinationCidrBlock, SourceCidrBlock, DestinationPortRange = NULL, SourcePortRange = NULL, 
-    Protocol = NULL, Description = NULL, DryRun = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
+    Protocol = NULL, Description = NULL, DryRun = NULL, ClientToken = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, TrafficDirection = TrafficDirection, 
         RuleNumber = RuleNumber, RuleAction = RuleAction, DestinationCidrBlock = DestinationCidrBlock, 
         SourceCidrBlock = SourceCidrBlock, DestinationPortRange = DestinationPortRange, SourcePortRange = SourcePortRange, 
         Protocol = Protocol, Description = Description, DryRun = DryRun, ClientToken = ClientToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTrafficMirrorFilterRule", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTrafficMirrorFilterRule", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4748,14 +4261,8 @@ ec2_create_traffic_mirror_session <- function(NetworkInterfaceId, TrafficMirrorT
         VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun, ClientToken = ClientToken), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTrafficMirrorSession", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTrafficMirrorSession", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4803,14 +4310,8 @@ ec2_create_traffic_mirror_target <- function(NetworkInterfaceId = NULL, NetworkL
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, NetworkLoadBalancerArn = NetworkLoadBalancerArn, 
         Description = Description, DryRun = DryRun, ClientToken = ClientToken), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTrafficMirrorTarget", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTrafficMirrorTarget", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4845,14 +4346,8 @@ ec2_create_transit_gateway <- function(Description = NULL, Options = NULL, TagSp
     parameters <- c(others, list(Description = Description, Options = Options, DryRun = DryRun), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4882,20 +4377,14 @@ ec2_create_transit_gateway <- function(Description = NULL, Options = NULL, TagSp
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachmentId, Options, TagSpecification = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachmentId, Options, 
+    TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransportTransitGatewayAttachmentId = TransportTransitGatewayAttachmentId, 
         Options = Options, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayConnect", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayConnect", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4944,23 +4433,17 @@ ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachment
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, PeerAddress, InsideCidrBlocks, 
-    TransitGatewayAddress = NULL, BgpOptions = NULL, TagSpecification = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, PeerAddress, 
+    InsideCidrBlocks, TransitGatewayAddress = NULL, BgpOptions = NULL, TagSpecification = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     InsideCidrBlocks <- list_to_array("InsideCidrBlocks", InsideCidrBlocks)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, PeerAddress = PeerAddress, 
         TransitGatewayAddress = TransitGatewayAddress, BgpOptions = BgpOptions, DryRun = DryRun), 
         InsideCidrBlocks, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayConnectPeer", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayConnectPeer", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -4995,14 +4478,8 @@ ec2_create_transit_gateway_multicast_domain <- function(TransitGatewayId, Option
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Options = Options, DryRun = DryRun), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayMulticastDomain", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayMulticastDomain", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5046,14 +4523,8 @@ ec2_create_transit_gateway_peering_attachment <- function(TransitGatewayId, Peer
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, PeerTransitGatewayId = PeerTransitGatewayId, 
         PeerAccountId = PeerAccountId, PeerRegion = PeerRegion, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayPeeringAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayPeeringAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5095,14 +4566,8 @@ ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayPrefixListReference", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayPrefixListReference", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5145,14 +4610,8 @@ ec2_create_transit_gateway_route <- function(DestinationCidrBlock, TransitGatewa
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5185,14 +4644,8 @@ ec2_create_transit_gateway_route_table <- function(TransitGatewayId, TagSpecific
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun), TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5239,14 +4692,8 @@ ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, S
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, VpcId = VpcId, Options = Options, 
         DryRun = DryRun), SubnetIds, TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateTransitGatewayVpcAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayVpcAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5406,18 +4853,13 @@ ec2_create_volume <- function(AvailabilityZone, Encrypted = NULL, Iops = NULL, K
     OutpostArn = NULL, Size = NULL, SnapshotId = NULL, VolumeType = NULL, DryRun = NULL, TagSpecification = NULL, 
     MultiAttachEnabled = NULL, Throughput = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Encrypted = Encrypted, Iops = Iops, 
-        KmsKeyId = KmsKeyId, OutpostArn = OutpostArn, Size = Size, SnapshotId = SnapshotId, VolumeType = VolumeType, 
-        DryRun = DryRun, MultiAttachEnabled = MultiAttachEnabled, Throughput = Throughput), TagSpecification)
+    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Encrypted = Encrypted, 
+        Iops = Iops, KmsKeyId = KmsKeyId, OutpostArn = OutpostArn, Size = Size, SnapshotId = SnapshotId, 
+        VolumeType = VolumeType, DryRun = DryRun, MultiAttachEnabled = MultiAttachEnabled, Throughput = Throughput), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5494,14 +4936,8 @@ ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Po
         Ipv6Pool = Ipv6Pool, Ipv6CidrBlock = Ipv6CidrBlock, DryRun = DryRun, InstanceTenancy = InstanceTenancy, 
         Ipv6CidrBlockNetworkBorderGroup = Ipv6CidrBlockNetworkBorderGroup), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5595,14 +5031,8 @@ ec2_create_vpc_endpoint <- function(VpcId, ServiceName, DryRun = NULL, VpcEndpoi
         PolicyDocument = PolicyDocument, ClientToken = ClientToken, PrivateDnsEnabled = PrivateDnsEnabled), 
         RouteTableId, SubnetId, SecurityGroupId, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpcEndpoint", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpcEndpoint", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5649,14 +5079,8 @@ ec2_create_vpc_endpoint_connection_notification <- function(ConnectionNotificati
     parameters <- c(others, list(ConnectionNotificationArn = ConnectionNotificationArn, DryRun = DryRun, 
         ServiceId = ServiceId, VpcEndpointId = VpcEndpointId, ClientToken = ClientToken), ConnectionEvents)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpcEndpointConnectionNotification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpcEndpointConnectionNotification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5712,14 +5136,8 @@ ec2_create_vpc_endpoint_service_configuration <- function(DryRun = NULL, Accepta
     parameters <- c(others, list(DryRun = DryRun, AcceptanceRequired = AcceptanceRequired, PrivateDnsName = PrivateDnsName, 
         ClientToken = ClientToken), NetworkLoadBalancerArn, GatewayLoadBalancerArn, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpcEndpointServiceConfiguration", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpcEndpointServiceConfiguration", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5770,14 +5188,8 @@ ec2_create_vpc_peering_connection <- function(DryRun = NULL, PeerOwnerId = NULL,
     parameters <- c(others, list(DryRun = DryRun, PeerOwnerId = PeerOwnerId, PeerVpcId = PeerVpcId, 
         VpcId = VpcId, PeerRegion = PeerRegion), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpcPeeringConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpcPeeringConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5826,14 +5238,8 @@ ec2_create_vpn_connection <- function(CustomerGatewayId, Type, VpnGatewayId = NU
     parameters <- c(others, list(CustomerGatewayId = CustomerGatewayId, Type = Type, VpnGatewayId = VpnGatewayId, 
         TransitGatewayId = TransitGatewayId, DryRun = DryRun, Options = Options), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpnConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpnConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5855,14 +5261,8 @@ ec2_create_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
     others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, VpnConnectionId = VpnConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpnConnectionRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpnConnectionRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5907,14 +5307,8 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
     parameters <- c(others, list(Type = Type, AvailabilityZone = AvailabilityZone, AmazonSideAsn = AmazonSideAsn, 
         DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "CreateVpnGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "CreateVpnGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5938,14 +5332,8 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
 ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CarrierGatewayId = CarrierGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteCarrierGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteCarrierGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -5974,14 +5362,8 @@ ec2_delete_client_vpn_endpoint <- function(ClientVpnEndpointId, DryRun = NULL, s
     others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteClientVpnEndpoint", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteClientVpnEndpoint", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6023,14 +5405,8 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DestinationCidrBlock = DestinationCidrBlock, 
         TargetVpcSubnetId = TargetVpcSubnetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteClientVpnRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteClientVpnRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6058,14 +5434,8 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
 ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CustomerGatewayId = CustomerGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteCustomerGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteCustomerGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6095,14 +5465,8 @@ ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simpli
 ec2_delete_dhcp_options <- function(DhcpOptionsId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DhcpOptionsId = DhcpOptionsId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteDhcpOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteDhcpOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6130,14 +5494,8 @@ ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId,
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteEgressOnlyInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteEgressOnlyInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6175,14 +5533,8 @@ ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simpli
     FleetId <- list_to_array("FleetId", FleetId)
     parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), FleetId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteFleets", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteFleets", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6213,14 +5565,8 @@ ec2_delete_flow_logs <- function(FlowLogId, DryRun = NULL, simplify = TRUE, othe
     FlowLogId <- list_to_array("FlowLogId", FlowLogId)
     parameters <- c(others, list(DryRun = DryRun), FlowLogId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteFlowLogs", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteFlowLogs", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6247,14 +5593,8 @@ ec2_delete_flow_logs <- function(FlowLogId, DryRun = NULL, simplify = TRUE, othe
 ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(FpgaImageId = FpgaImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteFpgaImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteFpgaImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6282,14 +5622,8 @@ ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, o
 ec2_delete_internet_gateway <- function(InternetGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6321,14 +5655,8 @@ ec2_delete_key_pair <- function(KeyName = NULL, KeyPairId = NULL, DryRun = NULL,
     others = list()) {
     parameters <- c(others, list(KeyName = KeyName, KeyPairId = KeyPairId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteKeyPair", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteKeyPair", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6363,14 +5691,8 @@ ec2_delete_launch_template <- function(DryRun = NULL, LaunchTemplateId = NULL, L
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteLaunchTemplate", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteLaunchTemplate", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6415,14 +5737,8 @@ ec2_delete_launch_template_versions <- function(LaunchTemplateVersion, DryRun = 
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName), 
         LaunchTemplateVersion)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteLaunchTemplateVersions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteLaunchTemplateVersions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6457,14 +5773,8 @@ ec2_delete_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteLocalGatewayRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteLocalGatewayRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6493,14 +5803,8 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
     parameters <- c(others, list(LocalGatewayRouteTableVpcAssociationId = LocalGatewayRouteTableVpcAssociationId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteLocalGatewayRouteTableVpcAssociation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteLocalGatewayRouteTableVpcAssociation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6528,14 +5832,8 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
 ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteManagedPrefixList", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteManagedPrefixList", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6565,14 +5863,8 @@ ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify
 ec2_delete_nat_gateway <- function(NatGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(NatGatewayId = NatGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNatGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNatGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6600,14 +5892,8 @@ ec2_delete_nat_gateway <- function(NatGatewayId, DryRun = NULL, simplify = TRUE,
 ec2_delete_network_acl <- function(NetworkAclId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(NetworkAclId = NetworkAclId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkAcl", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkAcl", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6645,14 +5931,8 @@ ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRu
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, RuleNumber = RuleNumber, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkAclEntry", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkAclEntry", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6680,14 +5960,8 @@ ec2_delete_network_insights_analysis <- function(NetworkInsightsAnalysisId, DryR
     others = list()) {
     parameters <- c(others, list(NetworkInsightsAnalysisId = NetworkInsightsAnalysisId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkInsightsAnalysis", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkInsightsAnalysis", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6715,14 +5989,8 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
     others = list()) {
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkInsightsPath", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkInsightsPath", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6747,17 +6015,12 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkInterface", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkInterface", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6794,14 +6057,8 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
     parameters <- c(others, list(NetworkInterfacePermissionId = NetworkInterfacePermissionId, 
         Force = Force, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteNetworkInterfacePermission", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteNetworkInterfacePermission", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6831,14 +6088,8 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
 ec2_delete_placement_group <- function(GroupName, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(GroupName = GroupName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeletePlacementGroup", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeletePlacementGroup", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6868,14 +6119,8 @@ ec2_delete_queued_reserved_instances <- function(ReservedInstancesId, DryRun = N
     ReservedInstancesId <- list_to_array("ReservedInstancesId", ReservedInstancesId)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstancesId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteQueuedReservedInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteQueuedReservedInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6919,14 +6164,8 @@ ec2_delete_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
         DestinationIpv6CidrBlock = DestinationIpv6CidrBlock, DestinationPrefixListId = DestinationPrefixListId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6955,14 +6194,8 @@ ec2_delete_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
 ec2_delete_route_table <- function(RouteTableId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -6992,14 +6225,8 @@ ec2_delete_security_group <- function(GroupId = NULL, GroupName = NULL, DryRun =
     others = list()) {
     parameters <- c(others, list(GroupId = GroupId, GroupName = GroupName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteSecurityGroup", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteSecurityGroup", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7023,14 +6250,8 @@ ec2_delete_security_group <- function(GroupId = NULL, GroupName = NULL, DryRun =
 ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteSnapshot", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteSnapshot", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7053,14 +6274,8 @@ ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, othe
 ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteSpotDatafeedSubscription", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteSpotDatafeedSubscription", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7088,14 +6303,8 @@ ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE
 ec2_delete_subnet <- function(SubnetId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(SubnetId = SubnetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteSubnet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteSubnet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7138,14 +6347,8 @@ ec2_delete_tags <- function(ResourceId, DryRun = NULL, Tag = NULL, simplify = TR
     Tag <- list_to_array("Tag", Tag)
     parameters <- c(others, list(DryRun = DryRun), ResourceId, Tag)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTags", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTags", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7170,14 +6373,8 @@ ec2_delete_traffic_mirror_filter <- function(TrafficMirrorFilterId, DryRun = NUL
     others = list()) {
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTrafficMirrorFilter", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilter", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7205,14 +6402,8 @@ ec2_delete_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Dry
     others = list()) {
     parameters <- c(others, list(TrafficMirrorFilterRuleId = TrafficMirrorFilterRuleId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTrafficMirrorFilterRule", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilterRule", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7240,14 +6431,8 @@ ec2_delete_traffic_mirror_session <- function(TrafficMirrorSessionId, DryRun = N
     others = list()) {
     parameters <- c(others, list(TrafficMirrorSessionId = TrafficMirrorSessionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTrafficMirrorSession", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorSession", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7272,14 +6457,8 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
     others = list()) {
     parameters <- c(others, list(TrafficMirrorTargetId = TrafficMirrorTargetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTrafficMirrorTarget", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorTarget", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7306,14 +6485,8 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
 ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7342,14 +6515,8 @@ ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRu
     others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayConnect", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnect", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7377,14 +6544,8 @@ ec2_delete_transit_gateway_connect_peer <- function(TransitGatewayConnectPeerId,
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayConnectPeerId = TransitGatewayConnectPeerId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayConnectPeer", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnectPeer", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7413,14 +6574,8 @@ ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastD
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayMulticastDomain", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayMulticastDomain", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7448,14 +6603,8 @@ ec2_delete_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayPeeringAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayPeeringAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7489,14 +6638,8 @@ ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayPrefixListReference", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayPrefixListReference", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7530,14 +6673,8 @@ ec2_delete_transit_gateway_route <- function(TransitGatewayRouteTableId, Destina
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7567,14 +6704,8 @@ ec2_delete_transit_gateway_route_table <- function(TransitGatewayRouteTableId, D
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7602,14 +6733,8 @@ ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteTransitGatewayVpcAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayVpcAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7633,14 +6758,8 @@ ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 ec2_delete_volume <- function(VolumeId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7671,14 +6790,8 @@ ec2_delete_volume <- function(VolumeId, DryRun = NULL, simplify = TRUE, others =
 ec2_delete_vpc <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7708,14 +6821,8 @@ ec2_delete_vpc_endpoint_connection_notifications <- function(ConnectionNotificat
     ConnectionNotificationId <- list_to_array("ConnectionNotificationId", ConnectionNotificationId)
     parameters <- c(others, list(DryRun = DryRun), ConnectionNotificationId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpcEndpointConnectionNotifications", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpcEndpointConnectionNotifications", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7747,14 +6854,8 @@ ec2_delete_vpc_endpoint_service_configurations <- function(ServiceId, DryRun = N
     ServiceId <- list_to_array("ServiceId", ServiceId)
     parameters <- c(others, list(DryRun = DryRun), ServiceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpcEndpointServiceConfigurations", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpcEndpointServiceConfigurations", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -7779,14 +6880,8 @@ ec2_delete_vpc_endpoints <- function(VpcEndpointId, DryRun = NULL, simplify = TR
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpcEndpoints", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpcEndpoints", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7818,14 +6913,8 @@ ec2_delete_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
     others = list()) {
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpcPeeringConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpcPeeringConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7849,14 +6938,8 @@ ec2_delete_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
 ec2_delete_vpn_connection <- function(VpnConnectionId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpnConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpnConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7884,14 +6967,8 @@ ec2_delete_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
     others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, VpnConnectionId = VpnConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpnConnectionRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpnConnectionRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7921,14 +6998,8 @@ ec2_delete_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
 ec2_delete_vpn_gateway <- function(VpnGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeleteVpnGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeleteVpnGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7953,14 +7024,8 @@ ec2_delete_vpn_gateway <- function(VpnGatewayId, DryRun = NULL, simplify = TRUE,
 ec2_deprovision_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeprovisionByoipCidr", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeprovisionByoipCidr", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -7984,14 +7049,8 @@ ec2_deprovision_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, oth
 ec2_deregister_image <- function(ImageId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeregisterImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeregisterImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8020,14 +7079,8 @@ ec2_deregister_instance_event_notification_attributes <- function(DryRun = NULL,
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun, InstanceTagAttribute = InstanceTagAttribute))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeregisterInstanceEventNotificationAttributes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeregisterInstanceEventNotificationAttributes", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -8066,14 +7119,8 @@ ec2_deregister_transit_gateway_multicast_group_members <- function(TransitGatewa
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeregisterTransitGatewayMulticastGroupMembers", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeregisterTransitGatewayMulticastGroupMembers", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -8113,14 +7160,8 @@ ec2_deregister_transit_gateway_multicast_group_sources <- function(TransitGatewa
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DeregisterTransitGatewayMulticastGroupSources", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DeregisterTransitGatewayMulticastGroupSources", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -8146,14 +7187,8 @@ ec2_describe_account_attributes <- function(AttributeName = NULL, DryRun = NULL,
     AttributeName <- list_to_array("AttributeName", AttributeName)
     parameters <- c(others, list(DryRun = DryRun), AttributeName)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeAccountAttributes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeAccountAttributes", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8226,14 +7261,8 @@ ec2_describe_addresses <- function(Filter = NULL, PublicIp = NULL, AllocationId 
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, PublicIp, AllocationId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeAddresses", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeAddresses", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8273,21 +7302,8 @@ ec2_describe_addresses_attribute <- function(AllocationId = NULL, Attribute = NU
     parameters <- c(others, list(Attribute = Attribute, NextToken = NextToken, MaxResults = MaxResults, 
         DryRun = DryRun), AllocationId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeAddressesAttribute", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeAddressesAttribute", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeAddressesAttribute", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8307,14 +7323,8 @@ ec2_describe_addresses_attribute <- function(AllocationId = NULL, Attribute = NU
 ec2_describe_aggregate_id_format <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeAggregateIdFormat", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeAggregateIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8399,14 +7409,8 @@ ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, Zone
     parameters <- c(others, list(AllAvailabilityZones = AllAvailabilityZones, DryRun = DryRun), 
         Filter, ZoneName, ZoneId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeAvailabilityZones", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeAvailabilityZones", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8465,14 +7469,8 @@ ec2_describe_bundle_tasks <- function(BundleId = NULL, Filter = NULL, DryRun = N
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), BundleId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeBundleTasks", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeBundleTasks", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -8499,21 +7497,8 @@ ec2_describe_byoip_cidrs <- function(MaxResults, DryRun = NULL, NextToken = NULL
     others = list()) {
     parameters <- c(others, list(MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeByoipCidrs", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeByoipCidrs", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeByoipCidrs", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8634,21 +7619,8 @@ ec2_describe_capacity_reservations <- function(CapacityReservationId = NULL, Nex
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun), 
         CapacityReservationId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeCapacityReservations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeCapacityReservations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeCapacityReservations", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8708,21 +7680,8 @@ ec2_describe_carrier_gateways <- function(CarrierGatewayId = NULL, Filter = NULL
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         CarrierGatewayId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeCarrierGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeCarrierGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeCarrierGateways", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8791,21 +7750,8 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClassicLinkInstances", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClassicLinkInstances", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClassicLinkInstances", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8850,24 +7796,11 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
 ec2_describe_client_vpn_authorization_rules <- function(ClientVpnEndpointId, DryRun = NULL, NextToken = NULL, 
     Filter = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     Filter <- get_filter(Filter)
-    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun, NextToken = NextToken, 
-        MaxResults = MaxResults), Filter)
+    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun, 
+        NextToken = NextToken, MaxResults = MaxResults), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClientVpnAuthorizationRules", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClientVpnAuthorizationRules", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClientVpnAuthorizationRules", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8915,21 +7848,8 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClientVpnConnections", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClientVpnConnections", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClientVpnConnections", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8968,28 +7888,15 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxResults = NULL, NextToken = NULL, 
-    Filter = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxResults = NULL, 
+    NextToken = NULL, Filter = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     ClientVpnEndpointId <- list_to_array("ClientVpnEndpointId", ClientVpnEndpointId)
     Filter <- get_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         ClientVpnEndpointId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClientVpnEndpoints", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClientVpnEndpoints", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClientVpnEndpoints", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9037,21 +7944,8 @@ ec2_describe_client_vpn_routes <- function(ClientVpnEndpointId, Filter = NULL, M
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClientVpnRoutes", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClientVpnRoutes", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClientVpnRoutes", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9105,21 +7999,8 @@ ec2_describe_client_vpn_target_networks <- function(ClientVpnEndpointId, Associa
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), AssociationIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeClientVpnTargetNetworks", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeClientVpnTargetNetworks", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeClientVpnTargetNetworks", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9168,21 +8049,8 @@ ec2_describe_coip_pools <- function(PoolId = NULL, Filter = NULL, MaxResults = N
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         PoolId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeCoipPools", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeCoipPools", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeCoipPools", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9208,14 +8076,8 @@ ec2_describe_conversion_tasks <- function(ConversionTaskId = NULL, DryRun = NULL
     ConversionTaskId <- list_to_array("ConversionTaskId", ConversionTaskId)
     parameters <- c(others, list(DryRun = DryRun), ConversionTaskId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeConversionTasks", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeConversionTasks", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -9274,14 +8136,8 @@ ec2_describe_customer_gateways <- function(CustomerGatewayId = NULL, Filter = NU
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), CustomerGatewayId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeCustomerGateways", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeCustomerGateways", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -9341,21 +8197,8 @@ ec2_describe_dhcp_options <- function(DhcpOptionsId = NULL, Filter = NULL, DryRu
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         DhcpOptionsId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeDhcpOptions", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeDhcpOptions", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeDhcpOptions", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9407,21 +8250,8 @@ ec2_describe_egress_only_internet_gateways <- function(DryRun = NULL, EgressOnly
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         EgressOnlyInternetGatewayId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeEgressOnlyInternetGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeEgressOnlyInternetGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeEgressOnlyInternetGateways", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9480,21 +8310,8 @@ ec2_describe_elastic_gpus <- function(ElasticGpuId = NULL, DryRun = NULL, Filter
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         ElasticGpuId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeElasticGpus", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeElasticGpus", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeElasticGpus", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9535,21 +8352,8 @@ ec2_describe_export_image_tasks <- function(DryRun = NULL, Filter = NULL, Export
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, ExportImageTaskId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeExportImageTasks", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeExportImageTasks", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeExportImageTasks", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9575,14 +8379,8 @@ ec2_describe_export_tasks <- function(ExportTaskId = NULL, Filter = NULL, simpli
     Filter <- get_filter(Filter)
     parameters <- c(others, list(), ExportTaskId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeExportTasks", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeExportTasks", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -9629,21 +8427,8 @@ ec2_describe_fast_snapshot_restores <- function(Filter = NULL, MaxResults = NULL
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFastSnapshotRestores", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFastSnapshotRestores", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFastSnapshotRestores", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9685,21 +8470,8 @@ ec2_describe_fleet_history <- function(FleetId, StartTime, DryRun = NULL, EventT
     parameters <- c(others, list(FleetId = FleetId, StartTime = StartTime, DryRun = DryRun, EventType = EventType, 
         MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFleetHistory", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFleetHistory", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFleetHistory", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9740,21 +8512,8 @@ ec2_describe_fleet_instances <- function(FleetId, DryRun = NULL, MaxResults = NU
     parameters <- c(others, list(FleetId = FleetId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFleetInstances", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFleetInstances", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFleetInstances", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9810,21 +8569,8 @@ ec2_describe_fleets <- function(DryRun = NULL, MaxResults = NULL, NextToken = NU
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         FleetId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFleets", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFleets", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFleets", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9896,21 +8642,8 @@ ec2_describe_flow_logs <- function(DryRun = NULL, Filter = NULL, FlowLogId = NUL
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, FlowLogId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFlowLogs", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFlowLogs", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFlowLogs", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9941,14 +8674,8 @@ ec2_describe_fpga_image_attribute <- function(FpgaImageId, Attribute, DryRun = N
     others = list()) {
     parameters <- c(others, list(FpgaImageId = FpgaImageId, Attribute = Attribute, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeFpgaImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeFpgaImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10027,21 +8754,8 @@ ec2_describe_fpga_images <- function(DryRun = NULL, FpgaImageId = NULL, Owner = 
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         FpgaImageId, Owner, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeFpgaImages", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeFpgaImages", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeFpgaImages", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10095,21 +8809,8 @@ ec2_describe_host_reservation_offerings <- function(Filter = NULL, MaxDuration =
     parameters <- c(others, list(MaxDuration = MaxDuration, MaxResults = MaxResults, MinDuration = MinDuration, 
         NextToken = NextToken, OfferingId = OfferingId), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeHostReservationOfferings", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeHostReservationOfferings", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeHostReservationOfferings", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10162,21 +8863,8 @@ ec2_describe_host_reservations <- function(Filter = NULL, HostReservationIdSet =
     Filter <- get_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostReservationIdSet)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeHostReservations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeHostReservations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeHostReservations", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10234,21 +8922,8 @@ ec2_describe_hosts <- function(Filter = NULL, HostId = NULL, MaxResults = NULL, 
     Filter <- get_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeHosts", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeHosts", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeHosts", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10287,21 +8962,8 @@ ec2_describe_iam_instance_profile_associations <- function(AssociationId = NULL,
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), AssociationId, 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeIamInstanceProfileAssociations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeIamInstanceProfileAssociations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeIamInstanceProfileAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10328,14 +8990,8 @@ ec2_describe_iam_instance_profile_associations <- function(AssociationId = NULL,
 ec2_describe_id_format <- function(Resource = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Resource = Resource))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeIdFormat", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10366,14 +9022,8 @@ ec2_describe_id_format <- function(Resource = NULL, simplify = TRUE, others = li
 ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(PrincipalArn = PrincipalArn, Resource = Resource))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeIdentityIdFormat", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeIdentityIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10406,17 +9056,12 @@ ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simpl
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10556,14 +9201,8 @@ ec2_describe_images <- function(ExecutableBy = NULL, Filter = NULL, ImageId = NU
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), ExecutableBy, Filter, ImageId, Owner)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeImages", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeImages", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10604,21 +9243,8 @@ ec2_describe_import_image_tasks <- function(DryRun = NULL, Filters = NULL, Impor
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filters, ImportTaskId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeImportImageTasks", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeImportImageTasks", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeImportImageTasks", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10658,21 +9284,8 @@ ec2_describe_import_snapshot_tasks <- function(DryRun = NULL, Filters = NULL, Im
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filters, ImportTaskId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeImportSnapshotTasks", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeImportSnapshotTasks", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeImportSnapshotTasks", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10711,14 +9324,8 @@ ec2_describe_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL
     others = list()) {
     parameters <- c(others, list(Attribute = Attribute, InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeInstanceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeInstanceAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -10765,21 +9372,8 @@ ec2_describe_instance_credit_specifications <- function(DryRun = NULL, Filter = 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInstanceCreditSpecifications", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInstanceCreditSpecifications", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInstanceCreditSpecifications", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10804,14 +9398,8 @@ ec2_describe_instance_event_notification_attributes <- function(DryRun = NULL, s
     others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeInstanceEventNotificationAttributes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeInstanceEventNotificationAttributes", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -10910,21 +9498,8 @@ ec2_describe_instance_status <- function(Filter = NULL, InstanceId = NULL, MaxRe
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun, 
         IncludeAllInstances = IncludeAllInstances), Filter, InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInstanceStatus", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInstanceStatus", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInstanceStatus", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10972,21 +9547,8 @@ ec2_describe_instance_type_offerings <- function(DryRun = NULL, LocationType = N
     parameters <- c(others, list(DryRun = DryRun, LocationType = LocationType, MaxResults = MaxResults, 
         NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInstanceTypeOfferings", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInstanceTypeOfferings", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInstanceTypeOfferings", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11160,21 +9722,8 @@ ec2_describe_instance_types <- function(DryRun = NULL, InstanceType = NULL, Filt
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         InstanceType, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInstanceTypes", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInstanceTypes", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInstanceTypes", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11489,21 +10038,8 @@ ec2_describe_instances <- function(Filter = NULL, InstanceId = NULL, DryRun = NU
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInstances", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInstances", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInstances", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11568,21 +10104,8 @@ ec2_describe_internet_gateways <- function(Filter = NULL, DryRun = NULL, Interne
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, InternetGatewayId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeInternetGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeInternetGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeInternetGateways", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11633,21 +10156,8 @@ ec2_describe_ipv6_pools <- function(PoolId = NULL, NextToken = NULL, MaxResults 
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun), 
         PoolId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeIpv6Pools", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeIpv6Pools", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeIpv6Pools", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11703,14 +10213,8 @@ ec2_describe_key_pairs <- function(Filter = NULL, KeyName = NULL, KeyPairId = NU
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, KeyName, KeyPairId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeKeyPairs", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeKeyPairs", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -11810,21 +10314,8 @@ ec2_describe_launch_template_versions <- function(DryRun = NULL, LaunchTemplateI
         MinVersion = MinVersion, MaxVersion = MaxVersion, NextToken = NextToken, MaxResults = MaxResults), 
         LaunchTemplateVersion, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLaunchTemplateVersions", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLaunchTemplateVersions", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLaunchTemplateVersions", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11885,21 +10376,8 @@ ec2_describe_launch_templates <- function(DryRun = NULL, LaunchTemplateId = NULL
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         LaunchTemplateId, LaunchTemplateName, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLaunchTemplates", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLaunchTemplates", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLaunchTemplates", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11955,23 +10433,8 @@ ec2_describe_local_gateway_route_table_virtual_interface_group_associations <- f
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayRouteTableVirtualInterfaceGroupAssociationId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", 
-        parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", 
-                parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12025,22 +10488,8 @@ ec2_describe_local_gateway_route_table_vpc_associations <- function(LocalGateway
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayRouteTableVpcAssociationId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGatewayRouteTableVpcAssociations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGatewayRouteTableVpcAssociations", 
-                parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayRouteTableVpcAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12092,21 +10541,8 @@ ec2_describe_local_gateway_route_tables <- function(LocalGatewayRouteTableId = N
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayRouteTableId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGatewayRouteTables", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGatewayRouteTables", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayRouteTables", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12156,21 +10592,8 @@ ec2_describe_local_gateway_virtual_interface_groups <- function(LocalGatewayVirt
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayVirtualInterfaceGroupId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGatewayVirtualInterfaceGroups", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGatewayVirtualInterfaceGroups", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayVirtualInterfaceGroups", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12210,21 +10633,8 @@ ec2_describe_local_gateway_virtual_interfaces <- function(LocalGatewayVirtualInt
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayVirtualInterfaceId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGatewayVirtualInterfaces", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGatewayVirtualInterfaces", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayVirtualInterfaces", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12281,21 +10691,8 @@ ec2_describe_local_gateways <- function(LocalGatewayId = NULL, Filter = NULL, Ma
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeLocalGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeLocalGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeLocalGateways", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12339,21 +10736,8 @@ ec2_describe_managed_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxR
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, PrefixListId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeManagedPrefixLists", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeManagedPrefixLists", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeManagedPrefixLists", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12406,21 +10790,8 @@ ec2_describe_moving_addresses <- function(Filter = NULL, DryRun = NULL, MaxResul
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, PublicIp)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeMovingAddresses", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeMovingAddresses", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeMovingAddresses", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12480,21 +10851,8 @@ ec2_describe_nat_gateways <- function(DryRun = NULL, Filter = NULL, MaxResults =
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, NatGatewayId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNatGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNatGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNatGateways", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12586,21 +10944,8 @@ ec2_describe_network_acls <- function(Filter = NULL, DryRun = NULL, NetworkAclId
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, NetworkAclId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNetworkAcls", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNetworkAcls", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNetworkAcls", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12662,21 +11007,8 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
         AnalysisEndTime = AnalysisEndTime, MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken), 
         NetworkInsightsAnalysisId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNetworkInsightsAnalyses", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNetworkInsightsAnalyses", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsAnalyses", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12720,28 +11052,15 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Filter = NULL, MaxResults = NULL, 
-    DryRun = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Filter = NULL, 
+    MaxResults = NULL, DryRun = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     NetworkInsightsPathId <- list_to_array("NetworkInsightsPathId", NetworkInsightsPathId)
     Filter <- get_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken), 
         NetworkInsightsPathId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNetworkInsightsPaths", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNetworkInsightsPaths", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsPaths", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12774,14 +11093,8 @@ ec2_describe_network_interface_attribute <- function(NetworkInterfaceId, Attribu
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attribute = Attribute, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeNetworkInterfaceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeNetworkInterfaceAttribute", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -12829,21 +11142,8 @@ ec2_describe_network_interface_permissions <- function(NetworkInterfacePermissio
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), NetworkInterfacePermissionId, 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNetworkInterfacePermissions", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNetworkInterfacePermissions", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNetworkInterfacePermissions", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12995,21 +11295,8 @@ ec2_describe_network_interfaces <- function(Filter = NULL, DryRun = NULL, Networ
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, NetworkInterfaceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeNetworkInterfaces", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeNetworkInterfaces", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeNetworkInterfaces", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13073,14 +11360,8 @@ ec2_describe_placement_groups <- function(Filter = NULL, DryRun = NULL, GroupNam
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, GroupName, GroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribePlacementGroups", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribePlacementGroups", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -13122,21 +11403,8 @@ ec2_describe_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxResults =
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, PrefixListId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribePrefixLists", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribePrefixLists", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribePrefixLists", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13178,21 +11446,8 @@ ec2_describe_principal_id_format <- function(DryRun = NULL, Resource = NULL, Max
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Resource)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribePrincipalIdFormat", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribePrincipalIdFormat", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribePrincipalIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13235,21 +11490,8 @@ ec2_describe_public_ipv4_pools <- function(PoolId = NULL, NextToken = NULL, MaxR
     Filter <- get_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), PoolId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribePublicIpv4Pools", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribePublicIpv4Pools", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribePublicIpv4Pools", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13295,14 +11537,8 @@ ec2_describe_regions <- function(Filter = NULL, RegionName = NULL, DryRun = NULL
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, AllRegions = AllRegions), Filter, RegionName)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeRegions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeRegions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -13402,14 +11638,8 @@ ec2_describe_reserved_instances <- function(Filter = NULL, OfferingClass = NULL,
     parameters <- c(others, list(OfferingClass = OfferingClass, DryRun = DryRun, OfferingType = OfferingType), 
         Filter, ReservedInstancesId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeReservedInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeReservedInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -13448,14 +11678,8 @@ ec2_describe_reserved_instances_listings <- function(Filter = NULL, ReservedInst
     parameters <- c(others, list(ReservedInstancesId = ReservedInstancesId, ReservedInstancesListingId = ReservedInstancesListingId), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeReservedInstancesListings", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeReservedInstancesListings", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -13516,21 +11740,8 @@ ec2_describe_reserved_instances_modifications <- function(Filter = NULL, Reserve
     Filter <- get_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken), Filter, ReservedInstancesModificationId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeReservedInstancesModifications", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeReservedInstancesModifications", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeReservedInstancesModifications", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13684,21 +11895,8 @@ ec2_describe_reserved_instances_offerings <- function(AvailabilityZone = NULL, F
         DryRun = DryRun, InstanceTenancy = InstanceTenancy, MaxResults = MaxResults, NextToken = NextToken, 
         OfferingType = OfferingType), Filter, ReservedInstancesOfferingId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeReservedInstancesOfferings", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeReservedInstancesOfferings", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeReservedInstancesOfferings", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13806,21 +12004,8 @@ ec2_describe_route_tables <- function(Filter = NULL, DryRun = NULL, RouteTableId
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, RouteTableId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeRouteTables", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeRouteTables", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeRouteTables", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13886,21 +12071,8 @@ ec2_describe_scheduled_instance_availability <- function(FirstSlotStartTimeRange
         DryRun = DryRun, MaxResults = MaxResults, MaxSlotDurationInHours = MaxSlotDurationInHours, 
         MinSlotDurationInHours = MinSlotDurationInHours, NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeScheduledInstanceAvailability", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeScheduledInstanceAvailability", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeScheduledInstanceAvailability", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13957,21 +12129,8 @@ ec2_describe_scheduled_instances <- function(DryRun = NULL, Filter = NULL, MaxRe
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken, 
         SlotStartTimeRange = SlotStartTimeRange), Filter, ScheduledInstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeScheduledInstances", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeScheduledInstances", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeScheduledInstances", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14001,14 +12160,8 @@ ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simpl
     GroupId <- list_to_array("GroupId", GroupId)
     parameters <- c(others, list(DryRun = DryRun), GroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeSecurityGroupReferences", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeSecurityGroupReferences", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -14142,21 +12295,8 @@ ec2_describe_security_groups <- function(Filter = NULL, GroupId = NULL, GroupNam
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, GroupId, GroupName)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSecurityGroups", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSecurityGroups", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSecurityGroups", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14185,14 +12325,8 @@ ec2_describe_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL
     others = list()) {
     parameters <- c(others, list(Attribute = Attribute, SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeSnapshotAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeSnapshotAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -14290,21 +12424,8 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter, Owner, RestorableBy, SnapshotId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSnapshots", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSnapshots", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSnapshots", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14330,14 +12451,8 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
 ec2_describe_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeSpotDatafeedSubscription", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeSpotDatafeedSubscription", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -14373,21 +12488,8 @@ ec2_describe_spot_fleet_instances <- function(SpotFleetRequestId, DryRun = NULL,
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSpotFleetInstances", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSpotFleetInstances", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSpotFleetInstances", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14429,21 +12531,8 @@ ec2_describe_spot_fleet_request_history <- function(SpotFleetRequestId, StartTim
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, StartTime = StartTime, 
         DryRun = DryRun, EventType = EventType, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSpotFleetRequestHistory", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSpotFleetRequestHistory", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSpotFleetRequestHistory", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14477,21 +12566,8 @@ ec2_describe_spot_fleet_requests <- function(DryRun = NULL, MaxResults = NULL, N
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         SpotFleetRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSpotFleetRequests", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSpotFleetRequests", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSpotFleetRequests", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14646,21 +12722,8 @@ ec2_describe_spot_instance_requests <- function(Filter = NULL, DryRun = NULL, Sp
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, SpotInstanceRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSpotInstanceRequests", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSpotInstanceRequests", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSpotInstanceRequests", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14742,21 +12805,8 @@ ec2_describe_spot_price_history <- function(Filter = NULL, AvailabilityZone = NU
         MaxResults = MaxResults, NextToken = NextToken, StartTime = StartTime), Filter, InstanceType, 
         ProductDescription)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSpotPriceHistory", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSpotPriceHistory", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSpotPriceHistory", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14793,21 +12843,8 @@ ec2_describe_stale_security_groups <- function(VpcId, DryRun = NULL, MaxResults 
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeStaleSecurityGroups", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeStaleSecurityGroups", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeStaleSecurityGroups", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14895,21 +12932,8 @@ ec2_describe_subnets <- function(Filter = NULL, SubnetId = NULL, DryRun = NULL, 
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, SubnetId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeSubnets", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeSubnets", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeSubnets", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14964,21 +12988,8 @@ ec2_describe_tags <- function(DryRun = NULL, Filter = NULL, MaxResults = NULL, N
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTags", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTags", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTags", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15016,28 +13027,15 @@ ec2_describe_tags <- function(DryRun = NULL, Filter = NULL, MaxResults = NULL, N
 #' the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, DryRun = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, DryRun = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     TrafficMirrorFilterId <- list_to_array("TrafficMirrorFilterId", TrafficMirrorFilterId)
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorFilterId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTrafficMirrorFilters", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTrafficMirrorFilters", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorFilters", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15101,21 +13099,8 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorSessionId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTrafficMirrorSessions", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTrafficMirrorSessions", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorSessions", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15162,28 +13147,15 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
 #' the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, DryRun = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, DryRun = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     TrafficMirrorTargetId <- list_to_array("TrafficMirrorTargetId", TrafficMirrorTargetId)
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorTargetId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTrafficMirrorTargets", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTrafficMirrorTargets", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorTargets", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15253,21 +13225,8 @@ ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayAttachmentIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayAttachments", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayAttachments", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayAttachments", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15315,21 +13274,8 @@ ec2_describe_transit_gateway_connect_peers <- function(TransitGatewayConnectPeer
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayConnectPeerIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayConnectPeers", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayConnectPeers", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayConnectPeers", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15384,21 +13330,8 @@ ec2_describe_transit_gateway_connects <- function(TransitGatewayAttachmentIds = 
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayAttachmentIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayConnects", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayConnects", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayConnects", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15447,21 +13380,8 @@ ec2_describe_transit_gateway_multicast_domains <- function(TransitGatewayMultica
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayMulticastDomainIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayMulticastDomains", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayMulticastDomains", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayMulticastDomains", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15527,21 +13447,8 @@ ec2_describe_transit_gateway_peering_attachments <- function(TransitGatewayAttac
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayAttachmentIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayPeeringAttachments", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayPeeringAttachments", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayPeeringAttachments", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15600,21 +13507,8 @@ ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableId
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayRouteTableIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayRouteTables", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayRouteTables", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayRouteTables", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15660,28 +13554,15 @@ ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableId
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmentIds = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmentIds = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- get_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayAttachmentIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGatewayVpcAttachments", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGatewayVpcAttachments", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayVpcAttachments", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15758,21 +13639,8 @@ ec2_describe_transit_gateways <- function(TransitGatewayIds = NULL, Filter = NUL
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeTransitGateways", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeTransitGateways", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeTransitGateways", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15801,14 +13669,8 @@ ec2_describe_volume_attribute <- function(Attribute, VolumeId, DryRun = NULL, si
     others = list()) {
     parameters <- c(others, list(Attribute = Attribute, VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeVolumeAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeVolumeAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -15888,21 +13750,8 @@ ec2_describe_volume_status <- function(Filter = NULL, MaxResults = NULL, NextTok
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter, VolumeId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVolumeStatus", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVolumeStatus", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVolumeStatus", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -15999,21 +13848,8 @@ ec2_describe_volumes <- function(Filter = NULL, VolumeId = NULL, DryRun = NULL, 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, VolumeId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVolumes", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVolumes", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVolumes", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16078,21 +13914,8 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         VolumeId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVolumesModifications", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVolumesModifications", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVolumesModifications", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16123,14 +13946,8 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
 ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Attribute = Attribute, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeVpcAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeVpcAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -16178,14 +13995,8 @@ ec2_describe_vpc_classic_link <- function(Filter = NULL, DryRun = NULL, VpcId = 
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpcId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeVpcClassicLink", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeVpcClassicLink", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -16220,21 +14031,8 @@ ec2_describe_vpc_classic_link_dns_support <- function(MaxResults = NULL, NextTok
     VpcIds <- list_to_array("VpcIds", VpcIds)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), VpcIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcClassicLinkDnsSupport", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcClassicLinkDnsSupport", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcClassicLinkDnsSupport", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16288,21 +14086,8 @@ ec2_describe_vpc_endpoint_connection_notifications <- function(DryRun = NULL, Co
     parameters <- c(others, list(DryRun = DryRun, ConnectionNotificationId = ConnectionNotificationId, 
         MaxResults = MaxResults, NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpointConnectionNotifications", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpointConnectionNotifications", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointConnectionNotifications", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16354,21 +14139,8 @@ ec2_describe_vpc_endpoint_connections <- function(DryRun = NULL, Filter = NULL, 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpointConnections", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpointConnections", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointConnections", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16430,21 +14202,8 @@ ec2_describe_vpc_endpoint_service_configurations <- function(DryRun = NULL, Serv
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         ServiceId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpointServiceConfigurations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpointServiceConfigurations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointServiceConfigurations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16493,21 +14252,8 @@ ec2_describe_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NU
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpointServicePermissions", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpointServicePermissions", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointServicePermissions", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16564,21 +14310,8 @@ ec2_describe_vpc_endpoint_services <- function(DryRun = NULL, ServiceName = NULL
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         ServiceName, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpointServices", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpointServices", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointServices", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16647,21 +14380,8 @@ ec2_describe_vpc_endpoints <- function(DryRun = NULL, VpcEndpointId = NULL, Filt
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         VpcEndpointId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcEndpoints", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcEndpoints", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpoints", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16743,21 +14463,8 @@ ec2_describe_vpc_peering_connections <- function(Filter = NULL, DryRun = NULL, V
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, VpcPeeringConnectionId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcPeeringConnections", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcPeeringConnections", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcPeeringConnections", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16847,21 +14554,8 @@ ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextTo
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, VpcId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "DescribeVpcs", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "DescribeVpcs", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "DescribeVpcs", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16936,14 +14630,8 @@ ec2_describe_vpn_connections <- function(Filter = NULL, VpnConnectionId = NULL, 
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpnConnectionId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeVpnConnections", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeVpnConnections", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17008,14 +14696,8 @@ ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun
     Filter <- get_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpnGatewayId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DescribeVpnGateways", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DescribeVpnGateways", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17048,14 +14730,8 @@ ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun
 ec2_detach_classic_link_vpc <- function(InstanceId, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DetachClassicLinkVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DetachClassicLinkVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17089,14 +14765,8 @@ ec2_detach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
     others = list()) {
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DetachInternetGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DetachInternetGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17144,14 +14814,8 @@ ec2_detach_network_interface <- function(AttachmentId, DryRun = NULL, Force = NU
     others = list()) {
     parameters <- c(others, list(AttachmentId = AttachmentId, DryRun = DryRun, Force = Force))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DetachNetworkInterface", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DetachNetworkInterface", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17195,14 +14859,8 @@ ec2_detach_volume <- function(VolumeId, Device = NULL, Force = NULL, InstanceId 
     parameters <- c(others, list(VolumeId = VolumeId, Device = Device, Force = Force, InstanceId = InstanceId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DetachVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DetachVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17230,14 +14888,8 @@ ec2_detach_volume <- function(VolumeId, Device = NULL, Force = NULL, InstanceId 
 ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DetachVpnGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DetachVpnGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17257,14 +14909,8 @@ ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
 ec2_disable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableEbsEncryptionByDefault", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableEbsEncryptionByDefault", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17300,14 +14946,8 @@ ec2_disable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotI
     SourceSnapshotId <- list_to_array("SourceSnapshotId", SourceSnapshotId)
     parameters <- c(others, list(DryRun = DryRun), AvailabilityZone, SourceSnapshotId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableFastSnapshotRestores", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableFastSnapshotRestores", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17341,14 +14981,8 @@ ec2_disable_transit_gateway_route_table_propagation <- function(TransitGatewayRo
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableTransitGatewayRouteTablePropagation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableTransitGatewayRouteTablePropagation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17381,14 +15015,8 @@ ec2_disable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = 
     others = list()) {
     parameters <- c(others, list(GatewayId = GatewayId, RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableVgwRoutePropagation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableVgwRoutePropagation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17416,14 +15044,8 @@ ec2_disable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = 
 ec2_disable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableVpcClassicLink", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableVpcClassicLink", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17440,14 +15062,8 @@ ec2_disable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, 
 ec2_disable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisableVpcClassicLinkDnsSupport", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisableVpcClassicLinkDnsSupport", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17476,14 +15092,8 @@ ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryR
     others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId, PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateAddress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateAddress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17514,14 +15124,8 @@ ec2_disassociate_client_vpn_target_network <- function(ClientVpnEndpointId, Asso
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, AssociationId = AssociationId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateClientVpnTargetNetwork", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateClientVpnTargetNetwork", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17559,14 +15163,8 @@ ec2_disassociate_enclave_certificate_iam_role <- function(CertificateArn = NULL,
     DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CertificateArn = CertificateArn, RoleArn = RoleArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateEnclaveCertificateIamRole", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateEnclaveCertificateIamRole", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17583,14 +15181,8 @@ ec2_disassociate_enclave_certificate_iam_role <- function(CertificateArn = NULL,
 ec2_disassociate_iam_instance_profile <- function(AssociationId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateIamInstanceProfile", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateIamInstanceProfile", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17615,14 +15207,8 @@ ec2_disassociate_iam_instance_profile <- function(AssociationId, simplify = TRUE
 ec2_disassociate_route_table <- function(AssociationId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateRouteTable", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17644,14 +15230,8 @@ ec2_disassociate_route_table <- function(AssociationId, DryRun = NULL, simplify 
 ec2_disassociate_subnet_cidr_block <- function(AssociationId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateSubnetCidrBlock", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateSubnetCidrBlock", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17689,14 +15269,8 @@ ec2_disassociate_transit_gateway_multicast_domain <- function(TransitGatewayMult
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateTransitGatewayMulticastDomain", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateTransitGatewayMulticastDomain", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17729,14 +15303,8 @@ ec2_disassociate_transit_gateway_route_table <- function(TransitGatewayRouteTabl
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateTransitGatewayRouteTable", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateTransitGatewayRouteTable", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17753,14 +15321,8 @@ ec2_disassociate_transit_gateway_route_table <- function(TransitGatewayRouteTabl
 ec2_disassociate_vpc_cidr_block <- function(AssociationId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "DisassociateVpcCidrBlock", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "DisassociateVpcCidrBlock", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17780,14 +15342,8 @@ ec2_disassociate_vpc_cidr_block <- function(AssociationId, simplify = TRUE, othe
 ec2_enable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableEbsEncryptionByDefault", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableEbsEncryptionByDefault", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17820,14 +15376,8 @@ ec2_enable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotId
     SourceSnapshotId <- list_to_array("SourceSnapshotId", SourceSnapshotId)
     parameters <- c(others, list(DryRun = DryRun), AvailabilityZone, SourceSnapshotId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableFastSnapshotRestores", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableFastSnapshotRestores", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17861,14 +15411,8 @@ ec2_enable_transit_gateway_route_table_propagation <- function(TransitGatewayRou
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableTransitGatewayRouteTablePropagation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableTransitGatewayRouteTablePropagation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17904,14 +15448,8 @@ ec2_enable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = N
     others = list()) {
     parameters <- c(others, list(GatewayId = GatewayId, RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableVgwRoutePropagation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableVgwRoutePropagation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17939,14 +15477,8 @@ ec2_enable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = N
 ec2_enable_volume_io <- function(VolumeId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableVolumeIO", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableVolumeIO", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -17980,14 +15512,8 @@ ec2_enable_volume_io <- function(VolumeId, DryRun = NULL, simplify = TRUE, other
 ec2_enable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableVpcClassicLink", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableVpcClassicLink", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18004,14 +15530,8 @@ ec2_enable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, o
 ec2_enable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "EnableVpcClassicLinkDnsSupport", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "EnableVpcClassicLinkDnsSupport", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18039,14 +15559,8 @@ ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ExportClientVpnClientCertificateRevocationList", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ExportClientVpnClientCertificateRevocationList", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18078,14 +15592,8 @@ ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryR
     others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ExportClientVpnClientConfiguration", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ExportClientVpnClientConfiguration", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18141,21 +15649,16 @@ ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryR
 #' task during creation.
 #' @return A list object or a character vector
 #' @export
-ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientToken = NULL, Description = NULL, 
-    DryRun = NULL, RoleName = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientToken = NULL, 
+    Description = NULL, DryRun = NULL, RoleName = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DiskImageFormat = DiskImageFormat, ImageId = ImageId, S3ExportLocation = S3ExportLocation, 
         ClientToken = ClientToken, Description = Description, DryRun = DryRun, RoleName = RoleName), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ExportImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ExportImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18218,14 +15721,8 @@ ec2_export_transit_gateway_routes <- function(TransitGatewayRouteTableId, S3Buck
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, S3Bucket = S3Bucket, 
         DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ExportTransitGatewayRoutes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ExportTransitGatewayRoutes", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18259,14 +15756,8 @@ ec2_get_associated_enclave_certificate_iam_roles <- function(CertificateArn = NU
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(CertificateArn = CertificateArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetAssociatedEnclaveCertificateIamRoles", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetAssociatedEnclaveCertificateIamRoles", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18300,21 +15791,8 @@ ec2_get_associated_ipv6_pool_cidrs <- function(PoolId, NextToken = NULL, MaxResu
     parameters <- c(others, list(PoolId = PoolId, NextToken = NextToken, MaxResults = MaxResults, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetAssociatedIpv6PoolCidrs", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetAssociatedIpv6PoolCidrs", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetAssociatedIpv6PoolCidrs", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18358,21 +15836,8 @@ ec2_get_capacity_reservation_usage <- function(CapacityReservationId, NextToken 
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetCapacityReservationUsage", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetCapacityReservationUsage", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetCapacityReservationUsage", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18429,21 +15894,8 @@ ec2_get_coip_pool_usage <- function(PoolId, Filter = NULL, MaxResults = NULL, Ne
     parameters <- c(others, list(PoolId = PoolId, MaxResults = MaxResults, NextToken = NextToken, 
         DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetCoipPoolUsage", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetCoipPoolUsage", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetCoipPoolUsage", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18475,14 +15927,8 @@ ec2_get_console_output <- function(InstanceId, DryRun = NULL, Latest = NULL, sim
     others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun, Latest = Latest))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetConsoleOutput", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetConsoleOutput", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18511,14 +15957,8 @@ ec2_get_console_screenshot <- function(InstanceId, DryRun = NULL, WakeUp = NULL,
     others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun, WakeUp = WakeUp))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetConsoleScreenshot", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetConsoleScreenshot", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18543,14 +15983,8 @@ ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, 
     others = list()) {
     parameters <- c(others, list(InstanceFamily = InstanceFamily, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetDefaultCreditSpecification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetDefaultCreditSpecification", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18570,14 +16004,8 @@ ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, 
 ec2_get_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetEbsDefaultKmsKeyId", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetEbsDefaultKmsKeyId", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18597,14 +16025,8 @@ ec2_get_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, other
 ec2_get_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetEbsEncryptionByDefault", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetEbsEncryptionByDefault", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18635,26 +16057,13 @@ ec2_get_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, ot
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextToken = NULL, MaxResults = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextToken = NULL, 
+    MaxResults = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetGroupsForCapacityReservation", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetGroupsForCapacityReservation", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetGroupsForCapacityReservation", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18678,14 +16087,8 @@ ec2_get_host_reservation_purchase_preview <- function(HostIdSet, OfferingId, sim
     HostIdSet <- list_to_array("HostIdSet", HostIdSet)
     parameters <- c(others, list(OfferingId = OfferingId), HostIdSet)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetHostReservationPurchasePreview", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetHostReservationPurchasePreview", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18709,14 +16112,8 @@ ec2_get_host_reservation_purchase_preview <- function(HostIdSet, OfferingId, sim
 ec2_get_launch_template_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetLaunchTemplateData", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetLaunchTemplateData", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18752,21 +16149,8 @@ ec2_get_managed_prefix_list_associations <- function(PrefixListId, DryRun = NULL
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetManagedPrefixListAssociations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetManagedPrefixListAssociations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetManagedPrefixListAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18805,21 +16189,8 @@ ec2_get_managed_prefix_list_entries <- function(PrefixListId, DryRun = NULL, Tar
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, TargetVersion = TargetVersion, 
         MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetManagedPrefixListEntries", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetManagedPrefixListEntries", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetManagedPrefixListEntries", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -18843,14 +16214,8 @@ ec2_get_managed_prefix_list_entries <- function(PrefixListId, DryRun = NULL, Tar
 ec2_get_password_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetPasswordData", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetPasswordData", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -18889,14 +16254,8 @@ ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "GetReservedInstancesExchangeQuote", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "GetReservedInstancesExchangeQuote", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18940,21 +16299,8 @@ ec2_get_transit_gateway_attachment_propagations <- function(TransitGatewayAttach
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetTransitGatewayAttachmentPropagations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetTransitGatewayAttachmentPropagations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetTransitGatewayAttachmentPropagations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -19007,21 +16353,8 @@ ec2_get_transit_gateway_multicast_domain_associations <- function(TransitGateway
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetTransitGatewayMulticastDomainAssociations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetTransitGatewayMulticastDomainAssociations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetTransitGatewayMulticastDomainAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -19082,21 +16415,8 @@ ec2_get_transit_gateway_prefix_list_references <- function(TransitGatewayRouteTa
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetTransitGatewayPrefixListReferences", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetTransitGatewayPrefixListReferences", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetTransitGatewayPrefixListReferences", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -19144,21 +16464,8 @@ ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRoute
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetTransitGatewayRouteTableAssociations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetTransitGatewayRouteTableAssociations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetTransitGatewayRouteTableAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -19206,21 +16513,8 @@ ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRoute
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "GetTransitGatewayRouteTablePropagations", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "GetTransitGatewayRouteTablePropagations", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "GetTransitGatewayRouteTablePropagations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -19254,14 +16548,8 @@ ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, CertificateRevocationList = CertificateRevocationList, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportClientVpnClientCertificateRevocationList", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportClientVpnClientCertificateRevocationList", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -19408,14 +16696,8 @@ ec2_import_image <- function(Architecture = NULL, ClientData = NULL, ClientToken
         KmsKeyId = KmsKeyId, LicenseType = LicenseType, Platform = Platform, RoleName = RoleName), 
         DiskContainer, LicenseSpecifications, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19453,14 +16735,8 @@ ec2_import_instance <- function(Platform, Description = NULL, DiskImage = NULL, 
     parameters <- c(others, list(Platform = Platform, Description = Description, DryRun = DryRun, 
         LaunchSpecification = LaunchSpecification), DiskImage)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportInstance", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportInstance", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19496,14 +16772,8 @@ ec2_import_key_pair <- function(KeyName, PublicKeyMaterial, DryRun = NULL, TagSp
     parameters <- c(others, list(KeyName = KeyName, PublicKeyMaterial = PublicKeyMaterial, DryRun = DryRun), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportKeyPair", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportKeyPair", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19602,14 +16872,8 @@ ec2_import_snapshot <- function(ClientData = NULL, ClientToken = NULL, Descripti
         DiskContainer = DiskContainer, DryRun = DryRun, Encrypted = Encrypted, KmsKeyId = KmsKeyId, 
         RoleName = RoleName), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportSnapshot", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportSnapshot", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19646,14 +16910,8 @@ ec2_import_volume <- function(AvailabilityZone, Image, Volume, Description = NUL
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Image = Image, Volume = Volume, 
         Description = Description, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ImportVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ImportVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19686,14 +16944,8 @@ ec2_modify_address_attribute <- function(AllocationId, DomainName = NULL, DryRun
     others = list()) {
     parameters <- c(others, list(AllocationId = AllocationId, DomainName = DomainName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyAddressAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyAddressAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19727,14 +16979,8 @@ ec2_modify_availability_zone_group <- function(GroupName, OptInStatus, DryRun = 
     others = list()) {
     parameters <- c(others, list(GroupName = GroupName, OptInStatus = OptInStatus, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyAvailabilityZoneGroup", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyAvailabilityZoneGroup", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19806,14 +17052,8 @@ ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, InstanceCount = InstanceCount, 
         EndDate = EndDate, EndDateType = EndDateType, Accept = Accept, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyCapacityReservation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyCapacityReservation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19907,24 +17147,19 @@ ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount
 #' connections.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificateArn = NULL, ConnectionLogOptions = NULL, 
-    DnsServers = NULL, VpnPort = NULL, Description = NULL, SplitTunnel = NULL, DryRun = NULL, 
-    SecurityGroupId = NULL, VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, 
+ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificateArn = NULL, 
+    ConnectionLogOptions = NULL, DnsServers = NULL, VpnPort = NULL, Description = NULL, SplitTunnel = NULL, 
+    DryRun = NULL, SecurityGroupId = NULL, VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, 
     simplify = TRUE, others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ServerCertificateArn = ServerCertificateArn, 
         ConnectionLogOptions = ConnectionLogOptions, DnsServers = DnsServers, VpnPort = VpnPort, 
         Description = Description, SplitTunnel = SplitTunnel, DryRun = DryRun, VpcId = VpcId, 
-        SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), SecurityGroupId)
+        SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), 
+        SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyClientVpnEndpoint", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyClientVpnEndpoint", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -19956,14 +17191,8 @@ ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, 
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceFamily = InstanceFamily, CpuCredits = CpuCredits, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyDefaultCreditSpecification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyDefaultCreditSpecification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20009,14 +17238,8 @@ ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, 
 ec2_modify_ebs_default_kms_key_id <- function(KmsKeyId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(KmsKeyId = KmsKeyId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyEbsDefaultKmsKeyId", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyEbsDefaultKmsKeyId", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20051,20 +17274,14 @@ ec2_modify_ebs_default_kms_key_id <- function(KmsKeyId, DryRun = NULL, simplify 
 #' Fleet.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPolicy = NULL, LaunchTemplateConfig = NULL, 
-    TargetCapacitySpecification = NULL, simplify = TRUE, others = list()) {
+ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPolicy = NULL, 
+    LaunchTemplateConfig = NULL, TargetCapacitySpecification = NULL, simplify = TRUE, others = list()) {
     LaunchTemplateConfig <- list_to_array("LaunchTemplateConfig", LaunchTemplateConfig)
     parameters <- c(others, list(FleetId = FleetId, DryRun = DryRun, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
         TargetCapacitySpecification = TargetCapacitySpecification), LaunchTemplateConfig)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyFleet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyFleet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20132,14 +17349,8 @@ ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribut
         OperationType = OperationType, LoadPermission = LoadPermission, Description = Description, 
         Name = Name), UserId, UserGroup, ProductCode)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyFpgaImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyFpgaImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20191,17 +17402,11 @@ ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribut
 ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, InstanceType = NULL, 
     InstanceFamily = NULL, simplify = TRUE, others = list()) {
     HostId <- list_to_array("HostId", HostId)
-    parameters <- c(others, list(AutoPlacement = AutoPlacement, HostRecovery = HostRecovery, InstanceType = InstanceType, 
-        InstanceFamily = InstanceFamily), HostId)
+    parameters <- c(others, list(AutoPlacement = AutoPlacement, HostRecovery = HostRecovery, 
+        InstanceType = InstanceType, InstanceFamily = InstanceFamily), HostId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyHosts", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyHosts", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20235,14 +17440,8 @@ ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, 
 ec2_modify_id_format <- function(Resource, UseLongIds, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Resource = Resource, UseLongIds = UseLongIds))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyIdFormat", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20283,14 +17482,8 @@ ec2_modify_identity_id_format <- function(PrincipalArn, Resource, UseLongIds, si
     others = list()) {
     parameters <- c(others, list(PrincipalArn = PrincipalArn, Resource = Resource, UseLongIds = UseLongIds))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyIdentityIdFormat", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyIdentityIdFormat", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20350,8 +17543,8 @@ ec2_modify_identity_id_format <- function(PrincipalArn, Resource, UseLongIds, si
 #' @return A list object or a character vector
 #' @export
 ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = NULL, LaunchPermission = NULL, 
-    OperationType = NULL, ProductCode = NULL, UserGroup = NULL, UserId = NULL, Value = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+    OperationType = NULL, ProductCode = NULL, UserGroup = NULL, UserId = NULL, Value = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     ProductCode <- list_to_array("ProductCode", ProductCode)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     UserId <- list_to_array("UserId", UserId)
@@ -20359,14 +17552,8 @@ ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = 
         LaunchPermission = LaunchPermission, OperationType = OperationType, Value = Value, DryRun = DryRun), 
         ProductCode, UserGroup, UserId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20497,20 +17684,14 @@ ec2_modify_instance_attribute <- function(InstanceId, SourceDestCheck = NULL, At
     others = list()) {
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     GroupId <- list_to_array("GroupId", GroupId)
-    parameters <- c(others, list(InstanceId = InstanceId, SourceDestCheck = SourceDestCheck, Attribute = Attribute, 
-        DisableApiTermination = DisableApiTermination, DryRun = DryRun, EbsOptimized = EbsOptimized, 
-        EnaSupport = EnaSupport, InstanceInitiatedShutdownBehavior = InstanceInitiatedShutdownBehavior, 
+    parameters <- c(others, list(InstanceId = InstanceId, SourceDestCheck = SourceDestCheck, 
+        Attribute = Attribute, DisableApiTermination = DisableApiTermination, DryRun = DryRun, 
+        EbsOptimized = EbsOptimized, EnaSupport = EnaSupport, InstanceInitiatedShutdownBehavior = InstanceInitiatedShutdownBehavior, 
         InstanceType = InstanceType, Kernel = Kernel, Ramdisk = Ramdisk, SriovNetSupport = SriovNetSupport, 
         UserData = UserData, Value = Value), BlockDeviceMapping, GroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstanceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstanceAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20546,14 +17727,8 @@ ec2_modify_instance_capacity_reservation_attributes <- function(InstanceId, Capa
     parameters <- c(others, list(InstanceId = InstanceId, CapacityReservationSpecification = CapacityReservationSpecification, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstanceCapacityReservationAttributes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstanceCapacityReservationAttributes", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20585,14 +17760,8 @@ ec2_modify_instance_credit_specification <- function(InstanceCreditSpecification
     InstanceCreditSpecification <- list_to_array("InstanceCreditSpecification", InstanceCreditSpecification)
     parameters <- c(others, list(DryRun = DryRun, ClientToken = ClientToken), InstanceCreditSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstanceCreditSpecification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstanceCreditSpecification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20627,17 +17796,11 @@ ec2_modify_instance_credit_specification <- function(InstanceCreditSpecification
 #' @export
 ec2_modify_instance_event_start_time <- function(InstanceId, InstanceEventId, NotBefore, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(InstanceId = InstanceId, InstanceEventId = InstanceEventId, NotBefore = NotBefore, 
-        DryRun = DryRun))
+    parameters <- c(others, list(InstanceId = InstanceId, InstanceEventId = InstanceEventId, 
+        NotBefore = NotBefore, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstanceEventStartTime", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstanceEventStartTime", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20711,14 +17874,8 @@ ec2_modify_instance_metadata_options <- function(InstanceId, HttpTokens = NULL, 
     parameters <- c(others, list(InstanceId = InstanceId, HttpTokens = HttpTokens, HttpPutResponseHopLimit = HttpPutResponseHopLimit, 
         HttpEndpoint = HttpEndpoint, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstanceMetadataOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstanceMetadataOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20768,14 +17925,8 @@ ec2_modify_instance_placement <- function(InstanceId, Affinity = NULL, GroupName
     parameters <- c(others, list(InstanceId = InstanceId, Affinity = Affinity, GroupName = GroupName, 
         HostId = HostId, Tenancy = Tenancy, PartitionNumber = PartitionNumber, HostResourceGroupArn = HostResourceGroupArn))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyInstancePlacement", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyInstancePlacement", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20825,14 +17976,8 @@ ec2_modify_launch_template <- function(DryRun = NULL, ClientToken = NULL, Launch
     parameters <- c(others, list(DryRun = DryRun, ClientToken = ClientToken, LaunchTemplateId = LaunchTemplateId, 
         LaunchTemplateName = LaunchTemplateName, SetDefaultVersion = SetDefaultVersion))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyLaunchTemplate", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyLaunchTemplate", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20876,14 +18021,8 @@ ec2_modify_managed_prefix_list <- function(PrefixListId, DryRun = NULL, CurrentV
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, CurrentVersion = CurrentVersion, 
         PrefixListName = PrefixListName), AddEntry, RemoveEntry)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyManagedPrefixList", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyManagedPrefixList", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20941,14 +18080,8 @@ ec2_modify_network_interface_attribute <- function(NetworkInterfaceId, Attachmen
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attachment = Attachment, 
         Description = Description, DryRun = DryRun, SourceDestCheck = SourceDestCheck), SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyNetworkInterfaceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyNetworkInterfaceAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -20979,14 +18112,8 @@ ec2_modify_reserved_instances <- function(ReservedInstancesId, ReservedInstances
         ReservedInstancesConfigurationSetItemType)
     parameters <- c(others, list(ClientToken = ClientToken), ReservedInstancesId, ReservedInstancesConfigurationSetItemType)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyReservedInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyReservedInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21035,14 +18162,8 @@ ec2_modify_snapshot_attribute <- function(SnapshotId, Attribute = NULL, CreateVo
     parameters <- c(others, list(SnapshotId = SnapshotId, Attribute = Attribute, CreateVolumePermission = CreateVolumePermission, 
         OperationType = OperationType, DryRun = DryRun), UserGroup, UserId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifySnapshotAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifySnapshotAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21084,14 +18205,8 @@ ec2_modify_spot_fleet_request <- function(SpotFleetRequestId, ExcessCapacityTerm
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
         TargetCapacity = TargetCapacity, OnDemandTargetCapacity = OnDemandTargetCapacity), LaunchTemplateConfig)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifySpotFleetRequest", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifySpotFleetRequest", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21148,14 +18263,8 @@ ec2_modify_subnet_attribute <- function(SubnetId, AssignIpv6AddressOnCreation = 
         MapPublicIpOnLaunch = MapPublicIpOnLaunch, MapCustomerOwnedIpOnLaunch = MapCustomerOwnedIpOnLaunch, 
         CustomerOwnedIpv4Pool = CustomerOwnedIpv4Pool))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifySubnetAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifySubnetAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21192,14 +18301,8 @@ ec2_modify_traffic_mirror_filter_network_services <- function(TrafficMirrorFilte
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, DryRun = DryRun), 
         AddNetworkService, RemoveNetworkService)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTrafficMirrorFilterNetworkServices", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTrafficMirrorFilterNetworkServices", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21278,14 +18381,8 @@ ec2_modify_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Tra
         SourcePortRange = SourcePortRange, Protocol = Protocol, DestinationCidrBlock = DestinationCidrBlock, 
         SourceCidrBlock = SourceCidrBlock, Description = Description, DryRun = DryRun), RemoveField)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTrafficMirrorFilterRule", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTrafficMirrorFilterRule", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21359,14 +18456,8 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
         TrafficMirrorFilterId = TrafficMirrorFilterId, PacketLength = PacketLength, SessionNumber = SessionNumber, 
         VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun), RemoveField)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTrafficMirrorSession", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTrafficMirrorSession", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21400,19 +18491,13 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Options = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Options = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Description = Description, 
         Options = Options, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTransitGateway", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTransitGateway", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21454,14 +18539,8 @@ ec2_modify_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTransitGatewayPrefixListReference", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTransitGatewayPrefixListReference", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21508,14 +18587,8 @@ ec2_modify_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, Options = Options, 
         DryRun = DryRun), AddSubnetIds, RemoveSubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyTransitGatewayVpcAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyTransitGatewayVpcAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21607,14 +18680,8 @@ ec2_modify_volume <- function(VolumeId, DryRun = NULL, Size = NULL, VolumeType =
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun, Size = Size, VolumeType = VolumeType, 
         Iops = Iops, Throughput = Throughput, MultiAttachEnabled = MultiAttachEnabled))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVolume", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVolume", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21643,14 +18710,8 @@ ec2_modify_volume_attribute <- function(VolumeId, AutoEnableIO = NULL, DryRun = 
     others = list()) {
     parameters <- c(others, list(VolumeId = VolumeId, AutoEnableIO = AutoEnableIO, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVolumeAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVolumeAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21695,14 +18756,8 @@ ec2_modify_vpc_attribute <- function(VpcId, EnableDnsHostnames = NULL, EnableDns
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, EnableDnsHostnames = EnableDnsHostnames, EnableDnsSupport = EnableDnsSupport))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21789,14 +18844,8 @@ ec2_modify_vpc_endpoint <- function(VpcEndpointId, DryRun = NULL, ResetPolicy = 
         PolicyDocument = PolicyDocument, PrivateDnsEnabled = PrivateDnsEnabled), AddRouteTableId, 
         RemoveRouteTableId, AddSubnetId, RemoveSubnetId, AddSecurityGroupId, RemoveSecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcEndpoint", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcEndpoint", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -21836,14 +18885,8 @@ ec2_modify_vpc_endpoint_connection_notification <- function(ConnectionNotificati
     parameters <- c(others, list(ConnectionNotificationId = ConnectionNotificationId, DryRun = DryRun, 
         ConnectionNotificationArn = ConnectionNotificationArn), ConnectionEvents)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcEndpointConnectionNotification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcEndpointConnectionNotification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21910,14 +18953,8 @@ ec2_modify_vpc_endpoint_service_configuration <- function(ServiceId, DryRun = NU
         RemovePrivateDnsName = RemovePrivateDnsName, AcceptanceRequired = AcceptanceRequired), 
         AddNetworkLoadBalancerArn, RemoveNetworkLoadBalancerArn, AddGatewayLoadBalancerArn, RemoveGatewayLoadBalancerArn)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcEndpointServiceConfiguration", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcEndpointServiceConfiguration", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21956,14 +18993,8 @@ ec2_modify_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NULL
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), AddAllowedPrincipals, 
         RemoveAllowedPrincipals)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcEndpointServicePermissions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcEndpointServicePermissions", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21997,14 +19028,8 @@ ec2_modify_vpc_peering_connection_options <- function(VpcPeeringConnectionId, Ac
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, AccepterPeeringConnectionOptions = AccepterPeeringConnectionOptions, 
         DryRun = DryRun, RequesterPeeringConnectionOptions = RequesterPeeringConnectionOptions))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcPeeringConnectionOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcPeeringConnectionOptions", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22032,14 +19057,8 @@ ec2_modify_vpc_peering_connection_options <- function(VpcPeeringConnectionId, Ac
 ec2_modify_vpc_tenancy <- function(VpcId, InstanceTenancy, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId, InstanceTenancy = InstanceTenancy, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpcTenancy", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpcTenancy", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22078,14 +19097,8 @@ ec2_modify_vpn_connection <- function(VpnConnectionId, TransitGatewayId = NULL, 
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, TransitGatewayId = TransitGatewayId, 
         CustomerGatewayId = CustomerGatewayId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpnConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpnConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22143,14 +19156,8 @@ ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkC
         RemoteIpv4NetworkCidr = RemoteIpv4NetworkCidr, LocalIpv6NetworkCidr = LocalIpv6NetworkCidr, 
         RemoteIpv6NetworkCidr = RemoteIpv6NetworkCidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpnConnectionOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpnConnectionOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22183,14 +19190,8 @@ ec2_modify_vpn_tunnel_certificate <- function(VpnConnectionId, VpnTunnelOutsideI
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, VpnTunnelOutsideIpAddress = VpnTunnelOutsideIpAddress, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpnTunnelCertificate", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpnTunnelCertificate", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22232,14 +19233,8 @@ ec2_modify_vpn_tunnel_options <- function(VpnConnectionId, VpnTunnelOutsideIpAdd
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, VpnTunnelOutsideIpAddress = VpnTunnelOutsideIpAddress, 
         TunnelOptions = TunnelOptions, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ModifyVpnTunnelOptions", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ModifyVpnTunnelOptions", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22264,14 +19259,8 @@ ec2_monitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "MonitorInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "MonitorInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22304,14 +19293,8 @@ ec2_monitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 ec2_move_address_to_vpc <- function(PublicIp, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "MoveAddressToVpc", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "MoveAddressToVpc", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22363,14 +19346,8 @@ ec2_provision_byoip_cidr <- function(Cidr, CidrAuthorizationContext = NULL, Publ
         PubliclyAdvertisable = PubliclyAdvertisable, Description = Description, DryRun = DryRun), 
         PoolTagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ProvisionByoipCidr", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ProvisionByoipCidr", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22427,14 +19404,8 @@ ec2_purchase_host_reservation <- function(HostIdSet, OfferingId, ClientToken = N
     parameters <- c(others, list(OfferingId = OfferingId, ClientToken = ClientToken, CurrencyCode = CurrencyCode, 
         LimitPrice = LimitPrice), HostIdSet, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "PurchaseHostReservation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "PurchaseHostReservation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22475,14 +19446,8 @@ ec2_purchase_reserved_instances_offering <- function(InstanceCount, ReservedInst
     parameters <- c(others, list(InstanceCount = InstanceCount, ReservedInstancesOfferingId = ReservedInstancesOfferingId, 
         DryRun = DryRun, LimitPrice = LimitPrice, PurchaseTime = PurchaseTime))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "PurchaseReservedInstancesOffering", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "PurchaseReservedInstancesOffering", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22514,14 +19479,8 @@ ec2_purchase_scheduled_instances <- function(PurchaseRequest, ClientToken = NULL
     PurchaseRequest <- list_to_array("PurchaseRequest", PurchaseRequest)
     parameters <- c(others, list(ClientToken = ClientToken, DryRun = DryRun), PurchaseRequest)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "PurchaseScheduledInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "PurchaseScheduledInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22546,14 +19505,8 @@ ec2_reboot_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, oth
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RebootInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RebootInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22670,14 +19623,8 @@ ec2_register_image <- function(Name, ImageLocation = NULL, Architecture = NULL, 
         RamdiskId = RamdiskId, RootDeviceName = RootDeviceName, SriovNetSupport = SriovNetSupport, 
         VirtualizationType = VirtualizationType), BlockDeviceMapping, BillingProduct)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RegisterImage", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RegisterImage", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22702,14 +19649,8 @@ ec2_register_instance_event_notification_attributes <- function(DryRun = NULL, I
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun, InstanceTagAttribute = InstanceTagAttribute))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RegisterInstanceEventNotificationAttributes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RegisterInstanceEventNotificationAttributes", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22745,14 +19686,8 @@ ec2_register_transit_gateway_multicast_group_members <- function(TransitGatewayM
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RegisterTransitGatewayMulticastGroupMembers", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RegisterTransitGatewayMulticastGroupMembers", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22788,14 +19723,8 @@ ec2_register_transit_gateway_multicast_group_sources <- function(TransitGatewayM
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RegisterTransitGatewayMulticastGroupSources", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RegisterTransitGatewayMulticastGroupSources", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22835,14 +19764,8 @@ ec2_reject_transit_gateway_multicast_domain_associations <- function(TransitGate
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RejectTransitGatewayMulticastDomainAssociations", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RejectTransitGatewayMulticastDomainAssociations", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22870,14 +19793,8 @@ ec2_reject_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RejectTransitGatewayPeeringAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RejectTransitGatewayPeeringAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22902,14 +19819,8 @@ ec2_reject_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RejectTransitGatewayVpcAttachment", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RejectTransitGatewayVpcAttachment", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -22942,14 +19853,8 @@ ec2_reject_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RejectVpcEndpointConnections", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RejectVpcEndpointConnections", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -22982,14 +19887,8 @@ ec2_reject_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
     others = list()) {
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RejectVpcPeeringConnection", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RejectVpcPeeringConnection", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23034,14 +19933,8 @@ ec2_release_address <- function(AllocationId = NULL, PublicIp = NULL, NetworkBor
     parameters <- c(others, list(AllocationId = AllocationId, PublicIp = PublicIp, NetworkBorderGroup = NetworkBorderGroup, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReleaseAddress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReleaseAddress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23059,14 +19952,8 @@ ec2_release_hosts <- function(HostId, simplify = TRUE, others = list()) {
     HostId <- list_to_array("HostId", HostId)
     parameters <- c(others, list(), HostId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReleaseHosts", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReleaseHosts", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23088,14 +19975,8 @@ ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, Ass
     others = list()) {
     parameters <- c(others, list(IamInstanceProfile = IamInstanceProfile, AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceIamInstanceProfileAssociation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceIamInstanceProfileAssociation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -23123,16 +20004,11 @@ ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, Ass
 #' @export
 ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, DryRun = NULL, simplify = TRUE, 
     others = list()) {
-    parameters <- c(others, list(AssociationId = AssociationId, NetworkAclId = NetworkAclId, DryRun = DryRun))
+    parameters <- c(others, list(AssociationId = AssociationId, NetworkAclId = NetworkAclId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceNetworkAclAssociation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceNetworkAclAssociation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23210,14 +20086,8 @@ ec2_replace_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAc
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, 
         Icmp = Icmp, Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceNetworkAclEntry", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceNetworkAclEntry", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23310,14 +20180,8 @@ ec2_replace_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destina
         TransitGatewayId = TransitGatewayId, LocalGatewayId = LocalGatewayId, CarrierGatewayId = CarrierGatewayId, 
         NetworkInterfaceId = NetworkInterfaceId, VpcPeeringConnectionId = VpcPeeringConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23344,16 +20208,11 @@ ec2_replace_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destina
 #' @export
 ec2_replace_route_table_association <- function(AssociationId, RouteTableId, DryRun = NULL, simplify = TRUE, 
     others = list()) {
-    parameters <- c(others, list(AssociationId = AssociationId, RouteTableId = RouteTableId, DryRun = DryRun))
+    parameters <- c(others, list(AssociationId = AssociationId, RouteTableId = RouteTableId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceRouteTableAssociation", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceRouteTableAssociation", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23395,14 +20254,8 @@ ec2_replace_transit_gateway_route <- function(DestinationCidrBlock, TransitGatew
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReplaceTransitGatewayRoute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReplaceTransitGatewayRoute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23476,14 +20329,8 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
     parameters <- c(others, list(Status = Status, Description = Description, DryRun = DryRun, 
         EndTime = EndTime, StartTime = StartTime), InstanceId, ReasonCode)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ReportInstanceStatus", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ReportInstanceStatus", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23507,14 +20354,8 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
 ec2_request_spot_fleet <- function(SpotFleetRequestConfig, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(SpotFleetRequestConfig = SpotFleetRequestConfig, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RequestSpotFleet", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RequestSpotFleet", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23665,14 +20506,8 @@ ec2_request_spot_instances <- function(AvailabilityZoneGroup = NULL, BlockDurati
         ValidUntil = ValidUntil, InstanceInterruptionBehavior = InstanceInterruptionBehavior), 
         TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RequestSpotInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RequestSpotInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23705,14 +20540,8 @@ ec2_reset_address_attribute <- function(AllocationId, Attribute, DryRun = NULL, 
     others = list()) {
     parameters <- c(others, list(AllocationId = AllocationId, Attribute = Attribute, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetAddressAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetAddressAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23732,14 +20561,8 @@ ec2_reset_address_attribute <- function(AllocationId, Attribute, DryRun = NULL, 
 ec2_reset_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetEbsDefaultKmsKeyId", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetEbsDefaultKmsKeyId", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23772,14 +20595,8 @@ ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute
     others = list()) {
     parameters <- c(others, list(FpgaImageId = FpgaImageId, DryRun = DryRun, Attribute = Attribute))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetFpgaImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetFpgaImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23807,14 +20624,8 @@ ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute
 ec2_reset_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetImageAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetImageAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23847,14 +20658,8 @@ ec2_reset_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL, s
     others = list()) {
     parameters <- c(others, list(Attribute = Attribute, InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetInstanceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetInstanceAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23886,14 +20691,8 @@ ec2_reset_network_interface_attribute <- function(NetworkInterfaceId, DryRun = N
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun, SourceDestCheck = SourceDestCheck))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetNetworkInterfaceAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetNetworkInterfaceAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23923,14 +20722,8 @@ ec2_reset_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL, s
     others = list()) {
     parameters <- c(others, list(Attribute = Attribute, SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "ResetSnapshotAttribute", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "ResetSnapshotAttribute", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -23960,14 +20753,8 @@ ec2_reset_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL, s
 ec2_restore_address_to_classic <- function(PublicIp, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RestoreAddressToClassic", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RestoreAddressToClassic", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24005,14 +20792,8 @@ ec2_restore_managed_prefix_list_version <- function(PrefixListId, PreviousVersio
     parameters <- c(others, list(PrefixListId = PrefixListId, PreviousVersion = PreviousVersion, 
         CurrentVersion = CurrentVersion, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RestoreManagedPrefixListVersion", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RestoreManagedPrefixListVersion", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24055,14 +20836,8 @@ ec2_revoke_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkCidr
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, TargetNetworkCidr = TargetNetworkCidr, 
         AccessGroupId = AccessGroupId, RevokeAllGroups = RevokeAllGroups, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RevokeClientVpnIngress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RevokeClientVpnIngress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24122,14 +20897,8 @@ ec2_revoke_security_group_egress <- function(GroupId, DryRun = NULL, IpPermissio
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
         SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RevokeSecurityGroupEgress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RevokeSecurityGroupEgress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24211,14 +20980,8 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
         IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
         ToPort = ToPort, DryRun = DryRun), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RevokeSecurityGroupIngress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RevokeSecurityGroupIngress", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24559,10 +21322,10 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, ImageId = NULL, InstanceType = NULL, 
-    Ipv6AddressCount = NULL, Ipv6Address = NULL, KernelId = NULL, KeyName = NULL, Monitoring = NULL, 
-    Placement = NULL, RamdiskId = NULL, SecurityGroupId = NULL, SecurityGroup = NULL, SubnetId = NULL, 
-    UserData = NULL, AdditionalInfo = NULL, ClientToken = NULL, DisableApiTermination = NULL, 
+ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, ImageId = NULL, 
+    InstanceType = NULL, Ipv6AddressCount = NULL, Ipv6Address = NULL, KernelId = NULL, KeyName = NULL, 
+    Monitoring = NULL, Placement = NULL, RamdiskId = NULL, SecurityGroupId = NULL, SecurityGroup = NULL, 
+    SubnetId = NULL, UserData = NULL, AdditionalInfo = NULL, ClientToken = NULL, DisableApiTermination = NULL, 
     DryRun = NULL, EbsOptimized = NULL, IamInstanceProfile = NULL, InstanceInitiatedShutdownBehavior = NULL, 
     NetworkInterface = NULL, PrivateIpAddress = NULL, ElasticGpuSpecification = NULL, ElasticInferenceAccelerator = NULL, 
     TagSpecification = NULL, LaunchTemplate = NULL, InstanceMarketOptions = NULL, CreditSpecification = NULL, 
@@ -24589,14 +21352,8 @@ ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, Ima
         BlockDeviceMapping, Ipv6Address, SecurityGroupId, SecurityGroup, NetworkInterface, ElasticGpuSpecification, 
         ElasticInferenceAccelerator, TagSpecification, LicenseSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RunInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RunInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24639,14 +21396,8 @@ ec2_run_scheduled_instances <- function(LaunchSpecification, ScheduledInstanceId
     parameters <- c(others, list(LaunchSpecification = LaunchSpecification, ScheduledInstanceId = ScheduledInstanceId, 
         ClientToken = ClientToken, DryRun = DryRun, InstanceCount = InstanceCount))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "RunScheduledInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "RunScheduledInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24685,21 +21436,8 @@ ec2_search_local_gateway_routes <- function(LocalGatewayRouteTableId, Filter, Ma
     parameters <- c(others, list(LocalGatewayRouteTableId = LocalGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "SearchLocalGatewayRoutes", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "SearchLocalGatewayRoutes", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "SearchLocalGatewayRoutes", parameters = parameters, 
+        simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -24768,21 +21506,8 @@ ec2_search_transit_gateway_multicast_groups <- function(TransitGatewayMulticastD
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    result <- ec2_request(action = "SearchTransitGatewayMulticastGroups", parameters = parameters)
-    if (simplify) {
-        response <- result
-        while (!is.null(response[["nextToken"]])) {
-            parameters[["NextToken"]] <- response[["nextToken"]]
-            response <- ec2_request(action = "SearchTransitGatewayMulticastGroups", parameters = parameters)
-            result <- lapply(unique(c(names(result), names(response))), function(x) list(c(result[[x]], 
-                response[[x]])))
-        }
-        simplified_result <- result[!names(result) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            result <- simplified_result[[1]]
-        }
-    }
-    result
+    make_request(service_request = ec2_request, action = "SearchTransitGatewayMulticastGroups", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -24852,14 +21577,8 @@ ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "SearchTransitGatewayRoutes", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "SearchTransitGatewayRoutes", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24883,14 +21602,8 @@ ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter
 ec2_send_diagnostic_interrupt <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "SendDiagnosticInterrupt", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "SendDiagnosticInterrupt", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24919,14 +21632,8 @@ ec2_start_instances <- function(InstanceId, AdditionalInfo = NULL, DryRun = NULL
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(AdditionalInfo = AdditionalInfo, DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "StartInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "StartInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -24973,14 +21680,8 @@ ec2_start_network_insights_analysis <- function(NetworkInsightsPathId, ClientTok
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, ClientToken = ClientToken, 
         DryRun = DryRun), FilterInArn, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "StartNetworkInsightsAnalysis", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "StartNetworkInsightsAnalysis", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25005,14 +21706,8 @@ ec2_start_vpc_endpoint_service_private_dns_verification <- function(ServiceId, D
     simplify = TRUE, others = list()) {
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "StartVpcEndpointServicePrivateDnsVerification", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "StartVpcEndpointServicePrivateDnsVerification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -25059,14 +21754,8 @@ ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Forc
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(Hibernate = Hibernate, DryRun = DryRun, Force = Force), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "StopInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "StopInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25106,14 +21795,8 @@ ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, Connection
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ConnectionId = ConnectionId, 
         Username = Username, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "TerminateClientVpnConnections", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "TerminateClientVpnConnections", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25142,14 +21825,8 @@ ec2_terminate_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "TerminateInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "TerminateInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25174,14 +21851,8 @@ ec2_unassign_ipv6_addresses <- function(Ipv6Addresses, NetworkInterfaceId, simpl
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId), Ipv6Addresses)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "UnassignIpv6Addresses", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "UnassignIpv6Addresses", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25209,14 +21880,8 @@ ec2_unassign_private_ip_addresses <- function(NetworkInterfaceId, PrivateIpAddre
     PrivateIpAddress <- list_to_array("PrivateIpAddress", PrivateIpAddress)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId), PrivateIpAddress)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "UnassignPrivateIpAddresses", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "UnassignPrivateIpAddresses", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25247,14 +21912,8 @@ ec2_unmonitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "UnmonitorInstances", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "UnmonitorInstances", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -25287,19 +21946,14 @@ ec2_unmonitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
 #' request.
 #' @return A list object or a character vector
 #' @export
-ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, DryRun = NULL, GroupId = NULL, 
-    GroupName = NULL, simplify = TRUE, others = list()) {
+ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, DryRun = NULL, 
+    GroupId = NULL, GroupName = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
+    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "UpdateSecurityGroupRuleDescriptionsEgress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "UpdateSecurityGroupRuleDescriptionsEgress", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -25335,16 +21989,11 @@ ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, Dr
 ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, DryRun = NULL, 
     GroupId = NULL, GroupName = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
+    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "UpdateSecurityGroupRuleDescriptionsIngress", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "UpdateSecurityGroupRuleDescriptionsIngress", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -25369,13 +22018,7 @@ ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, D
 ec2_withdraw_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    response <- ec2_request(action = "WithdrawByoipCidr", parameters = parameters)
-    if (simplify) {
-        simplified_result <- response[!names(response) %in% excluded_response_names]
-        if (length(simplified_result) == 1) {
-            response <- simplified_result[[1]]
-        }
-    }
-    response
+    make_request(service_request = ec2_request, action = "WithdrawByoipCidr", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 

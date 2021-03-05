@@ -3,11 +3,11 @@ generate_document <- function(api_info){
     param_table <- api_info$parameters
     param_table <- param_table[!param_table$name%in%token_names,]
 
-    descriptions <- param_table$description
+    param_descriptions <- param_table$description
     short_descriptions <- vapply(seq_len(nrow(param_table)),
                                  function(i)get_short_description(
                                      param_name = param_table$name[i],
-                                     description = descriptions[i],
+                                     description = param_descriptions[i],
                                      required = param_table$required[i],
                                      type = param_table$type[i]),
                                  character(1))
@@ -15,15 +15,24 @@ generate_document <- function(api_info){
 
     function_description <- api_info$description
     document_title <- camel_to_title(api_info$name)
+    md_short_description <- NULL
+    if(length(short_descriptions)!=0){
+        md_short_description <- paste0("@param ", param_table$name, " ", short_descriptions)
+    }
+    md_long_description <- NULL
+    if(length(param_descriptions)!=0){
+        md_long_description <- paste0("@section ", param_table$name, ":\n", param_descriptions)
+    }
+
     document <- c(
         document_title,
         "\n",
         strsplit(function_description, "\\n\\n")[[1]][1],
         "\n",
-        paste0("@param ", param_table$name, " ", short_descriptions),
+        md_short_description,
         "@inheritParams additionalDoc",
         "\n",
-        paste0("@section ", param_table$name, ":\n", descriptions),
+        md_long_description,
         "@return A list object or a character vector",
         "@export"
     )
@@ -39,6 +48,7 @@ generate_document <- function(api_info){
 # service <- "ec2"
 # action <- "DescribeVpcs"
 generate_function <- function(service, api_info){
+    template <- get_template()
     action <- api_info$name
     param_table <- api_info$parameters
     service_request <- paste0(service, "_request")
@@ -50,10 +60,9 @@ generate_function <- function(service, api_info){
           "others = list()"),
         collapse = ", ")
     if(any(token_names%in%param_table$name)){
-        token_name <- token_names[token_names%in%param_table$name]
-        template <- get_template(TRUE)
+        token_name <- shQuote(token_names[token_names%in%param_table$name])
     }else{
-        template <- get_template(FALSE)
+        token_name <- "NULL"
     }
 
     array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]
@@ -77,8 +86,8 @@ generate_function <- function(service, api_info){
             paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
             collapse = ", ")
     }
-
     x <- whisker::whisker.render(template)
+    x
 }
 
 
