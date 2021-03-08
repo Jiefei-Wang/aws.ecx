@@ -7,7 +7,7 @@
 ec2_release_hosts(HostId, simplify = TRUE, others = list())
 }
 \arguments{
-\item{HostId}{Array. The IDs of the Dedicated Hosts to release.}
+\item{HostId}{List. The IDs of the Dedicated Hosts to release.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

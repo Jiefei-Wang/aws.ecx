@@ -22,29 +22,29 @@ ec2_create_flow_logs(
 )
 }
 \arguments{
-\item{ResourceId}{Array.   The ID of the subnet, network interface, or VPC for which you want to create a flow log.}
+\item{ResourceId}{List.   The ID of the subnet, network interface, or VPC for which you want to create a flow log.}
 
 \item{ResourceType}{String. The type of resource for which to create the flow log.}
 
 \item{TrafficType}{String. The type of traffic to log.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DeliverLogsPermissionArn}{String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs...\link{optional}}
+\item{DeliverLogsPermissionArn}{String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs...[optional]}
 
-\item{LogGroupName}{String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your...\link{optional}}
+\item{LogGroupName}{String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your...[optional]}
 
-\item{LogDestinationType}{String.   Specifies the type of destination to which the flow log data is to be published.\link{optional}}
+\item{LogDestinationType}{String.   Specifies the type of destination to which the flow log data is to be published.[optional]}
 
-\item{LogDestination}{String.   Specifies the destination to which the flow log data is to be published.\link{optional}}
+\item{LogDestination}{String.   Specifies the destination to which the flow log data is to be published.[optional]}
 
-\item{LogFormat}{String.   The fields to include in the flow log record, in the order in which they should appear.\link{optional}}
+\item{LogFormat}{String.   The fields to include in the flow log record, in the order in which they should appear.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the flow logs.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the flow logs.[optional]}
 
-\item{MaxAggregationInterval}{Integer.   The maximum interval of time during which a flow of packets is captured and aggregated into...\link{optional}}
+\item{MaxAggregationInterval}{Integer.   The maximum interval of time during which a flow of packets is captured and aggregated into...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

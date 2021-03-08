@@ -14,7 +14,7 @@ ec2_delete_transit_gateway_peering_attachment(
 \arguments{
 \item{TransitGatewayAttachmentId}{String. The ID of the transit gateway peering attachment.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -23,31 +23,31 @@ ec2_request_spot_instances(
 )
 }
 \arguments{
-\item{AvailabilityZoneGroup}{String.   The user-specified name for a logical grouping of requests.\link{optional}}
+\item{AvailabilityZoneGroup}{String.   The user-specified name for a logical grouping of requests.[optional]}
 
-\item{BlockDurationMinutes}{Integer.   The required duration for the Spot Instances (also known as Spot blocks), in minutes.\link{optional}}
+\item{BlockDurationMinutes}{Integer.   The required duration for the Spot Instances (also known as Spot blocks), in minutes.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{InstanceCount}{Integer.   The maximum number of Spot Instances to launch.  Default: 1  \link{optional}}
+\item{InstanceCount}{Integer.   The maximum number of Spot Instances to launch.  Default: 1  [optional]}
 
-\item{LaunchGroup}{String.   The instance launch group.\link{optional}}
+\item{LaunchGroup}{String.   The instance launch group.[optional]}
 
-\item{LaunchSpecification}{Object. The launch specification.\link{optional}}
+\item{LaunchSpecification}{Object. The launch specification.[optional]}
 
-\item{SpotPrice}{String. The maximum price per hour that you are willing to pay for a Spot Instance.\link{optional}}
+\item{SpotPrice}{String. The maximum price per hour that you are willing to pay for a Spot Instance.[optional]}
 
-\item{Type}{String.   The Spot Instance request type.  Default: \code{one-time}  \link{optional}}
+\item{Type}{String.   The Spot Instance request type.  Default: \code{one-time}  [optional]}
 
-\item{ValidFrom}{String.   The start date of the request.\link{optional}}
+\item{ValidFrom}{String.   The start date of the request.[optional]}
 
-\item{ValidUntil}{String.   The end date of the request, in UTC format (\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).\link{optional}}
+\item{ValidUntil}{String.   The end date of the request, in UTC format (\emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z).[optional]}
 
-\item{TagSpecification}{Array. The key-value pair for tagging the Spot Instance request on creation.\link{optional}}
+\item{TagSpecification}{List. The key-value pair for tagging the Spot Instance request on creation.[optional]}
 
-\item{InstanceInterruptionBehavior}{String. The behavior when a Spot Instance is interrupted. The default is \code{terminate}.\link{optional}}
+\item{InstanceInterruptionBehavior}{String. The behavior when a Spot Instance is interrupted. The default is \code{terminate}.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

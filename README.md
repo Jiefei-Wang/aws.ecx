@@ -11,10 +11,10 @@ vignette: >
 
 
 # Introduction
-This package aims to provide the basic functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. However, it contains the APIs from both EC2 and ECS as most network settings are done via the EC2 APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`
+This package aims to provide the functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`.
 
 # Authentication
-Credentials must be provided for using the package. This can be done via `aws_set_credentials()`. 
+Credentials must be provided for using the package. The package uses `access key id` and `secret access key` to authenticate with AWS. See [AWS user guide][AWS user guide] for the information about how to obtain them from AWS console. The credentials can be set via `aws_set_credentials()`. 
 
 ```r
 aws_set_credentials()
@@ -35,92 +35,81 @@ You can either explicitly provide the credentials by the function arguments or r
 
 Users can find the details on how the credentials are located from `?aws.signature::locate_credentials`.
 
+[AWS user guide]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+
 # Call the functions
-After doing the authentication, you can call the ECS functions now. The functions accept a list object `json` as the input. This object will then be converted to a JSON object or the request header depending on the API types. You can find the documentation of the request parameter from [AWS Documentation](https://docs.aws.amazon.com/index.html). For example, you can find the clusters on ECS by
+Calling the EC2 or ECS function is simple, for example, you can list all ECS clusters via
 
 ```r
 ecs_list_clusters()
 #> [1] "arn:aws:ecs:us-east-1:020007817719:cluster/R-worker-cluster"
 ```
-Here are the current available AWS-related functions in the package. For EC2
+The original EC2 and ECS APIs accept the request parameter via the query parameter or header and return the result by JSON or XML text in the REST request. The package provides a unified way to call both APIs. The request parameters can be given by the function arguments and the result is returned in a list format. If possible, the package will try to simplify the result and return a simple character vector. It will also handle the `nextToken` parameter in the REST APIs and collect the full result in a single function call. This default behavior can be turned off by providing the parameter `simplefy = FALSE`.
 
-```
-#> ec2_attach_internet_gateway
-#> ec2_authorize_security_group_ingress
-#> ec2_create_internet_gateway
-#> ec2_create_route
-#> ec2_create_route_table
-#> ec2_create_security_group
-#> ec2_create_subnet
-#> ec2_create_vpc
-#> ec2_delete_internet_gateway
-#> ec2_delete_route
-#> ec2_delete_route_table
-#> ec2_delete_security_group
-#> ec2_delete_subnet
-#> ec2_delete_vpc
-#> ec2_describe_internet_gateways
-#> ec2_describe_network_interfaces
-#> ec2_describe_route_tables
-#> ec2_describe_security_groups
-#> ec2_describe_subnets
-#> ec2_describe_vpcs
-#> ec2_detach_internet_gateway
-```
-For ECS
+Each EC2 or ECS API has its own document. For example, you can find the help page of `ecs_list_clusters` via `?ecs_list_clusters`. The full description of the APIs can be found at [AWS Documentation][AWS Documentation]. 
 
+[AWS Documentation]: https://docs.aws.amazon.com/index.html
+
+## A note about the AWS Documentation
+
+While the AWS Documentation is very helpful in finding the API use cases. There are some inconsistencies between the AWS Documentation and the package functions. Certain request parameters will get special treatment in this package. For example, here is an example of `DescribeVpcs`from the [AWS Documentation][example] which describes the specified VPCs
 ```
-#> ecs_create_capacity_provider
-#> ecs_create_cluster
-#> ecs_create_service
-#> ecs_create_task_set
-#> ecs_delete_account_setting
-#> ecs_delete_attributes
-#> ecs_delete_capacity_provider
-#> ecs_delete_cluster
-#> ecs_delete_service
-#> ecs_delete_task_set
-#> ecs_deregister_container_instance
-#> ecs_deregister_task_definition
-#> ecs_describe_capacity_providers
-#> ecs_describe_clusters
-#> ecs_describe_container_instances
-#> ecs_describe_services
-#> ecs_describe_task_definition
-#> ecs_describe_task_sets
-#> ecs_describe_tasks
-#> ecs_discover_poll_endpoint
-#> ecs_list_account_settings
-#> ecs_list_attributes
-#> ecs_list_clusters
-#> ecs_list_container_instances
-#> ecs_list_services
-#> ecs_list_tags_for_resource
-#> ecs_list_task_definition_families
-#> ecs_list_task_definitions
-#> ecs_list_tasks
-#> ecs_put_account_setting
-#> ecs_put_account_setting_default
-#> ecs_put_attributes
-#> ecs_put_cluster_capacity_providers
-#> ecs_register_container_instance
-#> ecs_register_task_definition
-#> ecs_run_task
-#> ecs_start_task
-#> ecs_stop_task
-#> ecs_submit_attachment_state_changes
-#> ecs_submit_container_state_change
-#> ecs_submit_task_state_change
-#> ecs_tag_resource
-#> ecs_untag_resource
-#> ecs_update_capacity_provider
-#> ecs_update_cluster_settings
-#> ecs_update_container_agent
-#> ecs_update_container_instances_state
-#> ecs_update_service
-#> ecs_update_service_primary_task_set
-#> ecs_update_task_set
+https://ec2.amazonaws.com/?Action=DescribeVpcs
+&VpcId.1=vpc-081ec835f3EXAMPLE
+&vpcId.2=vpc-0ee975135dEXAMPLE
+&VpcId.3=vpc-06e4ab6c6cEXAMPLE
 ```
+The `VpcId` is an array object in the AWS Documentation. for the corresponding R function `ec2_describe_vpcs`, the VPCs are provided by a vector or a list object. For example, you can describe the same VPCs via
+```
+ec2_describe_vpcs(
+  VpcId = c("vpc-081ec835f3EXAMPLE", 
+  "vpc-0ee975135dEXAMPLE", 
+  "vpc-06e4ab6c6cEXAMPLE")
+)
+```
+A even more aggressive change can be found on the `Filter` parameter. Here is an example of describing VPCs which satisfy some specific conditions from the [AWS Documentation][example]
+```
+https://ec2.amazonaws.com/?Action=DescribeVpcs
+&Filter.1.Name=dhcp-options-id
+&Filter.1.Value.1=dopt-7a8b9c2d
+&Filter.1.Value.2=dopt-2b2a3d3c
+&Filter.2.Name=state
+&Filter.2.Value.1=available
+```
+The corresponding R function call is
+```
+ec2_describe_vpcs(
+  Filter = list(
+    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"), 
+    state="available"
+  )
+)
+```
+The `Filter` parameter will be converted into a list object internally which meets the AWS format requirement. If you are unsure about whether you has specified the correct filter, you can check the converted filter values via
+
+```r
+filter <- list(
+    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"), 
+    state="available"
+  )
+list_to_filter(filter)
+#> $Filter.1.Name
+#> [1] "dhcp-options-id"
+#> 
+#> $Filter.1.Value.1
+#> [1] "dopt-7a8b9c2d"
+#> 
+#> $Filter.1.Value.2
+#> [1] "dopt-2b2a3d3c"
+#> 
+#> $Filter.2.Name
+#> [1] "state"
+#> 
+#> $Filter.2.Value.1
+#> [1] "available"
+```
+
+[example]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
 
 # Package settings
 The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`. 
@@ -142,7 +131,7 @@ aws_get_network_timeout()
 sessionInfo()
 #> R Under development (unstable) (2020-09-03 r79126)
 #> Platform: x86_64-w64-mingw32/x64 (64-bit)
-#> Running under: Windows 10 x64 (build 19041)
+#> Running under: Windows 10 x64 (build 19042)
 #> 
 #> Matrix products: default
 #> 
@@ -155,17 +144,17 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] simpleECS_0.99.0
+#> [1] aws.ecx_0.99.0   rmarkdown_2.5    whisker_0.4      rapiclient_0.1.3
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] rstudioapi_0.13     knitr_1.30          xml2_1.3.2          magrittr_1.5       
 #>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
-#>  [9] rlang_0.4.8         fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
+#>  [9] rlang_0.4.10        fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
 #> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.0     yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
+#> [17] htmltools_0.5.1.1   yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
 #> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
-#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       rmarkdown_2.5      
-#> [29] stringi_1.5.3       compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
+#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       stringi_1.5.3      
+#> [29] compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
 ```
 
 

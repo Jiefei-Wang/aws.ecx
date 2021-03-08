@@ -24,9 +24,9 @@ ec2_create_transit_gateway_peering_attachment(
 
 \item{PeerRegion}{String. The Region where the peer transit gateway is located.}
 
-\item{TagSpecification}{Array. The tags to apply to the transit gateway peering attachment.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the transit gateway peering attachment.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

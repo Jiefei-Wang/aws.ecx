@@ -14,13 +14,13 @@ ec2_accept_transit_gateway_multicast_domain_associations(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.\link{optional}}
+\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.[optional]}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the transit gateway attachment.\link{optional}}
+\item{TransitGatewayAttachmentId}{String. The ID of the transit gateway attachment.[optional]}
 
-\item{SubnetIds}{Array. The IDs of the subnets to associate with the transit gateway multicast domain.\link{optional}}
+\item{SubnetIds}{List. The IDs of the subnets to associate with the transit gateway multicast domain.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

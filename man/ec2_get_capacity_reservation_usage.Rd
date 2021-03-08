@@ -18,9 +18,9 @@ ec2_get_capacity_reservation_usage(
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer.   The maximum number of results to return for the request in a single page.\link{optional}}
+\item{MaxResults}{Integer.   The maximum number of results to return for the request in a single page.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

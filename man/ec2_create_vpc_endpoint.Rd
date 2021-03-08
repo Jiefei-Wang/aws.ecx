@@ -25,23 +25,23 @@ ec2_create_vpc_endpoint(
 
 \item{ServiceName}{String. The service name.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{VpcEndpointType}{String.   The type of endpoint.  Default: Gateway  \link{optional}}
+\item{VpcEndpointType}{String.   The type of endpoint.  Default: Gateway  [optional]}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...\link{optional}}
+\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...[optional]}
 
-\item{RouteTableId}{Array. (Gateway endpoint) One or more route table IDs.\link{optional}}
+\item{RouteTableId}{List. (Gateway endpoint) One or more route table IDs.[optional]}
 
-\item{SubnetId}{Array. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...\link{optional}}
+\item{SubnetId}{List. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...[optional]}
 
-\item{SecurityGroupId}{Array. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...\link{optional}}
+\item{SecurityGroupId}{List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{PrivateDnsEnabled}{Boolean.   (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.\link{optional}}
+\item{PrivateDnsEnabled}{Logical.   (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.[optional]}
 
-\item{TagSpecification}{Array. The tags to associate with the endpoint.\link{optional}}
+\item{TagSpecification}{List. The tags to associate with the endpoint.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

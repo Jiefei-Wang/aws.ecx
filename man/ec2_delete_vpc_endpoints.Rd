@@ -12,9 +12,9 @@ ec2_delete_vpc_endpoints(
 )
 }
 \arguments{
-\item{VpcEndpointId}{Array. One or more VPC endpoint IDs.}
+\item{VpcEndpointId}{List. One or more VPC endpoint IDs.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -21,9 +21,9 @@ ec2_create_instance_export_task(
 
 \item{TargetEnvironment}{String. The target virtualization environment.}
 
-\item{Description}{String. A description for the conversion task or the resource being exported.\link{optional}}
+\item{Description}{String. A description for the conversion task or the resource being exported.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the export instance task during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the export instance task during creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

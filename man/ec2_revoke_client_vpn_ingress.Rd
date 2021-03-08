@@ -19,11 +19,11 @@ ec2_revoke_client_vpn_ingress(
 
 \item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being removed.}
 
-\item{AccessGroupId}{String. The ID of the Active Directory group for which to revoke access. \link{optional}}
+\item{AccessGroupId}{String. The ID of the Active Directory group for which to revoke access. [optional]}
 
-\item{RevokeAllGroups}{Boolean. Indicates whether access should be revoked for all clients.\link{optional}}
+\item{RevokeAllGroups}{Logical. Indicates whether access should be revoked for all clients.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

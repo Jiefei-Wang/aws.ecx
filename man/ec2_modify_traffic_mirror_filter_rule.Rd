@@ -24,27 +24,27 @@ ec2_modify_traffic_mirror_filter_rule(
 \arguments{
 \item{TrafficMirrorFilterRuleId}{String. The ID of the Traffic Mirror rule.}
 
-\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.\link{optional}}
+\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.[optional]}
 
-\item{RuleNumber}{Integer. The number of the Traffic Mirror rule.\link{optional}}
+\item{RuleNumber}{Integer. The number of the Traffic Mirror rule.[optional]}
 
-\item{RuleAction}{String. The action to assign to the rule.\link{optional}}
+\item{RuleAction}{String. The action to assign to the rule.[optional]}
 
-\item{DestinationPortRange}{Object. The destination ports that are associated with the Traffic Mirror rule.\link{optional}}
+\item{DestinationPortRange}{Object. The destination ports that are associated with the Traffic Mirror rule.[optional]}
 
-\item{SourcePortRange}{Object. The port range to assign to the Traffic Mirror rule.\link{optional}}
+\item{SourcePortRange}{Object. The port range to assign to the Traffic Mirror rule.[optional]}
 
-\item{Protocol}{Integer. The protocol, for example TCP, to assign to the Traffic Mirror rule.\link{optional}}
+\item{Protocol}{Integer. The protocol, for example TCP, to assign to the Traffic Mirror rule.[optional]}
 
-\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule.\link{optional}}
+\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule.[optional]}
 
-\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.\link{optional}}
+\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.[optional]}
 
-\item{Description}{String. The description to assign to the Traffic Mirror rule.\link{optional}}
+\item{Description}{String. The description to assign to the Traffic Mirror rule.[optional]}
 
-\item{RemoveField}{Array.   The properties that you want to remove from the Traffic Mirror filter rule.\link{optional}}
+\item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror filter rule.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

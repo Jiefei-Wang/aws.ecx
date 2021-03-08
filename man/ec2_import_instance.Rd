@@ -17,13 +17,13 @@ ec2_import_instance(
 \arguments{
 \item{Platform}{String. The instance operating system.}
 
-\item{Description}{String. A description for the instance being imported.\link{optional}}
+\item{Description}{String. A description for the instance being imported.[optional]}
 
-\item{DiskImage}{Array. The disk image.\link{optional}}
+\item{DiskImage}{List. The disk image.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{LaunchSpecification}{Object. The launch specification.\link{optional}}
+\item{LaunchSpecification}{Object. The launch specification.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

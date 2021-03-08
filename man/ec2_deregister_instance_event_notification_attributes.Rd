@@ -12,9 +12,9 @@ ec2_deregister_instance_event_notification_attributes(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{InstanceTagAttribute}{Object. Information about the tag keys to deregister.\link{optional}}
+\item{InstanceTagAttribute}{Object. Information about the tag keys to deregister.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

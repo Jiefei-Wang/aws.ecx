@@ -15,9 +15,9 @@ ec2_create_key_pair(
 \arguments{
 \item{KeyName}{String.   A unique name for the key pair.  Constraints: Up to 255 ASCII characters}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the new key pair.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the new key pair.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

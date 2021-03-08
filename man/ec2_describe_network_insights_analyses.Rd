@@ -18,19 +18,20 @@ ec2_describe_network_insights_analyses(
 )
 }
 \arguments{
-\item{NetworkInsightsAnalysisId}{Array. The ID of the network insights analyses. You must specify either analysis IDs or a path ID.\link{optional}}
+\item{NetworkInsightsAnalysisId}{List. The ID of the network insights analyses. You must specify either analysis IDs or a path ID.[optional]}
 
-\item{NetworkInsightsPathId}{String. The ID of the path. You must specify either a path ID or analysis IDs.\link{optional}}
+\item{NetworkInsightsPathId}{String. The ID of the path. You must specify either a path ID or analysis IDs.[optional]}
 
-\item{AnalysisStartTime}{String. The time when the network insights analyses started.\link{optional}}
+\item{AnalysisStartTime}{String. The time when the network insights analyses started.[optional]}
 
-\item{AnalysisEndTime}{String. The time when the network insights analyses ended.\link{optional}}
+\item{AnalysisEndTime}{String. The time when the network insights analyses ended.[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 

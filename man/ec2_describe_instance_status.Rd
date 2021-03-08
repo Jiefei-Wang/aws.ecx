@@ -16,17 +16,18 @@ ec2_describe_instance_status(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{InstanceId}{Array.   The instance IDs.\link{optional}}
+\item{InstanceId}{List.   The instance IDs.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{IncludeAllInstances}{Boolean.   When \code{true}, includes the health status for all instances.\link{optional}}
+\item{IncludeAllInstances}{Logical.   When \code{true}, includes the health status for all instances.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

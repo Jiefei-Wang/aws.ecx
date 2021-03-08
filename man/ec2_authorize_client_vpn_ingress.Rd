@@ -21,15 +21,15 @@ ec2_authorize_client_vpn_ingress(
 
 \item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being authorized.}
 
-\item{AccessGroupId}{String. The ID of the group to grant access to, for example, the Active Directory group or identity...\link{optional}}
+\item{AccessGroupId}{String. The ID of the group to grant access to, for example, the Active Directory group or identity...[optional]}
 
-\item{AuthorizeAllGroups}{Boolean. Indicates whether to grant access to all clients.\link{optional}}
+\item{AuthorizeAllGroups}{Logical. Indicates whether to grant access to all clients.[optional]}
 
-\item{Description}{String. A brief description of the authorization rule.\link{optional}}
+\item{Description}{String. A brief description of the authorization rule.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

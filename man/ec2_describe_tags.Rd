@@ -14,11 +14,12 @@ ec2_describe_tags(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 

@@ -13,11 +13,11 @@ ec2_modify_reserved_instances(
 )
 }
 \arguments{
-\item{ReservedInstancesId}{Array. The IDs of the Reserved Instances to modify.}
+\item{ReservedInstancesId}{List. The IDs of the Reserved Instances to modify.}
 
-\item{ReservedInstancesConfigurationSetItemType}{Array. The configuration settings for the Reserved Instances to modify.}
+\item{ReservedInstancesConfigurationSetItemType}{List. The configuration settings for the Reserved Instances to modify.}
 
-\item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.\link{optional}}
+\item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

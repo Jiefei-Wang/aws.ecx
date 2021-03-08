@@ -12,9 +12,9 @@ ec2_create_internet_gateway(
 )
 }
 \arguments{
-\item{TagSpecification}{Array. The tags to assign to the internet gateway.\link{optional}}
+\item{TagSpecification}{List. The tags to assign to the internet gateway.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

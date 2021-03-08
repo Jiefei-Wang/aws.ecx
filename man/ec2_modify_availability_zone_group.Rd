@@ -17,7 +17,7 @@ ec2_modify_availability_zone_group(
 
 \item{OptInStatus}{String. Indicates whether you are opted in to the Local Zone group or Wavelength Zone group.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -7,25 +7,31 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-
-
+```{r, include = FALSE}
+# knitr::knit("vignettes/quick-start-guide.Rmd", output = "README.md")
+# knitr::knit("vignettes/quick-start-guide.Rmd.raw", output = "vignettes/quick-start-guide.Rmd")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(aws.ecx)
+# aws.ecx::aws_set_retry_time(10)
+# aws.ecx::aws_set_print_on_error(FALSE)
+```
 # Introduction
 This package aims to provide the functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`.
 
 # Authentication
 Credentials must be provided for using the package. The package uses `access key id` and `secret access key` to authenticate with AWS. See [AWS user guide][AWS user guide] for the information about how to obtain them from AWS console. The credentials can be set via `aws_set_credentials()`.
-
-```r
+```{r}
 aws_set_credentials()
-#> $access_key_id
-#> [1] "AK**************OYX3"
-#> 
-#> $secret_access_key
-#> [1] "mL**********************************XGGH"
-#> 
-#> $region
-#> [1] "us-east-1"
 ```
 You can either explicitly provide the credentials by the function arguments or rely on the locator to automatically find your credentials. There are many ways to locate the credentials but the most important methods are as follow(sorted by the search order):
 
@@ -39,10 +45,8 @@ Users can find the details on how the credentials are located from `?aws.signatu
 
 # Call the functions
 Calling the EC2 or ECS function is simple, for example, you can list all ECS clusters via
-
-```r
+```{r}
 ecs_list_clusters()
-#> [1] "arn:aws:ecs:us-east-1:020007817719:cluster/R-worker-cluster"
 ```
 The original EC2 and ECS APIs accept the request parameter via the query parameter or header and return the result by JSON or XML text in the REST request. The package provides a unified way to call both APIs. The request parameters can be given by the function arguments and the result is returned in a list format. If possible, the package will try to simplify the result and return a simple character vector. It will also handle the `nextToken` parameter in the REST APIs and collect the full result in a single function call. This default behavior can be turned off by providing the parameter `simplefy = FALSE`.
 
@@ -86,27 +90,12 @@ ec2_describe_vpcs(
 )
 ```
 The `Filter` parameter will be converted into a list object internally which meets the AWS format requirement. If you are unsure about whether you has specified the correct filter, you can check the converted filter values via
-
-```r
+```{R}
 filter <- list(
     `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"),
     state="available"
   )
 list_to_filter(filter)
-#> $Filter.1.Name
-#> [1] "dhcp-options-id"
-#> 
-#> $Filter.1.Value.1
-#> [1] "dopt-7a8b9c2d"
-#> 
-#> $Filter.1.Value.2
-#> [1] "dopt-2b2a3d3c"
-#> 
-#> $Filter.2.Name
-#> [1] "state"
-#> 
-#> $Filter.2.Value.1
-#> [1] "available"
 ```
 
 [example]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
@@ -114,47 +103,16 @@ list_to_filter(filter)
 # Package settings
 The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`.
 
-
-```r
+```{r}
 aws_get_retry_time()
-#> [1] 5
 aws_get_print_on_error()
-#> [1] TRUE
 aws_get_network_timeout()
-#> [1] 10
 ```
 `retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`).
 
 # Session info
-
-```r
+```{r}
 sessionInfo()
-#> R Under development (unstable) (2020-09-03 r79126)
-#> Platform: x86_64-w64-mingw32/x64 (64-bit)
-#> Running under: Windows 10 x64 (build 19042)
-#> 
-#> Matrix products: default
-#> 
-#> locale:
-#> [1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252   
-#> [3] LC_MONETARY=English_United States.1252 LC_NUMERIC=C                          
-#> [5] LC_TIME=English_United States.1252    
-#> 
-#> attached base packages:
-#> [1] stats     graphics  grDevices utils     datasets  methods   base     
-#> 
-#> other attached packages:
-#> [1] aws.ecx_0.99.0   rmarkdown_2.5    whisker_0.4      rapiclient_0.1.3
-#> 
-#> loaded via a namespace (and not attached):
-#>  [1] rstudioapi_0.13     knitr_1.30          xml2_1.3.2          magrittr_1.5       
-#>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
-#>  [9] rlang_0.4.10        fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
-#> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.1.1   yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
-#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
-#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       stringi_1.5.3      
-#> [29] compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
 ```
 
 

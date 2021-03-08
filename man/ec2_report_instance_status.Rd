@@ -17,19 +17,19 @@ ec2_report_instance_status(
 )
 }
 \arguments{
-\item{InstanceId}{Array. The instances.}
+\item{InstanceId}{List. The instances.}
 
-\item{ReasonCode}{Array.   The reason codes that describe the health state of your instance.}
+\item{ReasonCode}{List.   The reason codes that describe the health state of your instance.}
 
 \item{Status}{String. The status of all instances listed.}
 
-\item{Description}{String. Descriptive text about the health state of your instance.\link{optional}}
+\item{Description}{String. Descriptive text about the health state of your instance.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{EndTime}{String. The time at which the reported instance health state ended.\link{optional}}
+\item{EndTime}{String. The time at which the reported instance health state ended.[optional]}
 
-\item{StartTime}{String. The time at which the reported instance health state began.\link{optional}}
+\item{StartTime}{String. The time at which the reported instance health state began.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

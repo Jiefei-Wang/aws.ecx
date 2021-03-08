@@ -16,17 +16,17 @@ ec2_purchase_host_reservation(
 )
 }
 \arguments{
-\item{HostIdSet}{Array. The IDs of the Dedicated Hosts with which the reservation will be associated.}
+\item{HostIdSet}{List. The IDs of the Dedicated Hosts with which the reservation will be associated.}
 
 \item{OfferingId}{String. The ID of the offering.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{CurrencyCode}{String. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts...\link{optional}}
+\item{CurrencyCode}{String. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts...[optional]}
 
-\item{LimitPrice}{String. The specified limit is checked against the total upfront cost of the reservation (calculated...\link{optional}}
+\item{LimitPrice}{String. The specified limit is checked against the total upfront cost of the reservation (calculated...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the Dedicated Host Reservation during purchase.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the Dedicated Host Reservation during purchase.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

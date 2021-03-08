@@ -27,15 +27,15 @@ ec2_create_network_insights_path(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
-\item{SourceIp}{String. The IP address of the AWS resource that is the source of the path.\link{optional}}
+\item{SourceIp}{String. The IP address of the AWS resource that is the source of the path.[optional]}
 
-\item{DestinationIp}{String. The IP address of the AWS resource that is the destination of the path.\link{optional}}
+\item{DestinationIp}{String. The IP address of the AWS resource that is the destination of the path.[optional]}
 
-\item{DestinationPort}{Integer. The destination port.\link{optional}}
+\item{DestinationPort}{Integer. The destination port.[optional]}
 
-\item{TagSpecification}{Array. The tags to add to the path.\link{optional}}
+\item{TagSpecification}{List. The tags to add to the path.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

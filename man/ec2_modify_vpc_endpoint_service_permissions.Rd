@@ -16,11 +16,11 @@ ec2_modify_vpc_endpoint_service_permissions(
 \arguments{
 \item{ServiceId}{String. The ID of the service.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{AddAllowedPrincipals}{Array. The Amazon Resource Names (ARN) of one or more principals.\link{optional}}
+\item{AddAllowedPrincipals}{List. The Amazon Resource Names (ARN) of one or more principals.[optional]}
 
-\item{RemoveAllowedPrincipals}{Array. The Amazon Resource Names (ARN) of one or more principals.\link{optional}}
+\item{RemoveAllowedPrincipals}{List. The Amazon Resource Names (ARN) of one or more principals.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

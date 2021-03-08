@@ -34,17 +34,17 @@ ec2_create_traffic_mirror_filter_rule(
 
 \item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.}
 
-\item{DestinationPortRange}{Object. The destination port range.\link{optional}}
+\item{DestinationPortRange}{Object. The destination port range.[optional]}
 
-\item{SourcePortRange}{Object. The source port range.\link{optional}}
+\item{SourcePortRange}{Object. The source port range.[optional]}
 
-\item{Protocol}{Integer.   The protocol, for example UDP, to assign to the Traffic Mirror rule.\link{optional}}
+\item{Protocol}{Integer.   The protocol, for example UDP, to assign to the Traffic Mirror rule.[optional]}
 
-\item{Description}{String. The description of the Traffic Mirror rule.\link{optional}}
+\item{Description}{String. The description of the Traffic Mirror rule.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

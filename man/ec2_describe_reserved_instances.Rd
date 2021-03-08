@@ -15,15 +15,16 @@ ec2_describe_reserved_instances(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{OfferingClass}{String. Describes whether the Reserved Instance is Standard or Convertible.\link{optional}}
+\item{OfferingClass}{String. Describes whether the Reserved Instance is Standard or Convertible.[optional]}
 
-\item{ReservedInstancesId}{Array.   One or more Reserved Instance IDs.\link{optional}}
+\item{ReservedInstancesId}{List.   One or more Reserved Instance IDs.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{OfferingType}{String. The Reserved Instance offering type.\link{optional}}
+\item{OfferingType}{String. The Reserved Instance offering type.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

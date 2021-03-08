@@ -19,11 +19,11 @@ ec2_create_transit_gateway_prefix_list_reference(
 
 \item{PrefixListId}{String. The ID of the prefix list that is used for destination matches.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment to which traffic is routed.\link{optional}}
+\item{TransitGatewayAttachmentId}{String. The ID of the attachment to which traffic is routed.[optional]}
 
-\item{Blackhole}{Boolean. Indicates whether to drop traffic that matches this route.\link{optional}}
+\item{Blackhole}{Logical. Indicates whether to drop traffic that matches this route.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

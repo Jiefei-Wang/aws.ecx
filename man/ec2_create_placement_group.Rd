@@ -15,15 +15,15 @@ ec2_create_placement_group(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{GroupName}{String.   A name for the placement group.\link{optional}}
+\item{GroupName}{String.   A name for the placement group.[optional]}
 
-\item{Strategy}{String. The placement strategy.\link{optional}}
+\item{Strategy}{String. The placement strategy.[optional]}
 
-\item{PartitionCount}{Integer. The number of partitions. Valid only when \strong{Strategy} is set to \code{partition}.\link{optional}}
+\item{PartitionCount}{Integer. The number of partitions. Valid only when \strong{Strategy} is set to \code{partition}.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the new placement group.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the new placement group.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

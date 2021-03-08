@@ -15,9 +15,9 @@ ec2_detach_network_interface(
 \arguments{
 \item{AttachmentId}{String. The ID of the attachment.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Force}{Boolean.   Specifies whether to force a detachment.\link{optional}}
+\item{Force}{Logical.   Specifies whether to force a detachment.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -20,7 +20,7 @@ ec2_create_network_acl_entry(
 )
 }
 \arguments{
-\item{Egress}{Boolean. Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).}
+\item{Egress}{Logical. Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).}
 
 \item{NetworkAclId}{String. The ID of the network ACL.}
 
@@ -30,15 +30,15 @@ ec2_create_network_acl_entry(
 
 \item{RuleNumber}{Integer.   The rule number for the entry (for example, 100).}
 
-\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.\link{optional}}
+\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.\link{optional}}
+\item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.[optional]}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:db8:1234:1a00::/64}).\link{optional}}
+\item{Ipv6CidrBlock}{String. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:db8:1234:1a00::/64}).[optional]}
 
-\item{PortRange}{Object. TCP or UDP protocols: The range of ports the rule applies to.\link{optional}}
+\item{PortRange}{Object. TCP or UDP protocols: The range of ports the rule applies to.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

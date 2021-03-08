@@ -15,9 +15,9 @@ ec2_accept_vpc_endpoint_connections(
 \arguments{
 \item{ServiceId}{String. The ID of the VPC endpoint service.}
 
-\item{VpcEndpointId}{Array. The IDs of one or more interface VPC endpoints.}
+\item{VpcEndpointId}{List. The IDs of one or more interface VPC endpoints.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -12,7 +12,7 @@ ec2_unassign_ipv6_addresses(
 )
 }
 \arguments{
-\item{Ipv6Addresses}{Array. The IPv6 addresses to unassign from the network interface.}
+\item{Ipv6Addresses}{List. The IPv6 addresses to unassign from the network interface.}
 
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 

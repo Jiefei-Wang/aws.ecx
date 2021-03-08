@@ -14,7 +14,7 @@ ec2_delete_snapshot(
 \arguments{
 \item{SnapshotId}{String. The ID of the EBS snapshot.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

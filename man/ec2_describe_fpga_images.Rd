@@ -16,17 +16,18 @@ ec2_describe_fpga_images(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{FpgaImageId}{Array. The AFI IDs.\link{optional}}
+\item{FpgaImageId}{List. The AFI IDs.[optional]}
 
-\item{Owner}{Array. Filters the AFI by owner.\link{optional}}
+\item{Owner}{List. Filters the AFI by owner.[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

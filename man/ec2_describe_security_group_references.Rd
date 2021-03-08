@@ -12,9 +12,9 @@ ec2_describe_security_group_references(
 )
 }
 \arguments{
-\item{GroupId}{Array. The IDs of the security groups in your account.}
+\item{GroupId}{List. The IDs of the security groups in your account.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

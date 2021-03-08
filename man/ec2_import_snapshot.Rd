@@ -19,23 +19,23 @@ ec2_import_snapshot(
 )
 }
 \arguments{
-\item{ClientData}{Object. The client-specific data.\link{optional}}
+\item{ClientData}{Object. The client-specific data.[optional]}
 
-\item{ClientToken}{String. Token to enable idempotency for VM import requests.\link{optional}}
+\item{ClientToken}{String. Token to enable idempotency for VM import requests.[optional]}
 
-\item{Description}{String. The description string for the import snapshot task.\link{optional}}
+\item{Description}{String. The description string for the import snapshot task.[optional]}
 
-\item{DiskContainer}{Object. Information about the disk container.\link{optional}}
+\item{DiskContainer}{Object. Information about the disk container.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Encrypted}{Boolean. Specifies whether the destination snapshot of the imported image should be encrypted.\link{optional}}
+\item{Encrypted}{Logical. Specifies whether the destination snapshot of the imported image should be encrypted.[optional]}
 
-\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
+\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...[optional]}
 
-\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.\link{optional}}
+\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the import snapshot task during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the import snapshot task during creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

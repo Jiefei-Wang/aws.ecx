@@ -21,21 +21,21 @@ ec2_modify_traffic_mirror_session(
 \arguments{
 \item{TrafficMirrorSessionId}{String. The ID of the Traffic Mirror session.}
 
-\item{TrafficMirrorTargetId}{String. The Traffic Mirror target.\link{optional}}
+\item{TrafficMirrorTargetId}{String. The Traffic Mirror target.[optional]}
 
-\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.\link{optional}}
+\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.[optional]}
 
-\item{PacketLength}{Integer. The number of bytes in each packet to mirror.\link{optional}}
+\item{PacketLength}{Integer. The number of bytes in each packet to mirror.[optional]}
 
-\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface...\link{optional}}
+\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface...[optional]}
 
-\item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session.\link{optional}}
+\item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session.[optional]}
 
-\item{Description}{String. The description to assign to the Traffic Mirror session.\link{optional}}
+\item{Description}{String. The description to assign to the Traffic Mirror session.[optional]}
 
-\item{RemoveField}{Array.   The properties that you want to remove from the Traffic Mirror session.\link{optional}}
+\item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror session.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

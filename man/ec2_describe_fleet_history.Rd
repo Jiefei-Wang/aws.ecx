@@ -20,11 +20,11 @@ ec2_describe_fleet_history(
 
 \item{StartTime}{String. The start date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{EventType}{String. The type of events to describe. By default, all events are described.\link{optional}}
+\item{EventType}{String. The type of events to describe. By default, all events are described.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 

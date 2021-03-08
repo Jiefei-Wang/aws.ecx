@@ -16,6 +16,10 @@ retry_on_error <- function(func, ..., n_try){
     if(!is(response, "error")){
       return(response)
     }
+    user_interrupt_msg <- "Operation was aborted by an application callback"
+    if(is(response, "interrupt")||identical(response$message, user_interrupt_msg)){
+      stop(user_interrupt_msg)
+    }
     if(package_setting$print_on_error)
       cat("REST request failed with the message:\n",
           response$message,"\n")
@@ -90,9 +94,12 @@ ecs_request <- function(action, parameters = list()){
                        headers=headers,
                        body=body)
   if(httr::http_error(response)){
-    stop(content(response, type = "text"))
+    msg <-  content(response, type = "application/json", encoding  = "UTF-8")
+    if(!is.null(msg$`__type`)&&!is.null(msg$message))
+      msg <- paste0(msg$`__type`,"\nMessage: ",msg$message)
+    stop(msg)
   }
-  content(response, type = "application/json")
+  content(response, type = "application/json", encoding  = "UTF-8")
 }
 
 # query$Action = "DescribeVpcs"

@@ -18,9 +18,9 @@ ec2_apply_security_groups_to_client_vpn_target_network(
 
 \item{VpcId}{String. The ID of the VPC in which the associated target network is located.}
 
-\item{SecurityGroupId}{Array. The IDs of the security groups to apply to the associated target network.}
+\item{SecurityGroupId}{List. The IDs of the security groups to apply to the associated target network.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

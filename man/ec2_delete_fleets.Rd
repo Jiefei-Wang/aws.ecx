@@ -13,11 +13,11 @@ ec2_delete_fleets(
 )
 }
 \arguments{
-\item{FleetId}{Array. The IDs of the EC2 Fleets.}
+\item{FleetId}{List. The IDs of the EC2 Fleets.}
 
-\item{TerminateInstances}{Boolean.   Indicates whether to terminate the instances when the EC2 Fleet is deleted.}
+\item{TerminateInstances}{Logical.   Indicates whether to terminate the instances when the EC2 Fleet is deleted.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

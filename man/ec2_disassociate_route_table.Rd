@@ -14,7 +14,7 @@ ec2_disassociate_route_table(
 \arguments{
 \item{AssociationId}{String. The association ID representing the current association between the route table and subnet...}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

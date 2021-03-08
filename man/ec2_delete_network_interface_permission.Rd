@@ -15,9 +15,9 @@ ec2_delete_network_interface_permission(
 \arguments{
 \item{NetworkInterfacePermissionId}{String. The ID of the network interface permission.}
 
-\item{Force}{Boolean. Specify \code{true} to remove the permission even if the network interface is attached to an instance.\link{optional}}
+\item{Force}{Logical. Specify \code{true} to remove the permission even if the network interface is attached to an instance.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -16,11 +16,11 @@ ec2_create_transit_gateway_multicast_domain(
 \arguments{
 \item{TransitGatewayId}{String. The ID of the transit gateway.}
 
-\item{Options}{Object. The options for the transit gateway multicast domain.\link{optional}}
+\item{Options}{Object. The options for the transit gateway multicast domain.[optional]}
 
-\item{TagSpecification}{Array. The tags for the transit gateway multicast domain.\link{optional}}
+\item{TagSpecification}{List. The tags for the transit gateway multicast domain.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

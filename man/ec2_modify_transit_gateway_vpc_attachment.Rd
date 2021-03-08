@@ -17,13 +17,13 @@ ec2_modify_transit_gateway_vpc_attachment(
 \arguments{
 \item{TransitGatewayAttachmentId}{String. The ID of the attachment.}
 
-\item{AddSubnetIds}{Array. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.\link{optional}}
+\item{AddSubnetIds}{List. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.[optional]}
 
-\item{RemoveSubnetIds}{Array. The IDs of one or more subnets to remove.\link{optional}}
+\item{RemoveSubnetIds}{List. The IDs of one or more subnets to remove.[optional]}
 
-\item{Options}{Object.   The new VPC attachment options.  You cannot modify the IPv6 options.  \link{optional}}
+\item{Options}{Object.   The new VPC attachment options.  You cannot modify the IPv6 options.  [optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

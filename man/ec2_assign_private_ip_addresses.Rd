@@ -16,11 +16,11 @@ ec2_assign_private_ip_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{AllowReassignment}{Boolean. Indicates whether to allow an IP address that is already assigned to another network interface...\link{optional}}
+\item{AllowReassignment}{Logical. Indicates whether to allow an IP address that is already assigned to another network interface...[optional]}
 
-\item{PrivateIpAddress}{Array.   One or more IP addresses to be assigned as a secondary private IP address to the network...\link{optional}}
+\item{PrivateIpAddress}{List.   One or more IP addresses to be assigned as a secondary private IP address to the network...[optional]}
 
-\item{SecondaryPrivateIpAddressCount}{Integer. The number of secondary IP addresses to assign to the network interface.\link{optional}}
+\item{SecondaryPrivateIpAddressCount}{Integer. The number of secondary IP addresses to assign to the network interface.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

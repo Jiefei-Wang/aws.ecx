@@ -17,7 +17,7 @@ ec2_confirm_product_instance(
 
 \item{ProductCode}{String. The product code. This must be a product code that you own.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

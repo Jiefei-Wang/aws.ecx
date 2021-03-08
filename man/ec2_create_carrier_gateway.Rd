@@ -16,11 +16,11 @@ ec2_create_carrier_gateway(
 \arguments{
 \item{VpcId}{String. The ID of the VPC to associate with the carrier gateway.}
 
-\item{TagSpecification}{Array. The tags to associate with the carrier gateway.\link{optional}}
+\item{TagSpecification}{List. The tags to associate with the carrier gateway.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

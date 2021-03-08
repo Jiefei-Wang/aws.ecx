@@ -19,11 +19,11 @@ ec2_start_network_insights_analysis(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
-\item{FilterInArn}{Array. The Amazon Resource Names (ARN) of the resources that the path must traverse.\link{optional}}
+\item{FilterInArn}{List. The Amazon Resource Names (ARN) of the resources that the path must traverse.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply.\link{optional}}
+\item{TagSpecification}{List. The tags to apply.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

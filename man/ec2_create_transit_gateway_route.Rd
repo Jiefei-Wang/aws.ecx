@@ -19,11 +19,11 @@ ec2_create_transit_gateway_route(
 
 \item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment.\link{optional}}
+\item{TransitGatewayAttachmentId}{String. The ID of the attachment.[optional]}
 
-\item{Blackhole}{Boolean. Indicates whether to drop traffic that matches this route.\link{optional}}
+\item{Blackhole}{Logical. Indicates whether to drop traffic that matches this route.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

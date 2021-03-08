@@ -18,15 +18,15 @@ ec2_modify_capacity_reservation(
 \arguments{
 \item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
 
-\item{InstanceCount}{Integer. The number of instances for which to reserve capacity.\link{optional}}
+\item{InstanceCount}{Integer. The number of instances for which to reserve capacity.[optional]}
 
-\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.\link{optional}}
+\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.[optional]}
 
-\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.\link{optional}}
+\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.[optional]}
 
-\item{Accept}{Boolean. Reserved. Capacity Reservations you have created are accepted by default.\link{optional}}
+\item{Accept}{Logical. Reserved. Capacity Reservations you have created are accepted by default.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

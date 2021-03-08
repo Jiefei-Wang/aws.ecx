@@ -20,7 +20,7 @@ ec2_modify_instance_event_start_time(
 
 \item{NotBefore}{String. The new date and time when the event will take place.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

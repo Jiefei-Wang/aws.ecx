@@ -15,13 +15,13 @@ ec2_describe_import_image_tasks(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Filters}{Array. Filter tasks using the \code{task-state} filter and one of the following values: \code{active}, \code{completed},...\link{optional}}
+\item{Filters}{List. Filter tasks using the \code{task-state} filter and one of the following values: \code{active}, \code{completed},...[optional]}
 
-\item{ImportTaskId}{Array. The IDs of the import image tasks.\link{optional}}
+\item{ImportTaskId}{List. The IDs of the import image tasks.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 

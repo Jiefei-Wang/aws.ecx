@@ -23,31 +23,31 @@ ec2_create_fleet(
 )
 }
 \arguments{
-\item{LaunchTemplateConfigs}{Array. The configuration for the EC2 Fleet.}
+\item{LaunchTemplateConfigs}{List. The configuration for the EC2 Fleet.}
 
 \item{TargetCapacitySpecification}{Object. The number of units to request.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{SpotOptions}{Object. Describes the configuration of Spot Instances in an EC2 Fleet.\link{optional}}
+\item{SpotOptions}{Object. Describes the configuration of Spot Instances in an EC2 Fleet.[optional]}
 
-\item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.\link{optional}}
+\item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.[optional]}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...\link{optional}}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...[optional]}
 
-\item{TerminateInstancesWithExpiration}{Boolean. Indicates whether running instances should be terminated when the EC2 Fleet expires.\link{optional}}
+\item{TerminateInstancesWithExpiration}{Logical. Indicates whether running instances should be terminated when the EC2 Fleet expires.[optional]}
 
-\item{Type}{String.   The type of request.\link{optional}}
+\item{Type}{String.   The type of request.[optional]}
 
-\item{ValidFrom}{String. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....\link{optional}}
+\item{ValidFrom}{String. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
-\item{ValidUntil}{String. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....\link{optional}}
+\item{ValidUntil}{String. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
-\item{ReplaceUnhealthyInstances}{Boolean. Indicates whether EC2 Fleet should replace unhealthy Spot Instances.\link{optional}}
+\item{ReplaceUnhealthyInstances}{Logical. Indicates whether EC2 Fleet should replace unhealthy Spot Instances.[optional]}
 
-\item{TagSpecification}{Array. The key-value pair for tagging the EC2 Fleet request on creation.\link{optional}}
+\item{TagSpecification}{List. The key-value pair for tagging the EC2 Fleet request on creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

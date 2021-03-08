@@ -18,15 +18,15 @@ ec2_modify_managed_prefix_list(
 \arguments{
 \item{PrefixListId}{String. The ID of the prefix list.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{CurrentVersion}{Integer. The current version of the prefix list.\link{optional}}
+\item{CurrentVersion}{Integer. The current version of the prefix list.[optional]}
 
-\item{PrefixListName}{String. A name for the prefix list.\link{optional}}
+\item{PrefixListName}{String. A name for the prefix list.[optional]}
 
-\item{AddEntry}{Array. One or more entries to add to the prefix list.\link{optional}}
+\item{AddEntry}{List. One or more entries to add to the prefix list.[optional]}
 
-\item{RemoveEntry}{Array. One or more entries to remove from the prefix list.\link{optional}}
+\item{RemoveEntry}{List. One or more entries to remove from the prefix list.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

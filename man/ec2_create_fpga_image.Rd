@@ -19,17 +19,17 @@ ec2_create_fpga_image(
 \arguments{
 \item{InputStorageLocation}{Object. The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs.\link{optional}}
+\item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs.[optional]}
 
-\item{Description}{String. A description for the AFI.\link{optional}}
+\item{Description}{String. A description for the AFI.[optional]}
 
-\item{Name}{String. A name for the AFI.\link{optional}}
+\item{Name}{String. A name for the AFI.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the FPGA image during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the FPGA image during creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

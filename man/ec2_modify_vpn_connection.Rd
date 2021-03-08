@@ -17,13 +17,13 @@ ec2_modify_vpn_connection(
 \arguments{
 \item{VpnConnectionId}{String. The ID of the VPN connection.}
 
-\item{TransitGatewayId}{String. The ID of the transit gateway.\link{optional}}
+\item{TransitGatewayId}{String. The ID of the transit gateway.[optional]}
 
-\item{CustomerGatewayId}{String. The ID of the customer gateway at your end of the VPN connection.\link{optional}}
+\item{CustomerGatewayId}{String. The ID of the customer gateway at your end of the VPN connection.[optional]}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway at the AWS side of the VPN connection.\link{optional}}
+\item{VpnGatewayId}{String. The ID of the virtual private gateway at the AWS side of the VPN connection.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

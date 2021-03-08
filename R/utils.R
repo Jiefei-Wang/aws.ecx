@@ -16,6 +16,24 @@ add_asterisk_in_middle <- function(x, begin_nchar = 2, end_nchar = 2){
 ## list_to_array("Filter", list(list(Name = "a", value = list("b","d"))))
 ## list_to_array("Filter", list(a=1,b=list(x1=list(y1=1,y2=2),x2=3)))
 ## list_to_array("vpcId", list(1,2,3))
+#' Utility functions
+#'
+#' Utility functions. `list_to_array` converts a list or a vector to an
+#' Array object in AWS Documentation. `list_to_filter` converts a filter
+#' list to an Array object.
+#'
+#' @param prefix Character, the name of the parameter
+#' @param x List or Vector, the value of the parameter
+#'
+#' @examples
+#' vpc_id = c("vpc-081ec835f3", "vpc-0ee975135d", "vpc-06e4ab6c6c")
+#' list_to_array("VpcId", vpc_id)
+#'
+#' filter = list(`dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"), state="available")
+#' list_to_filter(filter)
+#' @return A list object
+#' @rdname converter
+#' @export
 list_to_array <- function(prefix ,x){
   if(length(x)==0) return(NULL)
   result <- list()
@@ -35,8 +53,9 @@ list_to_array <- function(prefix ,x){
   result
 }
 
-## get_filter(list(a=10,b=c(1,2,3)))
-get_filter <- function(x){
+#' @rdname converter
+#' @export
+list_to_filter <- function(x){
   if(length(x)==0) return(NULL)
   filters <- list()
   prefix <- "Filter"

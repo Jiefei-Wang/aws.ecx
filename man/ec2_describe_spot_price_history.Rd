@@ -19,23 +19,24 @@ ec2_describe_spot_price_history(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{AvailabilityZone}{String. Filters the results by the specified Availability Zone.\link{optional}}
+\item{AvailabilityZone}{String. Filters the results by the specified Availability Zone.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history...\link{optional}}
+\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history...[optional]}
 
-\item{InstanceType}{Array. Filters the results by the specified instance types.\link{optional}}
+\item{InstanceType}{List. Filters the results by the specified instance types.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{ProductDescription}{Array. Filters the results by the specified basic product descriptions.\link{optional}}
+\item{ProductDescription}{List. Filters the results by the specified basic product descriptions.[optional]}
 
-\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history...\link{optional}}
+\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

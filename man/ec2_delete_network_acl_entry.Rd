@@ -14,13 +14,13 @@ ec2_delete_network_acl_entry(
 )
 }
 \arguments{
-\item{Egress}{Boolean. Indicates whether the rule is an egress rule.}
+\item{Egress}{Logical. Indicates whether the rule is an egress rule.}
 
 \item{NetworkAclId}{String. The ID of the network ACL.}
 
 \item{RuleNumber}{Integer. The rule number of the entry to delete.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

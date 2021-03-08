@@ -15,9 +15,9 @@ ec2_create_route_table(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{TagSpecification}{Array. The tags to assign to the route table.\link{optional}}
+\item{TagSpecification}{List. The tags to assign to the route table.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

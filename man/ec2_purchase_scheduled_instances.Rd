@@ -13,11 +13,11 @@ ec2_purchase_scheduled_instances(
 )
 }
 \arguments{
-\item{PurchaseRequest}{Array. The purchase requests.}
+\item{PurchaseRequest}{List. The purchase requests.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that ensures the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that ensures the idempotency of the request.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

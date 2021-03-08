@@ -14,13 +14,13 @@ ec2_release_address(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID. Required for EC2-VPC.\link{optional}}
+\item{AllocationId}{String. [EC2-VPC] The allocation ID. Required for EC2-VPC.[optional]}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.\link{optional}}
+\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
 
-\item{NetworkBorderGroup}{String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\link{optional}}
+\item{NetworkBorderGroup}{String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

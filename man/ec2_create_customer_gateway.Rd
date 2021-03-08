@@ -21,15 +21,15 @@ ec2_create_customer_gateway(
 
 \item{Type}{String. The type of VPN connection that this customer gateway supports (\code{ipsec.1}).}
 
-\item{IpAddress}{String. The Internet-routable IP address for the customer gateway\'s outside interface.\link{optional}}
+\item{IpAddress}{String. The Internet-routable IP address for the customer gateway\'s outside interface.[optional]}
 
-\item{CertificateArn}{String. The Amazon Resource Name (ARN) for the customer gateway certificate.\link{optional}}
+\item{CertificateArn}{String. The Amazon Resource Name (ARN) for the customer gateway certificate.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the customer gateway.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the customer gateway.[optional]}
 
-\item{DeviceName}{String.   A name for the customer gateway device.  Length Constraints: Up to 255 characters.  \link{optional}}
+\item{DeviceName}{String.   A name for the customer gateway device.  Length Constraints: Up to 255 characters.  [optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

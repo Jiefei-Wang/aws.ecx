@@ -15,15 +15,16 @@ ec2_describe_images(
 )
 }
 \arguments{
-\item{ExecutableBy}{Array. Scopes the images by users with explicit launch permissions.\link{optional}}
+\item{ExecutableBy}{List. Scopes the images by users with explicit launch permissions.[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{ImageId}{Array.   The image IDs.  Default: Describes all images available to you.  \link{optional}}
+\item{ImageId}{List.   The image IDs.  Default: Describes all images available to you.  [optional]}
 
-\item{Owner}{Array. Scopes the results to images with the specified owners.\link{optional}}
+\item{Owner}{List. Scopes the results to images with the specified owners.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

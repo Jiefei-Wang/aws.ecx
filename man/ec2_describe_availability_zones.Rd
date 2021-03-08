@@ -15,15 +15,16 @@ ec2_describe_availability_zones(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{ZoneName}{Array. The names of the Availability Zones, Local Zones, and Wavelength Zones.\link{optional}}
+\item{ZoneName}{List. The names of the Availability Zones, Local Zones, and Wavelength Zones.[optional]}
 
-\item{ZoneId}{Array. The IDs of the Availability Zones, Local Zones, and Wavelength Zones.\link{optional}}
+\item{ZoneId}{List. The IDs of the Availability Zones, Local Zones, and Wavelength Zones.[optional]}
 
-\item{AllAvailabilityZones}{Boolean.   Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in...\link{optional}}
+\item{AllAvailabilityZones}{Logical.   Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in...[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

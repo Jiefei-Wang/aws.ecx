@@ -30,27 +30,27 @@ ec2_create_capacity_reservation(
 
 \item{InstanceCount}{Integer. The number of instances for which to reserve capacity.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{AvailabilityZone}{String. The Availability Zone in which to create the Capacity Reservation.\link{optional}}
+\item{AvailabilityZone}{String. The Availability Zone in which to create the Capacity Reservation.[optional]}
 
-\item{AvailabilityZoneId}{String. The ID of the Availability Zone in which to create the Capacity Reservation.\link{optional}}
+\item{AvailabilityZoneId}{String. The ID of the Availability Zone in which to create the Capacity Reservation.[optional]}
 
-\item{Tenancy}{String.   Indicates the tenancy of the Capacity Reservation.\link{optional}}
+\item{Tenancy}{String.   Indicates the tenancy of the Capacity Reservation.[optional]}
 
-\item{EbsOptimized}{Boolean. Indicates whether the Capacity Reservation supports EBS-optimized instances.\link{optional}}
+\item{EbsOptimized}{Logical. Indicates whether the Capacity Reservation supports EBS-optimized instances.[optional]}
 
-\item{EphemeralStorage}{Boolean. Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.\link{optional}}
+\item{EphemeralStorage}{Logical. Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.[optional]}
 
-\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.\link{optional}}
+\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.[optional]}
 
-\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.\link{optional}}
+\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.[optional]}
 
-\item{InstanceMatchCriteria}{String.   Indicates the type of instance launches that the Capacity Reservation accepts.\link{optional}}
+\item{InstanceMatchCriteria}{String.   Indicates the type of instance launches that the Capacity Reservation accepts.[optional]}
 
-\item{TagSpecifications}{Array. The tags to apply to the Capacity Reservation during launch.\link{optional}}
+\item{TagSpecifications}{List. The tags to apply to the Capacity Reservation during launch.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

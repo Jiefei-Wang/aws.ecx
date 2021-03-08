@@ -21,15 +21,15 @@ ec2_create_vpn_connection(
 
 \item{Type}{String. The type of VPN connection (\code{ipsec.1}).}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway.\link{optional}}
+\item{VpnGatewayId}{String. The ID of the virtual private gateway.[optional]}
 
-\item{TransitGatewayId}{String. The ID of the transit gateway.\link{optional}}
+\item{TransitGatewayId}{String. The ID of the transit gateway.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Options}{Object. The options for the VPN connection.\link{optional}}
+\item{Options}{Object. The options for the VPN connection.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the VPN connection.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the VPN connection.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

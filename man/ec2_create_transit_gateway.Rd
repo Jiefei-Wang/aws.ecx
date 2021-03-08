@@ -14,13 +14,13 @@ ec2_create_transit_gateway(
 )
 }
 \arguments{
-\item{Description}{String. A description of the transit gateway.\link{optional}}
+\item{Description}{String. A description of the transit gateway.[optional]}
 
-\item{Options}{Object. The transit gateway options.\link{optional}}
+\item{Options}{Object. The transit gateway options.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the transit gateway.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the transit gateway.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

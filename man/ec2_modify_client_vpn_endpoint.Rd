@@ -24,27 +24,27 @@ ec2_modify_client_vpn_endpoint(
 \arguments{
 \item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to modify.}
 
-\item{ServerCertificateArn}{String. The ARN of the server certificate to be used.\link{optional}}
+\item{ServerCertificateArn}{String. The ARN of the server certificate to be used.[optional]}
 
-\item{ConnectionLogOptions}{Object.   Information about the client connection logging options.\link{optional}}
+\item{ConnectionLogOptions}{Object.   Information about the client connection logging options.[optional]}
 
-\item{DnsServers}{Object. Information about the DNS servers to be used by Client VPN connections.\link{optional}}
+\item{DnsServers}{Object. Information about the DNS servers to be used by Client VPN connections.[optional]}
 
-\item{VpnPort}{Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.\link{optional}}
+\item{VpnPort}{Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.[optional]}
 
-\item{Description}{String. A brief description of the Client VPN endpoint.\link{optional}}
+\item{Description}{String. A brief description of the Client VPN endpoint.[optional]}
 
-\item{SplitTunnel}{Boolean.   Indicates whether the VPN is split-tunnel.\link{optional}}
+\item{SplitTunnel}{Logical.   Indicates whether the VPN is split-tunnel.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{SecurityGroupId}{Array. The IDs of one or more security groups to apply to the target network.\link{optional}}
+\item{SecurityGroupId}{List. The IDs of one or more security groups to apply to the target network.[optional]}
 
-\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint.\link{optional}}
+\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint.[optional]}
 
-\item{SelfServicePortal}{String. Specify whether to enable the self-service portal for the Client VPN endpoint.\link{optional}}
+\item{SelfServicePortal}{String. Specify whether to enable the self-service portal for the Client VPN endpoint.[optional]}
 
-\item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections.\link{optional}}
+\item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -22,17 +22,17 @@ ec2_allocate_hosts(
 
 \item{Quantity}{Integer. The number of Dedicated Hosts to allocate to your account with these parameters.}
 
-\item{AutoPlacement}{String.   Indicates whether the host accepts any untargeted instance launches that match its instance...\link{optional}}
+\item{AutoPlacement}{String.   Indicates whether the host accepts any untargeted instance launches that match its instance...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Hosts.\link{optional}}
+\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Hosts.[optional]}
 
-\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Hosts.\link{optional}}
+\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Hosts.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the Dedicated Host during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the Dedicated Host during creation.[optional]}
 
-\item{HostRecovery}{String.   Indicates whether to enable or disable host recovery for the Dedicated Host.\link{optional}}
+\item{HostRecovery}{String.   Indicates whether to enable or disable host recovery for the Dedicated Host.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

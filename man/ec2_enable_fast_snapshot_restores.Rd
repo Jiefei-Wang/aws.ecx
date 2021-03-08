@@ -13,11 +13,11 @@ ec2_enable_fast_snapshot_restores(
 )
 }
 \arguments{
-\item{AvailabilityZone}{Array. One or more Availability Zones. For example, \verb{us-east-2a}.}
+\item{AvailabilityZone}{List. One or more Availability Zones. For example, \verb{us-east-2a}.}
 
-\item{SourceSnapshotId}{Array. The IDs of one or more snapshots.}
+\item{SourceSnapshotId}{List. The IDs of one or more snapshots.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

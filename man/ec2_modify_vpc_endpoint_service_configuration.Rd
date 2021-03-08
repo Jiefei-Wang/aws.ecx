@@ -21,21 +21,21 @@ ec2_modify_vpc_endpoint_service_configuration(
 \arguments{
 \item{ServiceId}{String. The ID of the service.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.\link{optional}}
+\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.[optional]}
 
-\item{RemovePrivateDnsName}{Boolean. (Interface endpoint configuration) Removes the private DNS name of the endpoint service.\link{optional}}
+\item{RemovePrivateDnsName}{Logical. (Interface endpoint configuration) Removes the private DNS name of the endpoint service.[optional]}
 
-\item{AcceptanceRequired}{Boolean. Indicates whether requests to create an endpoint to your service must be accepted.\link{optional}}
+\item{AcceptanceRequired}{Logical. Indicates whether requests to create an endpoint to your service must be accepted.[optional]}
 
-\item{AddNetworkLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.\link{optional}}
+\item{AddNetworkLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.[optional]}
 
-\item{RemoveNetworkLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration....\link{optional}}
+\item{RemoveNetworkLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration....[optional]}
 
-\item{AddGatewayLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.\link{optional}}
+\item{AddGatewayLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.[optional]}
 
-\item{RemoveGatewayLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration....\link{optional}}
+\item{RemoveGatewayLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration....[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

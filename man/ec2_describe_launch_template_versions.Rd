@@ -19,23 +19,24 @@ ec2_describe_launch_template_versions(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
+\item{LaunchTemplateId}{String. The ID of the launch template.[optional]}
 
-\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
+\item{LaunchTemplateName}{String. The name of the launch template.[optional]}
 
-\item{LaunchTemplateVersion}{Array.   One or more versions of the launch template.\link{optional}}
+\item{LaunchTemplateVersion}{List.   One or more versions of the launch template.[optional]}
 
-\item{MinVersion}{String. The version number after which to describe launch template versions.\link{optional}}
+\item{MinVersion}{String. The version number after which to describe launch template versions.[optional]}
 
-\item{MaxVersion}{String. The version number up to which to describe launch template versions.\link{optional}}
+\item{MaxVersion}{String. The version number up to which to describe launch template versions.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

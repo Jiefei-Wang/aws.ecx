@@ -15,15 +15,15 @@ ec2_modify_hosts(
 )
 }
 \arguments{
-\item{HostId}{Array. The IDs of the Dedicated Hosts to modify.}
+\item{HostId}{List. The IDs of the Dedicated Hosts to modify.}
 
-\item{AutoPlacement}{String. Specify whether to enable or disable auto-placement.\link{optional}}
+\item{AutoPlacement}{String. Specify whether to enable or disable auto-placement.[optional]}
 
-\item{HostRecovery}{String. Indicates whether to enable or disable host recovery for the Dedicated Host.\link{optional}}
+\item{HostRecovery}{String. Indicates whether to enable or disable host recovery for the Dedicated Host.[optional]}
 
-\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Host.\link{optional}}
+\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Host.[optional]}
 
-\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Host.\link{optional}}
+\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Host.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

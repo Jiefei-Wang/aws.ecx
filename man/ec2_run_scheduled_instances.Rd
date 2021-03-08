@@ -19,11 +19,11 @@ ec2_run_scheduled_instances(
 
 \item{ScheduledInstanceId}{String. The Scheduled Instance ID.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that ensures the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that ensures the idempotency of the request.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{InstanceCount}{Integer.   The number of instances.  Default: 1  \link{optional}}
+\item{InstanceCount}{Integer.   The number of instances.  Default: 1  [optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

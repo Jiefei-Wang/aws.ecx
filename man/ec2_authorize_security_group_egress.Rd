@@ -21,21 +21,21 @@ ec2_authorize_security_group_egress(
 \arguments{
 \item{GroupId}{String. The ID of the security group.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{IpPermissions}{Array. The sets of IP permissions.\link{optional}}
+\item{IpPermissions}{List. The sets of IP permissions.[optional]}
 
-\item{CidrIp}{String. Not supported. Use a set of IP permissions to specify the CIDR.\link{optional}}
+\item{CidrIp}{String. Not supported. Use a set of IP permissions to specify the CIDR.[optional]}
 
-\item{FromPort}{Integer. Not supported. Use a set of IP permissions to specify the port.\link{optional}}
+\item{FromPort}{Integer. Not supported. Use a set of IP permissions to specify the port.[optional]}
 
-\item{IpProtocol}{String. Not supported. Use a set of IP permissions to specify the protocol name or number.\link{optional}}
+\item{IpProtocol}{String. Not supported. Use a set of IP permissions to specify the protocol name or number.[optional]}
 
-\item{ToPort}{Integer. Not supported. Use a set of IP permissions to specify the port.\link{optional}}
+\item{ToPort}{Integer. Not supported. Use a set of IP permissions to specify the port.[optional]}
 
-\item{SourceSecurityGroupName}{String. Not supported. Use a set of IP permissions to specify a destination security group.\link{optional}}
+\item{SourceSecurityGroupName}{String. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
 
-\item{SourceSecurityGroupOwnerId}{String. Not supported. Use a set of IP permissions to specify a destination security group.\link{optional}}
+\item{SourceSecurityGroupOwnerId}{String. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

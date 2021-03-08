@@ -20,13 +20,13 @@ ec2_copy_fpga_image(
 
 \item{SourceRegion}{String. The Region that contains the source AFI.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Description}{String. The description for the new AFI.\link{optional}}
+\item{Description}{String. The description for the new AFI.[optional]}
 
-\item{Name}{String. The name for the new AFI. The default is the name of the source AFI.\link{optional}}
+\item{Name}{String. The name for the new AFI. The default is the name of the source AFI.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -15,9 +15,9 @@ ec2_get_console_output(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Latest}{Boolean.   When enabled, retrieves the latest console output for the instance.\link{optional}}
+\item{Latest}{Logical.   When enabled, retrieves the latest console output for the instance.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

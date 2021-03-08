@@ -17,19 +17,19 @@ ec2_associate_address(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID. This is required for EC2-VPC.\link{optional}}
+\item{AllocationId}{String. [EC2-VPC] The allocation ID. This is required for EC2-VPC.[optional]}
 
-\item{InstanceId}{String. The ID of the instance.\link{optional}}
+\item{InstanceId}{String. The ID of the instance.[optional]}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address to associate with the instance.\link{optional}}
+\item{PublicIp}{String. [EC2-Classic] The Elastic IP address to associate with the instance.[optional]}
 
-\item{AllowReassociation}{Boolean. [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address...\link{optional}}
+\item{AllowReassociation}{Logical. [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address...[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{NetworkInterfaceId}{String.   [EC2-VPC] The ID of the network interface.\link{optional}}
+\item{NetworkInterfaceId}{String.   [EC2-VPC] The ID of the network interface.[optional]}
 
-\item{PrivateIpAddress}{String. [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address.\link{optional}}
+\item{PrivateIpAddress}{String. [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

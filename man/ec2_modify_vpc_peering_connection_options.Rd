@@ -16,11 +16,11 @@ ec2_modify_vpc_peering_connection_options(
 \arguments{
 \item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection.}
 
-\item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC.\link{optional}}
+\item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{RequesterPeeringConnectionOptions}{Object. The VPC peering connection options for the requester VPC.\link{optional}}
+\item{RequesterPeeringConnectionOptions}{Object. The VPC peering connection options for the requester VPC.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

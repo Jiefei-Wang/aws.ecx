@@ -13,11 +13,11 @@ ec2_delete_key_pair(
 )
 }
 \arguments{
-\item{KeyName}{String. The name of the key pair.\link{optional}}
+\item{KeyName}{String. The name of the key pair.[optional]}
 
-\item{KeyPairId}{String. The ID of the key pair.\link{optional}}
+\item{KeyPairId}{String. The ID of the key pair.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

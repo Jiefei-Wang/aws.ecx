@@ -14,13 +14,14 @@ ec2_describe_regions(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{RegionName}{Array. The names of the Regions.\link{optional}}
+\item{RegionName}{List. The names of the Regions.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{AllRegions}{Boolean. Indicates whether to display all Regions, including Regions that are disabled for your account.\link{optional}}
+\item{AllRegions}{Logical. Indicates whether to display all Regions, including Regions that are disabled for your account.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -15,9 +15,9 @@ ec2_assign_ipv6_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{Ipv6AddressCount}{Integer. The number of additional IPv6 addresses to assign to the network interface.\link{optional}}
+\item{Ipv6AddressCount}{Integer. The number of additional IPv6 addresses to assign to the network interface.[optional]}
 
-\item{Ipv6Addresses}{Array. One or more specific IPv6 addresses to be assigned to the network interface.\link{optional}}
+\item{Ipv6Addresses}{List. One or more specific IPv6 addresses to be assigned to the network interface.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

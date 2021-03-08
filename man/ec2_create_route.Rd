@@ -27,33 +27,33 @@ ec2_create_route(
 \arguments{
 \item{RouteTableId}{String. The ID of the route table for the route.}
 
-\item{DestinationCidrBlock}{String. The IPv4 CIDR address block used for the destination match.\link{optional}}
+\item{DestinationCidrBlock}{String. The IPv4 CIDR address block used for the destination match.[optional]}
 
-\item{DestinationIpv6CidrBlock}{String. The IPv6 CIDR block used for the destination match.\link{optional}}
+\item{DestinationIpv6CidrBlock}{String. The IPv6 CIDR block used for the destination match.[optional]}
 
-\item{DestinationPrefixListId}{String. The ID of a prefix list used for the destination match.\link{optional}}
+\item{DestinationPrefixListId}{String. The ID of a prefix list used for the destination match.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{VpcEndpointId}{String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.\link{optional}}
+\item{VpcEndpointId}{String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.[optional]}
 
-\item{EgressOnlyInternetGatewayId}{String. [IPv6 traffic only] The ID of an egress-only internet gateway.\link{optional}}
+\item{EgressOnlyInternetGatewayId}{String. [IPv6 traffic only] The ID of an egress-only internet gateway.[optional]}
 
-\item{GatewayId}{String. The ID of an internet gateway or virtual private gateway attached to your VPC.\link{optional}}
+\item{GatewayId}{String. The ID of an internet gateway or virtual private gateway attached to your VPC.[optional]}
 
-\item{InstanceId}{String. The ID of a NAT instance in your VPC.\link{optional}}
+\item{InstanceId}{String. The ID of a NAT instance in your VPC.[optional]}
 
-\item{NatGatewayId}{String. [IPv4 traffic only] The ID of a NAT gateway.\link{optional}}
+\item{NatGatewayId}{String. [IPv4 traffic only] The ID of a NAT gateway.[optional]}
 
-\item{TransitGatewayId}{String. The ID of a transit gateway.\link{optional}}
+\item{TransitGatewayId}{String. The ID of a transit gateway.[optional]}
 
-\item{LocalGatewayId}{String. The ID of the local gateway.\link{optional}}
+\item{LocalGatewayId}{String. The ID of the local gateway.[optional]}
 
-\item{CarrierGatewayId}{String.   The ID of the carrier gateway.\link{optional}}
+\item{CarrierGatewayId}{String.   The ID of the carrier gateway.[optional]}
 
-\item{NetworkInterfaceId}{String. The ID of a network interface.\link{optional}}
+\item{NetworkInterfaceId}{String. The ID of a network interface.[optional]}
 
-\item{VpcPeeringConnectionId}{String. The ID of a VPC peering connection.\link{optional}}
+\item{VpcPeeringConnectionId}{String. The ID of a VPC peering connection.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

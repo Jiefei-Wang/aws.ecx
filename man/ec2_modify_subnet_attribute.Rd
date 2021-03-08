@@ -17,13 +17,13 @@ ec2_modify_subnet_attribute(
 \arguments{
 \item{SubnetId}{String. The ID of the subnet.}
 
-\item{AssignIpv6AddressOnCreation}{Object.   Specify \code{true} to indicate that network interfaces created in the specified subnet should...\link{optional}}
+\item{AssignIpv6AddressOnCreation}{Object.   Specify \code{true} to indicate that network interfaces created in the specified subnet should...[optional]}
 
-\item{MapPublicIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...\link{optional}}
+\item{MapPublicIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...[optional]}
 
-\item{MapCustomerOwnedIpOnLaunch}{Object.   Specify \code{true} to indicate that network interfaces attached to instances created in the...\link{optional}}
+\item{MapCustomerOwnedIpOnLaunch}{Object.   Specify \code{true} to indicate that network interfaces attached to instances created in the...[optional]}
 
-\item{CustomerOwnedIpv4Pool}{String.   The customer-owned IPv4 address pool associated with the subnet.\link{optional}}
+\item{CustomerOwnedIpv4Pool}{String.   The customer-owned IPv4 address pool associated with the subnet.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

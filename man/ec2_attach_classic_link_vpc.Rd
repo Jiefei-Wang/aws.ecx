@@ -14,13 +14,13 @@ ec2_attach_classic_link_vpc(
 )
 }
 \arguments{
-\item{SecurityGroupId}{Array. The ID of one or more of the VPC\'s security groups.}
+\item{SecurityGroupId}{List. The ID of one or more of the VPC\'s security groups.}
 
 \item{InstanceId}{String. The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.}
 
 \item{VpcId}{String. The ID of a ClassicLink-enabled VPC.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -21,9 +21,9 @@ ec2_attach_network_interface(
 
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{NetworkCardIndex}{Integer. The index of the network card.\link{optional}}
+\item{NetworkCardIndex}{Integer. The index of the network card.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -24,33 +24,33 @@ ec2_import_image(
 )
 }
 \arguments{
-\item{Architecture}{String.   The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64}  \link{optional}}
+\item{Architecture}{String.   The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64}  [optional]}
 
-\item{ClientData}{Object. The client-specific data.\link{optional}}
+\item{ClientData}{Object. The client-specific data.[optional]}
 
-\item{ClientToken}{String. The token to enable idempotency for VM import requests.\link{optional}}
+\item{ClientToken}{String. The token to enable idempotency for VM import requests.[optional]}
 
-\item{Description}{String. A description string for the import image task.\link{optional}}
+\item{Description}{String. A description string for the import image task.[optional]}
 
-\item{DiskContainer}{Array. Information about the disk containers.\link{optional}}
+\item{DiskContainer}{List. Information about the disk containers.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Encrypted}{Boolean. Specifies whether the destination AMI of the imported image should be encrypted.\link{optional}}
+\item{Encrypted}{Logical. Specifies whether the destination AMI of the imported image should be encrypted.[optional]}
 
-\item{Hypervisor}{String.   The target hypervisor platform.  Valid values: \code{xen}  \link{optional}}
+\item{Hypervisor}{String.   The target hypervisor platform.  Valid values: \code{xen}  [optional]}
 
-\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
+\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...[optional]}
 
-\item{LicenseType}{String.   The license type to be used for the Amazon Machine Image (AMI) after importing.\link{optional}}
+\item{LicenseType}{String.   The license type to be used for the Amazon Machine Image (AMI) after importing.[optional]}
 
-\item{Platform}{String.   The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux}  \link{optional}}
+\item{Platform}{String.   The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux}  [optional]}
 
-\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.\link{optional}}
+\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.[optional]}
 
-\item{LicenseSpecifications}{Array. The ARNs of the license configurations.\link{optional}}
+\item{LicenseSpecifications}{List. The ARNs of the license configurations.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the import image task during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the import image task during creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

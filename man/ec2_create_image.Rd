@@ -21,15 +21,15 @@ ec2_create_image(
 
 \item{Name}{String.   A name for the new image.}
 
-\item{BlockDeviceMapping}{Array. The block device mappings.\link{optional}}
+\item{BlockDeviceMapping}{List. The block device mappings.[optional]}
 
-\item{Description}{String. A description for the new image.\link{optional}}
+\item{Description}{String. A description for the new image.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{NoReboot}{Boolean. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.\link{optional}}
+\item{NoReboot}{Logical. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.[optional]}
 
-\item{TagSpecification}{Array.   The tags to apply to the AMI and snapshots on creation.\link{optional}}
+\item{TagSpecification}{List.   The tags to apply to the AMI and snapshots on creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

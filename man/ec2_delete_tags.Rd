@@ -13,11 +13,11 @@ ec2_delete_tags(
 )
 }
 \arguments{
-\item{ResourceId}{Array.   The IDs of the resources, separated by spaces.}
+\item{ResourceId}{List.   The IDs of the resources, separated by spaces.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Tag}{Array.   The tags to delete.\link{optional}}
+\item{Tag}{List.   The tags to delete.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

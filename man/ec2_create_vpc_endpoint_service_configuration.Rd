@@ -17,19 +17,19 @@ ec2_create_vpc_endpoint_service_configuration(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{AcceptanceRequired}{Boolean. Indicates whether requests from service consumers to create an endpoint to your service must...\link{optional}}
+\item{AcceptanceRequired}{Logical. Indicates whether requests from service consumers to create an endpoint to your service must...[optional]}
 
-\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.\link{optional}}
+\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.[optional]}
 
-\item{NetworkLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.\link{optional}}
+\item{NetworkLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.[optional]}
 
-\item{GatewayLoadBalancerArn}{Array. The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.\link{optional}}
+\item{GatewayLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{TagSpecification}{Array. The tags to associate with the service.\link{optional}}
+\item{TagSpecification}{List. The tags to associate with the service.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

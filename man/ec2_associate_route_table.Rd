@@ -16,11 +16,11 @@ ec2_associate_route_table(
 \arguments{
 \item{RouteTableId}{String. The ID of the route table.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{SubnetId}{String. The ID of the subnet.\link{optional}}
+\item{SubnetId}{String. The ID of the subnet.[optional]}
 
-\item{GatewayId}{String. The ID of the internet gateway or virtual private gateway.\link{optional}}
+\item{GatewayId}{String. The ID of the internet gateway or virtual private gateway.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

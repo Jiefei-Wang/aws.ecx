@@ -22,17 +22,17 @@ ec2_create_subnet(
 
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{TagSpecification}{Array. The tags to assign to the subnet.\link{optional}}
+\item{TagSpecification}{List. The tags to assign to the subnet.[optional]}
 
-\item{AvailabilityZone}{String.   The Availability Zone or Local Zone for the subnet.\link{optional}}
+\item{AvailabilityZone}{String.   The Availability Zone or Local Zone for the subnet.[optional]}
 
-\item{AvailabilityZoneId}{String. The AZ ID or the Local Zone ID of the subnet.\link{optional}}
+\item{AvailabilityZoneId}{String. The AZ ID or the Local Zone ID of the subnet.[optional]}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range for the subnet, in CIDR notation.\link{optional}}
+\item{Ipv6CidrBlock}{String. The IPv6 network range for the subnet, in CIDR notation.[optional]}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.\link{optional}}
+\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

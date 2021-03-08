@@ -17,13 +17,13 @@ ec2_modify_fleet(
 \arguments{
 \item{FleetId}{String. The ID of the EC2 Fleet.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...\link{optional}}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...[optional]}
 
-\item{LaunchTemplateConfig}{Array. The launch template and overrides.\link{optional}}
+\item{LaunchTemplateConfig}{List. The launch template and overrides.[optional]}
 
-\item{TargetCapacitySpecification}{Object. The size of the EC2 Fleet.\link{optional}}
+\item{TargetCapacitySpecification}{Object. The size of the EC2 Fleet.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

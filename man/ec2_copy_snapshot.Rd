@@ -24,21 +24,21 @@ ec2_copy_snapshot(
 
 \item{SourceSnapshotId}{String. The ID of the EBS snapshot to copy.}
 
-\item{Description}{String. A description for the EBS snapshot.\link{optional}}
+\item{Description}{String. A description for the EBS snapshot.[optional]}
 
-\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.\link{optional}}
+\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.[optional]}
 
-\item{DestinationRegion}{String.   The destination Region to use in the \code{PresignedUrl} parameter of a snapshot copy operation.\link{optional}}
+\item{DestinationRegion}{String.   The destination Region to use in the \code{PresignedUrl} parameter of a snapshot copy operation.[optional]}
 
-\item{Encrypted}{Boolean. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable...\link{optional}}
+\item{Encrypted}{Logical. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable...[optional]}
 
-\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\link{optional}}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...[optional]}
 
-\item{PresignedUrl}{String.   When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply...\link{optional}}
+\item{PresignedUrl}{String.   When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the new snapshot.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the new snapshot.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

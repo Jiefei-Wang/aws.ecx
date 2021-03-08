@@ -15,15 +15,16 @@ ec2_describe_managed_prefix_lists(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{PrefixListId}{Array. One or more prefix list IDs.\link{optional}}
+\item{PrefixListId}{List. One or more prefix list IDs.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

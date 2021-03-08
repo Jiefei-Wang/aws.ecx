@@ -16,11 +16,11 @@ ec2_modify_transit_gateway(
 \arguments{
 \item{TransitGatewayId}{String. The ID of the transit gateway.}
 
-\item{Description}{String. The description for the transit gateway.\link{optional}}
+\item{Description}{String. The description for the transit gateway.[optional]}
 
-\item{Options}{Object. The options to modify.\link{optional}}
+\item{Options}{Object. The options to modify.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

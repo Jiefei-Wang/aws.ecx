@@ -13,11 +13,11 @@ ec2_describe_vpc_classic_link_dns_support(
 )
 }
 \arguments{
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{VpcIds}{Array. One or more VPC IDs.\link{optional}}
+\item{VpcIds}{List. One or more VPC IDs.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

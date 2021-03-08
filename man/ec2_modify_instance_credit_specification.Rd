@@ -13,11 +13,11 @@ ec2_modify_instance_credit_specification(
 )
 }
 \arguments{
-\item{InstanceCreditSpecification}{Array. Information about the credit option for CPU usage.}
+\item{InstanceCreditSpecification}{List. Information about the credit option for CPU usage.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.\link{optional}}
+\item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

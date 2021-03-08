@@ -28,35 +28,35 @@ ec2_modify_instance_attribute(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{SourceDestCheck}{Object. Specifies whether source/destination checking is enabled.\link{optional}}
+\item{SourceDestCheck}{Object. Specifies whether source/destination checking is enabled.[optional]}
 
-\item{Attribute}{String. The name of the attribute.\link{optional}}
+\item{Attribute}{String. The name of the attribute.[optional]}
 
-\item{BlockDeviceMapping}{Array.   Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.\link{optional}}
+\item{BlockDeviceMapping}{List.   Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.[optional]}
 
-\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI,...\link{optional}}
+\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI,...[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{EbsOptimized}{Object. Specifies whether the instance is optimized for Amazon EBS I/O.\link{optional}}
+\item{EbsOptimized}{Object. Specifies whether the instance is optimized for Amazon EBS I/O.[optional]}
 
-\item{EnaSupport}{Object.   Set to \code{true} to enable enhanced networking with ENA for the instance.\link{optional}}
+\item{EnaSupport}{Object.   Set to \code{true} to enable enhanced networking with ENA for the instance.[optional]}
 
-\item{GroupId}{Array. [EC2-VPC] Changes the security groups of the instance.\link{optional}}
+\item{GroupId}{List. [EC2-VPC] Changes the security groups of the instance.[optional]}
 
-\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...\link{optional}}
+\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...[optional]}
 
-\item{InstanceType}{Object. Changes the instance type to the specified value.\link{optional}}
+\item{InstanceType}{Object. Changes the instance type to the specified value.[optional]}
 
-\item{Kernel}{Object. Changes the instance\'s kernel to the specified value.\link{optional}}
+\item{Kernel}{Object. Changes the instance\'s kernel to the specified value.[optional]}
 
-\item{Ramdisk}{Object. Changes the instance\'s RAM disk to the specified value.\link{optional}}
+\item{Ramdisk}{Object. Changes the instance\'s RAM disk to the specified value.[optional]}
 
-\item{SriovNetSupport}{Object.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...\link{optional}}
+\item{SriovNetSupport}{Object.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...[optional]}
 
-\item{UserData}{Object. Changes the instance\'s user data to the specified value.\link{optional}}
+\item{UserData}{Object. Changes the instance\'s user data to the specified value.[optional]}
 
-\item{Value}{String. A new value for the attribute.\link{optional}}
+\item{Value}{String. A new value for the attribute.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

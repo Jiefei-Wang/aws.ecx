@@ -19,17 +19,17 @@ ec2_modify_instance_placement(
 \arguments{
 \item{InstanceId}{String. The ID of the instance that you are modifying.}
 
-\item{Affinity}{String. The affinity setting for the instance.\link{optional}}
+\item{Affinity}{String. The affinity setting for the instance.[optional]}
 
-\item{GroupName}{String.   The name of the placement group in which to place the instance.\link{optional}}
+\item{GroupName}{String.   The name of the placement group in which to place the instance.[optional]}
 
-\item{HostId}{String. The ID of the Dedicated Host with which to associate the instance.\link{optional}}
+\item{HostId}{String. The ID of the Dedicated Host with which to associate the instance.[optional]}
 
-\item{Tenancy}{String. The tenancy for the instance.\link{optional}}
+\item{Tenancy}{String. The tenancy for the instance.[optional]}
 
-\item{PartitionNumber}{Integer. Reserved for future use.\link{optional}}
+\item{PartitionNumber}{Integer. Reserved for future use.[optional]}
 
-\item{HostResourceGroupArn}{String. The ARN of the host resource group in which to place the instance.\link{optional}}
+\item{HostResourceGroupArn}{String. The ARN of the host resource group in which to place the instance.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

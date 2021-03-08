@@ -22,11 +22,11 @@ ec2_create_client_vpn_route(
 
 \item{TargetVpcSubnetId}{String.   The ID of the subnet through which you want to route traffic.}
 
-\item{Description}{String. A brief description of the route.\link{optional}}
+\item{Description}{String. A brief description of the route.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

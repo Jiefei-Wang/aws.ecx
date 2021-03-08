@@ -16,17 +16,18 @@ ec2_describe_security_groups(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{GroupId}{Array.   The IDs of the security groups.\link{optional}}
+\item{GroupId}{List.   The IDs of the security groups.[optional]}
 
-\item{GroupName}{Array.   [EC2-Classic and default VPC only] The names of the security groups.\link{optional}}
+\item{GroupName}{List.   [EC2-Classic and default VPC only] The names of the security groups.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer. The maximum number of results to return in a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -13,11 +13,12 @@ ec2_describe_reserved_instances_listings(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{ReservedInstancesId}{String. One or more Reserved Instance IDs.\link{optional}}
+\item{ReservedInstancesId}{String. One or more Reserved Instance IDs.[optional]}
 
-\item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs.\link{optional}}
+\item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

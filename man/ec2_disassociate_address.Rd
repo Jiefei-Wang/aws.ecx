@@ -13,11 +13,11 @@ ec2_disassociate_address(
 )
 }
 \arguments{
-\item{AssociationId}{String. [EC2-VPC] The association ID. Required for EC2-VPC.\link{optional}}
+\item{AssociationId}{String. [EC2-VPC] The association ID. Required for EC2-VPC.[optional]}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.\link{optional}}
+\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

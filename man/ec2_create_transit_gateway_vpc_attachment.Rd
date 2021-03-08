@@ -20,13 +20,13 @@ ec2_create_transit_gateway_vpc_attachment(
 
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{SubnetIds}{Array. The IDs of one or more subnets.}
+\item{SubnetIds}{List. The IDs of one or more subnets.}
 
-\item{Options}{Object. The VPC attachment options.\link{optional}}
+\item{Options}{Object. The VPC attachment options.[optional]}
 
-\item{TagSpecifications}{Array. The tags to apply to the VPC attachment.\link{optional}}
+\item{TagSpecifications}{List. The tags to apply to the VPC attachment.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

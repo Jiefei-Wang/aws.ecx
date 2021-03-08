@@ -19,17 +19,17 @@ ec2_modify_snapshot_attribute(
 \arguments{
 \item{SnapshotId}{String. The ID of the snapshot.}
 
-\item{Attribute}{String. The snapshot attribute to modify. Only volume creation permissions can be modified.\link{optional}}
+\item{Attribute}{String. The snapshot attribute to modify. Only volume creation permissions can be modified.[optional]}
 
-\item{CreateVolumePermission}{Object. A JSON representation of the snapshot attribute modification.\link{optional}}
+\item{CreateVolumePermission}{Object. A JSON representation of the snapshot attribute modification.[optional]}
 
-\item{UserGroup}{Array. The group to modify for the snapshot.\link{optional}}
+\item{UserGroup}{List. The group to modify for the snapshot.[optional]}
 
-\item{OperationType}{String. The type of operation to perform to the attribute.\link{optional}}
+\item{OperationType}{String. The type of operation to perform to the attribute.[optional]}
 
-\item{UserId}{Array. The account ID to modify for the snapshot.\link{optional}}
+\item{UserId}{List. The account ID to modify for the snapshot.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

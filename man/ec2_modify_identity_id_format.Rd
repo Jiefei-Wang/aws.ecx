@@ -17,7 +17,7 @@ ec2_modify_identity_id_format(
 
 \item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...}
 
-\item{UseLongIds}{Boolean. Indicates whether the resource should use longer IDs (17-character IDs)}
+\item{UseLongIds}{Logical. Indicates whether the resource should use longer IDs (17-character IDs)}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

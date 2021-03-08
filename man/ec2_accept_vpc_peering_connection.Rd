@@ -12,9 +12,9 @@ ec2_accept_vpc_peering_connection(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection. You must specify this parameter in the request.\link{optional}}
+\item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection. You must specify this parameter in the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -25,17 +25,17 @@ ec2_copy_image(
 
 \item{SourceRegion}{String. The name of the Region that contains the AMI to copy.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of the request.\link{optional}}
+\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of the request.[optional]}
 
-\item{Description}{String. A description for the new AMI in the destination Region.\link{optional}}
+\item{Description}{String. A description for the new AMI in the destination Region.[optional]}
 
-\item{Encrypted}{Boolean. Specifies whether the destination snapshots of the copied image should be encrypted.\link{optional}}
+\item{Encrypted}{Logical. Specifies whether the destination snapshots of the copied image should be encrypted.[optional]}
 
-\item{KmsKeyId}{String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key...\link{optional}}
+\item{KmsKeyId}{String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key...[optional]}
 
-\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.\link{optional}}
+\item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

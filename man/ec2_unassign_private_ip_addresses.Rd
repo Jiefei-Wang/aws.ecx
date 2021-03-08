@@ -14,7 +14,7 @@ ec2_unassign_private_ip_addresses(
 \arguments{
 \item{NetworkInterfaceId}{String. The ID of the network interface.}
 
-\item{PrivateIpAddress}{Array. The secondary private IP addresses to unassign from the network interface.}
+\item{PrivateIpAddress}{List. The secondary private IP addresses to unassign from the network interface.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

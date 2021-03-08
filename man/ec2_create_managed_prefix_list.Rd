@@ -23,13 +23,13 @@ ec2_create_managed_prefix_list(
 
 \item{AddressFamily}{String.   The IP address type.  Valid Values: \code{IPv4} \| \code{IPv6}}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Entry}{Array. One or more entries for the prefix list.\link{optional}}
+\item{Entry}{List. One or more entries for the prefix list.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the prefix list during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the prefix list during creation.[optional]}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

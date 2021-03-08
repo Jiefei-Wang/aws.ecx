@@ -14,13 +14,13 @@ ec2_stop_instances(
 )
 }
 \arguments{
-\item{InstanceId}{Array. The IDs of the instances.}
+\item{InstanceId}{List. The IDs of the instances.}
 
-\item{Hibernate}{Boolean.   Hibernates the instance if the instance was enabled for hibernation at launch.\link{optional}}
+\item{Hibernate}{Logical.   Hibernates the instance if the instance was enabled for hibernation at launch.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Force}{Boolean.   Forces the instances to stop.\link{optional}}
+\item{Force}{Logical.   Forces the instances to stop.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

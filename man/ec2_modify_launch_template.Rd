@@ -15,15 +15,15 @@ ec2_modify_launch_template(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.\link{optional}}
+\item{LaunchTemplateId}{String. The ID of the launch template.[optional]}
 
-\item{LaunchTemplateName}{String. The name of the launch template.\link{optional}}
+\item{LaunchTemplateName}{String. The name of the launch template.[optional]}
 
-\item{SetDefaultVersion}{String. The version number of the launch template to set as the default version.\link{optional}}
+\item{SetDefaultVersion}{String. The version number of the launch template to set as the default version.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -21,9 +21,9 @@ ec2_import_volume(
 
 \item{Volume}{Object. The volume size.}
 
-\item{Description}{String. A description of the volume.\link{optional}}
+\item{Description}{String. A description of the volume.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -13,11 +13,11 @@ ec2_create_dhcp_options(
 )
 }
 \arguments{
-\item{DhcpConfiguration}{Array. A DHCP configuration option.}
+\item{DhcpConfiguration}{List. A DHCP configuration option.}
 
-\item{TagSpecification}{Array. The tags to assign to the DHCP option.\link{optional}}
+\item{TagSpecification}{List. The tags to assign to the DHCP option.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

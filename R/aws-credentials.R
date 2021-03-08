@@ -37,7 +37,7 @@ aws_credentials$region <- NULL
 #' @return
 #' `aws_set_credentials` : A list containing credentials(with asterisk) and region.
 #'
-#' `aws_show_credentials` : A list containing credentials(with asterisk) and region.
+#' `aws_get_credentials` : A list containing credentials(with asterisk) and region.
 #'
 #' `aws_get_access_key_id` : The access key id
 #'
@@ -71,11 +71,11 @@ aws_set_credentials<-function(key_file=NULL,
   if(!is.null(credentials$region)){
     aws_credentials$region <- credentials$region
   }
-  aws_show_credentials()
+  aws_get_credentials()
 }
 #' @rdname credentials
 #' @export
-aws_show_credentials <- function(){
+aws_get_credentials <- function(){
   out_access_key_id <- aws_credentials$access_key_id
   out_secret_access_key <- aws_credentials$secret_access_key
   out_access_key_id <- add_asterisk_in_middle(out_access_key_id,2,4)

@@ -19,17 +19,17 @@ ec2_modify_volume(
 \arguments{
 \item{VolumeId}{String. The ID of the volume.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Size}{Integer.   The target size of the volume, in GiB.\link{optional}}
+\item{Size}{Integer.   The target size of the volume, in GiB.[optional]}
 
-\item{VolumeType}{String.   The target EBS volume type of the volume.\link{optional}}
+\item{VolumeType}{String.   The target EBS volume type of the volume.[optional]}
 
-\item{Iops}{Integer.   The target IOPS rate of the volume.\link{optional}}
+\item{Iops}{Integer.   The target IOPS rate of the volume.[optional]}
 
-\item{Throughput}{Integer.   The target throughput of the volume, in MiB/s.\link{optional}}
+\item{Throughput}{Integer.   The target throughput of the volume, in MiB/s.[optional]}
 
-\item{MultiAttachEnabled}{Boolean. Specifies whether to enable Amazon EBS Multi-Attach.\link{optional}}
+\item{MultiAttachEnabled}{Logical. Specifies whether to enable Amazon EBS Multi-Attach.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

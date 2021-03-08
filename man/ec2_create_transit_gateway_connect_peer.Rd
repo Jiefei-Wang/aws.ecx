@@ -21,15 +21,15 @@ ec2_create_transit_gateway_connect_peer(
 
 \item{PeerAddress}{String. The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.}
 
-\item{InsideCidrBlocks}{Array. The range of inside IP addresses that are used for BGP peering.}
+\item{InsideCidrBlocks}{List. The range of inside IP addresses that are used for BGP peering.}
 
-\item{TransitGatewayAddress}{String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer,...\link{optional}}
+\item{TransitGatewayAddress}{String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer,...[optional]}
 
-\item{BgpOptions}{Object. The BGP options for the Connect peer.\link{optional}}
+\item{BgpOptions}{Object. The BGP options for the Connect peer.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the Connect peer.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the Connect peer.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

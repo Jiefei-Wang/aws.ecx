@@ -11,13 +11,16 @@ generate_document <- function(api_info){
                                      required = param_table$required[i],
                                      type = param_table$type[i]),
                                  character(1))
+    short_description_idx <-
+        get_nonexclude_short_description_bool(param_table$name)
     short_descriptions[short_descriptions==""] <- "No description can be found."
 
     function_description <- api_info$description
     document_title <- camel_to_title(api_info$name)
     md_short_description <- NULL
     if(length(short_descriptions)!=0){
-        md_short_description <- paste0("@param ", param_table$name, " ", short_descriptions)
+        md_short_description <- paste0("@param ", param_table$name[short_description_idx],
+                                       " ", short_descriptions[short_description_idx])
     }
     md_long_description <- NULL
     if(length(param_descriptions)!=0){
@@ -30,7 +33,7 @@ generate_document <- function(api_info){
         strsplit(function_description, "\\n\\n")[[1]][1],
         "\n",
         md_short_description,
-        "@inheritParams additionalDoc",
+        "@inheritParams CommonDoc",
         "\n",
         md_long_description,
         "@return A list object or a character vector",
@@ -74,7 +77,7 @@ generate_function <- function(service, api_info){
         collapse = "\n")
 
     if("Filter" %in% param_table$name){
-        list_to_filter_process_code <- "Filter <- get_filter(Filter)"
+        list_to_filter_process_code <- "Filter <- list_to_filter(Filter)"
     }
 
     array_idx <- param_table$type=="array"
@@ -132,11 +135,9 @@ get_short_description <- function(param_name, description, required, type=NULL){
             short_description <- paste0(short_description, "...")
         }
     }
-    short_description <- paste0(short_description , ifelse(required,"","[optional]"))
+    short_description <- paste0(short_description , ifelse(required,"","\\[optional\\]"))
     if(!is.null(type)){
-        if(type%in%names(type_map)){
-            type <- type_map[type]
-        }
+        type <- type_mapping(type)
         short_description <- paste0(capitalize(type), ". ", short_description)
     }
     short_description

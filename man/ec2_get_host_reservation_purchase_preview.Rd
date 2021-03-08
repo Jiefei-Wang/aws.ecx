@@ -12,7 +12,7 @@ ec2_get_host_reservation_purchase_preview(
 )
 }
 \arguments{
-\item{HostIdSet}{Array. The IDs of the Dedicated Hosts with which the reservation is associated.}
+\item{HostIdSet}{List. The IDs of the Dedicated Hosts with which the reservation is associated.}
 
 \item{OfferingId}{String. The offering ID of the reservation.}
 

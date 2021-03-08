@@ -17,19 +17,19 @@ ec2_allocate_address(
 )
 }
 \arguments{
-\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances...\link{optional}}
+\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances...[optional]}
 
-\item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.\link{optional}}
+\item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.[optional]}
 
-\item{PublicIpv4Pool}{String. The ID of an address pool that you own.\link{optional}}
+\item{PublicIpv4Pool}{String. The ID of an address pool that you own.[optional]}
 
-\item{NetworkBorderGroup}{String.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\link{optional}}
+\item{NetworkBorderGroup}{String.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...[optional]}
 
-\item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.\link{optional}}
+\item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{TagSpecification}{Array. The tags to assign to the Elastic IP address.\link{optional}}
+\item{TagSpecification}{List. The tags to assign to the Elastic IP address.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

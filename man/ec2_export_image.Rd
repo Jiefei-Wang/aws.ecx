@@ -24,15 +24,15 @@ ec2_export_image(
 
 \item{S3ExportLocation}{Object. Information about the destination Amazon S3 bucket.}
 
-\item{ClientToken}{String. Token to enable idempotency for export image requests.\link{optional}}
+\item{ClientToken}{String. Token to enable idempotency for export image requests.[optional]}
 
-\item{Description}{String. A description of the image being exported. The maximum length is 255 characters.\link{optional}}
+\item{Description}{String. A description of the image being exported. The maximum length is 255 characters.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{RoleName}{String. The name of the role that grants VM Import/Export permission to export images to your Amazon...\link{optional}}
+\item{RoleName}{String. The name of the role that grants VM Import/Export permission to export images to your Amazon...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the export image task during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the export image task during creation.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -16,17 +16,18 @@ ec2_describe_host_reservation_offerings(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{MaxDuration}{Integer. This is the maximum duration of the reservation to purchase, specified in seconds.\link{optional}}
+\item{MaxDuration}{Integer. This is the maximum duration of the reservation to purchase, specified in seconds.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.[optional]}
 
-\item{MinDuration}{Integer. This is the minimum duration of the reservation you\'d like to purchase, specified in seconds.\link{optional}}
+\item{MinDuration}{Integer. This is the minimum duration of the reservation you\'d like to purchase, specified in seconds.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{OfferingId}{String. The ID of the reservation offering.\link{optional}}
+\item{OfferingId}{String. The ID of the reservation offering.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

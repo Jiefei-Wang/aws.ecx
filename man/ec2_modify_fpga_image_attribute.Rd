@@ -22,23 +22,23 @@ ec2_modify_fpga_image_attribute(
 \arguments{
 \item{FpgaImageId}{String. The ID of the AFI.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{Attribute}{String. The name of the attribute.\link{optional}}
+\item{Attribute}{String. The name of the attribute.[optional]}
 
-\item{OperationType}{String. The operation type.\link{optional}}
+\item{OperationType}{String. The operation type.[optional]}
 
-\item{UserId}{Array. The AWS account IDs. This parameter is valid only when modifying the \code{loadPermission} attribute.\link{optional}}
+\item{UserId}{List. The AWS account IDs. This parameter is valid only when modifying the \code{loadPermission} attribute.[optional]}
 
-\item{UserGroup}{Array. The user groups. This parameter is valid only when modifying the \code{loadPermission} attribute.\link{optional}}
+\item{UserGroup}{List. The user groups. This parameter is valid only when modifying the \code{loadPermission} attribute.[optional]}
 
-\item{ProductCode}{Array. The product codes.\link{optional}}
+\item{ProductCode}{List. The product codes.[optional]}
 
-\item{LoadPermission}{Object. The load permission for the AFI.\link{optional}}
+\item{LoadPermission}{Object. The load permission for the AFI.[optional]}
 
-\item{Description}{String. A description for the AFI.\link{optional}}
+\item{Description}{String. A description for the AFI.[optional]}
 
-\item{Name}{String. A name for the AFI.\link{optional}}
+\item{Name}{String. A name for the AFI.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -17,13 +17,13 @@ ec2_create_vpn_gateway(
 \arguments{
 \item{Type}{String. The type of VPN connection this virtual private gateway supports.}
 
-\item{AvailabilityZone}{String. The Availability Zone for the virtual private gateway.\link{optional}}
+\item{AvailabilityZone}{String. The Availability Zone for the virtual private gateway.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the virtual private gateway.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the virtual private gateway.[optional]}
 
-\item{AmazonSideAsn}{Integer.   A private Autonomous System Number (ASN) for the Amazon side of a BGP session.\link{optional}}
+\item{AmazonSideAsn}{Integer.   A private Autonomous System Number (ASN) for the Amazon side of a BGP session.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

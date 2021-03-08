@@ -17,7 +17,7 @@ ec2_replace_network_acl_association(
 
 \item{NetworkAclId}{String. The ID of the new network ACL to associate with the subnet.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

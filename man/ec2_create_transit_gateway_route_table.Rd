@@ -15,9 +15,9 @@ ec2_create_transit_gateway_route_table(
 \arguments{
 \item{TransitGatewayId}{String. The ID of the transit gateway.}
 
-\item{TagSpecifications}{Array. The tags to apply to the transit gateway route table.\link{optional}}
+\item{TagSpecifications}{List. The tags to apply to the transit gateway route table.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

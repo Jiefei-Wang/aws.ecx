@@ -17,19 +17,20 @@ ec2_describe_snapshots(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{MaxResults}{Integer. The maximum number of snapshot results returned by \code{DescribeSnapshots} in paginated output.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of snapshot results returned by \code{DescribeSnapshots} in paginated output.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{Owner}{Array. Scopes the results to snapshots with the specified owners.\link{optional}}
+\item{Owner}{List. Scopes the results to snapshots with the specified owners.[optional]}
 
-\item{RestorableBy}{Array. The IDs of the AWS accounts that can create volumes from the snapshot.\link{optional}}
+\item{RestorableBy}{List. The IDs of the AWS accounts that can create volumes from the snapshot.[optional]}
 
-\item{SnapshotId}{Array.   The snapshot IDs.\link{optional}}
+\item{SnapshotId}{List.   The snapshot IDs.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

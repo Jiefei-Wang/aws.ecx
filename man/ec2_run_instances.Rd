@@ -51,75 +51,75 @@ ec2_run_instances(
 
 \item{MinCount}{Integer.   The minimum number of instances to launch.}
 
-\item{BlockDeviceMapping}{Array. The block device mapping entries.\link{optional}}
+\item{BlockDeviceMapping}{List. The block device mapping entries.[optional]}
 
-\item{ImageId}{String. The ID of the AMI.\link{optional}}
+\item{ImageId}{String. The ID of the AMI.[optional]}
 
-\item{InstanceType}{String.   The instance type.\link{optional}}
+\item{InstanceType}{String.   The instance type.[optional]}
 
-\item{Ipv6AddressCount}{Integer.   [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.\link{optional}}
+\item{Ipv6AddressCount}{Integer.   [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.[optional]}
 
-\item{Ipv6Address}{Array.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary...\link{optional}}
+\item{Ipv6Address}{List.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary...[optional]}
 
-\item{KernelId}{String.   The ID of the kernel.\link{optional}}
+\item{KernelId}{String.   The ID of the kernel.[optional]}
 
-\item{KeyName}{String.   The name of the key pair.\link{optional}}
+\item{KeyName}{String.   The name of the key pair.[optional]}
 
-\item{Monitoring}{Object. Specifies whether detailed monitoring is enabled for the instance.\link{optional}}
+\item{Monitoring}{Object. Specifies whether detailed monitoring is enabled for the instance.[optional]}
 
-\item{Placement}{Object. The placement for the instance.\link{optional}}
+\item{Placement}{Object. The placement for the instance.[optional]}
 
-\item{RamdiskId}{String.   The ID of the RAM disk to select.\link{optional}}
+\item{RamdiskId}{String.   The ID of the RAM disk to select.[optional]}
 
-\item{SecurityGroupId}{Array.   The IDs of the security groups.\link{optional}}
+\item{SecurityGroupId}{List.   The IDs of the security groups.[optional]}
 
-\item{SecurityGroup}{Array.   [EC2-Classic, default VPC] The names of the security groups.\link{optional}}
+\item{SecurityGroup}{List.   [EC2-Classic, default VPC] The names of the security groups.[optional]}
 
-\item{SubnetId}{String.   [EC2-VPC] The ID of the subnet to launch the instance into.\link{optional}}
+\item{SubnetId}{String.   [EC2-VPC] The ID of the subnet to launch the instance into.[optional]}
 
-\item{UserData}{String. The user data to make available to the instance.\link{optional}}
+\item{UserData}{String. The user data to make available to the instance.[optional]}
 
-\item{AdditionalInfo}{String. Reserved.\link{optional}}
+\item{AdditionalInfo}{String. Reserved.[optional]}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\link{optional}}
+\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
-\item{DisableApiTermination}{Boolean.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon...\link{optional}}
+\item{DisableApiTermination}{Logical.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon...[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{EbsOptimized}{Boolean.   Indicates whether the instance is optimized for Amazon EBS I/O.\link{optional}}
+\item{EbsOptimized}{Logical.   Indicates whether the instance is optimized for Amazon EBS I/O.[optional]}
 
-\item{IamInstanceProfile}{Object. The name or Amazon Resource Name (ARN) of an IAM instance profile.\link{optional}}
+\item{IamInstanceProfile}{Object. The name or Amazon Resource Name (ARN) of an IAM instance profile.[optional]}
 
-\item{InstanceInitiatedShutdownBehavior}{String.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...\link{optional}}
+\item{InstanceInitiatedShutdownBehavior}{String.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...[optional]}
 
-\item{NetworkInterface}{Array. The network interfaces to associate with the instance.\link{optional}}
+\item{NetworkInterface}{List. The network interfaces to associate with the instance.[optional]}
 
-\item{PrivateIpAddress}{String.   [EC2-VPC] The primary IPv4 address.\link{optional}}
+\item{PrivateIpAddress}{String.   [EC2-VPC] The primary IPv4 address.[optional]}
 
-\item{ElasticGpuSpecification}{Array. An elastic GPU to associate with the instance.\link{optional}}
+\item{ElasticGpuSpecification}{List. An elastic GPU to associate with the instance.[optional]}
 
-\item{ElasticInferenceAccelerator}{Array.   An elastic inference accelerator to associate with the instance.\link{optional}}
+\item{ElasticInferenceAccelerator}{List.   An elastic inference accelerator to associate with the instance.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the resources during launch.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the resources during launch.[optional]}
 
-\item{LaunchTemplate}{Object. The launch template to use to launch the instances.\link{optional}}
+\item{LaunchTemplate}{Object. The launch template to use to launch the instances.[optional]}
 
-\item{InstanceMarketOptions}{Object.   The market (purchasing) option for the instances.\link{optional}}
+\item{InstanceMarketOptions}{Object.   The market (purchasing) option for the instances.[optional]}
 
-\item{CreditSpecification}{Object.   The credit option for CPU usage of the burstable performance instance.\link{optional}}
+\item{CreditSpecification}{Object.   The credit option for CPU usage of the burstable performance instance.[optional]}
 
-\item{CpuOptions}{Object. The CPU options for the instance.\link{optional}}
+\item{CpuOptions}{Object. The CPU options for the instance.[optional]}
 
-\item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.\link{optional}}
+\item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.[optional]}
 
-\item{HibernationOptions}{Object.   Indicates whether an instance is enabled for hibernation.\link{optional}}
+\item{HibernationOptions}{Object.   Indicates whether an instance is enabled for hibernation.[optional]}
 
-\item{LicenseSpecification}{Array. The license configurations.\link{optional}}
+\item{LicenseSpecification}{List. The license configurations.[optional]}
 
-\item{MetadataOptions}{Object. The metadata options for the instance.\link{optional}}
+\item{MetadataOptions}{Object. The metadata options for the instance.[optional]}
 
-\item{EnclaveOptions}{Object.   Indicates whether the instance is enabled for AWS Nitro Enclaves.\link{optional}}
+\item{EnclaveOptions}{Object.   Indicates whether the instance is enabled for AWS Nitro Enclaves.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

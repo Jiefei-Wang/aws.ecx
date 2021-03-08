@@ -4,7 +4,7 @@
 #' an Amazon ECS cluster and are used in capacity provider strategies to
 #' facilitate cluster auto scaling.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -18,7 +18,7 @@ ecs_create_capacity_provider <- function(simplify = TRUE, others = list()) {
 
 #' Create Cluster
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -32,7 +32,7 @@ ecs_create_cluster <- function(simplify = TRUE, others = list()) {
 
 #' Create Service
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -53,7 +53,7 @@ ecs_create_service <- function(simplify = TRUE, others = list()) {
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -71,7 +71,7 @@ ecs_create_task_set <- function(simplify = TRUE, others = list()) {
 #' IAM user, IAM role, or the root user for an
 #' account.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -88,7 +88,7 @@ ecs_delete_account_setting <- function(simplify = TRUE, others = list()) {
 #' Deletes one or more custom attributes from
 #' an Amazon ECS resource.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -102,7 +102,7 @@ ecs_delete_attributes <- function(simplify = TRUE, others = list()) {
 
 #' Delete Capacity Provider
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -116,7 +116,7 @@ ecs_delete_capacity_provider <- function(simplify = TRUE, others = list()) {
 
 #' Delete Cluster
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -130,7 +130,7 @@ ecs_delete_cluster <- function(simplify = TRUE, others = list()) {
 
 #' Delete Service
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -151,7 +151,7 @@ ecs_delete_service <- function(simplify = TRUE, others = list()) {
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -165,7 +165,7 @@ ecs_delete_task_set <- function(simplify = TRUE, others = list()) {
 
 #' Deregister Container Instance
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -179,7 +179,7 @@ ecs_deregister_container_instance <- function(simplify = TRUE, others = list()) 
 
 #' Deregister Task Definition
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -196,7 +196,7 @@ ecs_deregister_task_definition <- function(simplify = TRUE, others = list()) {
 #' Describes one or more of your capacity
 #' providers.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -213,7 +213,7 @@ ecs_describe_capacity_providers <- function(simplify = TRUE, others = list()) {
 #' Describes one or more of your
 #' clusters.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -232,7 +232,7 @@ ecs_describe_clusters <- function(simplify = TRUE, others = list()) {
 #' resources on each container instance
 #' requested.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -249,7 +249,7 @@ ecs_describe_container_instances <- function(simplify = TRUE, others = list()) {
 #' Describes the specified services running
 #' in your cluster.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -263,7 +263,7 @@ ecs_describe_services <- function(simplify = TRUE, others = list()) {
 
 #' Describe Task Definition
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -284,7 +284,7 @@ ecs_describe_task_definition <- function(simplify = TRUE, others = list()) {
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -301,7 +301,7 @@ ecs_describe_task_sets <- function(simplify = TRUE, others = list()) {
 #' Describes a specified task or
 #' tasks.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -315,7 +315,7 @@ ecs_describe_tasks <- function(simplify = TRUE, others = list()) {
 
 #' Discover Poll Endpoint
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -332,8 +332,8 @@ ecs_discover_poll_endpoint <- function(simplify = TRUE, others = list()) {
 #' Lists the account settings for a specified
 #' principal.
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination limit
@@ -358,8 +358,8 @@ ecs_list_account_settings <- function(maxResults = NULL, nextToken = NULL, simpl
 #' value, for example, to see which container instances in a cluster are
 #' running a Linux AMI (`ecs.os-type=linux`). 
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -379,8 +379,8 @@ ecs_list_attributes <- function(maxResults = NULL, nextToken = NULL, simplify = 
 #' Returns
 #' a list of existing clusters.
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -406,8 +406,8 @@ ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TR
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -428,8 +428,8 @@ ecs_list_container_instances <- function(maxResults = NULL, nextToken = NULL, si
 #' Lists the services that are running in a
 #' specified cluster.
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -449,7 +449,7 @@ ecs_list_services <- function(maxResults = NULL, nextToken = NULL, simplify = TR
 #' List the tags for an Amazon ECS
 #' resource.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -463,8 +463,8 @@ ecs_list_tags_for_resource <- function(simplify = TRUE, others = list()) {
 
 #' List Task Definition Families
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -487,8 +487,8 @@ ecs_list_task_definition_families <- function(maxResults = NULL, nextToken = NUL
 #' with the `familyPrefix` parameter or by status with the `status`
 #' parameter.
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -505,8 +505,8 @@ ecs_list_task_definitions <- function(maxResults = NULL, nextToken = NULL, simpl
 
 #' List Tasks
 #' 
-#' @param maxResults String. Pagination limit[optional]
-#' @inheritParams additionalDoc
+#' @param maxResults String. Pagination limit\[optional\]
+#' @inheritParams CommonDoc
 #' 
 #' @section maxResults:
 #' Pagination
@@ -523,7 +523,7 @@ ecs_list_tasks <- function(maxResults = NULL, nextToken = NULL, simplify = TRUE,
 
 #' Put Account Setting
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -542,7 +542,7 @@ ecs_put_account_setting <- function(simplify = TRUE, others = list()) {
 #' Account settings are set on a per-Region
 #' basis.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -564,7 +564,7 @@ ecs_put_account_setting_default <- function(simplify = TRUE, others = list()) {
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -578,7 +578,7 @@ ecs_put_attributes <- function(simplify = TRUE, others = list()) {
 
 #' Put Cluster Capacity Providers
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -592,7 +592,7 @@ ecs_put_cluster_capacity_providers <- function(simplify = TRUE, others = list())
 
 #' Register Container Instance
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -606,7 +606,7 @@ ecs_register_container_instance <- function(simplify = TRUE, others = list()) {
 
 #' Register Task Definition
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -620,21 +620,21 @@ ecs_register_task_definition <- function(simplify = TRUE, others = list()) {
 
 #' Run Task
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
 ecs_run_task <- function(simplify = TRUE, others = list()) {
     parameters <- c(others, list())
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ecs_request, action = "RunTask", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ecs_request, action = "RunTask", parameters = parameters, simplify = simplify, 
+        token_name = NULL)
 }
 
 
 #' Start Task
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -648,7 +648,7 @@ ecs_start_task <- function(simplify = TRUE, others = list()) {
 
 #' Stop Task
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -662,7 +662,7 @@ ecs_stop_task <- function(simplify = TRUE, others = list()) {
 
 #' Submit Attachment State Changes
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -676,7 +676,7 @@ ecs_submit_attachment_state_changes <- function(simplify = TRUE, others = list()
 
 #' Submit Container State Change
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -690,7 +690,7 @@ ecs_submit_container_state_change <- function(simplify = TRUE, others = list()) 
 
 #' Submit Task State Change
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -710,7 +710,7 @@ ecs_submit_task_state_change <- function(simplify = TRUE, others = list()) {
 #' resource is deleted, the tags associated with that resource are deleted
 #' as well.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -727,7 +727,7 @@ ecs_tag_resource <- function(simplify = TRUE, others = list()) {
 #' Deletes specified tags from a
 #' resource.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -744,7 +744,7 @@ ecs_untag_resource <- function(simplify = TRUE, others = list()) {
 #' Modifies the parameters for a capacity
 #' provider.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -761,7 +761,7 @@ ecs_update_capacity_provider <- function(simplify = TRUE, others = list()) {
 #' Modifies the settings to use for a
 #' cluster.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -775,7 +775,7 @@ ecs_update_cluster_settings <- function(simplify = TRUE, others = list()) {
 
 #' Update Container Agent
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -789,7 +789,7 @@ ecs_update_container_agent <- function(simplify = TRUE, others = list()) {
 
 #' Update Container Instances State
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -803,7 +803,7 @@ ecs_update_container_instances_state <- function(simplify = TRUE, others = list(
 
 #' Update Service
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -826,7 +826,7 @@ ecs_update_service <- function(simplify = TRUE, others = list()) {
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export
@@ -846,7 +846,7 @@ ecs_update_service_primary_task_set <- function(simplify = TRUE, others = list()
 #' Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 #' in the *Amazon Elastic Container Service Developer Guide*.
 #' 
-#' @inheritParams additionalDoc
+#' @inheritParams CommonDoc
 #' 
 #' @return A list object or a character vector
 #' @export

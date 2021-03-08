@@ -14,7 +14,7 @@ ec2_export_client_vpn_client_configuration(
 \arguments{
 \item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

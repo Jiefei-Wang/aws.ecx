@@ -2,7 +2,7 @@
 % Please edit documentation in R/aws-credentials.R
 \name{aws_set_credentials}
 \alias{aws_set_credentials}
-\alias{aws_show_credentials}
+\alias{aws_get_credentials}
 \alias{aws_get_access_key_id}
 \alias{aws_get_secret_access_key}
 \alias{aws_get_region}
@@ -16,7 +16,7 @@ aws_set_credentials(
   profile = NULL
 )
 
-aws_show_credentials()
+aws_get_credentials()
 
 aws_get_access_key_id()
 
@@ -41,7 +41,7 @@ file. By default, the profile named in \code{AWS_PROFILE} is used, otherwise the
 \value{
 \code{aws_set_credentials} : A list containing credentials(with asterisk) and region.
 
-\code{aws_show_credentials} : A list containing credentials(with asterisk) and region.
+\code{aws_get_credentials} : A list containing credentials(with asterisk) and region.
 
 \code{aws_get_access_key_id} : The access key id
 

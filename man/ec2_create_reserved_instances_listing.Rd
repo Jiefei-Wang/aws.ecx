@@ -18,7 +18,7 @@ ec2_create_reserved_instances_listing(
 
 \item{InstanceCount}{Integer. The number of instances that are a part of a Reserved Instance account to be listed in the...}
 
-\item{PriceSchedules}{Array. A list specifying the price of the Standard Reserved Instance for each month remaining in...}
+\item{PriceSchedules}{List. A list specifying the price of the Standard Reserved Instance for each month remaining in...}
 
 \item{ReservedInstancesId}{String. The ID of the active Standard Reserved Instance.}
 

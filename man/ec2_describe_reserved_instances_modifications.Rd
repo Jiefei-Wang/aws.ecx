@@ -13,9 +13,10 @@ ec2_describe_reserved_instances_modifications(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{ReservedInstancesModificationId}{Array. IDs for the submitted modification request.\link{optional}}
+\item{ReservedInstancesModificationId}{List. IDs for the submitted modification request.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 

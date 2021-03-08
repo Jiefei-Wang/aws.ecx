@@ -20,25 +20,25 @@ ec2_revoke_security_group_ingress(
 )
 }
 \arguments{
-\item{CidrIp}{String. The CIDR IP address range.\link{optional}}
+\item{CidrIp}{String. The CIDR IP address range.[optional]}
 
-\item{FromPort}{Integer. The start of port range for the TCP and UDP protocols, or an ICMP type number.\link{optional}}
+\item{FromPort}{Integer. The start of port range for the TCP and UDP protocols, or an ICMP type number.[optional]}
 
-\item{GroupId}{String. The ID of the security group.\link{optional}}
+\item{GroupId}{String. The ID of the security group.[optional]}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.\link{optional}}
+\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.[optional]}
 
-\item{IpPermissions}{Array. The sets of IP permissions.\link{optional}}
+\item{IpPermissions}{List. The sets of IP permissions.[optional]}
 
-\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.\link{optional}}
+\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.[optional]}
 
-\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.\link{optional}}
+\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.[optional]}
 
-\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group...\link{optional}}
+\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group...[optional]}
 
-\item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.\link{optional}}
+\item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

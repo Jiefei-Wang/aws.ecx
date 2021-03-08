@@ -12,7 +12,7 @@ ecs_list_tasks(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit\link{optional}}
+\item{maxResults}{String. Pagination limit[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

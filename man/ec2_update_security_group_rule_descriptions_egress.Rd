@@ -14,13 +14,13 @@ ec2_update_security_group_rule_descriptions_egress(
 )
 }
 \arguments{
-\item{IpPermissions}{Array. The IP permissions for the security group rule.}
+\item{IpPermissions}{List. The IP permissions for the security group rule.}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{GroupId}{String. The ID of the security group.\link{optional}}
+\item{GroupId}{String. The ID of the security group.[optional]}
 
-\item{GroupName}{String. [Default VPC] The name of the security group.\link{optional}}
+\item{GroupName}{String. [Default VPC] The name of the security group.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

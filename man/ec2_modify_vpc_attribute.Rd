@@ -15,9 +15,9 @@ ec2_modify_vpc_attribute(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{EnableDnsHostnames}{Object.   Indicates whether the instances launched in the VPC get DNS hostnames.\link{optional}}
+\item{EnableDnsHostnames}{Object.   Indicates whether the instances launched in the VPC get DNS hostnames.[optional]}
 
-\item{EnableDnsSupport}{Object.   Indicates whether the DNS resolution is supported for the VPC.\link{optional}}
+\item{EnableDnsSupport}{Object.   Indicates whether the DNS resolution is supported for the VPC.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

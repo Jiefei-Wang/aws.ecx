@@ -17,13 +17,13 @@ ec2_detach_volume(
 \arguments{
 \item{VolumeId}{String. The ID of the volume.}
 
-\item{Device}{String. The device name.\link{optional}}
+\item{Device}{String. The device name.[optional]}
 
-\item{Force}{Boolean. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging...\link{optional}}
+\item{Force}{Logical. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging...[optional]}
 
-\item{InstanceId}{String. The ID of the instance.\link{optional}}
+\item{InstanceId}{String. The ID of the instance.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

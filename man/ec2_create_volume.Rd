@@ -24,27 +24,27 @@ ec2_create_volume(
 \arguments{
 \item{AvailabilityZone}{String. The Availability Zone in which to create the volume.}
 
-\item{Encrypted}{Boolean.   Indicates whether the volume should be encrypted.\link{optional}}
+\item{Encrypted}{Logical.   Indicates whether the volume should be encrypted.[optional]}
 
-\item{Iops}{Integer.   The number of I/O operations per second (IOPS).\link{optional}}
+\item{Iops}{Integer.   The number of I/O operations per second (IOPS).[optional]}
 
-\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\link{optional}}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...[optional]}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.\link{optional}}
+\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.[optional]}
 
-\item{Size}{Integer.   The size of the volume, in GiBs.\link{optional}}
+\item{Size}{Integer.   The size of the volume, in GiBs.[optional]}
 
-\item{SnapshotId}{String. The snapshot from which to create the volume.\link{optional}}
+\item{SnapshotId}{String. The snapshot from which to create the volume.[optional]}
 
-\item{VolumeType}{String.   The volume type.\link{optional}}
+\item{VolumeType}{String.   The volume type.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the volume during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the volume during creation.[optional]}
 
-\item{MultiAttachEnabled}{Boolean. Indicates whether to enable Amazon EBS Multi-Attach.\link{optional}}
+\item{MultiAttachEnabled}{Logical. Indicates whether to enable Amazon EBS Multi-Attach.[optional]}
 
-\item{Throughput}{Integer.   The throughput to provision for a volume, with a maximum of 1,000 MiB/s.\link{optional}}
+\item{Throughput}{Integer.   The throughput to provision for a volume, with a maximum of 1,000 MiB/s.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

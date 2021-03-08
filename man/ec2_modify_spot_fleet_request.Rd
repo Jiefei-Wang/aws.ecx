@@ -17,13 +17,13 @@ ec2_modify_spot_fleet_request(
 \arguments{
 \item{SpotFleetRequestId}{String. The ID of the Spot Fleet request.}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running Spot Instances should be terminated if the target capacity of the...\link{optional}}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running Spot Instances should be terminated if the target capacity of the...[optional]}
 
-\item{LaunchTemplateConfig}{Array. The launch template and overrides.\link{optional}}
+\item{LaunchTemplateConfig}{List. The launch template and overrides.[optional]}
 
-\item{TargetCapacity}{Integer. The size of the fleet.\link{optional}}
+\item{TargetCapacity}{Integer. The size of the fleet.[optional]}
 
-\item{OnDemandTargetCapacity}{Integer. The number of On-Demand Instances in the fleet.\link{optional}}
+\item{OnDemandTargetCapacity}{Integer. The number of On-Demand Instances in the fleet.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -15,15 +15,16 @@ ec2_describe_subnets(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{SubnetId}{Array.   One or more subnet IDs.  Default: Describes all your subnets.  \link{optional}}
+\item{SubnetId}{List.   One or more subnet IDs.  Default: Describes all your subnets.  [optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer. The maximum number of results to return with a single call.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return with a single call.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

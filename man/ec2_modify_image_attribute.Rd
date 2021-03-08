@@ -22,23 +22,23 @@ ec2_modify_image_attribute(
 \arguments{
 \item{ImageId}{String. The ID of the AMI.}
 
-\item{Attribute}{String. The name of the attribute to modify.\link{optional}}
+\item{Attribute}{String. The name of the attribute to modify.[optional]}
 
-\item{Description}{Object. A new description for the AMI.\link{optional}}
+\item{Description}{Object. A new description for the AMI.[optional]}
 
-\item{LaunchPermission}{Object. A new launch permission for the AMI.\link{optional}}
+\item{LaunchPermission}{Object. A new launch permission for the AMI.[optional]}
 
-\item{OperationType}{String. The operation type.\link{optional}}
+\item{OperationType}{String. The operation type.[optional]}
 
-\item{ProductCode}{Array. The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.\link{optional}}
+\item{ProductCode}{List. The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.[optional]}
 
-\item{UserGroup}{Array. The user groups.\link{optional}}
+\item{UserGroup}{List. The user groups.[optional]}
 
-\item{UserId}{Array. The AWS account IDs.\link{optional}}
+\item{UserId}{List. The AWS account IDs.[optional]}
 
-\item{Value}{String. The value of the attribute being modified.\link{optional}}
+\item{Value}{String. The value of the attribute being modified.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

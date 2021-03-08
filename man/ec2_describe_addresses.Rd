@@ -14,13 +14,14 @@ ec2_describe_addresses(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{PublicIp}{Array.   One or more Elastic IP addresses.  Default: Describes all your Elastic IP addresses.  \link{optional}}
+\item{PublicIp}{List.   One or more Elastic IP addresses.  Default: Describes all your Elastic IP addresses.  [optional]}
 
-\item{AllocationId}{Array. [EC2-VPC] Information about the allocation IDs.\link{optional}}
+\item{AllocationId}{List. [EC2-VPC] Information about the allocation IDs.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

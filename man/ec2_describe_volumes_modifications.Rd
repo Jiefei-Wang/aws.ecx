@@ -15,15 +15,16 @@ ec2_describe_volumes_modifications(
 )
 }
 \arguments{
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{VolumeId}{Array. The IDs of the volumes.\link{optional}}
+\item{VolumeId}{List. The IDs of the volumes.[optional]}
 
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
-\item{MaxResults}{Integer. The maximum number of results (up to a limit of 500) to be returned in a paginated request.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results (up to a limit of 500) to be returned in a paginated request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

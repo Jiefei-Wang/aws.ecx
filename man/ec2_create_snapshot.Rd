@@ -17,13 +17,13 @@ ec2_create_snapshot(
 \arguments{
 \item{VolumeId}{String. The ID of the EBS volume.}
 
-\item{Description}{String. A description for the snapshot.\link{optional}}
+\item{Description}{String. A description for the snapshot.[optional]}
 
-\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.\link{optional}}
+\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.[optional]}
 
-\item{TagSpecification}{Array. The tags to apply to the snapshot during creation.\link{optional}}
+\item{TagSpecification}{List. The tags to apply to the snapshot during creation.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

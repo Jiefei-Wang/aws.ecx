@@ -13,11 +13,12 @@ ec2_describe_vpn_gateways(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{VpnGatewayId}{Array.   One or more virtual private gateway IDs.  Default: Describes all your virtual private gateways.  \link{optional}}
+\item{VpnGatewayId}{List.   One or more virtual private gateway IDs.  Default: Describes all your virtual private gateways.  [optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

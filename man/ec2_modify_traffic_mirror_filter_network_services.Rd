@@ -16,11 +16,11 @@ ec2_modify_traffic_mirror_filter_network_services(
 \arguments{
 \item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
 
-\item{AddNetworkService}{Array. The network service, for example Amazon DNS, that you want to mirror.\link{optional}}
+\item{AddNetworkService}{List. The network service, for example Amazon DNS, that you want to mirror.[optional]}
 
-\item{RemoveNetworkService}{Array. The network service, for example Amazon DNS, that you no longer want to mirror.\link{optional}}
+\item{RemoveNetworkService}{List. The network service, for example Amazon DNS, that you no longer want to mirror.[optional]}
 
-\item{DryRun}{Boolean. Checks whether you have the required permissions for the action, without actually making the...\link{optional}}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response}

@@ -14,11 +14,12 @@ ec2_describe_host_reservations(
 )
 }
 \arguments{
-\item{Filter}{No description can be found.}
+\item{Filter}{Named list where the name is the filter name and the value is the
+filter's value. The value can be a vector or a list object. (see below)[optional]}
 
-\item{HostReservationIdSet}{Array. The host reservation IDs.\link{optional}}
+\item{HostReservationIdSet}{List. The host reservation IDs.[optional]}
 
-\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.\link{optional}}
+\item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results.}
 
