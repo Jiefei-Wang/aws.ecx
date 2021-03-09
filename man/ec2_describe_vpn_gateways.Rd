@@ -14,17 +14,17 @@ ec2_describe_vpn_gateways(
 }
 \arguments{
 \item{Filter}{Named list where the name is the filter name and the value is the
-filter's value. The value can be a vector or a list object. (see below)[optional]}
+filter's value. The value can be a vector or a list object (see below)[optional]}
 
 \item{VpnGatewayId}{List.   One or more virtual private gateway IDs.  Default: Describes all your virtual private gateways.  [optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

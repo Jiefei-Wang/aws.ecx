@@ -26,5 +26,6 @@ URL: https://github.com/Jiefei-Wang/aws.ecx
 BugReports: https://github.com/Jiefei-Wang/aws.ecx/issues
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr

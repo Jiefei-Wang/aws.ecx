@@ -4,14 +4,26 @@
 \alias{ecs_stop_task}
 \title{Stop Task}
 \usage{
-ecs_stop_task(simplify = TRUE, others = list())
+ecs_stop_task(
+  cluster = NULL,
+  task = NULL,
+  reason = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop.}
+
+\item{task}{String. The task ID or full Amazon Resource Name (ARN) of the task to stop.}
+
+\item{reason}{String. An optional message specified when a task is stopped.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +31,27 @@ A list object or a character vector
 \description{
 Stop Task
 }
+\section{cluster}{
+
+The
+short name or full Amazon Resource Name (ARN) of the cluster that hosts
+the task to stop. If you do not specify a cluster, the default cluster
+is assumed.
+}
+
+\section{task}{
+
+The task ID or full Amazon Resource Name
+(ARN) of the task to stop.
+}
+
+\section{reason}{
+
+An optional message
+specified when a task is stopped. For example, if you are using a custom
+scheduler, you can use this parameter to specify the reason for stopping
+the task here, and the message appears in subsequent DescribeTasks API
+operations on this task. Up to 255 characters are allowed in this
+message.
+}
+

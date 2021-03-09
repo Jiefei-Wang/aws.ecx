@@ -4,14 +4,16 @@
 \alias{ecs_delete_cluster}
 \title{Delete Cluster}
 \usage{
-ecs_delete_cluster(simplify = TRUE, others = list())
+ecs_delete_cluster(cluster = NULL, simplify = TRUE, others = list())
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to delete.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +21,9 @@ A list object or a character vector
 \description{
 Delete Cluster
 }
+\section{cluster}{
+
+The short name or full Amazon Resource Name
+(ARN) of the cluster to delete.
+}
+

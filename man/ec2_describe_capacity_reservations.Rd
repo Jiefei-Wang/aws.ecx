@@ -17,20 +17,20 @@ ec2_describe_capacity_reservations(
 \arguments{
 \item{CapacityReservationId}{List. The ID of the Capacity Reservation.[optional]}
 
-\item{NextToken}{Characters, The token for the next page of results.}
+\item{NextToken}{Characters, The token for the next page of results[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return for the request in a single page.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
-filter's value. The value can be a vector or a list object. (see below)[optional]}
+filter's value. The value can be a vector or a list object (see below)[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

@@ -4,14 +4,23 @@
 \alias{ecs_delete_account_setting}
 \title{Delete Account Setting}
 \usage{
-ecs_delete_account_setting(simplify = TRUE, others = list())
+ecs_delete_account_setting(
+  name = NULL,
+  principalArn = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{name}{String. The resource name for which to disable the account setting.}
+
+\item{principalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -21,3 +30,25 @@ Disables an account setting for a specified
 IAM user, IAM role, or the root user for an
 account.
 }
+\section{name}{
+
+The resource name for which to disable the account
+setting. If \code{serviceLongArnFormat} is specified, the ARN for your Amazon
+ECS services is affected. If \code{taskLongArnFormat} is specified, the ARN
+and resource ID for your Amazon ECS tasks is affected. If
+\code{containerInstanceLongArnFormat} is specified, the ARN and resource ID
+for your Amazon ECS container instances is affected. If \code{awsvpcTrunking}
+is specified, the ENI limit for your Amazon ECS container instances is
+affected.
+}
+
+\section{principalArn}{
+
+The ARN of the principal, which can be an
+IAM user, IAM role, or the root user. If you specify the root user, it
+disables the account setting for all IAM users, IAM roles, and the root
+user of the account unless an IAM user or role explicitly overrides
+these settings. If this field is omitted, the setting is changed only
+for the authenticated user.
+}
+

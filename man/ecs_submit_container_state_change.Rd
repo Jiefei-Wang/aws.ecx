@@ -4,14 +4,41 @@
 \alias{ecs_submit_container_state_change}
 \title{Submit Container State Change}
 \usage{
-ecs_submit_container_state_change(simplify = TRUE, others = list())
+ecs_submit_container_state_change(
+  cluster = NULL,
+  task = NULL,
+  containerName = NULL,
+  runtimeId = NULL,
+  status = NULL,
+  exitCode = NULL,
+  reason = NULL,
+  networkBindings = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full ARN of the cluster that hosts the container.}
+
+\item{task}{String. The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.}
+
+\item{containerName}{String. The name of the container.}
+
+\item{runtimeId}{String. The ID of the Docker container.}
+
+\item{status}{String. The status of the state change request.}
+
+\item{exitCode}{Integer. The exit code returned for the state change request.}
+
+\item{reason}{String. The reason for the state change request.}
+
+\item{networkBindings}{List. The network bindings of the container.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +46,52 @@ A list object or a character vector
 \description{
 Submit Container State Change
 }
+\section{cluster}{
+
+The short name or full ARN of the cluster
+that hosts the container.
+}
+
+\section{task}{
+
+The task ID or full Amazon
+Resource Name (ARN) of the task that hosts the
+container.
+}
+
+\section{containerName}{
+
+The name of the
+container.
+}
+
+\section{runtimeId}{
+
+The ID of the Docker
+container.
+}
+
+\section{status}{
+
+The status of the state change
+request.
+}
+
+\section{exitCode}{
+
+The exit code returned for the state change
+request.
+}
+
+\section{reason}{
+
+The reason for the state change
+request.
+}
+
+\section{networkBindings}{
+
+The network bindings of the
+container.
+}
+

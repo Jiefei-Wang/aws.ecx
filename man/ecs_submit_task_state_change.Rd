@@ -4,14 +4,44 @@
 \alias{ecs_submit_task_state_change}
 \title{Submit Task State Change}
 \usage{
-ecs_submit_task_state_change(simplify = TRUE, others = list())
+ecs_submit_task_state_change(
+  cluster = NULL,
+  task = NULL,
+  status = NULL,
+  reason = NULL,
+  containers = NULL,
+  attachments = NULL,
+  pullStartedAt = NULL,
+  pullStoppedAt = NULL,
+  executionStoppedAt = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.}
+
+\item{task}{String. The task ID or full ARN of the task in the state change request.}
+
+\item{status}{String. The status of the state change request.}
+
+\item{reason}{String. The reason for the state change request.}
+
+\item{containers}{List. Any containers associated with the state change request.}
+
+\item{attachments}{List. Any attachments associated with the state change request.}
+
+\item{pullStartedAt}{String. The Unix timestamp for when the container image pull began.}
+
+\item{pullStoppedAt}{String. The Unix timestamp for when the container image pull completed.}
+
+\item{executionStoppedAt}{String. The Unix timestamp for when the task execution stopped.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +49,59 @@ A list object or a character vector
 \description{
 Submit Task State Change
 }
+\section{cluster}{
+
+The short name or full Amazon Resource
+Name (ARN) of the cluster that hosts the task.
+}
+
+\section{task}{
+
+The
+task ID or full ARN of the task in the state change
+request.
+}
+
+\section{status}{
+
+The status of the state change
+request.
+}
+
+\section{reason}{
+
+The reason for the state change
+request.
+}
+
+\section{containers}{
+
+Any containers associated with the state
+change request.
+}
+
+\section{attachments}{
+
+Any attachments associated with the
+state change request.
+}
+
+\section{pullStartedAt}{
+
+The Unix timestamp for when
+the container image pull began.
+}
+
+\section{pullStoppedAt}{
+
+The Unix timestamp
+for when the container image pull completed.
+}
+
+\section{executionStoppedAt}{
+
+The
+Unix timestamp for when the task execution
+stopped.
+}
+

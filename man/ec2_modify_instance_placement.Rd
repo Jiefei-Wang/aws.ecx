@@ -32,10 +32,10 @@ ec2_modify_instance_placement(
 \item{HostResourceGroupArn}{String. The ARN of the host resource group in which to place the instance.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

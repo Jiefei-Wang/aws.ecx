@@ -4,14 +4,26 @@
 \alias{ecs_put_cluster_capacity_providers}
 \title{Put Cluster Capacity Providers}
 \usage{
-ecs_put_cluster_capacity_providers(simplify = TRUE, others = list())
+ecs_put_cluster_capacity_providers(
+  cluster = NULL,
+  capacityProviders = NULL,
+  defaultCapacityProviderStrategy = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider...}
+
+\item{capacityProviders}{List.   The name of one or more capacity providers to associate with the cluster.}
+
+\item{defaultCapacityProviderStrategy}{List.   The capacity provider strategy to use by default for the cluster.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +31,53 @@ A list object or a character vector
 \description{
 Put Cluster Capacity Providers
 }
+\section{cluster}{
+
+The short name
+or full Amazon Resource Name (ARN) of the cluster to modify the capacity
+provider settings for. If you do not specify a cluster, the default
+cluster is assumed.
+}
+
+\section{capacityProviders}{
+
+
+The name of one or more capacity providers to associate with the
+cluster.
+
+If specifying a capacity provider that uses an Auto Scaling group, the
+capacity provider must already be created. New capacity providers can be
+created with the CreateCapacityProvider API operation.
+
+To use a AWS Fargate capacity provider, specify either the \code{FARGATE} or
+\code{FARGATE_SPOT} capacity providers. The AWS Fargate capacity providers
+are available to all accounts and only need to be associated with a
+cluster to be used.
+}
+
+\section{defaultCapacityProviderStrategy}{
+
+
+The capacity provider strategy to use by default for the cluster.
+
+When creating a service or running a task on a cluster, if no capacity
+provider or launch type is specified then the default capacity provider
+strategy for the cluster is used.
+
+A capacity provider strategy consists of one or more capacity providers
+along with the \code{base} and \code{weight} to assign to them. A capacity
+provider must be associated with the cluster to be used in a capacity
+provider strategy. The PutClusterCapacityProviders API is used to
+associate a capacity provider with a cluster. Only capacity providers
+with an \code{ACTIVE} or \code{UPDATING} status can be used.
+
+If specifying a capacity provider that uses an Auto Scaling group, the
+capacity provider must already be created. New capacity providers can be
+created with the CreateCapacityProvider API operation.
+
+To use a AWS Fargate capacity provider, specify either the \code{FARGATE} or
+\code{FARGATE_SPOT} capacity providers. The AWS Fargate capacity providers
+are available to all accounts and only need to be associated with a
+cluster to be used.
+}
+

@@ -4,14 +4,23 @@
 \alias{ecs_discover_poll_endpoint}
 \title{Discover Poll Endpoint}
 \usage{
-ecs_discover_poll_endpoint(simplify = TRUE, others = list())
+ecs_discover_poll_endpoint(
+  containerInstance = NULL,
+  cluster = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{containerInstance}{String. The container instance ID or full ARN of the container instance.}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance...}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +28,21 @@ A list object or a character vector
 \description{
 Discover Poll Endpoint
 }
+\section{containerInstance}{
+
+The container instance ID
+or full ARN of the container instance. The ARN contains the
+\code{arn:aws:ecs} namespace, followed by the Region of the container
+instance, the AWS account ID of the container instance owner, the
+\code{container-instance} namespace, and then the container instance ID. For
+example,
+\code{arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID}.
+}
+
+\section{cluster}{
+
+The
+short name or full Amazon Resource Name (ARN) of the cluster to which
+the container instance belongs.
+}
+

@@ -4,14 +4,65 @@
 \alias{ecs_run_task}
 \title{Run Task}
 \usage{
-ecs_run_task(simplify = TRUE, others = list())
+ecs_run_task(
+  capacityProviderStrategy = NULL,
+  cluster = NULL,
+  count = NULL,
+  enableECSManagedTags = NULL,
+  group = NULL,
+  launchType = NULL,
+  networkConfiguration = NULL,
+  overrides = NULL,
+  placementConstraints = NULL,
+  placementStrategy = NULL,
+  platformVersion = NULL,
+  propagateTags = NULL,
+  referenceId = NULL,
+  startedBy = NULL,
+  tags = NULL,
+  taskDefinition = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{capacityProviderStrategy}{List.   The capacity provider strategy to use for the task.}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task.}
+
+\item{count}{Integer. The number of instantiations of the specified task to place on your cluster.}
+
+\item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the task.}
+
+\item{group}{String. The name of the task group to associate with the task.}
+
+\item{launchType}{String.   The launch type on which to run your task.}
+
+\item{networkConfiguration}{Object. The network configuration for the task.}
+
+\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the...}
+
+\item{placementConstraints}{List. An array of placement constraint objects to use for the task.}
+
+\item{placementStrategy}{List. The placement strategy objects to use for the task.}
+
+\item{platformVersion}{String. The platform version the task should run.}
+
+\item{propagateTags}{String.   Specifies whether to propagate the tags from the task definition to the task.}
+
+\item{referenceId}{String. The reference ID to use for the task.}
+
+\item{startedBy}{String.   An optional tag specified when a task is started.}
+
+\item{tags}{List.   The metadata that you apply to the task to help you categorize and organize them.}
+
+\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +70,193 @@ A list object or a character vector
 \description{
 Run Task
 }
+\section{capacityProviderStrategy}{
+
+
+The capacity provider strategy to use for the task.
+
+A capacity provider strategy consists of one or more capacity providers
+along with the \code{base} and \code{weight} to assign to them. A capacity
+provider must be associated with the cluster to be used in a capacity
+provider strategy. The PutClusterCapacityProviders API is used to
+associate a capacity provider with a cluster. Only capacity providers
+with an \code{ACTIVE} or \code{UPDATING} status can be used.
+
+If a \code{capacityProviderStrategy} is specified, the \code{launchType} parameter
+must be omitted. If no \code{capacityProviderStrategy} or \code{launchType} is
+specified, the \code{defaultCapacityProviderStrategy} for the cluster is
+used.
+
+If specifying a capacity provider that uses an Auto Scaling group, the
+capacity provider must already be created. New capacity providers can be
+created with the CreateCapacityProvider API operation.
+
+To use a AWS Fargate capacity provider, specify either the \code{FARGATE} or
+\code{FARGATE_SPOT} capacity providers. The AWS Fargate capacity providers
+are available to all accounts and only need to be associated with a
+cluster to be used.
+
+The PutClusterCapacityProviders API operation is used to update the list
+of available capacity providers for a cluster after the cluster is
+created.
+}
+
+\section{cluster}{
+
+The short name or full Amazon Resource Name (ARN)
+of the cluster on which to run your task. If you do not specify a
+cluster, the default cluster is assumed.
+}
+
+\section{count}{
+
+The number
+of instantiations of the specified task to place on your cluster. You
+can specify up to 10 tasks per call.
+}
+
+\section{enableECSManagedTags}{
+
+Specifies
+whether to enable Amazon ECS managed tags for the task. For more
+information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html}{Tagging Your Amazon ECS Resources}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{group}{
+
+The name of the task group to associate with
+the task. The default value is the family name of the task definition
+(for example, family:my-family-name).
+}
+
+\section{launchType}{
+
+
+The launch type on which to run your task. For more information, see
+\href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html}{Amazon ECS Launch Types}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If a \code{launchType} is specified, the \code{capacityProviderStrategy} parameter
+must be omitted.
+}
+
+\section{networkConfiguration}{
+
+The network configuration for the task. This
+parameter is required for task definitions that use the \code{awsvpc} network
+mode to receive their own elastic network interface, and it is not
+supported for other network modes. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html}{Task Networking}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{overrides}{
+
+
+A list of container overrides in JSON format that specify the name of a
+container in the specified task definition and the overrides it should
+receive. You can override the default command for a container (that is
+specified in the task definition or Docker image) with a \code{command}
+override. You can also override existing environment variables (that are
+specified in the task definition or Docker image) on a container or add
+new environment variables to it with an \code{environment} override.
+
+A total of 8192 characters are allowed for overrides. This limit
+includes the JSON formatting characters of the override structure.
+}
+
+\section{placementConstraints}{
+
+An array of placement constraint objects to use for
+the task. You can specify up to 10 constraints per task (including
+constraints in the task definition and those specified at
+runtime).
+}
+
+\section{placementStrategy}{
+
+The placement strategy objects to use for
+the task. You can specify a maximum of five strategy rules per
+task.
+}
+
+\section{platformVersion}{
+
+The platform version the task should run. A
+platform version is only specified for tasks using the Fargate launch
+type. If one is not specified, the \code{LATEST} platform version is used by
+default. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html}{AWS Fargate Platform Versions}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{propagateTags}{
+
+
+Specifies whether to propagate the tags from the task definition to the
+task. If no value is specified, the tags are not propagated. Tags can
+only be propagated to the task during task creation. To add tags to a
+task after task creation, use the TagResource API action.
+
+An error will be received if you specify the \code{SERVICE} option when
+running a task.
+}
+
+\section{referenceId}{
+
+The reference ID to use for the
+task.
+}
+
+\section{startedBy}{
+
+
+An optional tag specified when a task is started. For example, if you
+automatically trigger a task to run a batch process job, you could apply
+a unique identifier for that job to your task with the \code{startedBy}
+parameter. You can then identify which tasks belong to that job by
+filtering the results of a ListTasks call with the \code{startedBy} value. Up
+to 36 letters (uppercase and lowercase), numbers, hyphens, and
+underscores are allowed.
+
+If a task is started by an Amazon ECS service, then the \code{startedBy}
+parameter contains the deployment ID of the service that starts it.
+}
+
+\section{tags}{
+
+
+The metadata that you apply to the task to help you categorize and
+organize them. Each tag consists of a key and an optional value, both of
+which you define.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+
+\section{taskDefinition}{
+
+The \code{family} and \code{revision} (\code{family:revision}) or
+full ARN of the task definition to run. If a \code{revision} is not
+specified, the latest \code{ACTIVE} revision is used.
+}
+

@@ -63,10 +63,15 @@ api_info_list <- list()
 for(i in seq_along(ecs_defintions)){
     message(i)
     api_definition <- ecs_defintions[[i]]
+    properties <- ecs_api$components$schemas[[paste0(ecs_names[i],"Request")]]$properties
     api_info <- api_template
     ## Gather the api info from its defintion
     api_info$name <- api_definition$operationId
     api_info$parameters <- generate_parameter_table(api_definition$parameters)
+    additional_parameters <- generate_parameter_table_ecs(ecs_api, properties)
+    additional_parameters <- additional_parameters[!additional_parameters$name%in%api_info$parameters$name,]
+    api_info$parameters <- rbind(api_info$parameters,
+                                 additional_parameters)
     api_info$description <- api_definition$description
     api_info_list[[i]] <- api_info
 }

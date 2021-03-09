@@ -4,14 +4,23 @@
 \alias{ecs_delete_attributes}
 \title{Delete Attributes}
 \usage{
-ecs_delete_attributes(simplify = TRUE, others = list())
+ecs_delete_attributes(
+  cluster = NULL,
+  attributes = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource...}
+
+\item{attributes}{List. The attributes to delete from your resource.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +29,20 @@ A list object or a character vector
 Deletes one or more custom attributes from
 an Amazon ECS resource.
 }
+\section{cluster}{
+
+The short name or full
+Amazon Resource Name (ARN) of the cluster that contains the resource to
+delete attributes. If you do not specify a cluster, the default cluster
+is assumed.
+}
+
+\section{attributes}{
+
+The attributes to delete from your
+resource. You can specify up to 10 attributes per request. For custom
+attributes, specify the attribute name and target ID, but do not specify
+the value. If you specify the target ID using the short form, you must
+also specify the target type.
+}
+

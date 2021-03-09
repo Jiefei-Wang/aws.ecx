@@ -4,14 +4,23 @@
 \alias{ecs_describe_clusters}
 \title{Describe Clusters}
 \usage{
-ecs_describe_clusters(simplify = TRUE, others = list())
+ecs_describe_clusters(
+  clusters = NULL,
+  include = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{clusters}{List. A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries.}
+
+\item{include}{List.   Whether to include additional information about your clusters in the response.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +29,39 @@ A list object or a character vector
 Describes one or more of your
 clusters.
 }
+\section{clusters}{
+
+A list of up to 100 cluster names or full cluster
+Amazon Resource Name (ARN) entries. If you do not specify a cluster, the
+default cluster is assumed.
+}
+
+\section{include}{
+
+
+Whether to include additional information about your clusters in the
+response. If this field is omitted, the attachments, statistics, and
+tags are not included.
+
+If \code{ATTACHMENTS} is specified, the attachments for the container
+instances or tasks within the cluster are included.
+
+If \code{SETTINGS} is specified, the settings for the cluster are included.
+
+If \code{STATISTICS} is specified, the following additional information,
+separated by launch type, is included:
+\itemize{
+\item runningEC2TasksCount
+\item runningFargateTasksCount
+\item pendingEC2TasksCount
+\item pendingFargateTasksCount
+\item activeEC2ServiceCount
+\item activeFargateServiceCount
+\item drainingEC2ServiceCount
+\item drainingFargateServiceCount
+}
+
+If \code{TAGS} is specified, the metadata tags associated with the cluster
+are included.
+}
+

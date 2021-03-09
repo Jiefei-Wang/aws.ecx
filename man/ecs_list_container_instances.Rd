@@ -7,6 +7,9 @@
 ecs_list_container_instances(
   maxResults = NULL,
   nextToken = NULL,
+  cluster = NULL,
+  filter = NULL,
+  status = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +17,17 @@ ecs_list_container_instances(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...}
+
+\item{status}{String. Filters the container instances by status.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -36,5 +45,32 @@ Guide}.
 
 Pagination
 limit
+}
+
+\section{cluster}{
+
+The short
+name or full Amazon Resource Name (ARN) of the cluster that hosts the
+container instances to list. If you do not specify a cluster, the
+default cluster is assumed.
+}
+
+\section{filter}{
+
+You can filter the
+results of a \code{ListContainerInstances} operation with cluster query
+language statements. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html}{Cluster Query Language}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{status}{
+
+Filters the container instances by status.
+For example, if you specify the \code{DRAINING} status, the results include
+only container instances that have been set to \code{DRAINING} using
+UpdateContainerInstancesState. If you do not specify this parameter, the
+default is to include container instances set to all states other than
+\code{INACTIVE}.
 }
 

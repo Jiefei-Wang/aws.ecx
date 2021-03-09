@@ -4,14 +4,29 @@
 \alias{ecs_describe_capacity_providers}
 \title{Describe Capacity Providers}
 \usage{
-ecs_describe_capacity_providers(simplify = TRUE, others = list())
+ecs_describe_capacity_providers(
+  capacityProviders = NULL,
+  include = NULL,
+  maxResults = NULL,
+  nextToken = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{capacityProviders}{List. The short name or full Amazon Resource Name (ARN) of one or more capacity providers.}
+
+\item{include}{List. Specifies whether or not you want to see the resource tags for the capacity provider.}
+
+\item{maxResults}{Integer. The maximum number of account setting results returned by \code{DescribeCapacityProviders} in paginated...}
+
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +35,33 @@ A list object or a character vector
 Describes one or more of your capacity
 providers.
 }
+\section{capacityProviders}{
+
+The short name or
+full Amazon Resource Name (ARN) of one or more capacity providers. Up to
+\code{100} capacity providers can be described in an
+action.
+}
+
+\section{include}{
+
+Specifies whether or not you want to see the
+resource tags for the capacity provider. If \code{TAGS} is specified, the
+tags are included in the response. If this field is omitted, tags are
+not included in the response.
+}
+
+\section{maxResults}{
+
+The maximum number of
+account setting results returned by \code{DescribeCapacityProviders} in
+paginated output. When this parameter is used,
+\code{DescribeCapacityProviders} only returns \code{maxResults} results in a
+single page along with a \code{nextToken} response element. The remaining
+results of the initial request can be seen by sending another
+\code{DescribeCapacityProviders} request with the returned \code{nextToken} value.
+This value can be between 1 and 10. If this parameter is not used, then
+\code{DescribeCapacityProviders} returns up to 10 results and a \code{nextToken}
+value if applicable.
+}
+

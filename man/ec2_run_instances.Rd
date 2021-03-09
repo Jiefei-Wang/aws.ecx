@@ -122,10 +122,10 @@ ec2_run_instances(
 \item{EnclaveOptions}{Object.   Indicates whether the instance is enabled for AWS Nitro Enclaves.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

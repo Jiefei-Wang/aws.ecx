@@ -7,6 +7,10 @@
 ecs_list_attributes(
   maxResults = NULL,
   nextToken = NULL,
+  cluster = NULL,
+  targetType = NULL,
+  attributeName = NULL,
+  attributeValue = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +18,21 @@ ecs_list_attributes(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to list attributes.}
+
+\item{targetType}{String. The type of the target with which to list attributes.}
+
+\item{attributeName}{String. The name of the attribute with which to filter the results.}
+
+\item{attributeValue}{String. The value of the attribute with which to filter results.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -37,5 +51,32 @@ running a Linux AMI (\code{ecs.os-type=linux}).
 
 Pagination
 limit
+}
+
+\section{cluster}{
+
+The short
+name or full Amazon Resource Name (ARN) of the cluster to list
+attributes. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{targetType}{
+
+The type of the target with which to list
+attributes.
+}
+
+\section{attributeName}{
+
+The name of the attribute with which to
+filter the results.
+}
+
+\section{attributeValue}{
+
+The value of the attribute with
+which to filter results. You must also specify an attribute name to use
+this parameter.
 }
 

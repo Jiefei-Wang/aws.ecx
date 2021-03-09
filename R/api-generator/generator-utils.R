@@ -9,7 +9,8 @@ generate_document <- function(api_info){
                                      param_name = param_table$name[i],
                                      description = param_descriptions[i],
                                      required = param_table$required[i],
-                                     type = param_table$type[i]),
+                                     type = param_table$type[i],
+                                     add_optional = param_table$addOptional[i]),
                                  character(1))
     short_description_idx <-
         get_nonexclude_short_description_bool(param_table$name)
@@ -19,8 +20,10 @@ generate_document <- function(api_info){
     document_title <- camel_to_title(api_info$name)
     md_short_description <- NULL
     if(length(short_descriptions)!=0){
-        md_short_description <- paste0("@param ", param_table$name[short_description_idx],
-                                       " ", short_descriptions[short_description_idx])
+        md_short_description <- paste0("@param ",
+                                       param_table$name[short_description_idx],
+                                       " ",
+                                       short_descriptions[short_description_idx])
     }
     md_long_description <- NULL
     if(length(param_descriptions)!=0){
@@ -104,7 +107,8 @@ generate_parameter_table <- function(params){
         name = param_names,
         type = param_types,
         required = is_required,
-        description = descriptions
+        description = descriptions,
+        addOptional = !is_required
     )
     x <- rbind(x[x$required,], x[!x$required,])
     x <- x[!x$name%in%excluded_request_names,]
@@ -112,12 +116,48 @@ generate_parameter_table <- function(params){
 }
 
 
+generate_parameter_table_ecs  <- function(ecs_api, properties){
+    properties1 <- lapply(properties, function(x) x$allOf)
+    properties2 <- lapply(properties1, function(x) as.list(unlist(x)))
+
+    param_names <- names(properties2)
+    param_types <- lapply(param_names,function(x)
+        get_referred_doc(ecs_api, properties2[[x]]$`$ref`)$type)
+    is_required <- rep(FALSE, length(param_names))
+    descriptions <- lapply(param_names,function(x)
+        properties2[[x]]$description)
+
+    param_types[sapply(param_types, is.null)] <- ""
+    descriptions[sapply(descriptions, is.null)] <- ""
+
+
+    x <- S4Vectors::DataFrame(
+        name = param_names,
+        type = unlist(param_types),
+        required = is_required,
+        description = unlist(descriptions),
+        addOptional = is_required
+    )
+    x <- x[!x$name%in%excluded_request_names,]
+    x
+}
+
+get_referred_doc <- function(ecs_api, path){
+    if(is.null(path))return(NULL)
+    pathes <- strsplit(path, "/", fixed = TRUE)[[1]][-1]
+    result <- ecs_api
+    for(i in pathes){
+        result <- result[[i]]
+    }
+    result
+}
+
 capitalize <- function(x){
     x <- paste0(toupper(substr(x,1,1)), substring(x,2))
     x
 }
 
-get_short_description <- function(param_name, description, required, type=NULL){
+get_short_description <- function(param_name, description, required, type, add_optional){
     ## Special treatment for the Filter parameter
     if(param_name == "Filter"){
         return("")
@@ -135,8 +175,9 @@ get_short_description <- function(param_name, description, required, type=NULL){
             short_description <- paste0(short_description, "...")
         }
     }
-    short_description <- paste0(short_description , ifelse(required,"","\\[optional\\]"))
-    if(!is.null(type)){
+    short_description <- paste0(short_description ,
+                                ifelse((!required)&&add_optional,"\\[optional\\]",""))
+    if(!is.null(type)&&type!=""){
         type <- type_mapping(type)
         short_description <- paste0(capitalize(type), ". ", short_description)
     }

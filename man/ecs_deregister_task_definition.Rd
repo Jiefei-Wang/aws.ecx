@@ -4,14 +4,20 @@
 \alias{ecs_deregister_task_definition}
 \title{Deregister Task Definition}
 \usage{
-ecs_deregister_task_definition(simplify = TRUE, others = list())
+ecs_deregister_task_definition(
+  taskDefinition = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full Amazon Resource Name (ARN) of the...}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +25,10 @@ A list object or a character vector
 \description{
 Deregister Task Definition
 }
+\section{taskDefinition}{
+
+The \code{family} and \code{revision} (\code{family:revision}) or
+full Amazon Resource Name (ARN) of the task definition to deregister.
+You must specify a \code{revision}.
+}
+

@@ -4,14 +4,29 @@
 \alias{ecs_describe_task_sets}
 \title{Describe Task Sets}
 \usage{
-ecs_describe_task_sets(simplify = TRUE, others = list())
+ecs_describe_task_sets(
+  cluster = NULL,
+  service = NULL,
+  taskSets = NULL,
+  include = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+
+\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.}
+
+\item{taskSets}{List. The ID or full Amazon Resource Name (ARN) of task sets to describe.}
+
+\item{include}{List. Specifies whether to see the resource tags for the task set.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -23,3 +38,31 @@ controller type. For more information, see \href{https://docs.aws.amazon.com/Ama
 in the \emph{Amazon Elastic Container Service Developer
 Guide}.
 }
+\section{cluster}{
+
+The
+short name or full Amazon Resource Name (ARN) of the cluster that hosts
+the service that the task sets exist in.
+}
+
+\section{service}{
+
+The short
+name or full Amazon Resource Name (ARN) of the service that the task
+sets exist in.
+}
+
+\section{taskSets}{
+
+The ID or full Amazon Resource Name
+(ARN) of task sets to describe.
+}
+
+\section{include}{
+
+Specifies whether to
+see the resource tags for the task set. If \code{TAGS} is specified, the tags
+are included in the response. If this field is omitted, tags are not
+included in the response.
+}
+

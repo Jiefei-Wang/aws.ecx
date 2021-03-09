@@ -7,6 +7,8 @@
 ecs_list_task_definition_families(
   maxResults = NULL,
   nextToken = NULL,
+  familyPrefix = NULL,
+  status = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +16,17 @@ ecs_list_task_definition_families(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{familyPrefix}{String. The \code{familyPrefix} is a string that is used to filter the results of \code{ListTaskDefinitionFamilies}.}
+
+\item{status}{String. The task definition family status with which to filter the \code{ListTaskDefinitionFamilies} results.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -30,5 +38,27 @@ List Task Definition Families
 
 Pagination
 limit
+}
+
+\section{familyPrefix}{
+
+The
+\code{familyPrefix} is a string that is used to filter the results of
+\code{ListTaskDefinitionFamilies}. If you specify a \code{familyPrefix}, only task
+definition family names that begin with the \code{familyPrefix} string are
+returned.
+}
+
+\section{status}{
+
+The task definition family status with
+which to filter the \code{ListTaskDefinitionFamilies} results. By default,
+both \code{ACTIVE} and \code{INACTIVE} task definition families are listed. If
+this parameter is set to \code{ACTIVE}, only task definition families that
+have an \code{ACTIVE} task definition revision are returned. If this
+parameter is set to \code{INACTIVE}, only task definition families that do
+not have any \code{ACTIVE} task definition revisions are returned. If you
+paginate the resulting output, be sure to keep the \code{status} value
+constant in each subsequent request.
 }
 

@@ -4,14 +4,26 @@
 \alias{ecs_delete_service}
 \title{Delete Service}
 \usage{
-ecs_delete_service(simplify = TRUE, others = list())
+ecs_delete_service(
+  cluster = NULL,
+  service = NULL,
+  force = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete.}
+
+\item{service}{String. The name of the service to delete.}
+
+\item{force}{Logical. If \code{true}, allows you to delete a service even if it has not been scaled down to zero tasks.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +31,25 @@ A list object or a character vector
 \description{
 Delete Service
 }
+\section{cluster}{
+
+The short name or
+full Amazon Resource Name (ARN) of the cluster that hosts the service to
+delete. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{service}{
+
+The name of the service to
+delete.
+}
+
+\section{force}{
+
+If \code{true}, allows you to delete a service
+even if it has not been scaled down to zero tasks. It is only necessary
+to use this if the service is using the \code{REPLICA} scheduling
+strategy.
+}
+

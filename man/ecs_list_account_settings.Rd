@@ -7,6 +7,10 @@
 ecs_list_account_settings(
   maxResults = NULL,
   nextToken = NULL,
+  name = NULL,
+  value = NULL,
+  principalArn = NULL,
+  effectiveSettings = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +18,21 @@ ecs_list_account_settings(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{name}{String. The name of the account setting you want to list the settings for.}
+
+\item{value}{String. The value of the account settings with which to filter results.}
+
+\item{principalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+
+\item{effectiveSettings}{Logical. Specifies whether to return the effective settings.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -29,6 +43,39 @@ principal.
 }
 \section{maxResults}{
 
-Pagination limit
+Pagination
+limit
+}
+
+\section{name}{
+
+The name
+of the account setting you want to list the settings
+for.
+}
+
+\section{value}{
+
+The value of the account settings with which to
+filter results. You must also specify an account setting name to use
+this parameter.
+}
+
+\section{principalArn}{
+
+The ARN of the principal, which can
+be an IAM user, IAM role, or the root user. If this field is omitted,
+the account settings are listed only for the authenticated
+user.
+}
+
+\section{effectiveSettings}{
+
+Specifies whether to return the effective
+settings. If \code{true}, the account settings for the root user or the
+default setting for the \code{principalArn} are returned. If \code{false}, the
+account settings for the \code{principalArn} are returned if they are set.
+Otherwise, no account settings are
+returned.
 }
 

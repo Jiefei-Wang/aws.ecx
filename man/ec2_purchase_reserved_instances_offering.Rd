@@ -26,10 +26,10 @@ ec2_purchase_reserved_instances_offering(
 \item{PurchaseTime}{String. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

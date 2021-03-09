@@ -4,14 +4,23 @@
 \alias{ecs_untag_resource}
 \title{Untag Resource}
 \usage{
-ecs_untag_resource(simplify = TRUE, others = list())
+ecs_untag_resource(
+  resourceArn = NULL,
+  tagKeys = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{resourceArn}{String. The Amazon Resource Name (ARN) of the resource from which to delete tags.}
+
+\item{tagKeys}{List. The keys of the tags to be removed.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +29,17 @@ A list object or a character vector
 Deletes specified tags from a
 resource.
 }
+\section{resourceArn}{
+
+The Amazon Resource Name (ARN) of the resource from
+which to delete tags. Currently, the supported resources are Amazon ECS
+capacity providers, tasks, services, task definitions, clusters, and
+container instances.
+}
+
+\section{tagKeys}{
+
+The keys of the tags to be
+removed.
+}
+

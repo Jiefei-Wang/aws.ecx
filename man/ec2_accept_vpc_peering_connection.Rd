@@ -17,10 +17,10 @@ ec2_accept_vpc_peering_connection(
 \item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection. You must specify this parameter in the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

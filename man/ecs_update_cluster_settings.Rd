@@ -4,14 +4,23 @@
 \alias{ecs_update_cluster_settings}
 \title{Update Cluster Settings}
 \usage{
-ecs_update_cluster_settings(simplify = TRUE, others = list())
+ecs_update_cluster_settings(
+  cluster = NULL,
+  settings = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The name of the cluster to modify the settings for.}
+
+\item{settings}{List. The setting to use by default for a cluster.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +29,18 @@ A list object or a character vector
 Modifies the settings to use for a
 cluster.
 }
+\section{cluster}{
+
+The name of the cluster to modify the
+settings for.
+}
+
+\section{settings}{
+
+The setting to use by default for a
+cluster. This parameter is used to enable CloudWatch Container Insights
+for a cluster. If this value is specified, it will override the
+\code{containerInsights} value set with PutAccountSetting or
+PutAccountSettingDefault.
+}
+

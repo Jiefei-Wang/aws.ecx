@@ -31,18 +31,18 @@ ec2_describe_launch_template_versions(
 
 \item{MaxVersion}{String. The version number up to which to describe launch template versions.[optional]}
 
-\item{NextToken}{Characters, The token for the next page of results.}
+\item{NextToken}{Characters, The token for the next page of results[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
-filter's value. The value can be a vector or a list object. (see below)[optional]}
+filter's value. The value can be a vector or a list object (see below)[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

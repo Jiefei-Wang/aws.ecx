@@ -4,14 +4,23 @@
 \alias{ecs_describe_task_definition}
 \title{Describe Task Definition}
 \usage{
-ecs_describe_task_definition(simplify = TRUE, others = list())
+ecs_describe_task_definition(
+  taskDefinition = NULL,
+  include = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{taskDefinition}{String. The \code{family} for the latest \code{ACTIVE} revision, \code{family} and \code{revision} (\code{family:revision})...}
+
+\item{include}{List. Specifies whether to see the resource tags for the task definition.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +28,19 @@ A list object or a character vector
 \description{
 Describe Task Definition
 }
+\section{taskDefinition}{
+
+The \code{family} for the
+latest \code{ACTIVE} revision, \code{family} and \code{revision} (\code{family:revision})
+for a specific revision in the family, or full Amazon Resource Name
+(ARN) of the task definition to describe.
+}
+
+\section{include}{
+
+Specifies
+whether to see the resource tags for the task definition. If \code{TAGS} is
+specified, the tags are included in the response. If this field is
+omitted, tags are not included in the response.
+}
+

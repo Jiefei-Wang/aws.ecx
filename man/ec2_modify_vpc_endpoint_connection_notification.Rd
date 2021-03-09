@@ -23,10 +23,10 @@ ec2_modify_vpc_endpoint_connection_notification(
 \item{ConnectionEvents}{List. One or more events for the endpoint. Valid values are \code{Accept}, \code{Connect}, \code{Delete}, and \code{Reject}.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

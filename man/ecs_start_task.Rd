@@ -4,14 +4,50 @@
 \alias{ecs_start_task}
 \title{Start Task}
 \usage{
-ecs_start_task(simplify = TRUE, others = list())
+ecs_start_task(
+  cluster = NULL,
+  containerInstances = NULL,
+  enableECSManagedTags = NULL,
+  group = NULL,
+  networkConfiguration = NULL,
+  overrides = NULL,
+  propagateTags = NULL,
+  referenceId = NULL,
+  startedBy = NULL,
+  tags = NULL,
+  taskDefinition = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task.}
+
+\item{containerInstances}{List. The container instance IDs or full ARN entries for the container instances on which you would...}
+
+\item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the task.}
+
+\item{group}{String. The name of the task group to associate with the task.}
+
+\item{networkConfiguration}{Object. The VPC subnet and security group configuration for tasks that receive their own elastic network...}
+
+\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the...}
+
+\item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the task.}
+
+\item{referenceId}{String. The reference ID to use for the task.}
+
+\item{startedBy}{String.   An optional tag specified when a task is started.}
+
+\item{tags}{List.   The metadata that you apply to the task to help you categorize and organize them.}
+
+\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to start.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +55,120 @@ A list object or a character vector
 \description{
 Start Task
 }
+\section{cluster}{
+
+The
+short name or full Amazon Resource Name (ARN) of the cluster on which to
+start your task. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{containerInstances}{
+
+The container instance IDs or full ARN
+entries for the container instances on which you would like to place
+your task. You can specify up to 10 container
+instances.
+}
+
+\section{enableECSManagedTags}{
+
+Specifies whether to enable Amazon ECS
+managed tags for the task. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html}{Tagging Your Amazon ECS Resources}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{group}{
+
+The name of the task group to associate with
+the task. The default value is the family name of the task definition
+(for example, family:my-family-name).
+}
+
+\section{networkConfiguration}{
+
+The VPC subnet
+and security group configuration for tasks that receive their own
+elastic network interface by using the \code{awsvpc} networking
+mode.
+}
+
+\section{overrides}{
+
+
+A list of container overrides in JSON format that specify the name of a
+container in the specified task definition and the overrides it should
+receive. You can override the default command for a container (that is
+specified in the task definition or Docker image) with a \code{command}
+override. You can also override existing environment variables (that are
+specified in the task definition or Docker image) on a container or add
+new environment variables to it with an \code{environment} override.
+
+A total of 8192 characters are allowed for overrides. This limit
+includes the JSON formatting characters of the override structure.
+}
+
+\section{propagateTags}{
+
+Specifies whether to propagate the tags from the
+task definition or the service to the task. If no value is specified,
+the tags are not propagated.
+}
+
+\section{referenceId}{
+
+The reference ID to use
+for the task.
+}
+
+\section{startedBy}{
+
+
+An optional tag specified when a task is started. For example, if you
+automatically trigger a task to run a batch process job, you could apply
+a unique identifier for that job to your task with the \code{startedBy}
+parameter. You can then identify which tasks belong to that job by
+filtering the results of a ListTasks call with the \code{startedBy} value. Up
+to 36 letters (uppercase and lowercase), numbers, hyphens, and
+underscores are allowed.
+
+If a task is started by an Amazon ECS service, then the \code{startedBy}
+parameter contains the deployment ID of the service that starts it.
+}
+
+\section{tags}{
+
+
+The metadata that you apply to the task to help you categorize and
+organize them. Each tag consists of a key and an optional value, both of
+which you define.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+
+\section{taskDefinition}{
+
+The \code{family} and \code{revision} (\code{family:revision}) or
+full ARN of the task definition to start. If a \code{revision} is not
+specified, the latest \code{ACTIVE} revision is used.
+}
+

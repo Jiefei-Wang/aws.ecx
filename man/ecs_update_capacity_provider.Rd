@@ -4,14 +4,23 @@
 \alias{ecs_update_capacity_provider}
 \title{Update Capacity Provider}
 \usage{
-ecs_update_capacity_provider(simplify = TRUE, others = list())
+ecs_update_capacity_provider(
+  name = NULL,
+  autoScalingGroupProvider = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{name}{String. The name of the capacity provider to update.}
+
+\item{autoScalingGroupProvider}{Object. An object representing the parameters to update for the Auto Scaling group capacity provider.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +29,16 @@ A list object or a character vector
 Modifies the parameters for a capacity
 provider.
 }
+\section{name}{
+
+The name of the capacity provider to
+update.
+}
+
+\section{autoScalingGroupProvider}{
+
+An object representing the parameters to
+update for the Auto Scaling group capacity
+provider.
+}
+

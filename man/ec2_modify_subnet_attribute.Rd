@@ -26,10 +26,10 @@ ec2_modify_subnet_attribute(
 \item{CustomerOwnedIpv4Pool}{String.   The customer-owned IPv4 address pool associated with the subnet.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

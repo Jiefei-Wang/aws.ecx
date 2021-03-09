@@ -4,14 +4,23 @@
 \alias{ecs_submit_attachment_state_changes}
 \title{Submit Attachment State Changes}
 \usage{
-ecs_submit_attachment_state_changes(simplify = TRUE, others = list())
+ecs_submit_attachment_state_changes(
+  cluster = NULL,
+  attachments = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full ARN of the cluster that hosts the container instance the attachment...}
+
+\item{attachments}{List. Any attachments associated with the state change request.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +28,16 @@ A list object or a character vector
 \description{
 Submit Attachment State Changes
 }
+\section{cluster}{
+
+The short name or full ARN of the cluster
+that hosts the container instance the attachment belongs
+to.
+}
+
+\section{attachments}{
+
+Any attachments associated with the state change
+request.
+}
+

@@ -4,14 +4,26 @@
 \alias{ecs_describe_tasks}
 \title{Describe Tasks}
 \usage{
-ecs_describe_tasks(simplify = TRUE, others = list())
+ecs_describe_tasks(
+  cluster = NULL,
+  tasks = NULL,
+  include = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks...}
+
+\item{tasks}{List. A list of up to 100 task IDs or full ARN entries.}
+
+\item{include}{List. Specifies whether you want to see the resource tags for the task.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +32,27 @@ A list object or a character vector
 Describes a specified task or
 tasks.
 }
+\section{cluster}{
+
+The short name or full
+Amazon Resource Name (ARN) of the cluster that hosts the task or tasks
+to describe. If you do not specify a cluster, the default cluster is
+assumed. This parameter is required if the task or tasks you are
+describing were launched in any cluster other than the default
+cluster.
+}
+
+\section{tasks}{
+
+A list of up to 100 task IDs or full ARN
+entries.
+}
+
+\section{include}{
+
+Specifies whether you want to see the
+resource tags for the task. If \code{TAGS} is specified, the tags are
+included in the response. If this field is omitted, tags are not
+included in the response.
+}
+

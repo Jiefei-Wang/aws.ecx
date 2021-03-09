@@ -4,14 +4,23 @@
 \alias{ecs_put_account_setting_default}
 \title{Put Account Setting Default}
 \usage{
-ecs_put_account_setting_default(simplify = TRUE, others = list())
+ecs_put_account_setting_default(
+  name = NULL,
+  value = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{name}{String. The resource name for which to modify the account setting.}
+
+\item{value}{String. The account setting value for the specified principal ARN.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -22,3 +31,25 @@ account for whom no individual account setting has been specified.
 Account settings are set on a per-Region
 basis.
 }
+\section{name}{
+
+The resource name for
+which to modify the account setting. If \code{serviceLongArnFormat} is
+specified, the ARN for your Amazon ECS services is affected. If
+\code{taskLongArnFormat} is specified, the ARN and resource ID for your
+Amazon ECS tasks is affected. If \code{containerInstanceLongArnFormat} is
+specified, the ARN and resource ID for your Amazon ECS container
+instances is affected. If \code{awsvpcTrunking} is specified, the ENI limit
+for your Amazon ECS container instances is affected. If
+\code{containerInsights} is specified, the default setting for CloudWatch
+Container Insights for your clusters is
+affected.
+}
+
+\section{value}{
+
+The account setting value for the
+specified principal ARN. Accepted values are \code{enabled} and
+\code{disabled}.
+}
+

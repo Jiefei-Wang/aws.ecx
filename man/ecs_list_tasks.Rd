@@ -7,6 +7,13 @@
 ecs_list_tasks(
   maxResults = NULL,
   nextToken = NULL,
+  cluster = NULL,
+  containerInstance = NULL,
+  family = NULL,
+  startedBy = NULL,
+  serviceName = NULL,
+  desiredStatus = NULL,
+  launchType = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +21,27 @@ ecs_list_tasks(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list.}
+
+\item{containerInstance}{String. The container instance ID or full ARN of the container instance with which to filter the \code{ListTasks}...}
+
+\item{family}{String. The name of the family with which to filter the \code{ListTasks} results.}
+
+\item{startedBy}{String. The \code{startedBy} value with which to filter the task results.}
+
+\item{serviceName}{String. The name of the service with which to filter the \code{ListTasks} results.}
+
+\item{desiredStatus}{String.   The task desired status with which to filter the \code{ListTasks} results.}
+
+\item{launchType}{String. The launch type for services to list.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -30,5 +53,66 @@ List Tasks
 
 Pagination
 limit
+}
+
+\section{cluster}{
+
+The short
+name or full Amazon Resource Name (ARN) of the cluster that hosts the
+tasks to list. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{containerInstance}{
+
+The container instance ID or full ARN of
+the container instance with which to filter the \code{ListTasks} results.
+Specifying a \code{containerInstance} limits the results to tasks that belong
+to that container instance.
+}
+
+\section{family}{
+
+The name of the family
+with which to filter the \code{ListTasks} results. Specifying a \code{family}
+limits the results to tasks that belong to that
+family.
+}
+
+\section{startedBy}{
+
+The \code{startedBy} value with which to filter
+the task results. Specifying a \code{startedBy} value limits the results to
+tasks that were started with that value.
+}
+
+\section{serviceName}{
+
+The name of
+the service with which to filter the \code{ListTasks} results. Specifying a
+\code{serviceName} limits the results to tasks that belong to that
+service.
+}
+
+\section{desiredStatus}{
+
+
+The task desired status with which to filter the \code{ListTasks} results.
+Specifying a \code{desiredStatus} of \code{STOPPED} limits the results to tasks
+that Amazon ECS has set the desired status to \code{STOPPED}. This can be
+useful for debugging tasks that are not starting properly or have died
+or finished. The default status filter is \code{RUNNING}, which shows tasks
+that Amazon ECS has set the desired status to \code{RUNNING}.
+
+Although you can filter results based on a desired status of \code{PENDING},
+this does not return any results. Amazon ECS never sets the desired
+status of a task to that value (only a task\'s \code{lastStatus} may have a
+value of \code{PENDING}).
+}
+
+\section{launchType}{
+
+The launch type for services to
+list.
 }
 

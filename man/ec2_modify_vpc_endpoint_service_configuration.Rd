@@ -38,10 +38,10 @@ ec2_modify_vpc_endpoint_service_configuration(
 \item{RemoveGatewayLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration....[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

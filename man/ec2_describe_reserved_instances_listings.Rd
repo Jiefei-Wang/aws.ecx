@@ -14,17 +14,17 @@ ec2_describe_reserved_instances_listings(
 }
 \arguments{
 \item{Filter}{Named list where the name is the filter name and the value is the
-filter's value. The value can be a vector or a list object. (see below)[optional]}
+filter's value. The value can be a vector or a list object (see below)[optional]}
 
 \item{ReservedInstancesId}{String. One or more Reserved Instance IDs.[optional]}
 
 \item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

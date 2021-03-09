@@ -4,14 +4,26 @@
 \alias{ecs_update_container_instances_state}
 \title{Update Container Instances State}
 \usage{
-ecs_update_container_instances_state(simplify = TRUE, others = list())
+ecs_update_container_instances_state(
+  cluster = NULL,
+  containerInstances = NULL,
+  status = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...}
+
+\item{containerInstances}{List. A list of container instance IDs or full ARN entries.}
+
+\item{status}{String. The container instance state with which to update the container instance.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +31,28 @@ A list object or a character vector
 \description{
 Update Container Instances State
 }
+\section{cluster}{
+
+The short name or full
+Amazon Resource Name (ARN) of the cluster that hosts the container
+instance to update. If you do not specify a cluster, the default cluster
+is assumed.
+}
+
+\section{containerInstances}{
+
+A list of container instance IDs or full
+ARN entries.
+}
+
+\section{status}{
+
+The container instance state with which
+to update the container instance. The only valid values for this action
+are \code{ACTIVE} and \code{DRAINING}. A container instance can only be updated to
+\code{DRAINING} status once it has reached an \code{ACTIVE} state. If a container
+instance is in \code{REGISTERING}, \code{DEREGISTERING}, or \code{REGISTRATION_FAILED}
+state you can describe the container instance but will be unable to
+update the container instance state.
+}
+

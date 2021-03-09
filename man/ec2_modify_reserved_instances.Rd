@@ -20,10 +20,10 @@ ec2_modify_reserved_instances(
 \item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

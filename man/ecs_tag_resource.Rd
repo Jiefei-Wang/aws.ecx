@@ -4,14 +4,23 @@
 \alias{ecs_tag_resource}
 \title{Tag Resource}
 \usage{
-ecs_tag_resource(simplify = TRUE, others = list())
+ecs_tag_resource(
+  resourceArn = NULL,
+  tags = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{resourceArn}{String. The Amazon Resource Name (ARN) of the resource to which to add tags.}
+
+\item{tags}{List.   The tags to add to the resource.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -23,3 +32,37 @@ specified in the request parameters, they are not changed. When a
 resource is deleted, the tags associated with that resource are deleted
 as well.
 }
+\section{resourceArn}{
+
+The Amazon Resource Name (ARN) of the
+resource to which to add tags. Currently, the supported resources are
+Amazon ECS capacity providers, tasks, services, task definitions,
+clusters, and container instances.
+}
+
+\section{tags}{
+
+
+The tags to add to the resource. A tag is an array of key-value pairs.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+

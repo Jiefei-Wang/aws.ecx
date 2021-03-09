@@ -44,10 +44,10 @@ ec2_modify_vpc_endpoint(
 \item{PrivateDnsEnabled}{Logical. (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

@@ -4,14 +4,23 @@
 \alias{ecs_update_container_agent}
 \title{Update Container Agent}
 \usage{
-ecs_update_container_agent(simplify = TRUE, others = list())
+ecs_update_container_agent(
+  cluster = NULL,
+  containerInstance = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that your container instance...}
+
+\item{containerInstance}{String. The container instance ID or full ARN entries for the container instance on which you would...}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +28,18 @@ A list object or a character vector
 \description{
 Update Container Agent
 }
+\section{cluster}{
+
+The short name or full
+Amazon Resource Name (ARN) of the cluster that your container instance
+is running on. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{containerInstance}{
+
+The container instance ID or full ARN
+entries for the container instance on which you would like to update the
+Amazon ECS container agent.
+}
+

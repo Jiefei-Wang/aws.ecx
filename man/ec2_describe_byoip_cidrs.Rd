@@ -17,13 +17,13 @@ ec2_describe_byoip_cidrs(
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
 
-\item{NextToken}{Characters, The token for the next page of results.}
+\item{NextToken}{Characters, The token for the next page of results[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

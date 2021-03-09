@@ -4,14 +4,26 @@
 \alias{ecs_describe_services}
 \title{Describe Services}
 \usage{
-ecs_describe_services(simplify = TRUE, others = list())
+ecs_describe_services(
+  cluster = NULL,
+  services = NULL,
+  include = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe.}
+
+\item{services}{List. A list of services to describe.}
+
+\item{include}{List. Specifies whether you want to see the resource tags for the service.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +32,28 @@ A list object or a character vector
 Describes the specified services running
 in your cluster.
 }
+\section{cluster}{
+
+The short name or full
+Amazon Resource Name (ARN)the cluster that hosts the service to
+describe. If you do not specify a cluster, the default cluster is
+assumed. This parameter is required if the service or services you are
+describing were launched in any cluster other than the default
+cluster.
+}
+
+\section{services}{
+
+A list of services to describe. You may
+specify up to 10 services to describe in a single
+operation.
+}
+
+\section{include}{
+
+Specifies whether you want to see the
+resource tags for the service. If \code{TAGS} is specified, the tags are
+included in the response. If this field is omitted, tags are not
+included in the response.
+}
+

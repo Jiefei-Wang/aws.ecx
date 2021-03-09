@@ -4,14 +4,44 @@
 \alias{ecs_register_container_instance}
 \title{Register Container Instance}
 \usage{
-ecs_register_container_instance(simplify = TRUE, others = list())
+ecs_register_container_instance(
+  cluster = NULL,
+  instanceIdentityDocument = NULL,
+  instanceIdentityDocumentSignature = NULL,
+  totalResources = NULL,
+  versionInfo = NULL,
+  containerInstanceArn = NULL,
+  attributes = NULL,
+  platformDevices = NULL,
+  tags = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster with which to register your...}
+
+\item{instanceIdentityDocument}{String. The instance identity document for the EC2 instance to register.}
+
+\item{instanceIdentityDocumentSignature}{String. The instance identity document signature for the EC2 instance to register.}
+
+\item{totalResources}{List. The resources available on the instance.}
+
+\item{versionInfo}{Object. The version information for the Amazon ECS container agent and Docker daemon running on the...}
+
+\item{containerInstanceArn}{String. The ARN of the container instance (if it was previously registered).}
+
+\item{attributes}{List. The container instance attributes that this container instance supports.}
+
+\item{platformDevices}{List. The devices that are available on the container instance. The only supported device type is a GPU.}
+
+\item{tags}{List.   The metadata that you apply to the container instance to help you categorize and organize them.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +49,88 @@ A list object or a character vector
 \description{
 Register Container Instance
 }
+\section{cluster}{
+
+The short name or full Amazon Resource Name (ARN)
+of the cluster with which to register your container instance. If you do
+not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{instanceIdentityDocument}{
+
+The instance identity document for the EC2
+instance to register. This document can be found by running the
+following command from the instance:
+\verb{curl http://169.254.169.254/latest/dynamic/instance-identity/document/}
+}
+
+\section{instanceIdentityDocumentSignature}{
+
+The instance identity document signature for the
+EC2 instance to register. This signature can be found by running the
+following command from the instance:
+\verb{curl http://169.254.169.254/latest/dynamic/instance-identity/signature/}
+}
+
+\section{totalResources}{
+
+The resources available on the
+instance.
+}
+
+\section{versionInfo}{
+
+The version information for the Amazon ECS
+container agent and Docker daemon running on the container
+instance.
+}
+
+\section{containerInstanceArn}{
+
+The ARN of the container instance (if it
+was previously registered).
+}
+
+\section{attributes}{
+
+The container instance
+attributes that this container instance
+supports.
+}
+
+\section{platformDevices}{
+
+The devices that are available on the
+container instance. The only supported device type is a
+GPU.
+}
+
+\section{tags}{
+
+
+The metadata that you apply to the container instance to help you
+categorize and organize them. Each tag consists of a key and an optional
+value, both of which you define.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+

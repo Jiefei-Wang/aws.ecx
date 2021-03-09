@@ -4,14 +4,56 @@
 \alias{ecs_create_task_set}
 \title{Create Task Set}
 \usage{
-ecs_create_task_set(simplify = TRUE, others = list())
+ecs_create_task_set(
+  service = NULL,
+  cluster = NULL,
+  externalId = NULL,
+  taskDefinition = NULL,
+  networkConfiguration = NULL,
+  loadBalancers = NULL,
+  serviceRegistries = NULL,
+  launchType = NULL,
+  capacityProviderStrategy = NULL,
+  platformVersion = NULL,
+  scale = NULL,
+  clientToken = NULL,
+  tags = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service to create the task set in.}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to...}
+
+\item{externalId}{String. An optional non-unique tag that identifies this task set in external systems.}
+
+\item{taskDefinition}{String. The task definition for the tasks in the task set to use.}
+
+\item{networkConfiguration}{No description can be found.}
+
+\item{loadBalancers}{List. A load balancer object representing the load balancer to use with the task set.}
+
+\item{serviceRegistries}{List. The details of the service discovery registries to assign to this task set.}
+
+\item{launchType}{String.   The launch type that new tasks in the task set will use.}
+
+\item{capacityProviderStrategy}{List.   The capacity provider strategy to use for the task set.}
+
+\item{platformVersion}{String. The platform version that the tasks in the task set should use.}
+
+\item{scale}{No description can be found.}
+
+\item{clientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
+
+\item{tags}{List.   The metadata that you apply to the task set to help you categorize and organize them.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -23,3 +65,142 @@ controller type. For more information, see \href{https://docs.aws.amazon.com/Ama
 in the \emph{Amazon Elastic Container Service Developer
 Guide}.
 }
+\section{service}{
+
+The short name or full Amazon Resource Name
+(ARN) of the service to create the task set in.
+}
+
+\section{cluster}{
+
+The
+short name or full Amazon Resource Name (ARN) of the cluster that hosts
+the service to create the task set in.
+}
+
+\section{externalId}{
+
+An optional
+non-unique tag that identifies this task set in external systems. If the
+task set is associated with a service discovery registry, the tasks in
+this task set will have the \code{ECS_TASK_SET_EXTERNAL_ID} AWS Cloud Map
+attribute set to the provided value.
+}
+
+\section{taskDefinition}{
+
+The task
+definition for the tasks in the task set to
+use.
+}
+
+\section{networkConfiguration}{
+
+}
+
+\section{loadBalancers}{
+
+A load balancer object
+representing the load balancer to use with the task set. The supported
+load balancer types are either an Application Load Balancer or a Network
+Load Balancer.
+}
+
+\section{serviceRegistries}{
+
+The details of the service discovery
+registries to assign to this task set. For more information, see
+\href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html}{Service Discovery}.
+}
+
+\section{launchType}{
+
+
+The launch type that new tasks in the task set will use. For more
+information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html}{Amazon ECS Launch Types}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If a \code{launchType} is specified, the \code{capacityProviderStrategy} parameter
+must be omitted.
+}
+
+\section{capacityProviderStrategy}{
+
+
+The capacity provider strategy to use for the task set.
+
+A capacity provider strategy consists of one or more capacity providers
+along with the \code{base} and \code{weight} to assign to them. A capacity
+provider must be associated with the cluster to be used in a capacity
+provider strategy. The PutClusterCapacityProviders API is used to
+associate a capacity provider with a cluster. Only capacity providers
+with an \code{ACTIVE} or \code{UPDATING} status can be used.
+
+If a \code{capacityProviderStrategy} is specified, the \code{launchType} parameter
+must be omitted. If no \code{capacityProviderStrategy} or \code{launchType} is
+specified, the \code{defaultCapacityProviderStrategy} for the cluster is
+used.
+
+If specifying a capacity provider that uses an Auto Scaling group, the
+capacity provider must already be created. New capacity providers can be
+created with the CreateCapacityProvider API operation.
+
+To use a AWS Fargate capacity provider, specify either the \code{FARGATE} or
+\code{FARGATE_SPOT} capacity providers. The AWS Fargate capacity providers
+are available to all accounts and only need to be associated with a
+cluster to be used.
+
+The PutClusterCapacityProviders API operation is used to update the list
+of available capacity providers for a cluster after the cluster is
+created.
+}
+
+\section{platformVersion}{
+
+The platform version that the tasks in the task set
+should use. A platform version is specified only for tasks using the
+Fargate launch type. If one isn\'t specified, the \code{LATEST} platform
+version is used by
+default.
+}
+
+\section{scale}{
+
+}
+
+\section{clientToken}{
+
+Unique, case-sensitive
+identifier that you provide to ensure the idempotency of the request. Up
+to 32 ASCII characters are allowed.
+}
+
+\section{tags}{
+
+
+The metadata that you apply to the task set to help you categorize and
+organize them. Each tag consists of a key and an optional value, both of
+which you define. When a service is deleted, the tags are deleted as
+well.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+

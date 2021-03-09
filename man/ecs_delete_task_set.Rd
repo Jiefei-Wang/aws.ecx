@@ -4,14 +4,29 @@
 \alias{ecs_delete_task_set}
 \title{Delete Task Set}
 \usage{
-ecs_delete_task_set(simplify = TRUE, others = list())
+ecs_delete_task_set(
+  cluster = NULL,
+  service = NULL,
+  taskSet = NULL,
+  force = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+
+\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.}
+
+\item{taskSet}{String. The task set ID or full Amazon Resource Name (ARN) of the task set to delete.}
+
+\item{force}{Logical. If \code{true}, this allows you to delete a task set even if it hasn\'t been scaled down to zero.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -23,3 +38,30 @@ For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/dev
 in the \emph{Amazon Elastic Container Service Developer
 Guide}.
 }
+\section{cluster}{
+
+The short name or full Amazon Resource
+Name (ARN) of the cluster that hosts the service that the task set
+exists in to delete.
+}
+
+\section{service}{
+
+The short name or full Amazon
+Resource Name (ARN) of the service that hosts the task set to
+delete.
+}
+
+\section{taskSet}{
+
+The task set ID or full Amazon Resource Name
+(ARN) of the task set to delete.
+}
+
+\section{force}{
+
+If \code{true}, this
+allows you to delete a task set even if it hasn\'t been scaled down to
+zero.
+}
+

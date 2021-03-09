@@ -7,6 +7,9 @@
 ecs_list_task_definitions(
   maxResults = NULL,
   nextToken = NULL,
+  familyPrefix = NULL,
+  status = NULL,
+  sort = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +17,19 @@ ecs_list_task_definitions(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{familyPrefix}{String. The full family name with which to filter the \code{ListTaskDefinitions} results.}
+
+\item{status}{String. The task definition status with which to filter the \code{ListTaskDefinitions} results.}
+
+\item{sort}{String. The order in which to sort the results.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -33,5 +44,36 @@ parameter.
 
 Pagination
 limit
+}
+
+\section{familyPrefix}{
+
+The full
+family name with which to filter the \code{ListTaskDefinitions} results.
+Specifying a \code{familyPrefix} limits the listed task definitions to task
+definition revisions that belong to that family.
+}
+
+\section{status}{
+
+The
+task definition status with which to filter the \code{ListTaskDefinitions}
+results. By default, only \code{ACTIVE} task definitions are listed. By
+setting this parameter to \code{INACTIVE}, you can view task definitions that
+are \code{INACTIVE} as long as an active task or service still references
+them. If you paginate the resulting output, be sure to keep the \code{status}
+value constant in each subsequent request.
+}
+
+\section{sort}{
+
+The order
+in which to sort the results. Valid values are \code{ASC} and \code{DESC}. By
+default (\code{ASC}), task definitions are listed lexicographically by family
+name and in ascending numerical order by revision so that the newest
+task definitions in a family are listed last. Setting this parameter to
+\code{DESC} reverses the sort order on family name and revision so that the
+newest task definitions in a family are listed
+first.
 }
 

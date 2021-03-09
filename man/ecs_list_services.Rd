@@ -7,6 +7,9 @@
 ecs_list_services(
   maxResults = NULL,
   nextToken = NULL,
+  cluster = NULL,
+  launchType = NULL,
+  schedulingStrategy = NULL,
   simplify = TRUE,
   others = list()
 )
@@ -14,11 +17,19 @@ ecs_list_services(
 \arguments{
 \item{maxResults}{String. Pagination limit[optional]}
 
+\item{nextToken}{Characters, The token for the next page of results[optional]}
+
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list.}
+
+\item{launchType}{String. The launch type for the services to list.}
+
+\item{schedulingStrategy}{String. The scheduling strategy for services to list.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -31,5 +42,25 @@ specified cluster.
 
 Pagination
 limit
+}
+
+\section{cluster}{
+
+The short
+name or full Amazon Resource Name (ARN) of the cluster that hosts the
+services to list. If you do not specify a cluster, the default cluster
+is assumed.
+}
+
+\section{launchType}{
+
+The launch type for the services to
+list.
+}
+
+\section{schedulingStrategy}{
+
+The scheduling strategy for services to
+list.
 }
 

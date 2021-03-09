@@ -4,14 +4,80 @@
 \alias{ecs_create_service}
 \title{Create Service}
 \usage{
-ecs_create_service(simplify = TRUE, others = list())
+ecs_create_service(
+  cluster = NULL,
+  serviceName = NULL,
+  taskDefinition = NULL,
+  loadBalancers = NULL,
+  serviceRegistries = NULL,
+  desiredCount = NULL,
+  clientToken = NULL,
+  launchType = NULL,
+  capacityProviderStrategy = NULL,
+  platformVersion = NULL,
+  role = NULL,
+  deploymentConfiguration = NULL,
+  placementConstraints = NULL,
+  placementStrategy = NULL,
+  networkConfiguration = NULL,
+  healthCheckGracePeriodSeconds = NULL,
+  schedulingStrategy = NULL,
+  deploymentController = NULL,
+  tags = NULL,
+  enableECSManagedTags = NULL,
+  propagateTags = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service.}
+
+\item{serviceName}{String. The name of your service.}
+
+\item{taskDefinition}{String.   The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run...}
+
+\item{loadBalancers}{List.   A load balancer object representing the load balancers to use with your service.}
+
+\item{serviceRegistries}{List.   The details of the service discovery registries to assign to this service.}
+
+\item{desiredCount}{Integer.   The number of instantiations of the specified task definition to place and keep running...}
+
+\item{clientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
+
+\item{launchType}{String.   The launch type on which to run your service.}
+
+\item{capacityProviderStrategy}{List.   The capacity provider strategy to use for the service.}
+
+\item{platformVersion}{String. The platform version that your tasks in the service are running on.}
+
+\item{role}{String.   The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make...}
+
+\item{deploymentConfiguration}{Object. Optional deployment parameters that control how many tasks run during the deployment and the...}
+
+\item{placementConstraints}{List. An array of placement constraint objects to use for tasks in your service.}
+
+\item{placementStrategy}{List. The placement strategy objects to use for tasks in your service.}
+
+\item{networkConfiguration}{Object. The network configuration for the service.}
+
+\item{healthCheckGracePeriodSeconds}{Integer.   The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy...}
+
+\item{schedulingStrategy}{String.   The scheduling strategy to use for the service.}
+
+\item{deploymentController}{Object. The deployment controller to use for the service.}
+
+\item{tags}{List.   The metadata that you apply to the service to help you categorize and organize them.}
+
+\item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the tasks within the service.}
+
+\item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the tasks...}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -19,3 +85,327 @@ A list object or a character vector
 \description{
 Create Service
 }
+\section{cluster}{
+
+The short name or full Amazon Resource Name (ARN)
+of the cluster on which to run your service. If you do not specify a
+cluster, the default cluster is assumed.
+}
+
+\section{serviceName}{
+
+The name of
+your service. Up to 255 letters (uppercase and lowercase), numbers, and
+hyphens are allowed. Service names must be unique within a cluster, but
+you can have similarly named services in multiple clusters within a
+Region or across multiple Regions.
+}
+
+\section{taskDefinition}{
+
+
+The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task
+definition to run in your service. If a \code{revision} is not specified, the
+latest \code{ACTIVE} revision is used.
+
+A task definition must be specified if the service is using either the
+\code{ECS} or \code{CODE_DEPLOY} deployment controllers.
+}
+
+\section{loadBalancers}{
+
+
+A load balancer object representing the load balancers to use with your
+service. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html}{Service Load Balancing}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If the service is using the rolling update (\code{ECS}) deployment controller
+and using either an Application Load Balancer or Network Load Balancer,
+you must specify one or more target group ARNs to attach to the service.
+The service-linked role is required for services that make use of
+multiple target groups. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html}{Using Service-Linked Roles for Amazon ECS}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If the service is using the \code{CODE_DEPLOY} deployment controller, the
+service is required to use either an Application Load Balancer or
+Network Load Balancer. When creating an AWS CodeDeploy deployment group,
+you specify two target groups (referred to as a \code{targetGroupPair}).
+During a deployment, AWS CodeDeploy determines which task set in your
+service has the status \code{PRIMARY} and associates one target group with
+it, and then associates the other target group with the replacement task
+set. The load balancer can also have up to two listeners: a required
+listener for production traffic and an optional listener that allows you
+perform validation tests with Lambda functions before routing production
+traffic to it.
+
+After you create a service using the \code{ECS} deployment controller, the
+load balancer name or target group ARN, container name, and container
+port specified in the service definition are immutable. If you are using
+the \code{CODE_DEPLOY} deployment controller, these values can be changed
+when updating the service.
+
+For Application Load Balancers and Network Load Balancers, this object
+must contain the load balancer target group ARN, the container name (as
+it appears in a container definition), and the container port to access
+from the load balancer. The load balancer name parameter must be
+omitted. When a task from this service is placed on a container
+instance, the container instance and port combination is registered as a
+target in the target group specified here.
+
+For Classic Load Balancers, this object must contain the load balancer
+name, the container name (as it appears in a container definition), and
+the container port to access from the load balancer. The target group
+ARN parameter must be omitted. When a task from this service is placed
+on a container instance, the container instance is registered with the
+load balancer specified here.
+
+Services with tasks that use the \code{awsvpc} network mode (for example,
+those with the Fargate launch type) only support Application Load
+Balancers and Network Load Balancers. Classic Load Balancers are not
+supported. Also, when you create any target groups for these services,
+you must choose \code{ip} as the target type, not \code{instance}, because tasks
+that use the \code{awsvpc} network mode are associated with an elastic
+network interface, not an Amazon EC2 instance.
+}
+
+\section{serviceRegistries}{
+
+
+The details of the service discovery registries to assign to this
+service. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html}{Service Discovery}.
+
+Service discovery is supported for Fargate tasks if you are using
+platform version v1.1.0 or later. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html}{AWS Fargate Platform Versions}.
+}
+
+\section{desiredCount}{
+
+
+The number of instantiations of the specified task definition to place
+and keep running on your cluster.
+
+This is required if \code{schedulingStrategy} is \code{REPLICA} or is not
+specified. If \code{schedulingStrategy} is \code{DAEMON} then this is not
+required.
+}
+
+\section{clientToken}{
+
+Unique, case-sensitive identifier that you provide
+to ensure the idempotency of the request. Up to 32 ASCII characters are
+allowed.
+}
+
+\section{launchType}{
+
+
+The launch type on which to run your service. For more information, see
+\href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html}{Amazon ECS Launch Types}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If a \code{launchType} is specified, the \code{capacityProviderStrategy} parameter
+must be omitted.
+}
+
+\section{capacityProviderStrategy}{
+
+
+The capacity provider strategy to use for the service.
+
+A capacity provider strategy consists of one or more capacity providers
+along with the \code{base} and \code{weight} to assign to them. A capacity
+provider must be associated with the cluster to be used in a capacity
+provider strategy. The PutClusterCapacityProviders API is used to
+associate a capacity provider with a cluster. Only capacity providers
+with an \code{ACTIVE} or \code{UPDATING} status can be used.
+
+If a \code{capacityProviderStrategy} is specified, the \code{launchType} parameter
+must be omitted. If no \code{capacityProviderStrategy} or \code{launchType} is
+specified, the \code{defaultCapacityProviderStrategy} for the cluster is
+used.
+
+If specifying a capacity provider that uses an Auto Scaling group, the
+capacity provider must already be created. New capacity providers can be
+created with the CreateCapacityProvider API operation.
+
+To use a AWS Fargate capacity provider, specify either the \code{FARGATE} or
+\code{FARGATE_SPOT} capacity providers. The AWS Fargate capacity providers
+are available to all accounts and only need to be associated with a
+cluster to be used.
+
+The PutClusterCapacityProviders API operation is used to update the list
+of available capacity providers for a cluster after the cluster is
+created.
+}
+
+\section{platformVersion}{
+
+The platform version that your tasks in the service
+are running on. A platform version is specified only for tasks using the
+Fargate launch type. If one isn\'t specified, the \code{LATEST} platform
+version is used by default. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html}{AWS Fargate Platform Versions}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{role}{
+
+
+The name or full Amazon Resource Name (ARN) of the IAM role that allows
+Amazon ECS to make calls to your load balancer on your behalf. This
+parameter is only permitted if you are using a load balancer with your
+service and your task definition does not use the \code{awsvpc} network mode.
+If you specify the \code{role} parameter, you must also specify a load
+balancer object with the \code{loadBalancers} parameter.
+
+If your account has already created the Amazon ECS service-linked role,
+that role is used by default for your service unless you specify a role
+here. The service-linked role is required if your task definition uses
+the \code{awsvpc} network mode or if the service is configured to use service
+discovery, an external deployment controller, multiple target groups, or
+Elastic Inference accelerators in which case you should not specify a
+role here. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html}{Using Service-Linked Roles for Amazon ECS}
+in the \emph{Amazon Elastic Container Service Developer Guide}.
+
+If your specified role has a path other than \code{/}, then you must either
+specify the full role ARN (this is recommended) or prefix the role name
+with the path. For example, if a role with the name \code{bar} has a path of
+\verb{/foo/} then you would specify \verb{/foo/bar} as the role name. For more
+information, see \href{https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names}{Friendly Names and Paths}
+in the \emph{IAM User Guide}.
+}
+
+\section{deploymentConfiguration}{
+
+Optional deployment parameters that control how
+many tasks run during the deployment and the ordering of stopping and
+starting tasks.
+}
+
+\section{placementConstraints}{
+
+An array of placement constraint
+objects to use for tasks in your service. You can specify a maximum of
+10 constraints per task (this limit includes constraints in the task
+definition and those specified at runtime).
+}
+
+\section{placementStrategy}{
+
+The
+placement strategy objects to use for tasks in your service. You can
+specify a maximum of five strategy rules per
+service.
+}
+
+\section{networkConfiguration}{
+
+The network configuration for the service.
+This parameter is required for task definitions that use the \code{awsvpc}
+network mode to receive their own elastic network interface, and it is
+not supported for other network modes. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html}{Task Networking}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{healthCheckGracePeriodSeconds}{
+
+
+The period of time, in seconds, that the Amazon ECS service scheduler
+should ignore unhealthy Elastic Load Balancing target health checks
+after a task has first started. This is only used when your service is
+configured to use a load balancer. If your service has a load balancer
+defined and you don\'t specify a health check grace period value, the
+default value of \code{0} is used.
+
+If your service\'s tasks take a while to start and respond to Elastic
+Load Balancing health checks, you can specify a health check grace
+period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
+service scheduler ignores health check status. This grace period can
+prevent the service scheduler from marking tasks as unhealthy and
+stopping them before they have time to come up.
+}
+
+\section{schedulingStrategy}{
+
+
+The scheduling strategy to use for the service. For more information,
+see
+\href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html}{Services}.
+
+There are two service scheduler strategies available:
+\itemize{
+\item \code{REPLICA}-The replica scheduling strategy places and maintains the
+desired number of tasks across your cluster. By default, the service
+scheduler spreads tasks across Availability Zones. You can use task
+placement strategies and constraints to customize task placement
+decisions. This scheduler strategy is required if the service is
+using the \code{CODE_DEPLOY} or \code{EXTERNAL} deployment controller types.
+\item \code{DAEMON}-The daemon scheduling strategy deploys exactly one task on
+each active container instance that meets all of the task placement
+constraints that you specify in your cluster. The service scheduler
+also evaluates the task placement constraints for running tasks and
+will stop tasks that do not meet the placement constraints. When
+you\'re using this strategy, you don\'t need to specify a desired
+number of tasks, a task placement strategy, or use Service Auto
+Scaling policies.
+
+Tasks using the Fargate launch type or the \code{CODE_DEPLOY} or
+\code{EXTERNAL} deployment controller types don\'t support the \code{DAEMON}
+scheduling strategy.
+}
+}
+
+\section{deploymentController}{
+
+The deployment controller to use for the
+service.
+}
+
+\section{tags}{
+
+
+The metadata that you apply to the service to help you categorize and
+organize them. Each tag consists of a key and an optional value, both of
+which you define. When a service is deleted, the tags are deleted as
+well.
+
+The following basic restrictions apply to tags:
+\itemize{
+\item Maximum number of tags per resource - 50
+\item For each resource, each tag key must be unique, and each tag key can
+have only one value.
+\item Maximum key length - 128 Unicode characters in UTF-8
+\item Maximum value length - 256 Unicode characters in UTF-8
+\item If your tagging schema is used across multiple services and
+resources, remember that other services may have restrictions on
+allowed characters. Generally allowed characters are: letters,
+numbers, and spaces representable in UTF-8, and the following
+characters: + - = . _ : / @.
+\item Tag keys and values are case-sensitive.
+\item Do not use \verb{aws:}, \verb{AWS:}, or any upper or lowercase combination of
+such as a prefix for either keys or values as it is reserved for AWS
+use. You cannot edit or delete tag keys or values with this prefix.
+Tags with this prefix do not count against your tags per resource
+limit.
+}
+}
+
+\section{enableECSManagedTags}{
+
+Specifies whether to enable Amazon ECS managed tags
+for the tasks within the service. For more information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html}{Tagging Your Amazon ECS Resources}
+in the \emph{Amazon Elastic Container Service Developer
+Guide}.
+}
+
+\section{propagateTags}{
+
+Specifies whether to propagate the tags from
+the task definition or the service to the tasks in the service. If no
+value is specified, the tags are not propagated. Tags can only be
+propagated to the tasks within the service during service creation. To
+add tags to a task after service creation, use the TagResource API
+action.
+}
+

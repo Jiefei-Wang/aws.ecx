@@ -4,14 +4,20 @@
 \alias{ecs_list_tags_for_resource}
 \title{List Tags For Resource}
 \usage{
-ecs_list_tags_for_resource(simplify = TRUE, others = list())
+ecs_list_tags_for_resource(
+  resourceArn = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{resourceArn}{String. The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -20,3 +26,11 @@ A list object or a character vector
 List the tags for an Amazon ECS
 resource.
 }
+\section{resourceArn}{
+
+The Amazon Resource Name (ARN) that identifies
+the resource for which to list the tags. Currently, the supported
+resources are Amazon ECS tasks, services, task definitions, clusters,
+and container instances.
+}
+

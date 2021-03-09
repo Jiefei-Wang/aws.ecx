@@ -18,15 +18,15 @@ ec2_describe_spot_fleet_requests(
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 
-\item{NextToken}{Characters, The token for the next page of results.}
+\item{NextToken}{Characters, The token for the next page of results[optional]}
 
 \item{SpotFleetRequestId}{List. The IDs of the Spot Fleet requests.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector

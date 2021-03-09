@@ -4,14 +4,23 @@
 \alias{ecs_put_attributes}
 \title{Put Attributes}
 \usage{
-ecs_put_attributes(simplify = TRUE, others = list())
+ecs_put_attributes(
+  cluster = NULL,
+  attributes = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource...}
+
+\item{attributes}{List. The attributes to apply to your resource.}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -25,3 +34,18 @@ delete an attribute, use DeleteAttributes. For more information, see
 in the \emph{Amazon Elastic Container Service Developer
 Guide}.
 }
+\section{cluster}{
+
+The short name or full Amazon Resource
+Name (ARN) of the cluster that contains the resource to apply
+attributes. If you do not specify a cluster, the default cluster is
+assumed.
+}
+
+\section{attributes}{
+
+The attributes to apply to your resource.
+You can specify up to 10 custom attributes per resource. You can specify
+up to 10 attributes in a single call.
+}
+

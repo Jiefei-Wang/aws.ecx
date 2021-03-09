@@ -4,14 +4,29 @@
 \alias{ecs_update_task_set}
 \title{Update Task Set}
 \usage{
-ecs_update_task_set(simplify = TRUE, others = list())
+ecs_update_task_set(
+  cluster = NULL,
+  service = NULL,
+  taskSet = NULL,
+  scale = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+
+\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.}
+
+\item{taskSet}{String. The short name or full Amazon Resource Name (ARN) of the task set to update.}
+
+\item{scale}{}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -22,3 +37,27 @@ service uses the \code{EXTERNAL} deployment controller type. For more
 information, see \href{https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html}{Amazon ECS Deployment Types}
 in the \emph{Amazon Elastic Container Service Developer Guide}.
 }
+\section{cluster}{
+
+The short name or full Amazon Resource
+Name (ARN) of the cluster that hosts the service that the task set
+exists in.
+}
+
+\section{service}{
+
+The short name or full Amazon Resource
+Name (ARN) of the service that the task set exists
+in.
+}
+
+\section{taskSet}{
+
+The short name or full Amazon Resource Name
+(ARN) of the task set to update.
+}
+
+\section{scale}{
+
+}
+

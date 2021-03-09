@@ -4,14 +4,26 @@
 \alias{ecs_update_service_primary_task_set}
 \title{Update Service Primary Task Set}
 \usage{
-ecs_update_service_primary_task_set(simplify = TRUE, others = list())
+ecs_update_service_primary_task_set(
+  cluster = NULL,
+  service = NULL,
+  primaryTaskSet = NULL,
+  simplify = TRUE,
+  others = list()
+)
 }
 \arguments{
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+
+\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.}
+
+\item{primaryTaskSet}{String. The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task...}
+
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
-in the response}
+in the response[optional]}
 
 \item{others}{Named list. The parameters that are not included in the
-function parameters and need to be added into the request.}
+function parameters and need to be added into the request[optional]}
 }
 \value{
 A list object or a character vector
@@ -25,3 +37,24 @@ the \code{EXTERNAL} deployment controller type. For more information, see
 in the \emph{Amazon Elastic Container Service Developer
 Guide}.
 }
+\section{cluster}{
+
+The short name or
+full Amazon Resource Name (ARN) of the cluster that hosts the service
+that the task set exists in.
+}
+
+\section{service}{
+
+The short name or full
+Amazon Resource Name (ARN) of the service that the task set exists
+in.
+}
+
+\section{primaryTaskSet}{
+
+The short name or full Amazon Resource Name
+(ARN) of the task set to set as the primary task set in the
+deployment.
+}
+
