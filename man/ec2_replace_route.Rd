@@ -34,7 +34,7 @@ ec2_replace_route(
 
 \item{DestinationPrefixListId}{String. The ID of the prefix list for the route.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{VpcEndpointId}{String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.[optional]}
 

@@ -15,7 +15,7 @@ ec2_delete_tags(
 \arguments{
 \item{ResourceId}{List.   The IDs of the resources, separated by spaces.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Tag}{List.   The tags to delete.[optional]}
 

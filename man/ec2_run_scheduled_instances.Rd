@@ -21,7 +21,7 @@ ec2_run_scheduled_instances(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that ensures the idempotency of the request.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceCount}{Integer.   The number of instances.  Default: 1  [optional]}
 

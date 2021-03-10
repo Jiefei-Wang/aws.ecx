@@ -24,7 +24,7 @@ ec2_create_snapshots(
 
 \item{TagSpecification}{List. Tags to apply to every snapshot specified by the instance.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{CopyTagsFromSource}{String. Copies the tags from the specified volume to corresponding snapshot.[optional]}
 

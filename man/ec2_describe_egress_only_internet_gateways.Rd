@@ -15,7 +15,7 @@ ec2_describe_egress_only_internet_gateways(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EgressOnlyInternetGatewayId}{List. One or more egress-only internet gateway IDs.[optional]}
 

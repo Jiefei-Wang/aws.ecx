@@ -14,7 +14,7 @@ ec2_accept_transit_gateway_vpc_attachment(
 \arguments{
 \item{TransitGatewayAttachmentId}{String. The ID of the attachment.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

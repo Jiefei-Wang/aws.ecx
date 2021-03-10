@@ -14,9 +14,9 @@ ec2_describe_principal_id_format(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{Resource}{List. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...[optional]}
+\item{Resource}{List. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \| \code{elastic-ip-allocation}...[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 

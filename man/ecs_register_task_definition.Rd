@@ -25,15 +25,15 @@ ecs_register_task_definition(
 )
 }
 \arguments{
-\item{family}{String. You must specify a \code{family} for a task definition, which allows you to track multiple versions...}
+\item{family}{String. You must specify a \code{family} for a task definition, which allows you to track multiple versions of...}
 
-\item{taskRoleArn}{String. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this...}
+\item{taskRoleArn}{String. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can...}
 
-\item{executionRoleArn}{String. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container...}
+\item{executionRoleArn}{String. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent...}
 
 \item{networkMode}{String.   The Docker networking mode to use for the containers in the task.}
 
-\item{containerDefinitions}{List. A list of container definitions in JSON format that describe the different containers that...}
+\item{containerDefinitions}{List. A list of container definitions in JSON format that describe the different containers that make up...}
 
 \item{volumes}{List. A list of volume definitions in JSON format that containers in your task may use.}
 
@@ -327,6 +327,7 @@ the Fargate launch type.
 
 \section{proxyConfiguration}{
 
+No description can be found.
 }
 
 \section{inferenceAccelerators}{

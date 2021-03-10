@@ -13,7 +13,7 @@ ecs_describe_tasks(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to...}
 
 \item{tasks}{List. A list of up to 100 task IDs or full ARN entries.}
 

@@ -21,7 +21,7 @@ ec2_create_nat_gateway(
 
 \item{ClientToken}{String.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TagSpecification}{List. The tags to assign to the NAT gateway.[optional]}
 

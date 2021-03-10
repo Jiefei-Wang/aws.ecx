@@ -29,7 +29,7 @@ ec2_create_customer_gateway(
 
 \item{DeviceName}{String.   A name for the customer gateway device.  Length Constraints: Up to 255 characters.  [optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

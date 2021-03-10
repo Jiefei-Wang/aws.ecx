@@ -21,7 +21,7 @@ ec2_import_instance(
 
 \item{DiskImage}{List. The disk image.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{LaunchSpecification}{Object. The launch specification.[optional]}
 

@@ -25,7 +25,7 @@ ec2_create_network_interface(
 
 \item{Description}{String. A description for the network interface.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{SecurityGroupId}{List. The IDs of one or more security groups.[optional]}
 

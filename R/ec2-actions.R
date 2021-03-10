@@ -3,9 +3,9 @@
 #' Accepts the Convertible Reserved Instance exchange quote described in
 #' the GetReservedInstancesExchangeQuote call.
 #' 
-#' @param ReservedInstanceId List. The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved...
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param TargetConfiguration List. The configuration of the target Convertible Reserved Instance to exchange for your current...\[optional\]
+#' @param ReservedInstanceId List. The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance...
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param TargetConfiguration List. The configuration of the target Convertible Reserved Instance to exchange for your current Convertible...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ReservedInstanceId:
@@ -44,7 +44,7 @@ ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, Dry
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway attachment.\[optional\]
 #' @param SubnetIds List. The IDs of the subnets to associate with the transit gateway multicast domain.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -83,7 +83,7 @@ ec2_accept_transit_gateway_multicast_domain_associations <- function(TransitGate
 #' state.
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -109,7 +109,7 @@ ec2_accept_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' Accept Transit Gateway Vpc Attachment
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -139,7 +139,7 @@ ec2_accept_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' 
 #' @param ServiceId String. The ID of the VPC endpoint service.
 #' @param VpcEndpointId List. The IDs of one or more interface VPC endpoints.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ServiceId:
@@ -168,7 +168,7 @@ ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
 
 #' Accept Vpc Peering Connection
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcPeeringConnectionId String. The ID of the VPC peering connection. You must specify this parameter in the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -196,7 +196,7 @@ ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectio
 #' Advertise Byoip Cidr
 #' 
 #' @param Cidr String. The address range, in CIDR notation.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Cidr:
@@ -221,12 +221,12 @@ ec2_advertise_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, other
 
 #' Allocate Address
 #' 
-#' @param Domain String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances...\[optional\]
+#' @param Domain String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic....\[optional\]
 #' @param Address String. \[EC2-VPC\] The Elastic IP address to recover or an IPv4 address from an address pool.\[optional\]
 #' @param PublicIpv4Pool String. The ID of an address pool that you own.\[optional\]
 #' @param NetworkBorderGroup String.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\[optional\]
 #' @param CustomerOwnedIpv4Pool String. The ID of a customer-owned address pool.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to assign to the Elastic IP address.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -299,7 +299,7 @@ ec2_allocate_address <- function(Domain = NULL, Address = NULL, PublicIpv4Pool =
 #' 
 #' @param AvailabilityZone String. The Availability Zone in which to allocate the Dedicated Host.
 #' @param Quantity Integer. The number of Dedicated Hosts to allocate to your account with these parameters.
-#' @param AutoPlacement String.   Indicates whether the host accepts any untargeted instance launches that match its instance...\[optional\]
+#' @param AutoPlacement String.   Indicates whether the host accepts any untargeted instance launches that match its instance type...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @param InstanceType String.   Specifies the instance type to be supported by the Dedicated Hosts.\[optional\]
 #' @param InstanceFamily String.   Specifies the instance family to be supported by the Dedicated Hosts.\[optional\]
@@ -390,7 +390,7 @@ ec2_allocate_hosts <- function(AvailabilityZone, Quantity, AutoPlacement = NULL,
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param VpcId String. The ID of the VPC in which the associated target network is located.
 #' @param SecurityGroupId List. The IDs of the security groups to apply to the associated target network.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -461,8 +461,8 @@ ec2_assign_ipv6_addresses <- function(NetworkInterfaceId, Ipv6AddressCount = NUL
 #' Assign Private Ip Addresses
 #' 
 #' @param NetworkInterfaceId String. The ID of the network interface.
-#' @param AllowReassignment Logical. Indicates whether to allow an IP address that is already assigned to another network interface...\[optional\]
-#' @param PrivateIpAddress List.   One or more IP addresses to be assigned as a secondary private IP address to the network...\[optional\]
+#' @param AllowReassignment Logical. Indicates whether to allow an IP address that is already assigned to another network interface or...\[optional\]
+#' @param PrivateIpAddress List.   One or more IP addresses to be assigned as a secondary private IP address to the network interface....\[optional\]
 #' @param SecondaryPrivateIpAddressCount Integer. The number of secondary IP addresses to assign to the network interface.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -504,8 +504,8 @@ ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignmen
 #' @param AllocationId String. \[EC2-VPC\] The allocation ID. This is required for EC2-VPC.\[optional\]
 #' @param InstanceId String. The ID of the instance.\[optional\]
 #' @param PublicIp String. \[EC2-Classic\] The Elastic IP address to associate with the instance.\[optional\]
-#' @param AllowReassociation Logical. \[EC2-VPC\] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param AllowReassociation Logical. \[EC2-VPC\] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param NetworkInterfaceId String.   \[EC2-VPC\] The ID of the network interface.\[optional\]
 #' @param PrivateIpAddress String. \[EC2-VPC\] The primary or secondary private IP address to associate with the Elastic IP address.\[optional\]
 #' @inheritParams CommonDoc
@@ -570,7 +570,7 @@ ec2_associate_address <- function(AllocationId = NULL, InstanceId = NULL, Public
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param SubnetId String. The ID of the subnet to associate with the Client VPN endpoint.
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -606,7 +606,7 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
 #' 
 #' @param DhcpOptionsId String. The ID of the DHCP options set, or `default` to associate no DHCP options with the VPC.
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DhcpOptionsId:
@@ -635,7 +635,7 @@ ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simp
 #' 
 #' @param CertificateArn String. The ARN of the ACM certificate with which to associate the IAM role.\[optional\]
 #' @param RoleArn String. The ARN of the IAM role to associate with the ACM certificate.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CertificateArn:
@@ -693,7 +693,7 @@ ec2_associate_iam_instance_profile <- function(IamInstanceProfile, InstanceId, s
 #' Associate Route Table
 #' 
 #' @param RouteTableId String. The ID of the route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SubnetId String. The ID of the subnet.\[optional\]
 #' @param GatewayId String. The ID of the internet gateway or virtual private gateway.\[optional\]
 #' @inheritParams CommonDoc
@@ -757,7 +757,7 @@ ec2_associate_subnet_cidr_block <- function(Ipv6CidrBlock, SubnetId, simplify = 
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway attachment to associate with the transit gateway multicast domain.\[optional\]
 #' @param SubnetIds List. The IDs of the subnets to associate with the transit gateway multicast domain.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -797,7 +797,7 @@ ec2_associate_transit_gateway_multicast_domain <- function(TransitGatewayMultica
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -883,7 +883,7 @@ ec2_associate_vpc_cidr_block <- function(VpcId, AmazonProvidedIpv6CidrBlock = NU
 #' @param SecurityGroupId List. The ID of one or more of the VPC\'s security groups.
 #' @param InstanceId String. The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 #' @param VpcId String. The ID of a ClassicLink-enabled VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SecurityGroupId:
@@ -924,7 +924,7 @@ ec2_attach_classic_link_vpc <- function(SecurityGroupId, InstanceId, VpcId, DryR
 #' 
 #' @param InternetGatewayId String. The ID of the internet gateway.
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InternetGatewayId:
@@ -958,7 +958,7 @@ ec2_attach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
 #' @param DeviceIndex Integer. The index of the device for the network interface attachment.
 #' @param InstanceId String. The ID of the instance.
 #' @param NetworkInterfaceId String. The ID of the network interface.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param NetworkCardIndex Integer. The index of the network card.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -999,7 +999,7 @@ ec2_attach_network_interface <- function(DeviceIndex, InstanceId, NetworkInterfa
 #' @param Device String. The device name (for example, `/dev/sdh` or `xvdh`).
 #' @param InstanceId String. The ID of the instance.
 #' @param VolumeId String. The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Device:
@@ -1033,7 +1033,7 @@ ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simpl
 #' 
 #' @param VpcId String. The ID of the VPC.
 #' @param VpnGatewayId String. The ID of the virtual private gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -1068,11 +1068,11 @@ ec2_attach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param TargetNetworkCidr String. The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
-#' @param AccessGroupId String. The ID of the group to grant access to, for example, the Active Directory group or identity...\[optional\]
+#' @param AccessGroupId String. The ID of the group to grant access to, for example, the Active Directory group or identity provider...\[optional\]
 #' @param AuthorizeAllGroups Logical. Indicates whether to grant access to all clients.\[optional\]
 #' @param Description String. A brief description of the authorization rule.\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -1123,7 +1123,7 @@ ec2_authorize_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkC
 #' Authorize Security Group Egress
 #' 
 #' @param GroupId String. The ID of the security group.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param IpPermissions List. The sets of IP permissions.\[optional\]
 #' @param CidrIp String. Not supported. Use a set of IP permissions to specify the CIDR.\[optional\]
 #' @param FromPort Integer. Not supported. Use a set of IP permissions to specify the port.\[optional\]
@@ -1188,11 +1188,11 @@ ec2_authorize_security_group_egress <- function(GroupId, DryRun = NULL, IpPermis
 #' @param GroupId String. The ID of the security group.\[optional\]
 #' @param GroupName String. \[EC2-Classic, default VPC\] The name of the security group.\[optional\]
 #' @param IpPermissions List. The sets of IP permissions.\[optional\]
-#' @param IpProtocol String.   The IP protocol name (`tcp`, `udp`, `icmp`) or number (see [Protocol Numbers](http://www.\[optional\]
+#' @param IpProtocol String.   The IP protocol name (`tcp`, `udp`, `icmp`) or number (see [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml))....\[optional\]
 #' @param SourceSecurityGroupName String. \[EC2-Classic, default VPC\] The name of the source security group.\[optional\]
-#' @param SourceSecurityGroupOwnerId String. \[nondefault VPC\] The AWS account ID for the source security group, if the source security...\[optional\]
+#' @param SourceSecurityGroupOwnerId String. \[nondefault VPC\] The AWS account ID for the source security group, if the source security group...\[optional\]
 #' @param ToPort Integer.   The end of port range for the TCP and UDP protocols, or an ICMP code number.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CidrIp:
@@ -1290,7 +1290,7 @@ ec2_authorize_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL,
 #' 
 #' @param InstanceId String.   The ID of the instance to bundle.  Type: String  Default: None  Required: Yes  
 #' @param Storage Object. The bucket in which to store the AMI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -1330,7 +1330,7 @@ ec2_bundle_instance <- function(InstanceId, Storage, DryRun = NULL, simplify = T
 #' store-backed Windows instance.
 #' 
 #' @param BundleId String. The ID of the bundle task.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section BundleId:
@@ -1355,7 +1355,7 @@ ec2_cancel_bundle_task <- function(BundleId, DryRun = NULL, simplify = TRUE, oth
 #' Cancel Capacity Reservation
 #' 
 #' @param CapacityReservationId String. The ID of the Capacity Reservation to be cancelled.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CapacityReservationId:
@@ -1381,7 +1381,7 @@ ec2_cancel_capacity_reservation <- function(CapacityReservationId, DryRun = NULL
 #' Cancel Conversion Task
 #' 
 #' @param ConversionTaskId String. The ID of the conversion task.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ReasonMessage String. The reason for canceling the conversion task.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -1439,7 +1439,7 @@ ec2_cancel_export_task <- function(ExportTaskId, simplify = TRUE, others = list(
 #' or import snapshot task.
 #' 
 #' @param CancelReason String. The reason for canceling the task.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ImportTaskId String. The ID of the import image or import snapshot task to be canceled.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -1489,7 +1489,7 @@ ec2_cancel_reserved_instances_listing <- function(ReservedInstancesListingId, si
 #' 
 #' @param SpotFleetRequestId List. The IDs of the Spot Fleet requests.
 #' @param TerminateInstances Logical. Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SpotFleetRequestId:
@@ -1520,7 +1520,7 @@ ec2_cancel_spot_fleet_requests <- function(SpotFleetRequestId, TerminateInstance
 #' Cancel Spot Instance Requests
 #' 
 #' @param SpotInstanceRequestId List. One or more Spot Instance request IDs.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SpotInstanceRequestId:
@@ -1554,7 +1554,7 @@ ec2_cancel_spot_instance_requests <- function(SpotInstanceRequestId, DryRun = NU
 #' 
 #' @param InstanceId String. The ID of the instance.
 #' @param ProductCode String. The product code. This must be a product code that you own.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -1587,7 +1587,7 @@ ec2_confirm_product_instance <- function(InstanceId, ProductCode, DryRun = NULL,
 #' 
 #' @param SourceFpgaImageId String. The ID of the source AFI.
 #' @param SourceRegion String. The Region that contains the source AFI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Description String. The description for the new AFI.\[optional\]
 #' @param Name String. The name for the new AFI. The default is the name of the source AFI.\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
@@ -1636,9 +1636,9 @@ ec2_copy_fpga_image <- function(SourceFpgaImageId, SourceRegion, DryRun = NULL, 
 #' @param ClientToken String. Unique, case-sensitive identifier you provide to ensure idempotency of the request.\[optional\]
 #' @param Description String. A description for the new AMI in the destination Region.\[optional\]
 #' @param Encrypted Logical. Specifies whether the destination snapshots of the copied image should be encrypted.\[optional\]
-#' @param KmsKeyId String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key...\[optional\]
+#' @param KmsKeyId String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...\[optional\]
 #' @param DestinationOutpostArn String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Name:
@@ -1735,11 +1735,11 @@ ec2_copy_image <- function(Name, SourceImageId, SourceRegion, ClientToken = NULL
 #' @param Description String. A description for the EBS snapshot.\[optional\]
 #' @param DestinationOutpostArn String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.\[optional\]
 #' @param DestinationRegion String.   The destination Region to use in the `PresignedUrl` parameter of a snapshot copy operation.\[optional\]
-#' @param Encrypted Logical. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable...\[optional\]
-#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\[optional\]
-#' @param PresignedUrl String.   When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply...\[optional\]
+#' @param Encrypted Logical. To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption...\[optional\]
+#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for...\[optional\]
+#' @param PresignedUrl String.   When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed...\[optional\]
 #' @param TagSpecification List. The tags to apply to the new snapshot.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SourceRegion:
@@ -1865,7 +1865,7 @@ ec2_copy_snapshot <- function(SourceRegion, SourceSnapshotId, Description = NULL
 #' @param EndDateType String.   Indicates the way in which the Capacity Reservation ends.\[optional\]
 #' @param InstanceMatchCriteria String.   Indicates the type of instance launches that the Capacity Reservation accepts.\[optional\]
 #' @param TagSpecifications List. The tags to apply to the Capacity Reservation during launch.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceType:
@@ -1996,7 +1996,7 @@ ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, Inst
 #' 
 #' @param VpcId String. The ID of the VPC to associate with the carrier gateway.
 #' @param TagSpecification List. The tags to associate with the carrier gateway.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -2046,7 +2046,7 @@ ec2_create_carrier_gateway <- function(VpcId, TagSpecification = NULL, DryRun = 
 #' @param VpnPort Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.\[optional\]
 #' @param Description String. A brief description of the Client VPN endpoint.\[optional\]
 #' @param SplitTunnel Logical.   Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @param TagSpecification List. The tags to apply to the Client VPN endpoint during creation.\[optional\]
 #' @param SecurityGroupId List. The IDs of one or more security groups to apply to the target network.\[optional\]
@@ -2190,7 +2190,7 @@ ec2_create_client_vpn_endpoint <- function(ClientCidrBlock, ServerCertificateArn
 #' @param TargetVpcSubnetId String.   The ID of the subnet through which you want to route traffic.
 #' @param Description String. A brief description of the route.\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -2255,7 +2255,7 @@ ec2_create_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
 #' @param CertificateArn String. The Amazon Resource Name (ARN) for the customer gateway certificate.\[optional\]
 #' @param TagSpecification List. The tags to apply to the customer gateway.\[optional\]
 #' @param DeviceName String.   A name for the customer gateway device.  Length Constraints: Up to 255 characters.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section BgpAsn:
@@ -2312,7 +2312,7 @@ ec2_create_customer_gateway <- function(BgpAsn, Type, IpAddress = NULL, Certific
 #' in the *Amazon Virtual Private Cloud User Guide*.
 #' 
 #' @param AvailabilityZone String. The Availability Zone in which to create the default subnet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AvailabilityZone:
@@ -2336,7 +2336,7 @@ ec2_create_default_subnet <- function(AvailabilityZone, DryRun = NULL, simplify 
 
 #' Create Default Vpc
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -2359,7 +2359,7 @@ ec2_create_default_vpc <- function(DryRun = NULL, simplify = TRUE, others = list
 #' 
 #' @param DhcpConfiguration List. A DHCP configuration option.
 #' @param TagSpecification List. The tags to assign to the DHCP option.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DhcpConfiguration:
@@ -2397,7 +2397,7 @@ ec2_create_dhcp_options <- function(DhcpConfiguration, TagSpecification = NULL, 
 #' 
 #' @param VpcId String. The ID of the VPC for which to create the egress-only internet gateway.
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to assign to the egress-only internet gateway.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -2434,11 +2434,11 @@ ec2_create_egress_only_internet_gateway <- function(VpcId, ClientToken = NULL, D
 #' 
 #' @param LaunchTemplateConfigs List. The configuration for the EC2 Fleet.
 #' @param TargetCapacitySpecification Object. The number of units to request.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @param SpotOptions Object. Describes the configuration of Spot Instances in an EC2 Fleet.\[optional\]
 #' @param OnDemandOptions Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.\[optional\]
-#' @param ExcessCapacityTerminationPolicy String. Indicates whether running instances should be terminated if the total target capacity of the...\[optional\]
+#' @param ExcessCapacityTerminationPolicy String. Indicates whether running instances should be terminated if the total target capacity of the EC2...\[optional\]
 #' @param TerminateInstancesWithExpiration Logical. Indicates whether running instances should be terminated when the EC2 Fleet expires.\[optional\]
 #' @param Type String.   The type of request.\[optional\]
 #' @param ValidFrom String. The start date and time of the request, in UTC format (for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z)....\[optional\]
@@ -2549,15 +2549,15 @@ ec2_create_fleet <- function(LaunchTemplateConfigs, TargetCapacitySpecification,
 #' @param ResourceId List.   The ID of the subnet, network interface, or VPC for which you want to create a flow log.
 #' @param ResourceType String. The type of resource for which to create the flow log.
 #' @param TrafficType String. The type of traffic to log.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DeliverLogsPermissionArn String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs...\[optional\]
-#' @param LogGroupName String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your...\[optional\]
+#' @param DeliverLogsPermissionArn String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log...\[optional\]
+#' @param LogGroupName String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs....\[optional\]
 #' @param LogDestinationType String.   Specifies the type of destination to which the flow log data is to be published.\[optional\]
 #' @param LogDestination String.   Specifies the destination to which the flow log data is to be published.\[optional\]
 #' @param LogFormat String.   The fields to include in the flow log record, in the order in which they should appear.\[optional\]
 #' @param TagSpecification List. The tags to apply to the flow logs.\[optional\]
-#' @param MaxAggregationInterval Integer.   The maximum interval of time during which a flow of packets is captured and aggregated into...\[optional\]
+#' @param MaxAggregationInterval Integer.   The maximum interval of time during which a flow of packets is captured and aggregated into a flow...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ResourceId:
@@ -2685,7 +2685,7 @@ ec2_create_flow_logs <- function(ResourceId, ResourceType, TrafficType, DryRun =
 #' Create Fpga Image
 #' 
 #' @param InputStorageLocation Object. The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LogsStorageLocation Object. The location in Amazon S3 for the output logs.\[optional\]
 #' @param Description String. A description for the AFI.\[optional\]
 #' @param Name String. A name for the AFI.\[optional\]
@@ -2740,7 +2740,7 @@ ec2_create_fpga_image <- function(InputStorageLocation, DryRun = NULL, LogsStora
 #' @param Name String.   A name for the new image.
 #' @param BlockDeviceMapping List. The block device mappings.\[optional\]
 #' @param Description String. A description for the new image.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param NoReboot Logical. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.\[optional\]
 #' @param TagSpecification List.   The tags to apply to the AMI and snapshots on creation.\[optional\]
 #' @inheritParams CommonDoc
@@ -2849,7 +2849,7 @@ ec2_create_instance_export_task <- function(ExportToS3, InstanceId, TargetEnviro
 #' Create Internet Gateway
 #' 
 #' @param TagSpecification List. The tags to assign to the internet gateway.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TagSpecification:
@@ -2876,7 +2876,7 @@ ec2_create_internet_gateway <- function(TagSpecification = NULL, DryRun = NULL, 
 #' Create Key Pair
 #' 
 #' @param KeyName String.   A unique name for the key pair.  Constraints: Up to 255 ASCII characters  
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to apply to the new key pair.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -2919,7 +2919,7 @@ ec2_create_key_pair <- function(KeyName, DryRun = NULL, TagSpecification = NULL,
 #' 
 #' @param LaunchTemplateName String. A name for the launch template.
 #' @param LaunchTemplateData Object. The information for the launch template.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\[optional\]
 #' @param VersionDescription String. A description for the first version of the launch template.\[optional\]
 #' @param TagSpecification List. The tags to apply to the launch template during creation.\[optional\]
@@ -2968,7 +2968,7 @@ ec2_create_launch_template <- function(LaunchTemplateName, LaunchTemplateData, D
 #' Create Launch Template Version
 #' 
 #' @param LaunchTemplateData Object. The information for the launch template.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\[optional\]
 #' @param LaunchTemplateId String. The ID of the launch template.\[optional\]
 #' @param LaunchTemplateName String. The name of the launch template.\[optional\]
@@ -3033,7 +3033,7 @@ ec2_create_launch_template_version <- function(LaunchTemplateData, DryRun = NULL
 #' @param DestinationCidrBlock String. The CIDR range used for destination matches.
 #' @param LocalGatewayRouteTableId String. The ID of the local gateway route table.
 #' @param LocalGatewayVirtualInterfaceGroupId String. The ID of the virtual interface group.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DestinationCidrBlock:
@@ -3072,7 +3072,7 @@ ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
 #' @param LocalGatewayRouteTableId String. The ID of the local gateway route table.
 #' @param VpcId String. The ID of the VPC.
 #' @param TagSpecification List. The tags to assign to the local gateway route table VPC association.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableId:
@@ -3108,7 +3108,7 @@ ec2_create_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
 #' @param PrefixListName String.   A name for the prefix list.
 #' @param MaxEntries Integer. The maximum number of entries for the prefix list.
 #' @param AddressFamily String.   The IP address type.  Valid Values: `IPv4` \| `IPv6`  
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Entry List. One or more entries for the prefix list.\[optional\]
 #' @param TagSpecification List. The tags to apply to the prefix list during creation.\[optional\]
 #' @param ClientToken String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\[optional\]
@@ -3178,7 +3178,7 @@ ec2_create_managed_prefix_list <- function(PrefixListName, MaxEntries, AddressFa
 #' @param AllocationId String. The allocation ID of an Elastic IP address to associate with the NAT gateway.
 #' @param SubnetId String. The subnet in which to create the NAT gateway.
 #' @param ClientToken String.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to assign to the NAT gateway.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -3223,7 +3223,7 @@ ec2_create_nat_gateway <- function(AllocationId, SubnetId, ClientToken = NULL, D
 #' Create Network Acl
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to assign to the network ACL.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -3258,8 +3258,8 @@ ec2_create_network_acl <- function(VpcId, DryRun = NULL, TagSpecification = NULL
 #' @param Protocol String. The protocol number.
 #' @param RuleAction String. Indicates whether to allow or deny the traffic that matches the rule.
 #' @param RuleNumber Integer.   The rule number for the entry (for example, 100).
-#' @param CidrBlock String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param CidrBlock String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.16.0.0/24`). We modify...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Icmp Object. ICMP protocol: The ICMP or ICMPv6 type and code.\[optional\]
 #' @param Ipv6CidrBlock String. The IPv6 network range to allow or deny, in CIDR notation (for example `2001:db8:1234:1a00::/64`).\[optional\]
 #' @param PortRange Object. TCP or UDP protocols: The range of ports the rule applies to.\[optional\]
@@ -3341,7 +3341,7 @@ ec2_create_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAct
 #' @param DestinationIp String. The IP address of the AWS resource that is the destination of the path.\[optional\]
 #' @param DestinationPort Integer. The destination port.\[optional\]
 #' @param TagSpecification List. The tags to add to the path.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Source:
@@ -3396,7 +3396,7 @@ ec2_create_network_insights_path <- function(Source, Destination, Protocol, Clie
 #' 
 #' @param SubnetId String. The ID of the subnet to associate with the network interface.
 #' @param Description String. A description for the network interface.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SecurityGroupId List. The IDs of one or more security groups.\[optional\]
 #' @param Ipv6AddressCount Integer. The number of IPv6 addresses to assign to a network interface.\[optional\]
 #' @param Ipv6Addresses List. One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.\[optional\]
@@ -3493,7 +3493,7 @@ ec2_create_network_interface <- function(SubnetId, Description = NULL, DryRun = 
 #' @param Permission String. The type of permission to grant.
 #' @param AwsAccountId String. The AWS account ID.\[optional\]
 #' @param AwsService String. The AWS service. Currently not supported.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInterfaceId:
@@ -3527,7 +3527,7 @@ ec2_create_network_interface_permission <- function(NetworkInterfaceId, Permissi
 
 #' Create Placement Group
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param GroupName String.   A name for the placement group.\[optional\]
 #' @param Strategy String. The placement strategy.\[optional\]
 #' @param PartitionCount Integer. The number of partitions. Valid only when **Strategy** is set to `partition`.\[optional\]
@@ -3572,8 +3572,8 @@ ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy
 #' Create Reserved Instances Listing
 #' 
 #' @param ClientToken String. Unique, case-sensitive identifier you provide to ensure idempotency of your listings.
-#' @param InstanceCount Integer. The number of instances that are a part of a Reserved Instance account to be listed in the...
-#' @param PriceSchedules List. A list specifying the price of the Standard Reserved Instance for each month remaining in...
+#' @param InstanceCount Integer. The number of instances that are a part of a Reserved Instance account to be listed in the Reserved...
+#' @param PriceSchedules List. A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved...
 #' @param ReservedInstancesId String. The ID of the active Standard Reserved Instance.
 #' @inheritParams CommonDoc
 #' 
@@ -3614,7 +3614,7 @@ ec2_create_reserved_instances_listing <- function(ClientToken, InstanceCount, Pr
 #' @param DestinationCidrBlock String. The IPv4 CIDR address block used for the destination match.\[optional\]
 #' @param DestinationIpv6CidrBlock String. The IPv6 CIDR block used for the destination match.\[optional\]
 #' @param DestinationPrefixListId String. The ID of a prefix list used for the destination match.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcEndpointId String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.\[optional\]
 #' @param EgressOnlyInternetGatewayId String. \[IPv6 traffic only\] The ID of an egress-only internet gateway.\[optional\]
 #' @param GatewayId String. The ID of an internet gateway or virtual private gateway attached to your VPC.\[optional\]
@@ -3708,7 +3708,7 @@ ec2_create_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
 #' Create Route Table
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to assign to the route table.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -3742,7 +3742,7 @@ ec2_create_route_table <- function(VpcId, DryRun = NULL, TagSpecification = NULL
 #' @param GroupName String.   The name of the security group.
 #' @param VpcId String. \[EC2-VPC\] The ID of the VPC. Required for EC2-VPC.\[optional\]
 #' @param TagSpecification List. The tags to assign to the security group.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GroupDescription:
@@ -3798,7 +3798,7 @@ ec2_create_security_group <- function(GroupDescription, GroupName, VpcId = NULL,
 #' @param Description String. A description for the snapshot.\[optional\]
 #' @param OutpostArn String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.\[optional\]
 #' @param TagSpecification List. The tags to apply to the snapshot during creation.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VolumeId:
@@ -3855,7 +3855,7 @@ ec2_create_snapshot <- function(VolumeId, Description = NULL, OutpostArn = NULL,
 #' @param Description String.  A description propagated to every snapshot specified by the instance.\[optional\]
 #' @param OutpostArn String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.\[optional\]
 #' @param TagSpecification List. Tags to apply to every snapshot specified by the instance.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param CopyTagsFromSource String. Copies the tags from the specified volume to corresponding snapshot.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -3922,7 +3922,7 @@ ec2_create_snapshots <- function(InstanceSpecification, Description = NULL, Outp
 #' in the *Amazon EC2 User Guide for Linux Instances*.
 #' 
 #' @param Bucket String. The name of the Amazon S3 bucket in which to store the Spot Instance data feed.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Prefix String. The prefix for the data feed file names.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -3961,7 +3961,7 @@ ec2_create_spot_datafeed_subscription <- function(Bucket, DryRun = NULL, Prefix 
 #' @param AvailabilityZoneId String. The AZ ID or the Local Zone ID of the subnet.\[optional\]
 #' @param Ipv6CidrBlock String. The IPv6 network range for the subnet, in CIDR notation.\[optional\]
 #' @param OutpostArn String. The Amazon Resource Name (ARN) of the Outpost.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CidrBlock:
@@ -4028,7 +4028,7 @@ ec2_create_subnet <- function(CidrBlock, VpcId, TagSpecification = NULL, Availab
 #' 
 #' @param ResourceId List.   The IDs of the resources, separated by spaces.
 #' @param Tag List. The tags.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ResourceId:
@@ -4065,7 +4065,7 @@ ec2_create_tags <- function(ResourceId, Tag, DryRun = NULL, simplify = TRUE, oth
 #' 
 #' @param Description String. The description of the Traffic Mirror filter.\[optional\]
 #' @param TagSpecification List. The tags to assign to a Traffic Mirror filter.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -4111,7 +4111,7 @@ ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecificatio
 #' @param SourcePortRange Object. The source port range.\[optional\]
 #' @param Protocol Integer.   The protocol, for example UDP, to assign to the Traffic Mirror rule.\[optional\]
 #' @param Description String. The description of the Traffic Mirror rule.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -4184,12 +4184,12 @@ ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, Traffic
 #' @param NetworkInterfaceId String. The ID of the source network interface.
 #' @param TrafficMirrorTargetId String. The ID of the Traffic Mirror target.
 #' @param TrafficMirrorFilterId String. The ID of the Traffic Mirror filter.
-#' @param SessionNumber Integer.   The session number determines the order in which sessions are evaluated when an interface...
+#' @param SessionNumber Integer.   The session number determines the order in which sessions are evaluated when an interface is used...
 #' @param PacketLength Integer.   The number of bytes in each packet to mirror.\[optional\]
 #' @param VirtualNetworkId Integer. The VXLAN ID for the Traffic Mirror session.\[optional\]
 #' @param Description String. The description of the Traffic Mirror session.\[optional\]
 #' @param TagSpecification List. The tags to assign to a Traffic Mirror session.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -4267,7 +4267,7 @@ ec2_create_traffic_mirror_session <- function(NetworkInterfaceId, TrafficMirrorT
 #' @param NetworkLoadBalancerArn String. The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.\[optional\]
 #' @param Description String. The description of the Traffic Mirror target.\[optional\]
 #' @param TagSpecification List. The tags to assign to the Traffic Mirror target.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -4315,7 +4315,7 @@ ec2_create_traffic_mirror_target <- function(NetworkInterfaceId = NULL, NetworkL
 #' @param Description String. A description of the transit gateway.\[optional\]
 #' @param Options Object. The transit gateway options.\[optional\]
 #' @param TagSpecification List. The tags to apply to the transit gateway.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Description:
@@ -4351,7 +4351,7 @@ ec2_create_transit_gateway <- function(Description = NULL, Options = NULL, TagSp
 #' @param TransportTransitGatewayAttachmentId String. The ID of the transit gateway attachment.
 #' @param Options Object. The Connect attachment options.
 #' @param TagSpecification List. The tags to apply to the Connect attachment.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransportTransitGatewayAttachmentId:
@@ -4388,10 +4388,10 @@ ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachment
 #' @param TransitGatewayAttachmentId String. The ID of the Connect attachment.
 #' @param PeerAddress String. The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
 #' @param InsideCidrBlocks List. The range of inside IP addresses that are used for BGP peering.
-#' @param TransitGatewayAddress String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer,...\[optional\]
+#' @param TransitGatewayAddress String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which...\[optional\]
 #' @param BgpOptions Object. The BGP options for the Connect peer.\[optional\]
 #' @param TagSpecification List. The tags to apply to the Connect peer.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -4447,7 +4447,7 @@ ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, 
 #' @param TransitGatewayId String. The ID of the transit gateway.
 #' @param Options Object. The options for the transit gateway multicast domain.\[optional\]
 #' @param TagSpecification List. The tags for the transit gateway multicast domain.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -4485,7 +4485,7 @@ ec2_create_transit_gateway_multicast_domain <- function(TransitGatewayId, Option
 #' @param PeerAccountId String. The AWS account ID of the owner of the peer transit gateway.
 #' @param PeerRegion String. The Region where the peer transit gateway is located.
 #' @param TagSpecification List. The tags to apply to the transit gateway peering attachment.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -4532,7 +4532,7 @@ ec2_create_transit_gateway_peering_attachment <- function(TransitGatewayId, Peer
 #' @param PrefixListId String. The ID of the prefix list that is used for destination matches.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment to which traffic is routed.\[optional\]
 #' @param Blackhole Logical. Indicates whether to drop traffic that matches this route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -4576,7 +4576,7 @@ ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.\[optional\]
 #' @param Blackhole Logical. Indicates whether to drop traffic that matches this route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DestinationCidrBlock:
@@ -4617,7 +4617,7 @@ ec2_create_transit_gateway_route <- function(DestinationCidrBlock, TransitGatewa
 #' 
 #' @param TransitGatewayId String. The ID of the transit gateway.
 #' @param TagSpecifications List. The tags to apply to the transit gateway route table.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -4651,7 +4651,7 @@ ec2_create_transit_gateway_route_table <- function(TransitGatewayId, TagSpecific
 #' @param SubnetIds List. The IDs of one or more subnets.
 #' @param Options Object. The VPC attachment options.\[optional\]
 #' @param TagSpecifications List. The tags to apply to the VPC attachment.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -4697,12 +4697,12 @@ ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, S
 #' @param AvailabilityZone String. The Availability Zone in which to create the volume.
 #' @param Encrypted Logical.   Indicates whether the volume should be encrypted.\[optional\]
 #' @param Iops Integer.   The number of I/O operations per second (IOPS).\[optional\]
-#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...\[optional\]
+#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for...\[optional\]
 #' @param OutpostArn String. The Amazon Resource Name (ARN) of the Outpost.\[optional\]
 #' @param Size Integer.   The size of the volume, in GiBs.\[optional\]
 #' @param SnapshotId String. The snapshot from which to create the volume.\[optional\]
 #' @param VolumeType String.   The volume type.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to apply to the volume during creation.\[optional\]
 #' @param MultiAttachEnabled Logical. Indicates whether to enable Amazon EBS Multi-Attach.\[optional\]
 #' @param Throughput Integer.   The throughput to provision for a volume, with a maximum of 1,000 MiB/s.\[optional\]
@@ -4863,7 +4863,7 @@ ec2_create_volume <- function(AvailabilityZone, Encrypted = NULL, Iops = NULL, K
 #' @param AmazonProvidedIpv6CidrBlock Logical. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.\[optional\]
 #' @param Ipv6Pool String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.\[optional\]
 #' @param Ipv6CidrBlock String.   The IPv6 CIDR block from the IPv6 address pool.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceTenancy String.   The tenancy options for instances launched into the VPC.\[optional\]
 #' @param Ipv6CidrBlockNetworkBorderGroup String.   The name of the location from which we advertise the IPV6 CIDR block.\[optional\]
 #' @param TagSpecification List. The tags to assign to the VPC.\[optional\]
@@ -4939,12 +4939,12 @@ ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Po
 #' 
 #' @param VpcId String. The ID of the VPC in which the endpoint will be used.
 #' @param ServiceName String. The service name.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcEndpointType String.   The type of endpoint.  Default: Gateway  \[optional\]
-#' @param PolicyDocument String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...\[optional\]
+#' @param PolicyDocument String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...\[optional\]
 #' @param RouteTableId List. (Gateway endpoint) One or more route table IDs.\[optional\]
-#' @param SubnetId List. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...\[optional\]
-#' @param SecurityGroupId List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...\[optional\]
+#' @param SubnetId List. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create...\[optional\]
+#' @param SecurityGroupId List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint network...\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
 #' @param PrivateDnsEnabled Logical.   (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.\[optional\]
 #' @param TagSpecification List. The tags to associate with the endpoint.\[optional\]
@@ -5034,7 +5034,7 @@ ec2_create_vpc_endpoint <- function(VpcId, ServiceName, DryRun = NULL, VpcEndpoi
 #' 
 #' @param ConnectionNotificationArn String. The ARN of the SNS topic for the notifications.
 #' @param ConnectionEvents List. One or more endpoint events for which to receive notifications.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ServiceId String. The ID of the endpoint service.\[optional\]
 #' @param VpcEndpointId String. The ID of the endpoint.\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
@@ -5080,8 +5080,8 @@ ec2_create_vpc_endpoint_connection_notification <- function(ConnectionNotificati
 
 #' Create Vpc Endpoint Service Configuration
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param AcceptanceRequired Logical. Indicates whether requests from service consumers to create an endpoint to your service must...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param AcceptanceRequired Logical. Indicates whether requests from service consumers to create an endpoint to your service must be accepted....\[optional\]
 #' @param PrivateDnsName String. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.\[optional\]
 #' @param NetworkLoadBalancerArn List. The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.\[optional\]
 #' @param GatewayLoadBalancerArn List. The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.\[optional\]
@@ -5137,11 +5137,11 @@ ec2_create_vpc_endpoint_service_configuration <- function(DryRun = NULL, Accepta
 
 #' Create Vpc Peering Connection
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param PeerOwnerId String.   The AWS account ID of the owner of the accepter VPC.  Default: Your AWS account ID  \[optional\]
 #' @param PeerVpcId String. The ID of the VPC with which you are creating the VPC peering connection.\[optional\]
 #' @param VpcId String. The ID of the requester VPC. You must specify this parameter in the request.\[optional\]
-#' @param PeerRegion String.   The Region code for the accepter VPC, if the accepter VPC is located in a Region other than...\[optional\]
+#' @param PeerRegion String.   The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the...\[optional\]
 #' @param TagSpecification List. The tags to assign to the peering connection.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -5193,7 +5193,7 @@ ec2_create_vpc_peering_connection <- function(DryRun = NULL, PeerOwnerId = NULL,
 #' @param Type String. The type of VPN connection (`ipsec.1`).
 #' @param VpnGatewayId String. The ID of the virtual private gateway.\[optional\]
 #' @param TransitGatewayId String. The ID of the transit gateway.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Options Object. The options for the VPN connection.\[optional\]
 #' @param TagSpecification List. The tags to apply to the VPN connection.\[optional\]
 #' @inheritParams CommonDoc
@@ -5266,7 +5266,7 @@ ec2_create_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
 #' @param AvailabilityZone String. The Availability Zone for the virtual private gateway.\[optional\]
 #' @param TagSpecification List. The tags to apply to the virtual private gateway.\[optional\]
 #' @param AmazonSideAsn Integer.   A private Autonomous System Number (ASN) for the Amazon side of a BGP session.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Type:
@@ -5309,7 +5309,7 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
 #' Delete Carrier Gateway
 #' 
 #' @param CarrierGatewayId String. The ID of the carrier gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CarrierGatewayId:
@@ -5338,7 +5338,7 @@ ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify
 #' endpoint.
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN to be deleted.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -5373,7 +5373,7 @@ ec2_delete_client_vpn_endpoint <- function(ClientVpnEndpointId, DryRun = NULL, s
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint from which the route is to be deleted.
 #' @param DestinationCidrBlock String. The IPv4 address range, in CIDR notation, of the route to be deleted.
 #' @param TargetVpcSubnetId String. The ID of the target subnet used by the route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -5411,7 +5411,7 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
 #' customer gateway.
 #' 
 #' @param CustomerGatewayId String. The ID of the customer gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CustomerGatewayId:
@@ -5442,7 +5442,7 @@ ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simpli
 #' VPC.
 #' 
 #' @param DhcpOptionsId String. The ID of the DHCP options set.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DhcpOptionsId:
@@ -5470,7 +5470,7 @@ ec2_delete_dhcp_options <- function(DhcpOptionsId, DryRun = NULL, simplify = TRU
 #' gateway.
 #' 
 #' @param EgressOnlyInternetGatewayId String. The ID of the egress-only internet gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section EgressOnlyInternetGatewayId:
@@ -5497,7 +5497,7 @@ ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId,
 #' 
 #' @param FleetId List. The IDs of the EC2 Fleets.
 #' @param TerminateInstances Logical.   Indicates whether to terminate the instances when the EC2 Fleet is deleted.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section FleetId:
@@ -5538,7 +5538,7 @@ ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simpli
 #' logs.
 #' 
 #' @param FlowLogId List.   One or more flow log IDs.  Constraint: Maximum of 1000 flow log IDs.  
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section FlowLogId:
@@ -5570,7 +5570,7 @@ ec2_delete_flow_logs <- function(FlowLogId, DryRun = NULL, simplify = TRUE, othe
 #' (AFI).
 #' 
 #' @param FpgaImageId String. The ID of the AFI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section FpgaImageId:
@@ -5599,7 +5599,7 @@ ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, o
 #' it.
 #' 
 #' @param InternetGatewayId String. The ID of the internet gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InternetGatewayId:
@@ -5628,7 +5628,7 @@ ec2_delete_internet_gateway <- function(InternetGatewayId, DryRun = NULL, simpli
 #' 
 #' @param KeyName String. The name of the key pair.\[optional\]
 #' @param KeyPairId String. The ID of the key pair.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section KeyName:
@@ -5660,7 +5660,7 @@ ec2_delete_key_pair <- function(KeyName = NULL, KeyPairId = NULL, DryRun = NULL,
 #' template. Deleting a launch template deletes all of its
 #' versions.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LaunchTemplateId String. The ID of the launch template.\[optional\]
 #' @param LaunchTemplateName String. The name of the launch template.\[optional\]
 #' @inheritParams CommonDoc
@@ -5700,7 +5700,7 @@ ec2_delete_launch_template <- function(DryRun = NULL, LaunchTemplateId = NULL, L
 #' DeleteLaunchTemplate.
 #' 
 #' @param LaunchTemplateVersion List. The version numbers of one or more launch template versions to delete.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LaunchTemplateId String. The ID of the launch template.\[optional\]
 #' @param LaunchTemplateName String. The name of the launch template.\[optional\]
 #' @inheritParams CommonDoc
@@ -5744,7 +5744,7 @@ ec2_delete_launch_template_versions <- function(LaunchTemplateVersion, DryRun = 
 #' 
 #' @param DestinationCidrBlock String. The CIDR range for the route. This must match the CIDR for the route exactly.
 #' @param LocalGatewayRouteTableId String. The ID of the local gateway route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DestinationCidrBlock:
@@ -5778,7 +5778,7 @@ ec2_delete_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
 #' VPC and local gateway route table.
 #' 
 #' @param LocalGatewayRouteTableVpcAssociationId String. The ID of the association.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableVpcAssociationId:
@@ -5809,7 +5809,7 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
 #' the prefix list in your resources.
 #' 
 #' @param PrefixListId String. The ID of the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PrefixListId:
@@ -5840,7 +5840,7 @@ ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify
 #' tables.
 #' 
 #' @param NatGatewayId String. The ID of the NAT gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NatGatewayId:
@@ -5869,7 +5869,7 @@ ec2_delete_nat_gateway <- function(NatGatewayId, DryRun = NULL, simplify = TRUE,
 #' delete the default network ACL.
 #' 
 #' @param NetworkAclId String. The ID of the network ACL.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkAclId:
@@ -5900,7 +5900,7 @@ ec2_delete_network_acl <- function(NetworkAclId, DryRun = NULL, simplify = TRUE,
 #' @param Egress Logical. Indicates whether the rule is an egress rule.
 #' @param NetworkAclId String. The ID of the network ACL.
 #' @param RuleNumber Integer. The rule number of the entry to delete.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Egress:
@@ -5936,7 +5936,7 @@ ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRu
 #' analysis.
 #' 
 #' @param NetworkInsightsAnalysisId String. The ID of the network insights analysis.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInsightsAnalysisId:
@@ -5965,7 +5965,7 @@ ec2_delete_network_insights_analysis <- function(NetworkInsightsAnalysisId, DryR
 #' path.
 #' 
 #' @param NetworkInsightsPathId String. The ID of the path.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInsightsPathId:
@@ -5995,7 +5995,7 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
 #' it.
 #' 
 #' @param NetworkInterfaceId String. The ID of the network interface.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInterfaceId:
@@ -6027,7 +6027,7 @@ ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simp
 #' 
 #' @param NetworkInterfacePermissionId String. The ID of the network interface permission.
 #' @param Force Logical. Specify `true` to remove the permission even if the network interface is attached to an instance.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInterfacePermissionId:
@@ -6064,7 +6064,7 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
 #' in the *Amazon EC2 User Guide*.
 #' 
 #' @param GroupName String. The name of the placement group.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GroupName:
@@ -6093,7 +6093,7 @@ ec2_delete_placement_group <- function(GroupName, DryRun = NULL, simplify = TRUE
 #' Instances.
 #' 
 #' @param ReservedInstancesId List. The IDs of the Reserved Instances.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ReservedInstancesId:
@@ -6126,7 +6126,7 @@ ec2_delete_queued_reserved_instances <- function(ReservedInstancesId, DryRun = N
 #' @param DestinationCidrBlock String. The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.\[optional\]
 #' @param DestinationIpv6CidrBlock String. The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.\[optional\]
 #' @param DestinationPrefixListId String. The ID of the prefix list for the route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section RouteTableId:
@@ -6170,7 +6170,7 @@ ec2_delete_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
 #' table.
 #' 
 #' @param RouteTableId String. The ID of the route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section RouteTableId:
@@ -6196,7 +6196,7 @@ ec2_delete_route_table <- function(RouteTableId, DryRun = NULL, simplify = TRUE,
 #' 
 #' @param GroupId String. The ID of the security group. Required for a nondefault VPC.\[optional\]
 #' @param GroupName String. \[EC2-Classic, default VPC\] The name of the security group.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GroupId:
@@ -6226,7 +6226,7 @@ ec2_delete_security_group <- function(GroupId = NULL, GroupName = NULL, DryRun =
 #' Delete Snapshot
 #' 
 #' @param SnapshotId String. The ID of the EBS snapshot.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SnapshotId:
@@ -6253,7 +6253,7 @@ ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, othe
 #' Deletes the data feed for Spot
 #' Instances.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -6279,7 +6279,7 @@ ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE
 #' subnet.
 #' 
 #' @param SubnetId String. The ID of the subnet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SubnetId:
@@ -6304,7 +6304,7 @@ ec2_delete_subnet <- function(SubnetId, DryRun = NULL, simplify = TRUE, others =
 #' Delete Tags
 #' 
 #' @param ResourceId List.   The IDs of the resources, separated by spaces.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Tag List.   The tags to delete.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -6348,7 +6348,7 @@ ec2_delete_tags <- function(ResourceId, DryRun = NULL, Tag = NULL, simplify = TR
 #' Delete Traffic Mirror Filter
 #' 
 #' @param TrafficMirrorFilterId String. The ID of the Traffic Mirror filter.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorFilterId:
@@ -6377,7 +6377,7 @@ ec2_delete_traffic_mirror_filter <- function(TrafficMirrorFilterId, DryRun = NUL
 #' rule.
 #' 
 #' @param TrafficMirrorFilterRuleId String. The ID of the Traffic Mirror rule.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorFilterRuleId:
@@ -6406,7 +6406,7 @@ ec2_delete_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Dry
 #' session.
 #' 
 #' @param TrafficMirrorSessionId String. The ID of the Traffic Mirror session.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorSessionId:
@@ -6432,7 +6432,7 @@ ec2_delete_traffic_mirror_session <- function(TrafficMirrorSessionId, DryRun = N
 #' Delete Traffic Mirror Target
 #' 
 #' @param TrafficMirrorTargetId String. The ID of the Traffic Mirror target.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorTargetId:
@@ -6461,7 +6461,7 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
 #' gateway.
 #' 
 #' @param TransitGatewayId String. The ID of the transit gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -6490,7 +6490,7 @@ ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify
 #' attachment.
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the Connect attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -6519,7 +6519,7 @@ ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRu
 #' peer.
 #' 
 #' @param TransitGatewayConnectPeerId String. The ID of the Connect peer.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayConnectPeerId:
@@ -6548,7 +6548,7 @@ ec2_delete_transit_gateway_connect_peer <- function(TransitGatewayConnectPeerId,
 #' multicast domain.
 #' 
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -6578,7 +6578,7 @@ ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastD
 #' attachment.
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway peering attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -6609,7 +6609,7 @@ ec2_delete_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the route table.
 #' @param PrefixListId String. The ID of the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -6643,7 +6643,7 @@ ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param DestinationCidrBlock String. The CIDR range for the route. This must match the CIDR for the route exactly.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -6679,7 +6679,7 @@ ec2_delete_transit_gateway_route <- function(TransitGatewayRouteTableId, Destina
 #' it.
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -6708,7 +6708,7 @@ ec2_delete_transit_gateway_route_table <- function(TransitGatewayRouteTableId, D
 #' attachment.
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -6734,7 +6734,7 @@ ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' Delete Volume
 #' 
 #' @param VolumeId String. The ID of the volume.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VolumeId:
@@ -6766,7 +6766,7 @@ ec2_delete_volume <- function(VolumeId, DryRun = NULL, simplify = TRUE, others =
 #' VPC (except the default one), and so on.
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -6795,7 +6795,7 @@ ec2_delete_vpc <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list(
 #' notifications.
 #' 
 #' @param ConnectionNotificationId List. One or more notification IDs.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ConnectionNotificationId:
@@ -6828,7 +6828,7 @@ ec2_delete_vpc_endpoint_connection_notifications <- function(ConnectionNotificat
 #' the service.
 #' 
 #' @param ServiceId List. The IDs of one or more services.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ServiceId:
@@ -6855,7 +6855,7 @@ ec2_delete_vpc_endpoint_service_configurations <- function(ServiceId, DryRun = N
 #' Delete Vpc Endpoints
 #' 
 #' @param VpcEndpointId List. One or more VPC endpoint IDs.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcEndpointId:
@@ -6888,7 +6888,7 @@ ec2_delete_vpc_endpoints <- function(VpcEndpointId, DryRun = NULL, simplify = TR
 #' that\'s in the `failed` state.
 #' 
 #' @param VpcPeeringConnectionId String. The ID of the VPC peering connection.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcPeeringConnectionId:
@@ -6914,7 +6914,7 @@ ec2_delete_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
 #' Delete Vpn Connection
 #' 
 #' @param VpnConnectionId String. The ID of the VPN connection.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnConnectionId:
@@ -6974,7 +6974,7 @@ ec2_delete_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
 #' network.
 #' 
 #' @param VpnGatewayId String. The ID of the virtual private gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnGatewayId:
@@ -6999,7 +6999,7 @@ ec2_delete_vpn_gateway <- function(VpnGatewayId, DryRun = NULL, simplify = TRUE,
 #' Deprovision Byoip Cidr
 #' 
 #' @param Cidr String. The address range, in CIDR notation.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Cidr:
@@ -7025,7 +7025,7 @@ ec2_deprovision_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, oth
 #' Deregister Image
 #' 
 #' @param ImageId String. The ID of the AMI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ImageId:
@@ -7053,7 +7053,7 @@ ec2_deregister_image <- function(ImageId, DryRun = NULL, simplify = TRUE, others
 #' specified tag keys from being included in scheduled event notifications
 #' for resources in the Region.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceTagAttribute Object. Information about the tag keys to deregister.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -7086,7 +7086,7 @@ ec2_deregister_instance_event_notification_attributes <- function(DryRun = NULL,
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param GroupIpAddress String. The IP address assigned to the transit gateway multicast group.\[optional\]
 #' @param NetworkInterfaceIds List. The IDs of the group members\' network interfaces.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -7126,7 +7126,7 @@ ec2_deregister_transit_gateway_multicast_group_members <- function(TransitGatewa
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param GroupIpAddress String. The IP address assigned to the transit gateway multicast group.\[optional\]
 #' @param NetworkInterfaceIds List. The IDs of the group sources\' network interfaces.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -7161,7 +7161,7 @@ ec2_deregister_transit_gateway_multicast_group_sources <- function(TransitGatewa
 #' Describe Account Attributes
 #' 
 #' @param AttributeName List. The account attribute names.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AttributeName:
@@ -7189,7 +7189,7 @@ ec2_describe_account_attributes <- function(AttributeName = NULL, DryRun = NULL,
 #' 
 #' @param PublicIp List.   One or more Elastic IP addresses.  Default: Describes all your Elastic IP addresses.  \[optional\]
 #' @param AllocationId List. \[EC2-VPC\] Information about the allocation IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -7267,7 +7267,7 @@ ec2_describe_addresses <- function(Filter = NULL, PublicIp = NULL, AllocationId 
 #' @param AllocationId List. \[EC2-VPC\] The allocation IDs.\[optional\]
 #' @param Attribute String. The attribute of the IP address.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AllocationId:
@@ -7301,7 +7301,7 @@ ec2_describe_addresses_attribute <- function(AllocationId = NULL, Attribute = NU
 
 #' Describe Aggregate Id Format
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -7324,8 +7324,8 @@ ec2_describe_aggregate_id_format <- function(DryRun = NULL, simplify = TRUE, oth
 #' 
 #' @param ZoneName List. The names of the Availability Zones, Local Zones, and Wavelength Zones.\[optional\]
 #' @param ZoneId List. The IDs of the Availability Zones, Local Zones, and Wavelength Zones.\[optional\]
-#' @param AllAvailabilityZones Logical.   Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param AllAvailabilityZones Logical.   Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status....\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -7408,7 +7408,7 @@ ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, Zone
 #' Describe Bundle Tasks
 #' 
 #' @param BundleId List.   The bundle task IDs.  Default: Describes all your bundle tasks.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section BundleId:
@@ -7467,7 +7467,7 @@ ec2_describe_bundle_tasks <- function(BundleId = NULL, Filter = NULL, DryRun = N
 #' Describe Byoip Cidrs
 #' 
 #' @param MaxResults Integer. The maximum number of results to return with a single call.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section MaxResults:
@@ -7500,7 +7500,7 @@ ec2_describe_byoip_cidrs <- function(MaxResults, DryRun = NULL, NextToken = NULL
 #' 
 #' @param CapacityReservationId List. The ID of the Capacity Reservation.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CapacityReservationId:
@@ -7620,7 +7620,7 @@ ec2_describe_capacity_reservations <- function(CapacityReservationId = NULL, Nex
 #' 
 #' @param CarrierGatewayId List. One or more carrier gateway IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CarrierGatewayId:
@@ -7681,7 +7681,7 @@ ec2_describe_carrier_gateways <- function(CarrierGatewayId = NULL, Filter = NULL
 #' ClassicLink. You cannot use this request to return information about
 #' other instances.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceId List. One or more instance IDs. Must be instances linked to a VPC through ClassicLink.\[optional\]
 #' @param MaxResults Integer.   The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -7748,7 +7748,7 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
 #' for a specified Client VPN endpoint.
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -7799,7 +7799,7 @@ ec2_describe_client_vpn_authorization_rules <- function(ClientVpnEndpointId, Dry
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -7845,7 +7845,7 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
 #' 
 #' @param ClientVpnEndpointId List. The ID of the Client VPN endpoint.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -7891,7 +7891,7 @@ ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxRes
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -7941,7 +7941,7 @@ ec2_describe_client_vpn_routes <- function(ClientVpnEndpointId, Filter = NULL, M
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
 #' @param AssociationIds List. The IDs of the target network associations.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -7994,7 +7994,7 @@ ec2_describe_client_vpn_target_networks <- function(ClientVpnEndpointId, Associa
 #' 
 #' @param PoolId List. The IDs of the address pools.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PoolId:
@@ -8038,7 +8038,7 @@ ec2_describe_coip_pools <- function(PoolId = NULL, Filter = NULL, MaxResults = N
 #' Describe Conversion Tasks
 #' 
 #' @param ConversionTaskId List. The conversion task IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ConversionTaskId:
@@ -8065,7 +8065,7 @@ ec2_describe_conversion_tasks <- function(ConversionTaskId = NULL, DryRun = NULL
 #' Describe Customer Gateways
 #' 
 #' @param CustomerGatewayId List.   One or more customer gateway IDs.  Default: Describes all your customer gateways.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CustomerGatewayId:
@@ -8124,7 +8124,7 @@ ec2_describe_customer_gateways <- function(CustomerGatewayId = NULL, Filter = NU
 #' Describe Dhcp Options
 #' 
 #' @param DhcpOptionsId List.   The IDs of one or more DHCP options sets.  Default: Describes all your DHCP options sets.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -8186,7 +8186,7 @@ ec2_describe_dhcp_options <- function(DhcpOptionsId = NULL, Filter = NULL, DryRu
 #' Describes one or more of your egress-only internet
 #' gateways.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EgressOnlyInternetGatewayId List. One or more egress-only internet gateway IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -8241,7 +8241,7 @@ ec2_describe_egress_only_internet_gateways <- function(DryRun = NULL, EgressOnly
 #' Graphics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html).
 #' 
 #' @param ElasticGpuId List. The Elastic Graphics accelerator IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -8298,7 +8298,7 @@ ec2_describe_elastic_gpus <- function(ElasticGpuId = NULL, DryRun = NULL, Filter
 #' the specified export image tasks or all of your export image
 #' tasks.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ExportImageTaskId List. The IDs of the export image tasks.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -8365,7 +8365,7 @@ ec2_describe_export_tasks <- function(ExportTaskId = NULL, Filter = NULL, simpli
 #' state of fast snapshot restores for your snapshots.
 #' 
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -8410,7 +8410,7 @@ ec2_describe_fast_snapshot_restores <- function(Filter = NULL, MaxResults = NULL
 #' 
 #' @param FleetId String. The ID of the EC2 Fleet.
 #' @param StartTime String. The start date and time for the events, in UTC format (for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z)....
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EventType String. The type of events to describe. By default, all events are described.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -8452,7 +8452,7 @@ ec2_describe_fleet_history <- function(FleetId, StartTime, DryRun = NULL, EventT
 #' Describe Fleet Instances
 #' 
 #' @param FleetId String. The ID of the EC2 Fleet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -8492,7 +8492,7 @@ ec2_describe_fleet_instances <- function(FleetId, DryRun = NULL, MaxResults = NU
 
 #' Describe Fleets
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @param FleetId List. The ID of the EC2 Fleets.\[optional\]
 #' @inheritParams CommonDoc
@@ -8553,7 +8553,7 @@ ec2_describe_fleets <- function(DryRun = NULL, MaxResults = NULL, NextToken = NU
 #' interfaces), you must use the CloudWatch Logs console or the CloudWatch
 #' Logs API.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param FlowLogId List.   One or more flow log IDs.  Constraint: Maximum of 1000 flow log IDs.  \[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -8625,7 +8625,7 @@ ec2_describe_flow_logs <- function(DryRun = NULL, Filter = NULL, FlowLogId = NUL
 #' 
 #' @param FpgaImageId String. The ID of the AFI.
 #' @param Attribute String. The AFI attribute.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section FpgaImageId:
@@ -8657,7 +8657,7 @@ ec2_describe_fpga_image_attribute <- function(FpgaImageId, Attribute, DryRun = N
 #' private AFIs that you own, and AFIs owned by other AWS accounts for
 #' which you have load permissions.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param FpgaImageId List. The AFI IDs.\[optional\]
 #' @param Owner List. Filters the AFI by owner.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
@@ -8935,7 +8935,7 @@ ec2_describe_iam_instance_profile_associations <- function(AssociationId = NULL,
 
 #' Describe Id Format
 #' 
-#' @param Resource String. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options`...\[optional\]
+#' @param Resource String. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options` \| `elastic-ip-allocation`...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Resource:
@@ -8964,7 +8964,7 @@ ec2_describe_id_format <- function(Resource = NULL, simplify = TRUE, others = li
 #' Describe Identity Id Format
 #' 
 #' @param PrincipalArn String. The ARN of the principal, which can be an IAM role, IAM user, or the root user.
-#' @param Resource String. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options`...\[optional\]
+#' @param Resource String. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options` \| `elastic-ip-allocation`...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PrincipalArn:
@@ -9000,7 +9000,7 @@ ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simpl
 #' 
 #' @param Attribute String.   The AMI attribute.
 #' @param ImageId String. The ID of the AMI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -9035,7 +9035,7 @@ ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simp
 #' @param ExecutableBy List. Scopes the images by users with explicit launch permissions.\[optional\]
 #' @param ImageId List.   The image IDs.  Default: Describes all images available to you.  \[optional\]
 #' @param Owner List. Scopes the results to images with the specified owners.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ExecutableBy:
@@ -9176,7 +9176,7 @@ ec2_describe_images <- function(ExecutableBy = NULL, Filter = NULL, ImageId = NU
 #' import snapshot tasks that are already
 #' created.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Filters List. Filter tasks using the `task-state` filter and one of the following values: `active`, `completed`,...\[optional\]
 #' @param ImportTaskId List. The IDs of the import image tasks.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
@@ -9217,7 +9217,7 @@ ec2_describe_import_image_tasks <- function(DryRun = NULL, Filters = NULL, Impor
 #' Describes your import snapshot
 #' tasks.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Filters List. The filters.\[optional\]
 #' @param ImportTaskId List. A list of import snapshot task IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
@@ -9265,7 +9265,7 @@ ec2_describe_import_snapshot_tasks <- function(DryRun = NULL, Filters = NULL, Im
 #' 
 #' @param Attribute String.   The instance attribute.  Note: The `enaSupport` attribute is not supported at this time.  
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -9295,7 +9295,7 @@ ec2_describe_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL
 
 #' Describe Instance Credit Specifications
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceId List.   The instance IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -9346,7 +9346,7 @@ ec2_describe_instance_credit_specifications <- function(DryRun = NULL, Filter = 
 #' appear in scheduled event notifications for resources in the current
 #' Region.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -9370,7 +9370,7 @@ ec2_describe_instance_event_notification_attributes <- function(DryRun = NULL, s
 #' 
 #' @param InstanceId List.   The instance IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param IncludeAllInstances Logical.   When `true`, includes the health status for all instances.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -9472,7 +9472,7 @@ ec2_describe_instance_status <- function(Filter = NULL, InstanceId = NULL, MaxRe
 #' location is specified, the instance types offered in the current Region
 #' are returned.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LocationType String. The location type.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
@@ -9519,7 +9519,7 @@ ec2_describe_instance_type_offerings <- function(DryRun = NULL, LocationType = N
 #' types that are offered in a location. The results can be filtered by the
 #' attributes of the instance types.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceType List. The instance types.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
@@ -9690,7 +9690,7 @@ ec2_describe_instance_types <- function(DryRun = NULL, InstanceType = NULL, Filt
 #' Describe Instances
 #' 
 #' @param InstanceId List.   The instance IDs.  Default: Describes all your instances.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -10007,7 +10007,7 @@ ec2_describe_instances <- function(Filter = NULL, InstanceId = NULL, DryRun = NU
 #' Describes one or more of your internet
 #' gateways.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InternetGatewayId List.   One or more internet gateway IDs.  Default: Describes all your internet gateways.  \[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -10074,7 +10074,7 @@ ec2_describe_internet_gateways <- function(Filter = NULL, DryRun = NULL, Interne
 #' 
 #' @param PoolId List. The IDs of the IPv6 address pools.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PoolId:
@@ -10122,7 +10122,7 @@ ec2_describe_ipv6_pools <- function(PoolId = NULL, NextToken = NULL, MaxResults 
 #' 
 #' @param KeyName List.   The key pair names.  Default: Describes all your key pairs.  \[optional\]
 #' @param KeyPairId List. The IDs of the key pairs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -10182,7 +10182,7 @@ ec2_describe_key_pairs <- function(Filter = NULL, KeyName = NULL, KeyPairId = NU
 #' all the default versions of all the launch templates in your
 #' account.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LaunchTemplateId String. The ID of the launch template.\[optional\]
 #' @param LaunchTemplateName String. The name of the launch template.\[optional\]
 #' @param LaunchTemplateVersion List.   One or more versions of the launch template.\[optional\]
@@ -10279,7 +10279,7 @@ ec2_describe_launch_template_versions <- function(DryRun = NULL, LaunchTemplateI
 #' Describes one or more launch
 #' templates.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LaunchTemplateId List. One or more launch template IDs.\[optional\]
 #' @param LaunchTemplateName List. One or more launch template names.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
@@ -10343,7 +10343,7 @@ ec2_describe_launch_templates <- function(DryRun = NULL, LaunchTemplateId = NULL
 #' 
 #' @param LocalGatewayRouteTableVirtualInterfaceGroupAssociationId List. The IDs of the associations.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableVirtualInterfaceGroupAssociationId:
@@ -10398,7 +10398,7 @@ ec2_describe_local_gateway_route_table_virtual_interface_group_associations <- f
 #' 
 #' @param LocalGatewayRouteTableVpcAssociationId List. The IDs of the associations.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableVpcAssociationId:
@@ -10454,7 +10454,7 @@ ec2_describe_local_gateway_route_table_vpc_associations <- function(LocalGateway
 #' 
 #' @param LocalGatewayRouteTableId List. The IDs of the local gateway route tables.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableId:
@@ -10504,7 +10504,7 @@ ec2_describe_local_gateway_route_tables <- function(LocalGatewayRouteTableId = N
 #' 
 #' @param LocalGatewayVirtualInterfaceGroupId List. The IDs of the virtual interface groups.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayVirtualInterfaceGroupId:
@@ -10554,7 +10554,7 @@ ec2_describe_local_gateway_virtual_interface_groups <- function(LocalGatewayVirt
 #' 
 #' @param LocalGatewayVirtualInterfaceId List. The IDs of the virtual interfaces.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayVirtualInterfaceId:
@@ -10595,7 +10595,7 @@ ec2_describe_local_gateway_virtual_interfaces <- function(LocalGatewayVirtualInt
 #' 
 #' @param LocalGatewayId List.   One or more filters.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayId:
@@ -10646,7 +10646,7 @@ ec2_describe_local_gateways <- function(LocalGatewayId = NULL, Filter = NULL, Ma
 
 #' Describe Managed Prefix Lists
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @param PrefixListId List. One or more prefix list IDs.\[optional\]
 #' @inheritParams CommonDoc
@@ -10696,7 +10696,7 @@ ec2_describe_managed_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxR
 #' other Elastic IP addresses in your
 #' account.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer.   The maximum number of results to return for the request in a single page.\[optional\]
 #' @param PublicIp List. One or more Elastic IP addresses.\[optional\]
 #' @inheritParams CommonDoc
@@ -10746,7 +10746,7 @@ ec2_describe_moving_addresses <- function(Filter = NULL, DryRun = NULL, MaxResul
 #' Describes one or more of your NAT
 #' gateways.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @param NatGatewayId List. One or more NAT gateway IDs.\[optional\]
 #' @inheritParams CommonDoc
@@ -10803,7 +10803,7 @@ ec2_describe_nat_gateways <- function(DryRun = NULL, Filter = NULL, MaxResults =
 
 #' Describe Network Acls
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param NetworkAclId List.   One or more network ACL IDs.  Default: Describes all your network ACLs.  \[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -10903,7 +10903,7 @@ ec2_describe_network_acls <- function(Filter = NULL, DryRun = NULL, NetworkAclId
 #' @param AnalysisStartTime String. The time when the network insights analyses started.\[optional\]
 #' @param AnalysisEndTime String. The time when the network insights analyses ended.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInsightsAnalysisId:
@@ -10962,7 +10962,7 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
 #' 
 #' @param NetworkInsightsPathId List. The IDs of the paths.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInsightsPathId:
@@ -11013,7 +11013,7 @@ ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Fi
 #' 
 #' @param NetworkInterfaceId String. The ID of the network interface.
 #' @param Attribute String. The attribute of the network interface. This parameter is required.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section NetworkInterfaceId:
@@ -11093,7 +11093,7 @@ ec2_describe_network_interface_permissions <- function(NetworkInterfacePermissio
 #' Describes one or more of your network
 #' interfaces.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param NetworkInterfaceId List.   One or more network interface IDs.  Default: Describes all your network interfaces.  \[optional\]
 #' @param MaxResults Integer. The maximum number of items to return for this request.\[optional\]
 #' @inheritParams CommonDoc
@@ -11247,7 +11247,7 @@ ec2_describe_network_interfaces <- function(Filter = NULL, DryRun = NULL, Networ
 #' groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
 #' in the *Amazon EC2 User Guide*.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param GroupName List.   The names of the placement groups.\[optional\]
 #' @param GroupId List. The IDs of the placement groups.\[optional\]
 #' @inheritParams CommonDoc
@@ -11306,7 +11306,7 @@ ec2_describe_placement_groups <- function(Filter = NULL, DryRun = NULL, GroupNam
 
 #' Describe Prefix Lists
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @param PrefixListId List. One or more prefix list IDs.\[optional\]
 #' @inheritParams CommonDoc
@@ -11348,8 +11348,8 @@ ec2_describe_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxResults =
 
 #' Describe Principal Id Format
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param Resource List. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options`...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param Resource List. The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options` \| `elastic-ip-allocation`...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -11435,7 +11435,7 @@ ec2_describe_public_ipv4_pools <- function(PoolId = NULL, NextToken = NULL, MaxR
 #' Describe Regions
 #' 
 #' @param RegionName List. The names of the Regions.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param AllRegions Logical. Indicates whether to display all Regions, including Regions that are disabled for your account.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -11482,7 +11482,7 @@ ec2_describe_regions <- function(Filter = NULL, RegionName = NULL, DryRun = NULL
 #' 
 #' @param OfferingClass String. Describes whether the Reserved Instance is Standard or Convertible.\[optional\]
 #' @param ReservedInstancesId List.   One or more Reserved Instance IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param OfferingType String. The Reserved Instance offering type.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -11682,14 +11682,14 @@ ec2_describe_reserved_instances_modifications <- function(Filter = NULL, Reserve
 #' 
 #' @param AvailabilityZone String. The Availability Zone in which the Reserved Instance can be used.\[optional\]
 #' @param IncludeMarketplace Logical. Include Reserved Instance Marketplace offerings in the response.\[optional\]
-#' @param InstanceType String. The instance type that the reservation will cover (for example, `m1.\[optional\]
+#' @param InstanceType String. The instance type that the reservation will cover (for example, `m1.small`). For more information,...\[optional\]
 #' @param MaxDuration Integer.   The maximum duration (in seconds) to filter when searching for offerings.\[optional\]
 #' @param MaxInstanceCount Integer.   The maximum number of instances to filter when searching for offerings.  Default: 20  \[optional\]
 #' @param MinDuration Integer.   The minimum duration (in seconds) to filter when searching for offerings.\[optional\]
 #' @param OfferingClass String. The offering class of the Reserved Instance. Can be `standard` or `convertible`.\[optional\]
 #' @param ProductDescription String. The Reserved Instance product platform description.\[optional\]
 #' @param ReservedInstancesOfferingId List. One or more Reserved Instances offering IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceTenancy String.   The tenancy of the instances covered by the reservation.\[optional\]
 #' @param MaxResults Integer.   The maximum number of results to return for the request in a single page.\[optional\]
 #' @param OfferingType String. The Reserved Instance offering type.\[optional\]
@@ -11834,7 +11834,7 @@ ec2_describe_reserved_instances_offerings <- function(AvailabilityZone = NULL, F
 
 #' Describe Route Tables
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param RouteTableId List.   One or more route table IDs.  Default: Describes all your route tables.  \[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -11944,7 +11944,7 @@ ec2_describe_route_tables <- function(Filter = NULL, DryRun = NULL, RouteTableId
 #' 
 #' @param FirstSlotStartTimeRange Object. The time period for the first schedule to start.
 #' @param Recurrence Object. The schedule recurrence.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @param MaxSlotDurationInHours Integer. The maximum available duration, in hours.\[optional\]
 #' @param MinSlotDurationInHours Integer. The minimum available duration, in hours.\[optional\]
@@ -12011,7 +12011,7 @@ ec2_describe_scheduled_instance_availability <- function(FirstSlotStartTimeRange
 #' Describes the specified Scheduled Instances or all
 #' your Scheduled Instances.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @param ScheduledInstanceId List. The Scheduled Instance IDs.\[optional\]
 #' @param SlotStartTimeRange Object. The time period for the first schedule to start.\[optional\]
@@ -12071,7 +12071,7 @@ ec2_describe_scheduled_instances <- function(DryRun = NULL, Filter = NULL, MaxRe
 #' request.
 #' 
 #' @param GroupId List. The IDs of the security groups in your account.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GroupId:
@@ -12098,7 +12098,7 @@ ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simpl
 #' 
 #' @param GroupId List.   The IDs of the security groups.\[optional\]
 #' @param GroupName List.   \[EC2-Classic and default VPC only\] The names of the security groups.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12232,7 +12232,7 @@ ec2_describe_security_groups <- function(Filter = NULL, GroupId = NULL, GroupNam
 #' 
 #' @param Attribute String. The snapshot attribute you would like to view.
 #' @param SnapshotId String. The ID of the EBS snapshot.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -12264,7 +12264,7 @@ ec2_describe_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL
 #' @param Owner List. Scopes the results to snapshots with the specified owners.\[optional\]
 #' @param RestorableBy List. The IDs of the AWS accounts that can create volumes from the snapshot.\[optional\]
 #' @param SnapshotId List.   The snapshot IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -12364,7 +12364,7 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
 #' in the *Amazon EC2 User Guide for Linux
 #' Instances*.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -12389,7 +12389,7 @@ ec2_describe_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TR
 #' specified Spot Fleet.
 #' 
 #' @param SpotFleetRequestId String. The ID of the Spot Fleet request.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12424,7 +12424,7 @@ ec2_describe_spot_fleet_instances <- function(SpotFleetRequestId, DryRun = NULL,
 #' 
 #' @param SpotFleetRequestId String. The ID of the Spot Fleet request.
 #' @param StartTime String. The starting date and time for the events, in UTC format (for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z)....
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EventType String. The type of events to describe. By default, all events are described.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -12465,7 +12465,7 @@ ec2_describe_spot_fleet_request_history <- function(SpotFleetRequestId, StartTim
 
 #' Describe Spot Fleet Requests
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @param SpotFleetRequestId List. The IDs of the Spot Fleet requests.\[optional\]
 #' @inheritParams CommonDoc
@@ -12500,7 +12500,7 @@ ec2_describe_spot_fleet_requests <- function(DryRun = NULL, MaxResults = NULL, N
 
 #' Describe Spot Instance Requests
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SpotInstanceRequestId List. One or more Spot Instance request IDs.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -12656,12 +12656,12 @@ ec2_describe_spot_instance_requests <- function(Filter = NULL, DryRun = NULL, Sp
 #' Describe Spot Price History
 #' 
 #' @param AvailabilityZone String. Filters the results by the specified Availability Zone.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param EndTime String. The date and time, up to the current date, from which to stop retrieving the price history...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param EndTime String. The date and time, up to the current date, from which to stop retrieving the price history data,...\[optional\]
 #' @param InstanceType List. Filters the results by the specified instance types.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @param ProductDescription List. Filters the results by the specified basic product descriptions.\[optional\]
-#' @param StartTime String. The date and time, up to the past 90 days, from which to start retrieving the price history...\[optional\]
+#' @param StartTime String. The date and time, up to the past 90 days, from which to start retrieving the price history data,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -12744,7 +12744,7 @@ ec2_describe_spot_price_history <- function(Filter = NULL, AvailabilityZone = NU
 #' deleted.
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of items to return for this request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12776,7 +12776,7 @@ ec2_describe_stale_security_groups <- function(VpcId, DryRun = NULL, MaxResults 
 #' Describe Subnets
 #' 
 #' @param SubnetId List.   One or more subnet IDs.  Default: Describes all your subnets.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12863,7 +12863,7 @@ ec2_describe_subnets <- function(Filter = NULL, SubnetId = NULL, DryRun = NULL, 
 
 #' Describe Tags
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12922,7 +12922,7 @@ ec2_describe_tags <- function(DryRun = NULL, Filter = NULL, MaxResults = NULL, N
 #' filters.
 #' 
 #' @param TrafficMirrorFilterId List. The ID of the Traffic Mirror filter.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -12969,7 +12969,7 @@ ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, Dr
 #' results.
 #' 
 #' @param TrafficMirrorSessionId List. The ID of the Traffic Mirror session.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -13031,7 +13031,7 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
 #' Mirror targets.
 #' 
 #' @param TrafficMirrorTargetId List. The ID of the Traffic Mirror targets.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -13089,7 +13089,7 @@ ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, Dr
 #' 
 #' @param TransitGatewayAttachmentIds List. The IDs of the attachments.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentIds:
@@ -13156,7 +13156,7 @@ ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds
 #' 
 #' @param TransitGatewayConnectPeerIds List. The IDs of the Connect peers.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayConnectPeerIds:
@@ -13204,7 +13204,7 @@ ec2_describe_transit_gateway_connect_peers <- function(TransitGatewayConnectPeer
 #' 
 #' @param TransitGatewayAttachmentIds List. The IDs of the attachments.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentIds:
@@ -13259,7 +13259,7 @@ ec2_describe_transit_gateway_connects <- function(TransitGatewayAttachmentIds = 
 #' 
 #' @param TransitGatewayMulticastDomainIds List. The ID of the transit gateway multicast domain.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainIds:
@@ -13308,7 +13308,7 @@ ec2_describe_transit_gateway_multicast_domains <- function(TransitGatewayMultica
 #' 
 #' @param TransitGatewayAttachmentIds List. One or more IDs of the transit gateway peering attachments.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentIds:
@@ -13376,7 +13376,7 @@ ec2_describe_transit_gateway_peering_attachments <- function(TransitGatewayAttac
 #' 
 #' @param TransitGatewayRouteTableIds List. The IDs of the transit gateway route tables.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableIds:
@@ -13434,7 +13434,7 @@ ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableId
 #' 
 #' @param TransitGatewayAttachmentIds List. The IDs of the attachments.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentIds:
@@ -13487,7 +13487,7 @@ ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmen
 #' 
 #' @param TransitGatewayIds List. The IDs of the transit gateways.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayIds:
@@ -13560,7 +13560,7 @@ ec2_describe_transit_gateways <- function(TransitGatewayIds = NULL, Filter = NUL
 #' 
 #' @param Attribute String. The attribute of the volume. This parameter is required.
 #' @param VolumeId String. The ID of the volume.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -13590,7 +13590,7 @@ ec2_describe_volume_attribute <- function(Attribute, VolumeId, DryRun = NULL, si
 #' 
 #' @param MaxResults Integer. The maximum number of volume results returned by `DescribeVolumeStatus` in paginated output.\[optional\]
 #' @param VolumeId List.   The IDs of the volumes.  Default: Describes all your volumes.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -13669,7 +13669,7 @@ ec2_describe_volume_status <- function(Filter = NULL, MaxResults = NULL, NextTok
 #' Describe Volumes
 #' 
 #' @param VolumeId List. The volume IDs.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of volume results returned by `DescribeVolumes` in paginated output.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -13765,7 +13765,7 @@ ec2_describe_volumes <- function(Filter = NULL, VolumeId = NULL, DryRun = NULL, 
 
 #' Describe Volumes Modifications
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VolumeId List. The IDs of the volumes.\[optional\]
 #' @param MaxResults Integer. The maximum number of results (up to a limit of 500) to be returned in a paginated request.\[optional\]
 #' @inheritParams CommonDoc
@@ -13836,7 +13836,7 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
 #' 
 #' @param Attribute String. The VPC attribute.
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -13865,7 +13865,7 @@ ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify
 #' Describes the ClassicLink status of one or
 #' more VPCs.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcId List. One or more VPCs for which you want to describe the ClassicLink status.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -13949,7 +13949,7 @@ ec2_describe_vpc_classic_link_dns_support <- function(MaxResults = NULL, NextTok
 #' Describes the connection notifications for
 #' VPC endpoints and VPC endpoint services.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ConnectionNotificationId String. The ID of the notification.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return in a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -14005,7 +14005,7 @@ ec2_describe_vpc_endpoint_connection_notifications <- function(DryRun = NULL, Co
 #' any endpoints that are pending your
 #' acceptance.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -14056,7 +14056,7 @@ ec2_describe_vpc_endpoint_connections <- function(DryRun = NULL, Filter = NULL, 
 #' configurations in your account (your
 #' services).
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ServiceId List. The IDs of one or more services.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
@@ -14119,7 +14119,7 @@ ec2_describe_vpc_endpoint_service_configurations <- function(DryRun = NULL, Serv
 #' service.
 #' 
 #' @param ServiceId String. The ID of the service.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -14163,7 +14163,7 @@ ec2_describe_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NU
 
 #' Describe Vpc Endpoint Services
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ServiceName List. One or more service names.\[optional\]
 #' @param MaxResults Integer.   The maximum number of items to return for this request.\[optional\]
 #' @inheritParams CommonDoc
@@ -14223,7 +14223,7 @@ ec2_describe_vpc_endpoint_services <- function(DryRun = NULL, ServiceName = NULL
 #' Describes one or more of your VPC
 #' endpoints.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcEndpointId List. One or more endpoint IDs.\[optional\]
 #' @param MaxResults Integer.   The maximum number of items to return for this request.\[optional\]
 #' @inheritParams CommonDoc
@@ -14292,7 +14292,7 @@ ec2_describe_vpc_endpoints <- function(DryRun = NULL, VpcEndpointId = NULL, Filt
 #' Describes one or more of your VPC peering
 #' connections.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcPeeringConnectionId List.   One or more VPC peering connection IDs.  Default: Describes all your VPC peering connections.  \[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -14375,7 +14375,7 @@ ec2_describe_vpc_peering_connections <- function(Filter = NULL, DryRun = NULL, V
 #' VPCs.
 #' 
 #' @param VpcId List.   One or more VPC IDs.  Default: Describes all your VPCs.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -14462,7 +14462,7 @@ ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextTo
 #' Describe Vpn Connections
 #' 
 #' @param VpnConnectionId List.   One or more VPN connection IDs.  Default: Describes your VPN connections.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -14537,7 +14537,7 @@ ec2_describe_vpn_connections <- function(Filter = NULL, VpnConnectionId = NULL, 
 #' Describe Vpn Gateways
 #' 
 #' @param VpnGatewayId List.   One or more virtual private gateway IDs.  Default: Describes all your virtual private gateways.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Filter:
@@ -14608,7 +14608,7 @@ ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun
 #' 
 #' @param InstanceId String. The ID of the instance to unlink from the VPC.
 #' @param VpcId String. The ID of the VPC to which the instance is linked.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -14642,7 +14642,7 @@ ec2_detach_classic_link_vpc <- function(InstanceId, VpcId, DryRun = NULL, simpli
 #' 
 #' @param InternetGatewayId String. The ID of the internet gateway.
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InternetGatewayId:
@@ -14674,7 +14674,7 @@ ec2_detach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
 #' network interface from an instance.
 #' 
 #' @param AttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Force Logical.   Specifies whether to force a detachment.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -14721,9 +14721,9 @@ ec2_detach_network_interface <- function(AttachmentId, DryRun = NULL, Force = NU
 #' 
 #' @param VolumeId String. The ID of the volume.
 #' @param Device String. The device name.\[optional\]
-#' @param Force Logical. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging...\[optional\]
+#' @param Force Logical. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally)....\[optional\]
 #' @param InstanceId String. The ID of the instance.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VolumeId:
@@ -14766,7 +14766,7 @@ ec2_detach_volume <- function(VolumeId, Device = NULL, Force = NULL, InstanceId 
 #' 
 #' @param VpcId String. The ID of the VPC.
 #' @param VpnGatewayId String. The ID of the virtual private gateway.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -14793,7 +14793,7 @@ ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
 
 #' Disable Ebs Encryption By Default
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -14820,7 +14820,7 @@ ec2_disable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE
 #' 
 #' @param AvailabilityZone List. One or more Availability Zones. For example, `us-east-2a`.
 #' @param SourceSnapshotId List. The IDs of one or more snapshots. For example, `snap-1234567890abcdef0`.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AvailabilityZone:
@@ -14857,7 +14857,7 @@ ec2_disable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotI
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the propagation route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -14892,7 +14892,7 @@ ec2_disable_transit_gateway_route_table_propagation <- function(TransitGatewayRo
 #' 
 #' @param GatewayId String. The ID of the virtual private gateway.
 #' @param RouteTableId String. The ID of the route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GatewayId:
@@ -14925,7 +14925,7 @@ ec2_disable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = 
 #' it.
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -14969,7 +14969,7 @@ ec2_disable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TR
 #' 
 #' @param AssociationId String. \[EC2-VPC\] The association ID. Required for EC2-VPC.\[optional\]
 #' @param PublicIp String. \[EC2-Classic\] The Elastic IP address. Required for EC2-Classic.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AssociationId:
@@ -14999,7 +14999,7 @@ ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryR
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint from which to disassociate the target network.
 #' @param AssociationId String. The ID of the target network association.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -15039,7 +15039,7 @@ ec2_disassociate_client_vpn_target_network <- function(ClientVpnEndpointId, Asso
 #' 
 #' @param CertificateArn String. The ARN of the ACM certificate from which to disassociate the IAM role.\[optional\]
 #' @param RoleArn String. The ARN of the IAM role to disassociate.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CertificateArn:
@@ -15086,8 +15086,8 @@ ec2_disassociate_iam_instance_profile <- function(AssociationId, simplify = TRUE
 
 #' Disassociate Route Table
 #' 
-#' @param AssociationId String. The association ID representing the current association between the route table and subnet...
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param AssociationId String. The association ID representing the current association between the route table and subnet or gateway....
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AssociationId:
@@ -15141,7 +15141,7 @@ ec2_disassociate_subnet_cidr_block <- function(AssociationId, simplify = TRUE, o
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.\[optional\]
 #' @param SubnetIds List. The IDs of the subnets;\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -15179,7 +15179,7 @@ ec2_disassociate_transit_gateway_multicast_domain <- function(TransitGatewayMult
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -15226,7 +15226,7 @@ ec2_disassociate_vpc_cidr_block <- function(AssociationId, simplify = TRUE, othe
 
 #' Enable Ebs Encryption By Default
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -15249,7 +15249,7 @@ ec2_enable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE,
 #' 
 #' @param AvailabilityZone List. One or more Availability Zones. For example, `us-east-2a`.
 #' @param SourceSnapshotId List. The IDs of one or more snapshots.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AvailabilityZone:
@@ -15287,7 +15287,7 @@ ec2_enable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotId
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the propagation route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -15322,7 +15322,7 @@ ec2_enable_transit_gateway_route_table_propagation <- function(TransitGatewayRou
 #' 
 #' @param GatewayId String. The ID of the virtual private gateway that is attached to a VPC.
 #' @param RouteTableId String. The ID of the route table.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GatewayId:
@@ -15358,7 +15358,7 @@ ec2_enable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = N
 #' inconsistent.
 #' 
 #' @param VolumeId String. The ID of the volume.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VolumeId:
@@ -15393,7 +15393,7 @@ ec2_enable_volume_io <- function(VolumeId, DryRun = NULL, simplify = TRUE, other
 #' in the *Amazon Elastic Compute Cloud User Guide*.
 #' 
 #' @param VpcId String. The ID of the VPC.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -15439,7 +15439,7 @@ ec2_enable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRU
 #' for the specified Client VPN endpoint.
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -15472,7 +15472,7 @@ ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
 #' endpoint.
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -15508,8 +15508,8 @@ ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryR
 #' @param S3ExportLocation Object. Information about the destination Amazon S3 bucket.
 #' @param ClientToken String. Token to enable idempotency for export image requests.\[optional\]
 #' @param Description String. A description of the image being exported. The maximum length is 255 characters.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param RoleName String. The name of the role that grants VM Import/Export permission to export images to your Amazon...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param RoleName String. The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket....\[optional\]
 #' @param TagSpecification List. The tags to apply to the export image task during creation.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -15563,7 +15563,7 @@ ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientT
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the route table.
 #' @param S3Bucket String. The name of the S3 bucket.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -15632,8 +15632,8 @@ ec2_export_transit_gateway_routes <- function(TransitGatewayRouteTableId, S3Buck
 #' master key (CMK) that\'s used to encrypt the private
 #' key.
 #' 
-#' @param CertificateArn String. The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys,...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param CertificateArn String. The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CertificateArn:
@@ -15664,7 +15664,7 @@ ec2_get_associated_enclave_certificate_iam_roles <- function(CertificateArn = NU
 #' 
 #' @param PoolId String. The ID of the IPv6 address pool.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PoolId:
@@ -15704,7 +15704,7 @@ ec2_get_associated_ipv6_pool_cidrs <- function(PoolId, NextToken = NULL, MaxResu
 #' 
 #' @param CapacityReservationId String. The ID of the Capacity Reservation.
 #' @param MaxResults Integer.   The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CapacityReservationId:
@@ -15744,7 +15744,7 @@ ec2_get_capacity_reservation_usage <- function(CapacityReservationId, NextToken 
 #' 
 #' @param PoolId String. The ID of the address pool.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PoolId:
@@ -15797,7 +15797,7 @@ ec2_get_coip_pool_usage <- function(PoolId, Filter = NULL, MaxResults = NULL, Ne
 #' Get Console Output
 #' 
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Latest Logical.   When enabled, retrieves the latest console output for the instance.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -15830,8 +15830,8 @@ ec2_get_console_output <- function(InstanceId, DryRun = NULL, Latest = NULL, sim
 #' Get Console Screenshot
 #' 
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param WakeUp Logical. When set to `true`, acts as keystroke input and wakes up an instance that\'s in standby or...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param WakeUp Logical. When set to `true`, acts as keystroke input and wakes up an instance that\'s in standby or \'sleep\'...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -15860,7 +15860,7 @@ ec2_get_console_screenshot <- function(InstanceId, DryRun = NULL, WakeUp = NULL,
 #' Get Default Credit Specification
 #' 
 #' @param InstanceFamily String. The instance family.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceFamily:
@@ -15885,7 +15885,7 @@ ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, 
 
 #' Get Ebs Default Kms Key Id
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -15906,7 +15906,7 @@ ec2_get_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, other
 
 #' Get Ebs Encryption By Default
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -15932,7 +15932,7 @@ ec2_get_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, ot
 #' 
 #' @param CapacityReservationId String. The ID of the Capacity Reservation.
 #' @param MaxResults Integer. The maximum number of results to return for the request in a single page.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CapacityReservationId:
@@ -15990,7 +15990,7 @@ ec2_get_host_reservation_purchase_preview <- function(HostIdSet, OfferingId, sim
 #' Get Launch Template Data
 #' 
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -16019,7 +16019,7 @@ ec2_get_launch_template_data <- function(InstanceId, DryRun = NULL, simplify = T
 #' list.
 #' 
 #' @param PrefixListId String. The ID of the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -16055,7 +16055,7 @@ ec2_get_managed_prefix_list_associations <- function(PrefixListId, DryRun = NULL
 #' specified managed prefix list.
 #' 
 #' @param PrefixListId String. The ID of the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TargetVersion Integer. The version of the prefix list for which to return the entries. The default is the current version.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
 #' @inheritParams CommonDoc
@@ -16092,7 +16092,7 @@ ec2_get_managed_prefix_list_entries <- function(PrefixListId, DryRun = NULL, Tar
 #' Get Password Data
 #' 
 #' @param InstanceId String. The ID of the Windows instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -16124,8 +16124,8 @@ ec2_get_password_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 #' exchange.
 #' 
 #' @param ReservedInstanceId List. The IDs of the Convertible Reserved Instances to exchange.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param TargetConfiguration List. The configuration of the target Convertible Reserved Instance to exchange for your current...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param TargetConfiguration List. The configuration of the target Convertible Reserved Instance to exchange for your current Convertible...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ReservedInstanceId:
@@ -16162,7 +16162,7 @@ ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -16205,7 +16205,7 @@ ec2_get_transit_gateway_attachment_propagations <- function(TransitGatewayAttach
 #' 
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -16259,7 +16259,7 @@ ec2_get_transit_gateway_multicast_domain_associations <- function(TransitGateway
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -16320,7 +16320,7 @@ ec2_get_transit_gateway_prefix_list_references <- function(TransitGatewayRouteTa
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -16368,7 +16368,7 @@ ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRoute
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -16412,7 +16412,7 @@ ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRoute
 #' 
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint to which the client certificate revocation list applies.
 #' @param CertificateRevocationList String. The client certificate revocation list file.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -16456,10 +16456,10 @@ ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
 #' @param ClientToken String. The token to enable idempotency for VM import requests.\[optional\]
 #' @param Description String. A description string for the import image task.\[optional\]
 #' @param DiskContainer List. Information about the disk containers.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Encrypted Logical. Specifies whether the destination AMI of the imported image should be encrypted.\[optional\]
 #' @param Hypervisor String.   The target hypervisor platform.  Valid values: `xen`  \[optional\]
-#' @param KmsKeyId String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\[optional\]
+#' @param KmsKeyId String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...\[optional\]
 #' @param LicenseType String.   The license type to be used for the Amazon Machine Image (AMI) after importing.\[optional\]
 #' @param Platform String.   The operating system of the virtual machine.  Valid values: `Windows` \| `Linux`  \[optional\]
 #' @param RoleName String. The name of the role to use when not using the default role, \'vmimport\'.\[optional\]
@@ -16596,7 +16596,7 @@ ec2_import_image <- function(Architecture = NULL, ClientData = NULL, ClientToken
 #' @param Platform String. The instance operating system.
 #' @param Description String. A description for the instance being imported.\[optional\]
 #' @param DiskImage List. The disk image.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param LaunchSpecification Object. The launch specification.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -16634,7 +16634,7 @@ ec2_import_instance <- function(Platform, Description = NULL, DiskImage = NULL, 
 #' 
 #' @param KeyName String. A unique name for the key pair.
 #' @param PublicKeyMaterial String. The public key.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to apply to the imported key pair.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -16676,9 +16676,9 @@ ec2_import_key_pair <- function(KeyName, PublicKeyMaterial, DryRun = NULL, TagSp
 #' @param ClientToken String. Token to enable idempotency for VM import requests.\[optional\]
 #' @param Description String. The description string for the import snapshot task.\[optional\]
 #' @param DiskContainer Object. Information about the disk container.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Encrypted Logical. Specifies whether the destination snapshot of the imported image should be encrypted.\[optional\]
-#' @param KmsKeyId String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...\[optional\]
+#' @param KmsKeyId String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...\[optional\]
 #' @param RoleName String. The name of the role to use when not using the default role, \'vmimport\'.\[optional\]
 #' @param TagSpecification List. The tags to apply to the import snapshot task during creation.\[optional\]
 #' @inheritParams CommonDoc
@@ -16773,7 +16773,7 @@ ec2_import_snapshot <- function(ClientData = NULL, ClientToken = NULL, Descripti
 #' @param Image Object. The disk image.
 #' @param Volume Object. The volume size.
 #' @param Description String. A description of the volume.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AvailabilityZone:
@@ -16813,7 +16813,7 @@ ec2_import_volume <- function(AvailabilityZone, Image, Volume, Description = NUL
 #' 
 #' @param AllocationId String. \[EC2-VPC\] The allocation ID.
 #' @param DomainName String. The domain name to modify for the IP address.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AllocationId:
@@ -16843,7 +16843,7 @@ ec2_modify_address_attribute <- function(AllocationId, DomainName = NULL, DryRun
 #' 
 #' @param GroupName String. The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 #' @param OptInStatus String. Indicates whether you are opted in to the Local Zone group or Wavelength Zone group.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section GroupName:
@@ -16889,7 +16889,7 @@ ec2_modify_availability_zone_group <- function(GroupName, OptInStatus, DryRun = 
 #' @param EndDate String.   The date and time at which the Capacity Reservation expires.\[optional\]
 #' @param EndDateType String.   Indicates the way in which the Capacity Reservation ends.\[optional\]
 #' @param Accept Logical. Reserved. Capacity Reservations you have created are accepted by default.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CapacityReservationId:
@@ -16960,7 +16960,7 @@ ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount
 #' @param VpnPort Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.\[optional\]
 #' @param Description String. A brief description of the Client VPN endpoint.\[optional\]
 #' @param SplitTunnel Logical.   Indicates whether the VPN is split-tunnel.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SecurityGroupId List. The IDs of one or more security groups to apply to the target network.\[optional\]
 #' @param VpcId String. The ID of the VPC to associate with the Client VPN endpoint.\[optional\]
 #' @param SelfServicePortal String. Specify whether to enable the self-service portal for the Client VPN endpoint.\[optional\]
@@ -17056,7 +17056,7 @@ ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificat
 #' 
 #' @param InstanceFamily String. The instance family.
 #' @param CpuCredits String.   The credit option for CPU usage of the instance family.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceFamily:
@@ -17087,8 +17087,8 @@ ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, 
 
 #' Modify Ebs Default Kms Key Id
 #' 
-#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param KmsKeyId String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for...
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section KmsKeyId:
@@ -17135,8 +17135,8 @@ ec2_modify_ebs_default_kms_key_id <- function(KmsKeyId, DryRun = NULL, simplify 
 #' Modify Fleet
 #' 
 #' @param FleetId String. The ID of the EC2 Fleet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param ExcessCapacityTerminationPolicy String. Indicates whether running instances should be terminated if the total target capacity of the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param ExcessCapacityTerminationPolicy String. Indicates whether running instances should be terminated if the total target capacity of the EC2...\[optional\]
 #' @param LaunchTemplateConfig List. The launch template and overrides.\[optional\]
 #' @param TargetCapacitySpecification Object. The size of the EC2 Fleet.\[optional\]
 #' @inheritParams CommonDoc
@@ -17180,7 +17180,7 @@ ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPo
 #' Amazon FPGA Image (AFI).
 #' 
 #' @param FpgaImageId String. The ID of the AFI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Attribute String. The name of the attribute.\[optional\]
 #' @param OperationType String. The operation type.\[optional\]
 #' @param UserId List. The AWS account IDs. This parameter is valid only when modifying the `loadPermission` attribute.\[optional\]
@@ -17301,7 +17301,7 @@ ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, 
 
 #' Modify Id Format
 #' 
-#' @param Resource String.   The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options`...
+#' @param Resource String.   The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options` \|...
 #' @param UseLongIds Logical. Indicate whether the resource should use longer IDs (17-character IDs).
 #' @inheritParams CommonDoc
 #' 
@@ -17337,7 +17337,7 @@ ec2_modify_id_format <- function(Resource, UseLongIds, simplify = TRUE, others =
 #' Modify Identity Id Format
 #' 
 #' @param PrincipalArn String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.
-#' @param Resource String.   The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options`...
+#' @param Resource String.   The type of resource: `bundle` \| `conversion-task` \| `customer-gateway` \| `dhcp-options` \|...
 #' @param UseLongIds Logical. Indicates whether the resource should use longer IDs (17-character IDs)
 #' @inheritParams CommonDoc
 #' 
@@ -17387,7 +17387,7 @@ ec2_modify_identity_id_format <- function(PrincipalArn, Resource, UseLongIds, si
 #' @param UserGroup List. The user groups.\[optional\]
 #' @param UserId List. The AWS account IDs.\[optional\]
 #' @param Value String. The value of the attribute being modified.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ImageId:
@@ -17452,16 +17452,16 @@ ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = 
 #' @param SourceDestCheck Object. Specifies whether source/destination checking is enabled.\[optional\]
 #' @param Attribute String. The name of the attribute.\[optional\]
 #' @param BlockDeviceMapping List.   Modifies the `DeleteOnTermination` attribute for volumes that are currently attached.\[optional\]
-#' @param DisableApiTermination Object. If the value is `true`, you can\'t terminate the instance using the Amazon EC2 console, CLI,...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DisableApiTermination Object. If the value is `true`, you can\'t terminate the instance using the Amazon EC2 console, CLI, or API;...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EbsOptimized Object. Specifies whether the instance is optimized for Amazon EBS I/O.\[optional\]
 #' @param EnaSupport Object.   Set to `true` to enable enhanced networking with ENA for the instance.\[optional\]
 #' @param GroupId List. \[EC2-VPC\] Changes the security groups of the instance.\[optional\]
-#' @param InstanceInitiatedShutdownBehavior Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...\[optional\]
+#' @param InstanceInitiatedShutdownBehavior Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown)....\[optional\]
 #' @param InstanceType Object. Changes the instance type to the specified value.\[optional\]
 #' @param Kernel Object. Changes the instance\'s kernel to the specified value.\[optional\]
 #' @param Ramdisk Object. Changes the instance\'s RAM disk to the specified value.\[optional\]
-#' @param SriovNetSupport Object.   Set to `simple` to enable enhanced networking with the Intel 82599 Virtual Function interface...\[optional\]
+#' @param SriovNetSupport Object.   Set to `simple` to enable enhanced networking with the Intel 82599 Virtual Function interface for...\[optional\]
 #' @param UserData Object. Changes the instance\'s user data to the specified value.\[optional\]
 #' @param Value String. A new value for the attribute.\[optional\]
 #' @inheritParams CommonDoc
@@ -17594,7 +17594,7 @@ ec2_modify_instance_attribute <- function(InstanceId, SourceDestCheck = NULL, At
 #' 
 #' @param InstanceId String. The ID of the instance to be modified.
 #' @param CapacityReservationSpecification Object. Information about the Capacity Reservation targeting option.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -17624,7 +17624,7 @@ ec2_modify_instance_capacity_reservation_attributes <- function(InstanceId, Capa
 #' Modify Instance Credit Specification
 #' 
 #' @param InstanceCreditSpecification List. Information about the credit option for CPU usage.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -17662,7 +17662,7 @@ ec2_modify_instance_credit_specification <- function(InstanceCreditSpecification
 #' @param InstanceId String. The ID of the instance with the scheduled event.
 #' @param InstanceEventId String. The ID of the event whose date and time you are modifying.
 #' @param NotBefore String. The new date and time when the event will take place.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -17710,7 +17710,7 @@ ec2_modify_instance_event_start_time <- function(InstanceId, InstanceEventId, No
 #' @param HttpTokens String.   The state of token usage for your instance metadata requests.\[optional\]
 #' @param HttpPutResponseHopLimit Integer.   The desired HTTP PUT response hop limit for instance metadata requests.\[optional\]
 #' @param HttpEndpoint String.   This parameter enables or disables the HTTP metadata endpoint on your instances.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -17826,7 +17826,7 @@ ec2_modify_instance_placement <- function(InstanceId, Affinity = NULL, GroupName
 #' launching an instance, the default version applies when a launch
 #' template version is not specified.
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ClientToken String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\[optional\]
 #' @param LaunchTemplateId String. The ID of the launch template.\[optional\]
 #' @param LaunchTemplateName String. The name of the launch template.\[optional\]
@@ -17873,7 +17873,7 @@ ec2_modify_launch_template <- function(DryRun = NULL, ClientToken = NULL, Launch
 #' Modify Managed Prefix List
 #' 
 #' @param PrefixListId String. The ID of the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param CurrentVersion Integer. The current version of the prefix list.\[optional\]
 #' @param PrefixListName String. A name for the prefix list.\[optional\]
 #' @param AddEntry List. One or more entries to add to the prefix list.\[optional\]
@@ -17925,7 +17925,7 @@ ec2_modify_managed_prefix_list <- function(PrefixListId, DryRun = NULL, CurrentV
 #' @param NetworkInterfaceId String. The ID of the network interface.
 #' @param Attachment Object. Information about the interface attachment.\[optional\]
 #' @param Description Object. A description for the network interface.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SecurityGroupId List. Changes the security groups for the network interface.\[optional\]
 #' @param SourceDestCheck Object. Indicates whether source/destination checking is enabled.\[optional\]
 #' @inheritParams CommonDoc
@@ -18014,7 +18014,7 @@ ec2_modify_reserved_instances <- function(ReservedInstancesId, ReservedInstances
 #' @param UserGroup List. The group to modify for the snapshot.\[optional\]
 #' @param OperationType String. The type of operation to perform to the attribute.\[optional\]
 #' @param UserId List. The account ID to modify for the snapshot.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SnapshotId:
@@ -18059,7 +18059,7 @@ ec2_modify_snapshot_attribute <- function(SnapshotId, Attribute = NULL, CreateVo
 #' Modify Spot Fleet Request
 #' 
 #' @param SpotFleetRequestId String. The ID of the Spot Fleet request.
-#' @param ExcessCapacityTerminationPolicy String. Indicates whether running Spot Instances should be terminated if the target capacity of the...\[optional\]
+#' @param ExcessCapacityTerminationPolicy String. Indicates whether running Spot Instances should be terminated if the target capacity of the Spot...\[optional\]
 #' @param LaunchTemplateConfig List. The launch template and overrides.\[optional\]
 #' @param TargetCapacity Integer. The size of the fleet.\[optional\]
 #' @param OnDemandTargetCapacity Integer. The number of On-Demand Instances in the fleet.\[optional\]
@@ -18105,9 +18105,9 @@ ec2_modify_spot_fleet_request <- function(SpotFleetRequestId, ExcessCapacityTerm
 #' one attribute at a time.
 #' 
 #' @param SubnetId String. The ID of the subnet.
-#' @param AssignIpv6AddressOnCreation Object.   Specify `true` to indicate that network interfaces created in the specified subnet should...\[optional\]
+#' @param AssignIpv6AddressOnCreation Object.   Specify `true` to indicate that network interfaces created in the specified subnet should be assigned...\[optional\]
 #' @param MapPublicIpOnLaunch Object. Specify `true` to indicate that network interfaces attached to instances created in the specified...\[optional\]
-#' @param MapCustomerOwnedIpOnLaunch Object.   Specify `true` to indicate that network interfaces attached to instances created in the...\[optional\]
+#' @param MapCustomerOwnedIpOnLaunch Object.   Specify `true` to indicate that network interfaces attached to instances created in the specified...\[optional\]
 #' @param CustomerOwnedIpv4Pool String.   The customer-owned IPv4 address pool associated with the subnet.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -18162,7 +18162,7 @@ ec2_modify_subnet_attribute <- function(SubnetId, AssignIpv6AddressOnCreation = 
 #' @param TrafficMirrorFilterId String. The ID of the Traffic Mirror filter.
 #' @param AddNetworkService List. The network service, for example Amazon DNS, that you want to mirror.\[optional\]
 #' @param RemoveNetworkService List. The network service, for example Amazon DNS, that you no longer want to mirror.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorFilterId:
@@ -18208,7 +18208,7 @@ ec2_modify_traffic_mirror_filter_network_services <- function(TrafficMirrorFilte
 #' @param SourceCidrBlock String. The source CIDR block to assign to the Traffic Mirror rule.\[optional\]
 #' @param Description String. The description to assign to the Traffic Mirror rule.\[optional\]
 #' @param RemoveField List.   The properties that you want to remove from the Traffic Mirror filter rule.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorFilterRuleId:
@@ -18284,11 +18284,11 @@ ec2_modify_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Tra
 #' @param TrafficMirrorTargetId String. The Traffic Mirror target.\[optional\]
 #' @param TrafficMirrorFilterId String. The ID of the Traffic Mirror filter.\[optional\]
 #' @param PacketLength Integer. The number of bytes in each packet to mirror.\[optional\]
-#' @param SessionNumber Integer.   The session number determines the order in which sessions are evaluated when an interface...\[optional\]
+#' @param SessionNumber Integer.   The session number determines the order in which sessions are evaluated when an interface is used...\[optional\]
 #' @param VirtualNetworkId Integer. The virtual network ID of the Traffic Mirror session.\[optional\]
 #' @param Description String. The description to assign to the Traffic Mirror session.\[optional\]
 #' @param RemoveField List.   The properties that you want to remove from the Traffic Mirror session.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TrafficMirrorSessionId:
@@ -18360,7 +18360,7 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
 #' @param TransitGatewayId String. The ID of the transit gateway.
 #' @param Description String. The description for the transit gateway.\[optional\]
 #' @param Options Object. The options to modify.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayId:
@@ -18400,7 +18400,7 @@ ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Opt
 #' @param PrefixListId String. The ID of the prefix list.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment to which traffic is routed.\[optional\]
 #' @param Blackhole Logical. Indicates whether to drop traffic that matches this route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -18442,7 +18442,7 @@ ec2_modify_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
 #' @param AddSubnetIds List. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.\[optional\]
 #' @param RemoveSubnetIds List. The IDs of one or more subnets to remove.\[optional\]
 #' @param Options Object.   The new VPC attachment options.  You cannot modify the IPv6 options.  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -18484,7 +18484,7 @@ ec2_modify_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' Modify Volume
 #' 
 #' @param VolumeId String. The ID of the volume.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Size Integer.   The target size of the volume, in GiB.\[optional\]
 #' @param VolumeType String.   The target EBS volume type of the volume.\[optional\]
 #' @param Iops Integer.   The target IOPS rate of the volume.\[optional\]
@@ -18578,7 +18578,7 @@ ec2_modify_volume <- function(VolumeId, DryRun = NULL, Size = NULL, VolumeType =
 #' 
 #' @param VolumeId String. The ID of the volume.
 #' @param AutoEnableIO Object. Indicates whether the volume should be auto-enabled for I/O operations.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VolumeId:
@@ -18661,12 +18661,12 @@ ec2_modify_vpc_attribute <- function(VpcId, EnableDnsHostnames = NULL, EnableDns
 #' Guide*.
 #' 
 #' @param VpcEndpointId String. The ID of the endpoint.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ResetPolicy Logical. (Gateway endpoint) Specify `true` to reset the policy document to the default policy.\[optional\]
-#' @param PolicyDocument String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...\[optional\]
+#' @param PolicyDocument String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...\[optional\]
 #' @param AddRouteTableId List. (Gateway endpoint) One or more route tables IDs to associate with the endpoint.\[optional\]
 #' @param RemoveRouteTableId List. (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.\[optional\]
-#' @param AddSubnetId List. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the...\[optional\]
+#' @param AddSubnetId List. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint....\[optional\]
 #' @param RemoveSubnetId List. (Interface endpoint) One or more subnets IDs in which to remove the endpoint.\[optional\]
 #' @param AddSecurityGroupId List. (Interface endpoint) One or more security group IDs to associate with the network interface.\[optional\]
 #' @param RemoveSecurityGroupId List. (Interface endpoint) One or more security group IDs to disassociate from the network interface.\[optional\]
@@ -18745,7 +18745,7 @@ ec2_modify_vpc_endpoint <- function(VpcEndpointId, DryRun = NULL, ResetPolicy = 
 #' notification, or the events for which to be notified.
 #' 
 #' @param ConnectionNotificationId String. The ID of the notification.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param ConnectionNotificationArn String. The ARN for the SNS topic for the notification.\[optional\]
 #' @param ConnectionEvents List. One or more events for the endpoint. Valid values are `Accept`, `Connect`, `Delete`, and `Reject`.\[optional\]
 #' @inheritParams CommonDoc
@@ -18782,7 +18782,7 @@ ec2_modify_vpc_endpoint_connection_notification <- function(ConnectionNotificati
 #' Modify Vpc Endpoint Service Configuration
 #' 
 #' @param ServiceId String. The ID of the service.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param PrivateDnsName String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.\[optional\]
 #' @param RemovePrivateDnsName Logical. (Interface endpoint configuration) Removes the private DNS name of the endpoint service.\[optional\]
 #' @param AcceptanceRequired Logical. Indicates whether requests to create an endpoint to your service must be accepted.\[optional\]
@@ -18850,7 +18850,7 @@ ec2_modify_vpc_endpoint_service_configuration <- function(ServiceId, DryRun = NU
 #' Modify Vpc Endpoint Service Permissions
 #' 
 #' @param ServiceId String. The ID of the service.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param AddAllowedPrincipals List. The Amazon Resource Names (ARN) of one or more principals.\[optional\]
 #' @param RemoveAllowedPrincipals List. The Amazon Resource Names (ARN) of one or more principals.\[optional\]
 #' @inheritParams CommonDoc
@@ -18891,7 +18891,7 @@ ec2_modify_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NULL
 #' 
 #' @param VpcPeeringConnectionId String. The ID of the VPC peering connection.
 #' @param AccepterPeeringConnectionOptions Object. The VPC peering connection options for the accepter VPC.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param RequesterPeeringConnectionOptions Object. The VPC peering connection options for the requester VPC.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -18926,7 +18926,7 @@ ec2_modify_vpc_peering_connection_options <- function(VpcPeeringConnectionId, Ac
 #' 
 #' @param VpcId String. The ID of the VPC.
 #' @param InstanceTenancy String. The instance tenancy attribute for the VPC. 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcId:
@@ -18957,7 +18957,7 @@ ec2_modify_vpc_tenancy <- function(VpcId, InstanceTenancy, DryRun = NULL, simpli
 #' @param TransitGatewayId String. The ID of the transit gateway.\[optional\]
 #' @param CustomerGatewayId String. The ID of the customer gateway at your end of the VPN connection.\[optional\]
 #' @param VpnGatewayId String. The ID of the virtual private gateway at the AWS side of the VPN connection.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnConnectionId:
@@ -18998,7 +18998,7 @@ ec2_modify_vpn_connection <- function(VpnConnectionId, TransitGatewayId = NULL, 
 #' @param RemoteIpv4NetworkCidr String.   The IPv4 CIDR on the AWS side of the VPN connection.  Default: `0.0.0.0/0`  \[optional\]
 #' @param LocalIpv6NetworkCidr String.   The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.\[optional\]
 #' @param RemoteIpv6NetworkCidr String.   The IPv6 CIDR on the AWS side of the VPN connection.  Default: `::/0`  \[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnConnectionId:
@@ -19057,7 +19057,7 @@ ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkC
 #' 
 #' @param VpnConnectionId String. The ID of the AWS Site-to-Site VPN connection.
 #' @param VpnTunnelOutsideIpAddress String. The external IP address of the VPN tunnel.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnConnectionId:
@@ -19097,7 +19097,7 @@ ec2_modify_vpn_tunnel_certificate <- function(VpnConnectionId, VpnTunnelOutsideI
 #' @param VpnConnectionId String. The ID of the AWS Site-to-Site VPN connection.
 #' @param VpnTunnelOutsideIpAddress String. The external IP address of the VPN tunnel.
 #' @param TunnelOptions Object. The tunnel options to modify.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpnConnectionId:
@@ -19130,7 +19130,7 @@ ec2_modify_vpn_tunnel_options <- function(VpnConnectionId, VpnTunnelOutsideIpAdd
 #' Monitor Instances
 #' 
 #' @param InstanceId List. The IDs of the instances.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -19165,7 +19165,7 @@ ec2_monitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 #' EC2-VPC platform to the EC2-Classic platform. 
 #' 
 #' @param PublicIp String. The Elastic IP address.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PublicIp:
@@ -19190,10 +19190,10 @@ ec2_move_address_to_vpc <- function(PublicIp, DryRun = NULL, simplify = TRUE, ot
 #' Provision Byoip Cidr
 #' 
 #' @param Cidr String. The public IPv4 or IPv6 address range, in CIDR notation.
-#' @param CidrAuthorizationContext Object. A signed document that proves that you are authorized to bring the specified IP address range...\[optional\]
+#' @param CidrAuthorizationContext Object. A signed document that proves that you are authorized to bring the specified IP address range to...\[optional\]
 #' @param PubliclyAdvertisable Logical.   (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.\[optional\]
 #' @param Description String. A description for the address range and the address pool.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param PoolTagSpecification List. The tags to apply to the address pool.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -19251,8 +19251,8 @@ ec2_provision_byoip_cidr <- function(Cidr, CidrAuthorizationContext = NULL, Publ
 #' @param HostIdSet List. The IDs of the Dedicated Hosts with which the reservation will be associated.
 #' @param OfferingId String. The ID of the offering.
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param CurrencyCode String. The currency in which the `totalUpfrontPrice`, `LimitPrice`, and `totalHourlyPrice` amounts...\[optional\]
-#' @param LimitPrice String. The specified limit is checked against the total upfront cost of the reservation (calculated...\[optional\]
+#' @param CurrencyCode String. The currency in which the `totalUpfrontPrice`, `LimitPrice`, and `totalHourlyPrice` amounts are specified....\[optional\]
+#' @param LimitPrice String. The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count)....\[optional\]
 #' @param TagSpecification List. The tags to apply to the Dedicated Host Reservation during purchase.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -19302,8 +19302,8 @@ ec2_purchase_host_reservation <- function(HostIdSet, OfferingId, ClientToken = N
 #' 
 #' @param InstanceCount Integer. The number of Reserved Instances to purchase.
 #' @param ReservedInstancesOfferingId String. The ID of the Reserved Instance offering to purchase.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param LimitPrice Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param LimitPrice Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the...\[optional\]
 #' @param PurchaseTime String. The time at which to purchase the Reserved Instance, in UTC format (for example, *YYYY*-*MM*-*DD*T*HH*:*MM*:*SS*Z)....\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -19344,7 +19344,7 @@ ec2_purchase_reserved_instances_offering <- function(InstanceCount, ReservedInst
 #' 
 #' @param PurchaseRequest List. The purchase requests.
 #' @param ClientToken String. Unique, case-sensitive identifier that ensures the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PurchaseRequest:
@@ -19376,7 +19376,7 @@ ec2_purchase_scheduled_instances <- function(PurchaseRequest, ClientToken = NULL
 #' Reboot Instances
 #' 
 #' @param InstanceId List. The instance IDs.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -19406,13 +19406,13 @@ ec2_reboot_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, oth
 #' @param Architecture String.   The architecture of the AMI.\[optional\]
 #' @param BlockDeviceMapping List.   The block device mapping entries.\[optional\]
 #' @param Description String. A description for your AMI.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
-#' @param EnaSupport Logical.   Set to `true` to enable enhanced networking with ENA for the AMI and any instances that...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
+#' @param EnaSupport Logical.   Set to `true` to enable enhanced networking with ENA for the AMI and any instances that you launch...\[optional\]
 #' @param KernelId String. The ID of the kernel.\[optional\]
 #' @param BillingProduct List. The billing product codes.\[optional\]
 #' @param RamdiskId String. The ID of the RAM disk.\[optional\]
 #' @param RootDeviceName String. The device name of the root device volume (for example, `/dev/sda1`).\[optional\]
-#' @param SriovNetSupport String.   Set to `simple` to enable enhanced networking with the Intel 82599 Virtual Function interface...\[optional\]
+#' @param SriovNetSupport String.   Set to `simple` to enable enhanced networking with the Intel 82599 Virtual Function interface for...\[optional\]
 #' @param VirtualizationType String.   The type of virtualization (`hvm` \| `paravirtual`).  Default: `paravirtual`  \[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -19519,7 +19519,7 @@ ec2_register_image <- function(Name, ImageLocation = NULL, Architecture = NULL, 
 
 #' Register Instance Event Notification Attributes
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceTagAttribute Object. Information about the tag keys to register.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -19548,7 +19548,7 @@ ec2_register_instance_event_notification_attributes <- function(DryRun = NULL, I
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param GroupIpAddress String. The IP address assigned to the transit gateway multicast group.\[optional\]
 #' @param NetworkInterfaceIds List. The group members\' network interface IDs to register with the transit gateway multicast group.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -19585,7 +19585,7 @@ ec2_register_transit_gateway_multicast_group_members <- function(TransitGatewayM
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param GroupIpAddress String. The IP address assigned to the transit gateway multicast group.\[optional\]
 #' @param NetworkInterfaceIds List. The group sources\' network interface IDs to register with the transit gateway multicast group.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -19626,7 +19626,7 @@ ec2_register_transit_gateway_multicast_group_sources <- function(TransitGatewayM
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway attachment.\[optional\]
 #' @param SubnetIds List. The IDs of the subnets to associate with the transit gateway multicast domain.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -19664,7 +19664,7 @@ ec2_reject_transit_gateway_multicast_domain_associations <- function(TransitGate
 #' request.
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the transit gateway peering attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -19690,7 +19690,7 @@ ec2_reject_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' Reject Transit Gateway Vpc Attachment
 #' 
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayAttachmentId:
@@ -19720,7 +19720,7 @@ ec2_reject_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' 
 #' @param ServiceId String. The ID of the service.
 #' @param VpcEndpointId List. The IDs of one or more VPC endpoints.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ServiceId:
@@ -19758,7 +19758,7 @@ ec2_reject_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
 #' DeleteVpcPeeringConnection.
 #' 
 #' @param VpcPeeringConnectionId String. The ID of the VPC peering connection.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section VpcPeeringConnectionId:
@@ -19785,8 +19785,8 @@ ec2_reject_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
 #' 
 #' @param AllocationId String. \[EC2-VPC\] The allocation ID. Required for EC2-VPC.\[optional\]
 #' @param PublicIp String. \[EC2-Classic\] The Elastic IP address. Required for EC2-Classic.\[optional\]
-#' @param NetworkBorderGroup String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param NetworkBorderGroup String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses....\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AllocationId:
@@ -19873,7 +19873,7 @@ ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, Ass
 #' 
 #' @param AssociationId String. The ID of the current association between the original network ACL and the subnet.
 #' @param NetworkAclId String. The ID of the new network ACL to associate with the subnet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AssociationId:
@@ -19913,7 +19913,7 @@ ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, Dry
 #' @param RuleAction String. Indicates whether to allow or deny the traffic that matches the rule.
 #' @param RuleNumber Integer. The rule number of the entry to replace.
 #' @param CidrBlock String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.16.0.0/24`).\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Icmp Object. ICMP protocol: The ICMP or ICMPv6 type and code.\[optional\]
 #' @param Ipv6CidrBlock String. The IPv6 network range to allow or deny, in CIDR notation (for example `2001:bd8:1234:1a00::/64`).\[optional\]
 #' @param PortRange Object. TCP or UDP protocols: The range of ports the rule applies to.\[optional\]
@@ -19985,7 +19985,7 @@ ec2_replace_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAc
 #' @param DestinationCidrBlock String. The IPv4 CIDR address block used for the destination match.\[optional\]
 #' @param DestinationIpv6CidrBlock String. The IPv6 CIDR address block used for the destination match.\[optional\]
 #' @param DestinationPrefixListId String. The ID of the prefix list for the route.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param VpcEndpointId String. The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.\[optional\]
 #' @param EgressOnlyInternetGatewayId String. \[IPv6 traffic only\] The ID of an egress-only internet gateway.\[optional\]
 #' @param GatewayId String. The ID of an internet gateway or virtual private gateway.\[optional\]
@@ -20077,7 +20077,7 @@ ec2_replace_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destina
 #' 
 #' @param AssociationId String. The association ID.
 #' @param RouteTableId String. The ID of the new route table to associate with the subnet.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AssociationId:
@@ -20112,7 +20112,7 @@ ec2_replace_route_table_association <- function(AssociationId, RouteTableId, Dry
 #' @param TransitGatewayRouteTableId String. The ID of the route table.
 #' @param TransitGatewayAttachmentId String. The ID of the attachment.\[optional\]
 #' @param Blackhole Logical. Indicates whether traffic matching this route is to be dropped.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DestinationCidrBlock:
@@ -20152,7 +20152,7 @@ ec2_replace_transit_gateway_route <- function(DestinationCidrBlock, TransitGatew
 #' @param ReasonCode List.   The reason codes that describe the health state of your instance.
 #' @param Status String. The status of all instances listed.
 #' @param Description String. Descriptive text about the health state of your instance.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EndTime String. The time at which the reported instance health state ended.\[optional\]
 #' @param StartTime String. The time at which the reported instance health state began.\[optional\]
 #' @inheritParams CommonDoc
@@ -20224,7 +20224,7 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
 #' Request Spot Fleet
 #' 
 #' @param SpotFleetRequestConfig Object. The configuration for the Spot Fleet request.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section SpotFleetRequestConfig:
@@ -20251,7 +20251,7 @@ ec2_request_spot_fleet <- function(SpotFleetRequestConfig, DryRun = NULL, simpli
 #' @param AvailabilityZoneGroup String.   The user-specified name for a logical grouping of requests.\[optional\]
 #' @param BlockDurationMinutes Integer.   The required duration for the Spot Instances (also known as Spot blocks), in minutes.\[optional\]
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceCount Integer.   The maximum number of Spot Instances to launch.  Default: 1  \[optional\]
 #' @param LaunchGroup String.   The instance launch group.\[optional\]
 #' @param LaunchSpecification Object. The launch specification.\[optional\]
@@ -20406,7 +20406,7 @@ ec2_request_spot_instances <- function(AvailabilityZoneGroup = NULL, BlockDurati
 #' 
 #' @param AllocationId String. \[EC2-VPC\] The allocation ID.
 #' @param Attribute String. The attribute of the IP address.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section AllocationId:
@@ -20434,7 +20434,7 @@ ec2_reset_address_attribute <- function(AllocationId, Attribute, DryRun = NULL, 
 
 #' Reset Ebs Default Kms Key Id
 #' 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section DryRun:
@@ -20460,7 +20460,7 @@ ec2_reset_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, oth
 #' load permission attribute.
 #' 
 #' @param FpgaImageId String. The ID of the AFI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Attribute String. The attribute.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -20491,7 +20491,7 @@ ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute
 #' 
 #' @param Attribute String. The attribute to reset (currently you can only reset the launch permission attribute).
 #' @param ImageId String. The ID of the AMI.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -20520,7 +20520,7 @@ ec2_reset_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplif
 #' 
 #' @param Attribute String.   The attribute to reset.
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -20556,7 +20556,7 @@ ec2_reset_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL, s
 #' specify only one attribute at a time.
 #' 
 #' @param NetworkInterfaceId String. The ID of the network interface.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param SourceDestCheck String. The source/destination checking attribute. Resets the value to `true`.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -20587,7 +20587,7 @@ ec2_reset_network_interface_attribute <- function(NetworkInterfaceId, DryRun = N
 #' 
 #' @param Attribute String. The attribute to reset.
 #' @param SnapshotId String. The ID of the snapshot.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Attribute:
@@ -20623,7 +20623,7 @@ ec2_reset_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL, s
 #' instance or network interface.
 #' 
 #' @param PublicIp String. The Elastic IP address.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PublicIp:
@@ -20654,7 +20654,7 @@ ec2_restore_address_to_classic <- function(PublicIp, DryRun = NULL, simplify = T
 #' @param PrefixListId String. The ID of the prefix list.
 #' @param PreviousVersion Integer. The version to restore.
 #' @param CurrentVersion Integer. The current version number for the prefix list.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section PrefixListId:
@@ -20693,7 +20693,7 @@ ec2_restore_managed_prefix_list_version <- function(PrefixListId, PreviousVersio
 #' @param TargetNetworkCidr String. The IPv4 address range, in CIDR notation, of the network for which access is being removed.
 #' @param AccessGroupId String. The ID of the Active Directory group for which to revoke access. \[optional\]
 #' @param RevokeAllGroups Logical. Indicates whether access should be revoked for all clients.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -20731,7 +20731,7 @@ ec2_revoke_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkCidr
 #' Revoke Security Group Egress
 #' 
 #' @param GroupId String. The ID of the security group.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param IpPermissions List. The sets of IP permissions.\[optional\]
 #' @param CidrIp String. Not supported. Use a set of IP permissions to specify the CIDR.\[optional\]
 #' @param FromPort Integer. Not supported. Use a set of IP permissions to specify the port.\[optional\]
@@ -20796,11 +20796,11 @@ ec2_revoke_security_group_egress <- function(GroupId, DryRun = NULL, IpPermissio
 #' @param GroupId String. The ID of the security group.\[optional\]
 #' @param GroupName String. \[EC2-Classic, default VPC\] The name of the security group.\[optional\]
 #' @param IpPermissions List. The sets of IP permissions.\[optional\]
-#' @param IpProtocol String. The IP protocol name (`tcp`, `udp`, `icmp`) or number (see [Protocol Numbers](http://www.\[optional\]
+#' @param IpProtocol String. The IP protocol name (`tcp`, `udp`, `icmp`) or number (see [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml))....\[optional\]
 #' @param SourceSecurityGroupName String. \[EC2-Classic, default VPC\] The name of the source security group.\[optional\]
-#' @param SourceSecurityGroupOwnerId String. \[EC2-Classic\] The AWS account ID of the source security group, if the source security group...\[optional\]
+#' @param SourceSecurityGroupOwnerId String. \[EC2-Classic\] The AWS account ID of the source security group, if the source security group is...\[optional\]
 #' @param ToPort Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section CidrIp:
@@ -20880,7 +20880,7 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
 #' @param ImageId String. The ID of the AMI.\[optional\]
 #' @param InstanceType String.   The instance type.\[optional\]
 #' @param Ipv6AddressCount Integer.   \[EC2-VPC\] The number of IPv6 addresses to associate with the primary network interface.\[optional\]
-#' @param Ipv6Address List.   \[EC2-VPC\] The IPv6 addresses from the range of the subnet to associate with the primary...\[optional\]
+#' @param Ipv6Address List.   \[EC2-VPC\] The IPv6 addresses from the range of the subnet to associate with the primary network...\[optional\]
 #' @param KernelId String.   The ID of the kernel.\[optional\]
 #' @param KeyName String.   The name of the key pair.\[optional\]
 #' @param Monitoring Object. Specifies whether detailed monitoring is enabled for the instance.\[optional\]
@@ -20892,8 +20892,8 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
 #' @param UserData String. The user data to make available to the instance.\[optional\]
 #' @param AdditionalInfo String. Reserved.\[optional\]
 #' @param ClientToken String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.\[optional\]
-#' @param DisableApiTermination Logical.   If you set this parameter to `true`, you can\'t terminate the instance using the Amazon...\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DisableApiTermination Logical.   If you set this parameter to `true`, you can\'t terminate the instance using the Amazon EC2 console,...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param EbsOptimized Logical.   Indicates whether the instance is optimized for Amazon EBS I/O.\[optional\]
 #' @param IamInstanceProfile Object. The name or Amazon Resource Name (ARN) of an IAM instance profile.\[optional\]
 #' @param InstanceInitiatedShutdownBehavior String.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...\[optional\]
@@ -21249,7 +21249,7 @@ ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, Ima
 #' @param LaunchSpecification Object. The launch specification.
 #' @param ScheduledInstanceId String. The Scheduled Instance ID.
 #' @param ClientToken String. Unique, case-sensitive identifier that ensures the idempotency of the request.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param InstanceCount Integer.   The number of instances.  Default: 1  \[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -21295,7 +21295,7 @@ ec2_run_scheduled_instances <- function(LaunchSpecification, ScheduledInstanceId
 #' 
 #' @param LocalGatewayRouteTableId String. The ID of the local gateway route table.
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section LocalGatewayRouteTableId:
@@ -21335,7 +21335,7 @@ ec2_search_local_gateway_routes <- function(LocalGatewayRouteTableId, Filter, Ma
 #' 
 #' @param TransitGatewayMulticastDomainId String. The ID of the transit gateway multicast domain.\[optional\]
 #' @param MaxResults Integer. The maximum number of results to return with a single call.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayMulticastDomainId:
@@ -21403,7 +21403,7 @@ ec2_search_transit_gateway_multicast_groups <- function(TransitGatewayMulticastD
 #' 
 #' @param TransitGatewayRouteTableId String. The ID of the transit gateway route table.
 #' @param MaxResults Integer. The maximum number of routes to return.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section TransitGatewayRouteTableId:
@@ -21469,7 +21469,7 @@ ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter
 #' Send Diagnostic Interrupt
 #' 
 #' @param InstanceId String. The ID of the instance.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -21495,7 +21495,7 @@ ec2_send_diagnostic_interrupt <- function(InstanceId, DryRun = NULL, simplify = 
 #' 
 #' @param InstanceId List. The IDs of the instances.
 #' @param AdditionalInfo String. Reserved.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -21530,7 +21530,7 @@ ec2_start_instances <- function(InstanceId, AdditionalInfo = NULL, DryRun = NULL
 #' @param NetworkInsightsPathId String. The ID of the path.
 #' @param ClientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 #' @param FilterInArn List. The Amazon Resource Names (ARN) of the resources that the path must traverse.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param TagSpecification List. The tags to apply.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -21572,7 +21572,7 @@ ec2_start_network_insights_analysis <- function(NetworkInsightsPathId, ClientTok
 #' Start Vpc Endpoint Service Private Dns Verification
 #' 
 #' @param ServiceId String. The ID of the endpoint service.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ServiceId:
@@ -21599,7 +21599,7 @@ ec2_start_vpc_endpoint_service_private_dns_verification <- function(ServiceId, D
 #' 
 #' @param InstanceId List. The IDs of the instances.
 #' @param Hibernate Logical.   Hibernates the instance if the instance was enabled for hibernation at launch.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param Force Logical.   Forces the instances to stop.\[optional\]
 #' @inheritParams CommonDoc
 #' 
@@ -21652,7 +21652,7 @@ ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Forc
 #' @param ClientVpnEndpointId String. The ID of the Client VPN endpoint to which the client is connected.
 #' @param ConnectionId String. The ID of the client connection to be terminated.\[optional\]
 #' @param Username String. The name of the user who initiated the connection.\[optional\]
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section ClientVpnEndpointId:
@@ -21687,7 +21687,7 @@ ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, Connection
 #' Terminate Instances
 #' 
 #' @param InstanceId List.   The IDs of the instances.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -21778,7 +21778,7 @@ ec2_unassign_private_ip_addresses <- function(NetworkInterfaceId, PrivateIpAddre
 #' in the *Amazon EC2 User Guide*.
 #' 
 #' @param InstanceId List. The IDs of the instances.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section InstanceId:
@@ -21804,7 +21804,7 @@ ec2_unmonitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
 #' Update Security Group Rule Descriptions Egress
 #' 
 #' @param IpPermissions List. The IP permissions for the security group rule.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param GroupId String. The ID of the security group.\[optional\]
 #' @param GroupName String. \[Default VPC\] The name of the security group.\[optional\]
 #' @inheritParams CommonDoc
@@ -21843,7 +21843,7 @@ ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, Dr
 #' Update Security Group Rule Descriptions Ingress
 #' 
 #' @param IpPermissions List. The IP permissions for the security group rule. 
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @param GroupId String. The ID of the security group.\[optional\]
 #' @param GroupName String. \[EC2-Classic, default VPC\] The name of the security group.\[optional\]
 #' @inheritParams CommonDoc
@@ -21882,7 +21882,7 @@ ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, D
 #' Withdraw Byoip Cidr
 #' 
 #' @param Cidr String. The address range, in CIDR notation.
-#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the...\[optional\]
+#' @param DryRun Logical. Checks whether you have the required permissions for the action, without actually making the request,...\[optional\]
 #' @inheritParams CommonDoc
 #' 
 #' @section Cidr:

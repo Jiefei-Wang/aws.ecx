@@ -30,9 +30,9 @@ ec2_create_network_acl_entry(
 
 \item{RuleNumber}{Integer.   The rule number for the entry (for example, 100).}
 
-\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example `172.[optional]}
+\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}). We modify...[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.[optional]}
 

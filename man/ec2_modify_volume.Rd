@@ -19,7 +19,7 @@ ec2_modify_volume(
 \arguments{
 \item{VolumeId}{String. The ID of the volume.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Size}{Integer.   The target size of the volume, in GiB.[optional]}
 

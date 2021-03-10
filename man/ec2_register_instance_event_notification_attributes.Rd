@@ -12,7 +12,7 @@ ec2_register_instance_event_notification_attributes(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceTagAttribute}{Object. Information about the tag keys to register.[optional]}
 

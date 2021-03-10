@@ -25,7 +25,7 @@ ec2_create_vpn_connection(
 
 \item{TransitGatewayId}{String. The ID of the transit gateway.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Options}{Object. The options for the VPN connection.[optional]}
 

@@ -21,7 +21,7 @@ ec2_start_network_insights_analysis(
 
 \item{FilterInArn}{List. The Amazon Resource Names (ARN) of the resources that the path must traverse.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TagSpecification}{List. The tags to apply.[optional]}
 

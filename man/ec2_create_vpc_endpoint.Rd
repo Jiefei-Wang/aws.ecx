@@ -25,17 +25,17 @@ ec2_create_vpc_endpoint(
 
 \item{ServiceName}{String. The service name.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{VpcEndpointType}{String.   The type of endpoint.  Default: Gateway  [optional]}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...[optional]}
+\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
 
 \item{RouteTableId}{List. (Gateway endpoint) One or more route table IDs.[optional]}
 
-\item{SubnetId}{List. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to...[optional]}
+\item{SubnetId}{List. (Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create...[optional]}
 
-\item{SecurityGroupId}{List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint...[optional]}
+\item{SecurityGroupId}{List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint network...[optional]}
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 

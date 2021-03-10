@@ -23,7 +23,7 @@ ec2_modify_instance_metadata_options(
 
 \item{HttpEndpoint}{String.   This parameter enables or disables the HTTP metadata endpoint on your instances.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

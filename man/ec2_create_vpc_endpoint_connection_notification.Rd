@@ -20,7 +20,7 @@ ec2_create_vpc_endpoint_connection_notification(
 
 \item{ConnectionEvents}{List. One or more endpoint events for which to receive notifications.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ServiceId}{String. The ID of the endpoint service.[optional]}
 

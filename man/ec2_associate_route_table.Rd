@@ -16,7 +16,7 @@ ec2_associate_route_table(
 \arguments{
 \item{RouteTableId}{String. The ID of the route table.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{SubnetId}{String. The ID of the subnet.[optional]}
 

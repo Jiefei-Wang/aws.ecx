@@ -20,7 +20,7 @@ ec2_create_launch_template(
 
 \item{LaunchTemplateData}{Object. The information for the launch template.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 

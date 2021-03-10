@@ -15,7 +15,7 @@ ec2_describe_vpc_endpoint_services(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ServiceName}{List. One or more service names.[optional]}
 

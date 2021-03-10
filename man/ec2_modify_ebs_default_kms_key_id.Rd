@@ -12,9 +12,9 @@ ec2_modify_ebs_default_kms_key_id(
 )
 }
 \arguments{
-\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for...}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

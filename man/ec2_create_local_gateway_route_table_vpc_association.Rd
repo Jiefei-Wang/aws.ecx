@@ -20,7 +20,7 @@ ec2_create_local_gateway_route_table_vpc_association(
 
 \item{TagSpecification}{List. The tags to assign to the local gateway route table VPC association.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

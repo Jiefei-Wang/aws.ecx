@@ -20,7 +20,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{InstanceId}{List.   The instance IDs.  Default: Describes all your instances.  [optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 

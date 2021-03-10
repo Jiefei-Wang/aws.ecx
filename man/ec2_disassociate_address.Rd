@@ -17,7 +17,7 @@ ec2_disassociate_address(
 
 \item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

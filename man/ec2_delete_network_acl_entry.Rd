@@ -20,7 +20,7 @@ ec2_delete_network_acl_entry(
 
 \item{RuleNumber}{Integer. The rule number of the entry to delete.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

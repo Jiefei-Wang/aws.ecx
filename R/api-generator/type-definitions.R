@@ -3,7 +3,7 @@ type_map_list <- list(
     Boolean = "Logical"
 )
 
-excluded_short_description <- c("others", "simplify", "Filter", "NextToken")
+excluded_short_description <- c("others", "simplify", "Filter", "NextToken", "nextToken")
 excluded_request_names <- c("Action", "Version", "X-Amz-Target")
 token_names <- c("nextToken", "NextToken")
 
@@ -22,7 +22,7 @@ api_template <- list(
 )
 
 get_nonexclude_short_description_bool <- function(x){
-    !tolower(x) %in% tolower(excluded_short_description)
+    !x %in% excluded_short_description
 }
 
 map_names_lower <- tolower(names(type_map_list))

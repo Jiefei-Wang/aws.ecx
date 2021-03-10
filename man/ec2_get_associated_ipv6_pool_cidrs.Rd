@@ -20,7 +20,7 @@ ec2_get_associated_ipv6_pool_cidrs(
 
 \item{MaxResults}{Integer. The maximum number of results to return with a single call.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -15,7 +15,7 @@ ec2_modify_instance_credit_specification(
 \arguments{
 \item{InstanceCreditSpecification}{List. Information about the credit option for CPU usage.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.[optional]}
 

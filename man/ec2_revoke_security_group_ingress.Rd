@@ -30,15 +30,15 @@ ec2_revoke_security_group_ingress(
 
 \item{IpPermissions}{List. The sets of IP permissions.[optional]}
 
-\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \link{Protocol Numbers}(http://www.[optional]}
+\item{IpProtocol}{String. The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers})....[optional]}
 
 \item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.[optional]}
 
-\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group...[optional]}
+\item{SourceSecurityGroupOwnerId}{String. [EC2-Classic] The AWS account ID of the source security group, if the source security group is...[optional]}
 
 \item{ToPort}{Integer. The end of port range for the TCP and UDP protocols, or an ICMP code number.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -15,7 +15,7 @@ ec2_describe_byoip_cidrs(
 \arguments{
 \item{MaxResults}{Integer. The maximum number of results to return with a single call.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 

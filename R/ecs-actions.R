@@ -179,25 +179,25 @@ ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL,
 #' 
 #' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service.
 #' @param serviceName String. The name of your service.
-#' @param taskDefinition String.   The `family` and `revision` (`family:revision`) or full ARN of the task definition to run...
+#' @param taskDefinition String.   The `family` and `revision` (`family:revision`) or full ARN of the task definition to run in your...
 #' @param loadBalancers List.   A load balancer object representing the load balancers to use with your service.
 #' @param serviceRegistries List.   The details of the service discovery registries to assign to this service.
-#' @param desiredCount Integer.   The number of instantiations of the specified task definition to place and keep running...
+#' @param desiredCount Integer.   The number of instantiations of the specified task definition to place and keep running on your...
 #' @param clientToken String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 #' @param launchType String.   The launch type on which to run your service.
 #' @param capacityProviderStrategy List.   The capacity provider strategy to use for the service.
 #' @param platformVersion String. The platform version that your tasks in the service are running on.
-#' @param role String.   The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make...
-#' @param deploymentConfiguration Object. Optional deployment parameters that control how many tasks run during the deployment and the...
+#' @param role String.   The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls...
+#' @param deploymentConfiguration Object. Optional deployment parameters that control how many tasks run during the deployment and the ordering...
 #' @param placementConstraints List. An array of placement constraint objects to use for tasks in your service.
 #' @param placementStrategy List. The placement strategy objects to use for tasks in your service.
 #' @param networkConfiguration Object. The network configuration for the service.
-#' @param healthCheckGracePeriodSeconds Integer.   The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy...
+#' @param healthCheckGracePeriodSeconds Integer.   The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic...
 #' @param schedulingStrategy String.   The scheduling strategy to use for the service.
 #' @param deploymentController Object. The deployment controller to use for the service.
 #' @param tags List.   The metadata that you apply to the service to help you categorize and organize them.
 #' @param enableECSManagedTags Logical. Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
-#' @param propagateTags String. Specifies whether to propagate the tags from the task definition or the service to the tasks...
+#' @param propagateTags String. Specifies whether to propagate the tags from the task definition or the service to the tasks in the...
 #' @inheritParams CommonDoc
 #' 
 #' @section cluster:
@@ -528,7 +528,7 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
 #' Guide*.
 #' 
 #' @param service String. The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create...
 #' @param externalId String. An optional non-unique tag that identifies this task set in external systems.
 #' @param taskDefinition String. The task definition for the tasks in the task set to use.
 #' @param networkConfiguration No description can be found.
@@ -560,7 +560,7 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
 #' definition for the tasks in the task set to
 #' use.
 #' @section networkConfiguration:
-#' 
+#' No description can be found.
 #' @section loadBalancers:
 #' A load balancer object
 #' representing the load balancer to use with the task set. The supported
@@ -617,7 +617,7 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
 #' version is used by
 #' default.
 #' @section scale:
-#' 
+#' No description can be found.
 #' @section clientToken:
 #' Unique, case-sensitive
 #' identifier that you provide to ensure the idempotency of the request. Up
@@ -715,7 +715,7 @@ ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplif
 #' Deletes one or more custom attributes from
 #' an Amazon ECS resource.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete...
 #' @param attributes List. The attributes to delete from your resource.
 #' @inheritParams CommonDoc
 #' 
@@ -818,7 +818,7 @@ ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, sim
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...
 #' @param service String. The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
 #' @param taskSet String. The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
 #' @param force Logical. If `true`, this allows you to delete a task set even if it hasn\'t been scaled down to zero.
@@ -852,7 +852,7 @@ ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, 
 
 #' Deregister Container Instance
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance...
 #' @param containerInstance String. The container instance ID or full ARN of the container instance to deregister.
 #' @param force Logical.   Forces the deregistration of the container instance.
 #' @inheritParams CommonDoc
@@ -898,7 +898,7 @@ ecs_deregister_container_instance <- function(cluster = NULL, containerInstance 
 
 #' Deregister Task Definition
 #' 
-#' @param taskDefinition String. The `family` and `revision` (`family:revision`) or full Amazon Resource Name (ARN) of the...
+#' @param taskDefinition String. The `family` and `revision` (`family:revision`) or full Amazon Resource Name (ARN) of the task definition...
 #' @inheritParams CommonDoc
 #' 
 #' @section taskDefinition:
@@ -1025,7 +1025,7 @@ ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TR
 #' resources on each container instance
 #' requested.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...
 #' @param containerInstances List. A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
 #' @param include List. Specifies whether you want to see the resource tags for the container instance.
 #' @inheritParams CommonDoc
@@ -1100,7 +1100,7 @@ ecs_describe_services <- function(cluster = NULL, services = NULL, include = NUL
 
 #' Describe Task Definition
 #' 
-#' @param taskDefinition String. The `family` for the latest `ACTIVE` revision, `family` and `revision` (`family:revision`)...
+#' @param taskDefinition String. The `family` for the latest `ACTIVE` revision, `family` and `revision` (`family:revision`) for a...
 #' @param include List. Specifies whether to see the resource tags for the task definition.
 #' @inheritParams CommonDoc
 #' 
@@ -1135,7 +1135,7 @@ ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, 
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...
 #' @param service String. The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
 #' @param taskSets List. The ID or full Amazon Resource Name (ARN) of task sets to describe.
 #' @param include List. Specifies whether to see the resource tags for the task set.
@@ -1175,7 +1175,7 @@ ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NU
 #' Describes a specified task or
 #' tasks.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to...
 #' @param tasks List. A list of up to 100 task IDs or full ARN entries.
 #' @param include List. Specifies whether you want to see the resource tags for the task.
 #' @inheritParams CommonDoc
@@ -1365,7 +1365,8 @@ ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TR
 #' Guide*.
 #' 
 #' @param maxResults String. Pagination limit\[optional\]
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...
+#' @param filter String. You can filter the results of a `ListContainerInstances` operation with cluster query language statements....
 #' @param status String. Filters the container instances by status.
 #' @inheritParams CommonDoc
 #' 
@@ -1709,7 +1710,7 @@ ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify 
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply...
 #' @param attributes List. The attributes to apply to your resource.
 #' @inheritParams CommonDoc
 #' 
@@ -1798,11 +1799,11 @@ ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders
 
 #' Register Container Instance
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster with which to register your...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container...
 #' @param instanceIdentityDocument String. The instance identity document for the EC2 instance to register.
 #' @param instanceIdentityDocumentSignature String. The instance identity document signature for the EC2 instance to register.
 #' @param totalResources List. The resources available on the instance.
-#' @param versionInfo Object. The version information for the Amazon ECS container agent and Docker daemon running on the...
+#' @param versionInfo Object. The version information for the Amazon ECS container agent and Docker daemon running on the container...
 #' @param containerInstanceArn String. The ARN of the container instance (if it was previously registered).
 #' @param attributes List. The container instance attributes that this container instance supports.
 #' @param platformDevices List. The devices that are available on the container instance. The only supported device type is a GPU.
@@ -1896,11 +1897,11 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
 
 #' Register Task Definition
 #' 
-#' @param family String. You must specify a `family` for a task definition, which allows you to track multiple versions...
-#' @param taskRoleArn String. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this...
-#' @param executionRoleArn String. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container...
+#' @param family String. You must specify a `family` for a task definition, which allows you to track multiple versions of...
+#' @param taskRoleArn String. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can...
+#' @param executionRoleArn String. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent...
 #' @param networkMode String.   The Docker networking mode to use for the containers in the task.
-#' @param containerDefinitions List. A list of container definitions in JSON format that describe the different containers that...
+#' @param containerDefinitions List. A list of container definitions in JSON format that describe the different containers that make up...
 #' @param volumes List. A list of volume definitions in JSON format that containers in your task may use.
 #' @param placementConstraints List. An array of placement constraint objects to use for the task.
 #' @param requiresCompatibilities List. The task launch type that Amazon ECS should validate the task definition against.
@@ -2159,7 +2160,7 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
 #' the Fargate launch type.
 #' 
 #' @section proxyConfiguration:
-#' 
+#' No description can be found.
 #' @section inferenceAccelerators:
 #' The Elastic Inference
 #' accelerators to use for the containers in the task.
@@ -2194,7 +2195,7 @@ ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, exec
 #' @param group String. The name of the task group to associate with the task.
 #' @param launchType String.   The launch type on which to run your task.
 #' @param networkConfiguration Object. The network configuration for the task.
-#' @param overrides Object.   A list of container overrides in JSON format that specify the name of a container in the...
+#' @param overrides Object.   A list of container overrides in JSON format that specify the name of a container in the specified...
 #' @param placementConstraints List. An array of placement constraint objects to use for the task.
 #' @param placementStrategy List. The placement strategy objects to use for the task.
 #' @param platformVersion String. The platform version the task should run.
@@ -2386,11 +2387,11 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
 #' Start Task
 #' 
 #' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task.
-#' @param containerInstances List. The container instance IDs or full ARN entries for the container instances on which you would...
+#' @param containerInstances List. The container instance IDs or full ARN entries for the container instances on which you would like...
 #' @param enableECSManagedTags Logical. Specifies whether to enable Amazon ECS managed tags for the task.
 #' @param group String. The name of the task group to associate with the task.
 #' @param networkConfiguration Object. The VPC subnet and security group configuration for tasks that receive their own elastic network...
-#' @param overrides Object.   A list of container overrides in JSON format that specify the name of a container in the...
+#' @param overrides Object.   A list of container overrides in JSON format that specify the name of a container in the specified...
 #' @param propagateTags String. Specifies whether to propagate the tags from the task definition or the service to the task.
 #' @param referenceId String. The reference ID to use for the task.
 #' @param startedBy String.   An optional tag specified when a task is started.
@@ -2543,7 +2544,7 @@ ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify =
 
 #' Submit Attachment State Changes
 #' 
-#' @param cluster String. The short name or full ARN of the cluster that hosts the container instance the attachment...
+#' @param cluster String. The short name or full ARN of the cluster that hosts the container instance the attachment belongs...
 #' @param attachments List. Any attachments associated with the state change request.
 #' @inheritParams CommonDoc
 #' 
@@ -2818,8 +2819,8 @@ ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplif
 
 #' Update Container Agent
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that your container instance...
-#' @param containerInstance String. The container instance ID or full ARN entries for the container instance on which you would...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is...
+#' @param containerInstance String. The container instance ID or full ARN entries for the container instance on which you would like...
 #' @inheritParams CommonDoc
 #' 
 #' @section cluster:
@@ -2844,7 +2845,7 @@ ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL,
 
 #' Update Container Instances State
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance...
 #' @param containerInstances List. A list of container instance IDs or full ARN entries.
 #' @param status String. The container instance state with which to update the container instance.
 #' @inheritParams CommonDoc
@@ -2882,15 +2883,15 @@ ecs_update_container_instances_state <- function(cluster = NULL, containerInstan
 #' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on.
 #' @param service String. The name of the service to update.
 #' @param desiredCount Integer. The number of instantiations of the task to place and keep running in your service.
-#' @param taskDefinition String. The `family` and `revision` (`family:revision`) or full ARN of the task definition to run...
+#' @param taskDefinition String. The `family` and `revision` (`family:revision`) or full ARN of the task definition to run in your...
 #' @param capacityProviderStrategy List.   The capacity provider strategy to update the service to use.
-#' @param deploymentConfiguration Object. Optional deployment parameters that control how many tasks run during the deployment and the...
+#' @param deploymentConfiguration Object. Optional deployment parameters that control how many tasks run during the deployment and the ordering...
 #' @param networkConfiguration No description can be found.
 #' @param placementConstraints List.   An array of task placement constraint objects to update the service to use.
 #' @param placementStrategy List.   The task placement strategy objects to update the service to use.
 #' @param platformVersion String. The platform version on which your tasks in the service are running.
 #' @param forceNewDeployment Logical. Whether to force a new deployment of the service.
-#' @param healthCheckGracePeriodSeconds Integer. The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy...
+#' @param healthCheckGracePeriodSeconds Integer. The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic...
 #' @inheritParams CommonDoc
 #' 
 #' @section cluster:
@@ -2948,7 +2949,7 @@ ecs_update_container_instances_state <- function(cluster = NULL, containerInstan
 #' many tasks run during the deployment and the ordering of stopping and
 #' starting tasks.
 #' @section networkConfiguration:
-#' 
+#' No description can be found.
 #' @section placementConstraints:
 #' 
 #' An array of task placement constraint objects to update the service to
@@ -3029,9 +3030,9 @@ ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NU
 #' in the *Amazon Elastic Container Service Developer
 #' Guide*.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...
 #' @param service String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
-#' @param primaryTaskSet String. The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task...
+#' @param primaryTaskSet String. The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set...
 #' @inheritParams CommonDoc
 #' 
 #' @section cluster:
@@ -3065,10 +3066,10 @@ ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, 
 #' Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 #' in the *Amazon Elastic Container Service Developer Guide*.
 #' 
-#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...
+#' @param cluster String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...
 #' @param service String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
 #' @param taskSet String. The short name or full Amazon Resource Name (ARN) of the task set to update.
-#' @param scale  
+#' @param scale No description can be found.
 #' @inheritParams CommonDoc
 #' 
 #' @section cluster:
@@ -3083,7 +3084,7 @@ ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, 
 #' The short name or full Amazon Resource Name
 #' (ARN) of the task set to update.
 #' @section scale:
-#' 
+#' No description can be found.
 #' @return A list object or a character vector
 #' @export
 ecs_update_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, scale = NULL, 

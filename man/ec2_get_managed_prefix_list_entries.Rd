@@ -17,7 +17,7 @@ ec2_get_managed_prefix_list_entries(
 \arguments{
 \item{PrefixListId}{String. The ID of the prefix list.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TargetVersion}{Integer. The version of the prefix list for which to return the entries. The default is the current version.[optional]}
 

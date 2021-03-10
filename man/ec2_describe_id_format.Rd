@@ -7,7 +7,7 @@
 ec2_describe_id_format(Resource = NULL, simplify = TRUE, others = list())
 }
 \arguments{
-\item{Resource}{String. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...[optional]}
+\item{Resource}{String. The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \| \code{elastic-ip-allocation}...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

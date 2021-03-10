@@ -33,9 +33,9 @@ ec2_register_image(
 
 \item{Description}{String. A description for your AMI.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{EnaSupport}{Logical.   Set to \code{true} to enable enhanced networking with ENA for the AMI and any instances that...[optional]}
+\item{EnaSupport}{Logical.   Set to \code{true} to enable enhanced networking with ENA for the AMI and any instances that you launch...[optional]}
 
 \item{KernelId}{String. The ID of the kernel.[optional]}
 
@@ -45,7 +45,7 @@ ec2_register_image(
 
 \item{RootDeviceName}{String. The device name of the root device volume (for example, \verb{/dev/sda1}).[optional]}
 
-\item{SriovNetSupport}{String.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...[optional]}
+\item{SriovNetSupport}{String.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface for...[optional]}
 
 \item{VirtualizationType}{String.   The type of virtualization (\code{hvm} \| \code{paravirtual}).  Default: \code{paravirtual}  [optional]}
 

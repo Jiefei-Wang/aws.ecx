@@ -15,9 +15,9 @@ ec2_get_console_screenshot(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{WakeUp}{Logical. When set to \code{true}, acts as keystroke input and wakes up an instance that\'s in standby or...[optional]}
+\item{WakeUp}{Logical. When set to \code{true}, acts as keystroke input and wakes up an instance that\'s in standby or \'sleep\'...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

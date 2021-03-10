@@ -15,7 +15,7 @@ ec2_cancel_conversion_task(
 \arguments{
 \item{ConversionTaskId}{String. The ID of the conversion task.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ReasonMessage}{String. The reason for canceling the conversion task.[optional]}
 

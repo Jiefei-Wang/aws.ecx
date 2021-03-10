@@ -24,9 +24,9 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{AvailabilityZone}{String. Filters the results by the specified Availability Zone.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history...[optional]}
+\item{EndTime}{String. The date and time, up to the current date, from which to stop retrieving the price history data,...[optional]}
 
 \item{InstanceType}{List. Filters the results by the specified instance types.[optional]}
 
@@ -36,7 +36,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{ProductDescription}{List. Filters the results by the specified basic product descriptions.[optional]}
 
-\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history...[optional]}
+\item{StartTime}{String. The date and time, up to the past 90 days, from which to start retrieving the price history data,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

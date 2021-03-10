@@ -13,7 +13,7 @@ ecs_deregister_container_instance(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance...}
 
 \item{containerInstance}{String. The container instance ID or full ARN of the container instance to deregister.}
 

@@ -17,9 +17,9 @@ ec2_modify_fleet(
 \arguments{
 \item{FleetId}{String. The ID of the EC2 Fleet.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...[optional]}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the EC2...[optional]}
 
 \item{LaunchTemplateConfig}{List. The launch template and overrides.[optional]}
 

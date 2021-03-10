@@ -14,7 +14,7 @@ ecs_delete_task_set(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...}
 
 \item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.}
 

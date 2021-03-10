@@ -15,7 +15,7 @@ ec2_describe_instance_types(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceType}{List. The instance types.[optional]}
 

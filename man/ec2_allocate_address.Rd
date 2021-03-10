@@ -17,7 +17,7 @@ ec2_allocate_address(
 )
 }
 \arguments{
-\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances...[optional]}
+\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic....[optional]}
 
 \item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.[optional]}
 
@@ -27,7 +27,7 @@ ec2_allocate_address(
 
 \item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TagSpecification}{List. The tags to assign to the Elastic IP address.[optional]}
 

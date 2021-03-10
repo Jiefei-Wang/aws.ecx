@@ -36,7 +36,7 @@ ec2_modify_client_vpn_endpoint(
 
 \item{SplitTunnel}{Logical.   Indicates whether the VPN is split-tunnel.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{SecurityGroupId}{List. The IDs of one or more security groups to apply to the target network.[optional]}
 

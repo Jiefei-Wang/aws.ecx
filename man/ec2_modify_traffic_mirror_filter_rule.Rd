@@ -44,7 +44,7 @@ ec2_modify_traffic_mirror_filter_rule(
 
 \item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror filter rule.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

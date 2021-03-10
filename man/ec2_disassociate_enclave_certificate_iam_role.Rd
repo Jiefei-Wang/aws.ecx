@@ -17,7 +17,7 @@ ec2_disassociate_enclave_certificate_iam_role(
 
 \item{RoleArn}{String. The ARN of the IAM role to disassociate.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

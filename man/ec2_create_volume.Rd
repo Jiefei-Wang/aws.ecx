@@ -28,7 +28,7 @@ ec2_create_volume(
 
 \item{Iops}{Integer.   The number of I/O operations per second (IOPS).[optional]}
 
-\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to...[optional]}
+\item{KmsKeyId}{String.   The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for...[optional]}
 
 \item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.[optional]}
 
@@ -38,7 +38,7 @@ ec2_create_volume(
 
 \item{VolumeType}{String.   The volume type.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the volume during creation.[optional]}
 

@@ -23,17 +23,17 @@ ec2_modify_vpc_endpoint(
 \arguments{
 \item{VpcEndpointId}{String. The ID of the endpoint.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ResetPolicy}{Logical. (Gateway endpoint) Specify \code{true} to reset the policy document to the default policy.[optional]}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access...[optional]}
+\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
 
 \item{AddRouteTableId}{List. (Gateway endpoint) One or more route tables IDs to associate with the endpoint.[optional]}
 
 \item{RemoveRouteTableId}{List. (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.[optional]}
 
-\item{AddSubnetId}{List. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the...[optional]}
+\item{AddSubnetId}{List. (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint....[optional]}
 
 \item{RemoveSubnetId}{List. (Interface endpoint) One or more subnets IDs in which to remove the endpoint.[optional]}
 

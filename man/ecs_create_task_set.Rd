@@ -25,7 +25,7 @@ ecs_create_task_set(
 \arguments{
 \item{service}{String. The short name or full Amazon Resource Name (ARN) of the service to create the task set in.}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create...}
 
 \item{externalId}{String. An optional non-unique tag that identifies this task set in external systems.}
 
@@ -96,6 +96,7 @@ use.
 
 \section{networkConfiguration}{
 
+No description can be found.
 }
 
 \section{loadBalancers}{
@@ -166,6 +167,7 @@ default.
 
 \section{scale}{
 
+No description can be found.
 }
 
 \section{clientToken}{

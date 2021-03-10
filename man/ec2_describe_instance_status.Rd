@@ -25,7 +25,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{IncludeAllInstances}{Logical.   When \code{true}, includes the health status for all instances.[optional]}
 

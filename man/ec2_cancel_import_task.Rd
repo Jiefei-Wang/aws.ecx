@@ -15,7 +15,7 @@ ec2_cancel_import_task(
 \arguments{
 \item{CancelReason}{String. The reason for canceling the task.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ImportTaskId}{String. The ID of the import image or import snapshot task to be canceled.[optional]}
 

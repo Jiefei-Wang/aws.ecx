@@ -17,11 +17,11 @@ ec2_modify_subnet_attribute(
 \arguments{
 \item{SubnetId}{String. The ID of the subnet.}
 
-\item{AssignIpv6AddressOnCreation}{Object.   Specify \code{true} to indicate that network interfaces created in the specified subnet should...[optional]}
+\item{AssignIpv6AddressOnCreation}{Object.   Specify \code{true} to indicate that network interfaces created in the specified subnet should be assigned...[optional]}
 
 \item{MapPublicIpOnLaunch}{Object. Specify \code{true} to indicate that network interfaces attached to instances created in the specified...[optional]}
 
-\item{MapCustomerOwnedIpOnLaunch}{Object.   Specify \code{true} to indicate that network interfaces attached to instances created in the...[optional]}
+\item{MapCustomerOwnedIpOnLaunch}{Object.   Specify \code{true} to indicate that network interfaces attached to instances created in the specified...[optional]}
 
 \item{CustomerOwnedIpv4Pool}{String.   The customer-owned IPv4 address pool associated with the subnet.[optional]}
 

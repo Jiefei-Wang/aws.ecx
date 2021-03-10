@@ -15,7 +15,7 @@ ec2_get_console_output(
 \arguments{
 \item{InstanceId}{String. The ID of the instance.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Latest}{Logical.   When enabled, retrieves the latest console output for the instance.[optional]}
 

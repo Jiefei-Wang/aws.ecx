@@ -16,7 +16,7 @@ ec2_describe_launch_templates(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{LaunchTemplateId}{List. One or more launch template IDs.[optional]}
 

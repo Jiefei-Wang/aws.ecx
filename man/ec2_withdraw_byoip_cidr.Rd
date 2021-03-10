@@ -9,7 +9,7 @@ ec2_withdraw_byoip_cidr(Cidr, DryRun = NULL, simplify = TRUE, others = list())
 \arguments{
 \item{Cidr}{String. The address range, in CIDR notation.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

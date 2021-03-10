@@ -23,7 +23,7 @@ ec2_revoke_client_vpn_ingress(
 
 \item{RevokeAllGroups}{Logical. Indicates whether access should be revoked for all clients.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

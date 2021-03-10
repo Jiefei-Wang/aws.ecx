@@ -17,7 +17,7 @@ ec2_modify_instance_capacity_reservation_attributes(
 
 \item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

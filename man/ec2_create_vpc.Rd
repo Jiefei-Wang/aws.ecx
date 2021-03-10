@@ -26,7 +26,7 @@ ec2_create_vpc(
 
 \item{Ipv6CidrBlock}{String.   The IPv6 CIDR block from the IPv6 address pool.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceTenancy}{String.   The tenancy options for instances launched into the VPC.[optional]}
 

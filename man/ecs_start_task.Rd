@@ -23,7 +23,7 @@ ecs_start_task(
 \arguments{
 \item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task.}
 
-\item{containerInstances}{List. The container instance IDs or full ARN entries for the container instances on which you would...}
+\item{containerInstances}{List. The container instance IDs or full ARN entries for the container instances on which you would like...}
 
 \item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the task.}
 
@@ -31,7 +31,7 @@ ecs_start_task(
 
 \item{networkConfiguration}{Object. The VPC subnet and security group configuration for tasks that receive their own elastic network...}
 
-\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the...}
+\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the specified...}
 
 \item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the task.}
 

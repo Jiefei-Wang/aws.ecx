@@ -27,7 +27,7 @@ ec2_create_fleet(
 
 \item{TargetCapacitySpecification}{Object. The number of units to request.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
@@ -35,7 +35,7 @@ ec2_create_fleet(
 
 \item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.[optional]}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the...[optional]}
+\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the EC2...[optional]}
 
 \item{TerminateInstancesWithExpiration}{Logical. Indicates whether running instances should be terminated when the EC2 Fleet expires.[optional]}
 

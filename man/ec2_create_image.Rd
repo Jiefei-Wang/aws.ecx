@@ -25,7 +25,7 @@ ec2_create_image(
 
 \item{Description}{String. A description for the new image.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{NoReboot}{Logical. By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.[optional]}
 

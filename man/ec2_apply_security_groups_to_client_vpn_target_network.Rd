@@ -20,7 +20,7 @@ ec2_apply_security_groups_to_client_vpn_target_network(
 
 \item{SecurityGroupId}{List. The IDs of the security groups to apply to the associated target network.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

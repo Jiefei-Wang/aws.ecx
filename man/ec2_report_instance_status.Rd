@@ -25,7 +25,7 @@ ec2_report_instance_status(
 
 \item{Description}{String. Descriptive text about the health state of your instance.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EndTime}{String. The time at which the reported instance health state ended.[optional]}
 

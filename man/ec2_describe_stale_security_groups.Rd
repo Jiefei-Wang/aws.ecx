@@ -16,7 +16,7 @@ ec2_describe_stale_security_groups(
 \arguments{
 \item{VpcId}{String. The ID of the VPC.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{MaxResults}{Integer. The maximum number of items to return for this request.[optional]}
 

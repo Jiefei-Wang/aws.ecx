@@ -18,7 +18,7 @@ ec2_modify_vpc_peering_connection_options(
 
 \item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{RequesterPeeringConnectionOptions}{Object. The VPC peering connection options for the requester VPC.[optional]}
 

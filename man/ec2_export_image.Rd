@@ -28,9 +28,9 @@ ec2_export_image(
 
 \item{Description}{String. A description of the image being exported. The maximum length is 255 characters.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{RoleName}{String. The name of the role that grants VM Import/Export permission to export images to your Amazon...[optional]}
+\item{RoleName}{String. The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket....[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the export image task during creation.[optional]}
 

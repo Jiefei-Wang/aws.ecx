@@ -7,7 +7,7 @@
 ec2_modify_id_format(Resource, UseLongIds, simplify = TRUE, others = list())
 }
 \arguments{
-\item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options}...}
+\item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \|...}
 
 \item{UseLongIds}{Logical. Indicate whether the resource should use longer IDs (17-character IDs).}
 

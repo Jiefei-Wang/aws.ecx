@@ -27,7 +27,7 @@ ec2_modify_traffic_mirror_session(
 
 \item{PacketLength}{Integer. The number of bytes in each packet to mirror.[optional]}
 
-\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface...[optional]}
+\item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface is used...[optional]}
 
 \item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session.[optional]}
 
@@ -35,7 +35,7 @@ ec2_modify_traffic_mirror_session(
 
 \item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror session.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

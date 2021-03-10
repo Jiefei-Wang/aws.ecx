@@ -22,7 +22,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{ReservedInstancesId}{List.   One or more Reserved Instance IDs.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{OfferingType}{String. The Reserved Instance offering type.[optional]}
 

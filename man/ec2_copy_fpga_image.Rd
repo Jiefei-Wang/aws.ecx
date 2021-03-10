@@ -20,7 +20,7 @@ ec2_copy_fpga_image(
 
 \item{SourceRegion}{String. The Region that contains the source AFI.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Description}{String. The description for the new AFI.[optional]}
 

@@ -20,7 +20,7 @@ ec2_deregister_transit_gateway_multicast_group_sources(
 
 \item{NetworkInterfaceIds}{List. The IDs of the group sources\' network interfaces.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

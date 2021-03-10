@@ -28,11 +28,11 @@ ecs_update_service(
 
 \item{desiredCount}{Integer. The number of instantiations of the task to place and keep running in your service.}
 
-\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run...}
+\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run in your...}
 
 \item{capacityProviderStrategy}{List.   The capacity provider strategy to update the service to use.}
 
-\item{deploymentConfiguration}{Object. Optional deployment parameters that control how many tasks run during the deployment and the...}
+\item{deploymentConfiguration}{Object. Optional deployment parameters that control how many tasks run during the deployment and the ordering...}
 
 \item{networkConfiguration}{No description can be found.}
 
@@ -44,7 +44,7 @@ ecs_update_service(
 
 \item{forceNewDeployment}{Logical. Whether to force a new deployment of the service.}
 
-\item{healthCheckGracePeriodSeconds}{Integer. The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy...}
+\item{healthCheckGracePeriodSeconds}{Integer. The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}
@@ -131,6 +131,7 @@ starting tasks.
 
 \section{networkConfiguration}{
 
+No description can be found.
 }
 
 \section{placementConstraints}{

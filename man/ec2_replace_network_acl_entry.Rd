@@ -32,7 +32,7 @@ ec2_replace_network_acl_entry(
 
 \item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}).[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.[optional]}
 

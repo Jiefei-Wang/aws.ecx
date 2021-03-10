@@ -16,7 +16,7 @@ ec2_update_security_group_rule_descriptions_egress(
 \arguments{
 \item{IpPermissions}{List. The IP permissions for the security group rule.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{GroupId}{String. The ID of the security group.[optional]}
 

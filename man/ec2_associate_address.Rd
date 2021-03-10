@@ -23,9 +23,9 @@ ec2_associate_address(
 
 \item{PublicIp}{String. [EC2-Classic] The Elastic IP address to associate with the instance.[optional]}
 
-\item{AllowReassociation}{Logical. [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address...[optional]}
+\item{AllowReassociation}{Logical. [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that...[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{NetworkInterfaceId}{String.   [EC2-VPC] The ID of the network interface.[optional]}
 

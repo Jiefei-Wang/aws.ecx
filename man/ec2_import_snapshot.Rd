@@ -27,11 +27,11 @@ ec2_import_snapshot(
 
 \item{DiskContainer}{Object. Information about the disk container.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Encrypted}{Logical. Specifies whether the destination snapshot of the imported image should be encrypted.[optional]}
 
-\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key...[optional]}
+\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...[optional]}
 
 \item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.[optional]}
 

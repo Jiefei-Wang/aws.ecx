@@ -4,6 +4,7 @@ generate_document <- function(api_info){
     param_table <- param_table[!param_table$name%in%token_names,]
 
     param_descriptions <- param_table$description
+    param_descriptions[param_descriptions==""] <- "No description can be found."
     short_descriptions <- vapply(seq_len(nrow(param_table)),
                                  function(i)get_short_description(
                                      param_name = param_table$name[i],
@@ -14,7 +15,7 @@ generate_document <- function(api_info){
                                  character(1))
     short_description_idx <-
         get_nonexclude_short_description_bool(param_table$name)
-    short_descriptions[short_descriptions==""] <- "No description can be found."
+    #short_descriptions[gsub(" ", "", short_descriptions)==""] <- "No description can be found."
 
     function_description <- api_info$description
     document_title <- camel_to_title(api_info$name)
@@ -167,11 +168,20 @@ get_short_description <- function(param_name, description, required, type, add_o
     if(nchar(stripped_description) < max_char ){
         short_description <- stripped_description
     }else{
+        ## truncate the string while still preserve most description text
         first_sentence <- stringr::str_extract(stripped_description, '^.*?(\\.|.$)')
-        if(nchar(first_sentence) < max_char ){
-            short_description <- first_sentence
+        sentence_raw <- charToRaw(first_sentence)
+        parentheses_match <- sum(sentence_raw == charToRaw('('))==sum(sentence_raw == charToRaw(')'))
+        bracket_match <- sum(sentence_raw == charToRaw('['))==sum(sentence_raw == charToRaw(']'))
+        if(parentheses_match && bracket_match){
+            if(nchar(first_sentence) < max_char){
+                short_description <- first_sentence
+            }else{
+                short_description <- truncate_string(first_sentence, max_char-3)
+                short_description <- paste0(short_description, "...")
+            }
         }else{
-            short_description <- truncate_string(first_sentence,max_char-10)
+            short_description <- truncate_string(stripped_description, max_char-3)
             short_description <- paste0(short_description, "...")
         }
     }
@@ -185,10 +195,29 @@ get_short_description <- function(param_name, description, required, type, add_o
 }
 
 truncate_string <- function(x, len){
+    x_raw <- charToRaw(x)
+    parentheses_match <- sum(x_raw == charToRaw('('))==sum(x_raw == charToRaw(')'))
+    bracket_match <- sum(x_raw == charToRaw('['))==sum(x_raw == charToRaw(']'))
+
     x1 <- substr(x,1,len)
     x_split <- unlist(strsplit(x, " ", fixed = TRUE))
     x1_split <- unlist(strsplit(x1, " ", fixed = TRUE))
-    paste0(x_split[seq_along(x1_split)], collapse = " ")
+
+    for(i in length(x1_split):length(x_split)){
+        parenthesis_ok <- TRUE
+        bracket_ok <- TRUE
+        x_new <- paste0(x_split[seq_len(i)], collapse = " ")
+        x_new_raw <- charToRaw(x_new)
+        if(parentheses_match){
+            parenthesis_ok <- sum(x_new_raw == charToRaw('('))==sum(x_new_raw == charToRaw(')'))
+        }
+        if(bracket_match){
+            bracket_ok <- sum(x_new_raw == charToRaw('['))==sum(x_new_raw == charToRaw(']'))
+        }
+        if(parenthesis_ok&&bracket_ok)
+            break
+    }
+    x_new
 }
 
 html_to_markdown <- function(x){
@@ -230,11 +259,14 @@ to_markdown <- function(api_info_list){
 html_list_to_markdown <- function(x){
     separator <- "======separator======"
     x_n <- length(x)
-    x <- paste0(x,collapse = separator)
-    x <- html_to_markdown(x)
-    x <- strsplit(x, separator, fixed = TRUE)[[1]]
-    stopifnot(length(x)==x_n)
-    x
+    x1 <- paste0(x,collapse = separator)
+    x2 <- html_to_markdown(x1)
+    x3 <- strsplit(x2, separator, fixed = TRUE)[[1]]
+    if(endsWith(x3[length(x3)],"\n")){
+        x3[length(x3)] <- substr(x3[length(x3)], 1, nchar(x3[length(x3)])-1)
+    }
+    stopifnot(length(x3)==x_n)
+    x3
 }
 
 write_apis_to_file <- function(api_info_list, file_path){

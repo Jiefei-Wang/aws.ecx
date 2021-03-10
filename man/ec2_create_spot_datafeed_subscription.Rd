@@ -15,7 +15,7 @@ ec2_create_spot_datafeed_subscription(
 \arguments{
 \item{Bucket}{String. The name of the Amazon S3 bucket in which to store the Spot Instance data feed.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Prefix}{String. The prefix for the data feed file names.[optional]}
 

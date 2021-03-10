@@ -15,9 +15,9 @@ ec2_get_reserved_instances_exchange_quote(
 \arguments{
 \item{ReservedInstanceId}{List. The IDs of the Convertible Reserved Instances to exchange.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{TargetConfiguration}{List. The configuration of the target Convertible Reserved Instance to exchange for your current...[optional]}
+\item{TargetConfiguration}{List. The configuration of the target Convertible Reserved Instance to exchange for your current Convertible...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

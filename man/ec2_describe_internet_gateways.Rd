@@ -18,7 +18,7 @@ ec2_describe_internet_gateways(
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InternetGatewayId}{List.   One or more internet gateway IDs.  Default: Describes all your internet gateways.  [optional]}
 

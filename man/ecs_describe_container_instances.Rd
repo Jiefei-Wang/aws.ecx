@@ -13,7 +13,7 @@ ecs_describe_container_instances(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...}
 
 \item{containerInstances}{List. A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.}
 

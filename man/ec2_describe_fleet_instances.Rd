@@ -17,7 +17,7 @@ ec2_describe_fleet_instances(
 \arguments{
 \item{FleetId}{String. The ID of the EC2 Fleet.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 

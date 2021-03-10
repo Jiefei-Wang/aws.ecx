@@ -19,7 +19,7 @@ ec2_create_fpga_image(
 \arguments{
 \item{InputStorageLocation}{Object. The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs.[optional]}
 

@@ -14,7 +14,7 @@ ec2_delete_traffic_mirror_filter(
 \arguments{
 \item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

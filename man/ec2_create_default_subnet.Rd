@@ -14,7 +14,7 @@ ec2_create_default_subnet(
 \arguments{
 \item{AvailabilityZone}{String. The Availability Zone in which to create the default subnet.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

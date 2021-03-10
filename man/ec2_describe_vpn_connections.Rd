@@ -18,7 +18,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{VpnConnectionId}{List.   One or more VPN connection IDs.  Default: Describes your VPN connections.  [optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

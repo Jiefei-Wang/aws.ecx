@@ -16,7 +16,7 @@ ec2_modify_vpc_endpoint_connection_notification(
 \arguments{
 \item{ConnectionNotificationId}{String. The ID of the notification.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ConnectionNotificationArn}{String. The ARN for the SNS topic for the notification.[optional]}
 

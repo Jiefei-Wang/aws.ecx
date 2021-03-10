@@ -59,7 +59,7 @@ ec2_run_instances(
 
 \item{Ipv6AddressCount}{Integer.   [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.[optional]}
 
-\item{Ipv6Address}{List.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary...[optional]}
+\item{Ipv6Address}{List.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network...[optional]}
 
 \item{KernelId}{String.   The ID of the kernel.[optional]}
 
@@ -83,9 +83,9 @@ ec2_run_instances(
 
 \item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
-\item{DisableApiTermination}{Logical.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon...[optional]}
+\item{DisableApiTermination}{Logical.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon EC2 console,...[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EbsOptimized}{Logical.   Indicates whether the instance is optimized for Amazon EBS I/O.[optional]}
 

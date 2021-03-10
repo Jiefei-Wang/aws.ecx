@@ -20,7 +20,7 @@ ec2_describe_fleet_history(
 
 \item{StartTime}{String. The start date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EventType}{String. The type of events to describe. By default, all events are described.[optional]}
 

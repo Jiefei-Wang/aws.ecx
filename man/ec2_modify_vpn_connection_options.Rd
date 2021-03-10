@@ -26,7 +26,7 @@ ec2_modify_vpn_connection_options(
 
 \item{RemoteIpv6NetworkCidr}{String.   The IPv6 CIDR on the AWS side of the VPN connection.  Default: \verb{::/0}  [optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

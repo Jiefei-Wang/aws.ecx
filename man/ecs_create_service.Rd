@@ -35,13 +35,13 @@ ecs_create_service(
 
 \item{serviceName}{String. The name of your service.}
 
-\item{taskDefinition}{String.   The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run...}
+\item{taskDefinition}{String.   The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run in your...}
 
 \item{loadBalancers}{List.   A load balancer object representing the load balancers to use with your service.}
 
 \item{serviceRegistries}{List.   The details of the service discovery registries to assign to this service.}
 
-\item{desiredCount}{Integer.   The number of instantiations of the specified task definition to place and keep running...}
+\item{desiredCount}{Integer.   The number of instantiations of the specified task definition to place and keep running on your...}
 
 \item{clientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
@@ -51,9 +51,9 @@ ecs_create_service(
 
 \item{platformVersion}{String. The platform version that your tasks in the service are running on.}
 
-\item{role}{String.   The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make...}
+\item{role}{String.   The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls...}
 
-\item{deploymentConfiguration}{Object. Optional deployment parameters that control how many tasks run during the deployment and the...}
+\item{deploymentConfiguration}{Object. Optional deployment parameters that control how many tasks run during the deployment and the ordering...}
 
 \item{placementConstraints}{List. An array of placement constraint objects to use for tasks in your service.}
 
@@ -61,7 +61,7 @@ ecs_create_service(
 
 \item{networkConfiguration}{Object. The network configuration for the service.}
 
-\item{healthCheckGracePeriodSeconds}{Integer.   The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy...}
+\item{healthCheckGracePeriodSeconds}{Integer.   The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic...}
 
 \item{schedulingStrategy}{String.   The scheduling strategy to use for the service.}
 
@@ -71,7 +71,7 @@ ecs_create_service(
 
 \item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the tasks within the service.}
 
-\item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the tasks...}
+\item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the tasks in the...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

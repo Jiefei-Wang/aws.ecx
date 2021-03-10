@@ -3,6 +3,7 @@
 #' @importFrom httr POST GET http_error add_headers content timeout
 #' @importFrom utils read.csv
 #' @import xml2
+#' @import methods
 NULL
 
 

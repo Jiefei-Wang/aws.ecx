@@ -22,9 +22,9 @@ ec2_purchase_host_reservation(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{CurrencyCode}{String. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts...[optional]}
+\item{CurrencyCode}{String. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts are specified....[optional]}
 
-\item{LimitPrice}{String. The specified limit is checked against the total upfront cost of the reservation (calculated...[optional]}
+\item{LimitPrice}{String. The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count)....[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the Dedicated Host Reservation during purchase.[optional]}
 

@@ -18,7 +18,7 @@ ec2_stop_instances(
 
 \item{Hibernate}{Logical.   Hibernates the instance if the instance was enabled for hibernation at launch.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Force}{Logical.   Forces the instances to stop.[optional]}
 

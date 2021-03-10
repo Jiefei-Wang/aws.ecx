@@ -15,7 +15,7 @@ ec2_create_placement_group(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{GroupName}{String.   A name for the placement group.[optional]}
 

@@ -23,7 +23,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{GroupName}{List.   [EC2-Classic and default VPC only] The names of the security groups.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 

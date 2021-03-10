@@ -20,7 +20,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{VolumeId}{List. The volume IDs.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{MaxResults}{Integer. The maximum number of volume results returned by \code{DescribeVolumes} in paginated output.[optional]}
 

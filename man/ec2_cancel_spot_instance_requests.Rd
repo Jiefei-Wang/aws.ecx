@@ -14,7 +14,7 @@ ec2_cancel_spot_instance_requests(
 \arguments{
 \item{SpotInstanceRequestId}{List. One or more Spot Instance request IDs.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

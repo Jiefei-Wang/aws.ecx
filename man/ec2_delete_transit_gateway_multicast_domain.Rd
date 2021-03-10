@@ -14,7 +14,7 @@ ec2_delete_transit_gateway_multicast_domain(
 \arguments{
 \item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

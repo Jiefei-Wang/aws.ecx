@@ -17,7 +17,7 @@ ec2_replace_route_table_association(
 
 \item{RouteTableId}{String. The ID of the new route table to associate with the subnet.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

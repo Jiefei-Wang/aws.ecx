@@ -23,7 +23,7 @@ ec2_modify_transit_gateway_vpc_attachment(
 
 \item{Options}{Object.   The new VPC attachment options.  You cannot modify the IPv6 options.  [optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

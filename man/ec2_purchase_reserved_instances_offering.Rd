@@ -19,9 +19,9 @@ ec2_purchase_reserved_instances_offering(
 
 \item{ReservedInstancesOfferingId}{String. The ID of the Reserved Instance offering to purchase.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{LimitPrice}{Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure...[optional]}
+\item{LimitPrice}{Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the...[optional]}
 
 \item{PurchaseTime}{String. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 

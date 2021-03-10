@@ -34,9 +34,9 @@ ec2_modify_instance_attribute(
 
 \item{BlockDeviceMapping}{List.   Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.[optional]}
 
-\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI,...[optional]}
+\item{DisableApiTermination}{Object. If the value is \code{true}, you can\'t terminate the instance using the Amazon EC2 console, CLI, or API;...[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EbsOptimized}{Object. Specifies whether the instance is optimized for Amazon EBS I/O.[optional]}
 
@@ -44,7 +44,7 @@ ec2_modify_instance_attribute(
 
 \item{GroupId}{List. [EC2-VPC] Changes the security groups of the instance.[optional]}
 
-\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance...[optional]}
+\item{InstanceInitiatedShutdownBehavior}{Object. Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown)....[optional]}
 
 \item{InstanceType}{Object. Changes the instance type to the specified value.[optional]}
 
@@ -52,7 +52,7 @@ ec2_modify_instance_attribute(
 
 \item{Ramdisk}{Object. Changes the instance\'s RAM disk to the specified value.[optional]}
 
-\item{SriovNetSupport}{Object.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface...[optional]}
+\item{SriovNetSupport}{Object.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface for...[optional]}
 
 \item{UserData}{Object. Changes the instance\'s user data to the specified value.[optional]}
 

@@ -32,7 +32,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{IncludeMarketplace}{Logical. Include Reserved Instance Marketplace offerings in the response.[optional]}
 
-\item{InstanceType}{String. The instance type that the reservation will cover (for example, `m1.[optional]}
+\item{InstanceType}{String. The instance type that the reservation will cover (for example, \code{m1.small}). For more information,...[optional]}
 
 \item{MaxDuration}{Integer.   The maximum duration (in seconds) to filter when searching for offerings.[optional]}
 
@@ -46,7 +46,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{ReservedInstancesOfferingId}{List. One or more Reserved Instances offering IDs.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceTenancy}{String.   The tenancy of the instances covered by the reservation.[optional]}
 

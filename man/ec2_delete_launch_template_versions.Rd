@@ -16,7 +16,7 @@ ec2_delete_launch_template_versions(
 \arguments{
 \item{LaunchTemplateVersion}{List. The version numbers of one or more launch template versions to delete.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{LaunchTemplateId}{String. The ID of the launch template.[optional]}
 

@@ -19,7 +19,9 @@ ecs_list_container_instances(
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...}
+
+\item{filter}{String. You can filter the results of a \code{ListContainerInstances} operation with cluster query language statements....}
 
 \item{status}{String. Filters the container instances by status.}
 

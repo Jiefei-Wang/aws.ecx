@@ -23,7 +23,7 @@ ec2_create_managed_prefix_list(
 
 \item{AddressFamily}{String.   The IP address type.  Valid Values: \code{IPv4} \| \code{IPv6}}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Entry}{List. One or more entries for the prefix list.[optional]}
 

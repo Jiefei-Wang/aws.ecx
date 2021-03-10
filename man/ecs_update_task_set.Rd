@@ -14,13 +14,13 @@ ecs_update_task_set(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...}
 
 \item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.}
 
 \item{taskSet}{String. The short name or full Amazon Resource Name (ARN) of the task set to update.}
 
-\item{scale}{}
+\item{scale}{No description can be found.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}
@@ -59,5 +59,6 @@ The short name or full Amazon Resource Name
 
 \section{scale}{
 
+No description can be found.
 }
 

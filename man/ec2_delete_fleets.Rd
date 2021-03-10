@@ -17,7 +17,7 @@ ec2_delete_fleets(
 
 \item{TerminateInstances}{Logical.   Indicates whether to terminate the instances when the EC2 Fleet is deleted.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

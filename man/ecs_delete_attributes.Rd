@@ -12,7 +12,7 @@ ecs_delete_attributes(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource...}
+\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete...}
 
 \item{attributes}{List. The attributes to delete from your resource.}
 

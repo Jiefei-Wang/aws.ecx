@@ -29,7 +29,7 @@ ec2_request_spot_instances(
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{InstanceCount}{Integer.   The maximum number of Spot Instances to launch.  Default: 1  [optional]}
 

@@ -14,7 +14,7 @@ ec2_delete_vpn_connection(
 \arguments{
 \item{VpnConnectionId}{String. The ID of the VPN connection.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

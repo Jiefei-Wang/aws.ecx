@@ -18,7 +18,7 @@ ec2_import_key_pair(
 
 \item{PublicKeyMaterial}{String. The public key.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the imported key pair.[optional]}
 

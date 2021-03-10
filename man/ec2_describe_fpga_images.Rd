@@ -16,7 +16,7 @@ ec2_describe_fpga_images(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{FpgaImageId}{List. The AFI IDs.[optional]}
 

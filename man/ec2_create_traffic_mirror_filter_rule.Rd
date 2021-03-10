@@ -42,7 +42,7 @@ ec2_create_traffic_mirror_filter_rule(
 
 \item{Description}{String. The description of the Traffic Mirror rule.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 

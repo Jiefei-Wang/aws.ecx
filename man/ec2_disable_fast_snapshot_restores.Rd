@@ -17,7 +17,7 @@ ec2_disable_fast_snapshot_restores(
 
 \item{SourceSnapshotId}{List. The IDs of one or more snapshots. For example, \verb{snap-1234567890abcdef0}.}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

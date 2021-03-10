@@ -40,7 +40,7 @@ ecs_run_task(
 
 \item{networkConfiguration}{Object. The network configuration for the task.}
 
-\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the...}
+\item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the specified...}
 
 \item{placementConstraints}{List. An array of placement constraint objects to use for the task.}
 

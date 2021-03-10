@@ -102,3 +102,7 @@ aws_get_secret_access_key <- function(){
 aws_get_region<-function(){
   aws_credentials$region
 }
+
+aws_has_credentials <- function(){
+  !is.null(aws_get_access_key_id()) && !is.null(aws_get_secret_access_key())
+}

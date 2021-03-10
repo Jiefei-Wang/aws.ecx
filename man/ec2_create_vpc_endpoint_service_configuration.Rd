@@ -17,9 +17,9 @@ ec2_create_vpc_endpoint_service_configuration(
 )
 }
 \arguments{
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{AcceptanceRequired}{Logical. Indicates whether requests from service consumers to create an endpoint to your service must...[optional]}
+\item{AcceptanceRequired}{Logical. Indicates whether requests from service consumers to create an endpoint to your service must be accepted....[optional]}
 
 \item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.[optional]}
 

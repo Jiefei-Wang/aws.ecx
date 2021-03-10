@@ -22,7 +22,7 @@ ec2_modify_network_interface_attribute(
 
 \item{Description}{Object. A description for the network interface.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{SecurityGroupId}{List. Changes the security groups for the network interface.[optional]}
 

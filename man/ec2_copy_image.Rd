@@ -31,11 +31,11 @@ ec2_copy_image(
 
 \item{Encrypted}{Logical. Specifies whether the destination snapshots of the copied image should be encrypted.[optional]}
 
-\item{KmsKeyId}{String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key...[optional]}
+\item{KmsKeyId}{String.   The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...[optional]}
 
 \item{DestinationOutpostArn}{String.   The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.[optional]}
 
-\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the...[optional]}
+\item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}
