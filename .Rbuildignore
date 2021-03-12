@@ -1,3 +1,4 @@
 ^aws.ecx\.Rproj$
 ^\.Rproj\.user$
-R\api-generator
+^R/api-generator
+^\.github
