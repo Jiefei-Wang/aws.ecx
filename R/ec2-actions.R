@@ -24,8 +24,8 @@
 #' Convertible Reserved Instances.
 #' @return A list object or a character vector
 #' @export
-ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, TargetConfiguration = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, 
+    TargetConfiguration = NULL, simplify = TRUE, others = list()) {
     ReservedInstanceId <- list_to_array("ReservedInstanceId", ReservedInstanceId)
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
@@ -66,7 +66,8 @@ ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, Dry
 #' @return A list object or a character vector
 #' @export
 ec2_accept_transit_gateway_multicast_domain_associations <- function(TransitGatewayMulticastDomainId = NULL, 
-    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -99,7 +100,8 @@ ec2_accept_transit_gateway_multicast_domain_associations <- function(TransitGate
 #' @export
 ec2_accept_transit_gateway_peering_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptTransitGatewayPeeringAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -125,7 +127,8 @@ ec2_accept_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' @export
 ec2_accept_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptTransitGatewayVpcAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -156,13 +159,13 @@ ec2_accept_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "AcceptVpcEndpointConnections", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "AcceptVpcEndpointConnections", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -184,8 +187,8 @@ ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
 #' request.
 #' @return A list object or a character vector
 #' @export
-ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectionId = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectionId = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun, VpcPeeringConnectionId = VpcPeeringConnectionId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptVpcPeeringConnection", parameters = parameters, 
@@ -279,7 +282,8 @@ ec2_advertise_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, other
 #' @return A list object or a character vector
 #' @export
 ec2_allocate_address <- function(Domain = NULL, Address = NULL, PublicIpv4Pool = NULL, NetworkBorderGroup = NULL, 
-    CustomerOwnedIpv4Pool = NULL, DryRun = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+    CustomerOwnedIpv4Pool = NULL, DryRun = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Domain = Domain, Address = Address, PublicIpv4Pool = PublicIpv4Pool, 
         NetworkBorderGroup = NetworkBorderGroup, CustomerOwnedIpv4Pool = CustomerOwnedIpv4Pool, 
@@ -371,9 +375,9 @@ ec2_allocate_hosts <- function(AvailabilityZone, Quantity, AutoPlacement = NULL,
     InstanceType = NULL, InstanceFamily = NULL, TagSpecification = NULL, HostRecovery = NULL, 
     simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Quantity = Quantity, AutoPlacement = AutoPlacement, 
-        ClientToken = ClientToken, InstanceType = InstanceType, InstanceFamily = InstanceFamily, 
-        HostRecovery = HostRecovery), TagSpecification)
+    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Quantity = Quantity, 
+        AutoPlacement = AutoPlacement, ClientToken = ClientToken, InstanceType = InstanceType, 
+        InstanceFamily = InstanceFamily, HostRecovery = HostRecovery), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AllocateHosts", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -415,8 +419,8 @@ ec2_allocate_hosts <- function(AvailabilityZone, Quantity, AutoPlacement = NULL,
 ec2_apply_security_groups_to_client_vpn_target_network <- function(ClientVpnEndpointId, VpcId, 
     SecurityGroupId, DryRun = NULL, simplify = TRUE, others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
-    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, VpcId = VpcId, DryRun = DryRun), 
-        SecurityGroupId)
+    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, VpcId = VpcId, 
+        DryRun = DryRun), SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ApplySecurityGroupsToClientVpnTargetNetwork", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -488,8 +492,8 @@ ec2_assign_ipv6_addresses <- function(NetworkInterfaceId, Ipv6AddressCount = NUL
 #' specifying private IP addresses.
 #' @return A list object or a character vector
 #' @export
-ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignment = NULL, PrivateIpAddress = NULL, 
-    SecondaryPrivateIpAddressCount = NULL, simplify = TRUE, others = list()) {
+ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignment = NULL, 
+    PrivateIpAddress = NULL, SecondaryPrivateIpAddressCount = NULL, simplify = TRUE, others = list()) {
     PrivateIpAddress <- list_to_array("PrivateIpAddress", PrivateIpAddress)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, AllowReassignment = AllowReassignment, 
         SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount), PrivateIpAddress)
@@ -554,8 +558,9 @@ ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignmen
 #' primary private IP address.
 #' @return A list object or a character vector
 #' @export
-ec2_associate_address <- function(AllocationId = NULL, InstanceId = NULL, PublicIp = NULL, AllowReassociation = NULL, 
-    DryRun = NULL, NetworkInterfaceId = NULL, PrivateIpAddress = NULL, simplify = TRUE, others = list()) {
+ec2_associate_address <- function(AllocationId = NULL, InstanceId = NULL, PublicIp = NULL, 
+    AllowReassociation = NULL, DryRun = NULL, NetworkInterfaceId = NULL, PrivateIpAddress = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(AllocationId = AllocationId, InstanceId = InstanceId, PublicIp = PublicIp, 
         AllowReassociation = AllowReassociation, DryRun = DryRun, NetworkInterfaceId = NetworkInterfaceId, 
         PrivateIpAddress = PrivateIpAddress))
@@ -597,8 +602,8 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, SubnetId = SubnetId, 
         ClientToken = ClientToken, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "AssociateClientVpnTargetNetwork", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "AssociateClientVpnTargetNetwork", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -623,7 +628,8 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(DhcpOptionsId = DhcpOptionsId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AssociateDhcpOptions", parameters = parameters, 
@@ -779,7 +785,8 @@ ec2_associate_subnet_cidr_block <- function(Ipv6CidrBlock, SubnetId, simplify = 
 #' @return A list object or a character vector
 #' @export
 ec2_associate_transit_gateway_multicast_domain <- function(TransitGatewayMulticastDomainId = NULL, 
-    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -816,8 +823,8 @@ ec2_associate_transit_gateway_multicast_domain <- function(TransitGatewayMultica
 #' @export
 ec2_associate_transit_gateway_route_table <- function(TransitGatewayRouteTableId, TransitGatewayAttachmentId, 
     DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
-        DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AssociateTransitGatewayRouteTable", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -904,10 +911,11 @@ ec2_associate_vpc_cidr_block <- function(VpcId, AmazonProvidedIpv6CidrBlock = NU
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_attach_classic_link_vpc <- function(SecurityGroupId, InstanceId, VpcId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_attach_classic_link_vpc <- function(SecurityGroupId, InstanceId, VpcId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
-    parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun), SecurityGroupId)
+    parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun), 
+        SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "AttachClassicLinkVpc", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1020,7 +1028,8 @@ ec2_attach_network_interface <- function(DeviceIndex, InstanceId, NetworkInterfa
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(Device = Device, InstanceId = InstanceId, VolumeId = VolumeId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -1176,8 +1185,8 @@ ec2_authorize_security_group_egress <- function(GroupId, DryRun = NULL, IpPermis
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
         SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupEgress", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupEgress", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -1277,12 +1286,13 @@ ec2_authorize_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL,
     GroupName = NULL, IpPermissions = NULL, IpProtocol = NULL, SourceSecurityGroupName = NULL, 
     SourceSecurityGroupOwnerId = NULL, ToPort = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, GroupName = GroupName, 
-        IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
-        ToPort = ToPort, DryRun = DryRun), IpPermissions)
+    parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, 
+        GroupName = GroupName, IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, 
+        SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, ToPort = ToPort, DryRun = DryRun), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupIngress", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "AuthorizeSecurityGroupIngress", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -1457,8 +1467,8 @@ ec2_cancel_export_task <- function(ExportTaskId, simplify = TRUE, others = list(
 #' or import snapshot task to be canceled.
 #' @return A list object or a character vector
 #' @export
-ec2_cancel_import_task <- function(CancelReason = NULL, DryRun = NULL, ImportTaskId = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_cancel_import_task <- function(CancelReason = NULL, DryRun = NULL, ImportTaskId = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(CancelReason = CancelReason, DryRun = DryRun, ImportTaskId = ImportTaskId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CancelImportTask", parameters = parameters, 
@@ -1480,8 +1490,8 @@ ec2_cancel_reserved_instances_listing <- function(ReservedInstancesListingId, si
     others = list()) {
     parameters <- c(others, list(ReservedInstancesListingId = ReservedInstancesListingId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CancelReservedInstancesListing", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CancelReservedInstancesListing", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -1510,7 +1520,8 @@ ec2_cancel_reserved_instances_listing <- function(ReservedInstancesListingId, si
 ec2_cancel_spot_fleet_requests <- function(SpotFleetRequestId, TerminateInstances, DryRun = NULL, 
     simplify = TRUE, others = list()) {
     SpotFleetRequestId <- list_to_array("SpotFleetRequestId", SpotFleetRequestId)
-    parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), SpotFleetRequestId)
+    parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), 
+        SpotFleetRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CancelSpotFleetRequests", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1971,16 +1982,16 @@ ec2_copy_snapshot <- function(SourceRegion, SourceSnapshotId, Description = NULL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, InstanceCount, ClientToken = NULL, 
-    AvailabilityZone = NULL, AvailabilityZoneId = NULL, Tenancy = NULL, EbsOptimized = NULL, EphemeralStorage = NULL, 
-    EndDate = NULL, EndDateType = NULL, InstanceMatchCriteria = NULL, TagSpecifications = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, InstanceCount, 
+    ClientToken = NULL, AvailabilityZone = NULL, AvailabilityZoneId = NULL, Tenancy = NULL, 
+    EbsOptimized = NULL, EphemeralStorage = NULL, EndDate = NULL, EndDateType = NULL, InstanceMatchCriteria = NULL, 
+    TagSpecifications = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(InstanceType = InstanceType, InstancePlatform = InstancePlatform, 
         InstanceCount = InstanceCount, ClientToken = ClientToken, AvailabilityZone = AvailabilityZone, 
         AvailabilityZoneId = AvailabilityZoneId, Tenancy = Tenancy, EbsOptimized = EbsOptimized, 
-        EphemeralStorage = EphemeralStorage, EndDate = EndDate, EndDateType = EndDateType, InstanceMatchCriteria = InstanceMatchCriteria, 
-        DryRun = DryRun), TagSpecifications)
+        EphemeralStorage = EphemeralStorage, EndDate = EndDate, EndDateType = EndDateType, 
+        InstanceMatchCriteria = InstanceMatchCriteria, DryRun = DryRun), TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateCapacityReservation", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2022,7 +2033,8 @@ ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, Inst
 ec2_create_carrier_gateway <- function(VpcId, TagSpecification = NULL, DryRun = NULL, ClientToken = NULL, 
     simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, ClientToken = ClientToken), TagSpecification)
+    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, ClientToken = ClientToken), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateCarrierGateway", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2161,16 +2173,18 @@ ec2_create_carrier_gateway <- function(VpcId, TagSpecification = NULL, DryRun = 
 ec2_create_client_vpn_endpoint <- function(ClientCidrBlock, ServerCertificateArn, Authentication, 
     ConnectionLogOptions, DnsServers = NULL, TransportProtocol = NULL, VpnPort = NULL, Description = NULL, 
     SplitTunnel = NULL, DryRun = NULL, ClientToken = NULL, TagSpecification = NULL, SecurityGroupId = NULL, 
-    VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, simplify = TRUE, others = list()) {
+    VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, simplify = TRUE, 
+    others = list()) {
     Authentication <- list_to_array("Authentication", Authentication)
     DnsServers <- list_to_array("DnsServers", DnsServers)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(ClientCidrBlock = ClientCidrBlock, ServerCertificateArn = ServerCertificateArn, 
-        ConnectionLogOptions = ConnectionLogOptions, TransportProtocol = TransportProtocol, VpnPort = VpnPort, 
-        Description = Description, SplitTunnel = SplitTunnel, DryRun = DryRun, ClientToken = ClientToken, 
-        VpcId = VpcId, SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), 
-        Authentication, DnsServers, TagSpecification, SecurityGroupId)
+        ConnectionLogOptions = ConnectionLogOptions, TransportProtocol = TransportProtocol, 
+        VpnPort = VpnPort, Description = Description, SplitTunnel = SplitTunnel, DryRun = DryRun, 
+        ClientToken = ClientToken, VpcId = VpcId, SelfServicePortal = SelfServicePortal, 
+        ClientConnectOptions = ClientConnectOptions), Authentication, DnsServers, TagSpecification, 
+        SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateClientVpnEndpoint", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2423,10 +2437,11 @@ ec2_create_dhcp_options <- function(DhcpConfiguration, TagSpecification = NULL, 
 ec2_create_egress_only_internet_gateway <- function(VpcId, ClientToken = NULL, DryRun = NULL, 
     TagSpecification = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(VpcId = VpcId, ClientToken = ClientToken, DryRun = DryRun), TagSpecification)
+    parameters <- c(others, list(VpcId = VpcId, ClientToken = ClientToken, DryRun = DryRun), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateEgressOnlyInternetGateway", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateEgressOnlyInternetGateway", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -2533,8 +2548,8 @@ ec2_create_fleet <- function(LaunchTemplateConfigs, TargetCapacitySpecification,
     ReplaceUnhealthyInstances = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
     LaunchTemplateConfigs <- list_to_array("LaunchTemplateConfigs", LaunchTemplateConfigs)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(TargetCapacitySpecification = TargetCapacitySpecification, DryRun = DryRun, 
-        ClientToken = ClientToken, SpotOptions = SpotOptions, OnDemandOptions = OnDemandOptions, 
+    parameters <- c(others, list(TargetCapacitySpecification = TargetCapacitySpecification, 
+        DryRun = DryRun, ClientToken = ClientToken, SpotOptions = SpotOptions, OnDemandOptions = OnDemandOptions, 
         ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, TerminateInstancesWithExpiration = TerminateInstancesWithExpiration, 
         Type = Type, ValidFrom = ValidFrom, ValidUntil = ValidUntil, ReplaceUnhealthyInstances = ReplaceUnhealthyInstances), 
         LaunchTemplateConfigs, TagSpecification)
@@ -2672,10 +2687,11 @@ ec2_create_flow_logs <- function(ResourceId, ResourceType, TrafficType, DryRun =
     others = list()) {
     ResourceId <- list_to_array("ResourceId", ResourceId)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(ResourceType = ResourceType, TrafficType = TrafficType, DryRun = DryRun, 
-        ClientToken = ClientToken, DeliverLogsPermissionArn = DeliverLogsPermissionArn, LogGroupName = LogGroupName, 
-        LogDestinationType = LogDestinationType, LogDestination = LogDestination, LogFormat = LogFormat, 
-        MaxAggregationInterval = MaxAggregationInterval), ResourceId, TagSpecification)
+    parameters <- c(others, list(ResourceType = ResourceType, TrafficType = TrafficType, 
+        DryRun = DryRun, ClientToken = ClientToken, DeliverLogsPermissionArn = DeliverLogsPermissionArn, 
+        LogGroupName = LogGroupName, LogDestinationType = LogDestinationType, LogDestination = LogDestination, 
+        LogFormat = LogFormat, MaxAggregationInterval = MaxAggregationInterval), ResourceId, 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateFlowLogs", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2726,8 +2742,8 @@ ec2_create_fpga_image <- function(InputStorageLocation, DryRun = NULL, LogsStora
     others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(InputStorageLocation = InputStorageLocation, DryRun = DryRun, 
-        LogsStorageLocation = LogsStorageLocation, Description = Description, Name = Name, ClientToken = ClientToken), 
-        TagSpecification)
+        LogsStorageLocation = LogsStorageLocation, Description = Description, Name = Name, 
+        ClientToken = ClientToken), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateFpgaImage", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2954,7 +2970,8 @@ ec2_create_key_pair <- function(KeyName, DryRun = NULL, TagSpecification = NULL,
 #' @return A list object or a character vector
 #' @export
 ec2_create_launch_template <- function(LaunchTemplateName, LaunchTemplateData, DryRun = NULL, 
-    ClientToken = NULL, VersionDescription = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+    ClientToken = NULL, VersionDescription = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(LaunchTemplateName = LaunchTemplateName, LaunchTemplateData = LaunchTemplateData, 
         DryRun = DryRun, ClientToken = ClientToken, VersionDescription = VersionDescription), 
@@ -3016,9 +3033,9 @@ ec2_create_launch_template <- function(LaunchTemplateName, LaunchTemplateData, D
 ec2_create_launch_template_version <- function(LaunchTemplateData, DryRun = NULL, ClientToken = NULL, 
     LaunchTemplateId = NULL, LaunchTemplateName = NULL, SourceVersion = NULL, VersionDescription = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(LaunchTemplateData = LaunchTemplateData, DryRun = DryRun, ClientToken = ClientToken, 
-        LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, SourceVersion = SourceVersion, 
-        VersionDescription = VersionDescription))
+    parameters <- c(others, list(LaunchTemplateData = LaunchTemplateData, DryRun = DryRun, 
+        ClientToken = ClientToken, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, 
+        SourceVersion = SourceVersion, VersionDescription = VersionDescription))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateLaunchTemplateVersion", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3054,8 +3071,8 @@ ec2_create_launch_template_version <- function(LaunchTemplateData, DryRun = NULL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRouteTableId, LocalGatewayVirtualInterfaceGroupId, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRouteTableId, 
+    LocalGatewayVirtualInterfaceGroupId, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         LocalGatewayVirtualInterfaceGroupId = LocalGatewayVirtualInterfaceGroupId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -3092,8 +3109,8 @@ ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_local_gateway_route_table_vpc_association <- function(LocalGatewayRouteTableId, VpcId, 
-    TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_local_gateway_route_table_vpc_association <- function(LocalGatewayRouteTableId, 
+    VpcId, TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(LocalGatewayRouteTableId = LocalGatewayRouteTableId, VpcId = VpcId, 
         DryRun = DryRun), TagSpecification)
@@ -3156,8 +3173,9 @@ ec2_create_managed_prefix_list <- function(PrefixListName, MaxEntries, AddressFa
     Entry = NULL, TagSpecification = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
     Entry <- list_to_array("Entry", Entry)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(PrefixListName = PrefixListName, MaxEntries = MaxEntries, AddressFamily = AddressFamily, 
-        DryRun = DryRun, ClientToken = ClientToken), Entry, TagSpecification)
+    parameters <- c(others, list(PrefixListName = PrefixListName, MaxEntries = MaxEntries, 
+        AddressFamily = AddressFamily, DryRun = DryRun, ClientToken = ClientToken), Entry, 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateManagedPrefixList", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3320,8 +3338,8 @@ ec2_create_network_acl <- function(VpcId, DryRun = NULL, TagSpecification = NULL
 #' @return A list object or a character vector
 #' @export
 ec2_create_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAction, RuleNumber, 
-    CidrBlock = NULL, DryRun = NULL, Icmp = NULL, Ipv6CidrBlock = NULL, PortRange = NULL, simplify = TRUE, 
-    others = list()) {
+    CidrBlock = NULL, DryRun = NULL, Icmp = NULL, Ipv6CidrBlock = NULL, PortRange = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, Protocol = Protocol, 
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, 
         Icmp = Icmp, Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
@@ -3379,9 +3397,9 @@ ec2_create_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAct
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_network_insights_path <- function(Source, Destination, Protocol, ClientToken, SourceIp = NULL, 
-    DestinationIp = NULL, DestinationPort = NULL, TagSpecification = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_create_network_insights_path <- function(Source, Destination, Protocol, ClientToken, 
+    SourceIp = NULL, DestinationIp = NULL, DestinationPort = NULL, TagSpecification = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Source = Source, Destination = Destination, Protocol = Protocol, 
         ClientToken = ClientToken, SourceIp = SourceIp, DestinationIp = DestinationIp, DestinationPort = DestinationPort, 
@@ -3472,15 +3490,16 @@ ec2_create_network_insights_path <- function(Source, Destination, Protocol, Clie
 #' @export
 ec2_create_network_interface <- function(SubnetId, Description = NULL, DryRun = NULL, SecurityGroupId = NULL, 
     Ipv6AddressCount = NULL, Ipv6Addresses = NULL, PrivateIpAddress = NULL, PrivateIpAddresses = NULL, 
-    SecondaryPrivateIpAddressCount = NULL, InterfaceType = NULL, TagSpecification = NULL, simplify = TRUE, 
-    others = list()) {
+    SecondaryPrivateIpAddressCount = NULL, InterfaceType = NULL, TagSpecification = NULL, 
+    simplify = TRUE, others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     PrivateIpAddresses <- list_to_array("PrivateIpAddresses", PrivateIpAddresses)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(SubnetId = SubnetId, Description = Description, DryRun = DryRun, 
         Ipv6AddressCount = Ipv6AddressCount, PrivateIpAddress = PrivateIpAddress, SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount, 
-        InterfaceType = InterfaceType), SecurityGroupId, Ipv6Addresses, PrivateIpAddresses, TagSpecification)
+        InterfaceType = InterfaceType), SecurityGroupId, Ipv6Addresses, PrivateIpAddresses, 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateNetworkInterface", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3520,8 +3539,8 @@ ec2_create_network_interface_permission <- function(NetworkInterfaceId, Permissi
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Permission = Permission, 
         AwsAccountId = AwsAccountId, AwsService = AwsService, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateNetworkInterfacePermission", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateNetworkInterfacePermission", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -3558,8 +3577,8 @@ ec2_create_network_interface_permission <- function(NetworkInterfaceId, Permissi
 #' group.
 #' @return A list object or a character vector
 #' @export
-ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy = NULL, PartitionCount = NULL, 
-    TagSpecification = NULL, simplify = TRUE, others = list()) {
+ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy = NULL, 
+    PartitionCount = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun, GroupName = GroupName, Strategy = Strategy, 
         PartitionCount = PartitionCount), TagSpecification)
@@ -3600,11 +3619,11 @@ ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy
 ec2_create_reserved_instances_listing <- function(ClientToken, InstanceCount, PriceSchedules, 
     ReservedInstancesId, simplify = TRUE, others = list()) {
     PriceSchedules <- list_to_array("PriceSchedules", PriceSchedules)
-    parameters <- c(others, list(ClientToken = ClientToken, InstanceCount = InstanceCount, ReservedInstancesId = ReservedInstancesId), 
-        PriceSchedules)
+    parameters <- c(others, list(ClientToken = ClientToken, InstanceCount = InstanceCount, 
+        ReservedInstancesId = ReservedInstancesId), PriceSchedules)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateReservedInstancesListing", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateReservedInstancesListing", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -3784,8 +3803,8 @@ ec2_create_route_table <- function(VpcId, DryRun = NULL, TagSpecification = NULL
 ec2_create_security_group <- function(GroupDescription, GroupName, VpcId = NULL, TagSpecification = NULL, 
     DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(GroupDescription = GroupDescription, GroupName = GroupName, VpcId = VpcId, 
-        DryRun = DryRun), TagSpecification)
+    parameters <- c(others, list(GroupDescription = GroupDescription, GroupName = GroupName, 
+        VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateSecurityGroup", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3906,7 +3925,8 @@ ec2_create_snapshots <- function(InstanceSpecification, Description = NULL, Outp
     TagSpecification = NULL, DryRun = NULL, CopyTagsFromSource = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(InstanceSpecification = InstanceSpecification, Description = Description, 
-        OutpostArn = OutpostArn, DryRun = DryRun, CopyTagsFromSource = CopyTagsFromSource), TagSpecification)
+        OutpostArn = OutpostArn, DryRun = DryRun, CopyTagsFromSource = CopyTagsFromSource), 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateSnapshots", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3947,8 +3967,8 @@ ec2_create_spot_datafeed_subscription <- function(Bucket, DryRun = NULL, Prefix 
     others = list()) {
     parameters <- c(others, list(Bucket = Bucket, DryRun = DryRun, Prefix = Prefix))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateSpotDatafeedSubscription", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateSpotDatafeedSubscription", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -4088,8 +4108,8 @@ ec2_create_tags <- function(ResourceId, Tag, DryRun = NULL, simplify = TRUE, oth
 #' Idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
 #' @return A list object or a character vector
 #' @export
-ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecification = NULL, DryRun = NULL, 
-    ClientToken = NULL, simplify = TRUE, others = list()) {
+ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecification = NULL, 
+    DryRun = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Description = Description, DryRun = DryRun, ClientToken = ClientToken), 
         TagSpecification)
@@ -4166,16 +4186,17 @@ ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecificatio
 #' Idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
 #' @return A list object or a character vector
 #' @export
-ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, TrafficDirection, RuleNumber, 
-    RuleAction, DestinationCidrBlock, SourceCidrBlock, DestinationPortRange = NULL, SourcePortRange = NULL, 
-    Protocol = NULL, Description = NULL, DryRun = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
+ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, TrafficDirection, 
+    RuleNumber, RuleAction, DestinationCidrBlock, SourceCidrBlock, DestinationPortRange = NULL, 
+    SourcePortRange = NULL, Protocol = NULL, Description = NULL, DryRun = NULL, ClientToken = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, TrafficDirection = TrafficDirection, 
         RuleNumber = RuleNumber, RuleAction = RuleAction, DestinationCidrBlock = DestinationCidrBlock, 
         SourceCidrBlock = SourceCidrBlock, DestinationPortRange = DestinationPortRange, SourcePortRange = SourcePortRange, 
         Protocol = Protocol, Description = Description, DryRun = DryRun, ClientToken = ClientToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateTrafficMirrorFilterRule", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateTrafficMirrorFilterRule", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -4247,14 +4268,14 @@ ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, Traffic
 #' Idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
 #' @return A list object or a character vector
 #' @export
-ec2_create_traffic_mirror_session <- function(NetworkInterfaceId, TrafficMirrorTargetId, TrafficMirrorFilterId, 
-    SessionNumber, PacketLength = NULL, VirtualNetworkId = NULL, Description = NULL, TagSpecification = NULL, 
-    DryRun = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
+ec2_create_traffic_mirror_session <- function(NetworkInterfaceId, TrafficMirrorTargetId, 
+    TrafficMirrorFilterId, SessionNumber, PacketLength = NULL, VirtualNetworkId = NULL, Description = NULL, 
+    TagSpecification = NULL, DryRun = NULL, ClientToken = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, TrafficMirrorTargetId = TrafficMirrorTargetId, 
         TrafficMirrorFilterId = TrafficMirrorFilterId, SessionNumber = SessionNumber, PacketLength = PacketLength, 
-        VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun, ClientToken = ClientToken), 
-        TagSpecification)
+        VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun, 
+        ClientToken = ClientToken), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateTrafficMirrorSession", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -4372,8 +4393,8 @@ ec2_create_transit_gateway <- function(Description = NULL, Options = NULL, TagSp
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachmentId, Options, TagSpecification = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachmentId, Options, 
+    TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransportTransitGatewayAttachmentId = TransportTransitGatewayAttachmentId, 
         Options = Options, DryRun = DryRun), TagSpecification)
@@ -4428,17 +4449,17 @@ ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachment
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, PeerAddress, InsideCidrBlocks, 
-    TransitGatewayAddress = NULL, BgpOptions = NULL, TagSpecification = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, PeerAddress, 
+    InsideCidrBlocks, TransitGatewayAddress = NULL, BgpOptions = NULL, TagSpecification = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     InsideCidrBlocks <- list_to_array("InsideCidrBlocks", InsideCidrBlocks)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, PeerAddress = PeerAddress, 
-        TransitGatewayAddress = TransitGatewayAddress, BgpOptions = BgpOptions, DryRun = DryRun), 
-        InsideCidrBlocks, TagSpecification)
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        PeerAddress = PeerAddress, TransitGatewayAddress = TransitGatewayAddress, BgpOptions = BgpOptions, 
+        DryRun = DryRun), InsideCidrBlocks, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateTransitGatewayConnectPeer", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayConnectPeer", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -4467,11 +4488,11 @@ ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, 
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_multicast_domain <- function(TransitGatewayId, Options = NULL, TagSpecification = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_transit_gateway_multicast_domain <- function(TransitGatewayId, Options = NULL, 
+    TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Options = Options, DryRun = DryRun), 
-        TagSpecification)
+    parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Options = Options, 
+        DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateTransitGatewayMulticastDomain", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -4556,10 +4577,12 @@ ec2_create_transit_gateway_peering_attachment <- function(TransitGatewayId, Peer
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, PrefixListId, 
-    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
-        TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
+ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, 
+    PrefixListId, TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        PrefixListId = PrefixListId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateTransitGatewayPrefixListReference", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -4601,7 +4624,8 @@ ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
 #' @return A list object or a character vector
 #' @export
 ec2_create_transit_gateway_route <- function(DestinationCidrBlock, TransitGatewayRouteTableId, 
-    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -4639,8 +4663,8 @@ ec2_create_transit_gateway_route_table <- function(TransitGatewayId, TagSpecific
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun), TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "CreateTransitGatewayRouteTable", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "CreateTransitGatewayRouteTable", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -4680,8 +4704,8 @@ ec2_create_transit_gateway_route_table <- function(TransitGatewayId, TagSpecific
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, SubnetIds, Options = NULL, 
-    TagSpecifications = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, SubnetIds, 
+    Options = NULL, TagSpecifications = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, VpcId = VpcId, Options = Options, 
@@ -4845,12 +4869,14 @@ ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, S
 #' @return A list object or a character vector
 #' @export
 ec2_create_volume <- function(AvailabilityZone, Encrypted = NULL, Iops = NULL, KmsKeyId = NULL, 
-    OutpostArn = NULL, Size = NULL, SnapshotId = NULL, VolumeType = NULL, DryRun = NULL, TagSpecification = NULL, 
-    MultiAttachEnabled = NULL, Throughput = NULL, simplify = TRUE, others = list()) {
+    OutpostArn = NULL, Size = NULL, SnapshotId = NULL, VolumeType = NULL, DryRun = NULL, 
+    TagSpecification = NULL, MultiAttachEnabled = NULL, Throughput = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Encrypted = Encrypted, Iops = Iops, 
-        KmsKeyId = KmsKeyId, OutpostArn = OutpostArn, Size = Size, SnapshotId = SnapshotId, VolumeType = VolumeType, 
-        DryRun = DryRun, MultiAttachEnabled = MultiAttachEnabled, Throughput = Throughput), TagSpecification)
+    parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Encrypted = Encrypted, 
+        Iops = Iops, KmsKeyId = KmsKeyId, OutpostArn = OutpostArn, Size = Size, SnapshotId = SnapshotId, 
+        VolumeType = VolumeType, DryRun = DryRun, MultiAttachEnabled = MultiAttachEnabled, 
+        Throughput = Throughput), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateVolume", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -4922,9 +4948,9 @@ ec2_create_volume <- function(AvailabilityZone, Encrypted = NULL, Iops = NULL, K
 #' VPC.
 #' @return A list object or a character vector
 #' @export
-ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Pool = NULL, Ipv6CidrBlock = NULL, 
-    DryRun = NULL, InstanceTenancy = NULL, Ipv6CidrBlockNetworkBorderGroup = NULL, TagSpecification = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Pool = NULL, 
+    Ipv6CidrBlock = NULL, DryRun = NULL, InstanceTenancy = NULL, Ipv6CidrBlockNetworkBorderGroup = NULL, 
+    TagSpecification = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(CidrBlock = CidrBlock, AmazonProvidedIpv6CidrBlock = AmazonProvidedIpv6CidrBlock, 
         Ipv6Pool = Ipv6Pool, Ipv6CidrBlock = Ipv6CidrBlock, DryRun = DryRun, InstanceTenancy = InstanceTenancy, 
@@ -5015,15 +5041,17 @@ ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Po
 #' @return A list object or a character vector
 #' @export
 ec2_create_vpc_endpoint <- function(VpcId, ServiceName, DryRun = NULL, VpcEndpointType = NULL, 
-    PolicyDocument = NULL, RouteTableId = NULL, SubnetId = NULL, SecurityGroupId = NULL, ClientToken = NULL, 
-    PrivateDnsEnabled = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+    PolicyDocument = NULL, RouteTableId = NULL, SubnetId = NULL, SecurityGroupId = NULL, 
+    ClientToken = NULL, PrivateDnsEnabled = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     RouteTableId <- list_to_array("RouteTableId", RouteTableId)
     SubnetId <- list_to_array("SubnetId", SubnetId)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(VpcId = VpcId, ServiceName = ServiceName, DryRun = DryRun, VpcEndpointType = VpcEndpointType, 
-        PolicyDocument = PolicyDocument, ClientToken = ClientToken, PrivateDnsEnabled = PrivateDnsEnabled), 
-        RouteTableId, SubnetId, SecurityGroupId, TagSpecification)
+    parameters <- c(others, list(VpcId = VpcId, ServiceName = ServiceName, DryRun = DryRun, 
+        VpcEndpointType = VpcEndpointType, PolicyDocument = PolicyDocument, ClientToken = ClientToken, 
+        PrivateDnsEnabled = PrivateDnsEnabled), RouteTableId, SubnetId, SecurityGroupId, 
+        TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateVpcEndpoint", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -5071,7 +5099,8 @@ ec2_create_vpc_endpoint_connection_notification <- function(ConnectionNotificati
     others = list()) {
     ConnectionEvents <- list_to_array("ConnectionEvents", ConnectionEvents)
     parameters <- c(others, list(ConnectionNotificationArn = ConnectionNotificationArn, DryRun = DryRun, 
-        ServiceId = ServiceId, VpcEndpointId = VpcEndpointId, ClientToken = ClientToken), ConnectionEvents)
+        ServiceId = ServiceId, VpcEndpointId = VpcEndpointId, ClientToken = ClientToken), 
+        ConnectionEvents)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateVpcEndpointConnectionNotification", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -5122,13 +5151,14 @@ ec2_create_vpc_endpoint_connection_notification <- function(ConnectionNotificati
 #' @return A list object or a character vector
 #' @export
 ec2_create_vpc_endpoint_service_configuration <- function(DryRun = NULL, AcceptanceRequired = NULL, 
-    PrivateDnsName = NULL, NetworkLoadBalancerArn = NULL, GatewayLoadBalancerArn = NULL, ClientToken = NULL, 
-    TagSpecification = NULL, simplify = TRUE, others = list()) {
+    PrivateDnsName = NULL, NetworkLoadBalancerArn = NULL, GatewayLoadBalancerArn = NULL, 
+    ClientToken = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
     NetworkLoadBalancerArn <- list_to_array("NetworkLoadBalancerArn", NetworkLoadBalancerArn)
     GatewayLoadBalancerArn <- list_to_array("GatewayLoadBalancerArn", GatewayLoadBalancerArn)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(DryRun = DryRun, AcceptanceRequired = AcceptanceRequired, PrivateDnsName = PrivateDnsName, 
-        ClientToken = ClientToken), NetworkLoadBalancerArn, GatewayLoadBalancerArn, TagSpecification)
+    parameters <- c(others, list(DryRun = DryRun, AcceptanceRequired = AcceptanceRequired, 
+        PrivateDnsName = PrivateDnsName, ClientToken = ClientToken), NetworkLoadBalancerArn, 
+        GatewayLoadBalancerArn, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "CreateVpcEndpointServiceConfiguration", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -5295,8 +5325,8 @@ ec2_create_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecification = NULL, AmazonSideAsn = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecification = NULL, 
+    AmazonSideAsn = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Type = Type, AvailabilityZone = AvailabilityZone, AmazonSideAsn = AmazonSideAsn, 
         DryRun = DryRun), TagSpecification)
@@ -5323,7 +5353,8 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(CarrierGatewayId = CarrierGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteCarrierGateway", parameters = parameters, 
@@ -5425,7 +5456,8 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(CustomerGatewayId = CustomerGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteCustomerGateway", parameters = parameters, 
@@ -5486,10 +5518,11 @@ ec2_delete_dhcp_options <- function(DhcpOptionsId, DryRun = NULL, simplify = TRU
 #' @export
 ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, DryRun = DryRun))
+    parameters <- c(others, list(EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteEgressOnlyInternetGateway", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteEgressOnlyInternetGateway", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5523,9 +5556,11 @@ ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId,
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     FleetId <- list_to_array("FleetId", FleetId)
-    parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), FleetId)
+    parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), 
+        FleetId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteFleets", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -5613,7 +5648,8 @@ ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, o
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_internet_gateway <- function(InternetGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_internet_gateway <- function(InternetGatewayId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteInternetGateway", parameters = parameters, 
@@ -5731,8 +5767,8 @@ ec2_delete_launch_template_versions <- function(LaunchTemplateVersion, DryRun = 
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName), 
         LaunchTemplateVersion)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteLaunchTemplateVersions", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteLaunchTemplateVersions", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -5762,8 +5798,8 @@ ec2_delete_launch_template_versions <- function(LaunchTemplateVersion, DryRun = 
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRouteTableId, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_delete_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRouteTableId, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -5823,7 +5859,8 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteManagedPrefixList", parameters = parameters, 
@@ -5920,8 +5957,8 @@ ec2_delete_network_acl <- function(NetworkAclId, DryRun = NULL, simplify = TRUE,
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, RuleNumber = RuleNumber, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -5950,12 +5987,12 @@ ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRu
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_network_insights_analysis <- function(NetworkInsightsAnalysisId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_delete_network_insights_analysis <- function(NetworkInsightsAnalysisId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(NetworkInsightsAnalysisId = NetworkInsightsAnalysisId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteNetworkInsightsAnalysis", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteNetworkInsightsAnalysis", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6009,7 +6046,8 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNetworkInterface", parameters = parameters, 
@@ -6050,8 +6088,8 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
     parameters <- c(others, list(NetworkInterfacePermissionId = NetworkInterfacePermissionId, 
         Force = Force, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteNetworkInterfacePermission", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteNetworkInterfacePermission", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6112,8 +6150,8 @@ ec2_delete_queued_reserved_instances <- function(ReservedInstancesId, DryRun = N
     ReservedInstancesId <- list_to_array("ReservedInstancesId", ReservedInstancesId)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstancesId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteQueuedReservedInstances", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteQueuedReservedInstances", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6267,8 +6305,8 @@ ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, othe
 ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteSpotDatafeedSubscription", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteSpotDatafeedSubscription", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6391,12 +6429,12 @@ ec2_delete_traffic_mirror_filter <- function(TrafficMirrorFilterId, DryRun = NUL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_delete_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(TrafficMirrorFilterRuleId = TrafficMirrorFilterRuleId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilterRule", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilterRule", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6475,7 +6513,8 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGateway", parameters = parameters, 
@@ -6504,9 +6543,10 @@ ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnect", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -6535,10 +6575,11 @@ ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRu
 #' @export
 ec2_delete_transit_gateway_connect_peer <- function(TransitGatewayConnectPeerId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayConnectPeerId = TransitGatewayConnectPeerId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayConnectPeerId = TransitGatewayConnectPeerId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnectPeer", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnectPeer", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6562,8 +6603,8 @@ ec2_delete_transit_gateway_connect_peer <- function(TransitGatewayConnectPeerId,
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastDomainId, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastDomainId, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -6594,7 +6635,8 @@ ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastD
 #' @export
 ec2_delete_transit_gateway_peering_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayPeeringAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -6626,10 +6668,10 @@ ec2_delete_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, PrefixListId, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
-        DryRun = DryRun))
+ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, 
+    PrefixListId, DryRun = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        PrefixListId = PrefixListId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayPrefixListReference", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -6663,8 +6705,8 @@ ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
 #' @export
 ec2_delete_transit_gateway_route <- function(TransitGatewayRouteTableId, DestinationCidrBlock, 
     DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
-        DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        DestinationCidrBlock = DestinationCidrBlock, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayRoute", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -6695,10 +6737,11 @@ ec2_delete_transit_gateway_route <- function(TransitGatewayRouteTableId, Destina
 #' @export
 ec2_delete_transit_gateway_route_table <- function(TransitGatewayRouteTableId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DeleteTransitGatewayRouteTable", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DeleteTransitGatewayRouteTable", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -6724,7 +6767,8 @@ ec2_delete_transit_gateway_route_table <- function(TransitGatewayRouteTableId, D
 #' @export
 ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayVpcAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -7392,8 +7436,8 @@ ec2_describe_aggregate_id_format <- function(DryRun = NULL, simplify = TRUE, oth
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, ZoneId = NULL, AllAvailabilityZones = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, ZoneId = NULL, 
+    AllAvailabilityZones = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     ZoneName <- list_to_array("ZoneName", ZoneName)
     ZoneId <- list_to_array("ZoneId", ZoneId)
     Filter <- list_to_filter(Filter)
@@ -7608,8 +7652,8 @@ ec2_describe_capacity_reservations <- function(CapacityReservationId = NULL, Nex
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun), 
         CapacityReservationId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeCapacityReservations", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeCapacityReservations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -7737,8 +7781,8 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter, InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeClassicLinkInstances", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeClassicLinkInstances", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -7779,11 +7823,11 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
 #' another request with the nextToken value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_client_vpn_authorization_rules <- function(ClientVpnEndpointId, DryRun = NULL, NextToken = NULL, 
-    Filter = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_client_vpn_authorization_rules <- function(ClientVpnEndpointId, DryRun = NULL, 
+    NextToken = NULL, Filter = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun, NextToken = NextToken, 
-        MaxResults = MaxResults), Filter)
+    parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun, 
+        NextToken = NextToken, MaxResults = MaxResults), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeClientVpnAuthorizationRules", 
         parameters = parameters, simplify = simplify, token_name = "NextToken")
@@ -7833,8 +7877,8 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeClientVpnConnections", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeClientVpnConnections", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -7872,8 +7916,8 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxResults = NULL, NextToken = NULL, 
-    Filter = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxResults = NULL, 
+    NextToken = NULL, Filter = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     ClientVpnEndpointId <- list_to_array("ClientVpnEndpointId", ClientVpnEndpointId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -7981,8 +8025,8 @@ ec2_describe_client_vpn_target_networks <- function(ClientVpnEndpointId, Associa
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), AssociationIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeClientVpnTargetNetworks", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeClientVpnTargetNetworks", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8169,8 +8213,8 @@ ec2_describe_customer_gateways <- function(CustomerGatewayId = NULL, Filter = NU
 #' with the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_dhcp_options <- function(DhcpOptionsId = NULL, Filter = NULL, DryRun = NULL, NextToken = NULL, 
-    MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_dhcp_options <- function(DhcpOptionsId = NULL, Filter = NULL, DryRun = NULL, 
+    NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     DhcpOptionsId <- list_to_array("DhcpOptionsId", DhcpOptionsId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -8280,8 +8324,8 @@ ec2_describe_egress_only_internet_gateways <- function(DryRun = NULL, EgressOnly
 #' 1000.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_elastic_gpus <- function(ElasticGpuId = NULL, DryRun = NULL, Filter = NULL, MaxResults = NULL, 
-    NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_elastic_gpus <- function(ElasticGpuId = NULL, DryRun = NULL, Filter = NULL, 
+    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     ElasticGpuId <- list_to_array("ElasticGpuId", ElasticGpuId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -8349,7 +8393,8 @@ ec2_describe_export_image_tasks <- function(DryRun = NULL, Filter = NULL, Export
 #' tasks.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_export_tasks <- function(ExportTaskId = NULL, Filter = NULL, simplify = TRUE, others = list()) {
+ec2_describe_export_tasks <- function(ExportTaskId = NULL, Filter = NULL, simplify = TRUE, 
+    others = list()) {
     ExportTaskId <- list_to_array("ExportTaskId", ExportTaskId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(), ExportTaskId, Filter)
@@ -8401,8 +8446,8 @@ ec2_describe_fast_snapshot_restores <- function(Filter = NULL, MaxResults = NULL
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeFastSnapshotRestores", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeFastSnapshotRestores", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8439,10 +8484,10 @@ ec2_describe_fast_snapshot_restores <- function(Filter = NULL, MaxResults = NULL
 #' returned `NextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_fleet_history <- function(FleetId, StartTime, DryRun = NULL, EventType = NULL, MaxResults = NULL, 
-    NextToken = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(FleetId = FleetId, StartTime = StartTime, DryRun = DryRun, EventType = EventType, 
-        MaxResults = MaxResults, NextToken = NextToken))
+ec2_describe_fleet_history <- function(FleetId, StartTime, DryRun = NULL, EventType = NULL, 
+    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(FleetId = FleetId, StartTime = StartTime, DryRun = DryRun, 
+        EventType = EventType, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeFleetHistory", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -8778,8 +8823,8 @@ ec2_describe_host_reservation_offerings <- function(Filter = NULL, MaxDuration =
     parameters <- c(others, list(MaxDuration = MaxDuration, MaxResults = MaxResults, MinDuration = MinDuration, 
         NextToken = NextToken, OfferingId = OfferingId), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeHostReservationOfferings", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeHostReservationOfferings", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -8829,7 +8874,8 @@ ec2_describe_host_reservations <- function(Filter = NULL, HostReservationIdSet =
     NextToken = NULL, simplify = TRUE, others = list()) {
     HostReservationIdSet <- list_to_array("HostReservationIdSet", HostReservationIdSet)
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostReservationIdSet)
+    parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, 
+        HostReservationIdSet)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeHostReservations", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -8887,7 +8933,8 @@ ec2_describe_hosts <- function(Filter = NULL, HostId = NULL, MaxResults = NULL, 
     simplify = TRUE, others = list()) {
     HostId <- list_to_array("HostId", HostId)
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostId)
+    parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, 
+        HostId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeHosts", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -8985,7 +9032,8 @@ ec2_describe_id_format <- function(Resource = NULL, simplify = TRUE, others = li
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simplify = TRUE, others = list()) {
+ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(PrincipalArn = PrincipalArn, Resource = Resource))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeIdentityIdFormat", parameters = parameters, 
@@ -9022,7 +9070,8 @@ ec2_describe_identity_id_format <- function(PrincipalArn, Resource = NULL, simpl
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeImageAttribute", parameters = parameters, 
@@ -9508,8 +9557,8 @@ ec2_describe_instance_type_offerings <- function(DryRun = NULL, LocationType = N
     parameters <- c(others, list(DryRun = DryRun, LocationType = LocationType, MaxResults = MaxResults, 
         NextToken = NextToken), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeInstanceTypeOfferings", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeInstanceTypeOfferings", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -9675,8 +9724,8 @@ ec2_describe_instance_type_offerings <- function(DryRun = NULL, LocationType = N
 #' another request with the next token value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_instance_types <- function(DryRun = NULL, InstanceType = NULL, Filter = NULL, MaxResults = NULL, 
-    NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_instance_types <- function(DryRun = NULL, InstanceType = NULL, Filter = NULL, 
+    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     InstanceType <- list_to_array("InstanceType", InstanceType)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -10260,17 +10309,17 @@ ec2_describe_key_pairs <- function(Filter = NULL, KeyName = NULL, KeyPairId = NU
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_describe_launch_template_versions <- function(DryRun = NULL, LaunchTemplateId = NULL, LaunchTemplateName = NULL, 
-    LaunchTemplateVersion = NULL, MinVersion = NULL, MaxVersion = NULL, NextToken = NULL, MaxResults = NULL, 
-    Filter = NULL, simplify = TRUE, others = list()) {
+ec2_describe_launch_template_versions <- function(DryRun = NULL, LaunchTemplateId = NULL, 
+    LaunchTemplateName = NULL, LaunchTemplateVersion = NULL, MinVersion = NULL, MaxVersion = NULL, 
+    NextToken = NULL, MaxResults = NULL, Filter = NULL, simplify = TRUE, others = list()) {
     LaunchTemplateVersion <- list_to_array("LaunchTemplateVersion", LaunchTemplateVersion)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, 
         MinVersion = MinVersion, MaxVersion = MaxVersion, NextToken = NextToken, MaxResults = MaxResults), 
         LaunchTemplateVersion, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeLaunchTemplateVersions", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeLaunchTemplateVersions", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10492,8 +10541,8 @@ ec2_describe_local_gateway_route_tables <- function(LocalGatewayRouteTableId = N
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         LocalGatewayRouteTableId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeLocalGatewayRouteTables", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeLocalGatewayRouteTables", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10729,8 +10778,8 @@ ec2_describe_managed_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxR
 #' addresses.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_moving_addresses <- function(Filter = NULL, DryRun = NULL, MaxResults = NULL, NextToken = NULL, 
-    PublicIp = NULL, simplify = TRUE, others = list()) {
+ec2_describe_moving_addresses <- function(Filter = NULL, DryRun = NULL, MaxResults = NULL, 
+    NextToken = NULL, PublicIp = NULL, simplify = TRUE, others = list()) {
     PublicIp <- list_to_array("PublicIp", PublicIp)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -10881,8 +10930,8 @@ ec2_describe_nat_gateways <- function(DryRun = NULL, Filter = NULL, MaxResults =
 #' with the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_network_acls <- function(Filter = NULL, DryRun = NULL, NetworkAclId = NULL, NextToken = NULL, 
-    MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_network_acls <- function(Filter = NULL, DryRun = NULL, NetworkAclId = NULL, 
+    NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     NetworkAclId <- list_to_array("NetworkAclId", NetworkAclId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -10950,8 +10999,8 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
         AnalysisEndTime = AnalysisEndTime, MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken), 
         NetworkInsightsAnalysisId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsAnalyses", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsAnalyses", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -10994,15 +11043,15 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Filter = NULL, MaxResults = NULL, 
-    DryRun = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Filter = NULL, 
+    MaxResults = NULL, DryRun = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     NetworkInsightsPathId <- list_to_array("NetworkInsightsPathId", NetworkInsightsPathId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken), 
         NetworkInsightsPathId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsPaths", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeNetworkInsightsPaths", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -11030,8 +11079,8 @@ ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Fi
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_network_interface_attribute <- function(NetworkInterfaceId, Attribute = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_describe_network_interface_attribute <- function(NetworkInterfaceId, Attribute = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attribute = Attribute, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -11076,8 +11125,8 @@ ec2_describe_network_interface_attribute <- function(NetworkInterfaceId, Attribu
 #' to 50 results are returned by default.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_network_interface_permissions <- function(NetworkInterfacePermissionId = NULL, Filter = NULL, 
-    NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_network_interface_permissions <- function(NetworkInterfacePermissionId = NULL, 
+    Filter = NULL, NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     NetworkInterfacePermissionId <- list_to_array("NetworkInterfacePermissionId", NetworkInterfacePermissionId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), NetworkInterfacePermissionId, 
@@ -11292,8 +11341,8 @@ ec2_describe_network_interfaces <- function(Filter = NULL, DryRun = NULL, Networ
 #' groups.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_placement_groups <- function(Filter = NULL, DryRun = NULL, GroupName = NULL, GroupId = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_describe_placement_groups <- function(Filter = NULL, DryRun = NULL, GroupName = NULL, 
+    GroupId = NULL, simplify = TRUE, others = list()) {
     GroupName <- list_to_array("GroupName", GroupName)
     GroupId <- list_to_array("GroupId", GroupId)
     Filter <- list_to_filter(Filter)
@@ -11425,7 +11474,8 @@ ec2_describe_public_ipv4_pools <- function(PoolId = NULL, NextToken = NULL, MaxR
     Filter = NULL, simplify = TRUE, others = list()) {
     PoolId <- list_to_array("PoolId", PoolId)
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), PoolId, Filter)
+    parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), PoolId, 
+        Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribePublicIpv4Pools", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -11928,8 +11978,8 @@ ec2_describe_reserved_instances_offerings <- function(AvailabilityZone = NULL, F
 #' with the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_route_tables <- function(Filter = NULL, DryRun = NULL, RouteTableId = NULL, NextToken = NULL, 
-    MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_route_tables <- function(Filter = NULL, DryRun = NULL, RouteTableId = NULL, 
+    NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     RouteTableId <- list_to_array("RouteTableId", RouteTableId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -12085,12 +12135,13 @@ ec2_describe_scheduled_instances <- function(DryRun = NULL, Filter = NULL, MaxRe
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     GroupId <- list_to_array("GroupId", GroupId)
     parameters <- c(others, list(DryRun = DryRun), GroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeSecurityGroupReferences", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DescribeSecurityGroupReferences", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -12215,8 +12266,8 @@ ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simpl
 #' are returned.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_security_groups <- function(Filter = NULL, GroupId = NULL, GroupName = NULL, DryRun = NULL, 
-    NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
+ec2_describe_security_groups <- function(Filter = NULL, GroupId = NULL, GroupName = NULL, 
+    DryRun = NULL, NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list()) {
     GroupId <- list_to_array("GroupId", GroupId)
     GroupName <- list_to_array("GroupName", GroupName)
     Filter <- list_to_filter(Filter)
@@ -12378,8 +12429,8 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
 ec2_describe_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeSpotDatafeedSubscription", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DescribeSpotDatafeedSubscription", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -12412,8 +12463,8 @@ ec2_describe_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TR
 #' @export
 ec2_describe_spot_fleet_instances <- function(SpotFleetRequestId, DryRun = NULL, MaxResults = NULL, 
     NextToken = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, DryRun = DryRun, MaxResults = MaxResults, 
-        NextToken = NextToken))
+    parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, DryRun = DryRun, 
+        MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeSpotFleetInstances", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -12458,8 +12509,8 @@ ec2_describe_spot_fleet_request_history <- function(SpotFleetRequestId, StartTim
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, StartTime = StartTime, 
         DryRun = DryRun, EventType = EventType, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeSpotFleetRequestHistory", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeSpotFleetRequestHistory", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12648,8 +12699,8 @@ ec2_describe_spot_instance_requests <- function(Filter = NULL, DryRun = NULL, Sp
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, SpotInstanceRequestId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeSpotInstanceRequests", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeSpotInstanceRequests", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -12766,7 +12817,8 @@ ec2_describe_spot_price_history <- function(Filter = NULL, AvailabilityZone = NU
 #' @export
 ec2_describe_stale_security_groups <- function(VpcId, DryRun = NULL, MaxResults = NULL, NextToken = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken))
+    parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, MaxResults = MaxResults, 
+        NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeStaleSecurityGroups", parameters = parameters, 
         simplify = simplify, token_name = "NextToken")
@@ -12949,15 +13001,15 @@ ec2_describe_tags <- function(DryRun = NULL, Filter = NULL, MaxResults = NULL, N
 #' the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, DryRun = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, DryRun = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     TrafficMirrorFilterId <- list_to_array("TrafficMirrorFilterId", TrafficMirrorFilterId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorFilterId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorFilters", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorFilters", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13020,8 +13072,8 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorSessionId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorSessions", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorSessions", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13067,15 +13119,15 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
 #' the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, DryRun = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, DryRun = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     TrafficMirrorTargetId <- list_to_array("TrafficMirrorTargetId", TrafficMirrorTargetId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         TrafficMirrorTargetId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorTargets", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeTrafficMirrorTargets", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13137,8 +13189,8 @@ ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, Dr
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -13185,8 +13237,8 @@ ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_transit_gateway_connect_peers <- function(TransitGatewayConnectPeerIds = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_transit_gateway_connect_peers <- function(TransitGatewayConnectPeerIds = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TransitGatewayConnectPeerIds <- list_to_array("TransitGatewayConnectPeerIds", TransitGatewayConnectPeerIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -13247,8 +13299,8 @@ ec2_describe_transit_gateway_connects <- function(TransitGatewayAttachmentIds = 
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayAttachmentIds, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeTransitGatewayConnects", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeTransitGatewayConnects", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13291,7 +13343,8 @@ ec2_describe_transit_gateway_connects <- function(TransitGatewayAttachmentIds = 
 #' @export
 ec2_describe_transit_gateway_multicast_domains <- function(TransitGatewayMulticastDomainIds = NULL, 
     Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
-    TransitGatewayMulticastDomainIds <- list_to_array("TransitGatewayMulticastDomainIds", TransitGatewayMulticastDomainIds)
+    TransitGatewayMulticastDomainIds <- list_to_array("TransitGatewayMulticastDomainIds", 
+        TransitGatewayMulticastDomainIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         TransitGatewayMulticastDomainIds, Filter)
@@ -13414,8 +13467,8 @@ ec2_describe_transit_gateway_peering_attachments <- function(TransitGatewayAttac
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableIds = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableIds = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TransitGatewayRouteTableIds <- list_to_array("TransitGatewayRouteTableIds", TransitGatewayRouteTableIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -13467,8 +13520,8 @@ ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableId
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmentIds = NULL, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmentIds = NULL, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -13654,8 +13707,8 @@ ec2_describe_volume_attribute <- function(Attribute, VolumeId, DryRun = NULL, si
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_volume_status <- function(Filter = NULL, MaxResults = NULL, NextToken = NULL, VolumeId = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_volume_status <- function(Filter = NULL, MaxResults = NULL, NextToken = NULL, 
+    VolumeId = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     VolumeId <- list_to_array("VolumeId", VolumeId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -13823,8 +13876,8 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         VolumeId, Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeVolumesModifications", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeVolumesModifications", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -13852,7 +13905,8 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(Attribute = Attribute, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeVpcAttribute", parameters = parameters, 
@@ -13934,13 +13988,13 @@ ec2_describe_vpc_classic_link <- function(Filter = NULL, DryRun = NULL, VpcId = 
 #' IDs.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_vpc_classic_link_dns_support <- function(MaxResults = NULL, NextToken = NULL, VpcIds = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_describe_vpc_classic_link_dns_support <- function(MaxResults = NULL, NextToken = NULL, 
+    VpcIds = NULL, simplify = TRUE, others = list()) {
     VpcIds <- list_to_array("VpcIds", VpcIds)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), VpcIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeVpcClassicLinkDnsSupport", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeVpcClassicLinkDnsSupport", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14045,8 +14099,8 @@ ec2_describe_vpc_endpoint_connections <- function(DryRun = NULL, Filter = NULL, 
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeVpcEndpointConnections", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeVpcEndpointConnections", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14275,8 +14329,8 @@ ec2_describe_vpc_endpoint_services <- function(DryRun = NULL, ServiceName = NULL
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_describe_vpc_endpoints <- function(DryRun = NULL, VpcEndpointId = NULL, Filter = NULL, MaxResults = NULL, 
-    NextToken = NULL, simplify = TRUE, others = list()) {
+ec2_describe_vpc_endpoints <- function(DryRun = NULL, VpcEndpointId = NULL, Filter = NULL, 
+    MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list()) {
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -14364,8 +14418,8 @@ ec2_describe_vpc_peering_connections <- function(Filter = NULL, DryRun = NULL, V
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
         Filter, VpcPeeringConnectionId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DescribeVpcPeeringConnections", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "DescribeVpcPeeringConnections", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -14447,8 +14501,8 @@ ec2_describe_vpc_peering_connections <- function(Filter = NULL, DryRun = NULL, V
 #' with the returned `nextToken` value.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextToken = NULL, MaxResults = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextToken = NULL, 
+    MaxResults = NULL, simplify = TRUE, others = list()) {
     VpcId <- list_to_array("VpcId", VpcId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -14588,8 +14642,8 @@ ec2_describe_vpn_connections <- function(Filter = NULL, VpnConnectionId = NULL, 
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     VpnGatewayId <- list_to_array("VpnGatewayId", VpnGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpnGatewayId)
@@ -14625,7 +14679,8 @@ ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_detach_classic_link_vpc <- function(InstanceId, VpcId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_detach_classic_link_vpc <- function(InstanceId, VpcId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DetachClassicLinkVpc", parameters = parameters, 
@@ -14807,8 +14862,8 @@ ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
 ec2_disable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DisableEbsEncryptionByDefault", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DisableEbsEncryptionByDefault", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -14874,10 +14929,10 @@ ec2_disable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotI
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_disable_transit_gateway_route_table_propagation <- function(TransitGatewayRouteTableId, TransitGatewayAttachmentId, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
-        DryRun = DryRun))
+ec2_disable_transit_gateway_route_table_propagation <- function(TransitGatewayRouteTableId, 
+    TransitGatewayAttachmentId, DryRun = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DisableTransitGatewayRouteTablePropagation", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -14960,8 +15015,8 @@ ec2_disable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, 
 ec2_disable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DisableVpcClassicLinkDnsSupport", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DisableVpcClassicLinkDnsSupport", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -14986,8 +15041,8 @@ ec2_disable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TR
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId, PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DisassociateAddress", parameters = parameters, 
@@ -15017,8 +15072,8 @@ ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryR
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_disassociate_client_vpn_target_network <- function(ClientVpnEndpointId, AssociationId, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_disassociate_client_vpn_target_network <- function(ClientVpnEndpointId, AssociationId, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, AssociationId = AssociationId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -15079,8 +15134,8 @@ ec2_disassociate_enclave_certificate_iam_role <- function(CertificateArn = NULL,
 ec2_disassociate_iam_instance_profile <- function(AssociationId, simplify = TRUE, others = list()) {
     parameters <- c(others, list(AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "DisassociateIamInstanceProfile", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "DisassociateIamInstanceProfile", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -15162,7 +15217,8 @@ ec2_disassociate_subnet_cidr_block <- function(AssociationId, simplify = TRUE, o
 #' @return A list object or a character vector
 #' @export
 ec2_disassociate_transit_gateway_multicast_domain <- function(TransitGatewayMulticastDomainId = NULL, 
-    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -15198,8 +15254,8 @@ ec2_disassociate_transit_gateway_multicast_domain <- function(TransitGatewayMult
 #' @export
 ec2_disassociate_transit_gateway_route_table <- function(TransitGatewayRouteTableId, TransitGatewayAttachmentId, 
     DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
-        DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "DisassociateTransitGatewayRouteTable", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -15240,8 +15296,8 @@ ec2_disassociate_vpc_cidr_block <- function(AssociationId, simplify = TRUE, othe
 ec2_enable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "EnableEbsEncryptionByDefault", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "EnableEbsEncryptionByDefault", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -15304,10 +15360,10 @@ ec2_enable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotId
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_enable_transit_gateway_route_table_propagation <- function(TransitGatewayRouteTableId, TransitGatewayAttachmentId, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
-        DryRun = DryRun))
+ec2_enable_transit_gateway_route_table_propagation <- function(TransitGatewayRouteTableId, 
+    TransitGatewayAttachmentId, DryRun = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "EnableTransitGatewayRouteTablePropagation", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -15428,8 +15484,8 @@ ec2_enable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, o
 ec2_enable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpcId = VpcId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "EnableVpcClassicLinkDnsSupport", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "EnableVpcClassicLinkDnsSupport", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -15453,8 +15509,8 @@ ec2_enable_vpc_classic_link_dns_support <- function(VpcId = NULL, simplify = TRU
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEndpointId, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEndpointId, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ExportClientVpnClientCertificateRevocationList", 
@@ -15486,8 +15542,8 @@ ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ExportClientVpnClientConfiguration", 
@@ -15547,8 +15603,9 @@ ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryR
 #' task during creation.
 #' @return A list object or a character vector
 #' @export
-ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientToken = NULL, Description = NULL, 
-    DryRun = NULL, RoleName = NULL, TagSpecification = NULL, simplify = TRUE, others = list()) {
+ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientToken = NULL, 
+    Description = NULL, DryRun = NULL, RoleName = NULL, TagSpecification = NULL, simplify = TRUE, 
+    others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DiskImageFormat = DiskImageFormat, ImageId = ImageId, S3ExportLocation = S3ExportLocation, 
         ClientToken = ClientToken, Description = Description, DryRun = DryRun, RoleName = RoleName), 
@@ -15614,8 +15671,8 @@ ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientT
 ec2_export_transit_gateway_routes <- function(TransitGatewayRouteTableId, S3Bucket, Filter = NULL, 
     DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, S3Bucket = S3Bucket, 
-        DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        S3Bucket = S3Bucket, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ExportTransitGatewayRoutes", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -15682,8 +15739,8 @@ ec2_get_associated_enclave_certificate_iam_roles <- function(CertificateArn = NU
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_get_associated_ipv6_pool_cidrs <- function(PoolId, NextToken = NULL, MaxResults = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_get_associated_ipv6_pool_cidrs <- function(PoolId, NextToken = NULL, MaxResults = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(PoolId = PoolId, NextToken = NextToken, MaxResults = MaxResults, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -15878,8 +15935,8 @@ ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, 
     others = list()) {
     parameters <- c(others, list(InstanceFamily = InstanceFamily, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "GetDefaultCreditSpecification", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "GetDefaultCreditSpecification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -15952,13 +16009,13 @@ ec2_get_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, ot
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextToken = NULL, MaxResults = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextToken = NULL, 
+    MaxResults = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "GetGroupsForCapacityReservation", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "GetGroupsForCapacityReservation", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16044,8 +16101,8 @@ ec2_get_managed_prefix_list_associations <- function(PrefixListId, DryRun = NULL
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "GetManagedPrefixListAssociations", parameters = parameters, 
-        simplify = simplify, token_name = "NextToken")
+    make_request(service_request = ec2_request, action = "GetManagedPrefixListAssociations", 
+        parameters = parameters, simplify = simplify, token_name = "NextToken")
 }
 
 
@@ -16143,8 +16200,8 @@ ec2_get_password_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 #' Convertible Reserved Instances.
 #' @return A list object or a character vector
 #' @export
-ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, TargetConfiguration = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, 
+    TargetConfiguration = NULL, simplify = TRUE, others = list()) {
     ReservedInstanceId <- list_to_array("ReservedInstanceId", ReservedInstanceId)
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
@@ -16190,8 +16247,8 @@ ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun
 ec2_get_transit_gateway_attachment_propagations <- function(TransitGatewayAttachmentId, Filter = NULL, 
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, MaxResults = MaxResults, 
-        NextToken = NextToken, DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "GetTransitGatewayAttachmentPropagations", 
         parameters = parameters, simplify = simplify, token_name = "NextToken")
@@ -16304,8 +16361,8 @@ ec2_get_transit_gateway_multicast_domain_associations <- function(TransitGateway
 ec2_get_transit_gateway_prefix_list_references <- function(TransitGatewayRouteTableId, Filter = NULL, 
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
-        NextToken = NextToken, DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "GetTransitGatewayPrefixListReferences", 
         parameters = parameters, simplify = simplify, token_name = "NextToken")
@@ -16349,11 +16406,11 @@ ec2_get_transit_gateway_prefix_list_references <- function(TransitGatewayRouteTa
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRouteTableId, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRouteTableId, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
-        NextToken = NextToken, DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "GetTransitGatewayRouteTableAssociations", 
         parameters = parameters, simplify = simplify, token_name = "NextToken")
@@ -16397,11 +16454,11 @@ ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRoute
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRouteTableId, Filter = NULL, 
-    MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRouteTableId, 
+    Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
-        NextToken = NextToken, DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "GetTransitGatewayRouteTablePropagations", 
         parameters = parameters, simplify = simplify, token_name = "NextToken")
@@ -16433,8 +16490,8 @@ ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRoute
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEndpointId, CertificateRevocationList, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEndpointId, 
+    CertificateRevocationList, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, CertificateRevocationList = CertificateRevocationList, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -16574,10 +16631,10 @@ ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
 #' image task during creation.
 #' @return A list object or a character vector
 #' @export
-ec2_import_image <- function(Architecture = NULL, ClientData = NULL, ClientToken = NULL, Description = NULL, 
-    DiskContainer = NULL, DryRun = NULL, Encrypted = NULL, Hypervisor = NULL, KmsKeyId = NULL, 
-    LicenseType = NULL, Platform = NULL, RoleName = NULL, LicenseSpecifications = NULL, TagSpecification = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_import_image <- function(Architecture = NULL, ClientData = NULL, ClientToken = NULL, 
+    Description = NULL, DiskContainer = NULL, DryRun = NULL, Encrypted = NULL, Hypervisor = NULL, 
+    KmsKeyId = NULL, LicenseType = NULL, Platform = NULL, RoleName = NULL, LicenseSpecifications = NULL, 
+    TagSpecification = NULL, simplify = TRUE, others = list()) {
     DiskContainer <- list_to_array("DiskContainer", DiskContainer)
     LicenseSpecifications <- list_to_array("LicenseSpecifications", LicenseSpecifications)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
@@ -16659,8 +16716,8 @@ ec2_import_instance <- function(Platform, Description = NULL, DiskImage = NULL, 
 ec2_import_key_pair <- function(KeyName, PublicKeyMaterial, DryRun = NULL, TagSpecification = NULL, 
     simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
-    parameters <- c(others, list(KeyName = KeyName, PublicKeyMaterial = PublicKeyMaterial, DryRun = DryRun), 
-        TagSpecification)
+    parameters <- c(others, list(KeyName = KeyName, PublicKeyMaterial = PublicKeyMaterial, 
+        DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ImportKeyPair", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -16754,9 +16811,9 @@ ec2_import_key_pair <- function(KeyName, PublicKeyMaterial, DryRun = NULL, TagSp
 #' import snapshot task during creation.
 #' @return A list object or a character vector
 #' @export
-ec2_import_snapshot <- function(ClientData = NULL, ClientToken = NULL, Description = NULL, DiskContainer = NULL, 
-    DryRun = NULL, Encrypted = NULL, KmsKeyId = NULL, RoleName = NULL, TagSpecification = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_import_snapshot <- function(ClientData = NULL, ClientToken = NULL, Description = NULL, 
+    DiskContainer = NULL, DryRun = NULL, Encrypted = NULL, KmsKeyId = NULL, RoleName = NULL, 
+    TagSpecification = NULL, simplify = TRUE, others = list()) {
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(ClientData = ClientData, ClientToken = ClientToken, Description = Description, 
         DiskContainer = DiskContainer, DryRun = DryRun, Encrypted = Encrypted, KmsKeyId = KmsKeyId, 
@@ -16830,8 +16887,8 @@ ec2_import_volume <- function(AvailabilityZone, Image, Volume, Description = NUL
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_address_attribute <- function(AllocationId, DomainName = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_modify_address_attribute <- function(AllocationId, DomainName = NULL, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(AllocationId = AllocationId, DomainName = DomainName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyAddressAttribute", parameters = parameters, 
@@ -16937,8 +16994,8 @@ ec2_modify_availability_zone_group <- function(GroupName, OptInStatus, DryRun = 
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount = NULL, EndDate = NULL, 
-    EndDateType = NULL, Accept = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount = NULL, 
+    EndDate = NULL, EndDateType = NULL, Accept = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, InstanceCount = InstanceCount, 
         EndDate = EndDate, EndDateType = EndDateType, Accept = Accept, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -17037,15 +17094,16 @@ ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount
 #' connections.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificateArn = NULL, ConnectionLogOptions = NULL, 
-    DnsServers = NULL, VpnPort = NULL, Description = NULL, SplitTunnel = NULL, DryRun = NULL, 
-    SecurityGroupId = NULL, VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, 
+ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificateArn = NULL, 
+    ConnectionLogOptions = NULL, DnsServers = NULL, VpnPort = NULL, Description = NULL, SplitTunnel = NULL, 
+    DryRun = NULL, SecurityGroupId = NULL, VpcId = NULL, SelfServicePortal = NULL, ClientConnectOptions = NULL, 
     simplify = TRUE, others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ServerCertificateArn = ServerCertificateArn, 
         ConnectionLogOptions = ConnectionLogOptions, DnsServers = DnsServers, VpnPort = VpnPort, 
         Description = Description, SplitTunnel = SplitTunnel, DryRun = DryRun, VpcId = VpcId, 
-        SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), SecurityGroupId)
+        SelfServicePortal = SelfServicePortal, ClientConnectOptions = ClientConnectOptions), 
+        SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyClientVpnEndpoint", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -17078,10 +17136,11 @@ ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificat
 #' @export
 ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(InstanceFamily = InstanceFamily, CpuCredits = CpuCredits, DryRun = DryRun))
+    parameters <- c(others, list(InstanceFamily = InstanceFamily, CpuCredits = CpuCredits, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ModifyDefaultCreditSpecification", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ModifyDefaultCreditSpecification", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17163,8 +17222,8 @@ ec2_modify_ebs_default_kms_key_id <- function(KmsKeyId, DryRun = NULL, simplify 
 #' Fleet.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPolicy = NULL, LaunchTemplateConfig = NULL, 
-    TargetCapacitySpecification = NULL, simplify = TRUE, others = list()) {
+ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPolicy = NULL, 
+    LaunchTemplateConfig = NULL, TargetCapacitySpecification = NULL, simplify = TRUE, others = list()) {
     LaunchTemplateConfig <- list_to_array("LaunchTemplateConfig", LaunchTemplateConfig)
     parameters <- c(others, list(FleetId = FleetId, DryRun = DryRun, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
         TargetCapacitySpecification = TargetCapacitySpecification), LaunchTemplateConfig)
@@ -17228,9 +17287,9 @@ ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPo
 #' A name for the AFI.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute = NULL, OperationType = NULL, 
-    UserId = NULL, UserGroup = NULL, ProductCode = NULL, LoadPermission = NULL, Description = NULL, 
-    Name = NULL, simplify = TRUE, others = list()) {
+ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute = NULL, 
+    OperationType = NULL, UserId = NULL, UserGroup = NULL, ProductCode = NULL, LoadPermission = NULL, 
+    Description = NULL, Name = NULL, simplify = TRUE, others = list()) {
     UserId <- list_to_array("UserId", UserId)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     ProductCode <- list_to_array("ProductCode", ProductCode)
@@ -17291,8 +17350,8 @@ ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribut
 ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, InstanceType = NULL, 
     InstanceFamily = NULL, simplify = TRUE, others = list()) {
     HostId <- list_to_array("HostId", HostId)
-    parameters <- c(others, list(AutoPlacement = AutoPlacement, HostRecovery = HostRecovery, InstanceType = InstanceType, 
-        InstanceFamily = InstanceFamily), HostId)
+    parameters <- c(others, list(AutoPlacement = AutoPlacement, HostRecovery = HostRecovery, 
+        InstanceType = InstanceType, InstanceFamily = InstanceFamily), HostId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyHosts", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -17432,14 +17491,14 @@ ec2_modify_identity_id_format <- function(PrincipalArn, Resource, UseLongIds, si
 #' @return A list object or a character vector
 #' @export
 ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = NULL, LaunchPermission = NULL, 
-    OperationType = NULL, ProductCode = NULL, UserGroup = NULL, UserId = NULL, Value = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+    OperationType = NULL, ProductCode = NULL, UserGroup = NULL, UserId = NULL, Value = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     ProductCode <- list_to_array("ProductCode", ProductCode)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     UserId <- list_to_array("UserId", UserId)
     parameters <- c(others, list(ImageId = ImageId, Attribute = Attribute, Description = Description, 
-        LaunchPermission = LaunchPermission, OperationType = OperationType, Value = Value, DryRun = DryRun), 
-        ProductCode, UserGroup, UserId)
+        LaunchPermission = LaunchPermission, OperationType = OperationType, Value = Value, 
+        DryRun = DryRun), ProductCode, UserGroup, UserId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyImageAttribute", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -17569,13 +17628,13 @@ ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = 
 ec2_modify_instance_attribute <- function(InstanceId, SourceDestCheck = NULL, Attribute = NULL, 
     BlockDeviceMapping = NULL, DisableApiTermination = NULL, DryRun = NULL, EbsOptimized = NULL, 
     EnaSupport = NULL, GroupId = NULL, InstanceInitiatedShutdownBehavior = NULL, InstanceType = NULL, 
-    Kernel = NULL, Ramdisk = NULL, SriovNetSupport = NULL, UserData = NULL, Value = NULL, simplify = TRUE, 
-    others = list()) {
+    Kernel = NULL, Ramdisk = NULL, SriovNetSupport = NULL, UserData = NULL, Value = NULL, 
+    simplify = TRUE, others = list()) {
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     GroupId <- list_to_array("GroupId", GroupId)
-    parameters <- c(others, list(InstanceId = InstanceId, SourceDestCheck = SourceDestCheck, Attribute = Attribute, 
-        DisableApiTermination = DisableApiTermination, DryRun = DryRun, EbsOptimized = EbsOptimized, 
-        EnaSupport = EnaSupport, InstanceInitiatedShutdownBehavior = InstanceInitiatedShutdownBehavior, 
+    parameters <- c(others, list(InstanceId = InstanceId, SourceDestCheck = SourceDestCheck, 
+        Attribute = Attribute, DisableApiTermination = DisableApiTermination, DryRun = DryRun, 
+        EbsOptimized = EbsOptimized, EnaSupport = EnaSupport, InstanceInitiatedShutdownBehavior = InstanceInitiatedShutdownBehavior, 
         InstanceType = InstanceType, Kernel = Kernel, Ramdisk = Ramdisk, SriovNetSupport = SriovNetSupport, 
         UserData = UserData, Value = Value), BlockDeviceMapping, GroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -17683,13 +17742,13 @@ ec2_modify_instance_credit_specification <- function(InstanceCreditSpecification
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_instance_event_start_time <- function(InstanceId, InstanceEventId, NotBefore, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
-    parameters <- c(others, list(InstanceId = InstanceId, InstanceEventId = InstanceEventId, NotBefore = NotBefore, 
-        DryRun = DryRun))
+ec2_modify_instance_event_start_time <- function(InstanceId, InstanceEventId, NotBefore, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(InstanceId = InstanceId, InstanceEventId = InstanceEventId, 
+        NotBefore = NotBefore, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ModifyInstanceEventStartTime", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ModifyInstanceEventStartTime", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17763,8 +17822,8 @@ ec2_modify_instance_metadata_options <- function(InstanceId, HttpTokens = NULL, 
     parameters <- c(others, list(InstanceId = InstanceId, HttpTokens = HttpTokens, HttpPutResponseHopLimit = HttpPutResponseHopLimit, 
         HttpEndpoint = HttpEndpoint, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ModifyInstanceMetadataOptions", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ModifyInstanceMetadataOptions", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -17809,8 +17868,9 @@ ec2_modify_instance_metadata_options <- function(InstanceId, HttpTokens = NULL, 
 #' place the instance.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_instance_placement <- function(InstanceId, Affinity = NULL, GroupName = NULL, HostId = NULL, 
-    Tenancy = NULL, PartitionNumber = NULL, HostResourceGroupArn = NULL, simplify = TRUE, others = list()) {
+ec2_modify_instance_placement <- function(InstanceId, Affinity = NULL, GroupName = NULL, 
+    HostId = NULL, Tenancy = NULL, PartitionNumber = NULL, HostResourceGroupArn = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(InstanceId = InstanceId, Affinity = Affinity, GroupName = GroupName, 
         HostId = HostId, Tenancy = Tenancy, PartitionNumber = PartitionNumber, HostResourceGroupArn = HostResourceGroupArn))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -17963,14 +18023,15 @@ ec2_modify_managed_prefix_list <- function(PrefixListId, DryRun = NULL, CurrentV
 #' Guide*.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_network_interface_attribute <- function(NetworkInterfaceId, Attachment = NULL, Description = NULL, 
-    DryRun = NULL, SecurityGroupId = NULL, SourceDestCheck = NULL, simplify = TRUE, others = list()) {
+ec2_modify_network_interface_attribute <- function(NetworkInterfaceId, Attachment = NULL, 
+    Description = NULL, DryRun = NULL, SecurityGroupId = NULL, SourceDestCheck = NULL, simplify = TRUE, 
+    others = list()) {
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attachment = Attachment, 
         Description = Description, DryRun = DryRun, SourceDestCheck = SourceDestCheck), SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ModifyNetworkInterfaceAttribute", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ModifyNetworkInterfaceAttribute", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18045,7 +18106,8 @@ ec2_modify_reserved_instances <- function(ReservedInstancesId, ReservedInstances
 #' @return A list object or a character vector
 #' @export
 ec2_modify_snapshot_attribute <- function(SnapshotId, Attribute = NULL, CreateVolumePermission = NULL, 
-    UserGroup = NULL, OperationType = NULL, UserId = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    UserGroup = NULL, OperationType = NULL, UserId = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     UserGroup <- list_to_array("UserGroup", UserGroup)
     UserId <- list_to_array("UserId", UserId)
     parameters <- c(others, list(SnapshotId = SnapshotId, Attribute = Attribute, CreateVolumePermission = CreateVolumePermission, 
@@ -18092,7 +18154,8 @@ ec2_modify_spot_fleet_request <- function(SpotFleetRequestId, ExcessCapacityTerm
     others = list()) {
     LaunchTemplateConfig <- list_to_array("LaunchTemplateConfig", LaunchTemplateConfig)
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
-        TargetCapacity = TargetCapacity, OnDemandTargetCapacity = OnDemandTargetCapacity), LaunchTemplateConfig)
+        TargetCapacity = TargetCapacity, OnDemandTargetCapacity = OnDemandTargetCapacity), 
+        LaunchTemplateConfig)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifySpotFleetRequest", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -18270,8 +18333,8 @@ ec2_modify_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Tra
         SourcePortRange = SourcePortRange, Protocol = Protocol, DestinationCidrBlock = DestinationCidrBlock, 
         SourceCidrBlock = SourceCidrBlock, Description = Description, DryRun = DryRun), RemoveField)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ModifyTrafficMirrorFilterRule", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ModifyTrafficMirrorFilterRule", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -18343,7 +18406,8 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
     RemoveField <- list_to_array("RemoveField", RemoveField)
     parameters <- c(others, list(TrafficMirrorSessionId = TrafficMirrorSessionId, TrafficMirrorTargetId = TrafficMirrorTargetId, 
         TrafficMirrorFilterId = TrafficMirrorFilterId, PacketLength = PacketLength, SessionNumber = SessionNumber, 
-        VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun), RemoveField)
+        VirtualNetworkId = VirtualNetworkId, Description = Description, DryRun = DryRun), 
+        RemoveField)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyTrafficMirrorSession", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -18380,8 +18444,8 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Options = NULL, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Options = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Description = Description, 
         Options = Options, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -18423,10 +18487,12 @@ ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Opt
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, PrefixListId, 
-    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
-        TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
+ec2_modify_transit_gateway_prefix_list_reference <- function(TransitGatewayRouteTableId, 
+    PrefixListId, TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        PrefixListId = PrefixListId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyTransitGatewayPrefixListReference", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -18473,8 +18539,8 @@ ec2_modify_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     RemoveSubnetIds = NULL, Options = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     AddSubnetIds <- list_to_array("AddSubnetIds", AddSubnetIds)
     RemoveSubnetIds <- list_to_array("RemoveSubnetIds", RemoveSubnetIds)
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, Options = Options, 
-        DryRun = DryRun), AddSubnetIds, RemoveSubnetIds)
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        Options = Options, DryRun = DryRun), AddSubnetIds, RemoveSubnetIds)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyTransitGatewayVpcAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -18643,7 +18709,8 @@ ec2_modify_volume_attribute <- function(VolumeId, AutoEnableIO = NULL, DryRun = 
 #' @export
 ec2_modify_vpc_attribute <- function(VpcId, EnableDnsHostnames = NULL, EnableDnsSupport = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(VpcId = VpcId, EnableDnsHostnames = EnableDnsHostnames, EnableDnsSupport = EnableDnsSupport))
+    parameters <- c(others, list(VpcId = VpcId, EnableDnsHostnames = EnableDnsHostnames, 
+        EnableDnsSupport = EnableDnsSupport))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyVpcAttribute", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -18840,7 +18907,8 @@ ec2_modify_vpc_endpoint_service_configuration <- function(ServiceId, DryRun = NU
     RemoveGatewayLoadBalancerArn <- list_to_array("RemoveGatewayLoadBalancerArn", RemoveGatewayLoadBalancerArn)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun, PrivateDnsName = PrivateDnsName, 
         RemovePrivateDnsName = RemovePrivateDnsName, AcceptanceRequired = AcceptanceRequired), 
-        AddNetworkLoadBalancerArn, RemoveNetworkLoadBalancerArn, AddGatewayLoadBalancerArn, RemoveGatewayLoadBalancerArn)
+        AddNetworkLoadBalancerArn, RemoveNetworkLoadBalancerArn, AddGatewayLoadBalancerArn, 
+        RemoveGatewayLoadBalancerArn)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyVpcEndpointServiceConfiguration", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -18943,7 +19011,8 @@ ec2_modify_vpc_peering_connection_options <- function(VpcPeeringConnectionId, Ac
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_vpc_tenancy <- function(VpcId, InstanceTenancy, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_modify_vpc_tenancy <- function(VpcId, InstanceTenancy, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(VpcId = VpcId, InstanceTenancy = InstanceTenancy, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyVpcTenancy", parameters = parameters, 
@@ -19038,9 +19107,9 @@ ec2_modify_vpn_connection <- function(VpnConnectionId, TransitGatewayId = NULL, 
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkCidr = NULL, RemoteIpv4NetworkCidr = NULL, 
-    LocalIpv6NetworkCidr = NULL, RemoteIpv6NetworkCidr = NULL, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkCidr = NULL, 
+    RemoteIpv4NetworkCidr = NULL, LocalIpv6NetworkCidr = NULL, RemoteIpv6NetworkCidr = NULL, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, LocalIpv4NetworkCidr = LocalIpv4NetworkCidr, 
         RemoteIpv4NetworkCidr = RemoteIpv4NetworkCidr, LocalIpv6NetworkCidr = LocalIpv6NetworkCidr, 
         RemoteIpv6NetworkCidr = RemoteIpv6NetworkCidr, DryRun = DryRun))
@@ -19074,8 +19143,8 @@ ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkC
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_modify_vpn_tunnel_certificate <- function(VpnConnectionId, VpnTunnelOutsideIpAddress, DryRun = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_modify_vpn_tunnel_certificate <- function(VpnConnectionId, VpnTunnelOutsideIpAddress, 
+    DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, VpnTunnelOutsideIpAddress = VpnTunnelOutsideIpAddress, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -19648,7 +19717,8 @@ ec2_register_transit_gateway_multicast_group_sources <- function(TransitGatewayM
 #' @return A list object or a character vector
 #' @export
 ec2_reject_transit_gateway_multicast_domain_associations <- function(TransitGatewayMulticastDomainId = NULL, 
-    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, SubnetIds = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -19680,7 +19750,8 @@ ec2_reject_transit_gateway_multicast_domain_associations <- function(TransitGate
 #' @export
 ec2_reject_transit_gateway_peering_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "RejectTransitGatewayPeeringAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -19706,7 +19777,8 @@ ec2_reject_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
 #' @export
 ec2_reject_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId, DryRun = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
+    parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "RejectTransitGatewayVpcAttachment", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -19737,13 +19809,13 @@ ec2_reject_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_reject_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_reject_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "RejectVpcEndpointConnections", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "RejectVpcEndpointConnections", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -19860,8 +19932,8 @@ ec2_release_hosts <- function(HostId, simplify = TRUE, others = list()) {
 #' association.
 #' @return A list object or a character vector
 #' @export
-ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, AssociationId, simplify = TRUE, 
-    others = list()) {
+ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, AssociationId, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(IamInstanceProfile = IamInstanceProfile, AssociationId = AssociationId))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ReplaceIamInstanceProfileAssociation", 
@@ -19891,12 +19963,13 @@ ec2_replace_iam_instance_profile_association <- function(IamInstanceProfile, Ass
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
-    parameters <- c(others, list(AssociationId = AssociationId, NetworkAclId = NetworkAclId, DryRun = DryRun))
+ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
+    parameters <- c(others, list(AssociationId = AssociationId, NetworkAclId = NetworkAclId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ReplaceNetworkAclAssociation", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ReplaceNetworkAclAssociation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -19968,8 +20041,8 @@ ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, Dry
 #' @return A list object or a character vector
 #' @export
 ec2_replace_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAction, RuleNumber, 
-    CidrBlock = NULL, DryRun = NULL, Icmp = NULL, Ipv6CidrBlock = NULL, PortRange = NULL, simplify = TRUE, 
-    others = list()) {
+    CidrBlock = NULL, DryRun = NULL, Icmp = NULL, Ipv6CidrBlock = NULL, PortRange = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, Protocol = Protocol, 
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, 
         Icmp = Icmp, Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
@@ -20094,12 +20167,13 @@ ec2_replace_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destina
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_replace_route_table_association <- function(AssociationId, RouteTableId, DryRun = NULL, simplify = TRUE, 
-    others = list()) {
-    parameters <- c(others, list(AssociationId = AssociationId, RouteTableId = RouteTableId, DryRun = DryRun))
+ec2_replace_route_table_association <- function(AssociationId, RouteTableId, DryRun = NULL, 
+    simplify = TRUE, others = list()) {
+    parameters <- c(others, list(AssociationId = AssociationId, RouteTableId = RouteTableId, 
+        DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ReplaceRouteTableAssociation", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ReplaceRouteTableAssociation", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20137,7 +20211,8 @@ ec2_replace_route_table_association <- function(AssociationId, RouteTableId, Dry
 #' @return A list object or a character vector
 #' @export
 ec2_replace_transit_gateway_route <- function(DestinationCidrBlock, TransitGatewayRouteTableId, 
-    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
+    TransitGatewayAttachmentId = NULL, Blackhole = NULL, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -20209,8 +20284,8 @@ ec2_replace_transit_gateway_route <- function(DestinationCidrBlock, TransitGatew
 #' which the reported instance health state began.
 #' @return A list object or a character vector
 #' @export
-ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Description = NULL, DryRun = NULL, 
-    EndTime = NULL, StartTime = NULL, simplify = TRUE, others = list()) {
+ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Description = NULL, 
+    DryRun = NULL, EndTime = NULL, StartTime = NULL, simplify = TRUE, others = list()) {
     InstanceId <- list_to_array("InstanceId", InstanceId)
     ReasonCode <- list_to_array("ReasonCode", ReasonCode)
     parameters <- c(others, list(Status = Status, Description = Description, DryRun = DryRun, 
@@ -20238,7 +20313,8 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_request_spot_fleet <- function(SpotFleetRequestConfig, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_request_spot_fleet <- function(SpotFleetRequestConfig, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(SpotFleetRequestConfig = SpotFleetRequestConfig, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "RequestSpotFleet", parameters = parameters, 
@@ -20478,8 +20554,8 @@ ec2_reset_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, oth
 #' attribute.
 #' @return A list object or a character vector
 #' @export
-ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute = NULL, 
+    simplify = TRUE, others = list()) {
     parameters <- c(others, list(FpgaImageId = FpgaImageId, DryRun = DryRun, Attribute = Attribute))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ResetFpgaImageAttribute", parameters = parameters, 
@@ -20508,7 +20584,8 @@ ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute
 #' `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_reset_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_reset_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplify = TRUE, 
+    others = list()) {
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "ResetImageAttribute", parameters = parameters, 
@@ -20576,10 +20653,11 @@ ec2_reset_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL, s
 #' @export
 ec2_reset_network_interface_attribute <- function(NetworkInterfaceId, DryRun = NULL, SourceDestCheck = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun, SourceDestCheck = SourceDestCheck))
+    parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun, 
+        SourceDestCheck = SourceDestCheck))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "ResetNetworkInterfaceAttribute", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "ResetNetworkInterfaceAttribute", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20679,8 +20757,8 @@ ec2_restore_managed_prefix_list_version <- function(PrefixListId, PreviousVersio
     parameters <- c(others, list(PrefixListId = PrefixListId, PreviousVersion = PreviousVersion, 
         CurrentVersion = CurrentVersion, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "RestoreManagedPrefixListVersion", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "RestoreManagedPrefixListVersion", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -20776,9 +20854,9 @@ ec2_revoke_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkCidr
 #' specify a destination security group.
 #' @return A list object or a character vector
 #' @export
-ec2_revoke_security_group_egress <- function(GroupId, DryRun = NULL, IpPermissions = NULL, CidrIp = NULL, 
-    FromPort = NULL, IpProtocol = NULL, ToPort = NULL, SourceSecurityGroupName = NULL, SourceSecurityGroupOwnerId = NULL, 
-    simplify = TRUE, others = list()) {
+ec2_revoke_security_group_egress <- function(GroupId, DryRun = NULL, IpPermissions = NULL, 
+    CidrIp = NULL, FromPort = NULL, IpProtocol = NULL, ToPort = NULL, SourceSecurityGroupName = NULL, 
+    SourceSecurityGroupOwnerId = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(GroupId = GroupId, DryRun = DryRun, CidrIp = CidrIp, FromPort = FromPort, 
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
@@ -20863,9 +20941,10 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
     GroupName = NULL, IpPermissions = NULL, IpProtocol = NULL, SourceSecurityGroupName = NULL, 
     SourceSecurityGroupOwnerId = NULL, ToPort = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, GroupName = GroupName, 
-        IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
-        ToPort = ToPort, DryRun = DryRun), IpPermissions)
+    parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, 
+        GroupName = GroupName, IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, 
+        SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, ToPort = ToPort, DryRun = DryRun), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "RevokeSecurityGroupIngress", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -21209,15 +21288,16 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, ImageId = NULL, InstanceType = NULL, 
-    Ipv6AddressCount = NULL, Ipv6Address = NULL, KernelId = NULL, KeyName = NULL, Monitoring = NULL, 
-    Placement = NULL, RamdiskId = NULL, SecurityGroupId = NULL, SecurityGroup = NULL, SubnetId = NULL, 
-    UserData = NULL, AdditionalInfo = NULL, ClientToken = NULL, DisableApiTermination = NULL, 
+ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, ImageId = NULL, 
+    InstanceType = NULL, Ipv6AddressCount = NULL, Ipv6Address = NULL, KernelId = NULL, KeyName = NULL, 
+    Monitoring = NULL, Placement = NULL, RamdiskId = NULL, SecurityGroupId = NULL, SecurityGroup = NULL, 
+    SubnetId = NULL, UserData = NULL, AdditionalInfo = NULL, ClientToken = NULL, DisableApiTermination = NULL, 
     DryRun = NULL, EbsOptimized = NULL, IamInstanceProfile = NULL, InstanceInitiatedShutdownBehavior = NULL, 
     NetworkInterface = NULL, PrivateIpAddress = NULL, ElasticGpuSpecification = NULL, ElasticInferenceAccelerator = NULL, 
     TagSpecification = NULL, LaunchTemplate = NULL, InstanceMarketOptions = NULL, CreditSpecification = NULL, 
-    CpuOptions = NULL, CapacityReservationSpecification = NULL, HibernationOptions = NULL, LicenseSpecification = NULL, 
-    MetadataOptions = NULL, EnclaveOptions = NULL, simplify = TRUE, others = list()) {
+    CpuOptions = NULL, CapacityReservationSpecification = NULL, HibernationOptions = NULL, 
+    LicenseSpecification = NULL, MetadataOptions = NULL, EnclaveOptions = NULL, simplify = TRUE, 
+    others = list()) {
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     Ipv6Address <- list_to_array("Ipv6Address", Ipv6Address)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
@@ -21236,8 +21316,8 @@ ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, Ima
         PrivateIpAddress = PrivateIpAddress, LaunchTemplate = LaunchTemplate, InstanceMarketOptions = InstanceMarketOptions, 
         CreditSpecification = CreditSpecification, CpuOptions = CpuOptions, CapacityReservationSpecification = CapacityReservationSpecification, 
         HibernationOptions = HibernationOptions, MetadataOptions = MetadataOptions, EnclaveOptions = EnclaveOptions), 
-        BlockDeviceMapping, Ipv6Address, SecurityGroupId, SecurityGroup, NetworkInterface, ElasticGpuSpecification, 
-        ElasticInferenceAccelerator, TagSpecification, LicenseSpecification)
+        BlockDeviceMapping, Ipv6Address, SecurityGroupId, SecurityGroup, NetworkInterface, 
+        ElasticGpuSpecification, ElasticInferenceAccelerator, TagSpecification, LicenseSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "RunInstances", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -21458,8 +21538,8 @@ ec2_search_transit_gateway_multicast_groups <- function(TransitGatewayMulticastD
 ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter, MaxResults = NULL, 
     DryRun = NULL, simplify = TRUE, others = list()) {
     Filter <- list_to_filter(Filter)
-    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
-        DryRun = DryRun), Filter)
+    parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
+        MaxResults = MaxResults, DryRun = DryRun), Filter)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "SearchTransitGatewayRoutes", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -21564,8 +21644,8 @@ ec2_start_network_insights_analysis <- function(NetworkInsightsPathId, ClientTok
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, ClientToken = ClientToken, 
         DryRun = DryRun), FilterInArn, TagSpecification)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "StartNetworkInsightsAnalysis", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "StartNetworkInsightsAnalysis", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21633,10 +21713,11 @@ ec2_start_vpc_endpoint_service_private_dns_verification <- function(ServiceId, D
 #' 
 #' @return A list object or a character vector
 #' @export
-ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Force = NULL, simplify = TRUE, 
-    others = list()) {
+ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Force = NULL, 
+    simplify = TRUE, others = list()) {
     InstanceId <- list_to_array("InstanceId", InstanceId)
-    parameters <- c(others, list(Hibernate = Hibernate, DryRun = DryRun, Force = Force), InstanceId)
+    parameters <- c(others, list(Hibernate = Hibernate, DryRun = DryRun, Force = Force), 
+        InstanceId)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "StopInstances", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -21674,13 +21755,13 @@ ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Forc
 #' Otherwise, it is `UnauthorizedOperation`.
 #' @return A list object or a character vector
 #' @export
-ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, ConnectionId = NULL, Username = NULL, 
-    DryRun = NULL, simplify = TRUE, others = list()) {
+ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, ConnectionId = NULL, 
+    Username = NULL, DryRun = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ConnectionId = ConnectionId, 
         Username = Username, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ec2_request, action = "TerminateClientVpnConnections", parameters = parameters, 
-        simplify = simplify, token_name = NULL)
+    make_request(service_request = ec2_request, action = "TerminateClientVpnConnections", 
+        parameters = parameters, simplify = simplify, token_name = NULL)
 }
 
 
@@ -21731,7 +21812,8 @@ ec2_terminate_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
 #' network interface.
 #' @return A list object or a character vector
 #' @export
-ec2_unassign_ipv6_addresses <- function(Ipv6Addresses, NetworkInterfaceId, simplify = TRUE, others = list()) {
+ec2_unassign_ipv6_addresses <- function(Ipv6Addresses, NetworkInterfaceId, simplify = TRUE, 
+    others = list()) {
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId), Ipv6Addresses)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
@@ -21830,10 +21912,11 @@ ec2_unmonitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
 #' request.
 #' @return A list object or a character vector
 #' @export
-ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, DryRun = NULL, GroupId = NULL, 
-    GroupName = NULL, simplify = TRUE, others = list()) {
+ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, DryRun = NULL, 
+    GroupId = NULL, GroupName = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
+    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "UpdateSecurityGroupRuleDescriptionsEgress", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -21872,7 +21955,8 @@ ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, Dr
 ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, DryRun = NULL, 
     GroupId = NULL, GroupName = NULL, simplify = TRUE, others = list()) {
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
-    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
+    parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), 
+        IpPermissions)
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ec2_request, action = "UpdateSecurityGroupRuleDescriptionsIngress", 
         parameters = parameters, simplify = simplify, token_name = NULL)
@@ -21894,7 +21978,6 @@ ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, D
 #' provides an error response. If you have the required permissions, the
 #' error response is `DryRunOperation`. Otherwise, it is
 #' `UnauthorizedOperation`.
-#' 
 #' @return A list object or a character vector
 #' @export
 ec2_withdraw_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list()) {
