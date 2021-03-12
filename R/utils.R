@@ -12,10 +12,7 @@ add_asterisk_in_middle <- function(x, begin_nchar = 2, end_nchar = 2){
   x
 }
 
-##  list_to_array("Filter", list(Name = "a", value = list("b")))
-## list_to_array("Filter", list(list(Name = "a", value = list("b","d"))))
-## list_to_array("Filter", list(a=1,b=list(x1=list(y1=1,y2=2),x2=3)))
-## list_to_array("vpcId", list(1,2,3))
+
 #' Utility functions
 #'
 #' Utility functions. `list_to_array` converts a list or a vector to an
