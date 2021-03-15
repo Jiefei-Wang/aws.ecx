@@ -2,7 +2,10 @@ context("test ecs functions")
 
 if(aws_has_credentials()){
     cluster_names <- paste0("unit-test-cluster", 1:4)
-
+    tags <- list(
+        list( key = "unit-test-cluster",
+              value = "unit-test-cluster")
+    )
     test_that("Delete the cluster if exist",{
         expect_error(response <- ecs_list_clusters(),NA)
 
@@ -17,7 +20,9 @@ if(aws_has_credentials()){
 
     test_that("Create the cluster",{
         for(i in cluster_names){
-            expect_error(response <- ecs_create_cluster(clusterName = i), NA)
+            expect_error(
+                response <- ecs_create_cluster(clusterName = i,tags=tags)
+                , NA)
         }
     })
 
@@ -28,8 +33,8 @@ if(aws_has_credentials()){
             idx <- c(idx,  which(endsWith(response,paste0("/",i))))
         }
         expect_true(length(idx)==length(cluster_names))
-
     })
+
     test_that("list the cluster with token",{
         expect_error(response <- ecs_list_clusters(maxResults = 2),NA)
         idx <- c()
@@ -41,8 +46,14 @@ if(aws_has_credentials()){
 
     test_that("describe the cluster",{
         expect_error(
-            response <- ecs_describe_clusters(clusters = cluster_names[1]),NA
+            response <- ecs_describe_clusters(clusters = cluster_names[2],
+                                              include = list("TAGS")),
+            NA
         )
+        expect_equal(
+            response$clusters[[1]]$tags,
+            list(list(key = "unit-test-cluster", value = "unit-test-cluster"))
+            )
     })
 
     test_that("Delete the cluster",{
