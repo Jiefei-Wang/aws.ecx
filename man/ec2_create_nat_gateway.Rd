@@ -5,8 +5,8 @@
 \title{Create Nat Gateway}
 \usage{
 ec2_create_nat_gateway(
-  AllocationId,
   SubnetId,
+  AllocationId,
   ClientToken = NULL,
   DryRun = NULL,
   TagSpecification = NULL,
@@ -15,9 +15,9 @@ ec2_create_nat_gateway(
 )
 }
 \arguments{
-\item{AllocationId}{String. The allocation ID of an Elastic IP address to associate with the NAT gateway.}
-
 \item{SubnetId}{String. The subnet in which to create the NAT gateway.}
+
+\item{AllocationId}{String. The allocation ID of an Elastic IP address to associate with the NAT gateway.}
 
 \item{ClientToken}{String.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
@@ -43,18 +43,18 @@ gateway, therefore enabling instances in the private subnet to connect
 to the internet. For more information, see \href{https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html}{NAT Gateways}
 in the \emph{Amazon Virtual Private Cloud User Guide}.
 }
-\section{AllocationId}{
-
-The allocation ID of an Elastic IP address to
-associate with the NAT gateway. If the Elastic IP address is associated
-with another resource, you must first disassociate
-it.
-}
-
 \section{SubnetId}{
 
 The subnet in which to create the NAT
 gateway.
+}
+
+\section{AllocationId}{
+
+The allocation ID of an Elastic IP address
+to associate with the NAT gateway. If the Elastic IP address is
+associated with another resource, you must first disassociate
+it.
 }
 
 \section{ClientToken}{

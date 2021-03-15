@@ -36,29 +36,30 @@ Associate Transit Gateway Multicast Domain
 }
 \section{TransitGatewayMulticastDomainId}{
 
-The ID of the transit gateway multicast
-domain.
+The ID of the
+transit gateway multicast domain.
 }
 
 \section{TransitGatewayAttachmentId}{
 
-The ID of the transit gateway attachment to
-associate with the transit gateway multicast
-domain.
+The ID of the
+transit gateway attachment to associate with the transit gateway
+multicast domain.
 }
 
 \section{SubnetIds}{
 
-The IDs of the subnets to associate with the
-transit gateway multicast domain.
+The IDs of the subnets to
+associate with the transit gateway multicast
+domain.
 }
 
 \section{DryRun}{
 
-Checks whether you
-have the required permissions for the action, without actually making
-the request, and provides an error response. If you have the required
-permissions, the error response is \code{DryRunOperation}. Otherwise, it is
+Checks whether you have the required
+permissions for the action, without actually making the request, and
+provides an error response. If you have the required permissions, the
+error response is \code{DryRunOperation}. Otherwise, it is
 \code{UnauthorizedOperation}.
 }
 

@@ -37,10 +37,10 @@ AMI. You can specify only one attribute at a time.
 
 The AMI attribute.
 
-\strong{Note}: Depending on your account privileges, the \code{blockDeviceMapping}
-attribute may return a \code{Client.AuthFailure} error. If this happens, use
-DescribeImages to get information about the block device mapping for the
-AMI.
+\strong{Note}: The \code{blockDeviceMapping} attribute is deprecated. Using this
+attribute returns the \code{Client.AuthFailure} error. To get information
+about the block device mappings for an AMI, use the DescribeImages
+action.
 }
 
 \section{ImageId}{

@@ -8,9 +8,9 @@ Authors@R:
            email = "szwjf08@gmail.com")
 Description: 
     Providing the functions for communicating with AWS EC2 and ECS.
-    The functions will have the prefix `ecs_` or `ec2_` depending on the class 
-    of the API. The request will be sent via the REST APIs and the parameters are
-    given by the function argument. The credentials can be set via `aws_set_credentials`.
+    The functions will have the prefix 'ecs_' or 'ec2_' depending on the class 
+    of the API. The request will be sent via the REST API and the parameters are
+    given by the function argument. The credentials can be set via 'aws_set_credentials'.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

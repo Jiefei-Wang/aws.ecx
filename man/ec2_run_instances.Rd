@@ -142,7 +142,7 @@ launches the largest possible number of instances above \code{MinCount}.
 
 Constraints: Between 1 and the maximum number you\'re allowed for the
 specified instance type. For more information about the default limits,
-and how to request an increase, see \href{http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2}{How many instances can I run in Amazon EC2}
+and how to request an increase, see \href{https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2/}{How many instances can I run in Amazon EC2}
 in the Amazon EC2 FAQ.
 }
 
@@ -155,7 +155,7 @@ Zone, Amazon EC2 launches no instances.
 
 Constraints: Between 1 and the maximum number you\'re allowed for the
 specified instance type. For more information about the default limits,
-and how to request an increase, see \href{http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2}{How many instances can I run in Amazon EC2}
+and how to request an increase, see \href{https://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2/}{How many instances can I run in Amazon EC2}
 in the Amazon EC2 General FAQ.
 }
 

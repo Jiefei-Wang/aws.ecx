@@ -5,16 +5,16 @@
 \title{Associate Subnet Cidr Block}
 \usage{
 ec2_associate_subnet_cidr_block(
-  Ipv6CidrBlock,
   SubnetId,
+  Ipv6CidrBlock,
   simplify = TRUE,
   others = list()
 )
 }
 \arguments{
-\item{Ipv6CidrBlock}{String. The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.}
-
 \item{SubnetId}{String. The ID of your subnet.}
+
+\item{Ipv6CidrBlock}{String. The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}
@@ -30,16 +30,15 @@ Associates a CIDR block with your subnet. You can
 only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR
 block must have a prefix length of /64.
 }
-\section{Ipv6CidrBlock}{
-
-The IPv6 CIDR block for your
-subnet. The subnet must have a /64 prefix
-length.
-}
-
 \section{SubnetId}{
 
 The ID of your
 subnet.
+}
+
+\section{Ipv6CidrBlock}{
+
+The IPv6 CIDR block for your subnet. The
+subnet must have a /64 prefix length.
 }
 

@@ -5,8 +5,8 @@
 \title{Create Subnet}
 \usage{
 ec2_create_subnet(
-  CidrBlock,
   VpcId,
+  CidrBlock,
   TagSpecification = NULL,
   AvailabilityZone = NULL,
   AvailabilityZoneId = NULL,
@@ -18,9 +18,9 @@ ec2_create_subnet(
 )
 }
 \arguments{
-\item{CidrBlock}{String. The IPv4 network range for the subnet, in CIDR notation.}
-
 \item{VpcId}{String. The ID of the VPC.}
+
+\item{CidrBlock}{String. The IPv4 network range for the subnet, in CIDR notation.}
 
 \item{TagSpecification}{List. The tags to assign to the subnet.[optional]}
 
@@ -46,25 +46,24 @@ A list object or a character vector
 \description{
 Create Subnet
 }
-\section{CidrBlock}{
-
-The IPv4 network range
-for the subnet, in CIDR notation. For example, \verb{10.0.0.0/24}. We modify
-the specified CIDR block to its canonical form; for example, if you
-specify \verb{100.68.0.18/18}, we modify it to
-\verb{100.68.0.0/18}.
-}
-
 \section{VpcId}{
 
 The ID of the
 VPC.
 }
 
+\section{CidrBlock}{
+
+The IPv4 network range for the subnet, in CIDR
+notation. For example, \verb{10.0.0.0/24}. We modify the specified CIDR block
+to its canonical form; for example, if you specify \verb{100.68.0.18/18}, we
+modify it to \verb{100.68.0.0/18}.
+}
+
 \section{TagSpecification}{
 
-The tags to assign to the
-subnet.
+The tags to assign to
+the subnet.
 }
 
 \section{AvailabilityZone}{
