@@ -94,8 +94,22 @@ generate_function <- function(service, api_info){
                 collapse = ", ")
         }
     }else{
+        array_idx <- param_table$type=="array"
+        parameters_combine1 <- NULL
+        parameters_combine2 <- NULL
+
+        if(any(!array_idx)){
+            parameters_combine1 <- paste0(
+                paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
+                collapse = ", ")
+        }
+        if(any(array_idx)){
+            parameters_combine2 <- paste0(
+                paste0(param_table$name[array_idx],"=as.list(", param_table$name[array_idx]),")",
+                collapse = ", ")
+        }
         parameters_combine <- paste0(
-            paste0(param_table$name,"=", param_table$name),
+            c(parameters_combine1,parameters_combine2),
             collapse = ", ")
     }
 

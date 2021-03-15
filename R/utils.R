@@ -1,4 +1,6 @@
-
+is.empty <- function(x){
+  length(x)==0
+}
 
 add_asterisk_in_middle <- function(x, begin_nchar = 2, end_nchar = 2){
   if(!is.null(x)){

@@ -6,14 +6,12 @@ if(aws_has_credentials()){
     test_that("Delete the cluster if exist",{
         expect_error(response <- ecs_list_clusters(),NA)
 
+        idx <- c()
         for(i in cluster_names){
-            idx <- c()
-            for(i in cluster_names){
-                idx <- c(idx,  which(endsWith(response,paste0("/",i))))
-            }
-            if(length(idx)!=0){
-                expect_error(response <- ecs_delete_cluster(cluster = i),NA)
-            }
+            idx <- c(idx,  which(endsWith(response,paste0("/",i))))
+        }
+        if(length(idx)!=0){
+            expect_error(response <- ecs_delete_cluster(cluster = i),NA)
         }
     })
 
