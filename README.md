@@ -13,8 +13,12 @@ vignette: >
 # Introduction
 This package aims to provide the functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`.
 
+Since there are above 400 EC2 APIs, it is not possible for the unit test to cover all use cases. If you see any problems when using the package, please consider to submit the issue to [GitHub issue][GitHub issue].
+
+[GitHub issue]: https://github.com/Jiefei-Wang/aws.ecx/issues
+
 # Authentication
-Credentials must be provided for using the package. The package uses `access key id` and `secret access key` to authenticate with AWS. See [AWS user guide][AWS user guide] for the information about how to obtain them from AWS console. The credentials can be set via `aws_set_credentials()`. 
+Credentials must be provided for using the package. The package uses `access key id` and `secret access key` to authenticate with AWS. See [AWS user guide][AWS user guide] for the information about how to obtain them from AWS console. The credentials can be set via `aws_set_credentials()`.
 
 ```r
 aws_set_credentials()
@@ -42,15 +46,16 @@ Calling the EC2 or ECS function is simple, for example, you can list all ECS clu
 
 ```r
 ecs_list_clusters()
-#> [1] "arn:aws:ecs:us-east-1:020007817719:cluster/R-worker-cluster"
+#> [1] "arn:aws:ecs:us-east-1:020007817719:cluster/demo"            
+#> [2] "arn:aws:ecs:us-east-1:020007817719:cluster/R-worker-cluster"
 ```
 The original EC2 and ECS APIs accept the request parameter via the query parameter or header and return the result by JSON or XML text in the REST request. The package provides a unified way to call both APIs. The request parameters can be given by the function arguments and the result is returned in a list format. If possible, the package will try to simplify the result and return a simple character vector. It will also handle the `nextToken` parameter in the REST APIs and collect the full result in a single function call. This default behavior can be turned off by providing the parameter `simplefy = FALSE`.
 
-Each EC2 or ECS API has its own document. For example, you can find the help page of `ecs_list_clusters` via `?ecs_list_clusters`. The full description of the APIs can be found at [AWS Documentation][AWS Documentation]. 
+Each EC2 or ECS API has its own document. For example, you can find the help page of `ecs_list_clusters` via `?ecs_list_clusters`. The full description of the APIs can be found at [AWS Documentation][AWS Documentation].
 
 [AWS Documentation]: https://docs.aws.amazon.com/index.html
 
-## A note about the AWS Documentation
+## A note for the AWS EC2 functions
 
 While the AWS Documentation is very helpful in finding the API use cases. There are some inconsistencies between the AWS Documentation and the package functions. Certain request parameters will get special treatment in this package. For example, here is an example of `DescribeVpcs`from the [AWS Documentation][example] which describes the specified VPCs
 ```
@@ -62,8 +67,8 @@ https://ec2.amazonaws.com/?Action=DescribeVpcs
 The `VpcId` is an array object in the AWS Documentation. for the corresponding R function `ec2_describe_vpcs`, the VPCs are provided by a vector or a list object. For example, you can describe the same VPCs via
 ```
 ec2_describe_vpcs(
-  VpcId = c("vpc-081ec835f3EXAMPLE", 
-  "vpc-0ee975135dEXAMPLE", 
+  VpcId = c("vpc-081ec835f3EXAMPLE",
+  "vpc-0ee975135dEXAMPLE",
   "vpc-06e4ab6c6cEXAMPLE")
 )
 ```
@@ -80,7 +85,7 @@ The corresponding R function call is
 ```
 ec2_describe_vpcs(
   Filter = list(
-    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"), 
+    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"),
     state="available"
   )
 )
@@ -89,7 +94,7 @@ The `Filter` parameter will be converted into a list object internally which mee
 
 ```r
 filter <- list(
-    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"), 
+    `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"),
     state="available"
   )
 list_to_filter(filter)
@@ -111,8 +116,39 @@ list_to_filter(filter)
 
 [example]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
 
+
+## A note for the AWS ECS functions
+The AWS ECS API uses JSON format to store the request parameter. Therefore, the ECS R functions will use `rjson::toJSON` to convert the request parameters into JSON objects. If you are not sure if you use the parameter correctly, you can manually run `rjson::toJSON` and compare the result with the example provided in AWS documentation. For example, the request syntax for the `tag` parameter in `CreateCluster` API is 
+```
+"tags": [ 
+         { 
+            "key": "string",
+            "value": "string"
+         }
+      ]
+```
+The corresponding R format should be
+
+```r
+tags <- list(
+  c(key = "key", value = "value")
+  )
+```
+You can verify it by
+
+```r
+cat(rjson::toJSON(tags, indent = 1))
+#> [
+#>  {
+#> "key":"key",
+#> "value":"value"
+#>  }
+#> ]
+```
+
+
 # Package settings
-The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`. 
+The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`.
 
 
 ```r
@@ -129,7 +165,7 @@ aws_get_network_timeout()
 
 ```r
 sessionInfo()
-#> R Under development (unstable) (2020-09-03 r79126)
+#> R version 4.0.4 (2021-02-15)
 #> Platform: x86_64-w64-mingw32/x64 (64-bit)
 #> Running under: Windows 10 x64 (build 19042)
 #> 
@@ -141,20 +177,21 @@ sessionInfo()
 #> [5] LC_TIME=English_United States.1252    
 #> 
 #> attached base packages:
-#> [1] stats     graphics  grDevices utils     datasets  methods   base     
+#> [1] parallel  stats4    stats     graphics  grDevices utils     datasets  methods  
+#> [9] base     
 #> 
 #> other attached packages:
-#> [1] aws.ecx_0.99.0   rmarkdown_2.5    whisker_0.4      rapiclient_0.1.3
+#> [1] aws.ecx_0.99.0      S4Vectors_0.28.0    BiocGenerics_0.36.0 rjson_0.2.20       
+#> [5] rmarkdown_2.7       whisker_0.4         rapiclient_0.1.3    testthat_3.0.2     
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] rstudioapi_0.13     knitr_1.30          xml2_1.3.2          magrittr_1.5       
-#>  [5] pkgload_1.1.0       aws.signature_0.6.0 rjson_0.2.20        R6_2.5.0           
-#>  [9] rlang_0.4.10        fansi_0.4.1         stringr_1.4.0       httr_1.4.2         
-#> [13] tools_4.1.0         xfun_0.19           cli_2.1.0           withr_2.3.0        
-#> [17] htmltools_0.5.1.1   yaml_2.2.1          assertthat_0.2.1    rprojroot_2.0.2    
-#> [21] digest_0.6.27       crayon_1.3.4        base64enc_0.1-3     curl_4.3           
-#> [25] testthat_3.0.0      glue_1.4.2          evaluate_0.14       stringi_1.5.3      
-#> [29] compiler_4.1.0      desc_1.2.0          jsonlite_1.7.1
+#>  [1] rstudioapi_0.13     xml2_1.3.2          knitr_1.31          magrittr_1.5       
+#>  [5] pkgload_1.1.0       aws.signature_0.6.0 R6_2.5.0            rlang_0.4.10       
+#>  [9] stringr_1.4.0       httr_1.4.2          tools_4.0.4         xfun_0.19          
+#> [13] cli_2.3.1           withr_2.3.0         htmltools_0.5.0     yaml_2.2.1         
+#> [17] assertthat_0.2.1    digest_0.6.27       rprojroot_2.0.2     crayon_1.3.4       
+#> [21] base64enc_0.1-3     curl_4.3            glue_1.4.2          evaluate_0.14      
+#> [25] stringi_1.5.3       compiler_4.0.4      desc_1.2.0          jsonlite_1.7.2
 ```
 
 

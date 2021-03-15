@@ -72,27 +72,33 @@ generate_function <- function(service, api_info){
         token_name <- "NULL"
     }
 
-    array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]
-    list_to_array_process_code <- paste0(
-        vapply(array_param,
-               function(x)
-                   paste0(x," <- list_to_array(\"",x,"\", ",x,")" ),
-               character(1)),
-        collapse = "\n")
+    if(service=="ec2"){
+        array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]
+        list_to_array_process_code <- paste0(
+            vapply(array_param,
+                   function(x)
+                       paste0(x," <- list_to_array(\"",x,"\", ",x,")" ),
+                   character(1)),
+            collapse = "\n")
 
-    if("Filter" %in% param_table$name){
-        list_to_filter_process_code <- "Filter <- list_to_filter(Filter)"
-    }
-
-    array_idx <- param_table$type=="array"
-    if(any(array_idx)){
-        array_combine <- paste0(", ", paste0(param_table$name[array_idx], collapse = ", "))
-    }
-    if(any(!array_idx)){
+        if("Filter" %in% param_table$name){
+            list_to_filter_process_code <- "Filter <- list_to_filter(Filter)"
+        }
+        array_idx <- param_table$type=="array"
+        if(any(array_idx)){
+            array_combine <- paste0(", ", paste0(param_table$name[array_idx], collapse = ", "))
+        }
+        if(any(!array_idx)){
+            parameters_combine <- paste0(
+                paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
+                collapse = ", ")
+        }
+    }else{
         parameters_combine <- paste0(
-            paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
+            paste0(param_table$name,"=", param_table$name),
             collapse = ", ")
     }
+
     x <- whisker::whisker.render(template)
     x
 }
@@ -274,7 +280,7 @@ write_apis_to_file <- function(api_info_list, file_path){
     for(i in api_info_list){
         code <- c(code,
                   paste0(i$document,"\n",i$definition)
-                  )
+        )
     }
     code <- paste0(code,collapse = "\n\n")
     code0 <- ""

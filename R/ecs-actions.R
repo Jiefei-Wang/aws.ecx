@@ -52,9 +52,8 @@
 #' @export
 ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, tags = NULL, 
     simplify = TRUE, others = list()) {
-    tags <- list_to_array("tags", tags)
-    parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider), 
-        tags)
+    parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider, 
+        tags = tags))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "CreateCapacityProvider", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -163,12 +162,8 @@ ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 #' @export
 ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL, capacityProviders = NULL, 
     defaultCapacityProviderStrategy = NULL, simplify = TRUE, others = list()) {
-    tags <- list_to_array("tags", tags)
-    settings <- list_to_array("settings", settings)
-    capacityProviders <- list_to_array("capacityProviders", capacityProviders)
-    defaultCapacityProviderStrategy <- list_to_array("defaultCapacityProviderStrategy", defaultCapacityProviderStrategy)
-    parameters <- c(others, list(clusterName = clusterName), tags, settings, capacityProviders, 
-        defaultCapacityProviderStrategy)
+    parameters <- c(others, list(clusterName = clusterName, tags = tags, settings = settings, 
+        capacityProviders = capacityProviders, defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "CreateCluster", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -493,27 +488,20 @@ ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL,
 #' action.
 #' @return A list object or a character vector
 #' @export
-ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinition = NULL, 
-    loadBalancers = NULL, serviceRegistries = NULL, desiredCount = NULL, clientToken = NULL, 
-    launchType = NULL, capacityProviderStrategy = NULL, platformVersion = NULL, role = NULL, 
-    deploymentConfiguration = NULL, placementConstraints = NULL, placementStrategy = NULL, 
-    networkConfiguration = NULL, healthCheckGracePeriodSeconds = NULL, schedulingStrategy = NULL, 
-    deploymentController = NULL, tags = NULL, enableECSManagedTags = NULL, propagateTags = NULL, 
-    simplify = TRUE, others = list()) {
-    loadBalancers <- list_to_array("loadBalancers", loadBalancers)
-    serviceRegistries <- list_to_array("serviceRegistries", serviceRegistries)
-    capacityProviderStrategy <- list_to_array("capacityProviderStrategy", capacityProviderStrategy)
-    placementConstraints <- list_to_array("placementConstraints", placementConstraints)
-    placementStrategy <- list_to_array("placementStrategy", placementStrategy)
-    tags <- list_to_array("tags", tags)
+ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinition = NULL, loadBalancers = NULL, 
+    serviceRegistries = NULL, desiredCount = NULL, clientToken = NULL, launchType = NULL, capacityProviderStrategy = NULL, 
+    platformVersion = NULL, role = NULL, deploymentConfiguration = NULL, placementConstraints = NULL, 
+    placementStrategy = NULL, networkConfiguration = NULL, healthCheckGracePeriodSeconds = NULL, 
+    schedulingStrategy = NULL, deploymentController = NULL, tags = NULL, enableECSManagedTags = NULL, 
+    propagateTags = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(cluster = cluster, serviceName = serviceName, taskDefinition = taskDefinition, 
-        desiredCount = desiredCount, clientToken = clientToken, launchType = launchType, 
+        loadBalancers = loadBalancers, serviceRegistries = serviceRegistries, desiredCount = desiredCount, 
+        clientToken = clientToken, launchType = launchType, capacityProviderStrategy = capacityProviderStrategy, 
         platformVersion = platformVersion, role = role, deploymentConfiguration = deploymentConfiguration, 
-        networkConfiguration = networkConfiguration, healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds, 
-        schedulingStrategy = schedulingStrategy, deploymentController = deploymentController, 
-        enableECSManagedTags = enableECSManagedTags, propagateTags = propagateTags), loadBalancers, 
-        serviceRegistries, capacityProviderStrategy, placementConstraints, placementStrategy, 
-        tags)
+        placementConstraints = placementConstraints, placementStrategy = placementStrategy, networkConfiguration = networkConfiguration, 
+        healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds, schedulingStrategy = schedulingStrategy, 
+        deploymentController = deploymentController, tags = tags, enableECSManagedTags = enableECSManagedTags, 
+        propagateTags = propagateTags))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "CreateService", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -662,14 +650,10 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
     networkConfiguration = NULL, loadBalancers = NULL, serviceRegistries = NULL, launchType = NULL, 
     capacityProviderStrategy = NULL, platformVersion = NULL, scale = NULL, clientToken = NULL, 
     tags = NULL, simplify = TRUE, others = list()) {
-    loadBalancers <- list_to_array("loadBalancers", loadBalancers)
-    serviceRegistries <- list_to_array("serviceRegistries", serviceRegistries)
-    capacityProviderStrategy <- list_to_array("capacityProviderStrategy", capacityProviderStrategy)
-    tags <- list_to_array("tags", tags)
     parameters <- c(others, list(service = service, cluster = cluster, externalId = externalId, 
-        taskDefinition = taskDefinition, networkConfiguration = networkConfiguration, launchType = launchType, 
-        platformVersion = platformVersion, scale = scale, clientToken = clientToken), loadBalancers, 
-        serviceRegistries, capacityProviderStrategy, tags)
+        taskDefinition = taskDefinition, networkConfiguration = networkConfiguration, loadBalancers = loadBalancers, 
+        serviceRegistries = serviceRegistries, launchType = launchType, capacityProviderStrategy = capacityProviderStrategy, 
+        platformVersion = platformVersion, scale = scale, clientToken = clientToken, tags = tags))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "CreateTaskSet", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -704,8 +688,7 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
 #' for the authenticated user.
 #' @return A list object or a character vector
 #' @export
-ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplify = TRUE, 
-    others = list()) {
+ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(name = name, principalArn = principalArn))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAccountSetting", parameters = parameters, 
@@ -736,8 +719,7 @@ ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplif
 #' @return A list object or a character vector
 #' @export
 ecs_delete_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list()) {
-    attributes <- list_to_array("attributes", attributes)
-    parameters <- c(others, list(cluster = cluster), attributes)
+    parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAttributes", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -846,8 +828,7 @@ ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, sim
 #' @export
 ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, force = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, 
-        force = force))
+    parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, force = force))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteTaskSet", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -893,8 +874,7 @@ ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, 
 #' @export
 ecs_deregister_container_instance <- function(cluster = NULL, containerInstance = NULL, force = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance, 
-        force = force))
+    parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance, force = force))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DeregisterContainerInstance", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -955,10 +935,8 @@ ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRU
 #' @export
 ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = NULL, maxResults = NULL, 
     nextToken = NULL, simplify = TRUE, others = list()) {
-    capacityProviders <- list_to_array("capacityProviders", capacityProviders)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken), capacityProviders, 
-        include)
+    parameters <- c(others, list(capacityProviders = capacityProviders, include = include, maxResults = maxResults, 
+        nextToken = nextToken))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = "nextToken")
@@ -1014,9 +992,7 @@ ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = 
 #' @return A list object or a character vector
 #' @export
 ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TRUE, others = list()) {
-    clusters <- list_to_array("clusters", clusters)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(), clusters, include)
+    parameters <- c(others, list(clusters = clusters, include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeClusters", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1055,9 +1031,8 @@ ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TR
 #' @export
 ecs_describe_container_instances <- function(cluster = NULL, containerInstances = NULL, include = NULL, 
     simplify = TRUE, others = list()) {
-    containerInstances <- list_to_array("containerInstances", containerInstances)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(cluster = cluster), containerInstances, include)
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, 
+        include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeContainerInstances", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1094,9 +1069,7 @@ ecs_describe_container_instances <- function(cluster = NULL, containerInstances 
 #' @export
 ecs_describe_services <- function(cluster = NULL, services = NULL, include = NULL, simplify = TRUE, 
     others = list()) {
-    services <- list_to_array("services", services)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(cluster = cluster), services, include)
+    parameters <- c(others, list(cluster = cluster, services = services, include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeServices", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1123,8 +1096,7 @@ ecs_describe_services <- function(cluster = NULL, services = NULL, include = NUL
 #' @export
 ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, simplify = TRUE, 
     others = list()) {
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(taskDefinition = taskDefinition), include)
+    parameters <- c(others, list(taskDefinition = taskDefinition, include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1166,9 +1138,7 @@ ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, 
 #' @export
 ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NULL, include = NULL, 
     simplify = TRUE, others = list()) {
-    taskSets <- list_to_array("taskSets", taskSets)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(cluster = cluster, service = service), taskSets, include)
+    parameters <- c(others, list(cluster = cluster, service = service, taskSets = taskSets, include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskSets", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1204,9 +1174,7 @@ ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NU
 #' @export
 ecs_describe_tasks <- function(cluster = NULL, tasks = NULL, include = NULL, simplify = TRUE, 
     others = list()) {
-    tasks <- list_to_array("tasks", tasks)
-    include <- list_to_array("include", include)
-    parameters <- c(others, list(cluster = cluster), tasks, include)
+    parameters <- c(others, list(cluster = cluster, tasks = tasks, include = include))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTasks", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1731,8 +1699,7 @@ ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify 
 #' @return A list object or a character vector
 #' @export
 ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list()) {
-    attributes <- list_to_array("attributes", attributes)
-    parameters <- c(others, list(cluster = cluster), attributes)
+    parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "PutAttributes", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1791,11 +1758,9 @@ ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRU
 #' 
 #' @return A list object or a character vector
 #' @export
-ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders = NULL, 
-    defaultCapacityProviderStrategy = NULL, simplify = TRUE, others = list()) {
-    capacityProviders <- list_to_array("capacityProviders", capacityProviders)
-    defaultCapacityProviderStrategy <- list_to_array("defaultCapacityProviderStrategy", defaultCapacityProviderStrategy)
-    parameters <- c(others, list(cluster = cluster), capacityProviders, defaultCapacityProviderStrategy)
+ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders = NULL, defaultCapacityProviderStrategy = NULL, 
+    simplify = TRUE, others = list()) {
+    parameters <- c(others, list(cluster = cluster, capacityProviders = capacityProviders, defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "PutClusterCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -1884,17 +1849,12 @@ ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders
 #' @return A list object or a character vector
 #' @export
 ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocument = NULL, 
-    instanceIdentityDocumentSignature = NULL, totalResources = NULL, versionInfo = NULL, 
-    containerInstanceArn = NULL, attributes = NULL, platformDevices = NULL, tags = NULL, 
-    simplify = TRUE, others = list()) {
-    totalResources <- list_to_array("totalResources", totalResources)
-    attributes <- list_to_array("attributes", attributes)
-    platformDevices <- list_to_array("platformDevices", platformDevices)
-    tags <- list_to_array("tags", tags)
+    instanceIdentityDocumentSignature = NULL, totalResources = NULL, versionInfo = NULL, containerInstanceArn = NULL, 
+    attributes = NULL, platformDevices = NULL, tags = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(cluster = cluster, instanceIdentityDocument = instanceIdentityDocument, 
-        instanceIdentityDocumentSignature = instanceIdentityDocumentSignature, versionInfo = versionInfo, 
-        containerInstanceArn = containerInstanceArn), totalResources, attributes, platformDevices, 
-        tags)
+        instanceIdentityDocumentSignature = instanceIdentityDocumentSignature, totalResources = totalResources, 
+        versionInfo = versionInfo, containerInstanceArn = containerInstanceArn, attributes = attributes, 
+        platformDevices = platformDevices, tags = tags))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterContainerInstance", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2174,19 +2134,13 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
 #' @export
 ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, executionRoleArn = NULL, 
     networkMode = NULL, containerDefinitions = NULL, volumes = NULL, placementConstraints = NULL, 
-    requiresCompatibilities = NULL, cpu = NULL, memory = NULL, tags = NULL, pidMode = NULL, 
-    ipcMode = NULL, proxyConfiguration = NULL, inferenceAccelerators = NULL, simplify = TRUE, 
-    others = list()) {
-    containerDefinitions <- list_to_array("containerDefinitions", containerDefinitions)
-    volumes <- list_to_array("volumes", volumes)
-    placementConstraints <- list_to_array("placementConstraints", placementConstraints)
-    requiresCompatibilities <- list_to_array("requiresCompatibilities", requiresCompatibilities)
-    tags <- list_to_array("tags", tags)
-    inferenceAccelerators <- list_to_array("inferenceAccelerators", inferenceAccelerators)
+    requiresCompatibilities = NULL, cpu = NULL, memory = NULL, tags = NULL, pidMode = NULL, ipcMode = NULL, 
+    proxyConfiguration = NULL, inferenceAccelerators = NULL, simplify = TRUE, others = list()) {
     parameters <- c(others, list(family = family, taskRoleArn = taskRoleArn, executionRoleArn = executionRoleArn, 
-        networkMode = networkMode, cpu = cpu, memory = memory, pidMode = pidMode, ipcMode = ipcMode, 
-        proxyConfiguration = proxyConfiguration), containerDefinitions, volumes, placementConstraints, 
-        requiresCompatibilities, tags, inferenceAccelerators)
+        networkMode = networkMode, containerDefinitions = containerDefinitions, volumes = volumes, 
+        placementConstraints = placementConstraints, requiresCompatibilities = requiresCompatibilities, 
+        cpu = cpu, memory = memory, tags = tags, pidMode = pidMode, ipcMode = ipcMode, proxyConfiguration = proxyConfiguration, 
+        inferenceAccelerators = inferenceAccelerators))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2376,15 +2330,11 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
     group = NULL, launchType = NULL, networkConfiguration = NULL, overrides = NULL, placementConstraints = NULL, 
     placementStrategy = NULL, platformVersion = NULL, propagateTags = NULL, referenceId = NULL, 
     startedBy = NULL, tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list()) {
-    capacityProviderStrategy <- list_to_array("capacityProviderStrategy", capacityProviderStrategy)
-    placementConstraints <- list_to_array("placementConstraints", placementConstraints)
-    placementStrategy <- list_to_array("placementStrategy", placementStrategy)
-    tags <- list_to_array("tags", tags)
-    parameters <- c(others, list(cluster = cluster, count = count, enableECSManagedTags = enableECSManagedTags, 
-        group = group, launchType = launchType, networkConfiguration = networkConfiguration, 
-        overrides = overrides, platformVersion = platformVersion, propagateTags = propagateTags, 
-        referenceId = referenceId, startedBy = startedBy, taskDefinition = taskDefinition), 
-        capacityProviderStrategy, placementConstraints, placementStrategy, tags)
+    parameters <- c(others, list(capacityProviderStrategy = capacityProviderStrategy, cluster = cluster, 
+        count = count, enableECSManagedTags = enableECSManagedTags, group = group, launchType = launchType, 
+        networkConfiguration = networkConfiguration, overrides = overrides, placementConstraints = placementConstraints, 
+        placementStrategy = placementStrategy, platformVersion = platformVersion, propagateTags = propagateTags, 
+        referenceId = referenceId, startedBy = startedBy, tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "RunTask", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2505,12 +2455,10 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
 ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSManagedTags = NULL, 
     group = NULL, networkConfiguration = NULL, overrides = NULL, propagateTags = NULL, referenceId = NULL, 
     startedBy = NULL, tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list()) {
-    containerInstances <- list_to_array("containerInstances", containerInstances)
-    tags <- list_to_array("tags", tags)
-    parameters <- c(others, list(cluster = cluster, enableECSManagedTags = enableECSManagedTags, 
-        group = group, networkConfiguration = networkConfiguration, overrides = overrides, 
-        propagateTags = propagateTags, referenceId = referenceId, startedBy = startedBy, 
-        taskDefinition = taskDefinition), containerInstances, tags)
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, 
+        enableECSManagedTags = enableECSManagedTags, group = group, networkConfiguration = networkConfiguration, 
+        overrides = overrides, propagateTags = propagateTags, referenceId = referenceId, startedBy = startedBy, 
+        tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "StartTask", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2566,11 +2514,10 @@ ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify =
 #' @export
 ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NULL, simplify = TRUE, 
     others = list()) {
-    attachments <- list_to_array("attachments", attachments)
-    parameters <- c(others, list(cluster = cluster), attachments)
+    parameters <- c(others, list(cluster = cluster, attachments = attachments))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ecs_request, action = "SubmitAttachmentStateChanges", 
-        parameters = parameters, simplify = simplify, token_name = NULL)
+    make_request(service_request = ecs_request, action = "SubmitAttachmentStateChanges", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -2616,9 +2563,8 @@ ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NU
 ecs_submit_container_state_change <- function(cluster = NULL, task = NULL, containerName = NULL, 
     runtimeId = NULL, status = NULL, exitCode = NULL, reason = NULL, networkBindings = NULL, 
     simplify = TRUE, others = list()) {
-    networkBindings <- list_to_array("networkBindings", networkBindings)
     parameters <- c(others, list(cluster = cluster, task = task, containerName = containerName, 
-        runtimeId = runtimeId, status = status, exitCode = exitCode, reason = reason), networkBindings)
+        runtimeId = runtimeId, status = status, exitCode = exitCode, reason = reason, networkBindings = networkBindings))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitContainerStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2672,11 +2618,9 @@ ecs_submit_container_state_change <- function(cluster = NULL, task = NULL, conta
 ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = NULL, reason = NULL, 
     containers = NULL, attachments = NULL, pullStartedAt = NULL, pullStoppedAt = NULL, executionStoppedAt = NULL, 
     simplify = TRUE, others = list()) {
-    containers <- list_to_array("containers", containers)
-    attachments <- list_to_array("attachments", attachments)
     parameters <- c(others, list(cluster = cluster, task = task, status = status, reason = reason, 
-        pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, executionStoppedAt = executionStoppedAt), 
-        containers, attachments)
+        containers = containers, attachments = attachments, pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, 
+        executionStoppedAt = executionStoppedAt))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitTaskStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2732,8 +2676,7 @@ ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = N
 #' @return A list object or a character vector
 #' @export
 ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, others = list()) {
-    tags <- list_to_array("tags", tags)
-    parameters <- c(others, list(resourceArn = resourceArn), tags)
+    parameters <- c(others, list(resourceArn = resourceArn, tags = tags))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "TagResource", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2760,8 +2703,7 @@ ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, o
 #' @return A list object or a character vector
 #' @export
 ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TRUE, others = list()) {
-    tagKeys <- list_to_array("tagKeys", tagKeys)
-    parameters <- c(others, list(resourceArn = resourceArn), tagKeys)
+    parameters <- c(others, list(resourceArn = resourceArn, tagKeys = tagKeys))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "UntagResource", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2815,10 +2757,8 @@ ecs_update_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 #' PutAccountSettingDefault.
 #' @return A list object or a character vector
 #' @export
-ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplify = TRUE, 
-    others = list()) {
-    settings <- list_to_array("settings", settings)
-    parameters <- c(others, list(cluster = cluster), settings)
+ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplify = TRUE, others = list()) {
+    parameters <- c(others, list(cluster = cluster, settings = settings))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateClusterSettings", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -2876,13 +2816,13 @@ ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL,
 #' update the container instance state.
 #' @return A list object or a character vector
 #' @export
-ecs_update_container_instances_state <- function(cluster = NULL, containerInstances = NULL, 
-    status = NULL, simplify = TRUE, others = list()) {
-    containerInstances <- list_to_array("containerInstances", containerInstances)
-    parameters <- c(others, list(cluster = cluster, status = status), containerInstances)
+ecs_update_container_instances_state <- function(cluster = NULL, containerInstances = NULL, status = NULL, 
+    simplify = TRUE, others = list()) {
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, 
+        status = status))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
-    make_request(service_request = ecs_request, action = "UpdateContainerInstancesState", 
-        parameters = parameters, simplify = simplify, token_name = NULL)
+    make_request(service_request = ecs_request, action = "UpdateContainerInstancesState", parameters = parameters, 
+        simplify = simplify, token_name = NULL)
 }
 
 
@@ -3014,14 +2954,11 @@ ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NU
     capacityProviderStrategy = NULL, deploymentConfiguration = NULL, networkConfiguration = NULL, 
     placementConstraints = NULL, placementStrategy = NULL, platformVersion = NULL, forceNewDeployment = NULL, 
     healthCheckGracePeriodSeconds = NULL, simplify = TRUE, others = list()) {
-    capacityProviderStrategy <- list_to_array("capacityProviderStrategy", capacityProviderStrategy)
-    placementConstraints <- list_to_array("placementConstraints", placementConstraints)
-    placementStrategy <- list_to_array("placementStrategy", placementStrategy)
     parameters <- c(others, list(cluster = cluster, service = service, desiredCount = desiredCount, 
-        taskDefinition = taskDefinition, deploymentConfiguration = deploymentConfiguration, 
-        networkConfiguration = networkConfiguration, platformVersion = platformVersion, forceNewDeployment = forceNewDeployment, 
-        healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds), capacityProviderStrategy, 
-        placementConstraints, placementStrategy)
+        taskDefinition = taskDefinition, capacityProviderStrategy = capacityProviderStrategy, 
+        deploymentConfiguration = deploymentConfiguration, networkConfiguration = networkConfiguration, 
+        placementConstraints = placementConstraints, placementStrategy = placementStrategy, platformVersion = platformVersion, 
+        forceNewDeployment = forceNewDeployment, healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateService", parameters = parameters, 
         simplify = simplify, token_name = NULL)
@@ -3098,8 +3035,7 @@ ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, 
 #' @export
 ecs_update_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, scale = NULL, 
     simplify = TRUE, others = list()) {
-    parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, 
-        scale = scale))
+    parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, scale = scale))
     parameters <- parameters[!vapply(parameters, is.null, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateTaskSet", parameters = parameters, 
         simplify = simplify, token_name = NULL)
