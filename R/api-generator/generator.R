@@ -36,7 +36,7 @@ api_info_list1 <- to_markdown(api_info_list)
 for(i in seq_along(api_info_list1)){
     message(i)
     api_info <- api_info_list1[[i]]
-    api_info$document <- generate_document(api_info)
+    api_info$document <- generate_document(api_info, type = "EC2")
     api_info$definition <-
         generate_function("ec2", api_info)
     api_info_list1[[i]] <- api_info
@@ -81,7 +81,7 @@ api_info_list1 <- to_markdown(api_info_list)
 for(i in seq_along(api_info_list1)){
     message(i)
     api_info <- api_info_list1[[i]]
-    api_info$document <- generate_document(api_info)
+    api_info$document <- generate_document(api_info, type = "ECS")
     api_info$definition <-
         generate_function("ecs", api_info)
     api_info_list1[[i]] <- api_info

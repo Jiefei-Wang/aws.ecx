@@ -11,6 +11,18 @@ package_setting$network_timeout <- 10
 #' @returns
 #' Setter: The old value
 #' Getter: The current value
+#' @examples
+#' ## Set the timeout to 10 seconds
+#' aws_set_network_timeout(10)
+#' ## Get the timeout setting
+#' aws_get_network_timeout()
+#'
+#' ## Turn off print on error
+#' aws_set_print_on_error(FALSE)
+#'
+#' ## Set the retry times to 5
+#' aws_set_retry_time(5)
+#'
 #' @rdname packageSettings
 #' @export
 aws_set_retry_time <- function(x){

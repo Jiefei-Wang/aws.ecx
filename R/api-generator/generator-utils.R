@@ -1,5 +1,5 @@
 ## Generate the roxygen documentation of a function
-generate_document <- function(api_info){
+generate_document <- function(api_info, type){
     param_table <- api_info$parameters
     param_table <- param_table[!param_table$name%in%token_names,]
 

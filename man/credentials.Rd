@@ -68,3 +68,10 @@ using the profile specified by \code{AWS_PROFILE}
 (or another OS-specific location), using the profile specified by \code{AWS_PROFILE}
 }
 }
+\examples{
+## Get your credentials from the environment variables or AWS cli
+aws_set_credentials()
+
+## show your current credentials
+aws_get_credentials()
+}

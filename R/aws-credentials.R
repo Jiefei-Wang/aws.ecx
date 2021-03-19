@@ -44,6 +44,12 @@ aws_credentials$region <- NULL
 #' `aws_get_secret_access_key` : The secret access key
 #'
 #' `aws_get_region` : The region
+#' @examples
+#' ## Get your credentials from the environment variables or AWS cli
+#' aws_set_credentials()
+#'
+#' ## show your current credentials
+#' aws_get_credentials()
 #' @rdname credentials
 #' @export
 aws_set_credentials<-function(key_file=NULL,

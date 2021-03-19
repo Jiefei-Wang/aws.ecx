@@ -11,6 +11,7 @@
 #' @param NextToken Characters, The token for the next page of results\[optional\]
 #' @param nextToken Characters, The token for the next page of results\[optional\]
 #' @rdname CommonDoc
+#' @return No return value
 #' @name CommonDoc
 NULL
 

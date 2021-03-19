@@ -17,6 +17,9 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 }
+\value{
+No return value
+}
 \description{
 Common documents
 }
