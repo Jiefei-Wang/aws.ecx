@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```{r, include = FALSE}
 if(FALSE){
   knitr::knit("inst/quick-start-guide.raw.Rmd", output = "vignettes/quick-start-guide.Rmd")
-knitr::knit("inst/quick-start-guide.Rmd", output = "README.md")
+knitr::knit("vignettes/quick-start-guide.Rmd", output = "README.md")
 }
 
 knitr::opts_chunk$set(
