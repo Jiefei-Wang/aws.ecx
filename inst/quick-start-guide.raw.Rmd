@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 
 ```{r, include = FALSE}
 if(FALSE){
-  knitr::knit("vignettes/quick-start-guide.raw.Rmd", output = "vignettes/quick-start-guide.Rmd")
-knitr::knit("vignettes/quick-start-guide.Rmd", output = "README.md")
+  knitr::knit("inst/quick-start-guide.raw.Rmd", output = "vignettes/quick-start-guide.Rmd")
+knitr::knit("inst/quick-start-guide.Rmd", output = "README.md")
 }
 
 knitr::opts_chunk$set(
@@ -28,6 +28,11 @@ library(aws.ecx)
 # aws.ecx::aws_set_retry_time(10)
 # aws.ecx::aws_set_print_on_error(FALSE)
 ```
+
+`r badger::badge_cran_release(color = "green")`
+`r badger::badge_github_version(color = "orange")`
+`r badger::badge_cran_download(color = "blue")`
+
 # Introduction
 This package aims to provide the functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`.
 

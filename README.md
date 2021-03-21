@@ -10,6 +10,11 @@ vignette: >
 
 
 
+
+[![](https://www.r-pkg.org/badges/version/aws.ecx?color=green)](https://cran.r-project.org/package=aws.ecx)
+[![](https://img.shields.io/badge/devel%20version-1.0.0-orange.svg)](https://github.com/Jiefei-Wang/aws.ecx)
+[![](http://cranlogs.r-pkg.org/badges/last-month/aws.ecx?color=blue)](https://cran.r-project.org/package=aws.ecx)
+
 # Introduction
 This package aims to provide the functions for communicating with Amazon Web Services(AWS) Elastic Container Service(ECS) using AWS REST APIs. The ECS functions start with the prefix `ecs_` and EC2 functions start with `ec2_`. The general-purpose functions have the prefix `aws_`.
 
@@ -177,21 +182,31 @@ sessionInfo()
 #> [5] LC_TIME=English_United States.1252    
 #> 
 #> attached base packages:
-#> [1] parallel  stats4    stats     graphics  grDevices utils     datasets  methods  
-#> [9] base     
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] aws.ecx_0.99.0      S4Vectors_0.28.0    BiocGenerics_0.36.0 rjson_0.2.20       
-#> [5] rmarkdown_2.7       whisker_0.4         rapiclient_0.1.3    testthat_3.0.2     
+#> [1] cranlogs_2.1.1.9000 aws.ecx_1.0.0       rmarkdown_2.7       whisker_0.4        
+#> [5] rapiclient_0.1.3   
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] rstudioapi_0.13     xml2_1.3.2          knitr_1.31          magrittr_1.5       
-#>  [5] pkgload_1.1.0       aws.signature_0.6.0 R6_2.5.0            rlang_0.4.10       
-#>  [9] stringr_1.4.0       httr_1.4.2          tools_4.0.4         xfun_0.19          
-#> [13] cli_2.3.1           withr_2.3.0         htmltools_0.5.0     yaml_2.2.1         
-#> [17] assertthat_0.2.1    digest_0.6.27       rprojroot_2.0.2     crayon_1.3.4       
-#> [21] base64enc_0.1-3     curl_4.3            glue_1.4.2          evaluate_0.14      
-#> [25] stringi_1.5.3       compiler_4.0.4      desc_1.2.0          jsonlite_1.7.2
+#>  [1] Rcpp_1.0.5          prettyunits_1.1.1   ps_1.4.0            assertthat_0.2.1   
+#>  [5] rprojroot_2.0.2     digest_0.6.27       aws.signature_0.6.0 R6_2.5.0           
+#>  [9] stats4_4.0.4        evaluate_0.14       httr_1.4.2          ggplot2_3.3.2      
+#> [13] pillar_1.4.6        rlang_0.4.10        curl_4.3            rstudioapi_0.13    
+#> [17] callr_3.5.1         S4Vectors_0.28.0    desc_1.2.0          devtools_2.3.2     
+#> [21] stringr_1.4.0       dlstats_0.1.3       munsell_0.5.0       compiler_4.0.4     
+#> [25] xfun_0.19           pkgconfig_2.0.3     BiocGenerics_0.36.0 base64enc_0.1-3    
+#> [29] pkgbuild_1.1.0      htmltools_0.5.0     tidyselect_1.1.0    tibble_3.0.4       
+#> [33] roxygen2_7.1.1      crayon_1.3.4        dplyr_1.0.2         withr_2.3.0        
+#> [37] commonmark_1.7      grid_4.0.4          jsonlite_1.7.2      gtable_0.3.0       
+#> [41] lifecycle_0.2.0     magrittr_1.5        formatR_1.8         scales_1.1.1       
+#> [45] cli_2.3.1           stringi_1.5.3       fs_1.5.0            remotes_2.2.0      
+#> [49] testthat_3.0.2      xml2_1.3.2          rvcheck_0.1.8       ellipsis_0.3.1     
+#> [53] vctrs_0.3.4         generics_0.1.0      rjson_0.2.20        RColorBrewer_1.1-2 
+#> [57] tools_4.0.4         glue_1.4.2          purrr_0.3.4         processx_3.4.4     
+#> [61] pkgload_1.1.0       parallel_4.0.4      yaml_2.2.1          colorspace_2.0-0   
+#> [65] BiocManager_1.30.10 sessioninfo_1.1.1   memoise_1.1.0       badger_0.0.9       
+#> [69] knitr_1.31          usethis_1.6.3
 ```
 
 
