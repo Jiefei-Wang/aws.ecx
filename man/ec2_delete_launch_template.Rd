@@ -15,9 +15,9 @@ ec2_delete_launch_template(
 \arguments{
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{LaunchTemplateId}{String. The ID of the launch template.[optional]}
+\item{LaunchTemplateId}{Character. The ID of the launch template.[optional]}
 
-\item{LaunchTemplateName}{String. The name of the launch template.[optional]}
+\item{LaunchTemplateName}{Character. The name of the launch template.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

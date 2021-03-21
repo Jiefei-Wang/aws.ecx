@@ -14,9 +14,9 @@ ec2_disassociate_transit_gateway_multicast_domain(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.[optional]}
+\item{TransitGatewayMulticastDomainId}{Character. The ID of the transit gateway multicast domain.[optional]}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment.[optional]}
+\item{TransitGatewayAttachmentId}{Character. The ID of the attachment.[optional]}
 
 \item{SubnetIds}{List. The IDs of the subnets;[optional]}
 

@@ -15,7 +15,7 @@ ec2_get_transit_gateway_multicast_domain_associations(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.[optional]}
+\item{TransitGatewayMulticastDomainId}{Character. The ID of the transit gateway multicast domain.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

@@ -20,21 +20,21 @@ ec2_authorize_security_group_ingress(
 )
 }
 \arguments{
-\item{CidrIp}{String.   The IPv4 address range, in CIDR format.[optional]}
+\item{CidrIp}{Character.   The IPv4 address range, in CIDR format.[optional]}
 
 \item{FromPort}{Integer.   The start of port range for the TCP and UDP protocols, or an ICMP type number.[optional]}
 
-\item{GroupId}{String. The ID of the security group.[optional]}
+\item{GroupId}{Character. The ID of the security group.[optional]}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.[optional]}
+\item{GroupName}{Character. [EC2-Classic, default VPC] The name of the security group.[optional]}
 
 \item{IpPermissions}{List. The sets of IP permissions.[optional]}
 
-\item{IpProtocol}{String.   The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers})....[optional]}
+\item{IpProtocol}{Character.   The IP protocol name (\code{tcp}, \code{udp}, \code{icmp}) or number (see \href{http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml}{Protocol Numbers})....[optional]}
 
-\item{SourceSecurityGroupName}{String. [EC2-Classic, default VPC] The name of the source security group.[optional]}
+\item{SourceSecurityGroupName}{Character. [EC2-Classic, default VPC] The name of the source security group.[optional]}
 
-\item{SourceSecurityGroupOwnerId}{String. [nondefault VPC] The AWS account ID for the source security group, if the source security group...[optional]}
+\item{SourceSecurityGroupOwnerId}{Character. [nondefault VPC] The AWS account ID for the source security group, if the source security group...[optional]}
 
 \item{ToPort}{Integer.   The end of port range for the TCP and UDP protocols, or an ICMP code number.[optional]}
 

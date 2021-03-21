@@ -11,7 +11,7 @@ ecs_deregister_task_definition(
 )
 }
 \arguments{
-\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full Amazon Resource Name (ARN) of the task definition...}
+\item{taskDefinition}{Character. The \code{family} and \code{revision} (\code{family:revision}) or full Amazon Resource Name (ARN) of the task definition...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

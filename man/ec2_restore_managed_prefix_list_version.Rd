@@ -14,7 +14,7 @@ ec2_restore_managed_prefix_list_version(
 )
 }
 \arguments{
-\item{PrefixListId}{String. The ID of the prefix list.}
+\item{PrefixListId}{Character. The ID of the prefix list.}
 
 \item{PreviousVersion}{Integer. The version to restore.}
 

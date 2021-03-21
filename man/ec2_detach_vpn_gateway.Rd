@@ -13,9 +13,9 @@ ec2_detach_vpn_gateway(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway.}
+\item{VpnGatewayId}{Character. The ID of the virtual private gateway.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

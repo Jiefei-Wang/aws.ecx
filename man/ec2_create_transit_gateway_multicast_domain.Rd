@@ -14,7 +14,7 @@ ec2_create_transit_gateway_multicast_domain(
 )
 }
 \arguments{
-\item{TransitGatewayId}{String. The ID of the transit gateway.}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.}
 
 \item{Options}{Object. The options for the transit gateway multicast domain.[optional]}
 

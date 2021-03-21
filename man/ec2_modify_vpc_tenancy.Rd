@@ -13,9 +13,9 @@ ec2_modify_vpc_tenancy(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
-\item{InstanceTenancy}{String. The instance tenancy attribute for the VPC.}
+\item{InstanceTenancy}{Character. The instance tenancy attribute for the VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

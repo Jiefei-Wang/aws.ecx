@@ -14,9 +14,9 @@ ec2_deregister_transit_gateway_multicast_group_members(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.[optional]}
+\item{TransitGatewayMulticastDomainId}{Character. The ID of the transit gateway multicast domain.[optional]}
 
-\item{GroupIpAddress}{String. The IP address assigned to the transit gateway multicast group.[optional]}
+\item{GroupIpAddress}{Character. The IP address assigned to the transit gateway multicast group.[optional]}
 
 \item{NetworkInterfaceIds}{List. The IDs of the group members\' network interfaces.[optional]}
 

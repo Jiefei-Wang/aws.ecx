@@ -15,9 +15,9 @@ ec2_start_network_insights_analysis(
 )
 }
 \arguments{
-\item{NetworkInsightsPathId}{String. The ID of the path.}
+\item{NetworkInsightsPathId}{Character. The ID of the path.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
 \item{FilterInArn}{List. The Amazon Resource Names (ARN) of the resources that the path must traverse.[optional]}
 

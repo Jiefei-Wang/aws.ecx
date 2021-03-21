@@ -20,11 +20,11 @@ ec2_describe_network_insights_analyses(
 \arguments{
 \item{NetworkInsightsAnalysisId}{List. The ID of the network insights analyses. You must specify either analysis IDs or a path ID.[optional]}
 
-\item{NetworkInsightsPathId}{String. The ID of the path. You must specify either a path ID or analysis IDs.[optional]}
+\item{NetworkInsightsPathId}{Character. The ID of the path. You must specify either a path ID or analysis IDs.[optional]}
 
-\item{AnalysisStartTime}{String. The time when the network insights analyses started.[optional]}
+\item{AnalysisStartTime}{Character. The time when the network insights analyses started.[optional]}
 
-\item{AnalysisEndTime}{String. The time when the network insights analyses ended.[optional]}
+\item{AnalysisEndTime}{Character. The time when the network insights analyses ended.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

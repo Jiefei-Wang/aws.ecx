@@ -14,7 +14,7 @@ ec2_describe_spot_fleet_instances(
 )
 }
 \arguments{
-\item{SpotFleetRequestId}{String. The ID of the Spot Fleet request.}
+\item{SpotFleetRequestId}{Character. The ID of the Spot Fleet request.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

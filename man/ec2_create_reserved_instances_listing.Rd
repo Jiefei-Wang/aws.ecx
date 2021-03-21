@@ -14,13 +14,13 @@ ec2_create_reserved_instances_listing(
 )
 }
 \arguments{
-\item{ClientToken}{String. Unique, case-sensitive identifier you provide to ensure idempotency of your listings.}
+\item{ClientToken}{Character. Unique, case-sensitive identifier you provide to ensure idempotency of your listings.}
 
 \item{InstanceCount}{Integer. The number of instances that are a part of a Reserved Instance account to be listed in the Reserved...}
 
 \item{PriceSchedules}{List. A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved...}
 
-\item{ReservedInstancesId}{String. The ID of the active Standard Reserved Instance.}
+\item{ReservedInstancesId}{Character. The ID of the active Standard Reserved Instance.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

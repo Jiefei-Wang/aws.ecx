@@ -17,9 +17,9 @@ ec2_attach_network_interface(
 \arguments{
 \item{DeviceIndex}{Integer. The index of the device for the network interface attachment.}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

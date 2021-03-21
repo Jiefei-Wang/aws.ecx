@@ -13,7 +13,7 @@ ec2_delete_network_interface_permission(
 )
 }
 \arguments{
-\item{NetworkInterfacePermissionId}{String. The ID of the network interface permission.}
+\item{NetworkInterfacePermissionId}{Character. The ID of the network interface permission.}
 
 \item{Force}{Logical. Specify \code{true} to remove the permission even if the network interface is attached to an instance.[optional]}
 

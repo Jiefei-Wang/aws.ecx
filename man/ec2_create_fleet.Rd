@@ -29,21 +29,21 @@ ec2_create_fleet(
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{SpotOptions}{Object. Describes the configuration of Spot Instances in an EC2 Fleet.[optional]}
 
 \item{OnDemandOptions}{Object. Describes the configuration of On-Demand Instances in an EC2 Fleet.[optional]}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running instances should be terminated if the total target capacity of the EC2...[optional]}
+\item{ExcessCapacityTerminationPolicy}{Character. Indicates whether running instances should be terminated if the total target capacity of the EC2...[optional]}
 
 \item{TerminateInstancesWithExpiration}{Logical. Indicates whether running instances should be terminated when the EC2 Fleet expires.[optional]}
 
-\item{Type}{String.   The type of request.[optional]}
+\item{Type}{Character.   The type of request.[optional]}
 
-\item{ValidFrom}{String. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
+\item{ValidFrom}{Character. The start date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
-\item{ValidUntil}{String. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
+\item{ValidUntil}{Character. The end date and time of the request, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
 \item{ReplaceUnhealthyInstances}{Logical. Indicates whether EC2 Fleet should replace unhealthy Spot Instances.[optional]}
 

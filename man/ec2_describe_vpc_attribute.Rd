@@ -13,9 +13,9 @@ ec2_describe_vpc_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String. The VPC attribute.}
+\item{Attribute}{Character. The VPC attribute.}
 
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

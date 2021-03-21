@@ -15,13 +15,13 @@ ec2_modify_instance_metadata_options(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
-\item{HttpTokens}{String.   The state of token usage for your instance metadata requests.[optional]}
+\item{HttpTokens}{Character.   The state of token usage for your instance metadata requests.[optional]}
 
 \item{HttpPutResponseHopLimit}{Integer.   The desired HTTP PUT response hop limit for instance metadata requests.[optional]}
 
-\item{HttpEndpoint}{String.   This parameter enables or disables the HTTP metadata endpoint on your instances.[optional]}
+\item{HttpEndpoint}{Character.   This parameter enables or disables the HTTP metadata endpoint on your instances.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

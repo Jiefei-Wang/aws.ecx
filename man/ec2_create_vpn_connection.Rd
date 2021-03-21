@@ -17,13 +17,13 @@ ec2_create_vpn_connection(
 )
 }
 \arguments{
-\item{CustomerGatewayId}{String. The ID of the customer gateway.}
+\item{CustomerGatewayId}{Character. The ID of the customer gateway.}
 
-\item{Type}{String. The type of VPN connection (\code{ipsec.1}).}
+\item{Type}{Character. The type of VPN connection (\code{ipsec.1}).}
 
-\item{VpnGatewayId}{String. The ID of the virtual private gateway.[optional]}
+\item{VpnGatewayId}{Character. The ID of the virtual private gateway.[optional]}
 
-\item{TransitGatewayId}{String. The ID of the transit gateway.[optional]}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

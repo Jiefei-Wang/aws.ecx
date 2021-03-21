@@ -16,9 +16,9 @@ ec2_create_transit_gateway_vpc_attachment(
 )
 }
 \arguments{
-\item{TransitGatewayId}{String. The ID of the transit gateway.}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.}
 
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{SubnetIds}{List. The IDs of one or more subnets.}
 

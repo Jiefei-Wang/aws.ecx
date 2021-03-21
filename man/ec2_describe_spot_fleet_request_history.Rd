@@ -16,13 +16,13 @@ ec2_describe_spot_fleet_request_history(
 )
 }
 \arguments{
-\item{SpotFleetRequestId}{String. The ID of the Spot Fleet request.}
+\item{SpotFleetRequestId}{Character. The ID of the Spot Fleet request.}
 
-\item{StartTime}{String. The starting date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....}
+\item{StartTime}{Character. The starting date and time for the events, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{EventType}{String. The type of events to describe. By default, all events are described.[optional]}
+\item{EventType}{Character. The type of events to describe. By default, all events are described.[optional]}
 
 \item{MaxResults}{Integer. The maximum number of results to return in a single call.[optional]}
 

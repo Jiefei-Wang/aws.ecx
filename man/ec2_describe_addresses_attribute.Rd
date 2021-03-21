@@ -17,7 +17,7 @@ ec2_describe_addresses_attribute(
 \arguments{
 \item{AllocationId}{List. [EC2-VPC] The allocation IDs.[optional]}
 
-\item{Attribute}{String. The attribute of the IP address.[optional]}
+\item{Attribute}{Character. The attribute of the IP address.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 

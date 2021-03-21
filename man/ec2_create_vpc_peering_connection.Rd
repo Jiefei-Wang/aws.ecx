@@ -18,13 +18,13 @@ ec2_create_vpc_peering_connection(
 \arguments{
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{PeerOwnerId}{String.   The AWS account ID of the owner of the accepter VPC.  Default: Your AWS account ID  [optional]}
+\item{PeerOwnerId}{Character.   The AWS account ID of the owner of the accepter VPC.  Default: Your AWS account ID  [optional]}
 
-\item{PeerVpcId}{String. The ID of the VPC with which you are creating the VPC peering connection.[optional]}
+\item{PeerVpcId}{Character. The ID of the VPC with which you are creating the VPC peering connection.[optional]}
 
-\item{VpcId}{String. The ID of the requester VPC. You must specify this parameter in the request.[optional]}
+\item{VpcId}{Character. The ID of the requester VPC. You must specify this parameter in the request.[optional]}
 
-\item{PeerRegion}{String.   The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the...[optional]}
+\item{PeerRegion}{Character.   The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the...[optional]}
 
 \item{TagSpecification}{List. The tags to assign to the peering connection.[optional]}
 

@@ -12,7 +12,7 @@ ec2_delete_customer_gateway(
 )
 }
 \arguments{
-\item{CustomerGatewayId}{String. The ID of the customer gateway.}
+\item{CustomerGatewayId}{Character. The ID of the customer gateway.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

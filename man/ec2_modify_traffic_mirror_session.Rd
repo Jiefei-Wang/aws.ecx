@@ -19,11 +19,11 @@ ec2_modify_traffic_mirror_session(
 )
 }
 \arguments{
-\item{TrafficMirrorSessionId}{String. The ID of the Traffic Mirror session.}
+\item{TrafficMirrorSessionId}{Character. The ID of the Traffic Mirror session.}
 
-\item{TrafficMirrorTargetId}{String. The Traffic Mirror target.[optional]}
+\item{TrafficMirrorTargetId}{Character. The Traffic Mirror target.[optional]}
 
-\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.[optional]}
+\item{TrafficMirrorFilterId}{Character. The ID of the Traffic Mirror filter.[optional]}
 
 \item{PacketLength}{Integer. The number of bytes in each packet to mirror.[optional]}
 
@@ -31,7 +31,7 @@ ec2_modify_traffic_mirror_session(
 
 \item{VirtualNetworkId}{Integer. The virtual network ID of the Traffic Mirror session.[optional]}
 
-\item{Description}{String. The description to assign to the Traffic Mirror session.[optional]}
+\item{Description}{Character. The description to assign to the Traffic Mirror session.[optional]}
 
 \item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror session.[optional]}
 

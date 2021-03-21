@@ -26,11 +26,11 @@ ec2_modify_instance_attribute(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
 \item{SourceDestCheck}{Object. Specifies whether source/destination checking is enabled.[optional]}
 
-\item{Attribute}{String. The name of the attribute.[optional]}
+\item{Attribute}{Character. The name of the attribute.[optional]}
 
 \item{BlockDeviceMapping}{List.   Modifies the \code{DeleteOnTermination} attribute for volumes that are currently attached.[optional]}
 
@@ -56,7 +56,7 @@ ec2_modify_instance_attribute(
 
 \item{UserData}{Object. Changes the instance\'s user data to the specified value.[optional]}
 
-\item{Value}{String. A new value for the attribute.[optional]}
+\item{Value}{Character. A new value for the attribute.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -16,13 +16,13 @@ ec2_modify_capacity_reservation(
 )
 }
 \arguments{
-\item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
+\item{CapacityReservationId}{Character. The ID of the Capacity Reservation.}
 
 \item{InstanceCount}{Integer. The number of instances for which to reserve capacity.[optional]}
 
-\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.[optional]}
+\item{EndDate}{Character.   The date and time at which the Capacity Reservation expires.[optional]}
 
-\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.[optional]}
+\item{EndDateType}{Character.   Indicates the way in which the Capacity Reservation ends.[optional]}
 
 \item{Accept}{Logical. Reserved. Capacity Reservations you have created are accepted by default.[optional]}
 

@@ -17,17 +17,17 @@ ec2_authorize_client_vpn_ingress(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint.}
 
-\item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being authorized.}
+\item{TargetNetworkCidr}{Character. The IPv4 address range, in CIDR notation, of the network for which access is being authorized.}
 
-\item{AccessGroupId}{String. The ID of the group to grant access to, for example, the Active Directory group or identity provider...[optional]}
+\item{AccessGroupId}{Character. The ID of the group to grant access to, for example, the Active Directory group or identity provider...[optional]}
 
 \item{AuthorizeAllGroups}{Logical. Indicates whether to grant access to all clients.[optional]}
 
-\item{Description}{String. A brief description of the authorization rule.[optional]}
+\item{Description}{Character. A brief description of the authorization rule.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -12,7 +12,7 @@ ec2_delete_nat_gateway(
 )
 }
 \arguments{
-\item{NatGatewayId}{String. The ID of the NAT gateway.}
+\item{NatGatewayId}{Character. The ID of the NAT gateway.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

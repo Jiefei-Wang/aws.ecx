@@ -7,7 +7,7 @@
 ecs_delete_cluster(cluster = NULL, simplify = TRUE, others = list())
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to delete.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster to delete.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

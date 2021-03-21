@@ -15,15 +15,15 @@ ecs_list_task_definitions(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{familyPrefix}{String. The full family name with which to filter the \code{ListTaskDefinitions} results.}
+\item{familyPrefix}{Character. The full family name with which to filter the \code{ListTaskDefinitions} results.}
 
-\item{status}{String. The task definition status with which to filter the \code{ListTaskDefinitions} results.}
+\item{status}{Character. The task definition status with which to filter the \code{ListTaskDefinitions} results.}
 
-\item{sort}{String. The order in which to sort the results.}
+\item{sort}{Character. The order in which to sort the results.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -12,7 +12,7 @@ ec2_delete_snapshot(
 )
 }
 \arguments{
-\item{SnapshotId}{String. The ID of the EBS snapshot.}
+\item{SnapshotId}{Character. The ID of the EBS snapshot.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

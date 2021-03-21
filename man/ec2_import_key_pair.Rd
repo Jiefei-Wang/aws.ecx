@@ -14,9 +14,9 @@ ec2_import_key_pair(
 )
 }
 \arguments{
-\item{KeyName}{String. A unique name for the key pair.}
+\item{KeyName}{Character. A unique name for the key pair.}
 
-\item{PublicKeyMaterial}{String. The public key.}
+\item{PublicKeyMaterial}{Character. The public key.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

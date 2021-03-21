@@ -12,9 +12,9 @@ ecs_put_account_setting_default(
 )
 }
 \arguments{
-\item{name}{String. The resource name for which to modify the account setting.}
+\item{name}{Character. The resource name for which to modify the account setting.}
 
-\item{value}{String. The account setting value for the specified principal ARN.}
+\item{value}{Character. The account setting value for the specified principal ARN.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

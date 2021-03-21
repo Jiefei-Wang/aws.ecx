@@ -14,7 +14,7 @@ ec2_replace_iam_instance_profile_association(
 \arguments{
 \item{IamInstanceProfile}{Object. The IAM instance profile.}
 
-\item{AssociationId}{String. The ID of the existing IAM instance profile association.}
+\item{AssociationId}{Character. The ID of the existing IAM instance profile association.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

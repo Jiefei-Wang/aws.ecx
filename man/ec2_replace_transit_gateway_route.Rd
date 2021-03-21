@@ -15,11 +15,11 @@ ec2_replace_transit_gateway_route(
 )
 }
 \arguments{
-\item{DestinationCidrBlock}{String. The CIDR range used for the destination match.}
+\item{DestinationCidrBlock}{Character. The CIDR range used for the destination match.}
 
-\item{TransitGatewayRouteTableId}{String. The ID of the route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the route table.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment.[optional]}
+\item{TransitGatewayAttachmentId}{Character. The ID of the attachment.[optional]}
 
 \item{Blackhole}{Logical. Indicates whether traffic matching this route is to be dropped.[optional]}
 

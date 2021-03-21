@@ -15,11 +15,11 @@ ec2_create_security_group(
 )
 }
 \arguments{
-\item{GroupDescription}{String.   A description for the security group.}
+\item{GroupDescription}{Character.   A description for the security group.}
 
-\item{GroupName}{String.   The name of the security group.}
+\item{GroupName}{Character.   The name of the security group.}
 
-\item{VpcId}{String. [EC2-VPC] The ID of the VPC. Required for EC2-VPC.[optional]}
+\item{VpcId}{Character. [EC2-VPC] The ID of the VPC. Required for EC2-VPC.[optional]}
 
 \item{TagSpecification}{List. The tags to assign to the security group.[optional]}
 

@@ -13,11 +13,11 @@ ecs_put_account_setting(
 )
 }
 \arguments{
-\item{name}{String. The Amazon ECS resource name for which to modify the account setting.}
+\item{name}{Character. The Amazon ECS resource name for which to modify the account setting.}
 
-\item{value}{String. The account setting value for the specified principal ARN.}
+\item{value}{Character. The account setting value for the specified principal ARN.}
 
-\item{principalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+\item{principalArn}{Character. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

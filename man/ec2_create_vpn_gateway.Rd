@@ -15,9 +15,9 @@ ec2_create_vpn_gateway(
 )
 }
 \arguments{
-\item{Type}{String. The type of VPN connection this virtual private gateway supports.}
+\item{Type}{Character. The type of VPN connection this virtual private gateway supports.}
 
-\item{AvailabilityZone}{String. The Availability Zone for the virtual private gateway.[optional]}
+\item{AvailabilityZone}{Character. The Availability Zone for the virtual private gateway.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the virtual private gateway.[optional]}
 

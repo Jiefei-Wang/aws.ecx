@@ -24,13 +24,13 @@ ec2_import_image(
 )
 }
 \arguments{
-\item{Architecture}{String.   The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64}  [optional]}
+\item{Architecture}{Character.   The architecture of the virtual machine.  Valid values: \code{i386} \| \code{x86_64} \| \code{arm64}  [optional]}
 
 \item{ClientData}{Object. The client-specific data.[optional]}
 
-\item{ClientToken}{String. The token to enable idempotency for VM import requests.[optional]}
+\item{ClientToken}{Character. The token to enable idempotency for VM import requests.[optional]}
 
-\item{Description}{String. A description string for the import image task.[optional]}
+\item{Description}{Character. A description string for the import image task.[optional]}
 
 \item{DiskContainer}{List. Information about the disk containers.[optional]}
 
@@ -38,15 +38,15 @@ ec2_import_image(
 
 \item{Encrypted}{Logical. Specifies whether the destination AMI of the imported image should be encrypted.[optional]}
 
-\item{Hypervisor}{String.   The target hypervisor platform.  Valid values: \code{xen}  [optional]}
+\item{Hypervisor}{Character.   The target hypervisor platform.  Valid values: \code{xen}  [optional]}
 
-\item{KmsKeyId}{String.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...[optional]}
+\item{KmsKeyId}{Character.   An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK)...[optional]}
 
-\item{LicenseType}{String.   The license type to be used for the Amazon Machine Image (AMI) after importing.[optional]}
+\item{LicenseType}{Character.   The license type to be used for the Amazon Machine Image (AMI) after importing.[optional]}
 
-\item{Platform}{String.   The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux}  [optional]}
+\item{Platform}{Character.   The operating system of the virtual machine.  Valid values: \code{Windows} \| \code{Linux}  [optional]}
 
-\item{RoleName}{String. The name of the role to use when not using the default role, \'vmimport\'.[optional]}
+\item{RoleName}{Character. The name of the role to use when not using the default role, \'vmimport\'.[optional]}
 
 \item{LicenseSpecifications}{List. The ARNs of the license configurations.[optional]}
 

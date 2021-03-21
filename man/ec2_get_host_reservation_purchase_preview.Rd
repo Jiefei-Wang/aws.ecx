@@ -14,7 +14,7 @@ ec2_get_host_reservation_purchase_preview(
 \arguments{
 \item{HostIdSet}{List. The IDs of the Dedicated Hosts with which the reservation is associated.}
 
-\item{OfferingId}{String. The offering ID of the reservation.}
+\item{OfferingId}{Character. The offering ID of the reservation.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

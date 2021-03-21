@@ -13,9 +13,9 @@ ec2_disassociate_client_vpn_target_network(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint from which to disassociate the target network.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint from which to disassociate the target network.}
 
-\item{AssociationId}{String. The ID of the target network association.}
+\item{AssociationId}{Character. The ID of the target network association.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

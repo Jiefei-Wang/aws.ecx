@@ -25,14 +25,14 @@ ec2_describe_reserved_instances_offerings(
 )
 }
 \arguments{
-\item{AvailabilityZone}{String. The Availability Zone in which the Reserved Instance can be used.[optional]}
+\item{AvailabilityZone}{Character. The Availability Zone in which the Reserved Instance can be used.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}
 
 \item{IncludeMarketplace}{Logical. Include Reserved Instance Marketplace offerings in the response.[optional]}
 
-\item{InstanceType}{String. The instance type that the reservation will cover (for example, \code{m1.small}). For more information,...[optional]}
+\item{InstanceType}{Character. The instance type that the reservation will cover (for example, \code{m1.small}). For more information,...[optional]}
 
 \item{MaxDuration}{Integer.   The maximum duration (in seconds) to filter when searching for offerings.[optional]}
 
@@ -40,21 +40,21 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{MinDuration}{Integer.   The minimum duration (in seconds) to filter when searching for offerings.[optional]}
 
-\item{OfferingClass}{String. The offering class of the Reserved Instance. Can be \code{standard} or \code{convertible}.[optional]}
+\item{OfferingClass}{Character. The offering class of the Reserved Instance. Can be \code{standard} or \code{convertible}.[optional]}
 
-\item{ProductDescription}{String. The Reserved Instance product platform description.[optional]}
+\item{ProductDescription}{Character. The Reserved Instance product platform description.[optional]}
 
 \item{ReservedInstancesOfferingId}{List. One or more Reserved Instances offering IDs.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{InstanceTenancy}{String.   The tenancy of the instances covered by the reservation.[optional]}
+\item{InstanceTenancy}{Character.   The tenancy of the instances covered by the reservation.[optional]}
 
 \item{MaxResults}{Integer.   The maximum number of results to return for the request in a single page.[optional]}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 
-\item{OfferingType}{String. The Reserved Instance offering type.[optional]}
+\item{OfferingType}{Character. The Reserved Instance offering type.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

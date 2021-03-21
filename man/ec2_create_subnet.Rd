@@ -18,19 +18,19 @@ ec2_create_subnet(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
-\item{CidrBlock}{String. The IPv4 network range for the subnet, in CIDR notation.}
+\item{CidrBlock}{Character. The IPv4 network range for the subnet, in CIDR notation.}
 
 \item{TagSpecification}{List. The tags to assign to the subnet.[optional]}
 
-\item{AvailabilityZone}{String.   The Availability Zone or Local Zone for the subnet.[optional]}
+\item{AvailabilityZone}{Character.   The Availability Zone or Local Zone for the subnet.[optional]}
 
-\item{AvailabilityZoneId}{String. The AZ ID or the Local Zone ID of the subnet.[optional]}
+\item{AvailabilityZoneId}{Character. The AZ ID or the Local Zone ID of the subnet.[optional]}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range for the subnet, in CIDR notation.[optional]}
+\item{Ipv6CidrBlock}{Character. The IPv6 network range for the subnet, in CIDR notation.[optional]}
 
-\item{OutpostArn}{String. The Amazon Resource Name (ARN) of the Outpost.[optional]}
+\item{OutpostArn}{Character. The Amazon Resource Name (ARN) of the Outpost.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

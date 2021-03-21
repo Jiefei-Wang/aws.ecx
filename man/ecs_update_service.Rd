@@ -22,13 +22,13 @@ ecs_update_service(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on.}
 
-\item{service}{String. The name of the service to update.}
+\item{service}{Character. The name of the service to update.}
 
 \item{desiredCount}{Integer. The number of instantiations of the task to place and keep running in your service.}
 
-\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run in your...}
+\item{taskDefinition}{Character. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run in your...}
 
 \item{capacityProviderStrategy}{List.   The capacity provider strategy to update the service to use.}
 
@@ -40,7 +40,7 @@ ecs_update_service(
 
 \item{placementStrategy}{List.   The task placement strategy objects to update the service to use.}
 
-\item{platformVersion}{String. The platform version on which your tasks in the service are running.}
+\item{platformVersion}{Character. The platform version on which your tasks in the service are running.}
 
 \item{forceNewDeployment}{Logical. Whether to force a new deployment of the service.}
 

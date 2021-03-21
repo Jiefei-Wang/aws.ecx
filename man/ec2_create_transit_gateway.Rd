@@ -14,7 +14,7 @@ ec2_create_transit_gateway(
 )
 }
 \arguments{
-\item{Description}{String. A description of the transit gateway.[optional]}
+\item{Description}{Character. A description of the transit gateway.[optional]}
 
 \item{Options}{Object. The transit gateway options.[optional]}
 

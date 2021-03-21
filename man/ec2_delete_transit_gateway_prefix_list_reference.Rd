@@ -13,9 +13,9 @@ ec2_delete_transit_gateway_prefix_list_reference(
 )
 }
 \arguments{
-\item{TransitGatewayRouteTableId}{String. The ID of the route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the route table.}
 
-\item{PrefixListId}{String. The ID of the prefix list.}
+\item{PrefixListId}{Character. The ID of the prefix list.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

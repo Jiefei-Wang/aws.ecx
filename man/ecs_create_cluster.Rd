@@ -15,7 +15,7 @@ ecs_create_cluster(
 )
 }
 \arguments{
-\item{clusterName}{String. The name of your cluster.}
+\item{clusterName}{Character. The name of your cluster.}
 
 \item{tags}{List.   The metadata that you apply to the cluster to help you categorize and organize them.}
 

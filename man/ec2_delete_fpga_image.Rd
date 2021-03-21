@@ -12,7 +12,7 @@ ec2_delete_fpga_image(
 )
 }
 \arguments{
-\item{FpgaImageId}{String. The ID of the AFI.}
+\item{FpgaImageId}{Character. The ID of the AFI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

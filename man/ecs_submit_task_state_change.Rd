@@ -19,23 +19,23 @@ ecs_submit_task_state_change(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.}
 
-\item{task}{String. The task ID or full ARN of the task in the state change request.}
+\item{task}{Character. The task ID or full ARN of the task in the state change request.}
 
-\item{status}{String. The status of the state change request.}
+\item{status}{Character. The status of the state change request.}
 
-\item{reason}{String. The reason for the state change request.}
+\item{reason}{Character. The reason for the state change request.}
 
 \item{containers}{List. Any containers associated with the state change request.}
 
 \item{attachments}{List. Any attachments associated with the state change request.}
 
-\item{pullStartedAt}{String. The Unix timestamp for when the container image pull began.}
+\item{pullStartedAt}{Character. The Unix timestamp for when the container image pull began.}
 
-\item{pullStoppedAt}{String. The Unix timestamp for when the container image pull completed.}
+\item{pullStoppedAt}{Character. The Unix timestamp for when the container image pull completed.}
 
-\item{executionStoppedAt}{String. The Unix timestamp for when the task execution stopped.}
+\item{executionStoppedAt}{Character. The Unix timestamp for when the task execution stopped.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

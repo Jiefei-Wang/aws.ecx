@@ -13,9 +13,9 @@ ec2_describe_network_interface_attribute(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
-\item{Attribute}{String. The attribute of the network interface. This parameter is required.[optional]}
+\item{Attribute}{Character. The attribute of the network interface. This parameter is required.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

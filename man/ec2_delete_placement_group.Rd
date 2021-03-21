@@ -12,7 +12,7 @@ ec2_delete_placement_group(
 )
 }
 \arguments{
-\item{GroupName}{String. The name of the placement group.}
+\item{GroupName}{Character. The name of the placement group.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

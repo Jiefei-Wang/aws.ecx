@@ -14,7 +14,7 @@ ec2_associate_iam_instance_profile(
 \arguments{
 \item{IamInstanceProfile}{Object. The IAM instance profile.}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

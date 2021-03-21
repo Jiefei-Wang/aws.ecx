@@ -18,21 +18,21 @@ ec2_allocate_hosts(
 )
 }
 \arguments{
-\item{AvailabilityZone}{String. The Availability Zone in which to allocate the Dedicated Host.}
+\item{AvailabilityZone}{Character. The Availability Zone in which to allocate the Dedicated Host.}
 
 \item{Quantity}{Integer. The number of Dedicated Hosts to allocate to your account with these parameters.}
 
-\item{AutoPlacement}{String.   Indicates whether the host accepts any untargeted instance launches that match its instance type...[optional]}
+\item{AutoPlacement}{Character.   Indicates whether the host accepts any untargeted instance launches that match its instance type...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{InstanceType}{String.   Specifies the instance type to be supported by the Dedicated Hosts.[optional]}
+\item{InstanceType}{Character.   Specifies the instance type to be supported by the Dedicated Hosts.[optional]}
 
-\item{InstanceFamily}{String.   Specifies the instance family to be supported by the Dedicated Hosts.[optional]}
+\item{InstanceFamily}{Character.   Specifies the instance family to be supported by the Dedicated Hosts.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the Dedicated Host during creation.[optional]}
 
-\item{HostRecovery}{String.   Indicates whether to enable or disable host recovery for the Dedicated Host.[optional]}
+\item{HostRecovery}{Character.   Indicates whether to enable or disable host recovery for the Dedicated Host.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

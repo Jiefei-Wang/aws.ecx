@@ -21,27 +21,27 @@ ecs_start_task(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task.}
 
 \item{containerInstances}{List. The container instance IDs or full ARN entries for the container instances on which you would like...}
 
 \item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the task.}
 
-\item{group}{String. The name of the task group to associate with the task.}
+\item{group}{Character. The name of the task group to associate with the task.}
 
 \item{networkConfiguration}{Object. The VPC subnet and security group configuration for tasks that receive their own elastic network...}
 
 \item{overrides}{Object.   A list of container overrides in JSON format that specify the name of a container in the specified...}
 
-\item{propagateTags}{String. Specifies whether to propagate the tags from the task definition or the service to the task.}
+\item{propagateTags}{Character. Specifies whether to propagate the tags from the task definition or the service to the task.}
 
-\item{referenceId}{String. The reference ID to use for the task.}
+\item{referenceId}{Character. The reference ID to use for the task.}
 
-\item{startedBy}{String.   An optional tag specified when a task is started.}
+\item{startedBy}{Character.   An optional tag specified when a task is started.}
 
 \item{tags}{List.   The metadata that you apply to the task to help you categorize and organize them.}
 
-\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to start.}
+\item{taskDefinition}{Character. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to start.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

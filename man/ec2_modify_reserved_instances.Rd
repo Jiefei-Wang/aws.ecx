@@ -17,7 +17,7 @@ ec2_modify_reserved_instances(
 
 \item{ReservedInstancesConfigurationSetItemType}{List. The configuration settings for the Reserved Instances to modify.}
 
-\item{ClientToken}{String. A unique, case-sensitive token you provide to ensure idempotency of your modification request.[optional]}
+\item{ClientToken}{Character. A unique, case-sensitive token you provide to ensure idempotency of your modification request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

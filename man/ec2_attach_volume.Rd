@@ -14,11 +14,11 @@ ec2_attach_volume(
 )
 }
 \arguments{
-\item{Device}{String. The device name (for example, \verb{/dev/sdh} or \code{xvdh}).}
+\item{Device}{Character. The device name (for example, \verb{/dev/sdh} or \code{xvdh}).}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
-\item{VolumeId}{String. The ID of the EBS volume. The volume and instance must be within the same Availability Zone.}
+\item{VolumeId}{Character. The ID of the EBS volume. The volume and instance must be within the same Availability Zone.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

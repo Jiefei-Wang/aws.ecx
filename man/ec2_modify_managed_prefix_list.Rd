@@ -16,13 +16,13 @@ ec2_modify_managed_prefix_list(
 )
 }
 \arguments{
-\item{PrefixListId}{String. The ID of the prefix list.}
+\item{PrefixListId}{Character. The ID of the prefix list.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{CurrentVersion}{Integer. The current version of the prefix list.[optional]}
 
-\item{PrefixListName}{String. A name for the prefix list.[optional]}
+\item{PrefixListName}{Character. A name for the prefix list.[optional]}
 
 \item{AddEntry}{List. One or more entries to add to the prefix list.[optional]}
 

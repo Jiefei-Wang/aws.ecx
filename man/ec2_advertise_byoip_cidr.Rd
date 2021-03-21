@@ -7,7 +7,7 @@
 ec2_advertise_byoip_cidr(Cidr, DryRun = NULL, simplify = TRUE, others = list())
 }
 \arguments{
-\item{Cidr}{String. The address range, in CIDR notation.}
+\item{Cidr}{Character. The address range, in CIDR notation.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

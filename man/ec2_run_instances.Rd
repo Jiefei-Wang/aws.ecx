@@ -53,35 +53,35 @@ ec2_run_instances(
 
 \item{BlockDeviceMapping}{List. The block device mapping entries.[optional]}
 
-\item{ImageId}{String. The ID of the AMI.[optional]}
+\item{ImageId}{Character. The ID of the AMI.[optional]}
 
-\item{InstanceType}{String.   The instance type.[optional]}
+\item{InstanceType}{Character.   The instance type.[optional]}
 
 \item{Ipv6AddressCount}{Integer.   [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.[optional]}
 
 \item{Ipv6Address}{List.   [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network...[optional]}
 
-\item{KernelId}{String.   The ID of the kernel.[optional]}
+\item{KernelId}{Character.   The ID of the kernel.[optional]}
 
-\item{KeyName}{String.   The name of the key pair.[optional]}
+\item{KeyName}{Character.   The name of the key pair.[optional]}
 
 \item{Monitoring}{Object. Specifies whether detailed monitoring is enabled for the instance.[optional]}
 
 \item{Placement}{Object. The placement for the instance.[optional]}
 
-\item{RamdiskId}{String.   The ID of the RAM disk to select.[optional]}
+\item{RamdiskId}{Character.   The ID of the RAM disk to select.[optional]}
 
 \item{SecurityGroupId}{List.   The IDs of the security groups.[optional]}
 
 \item{SecurityGroup}{List.   [EC2-Classic, default VPC] The names of the security groups.[optional]}
 
-\item{SubnetId}{String.   [EC2-VPC] The ID of the subnet to launch the instance into.[optional]}
+\item{SubnetId}{Character.   [EC2-VPC] The ID of the subnet to launch the instance into.[optional]}
 
-\item{UserData}{String. The user data to make available to the instance.[optional]}
+\item{UserData}{Character. The user data to make available to the instance.[optional]}
 
-\item{AdditionalInfo}{String. Reserved.[optional]}
+\item{AdditionalInfo}{Character. Reserved.[optional]}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
 \item{DisableApiTermination}{Logical.   If you set this parameter to \code{true}, you can\'t terminate the instance using the Amazon EC2 console,...[optional]}
 
@@ -91,11 +91,11 @@ ec2_run_instances(
 
 \item{IamInstanceProfile}{Object. The name or Amazon Resource Name (ARN) of an IAM instance profile.[optional]}
 
-\item{InstanceInitiatedShutdownBehavior}{String.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...[optional]}
+\item{InstanceInitiatedShutdownBehavior}{Character.   Indicates whether an instance stops or terminates when you initiate shutdown from the instance...[optional]}
 
 \item{NetworkInterface}{List. The network interfaces to associate with the instance.[optional]}
 
-\item{PrivateIpAddress}{String.   [EC2-VPC] The primary IPv4 address.[optional]}
+\item{PrivateIpAddress}{Character.   [EC2-VPC] The primary IPv4 address.[optional]}
 
 \item{ElasticGpuSpecification}{List. An elastic GPU to associate with the instance.[optional]}
 

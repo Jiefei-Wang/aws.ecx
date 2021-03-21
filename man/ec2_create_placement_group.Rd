@@ -17,9 +17,9 @@ ec2_create_placement_group(
 \arguments{
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{GroupName}{String.   A name for the placement group.[optional]}
+\item{GroupName}{Character.   A name for the placement group.[optional]}
 
-\item{Strategy}{String. The placement strategy.[optional]}
+\item{Strategy}{Character. The placement strategy.[optional]}
 
 \item{PartitionCount}{Integer. The number of partitions. Valid only when \strong{Strategy} is set to \code{partition}.[optional]}
 

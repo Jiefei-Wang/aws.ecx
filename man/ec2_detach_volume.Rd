@@ -15,13 +15,13 @@ ec2_detach_volume(
 )
 }
 \arguments{
-\item{VolumeId}{String. The ID of the volume.}
+\item{VolumeId}{Character. The ID of the volume.}
 
-\item{Device}{String. The device name.[optional]}
+\item{Device}{Character. The device name.[optional]}
 
 \item{Force}{Logical. Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally)....[optional]}
 
-\item{InstanceId}{String. The ID of the instance.[optional]}
+\item{InstanceId}{Character. The ID of the instance.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

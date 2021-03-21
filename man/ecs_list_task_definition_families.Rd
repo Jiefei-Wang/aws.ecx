@@ -14,13 +14,13 @@ ecs_list_task_definition_families(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{familyPrefix}{String. The \code{familyPrefix} is a string that is used to filter the results of \code{ListTaskDefinitionFamilies}.}
+\item{familyPrefix}{Character. The \code{familyPrefix} is a string that is used to filter the results of \code{ListTaskDefinitionFamilies}.}
 
-\item{status}{String. The task definition family status with which to filter the \code{ListTaskDefinitionFamilies} results.}
+\item{status}{Character. The task definition family status with which to filter the \code{ListTaskDefinitionFamilies} results.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

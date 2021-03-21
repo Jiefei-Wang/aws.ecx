@@ -14,13 +14,13 @@ ec2_create_traffic_mirror_filter(
 )
 }
 \arguments{
-\item{Description}{String. The description of the Traffic Mirror filter.[optional]}
+\item{Description}{Character. The description of the Traffic Mirror filter.[optional]}
 
 \item{TagSpecification}{List. The tags to assign to a Traffic Mirror filter.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

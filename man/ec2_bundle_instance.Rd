@@ -13,7 +13,7 @@ ec2_bundle_instance(
 )
 }
 \arguments{
-\item{InstanceId}{String.   The ID of the instance to bundle.  Type: String  Default: None  Required: Yes}
+\item{InstanceId}{Character.   The ID of the instance to bundle.  Type: String  Default: None  Required: Yes}
 
 \item{Storage}{Object. The bucket in which to store the AMI.}
 

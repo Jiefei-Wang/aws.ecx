@@ -27,7 +27,7 @@ filter's value. The value can be a vector or a list object (see below)[optional]
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 
-\item{OfferingId}{String. The ID of the reservation offering.[optional]}
+\item{OfferingId}{Character. The ID of the reservation offering.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

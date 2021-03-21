@@ -13,7 +13,7 @@ ec2_create_transit_gateway_route_table(
 )
 }
 \arguments{
-\item{TransitGatewayId}{String. The ID of the transit gateway.}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.}
 
 \item{TagSpecifications}{List. The tags to apply to the transit gateway route table.[optional]}
 

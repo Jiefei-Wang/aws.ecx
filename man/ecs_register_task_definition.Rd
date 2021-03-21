@@ -25,13 +25,13 @@ ecs_register_task_definition(
 )
 }
 \arguments{
-\item{family}{String. You must specify a \code{family} for a task definition, which allows you to track multiple versions of...}
+\item{family}{Character. You must specify a \code{family} for a task definition, which allows you to track multiple versions of...}
 
-\item{taskRoleArn}{String. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can...}
+\item{taskRoleArn}{Character. The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can...}
 
-\item{executionRoleArn}{String. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent...}
+\item{executionRoleArn}{Character. The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent...}
 
-\item{networkMode}{String.   The Docker networking mode to use for the containers in the task.}
+\item{networkMode}{Character.   The Docker networking mode to use for the containers in the task.}
 
 \item{containerDefinitions}{List. A list of container definitions in JSON format that describe the different containers that make up...}
 
@@ -41,15 +41,15 @@ ecs_register_task_definition(
 
 \item{requiresCompatibilities}{List. The task launch type that Amazon ECS should validate the task definition against.}
 
-\item{cpu}{String.   The number of CPU units used by the task.}
+\item{cpu}{Character.   The number of CPU units used by the task.}
 
-\item{memory}{String.   The amount of memory (in MiB) used by the task.}
+\item{memory}{Character.   The amount of memory (in MiB) used by the task.}
 
 \item{tags}{List.   The metadata that you apply to the task definition to help you categorize and organize them.}
 
-\item{pidMode}{String.   The process namespace to use for the containers in the task.}
+\item{pidMode}{Character.   The process namespace to use for the containers in the task.}
 
-\item{ipcMode}{String.   The IPC resource namespace to use for the containers in the task.}
+\item{ipcMode}{Character.   The IPC resource namespace to use for the containers in the task.}
 
 \item{proxyConfiguration}{No description can be found.}
 

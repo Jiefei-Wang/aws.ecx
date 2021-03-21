@@ -12,7 +12,7 @@ ec2_cancel_bundle_task(
 )
 }
 \arguments{
-\item{BundleId}{String. The ID of the bundle task.}
+\item{BundleId}{Character. The ID of the bundle task.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

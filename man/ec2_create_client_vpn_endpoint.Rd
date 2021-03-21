@@ -26,9 +26,9 @@ ec2_create_client_vpn_endpoint(
 )
 }
 \arguments{
-\item{ClientCidrBlock}{String. The IPv4 address range, in CIDR notation, from which to assign client IP addresses.}
+\item{ClientCidrBlock}{Character. The IPv4 address range, in CIDR notation, from which to assign client IP addresses.}
 
-\item{ServerCertificateArn}{String. The ARN of the server certificate.}
+\item{ServerCertificateArn}{Character. The ARN of the server certificate.}
 
 \item{Authentication}{List. Information about the authentication method to be used to authenticate clients.}
 
@@ -36,25 +36,25 @@ ec2_create_client_vpn_endpoint(
 
 \item{DnsServers}{List. Information about the DNS servers to be used for DNS resolution.[optional]}
 
-\item{TransportProtocol}{String.   The transport protocol to be used by the VPN session.  Default value: \code{udp}  [optional]}
+\item{TransportProtocol}{Character.   The transport protocol to be used by the VPN session.  Default value: \code{udp}  [optional]}
 
 \item{VpnPort}{Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.[optional]}
 
-\item{Description}{String. A brief description of the Client VPN endpoint.[optional]}
+\item{Description}{Character. A brief description of the Client VPN endpoint.[optional]}
 
 \item{SplitTunnel}{Logical.   Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the Client VPN endpoint during creation.[optional]}
 
 \item{SecurityGroupId}{List. The IDs of one or more security groups to apply to the target network.[optional]}
 
-\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint.[optional]}
+\item{VpcId}{Character. The ID of the VPC to associate with the Client VPN endpoint.[optional]}
 
-\item{SelfServicePortal}{String.   Specify whether to enable the self-service portal for the Client VPN endpoint.[optional]}
+\item{SelfServicePortal}{Character.   Specify whether to enable the self-service portal for the Client VPN endpoint.[optional]}
 
 \item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections.[optional]}
 

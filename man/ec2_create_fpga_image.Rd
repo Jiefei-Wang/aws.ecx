@@ -23,11 +23,11 @@ ec2_create_fpga_image(
 
 \item{LogsStorageLocation}{Object. The location in Amazon S3 for the output logs.[optional]}
 
-\item{Description}{String. A description for the AFI.[optional]}
+\item{Description}{Character. A description for the AFI.[optional]}
 
-\item{Name}{String. A name for the AFI.[optional]}
+\item{Name}{Character. A name for the AFI.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the FPGA image during creation.[optional]}
 

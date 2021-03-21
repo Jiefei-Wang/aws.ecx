@@ -16,17 +16,17 @@ ec2_create_vpc_endpoint_connection_notification(
 )
 }
 \arguments{
-\item{ConnectionNotificationArn}{String. The ARN of the SNS topic for the notifications.}
+\item{ConnectionNotificationArn}{Character. The ARN of the SNS topic for the notifications.}
 
 \item{ConnectionEvents}{List. One or more endpoint events for which to receive notifications.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ServiceId}{String. The ID of the endpoint service.[optional]}
+\item{ServiceId}{Character. The ID of the endpoint service.[optional]}
 
-\item{VpcEndpointId}{String. The ID of the endpoint.[optional]}
+\item{VpcEndpointId}{Character. The ID of the endpoint.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

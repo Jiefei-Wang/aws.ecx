@@ -14,11 +14,11 @@ ec2_modify_instance_event_start_time(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance with the scheduled event.}
+\item{InstanceId}{Character. The ID of the instance with the scheduled event.}
 
-\item{InstanceEventId}{String. The ID of the event whose date and time you are modifying.}
+\item{InstanceEventId}{Character. The ID of the event whose date and time you are modifying.}
 
-\item{NotBefore}{String. The new date and time when the event will take place.}
+\item{NotBefore}{Character. The new date and time when the event will take place.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

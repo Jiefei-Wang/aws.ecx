@@ -15,15 +15,15 @@ ecs_list_container_instances(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances...}
 
-\item{filter}{String. You can filter the results of a \code{ListContainerInstances} operation with cluster query language statements....}
+\item{filter}{Character. You can filter the results of a \code{ListContainerInstances} operation with cluster query language statements....}
 
-\item{status}{String. Filters the container instances by status.}
+\item{status}{Character. Filters the container instances by status.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

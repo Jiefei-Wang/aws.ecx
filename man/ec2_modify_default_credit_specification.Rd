@@ -13,9 +13,9 @@ ec2_modify_default_credit_specification(
 )
 }
 \arguments{
-\item{InstanceFamily}{String. The instance family.}
+\item{InstanceFamily}{Character. The instance family.}
 
-\item{CpuCredits}{String.   The credit option for CPU usage of the instance family.}
+\item{CpuCredits}{Character.   The credit option for CPU usage of the instance family.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

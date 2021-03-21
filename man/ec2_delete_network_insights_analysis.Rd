@@ -12,7 +12,7 @@ ec2_delete_network_insights_analysis(
 )
 }
 \arguments{
-\item{NetworkInsightsAnalysisId}{String. The ID of the network insights analysis.}
+\item{NetworkInsightsAnalysisId}{Character. The ID of the network insights analysis.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -21,13 +21,13 @@ ec2_modify_vpc_endpoint(
 )
 }
 \arguments{
-\item{VpcEndpointId}{String. The ID of the endpoint.}
+\item{VpcEndpointId}{Character. The ID of the endpoint.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{ResetPolicy}{Logical. (Gateway endpoint) Specify \code{true} to reset the policy document to the default policy.[optional]}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
+\item{PolicyDocument}{Character. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
 
 \item{AddRouteTableId}{List. (Gateway endpoint) One or more route tables IDs to associate with the endpoint.[optional]}
 

@@ -16,17 +16,17 @@ ecs_list_attributes(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to list attributes.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster to list attributes.}
 
-\item{targetType}{String. The type of the target with which to list attributes.}
+\item{targetType}{Character. The type of the target with which to list attributes.}
 
-\item{attributeName}{String. The name of the attribute with which to filter the results.}
+\item{attributeName}{Character. The name of the attribute with which to filter the results.}
 
-\item{attributeValue}{String. The value of the attribute with which to filter results.}
+\item{attributeValue}{Character. The value of the attribute with which to filter results.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

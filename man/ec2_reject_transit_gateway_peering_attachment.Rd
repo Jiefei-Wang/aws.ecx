@@ -12,7 +12,7 @@ ec2_reject_transit_gateway_peering_attachment(
 )
 }
 \arguments{
-\item{TransitGatewayAttachmentId}{String. The ID of the transit gateway peering attachment.}
+\item{TransitGatewayAttachmentId}{Character. The ID of the transit gateway peering attachment.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

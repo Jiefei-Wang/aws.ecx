@@ -18,9 +18,9 @@ ec2_update_security_group_rule_descriptions_ingress(
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{GroupId}{String. The ID of the security group.[optional]}
+\item{GroupId}{Character. The ID of the security group.[optional]}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.[optional]}
+\item{GroupName}{Character. [EC2-Classic, default VPC] The name of the security group.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -12,7 +12,7 @@ ecs_describe_task_definition(
 )
 }
 \arguments{
-\item{taskDefinition}{String. The \code{family} for the latest \code{ACTIVE} revision, \code{family} and \code{revision} (\code{family:revision}) for a...}
+\item{taskDefinition}{Character. The \code{family} for the latest \code{ACTIVE} revision, \code{family} and \code{revision} (\code{family:revision}) for a...}
 
 \item{include}{List. Specifies whether to see the resource tags for the task definition.}
 

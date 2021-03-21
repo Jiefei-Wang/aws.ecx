@@ -12,9 +12,9 @@ ec2_associate_subnet_cidr_block(
 )
 }
 \arguments{
-\item{SubnetId}{String. The ID of your subnet.}
+\item{SubnetId}{Character. The ID of your subnet.}
 
-\item{Ipv6CidrBlock}{String. The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.}
+\item{Ipv6CidrBlock}{Character. The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

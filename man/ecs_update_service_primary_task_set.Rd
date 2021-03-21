@@ -13,11 +13,11 @@ ecs_update_service_primary_task_set(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the...}
 
-\item{service}{String. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.}
+\item{service}{Character. The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.}
 
-\item{primaryTaskSet}{String. The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set...}
+\item{primaryTaskSet}{Character. The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

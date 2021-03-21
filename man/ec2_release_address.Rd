@@ -14,11 +14,11 @@ ec2_release_address(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID. Required for EC2-VPC.[optional]}
+\item{AllocationId}{Character. [EC2-VPC] The allocation ID. Required for EC2-VPC.[optional]}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
+\item{PublicIp}{Character. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
 
-\item{NetworkBorderGroup}{String.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses....[optional]}
+\item{NetworkBorderGroup}{Character.   The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses....[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -15,11 +15,11 @@ ec2_create_snapshot(
 )
 }
 \arguments{
-\item{VolumeId}{String. The ID of the EBS volume.}
+\item{VolumeId}{Character. The ID of the EBS volume.}
 
-\item{Description}{String. A description for the snapshot.[optional]}
+\item{Description}{Character. A description for the snapshot.[optional]}
 
-\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.[optional]}
+\item{OutpostArn}{Character.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the snapshot during creation.[optional]}
 

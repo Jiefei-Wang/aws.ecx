@@ -13,9 +13,9 @@ ec2_disassociate_enclave_certificate_iam_role(
 )
 }
 \arguments{
-\item{CertificateArn}{String. The ARN of the ACM certificate from which to disassociate the IAM role.[optional]}
+\item{CertificateArn}{Character. The ARN of the ACM certificate from which to disassociate the IAM role.[optional]}
 
-\item{RoleArn}{String. The ARN of the IAM role to disassociate.[optional]}
+\item{RoleArn}{Character. The ARN of the IAM role to disassociate.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

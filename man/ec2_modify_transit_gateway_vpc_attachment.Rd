@@ -15,7 +15,7 @@ ec2_modify_transit_gateway_vpc_attachment(
 )
 }
 \arguments{
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment.}
+\item{TransitGatewayAttachmentId}{Character. The ID of the attachment.}
 
 \item{AddSubnetIds}{List. The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.[optional]}
 

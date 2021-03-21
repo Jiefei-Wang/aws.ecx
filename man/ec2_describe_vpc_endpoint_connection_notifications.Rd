@@ -17,7 +17,7 @@ ec2_describe_vpc_endpoint_connection_notifications(
 \arguments{
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ConnectionNotificationId}{String. The ID of the notification.[optional]}
+\item{ConnectionNotificationId}{Character. The ID of the notification.[optional]}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

@@ -13,9 +13,9 @@ ec2_delete_local_gateway_route(
 )
 }
 \arguments{
-\item{DestinationCidrBlock}{String. The CIDR range for the route. This must match the CIDR for the route exactly.}
+\item{DestinationCidrBlock}{Character. The CIDR range for the route. This must match the CIDR for the route exactly.}
 
-\item{LocalGatewayRouteTableId}{String. The ID of the local gateway route table.}
+\item{LocalGatewayRouteTableId}{Character. The ID of the local gateway route table.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

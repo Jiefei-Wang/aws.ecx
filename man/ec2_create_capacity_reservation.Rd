@@ -24,29 +24,29 @@ ec2_create_capacity_reservation(
 )
 }
 \arguments{
-\item{InstanceType}{String. The instance type for which to reserve capacity.}
+\item{InstanceType}{Character. The instance type for which to reserve capacity.}
 
-\item{InstancePlatform}{String. The type of operating system for which to reserve capacity.}
+\item{InstancePlatform}{Character. The type of operating system for which to reserve capacity.}
 
 \item{InstanceCount}{Integer. The number of instances for which to reserve capacity.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{AvailabilityZone}{String. The Availability Zone in which to create the Capacity Reservation.[optional]}
+\item{AvailabilityZone}{Character. The Availability Zone in which to create the Capacity Reservation.[optional]}
 
-\item{AvailabilityZoneId}{String. The ID of the Availability Zone in which to create the Capacity Reservation.[optional]}
+\item{AvailabilityZoneId}{Character. The ID of the Availability Zone in which to create the Capacity Reservation.[optional]}
 
-\item{Tenancy}{String.   Indicates the tenancy of the Capacity Reservation.[optional]}
+\item{Tenancy}{Character.   Indicates the tenancy of the Capacity Reservation.[optional]}
 
 \item{EbsOptimized}{Logical. Indicates whether the Capacity Reservation supports EBS-optimized instances.[optional]}
 
 \item{EphemeralStorage}{Logical. Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.[optional]}
 
-\item{EndDate}{String.   The date and time at which the Capacity Reservation expires.[optional]}
+\item{EndDate}{Character.   The date and time at which the Capacity Reservation expires.[optional]}
 
-\item{EndDateType}{String.   Indicates the way in which the Capacity Reservation ends.[optional]}
+\item{EndDateType}{Character.   Indicates the way in which the Capacity Reservation ends.[optional]}
 
-\item{InstanceMatchCriteria}{String.   Indicates the type of instance launches that the Capacity Reservation accepts.[optional]}
+\item{InstanceMatchCriteria}{Character.   Indicates the type of instance launches that the Capacity Reservation accepts.[optional]}
 
 \item{TagSpecifications}{List. The tags to apply to the Capacity Reservation during launch.[optional]}
 

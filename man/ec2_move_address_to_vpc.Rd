@@ -12,7 +12,7 @@ ec2_move_address_to_vpc(
 )
 }
 \arguments{
-\item{PublicIp}{String. The Elastic IP address.}
+\item{PublicIp}{Character. The Elastic IP address.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -13,7 +13,7 @@ ec2_modify_volume_attribute(
 )
 }
 \arguments{
-\item{VolumeId}{String. The ID of the volume.}
+\item{VolumeId}{Character. The ID of the volume.}
 
 \item{AutoEnableIO}{Object. Indicates whether the volume should be auto-enabled for I/O operations.[optional]}
 

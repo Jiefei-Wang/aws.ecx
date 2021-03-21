@@ -13,9 +13,9 @@ ec2_modify_address_attribute(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID.}
+\item{AllocationId}{Character. [EC2-VPC] The allocation ID.}
 
-\item{DomainName}{String. The domain name to modify for the IP address.[optional]}
+\item{DomainName}{Character. The domain name to modify for the IP address.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

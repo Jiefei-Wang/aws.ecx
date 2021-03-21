@@ -12,7 +12,7 @@ ecs_submit_attachment_state_changes(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full ARN of the cluster that hosts the container instance the attachment belongs...}
+\item{cluster}{Character. The short name or full ARN of the cluster that hosts the container instance the attachment belongs...}
 
 \item{attachments}{List. Any attachments associated with the state change request.}
 

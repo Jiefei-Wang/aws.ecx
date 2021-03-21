@@ -22,9 +22,9 @@ ec2_modify_client_vpn_endpoint(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to modify.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint to modify.}
 
-\item{ServerCertificateArn}{String. The ARN of the server certificate to be used.[optional]}
+\item{ServerCertificateArn}{Character. The ARN of the server certificate to be used.[optional]}
 
 \item{ConnectionLogOptions}{Object.   Information about the client connection logging options.[optional]}
 
@@ -32,7 +32,7 @@ ec2_modify_client_vpn_endpoint(
 
 \item{VpnPort}{Integer.   The port number to assign to the Client VPN endpoint for TCP and UDP traffic.[optional]}
 
-\item{Description}{String. A brief description of the Client VPN endpoint.[optional]}
+\item{Description}{Character. A brief description of the Client VPN endpoint.[optional]}
 
 \item{SplitTunnel}{Logical.   Indicates whether the VPN is split-tunnel.[optional]}
 
@@ -40,9 +40,9 @@ ec2_modify_client_vpn_endpoint(
 
 \item{SecurityGroupId}{List. The IDs of one or more security groups to apply to the target network.[optional]}
 
-\item{VpcId}{String. The ID of the VPC to associate with the Client VPN endpoint.[optional]}
+\item{VpcId}{Character. The ID of the VPC to associate with the Client VPN endpoint.[optional]}
 
-\item{SelfServicePortal}{String. Specify whether to enable the self-service portal for the Client VPN endpoint.[optional]}
+\item{SelfServicePortal}{Character. Specify whether to enable the self-service portal for the Client VPN endpoint.[optional]}
 
 \item{ClientConnectOptions}{Object. The options for managing connection authorization for new client connections.[optional]}
 

@@ -12,7 +12,7 @@ ecs_update_cluster_settings(
 )
 }
 \arguments{
-\item{cluster}{String. The name of the cluster to modify the settings for.}
+\item{cluster}{Character. The name of the cluster to modify the settings for.}
 
 \item{settings}{List. The setting to use by default for a cluster.}
 

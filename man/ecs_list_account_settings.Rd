@@ -16,15 +16,15 @@ ecs_list_account_settings(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{name}{String. The name of the account setting you want to list the settings for.}
+\item{name}{Character. The name of the account setting you want to list the settings for.}
 
-\item{value}{String. The value of the account settings with which to filter results.}
+\item{value}{Character. The value of the account settings with which to filter results.}
 
-\item{principalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+\item{principalArn}{Character. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
 
 \item{effectiveSettings}{Logical. Specifies whether to return the effective settings.}
 

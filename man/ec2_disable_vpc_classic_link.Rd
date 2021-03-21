@@ -12,7 +12,7 @@ ec2_disable_vpc_classic_link(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

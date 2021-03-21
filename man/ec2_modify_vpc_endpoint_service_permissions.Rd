@@ -14,7 +14,7 @@ ec2_modify_vpc_endpoint_service_permissions(
 )
 }
 \arguments{
-\item{ServiceId}{String. The ID of the service.}
+\item{ServiceId}{Character. The ID of the service.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -13,7 +13,7 @@ ec2_accept_vpc_endpoint_connections(
 )
 }
 \arguments{
-\item{ServiceId}{String. The ID of the VPC endpoint service.}
+\item{ServiceId}{Character. The ID of the VPC endpoint service.}
 
 \item{VpcEndpointId}{List. The IDs of one or more interface VPC endpoints.}
 

@@ -16,7 +16,7 @@ ec2_modify_network_interface_attribute(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
 \item{Attachment}{Object. Information about the interface attachment.[optional]}
 

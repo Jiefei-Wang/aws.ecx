@@ -14,11 +14,11 @@ ec2_terminate_client_vpn_connections(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to which the client is connected.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint to which the client is connected.}
 
-\item{ConnectionId}{String. The ID of the client connection to be terminated.[optional]}
+\item{ConnectionId}{Character. The ID of the client connection to be terminated.[optional]}
 
-\item{Username}{String. The name of the user who initiated the connection.[optional]}
+\item{Username}{Character. The name of the user who initiated the connection.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

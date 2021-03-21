@@ -16,7 +16,7 @@ ec2_describe_client_vpn_target_networks(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint.}
 
 \item{AssociationIds}{List. The IDs of the target network associations.[optional]}
 

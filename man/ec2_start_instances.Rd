@@ -15,7 +15,7 @@ ec2_start_instances(
 \arguments{
 \item{InstanceId}{List. The IDs of the instances.}
 
-\item{AdditionalInfo}{String. Reserved.[optional]}
+\item{AdditionalInfo}{Character. Reserved.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

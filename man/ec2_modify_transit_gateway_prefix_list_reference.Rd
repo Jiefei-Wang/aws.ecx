@@ -15,11 +15,11 @@ ec2_modify_transit_gateway_prefix_list_reference(
 )
 }
 \arguments{
-\item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the transit gateway route table.}
 
-\item{PrefixListId}{String. The ID of the prefix list.}
+\item{PrefixListId}{Character. The ID of the prefix list.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment to which traffic is routed.[optional]}
+\item{TransitGatewayAttachmentId}{Character. The ID of the attachment to which traffic is routed.[optional]}
 
 \item{Blackhole}{Logical. Indicates whether to drop traffic that matches this route.[optional]}
 

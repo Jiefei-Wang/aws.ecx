@@ -1,6 +1,7 @@
 type_map_list <- list(
     Array = "List",
-    Boolean = "Logical"
+    Boolean = "Logical",
+    String = "Character"
 )
 
 excluded_short_description <- c("others", "simplify", "Filter", "NextToken", "nextToken")

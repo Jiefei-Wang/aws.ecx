@@ -14,7 +14,7 @@ ec2_create_transit_gateway_connect(
 )
 }
 \arguments{
-\item{TransportTransitGatewayAttachmentId}{String. The ID of the transit gateway attachment.}
+\item{TransportTransitGatewayAttachmentId}{Character. The ID of the transit gateway attachment.}
 
 \item{Options}{Object. The Connect attachment options.}
 

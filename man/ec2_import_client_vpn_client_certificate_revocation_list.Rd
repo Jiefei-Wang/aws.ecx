@@ -13,9 +13,9 @@ ec2_import_client_vpn_client_certificate_revocation_list(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to which the client certificate revocation list applies.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint to which the client certificate revocation list applies.}
 
-\item{CertificateRevocationList}{String. The client certificate revocation list file.}
+\item{CertificateRevocationList}{Character. The client certificate revocation list file.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

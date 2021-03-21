@@ -12,7 +12,7 @@ ec2_start_vpc_endpoint_service_private_dns_verification(
 )
 }
 \arguments{
-\item{ServiceId}{String. The ID of the endpoint service.}
+\item{ServiceId}{Character. The ID of the endpoint service.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

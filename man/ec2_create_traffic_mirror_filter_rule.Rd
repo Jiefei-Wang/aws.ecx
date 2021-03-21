@@ -22,17 +22,17 @@ ec2_create_traffic_mirror_filter_rule(
 )
 }
 \arguments{
-\item{TrafficMirrorFilterId}{String. The ID of the filter that this rule is associated with.}
+\item{TrafficMirrorFilterId}{Character. The ID of the filter that this rule is associated with.}
 
-\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}).}
+\item{TrafficDirection}{Character. The type of traffic (\code{ingress} \| \code{egress}).}
 
 \item{RuleNumber}{Integer. The number of the Traffic Mirror rule.}
 
-\item{RuleAction}{String. The action to take (\code{accept} \| \code{reject}) on the filtered traffic.}
+\item{RuleAction}{Character. The action to take (\code{accept} \| \code{reject}) on the filtered traffic.}
 
-\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule.}
+\item{DestinationCidrBlock}{Character. The destination CIDR block to assign to the Traffic Mirror rule.}
 
-\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.}
+\item{SourceCidrBlock}{Character. The source CIDR block to assign to the Traffic Mirror rule.}
 
 \item{DestinationPortRange}{Object. The destination port range.[optional]}
 
@@ -40,11 +40,11 @@ ec2_create_traffic_mirror_filter_rule(
 
 \item{Protocol}{Integer.   The protocol, for example UDP, to assign to the Traffic Mirror rule.[optional]}
 
-\item{Description}{String. The description of the Traffic Mirror rule.[optional]}
+\item{Description}{Character. The description of the Traffic Mirror rule.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

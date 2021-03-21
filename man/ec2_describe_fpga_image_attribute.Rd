@@ -13,9 +13,9 @@ ec2_describe_fpga_image_attribute(
 )
 }
 \arguments{
-\item{FpgaImageId}{String. The ID of the AFI.}
+\item{FpgaImageId}{Character. The ID of the AFI.}
 
-\item{Attribute}{String. The AFI attribute.}
+\item{Attribute}{Character. The AFI attribute.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

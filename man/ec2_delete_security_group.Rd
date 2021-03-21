@@ -13,9 +13,9 @@ ec2_delete_security_group(
 )
 }
 \arguments{
-\item{GroupId}{String. The ID of the security group. Required for a nondefault VPC.[optional]}
+\item{GroupId}{Character. The ID of the security group. Required for a nondefault VPC.[optional]}
 
-\item{GroupName}{String. [EC2-Classic, default VPC] The name of the security group.[optional]}
+\item{GroupName}{Character. [EC2-Classic, default VPC] The name of the security group.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

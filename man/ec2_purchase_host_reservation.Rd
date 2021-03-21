@@ -18,13 +18,13 @@ ec2_purchase_host_reservation(
 \arguments{
 \item{HostIdSet}{List. The IDs of the Dedicated Hosts with which the reservation will be associated.}
 
-\item{OfferingId}{String. The ID of the offering.}
+\item{OfferingId}{Character. The ID of the offering.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{CurrencyCode}{String. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts are specified....[optional]}
+\item{CurrencyCode}{Character. The currency in which the \code{totalUpfrontPrice}, \code{LimitPrice}, and \code{totalHourlyPrice} amounts are specified....[optional]}
 
-\item{LimitPrice}{String. The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count)....[optional]}
+\item{LimitPrice}{Character. The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count)....[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the Dedicated Host Reservation during purchase.[optional]}
 

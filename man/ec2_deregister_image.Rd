@@ -7,7 +7,7 @@
 ec2_deregister_image(ImageId, DryRun = NULL, simplify = TRUE, others = list())
 }
 \arguments{
-\item{ImageId}{String. The ID of the AMI.}
+\item{ImageId}{Character. The ID of the AMI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

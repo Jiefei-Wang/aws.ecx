@@ -12,9 +12,9 @@ ecs_discover_poll_endpoint(
 )
 }
 \arguments{
-\item{containerInstance}{String. The container instance ID or full ARN of the container instance.}
+\item{containerInstance}{Character. The container instance ID or full ARN of the container instance.}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

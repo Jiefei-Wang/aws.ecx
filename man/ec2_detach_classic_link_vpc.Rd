@@ -13,9 +13,9 @@ ec2_detach_classic_link_vpc(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance to unlink from the VPC.}
+\item{InstanceId}{Character. The ID of the instance to unlink from the VPC.}
 
-\item{VpcId}{String. The ID of the VPC to which the instance is linked.}
+\item{VpcId}{Character. The ID of the VPC to which the instance is linked.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -19,23 +19,23 @@ ec2_revoke_security_group_egress(
 )
 }
 \arguments{
-\item{GroupId}{String. The ID of the security group.}
+\item{GroupId}{Character. The ID of the security group.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{IpPermissions}{List. The sets of IP permissions.[optional]}
 
-\item{CidrIp}{String. Not supported. Use a set of IP permissions to specify the CIDR.[optional]}
+\item{CidrIp}{Character. Not supported. Use a set of IP permissions to specify the CIDR.[optional]}
 
 \item{FromPort}{Integer. Not supported. Use a set of IP permissions to specify the port.[optional]}
 
-\item{IpProtocol}{String. Not supported. Use a set of IP permissions to specify the protocol name or number.[optional]}
+\item{IpProtocol}{Character. Not supported. Use a set of IP permissions to specify the protocol name or number.[optional]}
 
 \item{ToPort}{Integer. Not supported. Use a set of IP permissions to specify the port.[optional]}
 
-\item{SourceSecurityGroupName}{String. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
+\item{SourceSecurityGroupName}{Character. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
 
-\item{SourceSecurityGroupOwnerId}{String. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
+\item{SourceSecurityGroupOwnerId}{Character. Not supported. Use a set of IP permissions to specify a destination security group.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

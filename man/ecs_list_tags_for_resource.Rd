@@ -11,7 +11,7 @@ ecs_list_tags_for_resource(
 )
 }
 \arguments{
-\item{resourceArn}{String. The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.}
+\item{resourceArn}{Character. The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

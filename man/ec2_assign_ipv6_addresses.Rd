@@ -13,7 +13,7 @@ ec2_assign_ipv6_addresses(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
 \item{Ipv6AddressCount}{Integer. The number of additional IPv6 addresses to assign to the network interface.[optional]}
 

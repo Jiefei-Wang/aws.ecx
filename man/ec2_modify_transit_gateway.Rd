@@ -14,9 +14,9 @@ ec2_modify_transit_gateway(
 )
 }
 \arguments{
-\item{TransitGatewayId}{String. The ID of the transit gateway.}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.}
 
-\item{Description}{String. The description for the transit gateway.[optional]}
+\item{Description}{Character. The description for the transit gateway.[optional]}
 
 \item{Options}{Object. The options to modify.[optional]}
 

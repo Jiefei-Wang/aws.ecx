@@ -15,9 +15,9 @@ ec2_modify_spot_fleet_request(
 )
 }
 \arguments{
-\item{SpotFleetRequestId}{String. The ID of the Spot Fleet request.}
+\item{SpotFleetRequestId}{Character. The ID of the Spot Fleet request.}
 
-\item{ExcessCapacityTerminationPolicy}{String. Indicates whether running Spot Instances should be terminated if the target capacity of the Spot...[optional]}
+\item{ExcessCapacityTerminationPolicy}{Character. Indicates whether running Spot Instances should be terminated if the target capacity of the Spot...[optional]}
 
 \item{LaunchTemplateConfig}{List. The launch template and overrides.[optional]}
 

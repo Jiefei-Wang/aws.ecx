@@ -14,9 +14,9 @@ ec2_apply_security_groups_to_client_vpn_target_network(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint.}
 
-\item{VpcId}{String. The ID of the VPC in which the associated target network is located.}
+\item{VpcId}{Character. The ID of the VPC in which the associated target network is located.}
 
 \item{SecurityGroupId}{List. The IDs of the security groups to apply to the associated target network.}
 

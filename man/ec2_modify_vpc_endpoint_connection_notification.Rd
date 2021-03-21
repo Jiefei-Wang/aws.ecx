@@ -14,11 +14,11 @@ ec2_modify_vpc_endpoint_connection_notification(
 )
 }
 \arguments{
-\item{ConnectionNotificationId}{String. The ID of the notification.}
+\item{ConnectionNotificationId}{Character. The ID of the notification.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ConnectionNotificationArn}{String. The ARN for the SNS topic for the notification.[optional]}
+\item{ConnectionNotificationArn}{Character. The ARN for the SNS topic for the notification.[optional]}
 
 \item{ConnectionEvents}{List. One or more events for the endpoint. Valid values are \code{Accept}, \code{Connect}, \code{Delete}, and \code{Reject}.[optional]}
 

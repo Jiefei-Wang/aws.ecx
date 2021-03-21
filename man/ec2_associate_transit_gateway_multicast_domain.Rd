@@ -14,9 +14,9 @@ ec2_associate_transit_gateway_multicast_domain(
 )
 }
 \arguments{
-\item{TransitGatewayMulticastDomainId}{String. The ID of the transit gateway multicast domain.[optional]}
+\item{TransitGatewayMulticastDomainId}{Character. The ID of the transit gateway multicast domain.[optional]}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the transit gateway attachment to associate with the transit gateway multicast domain.[optional]}
+\item{TransitGatewayAttachmentId}{Character. The ID of the transit gateway attachment to associate with the transit gateway multicast domain.[optional]}
 
 \item{SubnetIds}{List. The IDs of the subnets to associate with the transit gateway multicast domain.[optional]}
 

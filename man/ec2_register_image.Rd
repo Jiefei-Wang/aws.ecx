@@ -23,31 +23,31 @@ ec2_register_image(
 )
 }
 \arguments{
-\item{Name}{String.   A name for your AMI.}
+\item{Name}{Character.   A name for your AMI.}
 
-\item{ImageLocation}{String. The full path to your AMI manifest in Amazon S3 storage.[optional]}
+\item{ImageLocation}{Character. The full path to your AMI manifest in Amazon S3 storage.[optional]}
 
-\item{Architecture}{String.   The architecture of the AMI.[optional]}
+\item{Architecture}{Character.   The architecture of the AMI.[optional]}
 
 \item{BlockDeviceMapping}{List.   The block device mapping entries.[optional]}
 
-\item{Description}{String. A description for your AMI.[optional]}
+\item{Description}{Character. A description for your AMI.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{EnaSupport}{Logical.   Set to \code{true} to enable enhanced networking with ENA for the AMI and any instances that you launch...[optional]}
 
-\item{KernelId}{String. The ID of the kernel.[optional]}
+\item{KernelId}{Character. The ID of the kernel.[optional]}
 
 \item{BillingProduct}{List. The billing product codes.[optional]}
 
-\item{RamdiskId}{String. The ID of the RAM disk.[optional]}
+\item{RamdiskId}{Character. The ID of the RAM disk.[optional]}
 
-\item{RootDeviceName}{String. The device name of the root device volume (for example, \verb{/dev/sda1}).[optional]}
+\item{RootDeviceName}{Character. The device name of the root device volume (for example, \verb{/dev/sda1}).[optional]}
 
-\item{SriovNetSupport}{String.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface for...[optional]}
+\item{SriovNetSupport}{Character.   Set to \code{simple} to enable enhanced networking with the Intel 82599 Virtual Function interface for...[optional]}
 
-\item{VirtualizationType}{String.   The type of virtualization (\code{hvm} \| \code{paravirtual}).  Default: \code{paravirtual}  [optional]}
+\item{VirtualizationType}{Character.   The type of virtualization (\code{hvm} \| \code{paravirtual}).  Default: \code{paravirtual}  [optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

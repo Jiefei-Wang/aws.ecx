@@ -12,9 +12,9 @@ ec2_create_vpn_connection_route(
 )
 }
 \arguments{
-\item{DestinationCidrBlock}{String. The CIDR block associated with the local subnet of the customer network.}
+\item{DestinationCidrBlock}{Character. The CIDR block associated with the local subnet of the customer network.}
 
-\item{VpnConnectionId}{String. The ID of the VPN connection.}
+\item{VpnConnectionId}{Character. The ID of the VPN connection.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

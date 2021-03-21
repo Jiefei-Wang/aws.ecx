@@ -13,9 +13,9 @@ ec2_describe_snapshot_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String. The snapshot attribute you would like to view.}
+\item{Attribute}{Character. The snapshot attribute you would like to view.}
 
-\item{SnapshotId}{String. The ID of the EBS snapshot.}
+\item{SnapshotId}{Character. The ID of the EBS snapshot.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

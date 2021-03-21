@@ -13,9 +13,9 @@ ec2_modify_identity_id_format(
 )
 }
 \arguments{
-\item{PrincipalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+\item{PrincipalArn}{Character. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
 
-\item{Resource}{String.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \|...}
+\item{Resource}{Character.   The type of resource: \code{bundle} \| \code{conversion-task} \| \code{customer-gateway} \| \code{dhcp-options} \|...}
 
 \item{UseLongIds}{Logical. Indicates whether the resource should use longer IDs (17-character IDs)}
 

@@ -14,11 +14,11 @@ ec2_create_local_gateway_route(
 )
 }
 \arguments{
-\item{DestinationCidrBlock}{String. The CIDR range used for destination matches.}
+\item{DestinationCidrBlock}{Character. The CIDR range used for destination matches.}
 
-\item{LocalGatewayRouteTableId}{String. The ID of the local gateway route table.}
+\item{LocalGatewayRouteTableId}{Character. The ID of the local gateway route table.}
 
-\item{LocalGatewayVirtualInterfaceGroupId}{String. The ID of the virtual interface group.}
+\item{LocalGatewayVirtualInterfaceGroupId}{Character. The ID of the virtual interface group.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

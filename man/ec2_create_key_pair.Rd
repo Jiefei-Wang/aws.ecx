@@ -13,7 +13,7 @@ ec2_create_key_pair(
 )
 }
 \arguments{
-\item{KeyName}{String.   A unique name for the key pair.  Constraints: Up to 255 ASCII characters}
+\item{KeyName}{Character.   A unique name for the key pair.  Constraints: Up to 255 ASCII characters}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

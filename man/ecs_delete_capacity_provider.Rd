@@ -11,7 +11,7 @@ ecs_delete_capacity_provider(
 )
 }
 \arguments{
-\item{capacityProvider}{String. The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.}
+\item{capacityProvider}{Character. The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

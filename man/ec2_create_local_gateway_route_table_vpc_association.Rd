@@ -14,9 +14,9 @@ ec2_create_local_gateway_route_table_vpc_association(
 )
 }
 \arguments{
-\item{LocalGatewayRouteTableId}{String. The ID of the local gateway route table.}
+\item{LocalGatewayRouteTableId}{Character. The ID of the local gateway route table.}
 
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{TagSpecification}{List. The tags to assign to the local gateway route table VPC association.[optional]}
 

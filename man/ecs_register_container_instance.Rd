@@ -19,17 +19,17 @@ ecs_register_container_instance(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container...}
 
-\item{instanceIdentityDocument}{String. The instance identity document for the EC2 instance to register.}
+\item{instanceIdentityDocument}{Character. The instance identity document for the EC2 instance to register.}
 
-\item{instanceIdentityDocumentSignature}{String. The instance identity document signature for the EC2 instance to register.}
+\item{instanceIdentityDocumentSignature}{Character. The instance identity document signature for the EC2 instance to register.}
 
 \item{totalResources}{List. The resources available on the instance.}
 
 \item{versionInfo}{Object. The version information for the Amazon ECS container agent and Docker daemon running on the container...}
 
-\item{containerInstanceArn}{String. The ARN of the container instance (if it was previously registered).}
+\item{containerInstanceArn}{Character. The ARN of the container instance (if it was previously registered).}
 
 \item{attributes}{List. The container instance attributes that this container instance supports.}
 

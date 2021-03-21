@@ -11,7 +11,7 @@ ec2_disassociate_iam_instance_profile(
 )
 }
 \arguments{
-\item{AssociationId}{String. The ID of the IAM instance profile association.}
+\item{AssociationId}{Character. The ID of the IAM instance profile association.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

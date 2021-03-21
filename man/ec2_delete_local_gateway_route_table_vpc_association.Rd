@@ -12,7 +12,7 @@ ec2_delete_local_gateway_route_table_vpc_association(
 )
 }
 \arguments{
-\item{LocalGatewayRouteTableVpcAssociationId}{String. The ID of the association.}
+\item{LocalGatewayRouteTableVpcAssociationId}{Character. The ID of the association.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

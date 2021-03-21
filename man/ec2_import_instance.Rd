@@ -15,9 +15,9 @@ ec2_import_instance(
 )
 }
 \arguments{
-\item{Platform}{String. The instance operating system.}
+\item{Platform}{Character. The instance operating system.}
 
-\item{Description}{String. A description for the instance being imported.[optional]}
+\item{Description}{Character. A description for the instance being imported.[optional]}
 
 \item{DiskImage}{List. The disk image.[optional]}
 

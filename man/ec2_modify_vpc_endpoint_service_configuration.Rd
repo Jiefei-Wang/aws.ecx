@@ -19,11 +19,11 @@ ec2_modify_vpc_endpoint_service_configuration(
 )
 }
 \arguments{
-\item{ServiceId}{String. The ID of the service.}
+\item{ServiceId}{Character. The ID of the service.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.[optional]}
+\item{PrivateDnsName}{Character. (Interface endpoint configuration) The private DNS name to assign to the endpoint service.[optional]}
 
 \item{RemovePrivateDnsName}{Logical. (Interface endpoint configuration) Removes the private DNS name of the endpoint service.[optional]}
 

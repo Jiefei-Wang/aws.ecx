@@ -16,13 +16,13 @@ ec2_create_transit_gateway_peering_attachment(
 )
 }
 \arguments{
-\item{TransitGatewayId}{String. The ID of the transit gateway.}
+\item{TransitGatewayId}{Character. The ID of the transit gateway.}
 
-\item{PeerTransitGatewayId}{String. The ID of the peer transit gateway with which to create the peering attachment.}
+\item{PeerTransitGatewayId}{Character. The ID of the peer transit gateway with which to create the peering attachment.}
 
-\item{PeerAccountId}{String. The AWS account ID of the owner of the peer transit gateway.}
+\item{PeerAccountId}{Character. The AWS account ID of the owner of the peer transit gateway.}
 
-\item{PeerRegion}{String. The Region where the peer transit gateway is located.}
+\item{PeerRegion}{Character. The Region where the peer transit gateway is located.}
 
 \item{TagSpecification}{List. The tags to apply to the transit gateway peering attachment.[optional]}
 

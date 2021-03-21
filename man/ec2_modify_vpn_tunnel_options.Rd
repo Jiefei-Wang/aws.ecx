@@ -14,9 +14,9 @@ ec2_modify_vpn_tunnel_options(
 )
 }
 \arguments{
-\item{VpnConnectionId}{String. The ID of the AWS Site-to-Site VPN connection.}
+\item{VpnConnectionId}{Character. The ID of the AWS Site-to-Site VPN connection.}
 
-\item{VpnTunnelOutsideIpAddress}{String. The external IP address of the VPN tunnel.}
+\item{VpnTunnelOutsideIpAddress}{Character. The external IP address of the VPN tunnel.}
 
 \item{TunnelOptions}{Object. The tunnel options to modify.}
 

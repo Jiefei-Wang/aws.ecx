@@ -24,23 +24,23 @@ ec2_create_flow_logs(
 \arguments{
 \item{ResourceId}{List.   The ID of the subnet, network interface, or VPC for which you want to create a flow log.}
 
-\item{ResourceType}{String. The type of resource for which to create the flow log.}
+\item{ResourceType}{Character. The type of resource for which to create the flow log.}
 
-\item{TrafficType}{String. The type of traffic to log.}
+\item{TrafficType}{Character. The type of traffic to log.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
-\item{DeliverLogsPermissionArn}{String.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log...[optional]}
+\item{DeliverLogsPermissionArn}{Character.   The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log...[optional]}
 
-\item{LogGroupName}{String.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs....[optional]}
+\item{LogGroupName}{Character.   The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs....[optional]}
 
-\item{LogDestinationType}{String.   Specifies the type of destination to which the flow log data is to be published.[optional]}
+\item{LogDestinationType}{Character.   Specifies the type of destination to which the flow log data is to be published.[optional]}
 
-\item{LogDestination}{String.   Specifies the destination to which the flow log data is to be published.[optional]}
+\item{LogDestination}{Character.   Specifies the destination to which the flow log data is to be published.[optional]}
 
-\item{LogFormat}{String.   The fields to include in the flow log record, in the order in which they should appear.[optional]}
+\item{LogFormat}{Character.   The fields to include in the flow log record, in the order in which they should appear.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the flow logs.[optional]}
 

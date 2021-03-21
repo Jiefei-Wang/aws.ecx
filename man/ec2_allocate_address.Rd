@@ -17,15 +17,15 @@ ec2_allocate_address(
 )
 }
 \arguments{
-\item{Domain}{String.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic....[optional]}
+\item{Domain}{Character.   Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic....[optional]}
 
-\item{Address}{String. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.[optional]}
+\item{Address}{Character. [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.[optional]}
 
-\item{PublicIpv4Pool}{String. The ID of an address pool that you own.[optional]}
+\item{PublicIpv4Pool}{Character. The ID of an address pool that you own.[optional]}
 
-\item{NetworkBorderGroup}{String.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...[optional]}
+\item{NetworkBorderGroup}{Character.   A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises...[optional]}
 
-\item{CustomerOwnedIpv4Pool}{String. The ID of a customer-owned address pool.[optional]}
+\item{CustomerOwnedIpv4Pool}{Character. The ID of a customer-owned address pool.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

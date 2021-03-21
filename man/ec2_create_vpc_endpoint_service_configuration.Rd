@@ -21,13 +21,13 @@ ec2_create_vpc_endpoint_service_configuration(
 
 \item{AcceptanceRequired}{Logical. Indicates whether requests from service consumers to create an endpoint to your service must be accepted....[optional]}
 
-\item{PrivateDnsName}{String. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.[optional]}
+\item{PrivateDnsName}{Character. (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.[optional]}
 
 \item{NetworkLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.[optional]}
 
 \item{GatewayLoadBalancerArn}{List. The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{TagSpecification}{List. The tags to associate with the service.[optional]}
 

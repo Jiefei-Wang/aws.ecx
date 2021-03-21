@@ -14,7 +14,7 @@ ec2_get_capacity_reservation_usage(
 )
 }
 \arguments{
-\item{CapacityReservationId}{String. The ID of the Capacity Reservation.}
+\item{CapacityReservationId}{Character. The ID of the Capacity Reservation.}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 

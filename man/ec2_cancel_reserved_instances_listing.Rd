@@ -11,7 +11,7 @@ ec2_cancel_reserved_instances_listing(
 )
 }
 \arguments{
-\item{ReservedInstancesListingId}{String. The ID of the Reserved Instance listing.}
+\item{ReservedInstancesListingId}{Character. The ID of the Reserved Instance listing.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

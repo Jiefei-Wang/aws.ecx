@@ -13,7 +13,7 @@ ecs_create_capacity_provider(
 )
 }
 \arguments{
-\item{name}{String. The name of the capacity provider.}
+\item{name}{Character. The name of the capacity provider.}
 
 \item{autoScalingGroupProvider}{Object. The details of the Auto Scaling group for the capacity provider.}
 

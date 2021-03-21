@@ -20,13 +20,13 @@ ec2_modify_fpga_image_attribute(
 )
 }
 \arguments{
-\item{FpgaImageId}{String. The ID of the AFI.}
+\item{FpgaImageId}{Character. The ID of the AFI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{Attribute}{String. The name of the attribute.[optional]}
+\item{Attribute}{Character. The name of the attribute.[optional]}
 
-\item{OperationType}{String. The operation type.[optional]}
+\item{OperationType}{Character. The operation type.[optional]}
 
 \item{UserId}{List. The AWS account IDs. This parameter is valid only when modifying the \code{loadPermission} attribute.[optional]}
 
@@ -36,9 +36,9 @@ ec2_modify_fpga_image_attribute(
 
 \item{LoadPermission}{Object. The load permission for the AFI.[optional]}
 
-\item{Description}{String. A description for the AFI.[optional]}
+\item{Description}{Character. A description for the AFI.[optional]}
 
-\item{Name}{String. A name for the AFI.[optional]}
+\item{Name}{Character. A name for the AFI.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

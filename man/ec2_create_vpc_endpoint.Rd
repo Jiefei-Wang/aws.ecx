@@ -21,15 +21,15 @@ ec2_create_vpc_endpoint(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC in which the endpoint will be used.}
+\item{VpcId}{Character. The ID of the VPC in which the endpoint will be used.}
 
-\item{ServiceName}{String. The service name.}
+\item{ServiceName}{Character. The service name.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{VpcEndpointType}{String.   The type of endpoint.  Default: Gateway  [optional]}
+\item{VpcEndpointType}{Character.   The type of endpoint.  Default: Gateway  [optional]}
 
-\item{PolicyDocument}{String. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
+\item{PolicyDocument}{Character. (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the...[optional]}
 
 \item{RouteTableId}{List. (Gateway endpoint) One or more route table IDs.[optional]}
 
@@ -37,7 +37,7 @@ ec2_create_vpc_endpoint(
 
 \item{SecurityGroupId}{List. (Interface endpoint) The ID of one or more security groups to associate with the endpoint network...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{PrivateDnsEnabled}{Logical.   (Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC.[optional]}
 

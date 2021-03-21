@@ -15,13 +15,13 @@ ec2_create_network_interface_permission(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
-\item{Permission}{String. The type of permission to grant.}
+\item{Permission}{Character. The type of permission to grant.}
 
-\item{AwsAccountId}{String. The AWS account ID.[optional]}
+\item{AwsAccountId}{Character. The AWS account ID.[optional]}
 
-\item{AwsService}{String. The AWS service. Currently not supported.[optional]}
+\item{AwsService}{Character. The AWS service. Currently not supported.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

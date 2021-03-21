@@ -13,9 +13,9 @@ ec2_enable_vgw_route_propagation(
 )
 }
 \arguments{
-\item{GatewayId}{String. The ID of the virtual private gateway that is attached to a VPC.}
+\item{GatewayId}{Character. The ID of the virtual private gateway that is attached to a VPC.}
 
-\item{RouteTableId}{String. The ID of the route table.}
+\item{RouteTableId}{Character. The ID of the route table.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

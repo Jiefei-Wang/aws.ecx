@@ -17,7 +17,7 @@ ec2_modify_instance_credit_specification(
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.[optional]}
+\item{ClientToken}{Character. A unique, case-sensitive token that you provide to ensure idempotency of your modification request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

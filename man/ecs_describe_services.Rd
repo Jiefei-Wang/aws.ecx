@@ -13,7 +13,7 @@ ecs_describe_services(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe.}
 
 \item{services}{List. A list of services to describe.}
 

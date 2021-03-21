@@ -16,17 +16,17 @@ ec2_copy_fpga_image(
 )
 }
 \arguments{
-\item{SourceFpgaImageId}{String. The ID of the source AFI.}
+\item{SourceFpgaImageId}{Character. The ID of the source AFI.}
 
-\item{SourceRegion}{String. The Region that contains the source AFI.}
+\item{SourceRegion}{Character. The Region that contains the source AFI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{Description}{String. The description for the new AFI.[optional]}
+\item{Description}{Character. The description for the new AFI.[optional]}
 
-\item{Name}{String. The name for the new AFI. The default is the name of the source AFI.[optional]}
+\item{Name}{Character. The name for the new AFI. The default is the name of the source AFI.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

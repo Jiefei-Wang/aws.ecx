@@ -15,11 +15,11 @@ ec2_create_nat_gateway(
 )
 }
 \arguments{
-\item{SubnetId}{String. The subnet in which to create the NAT gateway.}
+\item{SubnetId}{Character. The subnet in which to create the NAT gateway.}
 
-\item{AllocationId}{String. The allocation ID of an Elastic IP address to associate with the NAT gateway.}
+\item{AllocationId}{Character. The allocation ID of an Elastic IP address to associate with the NAT gateway.}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character.   Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -12,7 +12,7 @@ ec2_get_launch_template_data(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

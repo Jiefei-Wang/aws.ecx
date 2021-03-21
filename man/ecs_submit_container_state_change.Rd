@@ -18,19 +18,19 @@ ecs_submit_container_state_change(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full ARN of the cluster that hosts the container.}
+\item{cluster}{Character. The short name or full ARN of the cluster that hosts the container.}
 
-\item{task}{String. The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.}
+\item{task}{Character. The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.}
 
-\item{containerName}{String. The name of the container.}
+\item{containerName}{Character. The name of the container.}
 
-\item{runtimeId}{String. The ID of the Docker container.}
+\item{runtimeId}{Character. The ID of the Docker container.}
 
-\item{status}{String. The status of the state change request.}
+\item{status}{Character. The status of the state change request.}
 
 \item{exitCode}{Integer. The exit code returned for the state change request.}
 
-\item{reason}{String. The reason for the state change request.}
+\item{reason}{Character. The reason for the state change request.}
 
 \item{networkBindings}{List. The network bindings of the container.}
 

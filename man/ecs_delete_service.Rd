@@ -13,9 +13,9 @@ ecs_delete_service(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete.}
 
-\item{service}{String. The name of the service to delete.}
+\item{service}{Character. The name of the service to delete.}
 
 \item{force}{Logical. If \code{true}, allows you to delete a service even if it has not been scaled down to zero tasks.}
 

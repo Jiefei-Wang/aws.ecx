@@ -22,13 +22,13 @@ ec2_modify_traffic_mirror_filter_rule(
 )
 }
 \arguments{
-\item{TrafficMirrorFilterRuleId}{String. The ID of the Traffic Mirror rule.}
+\item{TrafficMirrorFilterRuleId}{Character. The ID of the Traffic Mirror rule.}
 
-\item{TrafficDirection}{String. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.[optional]}
+\item{TrafficDirection}{Character. The type of traffic (\code{ingress} \| \code{egress}) to assign to the rule.[optional]}
 
 \item{RuleNumber}{Integer. The number of the Traffic Mirror rule.[optional]}
 
-\item{RuleAction}{String. The action to assign to the rule.[optional]}
+\item{RuleAction}{Character. The action to assign to the rule.[optional]}
 
 \item{DestinationPortRange}{Object. The destination ports that are associated with the Traffic Mirror rule.[optional]}
 
@@ -36,11 +36,11 @@ ec2_modify_traffic_mirror_filter_rule(
 
 \item{Protocol}{Integer. The protocol, for example TCP, to assign to the Traffic Mirror rule.[optional]}
 
-\item{DestinationCidrBlock}{String. The destination CIDR block to assign to the Traffic Mirror rule.[optional]}
+\item{DestinationCidrBlock}{Character. The destination CIDR block to assign to the Traffic Mirror rule.[optional]}
 
-\item{SourceCidrBlock}{String. The source CIDR block to assign to the Traffic Mirror rule.[optional]}
+\item{SourceCidrBlock}{Character. The source CIDR block to assign to the Traffic Mirror rule.[optional]}
 
-\item{Description}{String. The description to assign to the Traffic Mirror rule.[optional]}
+\item{Description}{Character. The description to assign to the Traffic Mirror rule.[optional]}
 
 \item{RemoveField}{List.   The properties that you want to remove from the Traffic Mirror filter rule.[optional]}
 

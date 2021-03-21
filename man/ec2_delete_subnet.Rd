@@ -7,7 +7,7 @@
 ec2_delete_subnet(SubnetId, DryRun = NULL, simplify = TRUE, others = list())
 }
 \arguments{
-\item{SubnetId}{String. The ID of the subnet.}
+\item{SubnetId}{Character. The ID of the subnet.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

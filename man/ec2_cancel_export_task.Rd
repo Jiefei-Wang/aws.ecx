@@ -7,7 +7,7 @@
 ec2_cancel_export_task(ExportTaskId, simplify = TRUE, others = list())
 }
 \arguments{
-\item{ExportTaskId}{String. The ID of the export task. This is the ID returned by \code{CreateInstanceExportTask}.}
+\item{ExportTaskId}{Character. The ID of the export task. This is the ID returned by \code{CreateInstanceExportTask}.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

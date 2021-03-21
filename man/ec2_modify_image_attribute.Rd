@@ -20,15 +20,15 @@ ec2_modify_image_attribute(
 )
 }
 \arguments{
-\item{ImageId}{String. The ID of the AMI.}
+\item{ImageId}{Character. The ID of the AMI.}
 
-\item{Attribute}{String. The name of the attribute to modify.[optional]}
+\item{Attribute}{Character. The name of the attribute to modify.[optional]}
 
 \item{Description}{Object. A new description for the AMI.[optional]}
 
 \item{LaunchPermission}{Object. A new launch permission for the AMI.[optional]}
 
-\item{OperationType}{String. The operation type.[optional]}
+\item{OperationType}{Character. The operation type.[optional]}
 
 \item{ProductCode}{List. The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.[optional]}
 
@@ -36,7 +36,7 @@ ec2_modify_image_attribute(
 
 \item{UserId}{List. The AWS account IDs.[optional]}
 
-\item{Value}{String. The value of the attribute being modified.[optional]}
+\item{Value}{Character. The value of the attribute being modified.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

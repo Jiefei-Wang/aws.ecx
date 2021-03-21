@@ -12,7 +12,7 @@ ec2_delete_traffic_mirror_target(
 )
 }
 \arguments{
-\item{TrafficMirrorTargetId}{String. The ID of the Traffic Mirror target.}
+\item{TrafficMirrorTargetId}{Character. The ID of the Traffic Mirror target.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

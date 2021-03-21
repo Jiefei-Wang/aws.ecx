@@ -13,9 +13,9 @@ ec2_disassociate_address(
 )
 }
 \arguments{
-\item{AssociationId}{String. [EC2-VPC] The association ID. Required for EC2-VPC.[optional]}
+\item{AssociationId}{Character. [EC2-VPC] The association ID. Required for EC2-VPC.[optional]}
 
-\item{PublicIp}{String. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
+\item{PublicIp}{Character. [EC2-Classic] The Elastic IP address. Required for EC2-Classic.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

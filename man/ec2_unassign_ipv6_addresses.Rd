@@ -14,7 +14,7 @@ ec2_unassign_ipv6_addresses(
 \arguments{
 \item{Ipv6Addresses}{List. The IPv6 addresses to unassign from the network interface.}
 
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

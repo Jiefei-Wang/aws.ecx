@@ -13,9 +13,9 @@ ec2_replace_network_acl_association(
 )
 }
 \arguments{
-\item{AssociationId}{String. The ID of the current association between the original network ACL and the subnet.}
+\item{AssociationId}{Character. The ID of the current association between the original network ACL and the subnet.}
 
-\item{NetworkAclId}{String. The ID of the new network ACL to associate with the subnet.}
+\item{NetworkAclId}{Character. The ID of the new network ACL to associate with the subnet.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

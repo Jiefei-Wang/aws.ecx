@@ -14,7 +14,7 @@ ec2_get_associated_ipv6_pool_cidrs(
 )
 }
 \arguments{
-\item{PoolId}{String. The ID of the IPv6 address pool.}
+\item{PoolId}{Character. The ID of the IPv6 address pool.}
 
 \item{NextToken}{Characters, The token for the next page of results[optional]}
 

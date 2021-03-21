@@ -16,9 +16,9 @@ ec2_attach_classic_link_vpc(
 \arguments{
 \item{SecurityGroupId}{List. The ID of one or more of the VPC\'s security groups.}
 
-\item{InstanceId}{String. The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.}
+\item{InstanceId}{Character. The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.}
 
-\item{VpcId}{String. The ID of a ClassicLink-enabled VPC.}
+\item{VpcId}{Character. The ID of a ClassicLink-enabled VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -12,9 +12,9 @@ ecs_update_container_agent(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is...}
 
-\item{containerInstance}{String. The container instance ID or full ARN entries for the container instance on which you would like...}
+\item{containerInstance}{Character. The container instance ID or full ARN entries for the container instance on which you would like...}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

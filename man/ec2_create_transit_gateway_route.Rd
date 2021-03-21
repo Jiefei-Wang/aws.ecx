@@ -15,11 +15,11 @@ ec2_create_transit_gateway_route(
 )
 }
 \arguments{
-\item{DestinationCidrBlock}{String. The CIDR range used for destination matches.}
+\item{DestinationCidrBlock}{Character. The CIDR range used for destination matches.}
 
-\item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the transit gateway route table.}
 
-\item{TransitGatewayAttachmentId}{String. The ID of the attachment.[optional]}
+\item{TransitGatewayAttachmentId}{Character. The ID of the attachment.[optional]}
 
 \item{Blackhole}{Logical. Indicates whether to drop traffic that matches this route.[optional]}
 

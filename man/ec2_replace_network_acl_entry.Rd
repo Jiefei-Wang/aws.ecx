@@ -22,21 +22,21 @@ ec2_replace_network_acl_entry(
 \arguments{
 \item{Egress}{Logical.   Indicates whether to replace the egress rule.}
 
-\item{NetworkAclId}{String. The ID of the ACL.}
+\item{NetworkAclId}{Character. The ID of the ACL.}
 
-\item{Protocol}{String. The protocol number.}
+\item{Protocol}{Character. The protocol number.}
 
-\item{RuleAction}{String. Indicates whether to allow or deny the traffic that matches the rule.}
+\item{RuleAction}{Character. Indicates whether to allow or deny the traffic that matches the rule.}
 
 \item{RuleNumber}{Integer. The rule number of the entry to replace.}
 
-\item{CidrBlock}{String. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}).[optional]}
+\item{CidrBlock}{Character. The IPv4 network range to allow or deny, in CIDR notation (for example \verb{172.16.0.0/24}).[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Icmp}{Object. ICMP protocol: The ICMP or ICMPv6 type and code.[optional]}
 
-\item{Ipv6CidrBlock}{String. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:bd8:1234:1a00::/64}).[optional]}
+\item{Ipv6CidrBlock}{Character. The IPv6 network range to allow or deny, in CIDR notation (for example \verb{2001:bd8:1234:1a00::/64}).[optional]}
 
 \item{PortRange}{Object. TCP or UDP protocols: The range of ports the rule applies to.[optional]}
 

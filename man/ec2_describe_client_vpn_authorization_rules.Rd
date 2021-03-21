@@ -15,7 +15,7 @@ ec2_describe_client_vpn_authorization_rules(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

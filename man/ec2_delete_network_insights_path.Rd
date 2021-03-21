@@ -12,7 +12,7 @@ ec2_delete_network_insights_path(
 )
 }
 \arguments{
-\item{NetworkInsightsPathId}{String. The ID of the path.}
+\item{NetworkInsightsPathId}{Character. The ID of the path.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

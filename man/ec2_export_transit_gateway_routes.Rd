@@ -14,9 +14,9 @@ ec2_export_transit_gateway_routes(
 )
 }
 \arguments{
-\item{TransitGatewayRouteTableId}{String. The ID of the route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the route table.}
 
-\item{S3Bucket}{String. The name of the S3 bucket.}
+\item{S3Bucket}{Character. The name of the S3 bucket.}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

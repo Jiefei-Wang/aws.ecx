@@ -13,9 +13,9 @@ ec2_describe_instance_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String.   The instance attribute.  Note: The \code{enaSupport} attribute is not supported at this time.}
+\item{Attribute}{Character.   The instance attribute.  Note: The \code{enaSupport} attribute is not supported at this time.}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

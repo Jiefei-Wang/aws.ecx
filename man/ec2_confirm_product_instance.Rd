@@ -13,9 +13,9 @@ ec2_confirm_product_instance(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
-\item{ProductCode}{String. The product code. This must be a product code that you own.}
+\item{ProductCode}{Character. The product code. This must be a product code that you own.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

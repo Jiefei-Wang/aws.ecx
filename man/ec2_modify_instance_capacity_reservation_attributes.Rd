@@ -13,7 +13,7 @@ ec2_modify_instance_capacity_reservation_attributes(
 )
 }
 \arguments{
-\item{InstanceId}{String. The ID of the instance to be modified.}
+\item{InstanceId}{Character. The ID of the instance to be modified.}
 
 \item{CapacityReservationSpecification}{Object. Information about the Capacity Reservation targeting option.}
 

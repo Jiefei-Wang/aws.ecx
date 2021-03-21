@@ -15,13 +15,13 @@ ec2_import_volume(
 )
 }
 \arguments{
-\item{AvailabilityZone}{String. The Availability Zone for the resulting EBS volume.}
+\item{AvailabilityZone}{Character. The Availability Zone for the resulting EBS volume.}
 
 \item{Image}{Object. The disk image.}
 
 \item{Volume}{Object. The volume size.}
 
-\item{Description}{String. A description of the volume.[optional]}
+\item{Description}{Character. A description of the volume.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

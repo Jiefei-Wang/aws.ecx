@@ -13,9 +13,9 @@ ec2_associate_dhcp_options(
 )
 }
 \arguments{
-\item{DhcpOptionsId}{String. The ID of the DHCP options set, or \code{default} to associate no DHCP options with the VPC.}
+\item{DhcpOptionsId}{Character. The ID of the DHCP options set, or \code{default} to associate no DHCP options with the VPC.}
 
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

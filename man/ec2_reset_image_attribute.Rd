@@ -13,9 +13,9 @@ ec2_reset_image_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String. The attribute to reset (currently you can only reset the launch permission attribute).}
+\item{Attribute}{Character. The attribute to reset (currently you can only reset the launch permission attribute).}
 
-\item{ImageId}{String. The ID of the AMI.}
+\item{ImageId}{Character. The ID of the AMI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

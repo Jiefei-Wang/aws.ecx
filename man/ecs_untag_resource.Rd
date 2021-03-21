@@ -12,7 +12,7 @@ ecs_untag_resource(
 )
 }
 \arguments{
-\item{resourceArn}{String. The Amazon Resource Name (ARN) of the resource from which to delete tags.}
+\item{resourceArn}{Character. The Amazon Resource Name (ARN) of the resource from which to delete tags.}
 
 \item{tagKeys}{List. The keys of the tags to be removed.}
 

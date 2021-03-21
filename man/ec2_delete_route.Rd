@@ -15,13 +15,13 @@ ec2_delete_route(
 )
 }
 \arguments{
-\item{RouteTableId}{String. The ID of the route table.}
+\item{RouteTableId}{Character. The ID of the route table.}
 
-\item{DestinationCidrBlock}{String. The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.[optional]}
+\item{DestinationCidrBlock}{Character. The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.[optional]}
 
-\item{DestinationIpv6CidrBlock}{String. The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.[optional]}
+\item{DestinationIpv6CidrBlock}{Character. The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.[optional]}
 
-\item{DestinationPrefixListId}{String. The ID of the prefix list for the route.[optional]}
+\item{DestinationPrefixListId}{Character. The ID of the prefix list for the route.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

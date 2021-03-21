@@ -12,7 +12,7 @@ ec2_delete_transit_gateway_connect(
 )
 }
 \arguments{
-\item{TransitGatewayAttachmentId}{String. The ID of the Connect attachment.}
+\item{TransitGatewayAttachmentId}{Character. The ID of the Connect attachment.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

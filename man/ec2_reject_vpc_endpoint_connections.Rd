@@ -13,7 +13,7 @@ ec2_reject_vpc_endpoint_connections(
 )
 }
 \arguments{
-\item{ServiceId}{String. The ID of the service.}
+\item{ServiceId}{Character. The ID of the service.}
 
 \item{VpcEndpointId}{List. The IDs of one or more VPC endpoints.}
 

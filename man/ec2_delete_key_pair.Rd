@@ -13,9 +13,9 @@ ec2_delete_key_pair(
 )
 }
 \arguments{
-\item{KeyName}{String. The name of the key pair.[optional]}
+\item{KeyName}{Character. The name of the key pair.[optional]}
 
-\item{KeyPairId}{String. The ID of the key pair.[optional]}
+\item{KeyPairId}{Character. The ID of the key pair.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

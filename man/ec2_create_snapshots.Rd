@@ -18,15 +18,15 @@ ec2_create_snapshots(
 \arguments{
 \item{InstanceSpecification}{Object. The instance to specify which volumes should be included in the snapshots.}
 
-\item{Description}{String.  A description propagated to every snapshot specified by the instance.[optional]}
+\item{Description}{Character.  A description propagated to every snapshot specified by the instance.[optional]}
 
-\item{OutpostArn}{String.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.[optional]}
+\item{OutpostArn}{Character.   The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.[optional]}
 
 \item{TagSpecification}{List. Tags to apply to every snapshot specified by the instance.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{CopyTagsFromSource}{String. Copies the tags from the specified volume to corresponding snapshot.[optional]}
+\item{CopyTagsFromSource}{Character. Copies the tags from the specified volume to corresponding snapshot.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

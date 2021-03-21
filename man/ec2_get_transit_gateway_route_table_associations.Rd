@@ -15,7 +15,7 @@ ec2_get_transit_gateway_route_table_associations(
 )
 }
 \arguments{
-\item{TransitGatewayRouteTableId}{String. The ID of the transit gateway route table.}
+\item{TransitGatewayRouteTableId}{Character. The ID of the transit gateway route table.}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

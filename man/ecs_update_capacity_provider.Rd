@@ -12,7 +12,7 @@ ecs_update_capacity_provider(
 )
 }
 \arguments{
-\item{name}{String. The name of the capacity provider to update.}
+\item{name}{Character. The name of the capacity provider to update.}
 
 \item{autoScalingGroupProvider}{Object. An object representing the parameters to update for the Auto Scaling group capacity provider.}
 

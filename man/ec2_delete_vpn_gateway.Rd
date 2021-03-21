@@ -12,7 +12,7 @@ ec2_delete_vpn_gateway(
 )
 }
 \arguments{
-\item{VpnGatewayId}{String. The ID of the virtual private gateway.}
+\item{VpnGatewayId}{Character. The ID of the virtual private gateway.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

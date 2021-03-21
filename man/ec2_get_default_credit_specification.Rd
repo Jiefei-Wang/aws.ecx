@@ -12,7 +12,7 @@ ec2_get_default_credit_specification(
 )
 }
 \arguments{
-\item{InstanceFamily}{String. The instance family.}
+\item{InstanceFamily}{Character. The instance family.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

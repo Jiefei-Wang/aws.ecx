@@ -12,7 +12,7 @@ ec2_cancel_capacity_reservation(
 )
 }
 \arguments{
-\item{CapacityReservationId}{String. The ID of the Capacity Reservation to be cancelled.}
+\item{CapacityReservationId}{Character. The ID of the Capacity Reservation to be cancelled.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

@@ -17,13 +17,13 @@ ec2_purchase_reserved_instances_offering(
 \arguments{
 \item{InstanceCount}{Integer. The number of Reserved Instances to purchase.}
 
-\item{ReservedInstancesOfferingId}{String. The ID of the Reserved Instance offering to purchase.}
+\item{ReservedInstancesOfferingId}{Character. The ID of the Reserved Instance offering to purchase.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{LimitPrice}{Object. Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the...[optional]}
 
-\item{PurchaseTime}{String. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
+\item{PurchaseTime}{Character. The time at which to purchase the Reserved Instance, in UTC format (for example, \emph{YYYY}-\emph{MM}-\emph{DD}T\emph{HH}:\emph{MM}:\emph{SS}Z)....[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

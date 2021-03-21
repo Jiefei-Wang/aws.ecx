@@ -16,13 +16,13 @@ ec2_provision_byoip_cidr(
 )
 }
 \arguments{
-\item{Cidr}{String. The public IPv4 or IPv6 address range, in CIDR notation.}
+\item{Cidr}{Character. The public IPv4 or IPv6 address range, in CIDR notation.}
 
 \item{CidrAuthorizationContext}{Object. A signed document that proves that you are authorized to bring the specified IP address range to...[optional]}
 
 \item{PubliclyAdvertisable}{Logical.   (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.[optional]}
 
-\item{Description}{String. A description for the address range and the address pool.[optional]}
+\item{Description}{Character. A description for the address range and the address pool.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

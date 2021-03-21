@@ -20,11 +20,11 @@ ec2_create_traffic_mirror_session(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the source network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the source network interface.}
 
-\item{TrafficMirrorTargetId}{String. The ID of the Traffic Mirror target.}
+\item{TrafficMirrorTargetId}{Character. The ID of the Traffic Mirror target.}
 
-\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
+\item{TrafficMirrorFilterId}{Character. The ID of the Traffic Mirror filter.}
 
 \item{SessionNumber}{Integer.   The session number determines the order in which sessions are evaluated when an interface is used...}
 
@@ -32,13 +32,13 @@ ec2_create_traffic_mirror_session(
 
 \item{VirtualNetworkId}{Integer. The VXLAN ID for the Traffic Mirror session.[optional]}
 
-\item{Description}{String. The description of the Traffic Mirror session.[optional]}
+\item{Description}{Character. The description of the Traffic Mirror session.[optional]}
 
 \item{TagSpecification}{List. The tags to assign to a Traffic Mirror session.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

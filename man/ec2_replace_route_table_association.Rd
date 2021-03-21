@@ -13,9 +13,9 @@ ec2_replace_route_table_association(
 )
 }
 \arguments{
-\item{AssociationId}{String. The association ID.}
+\item{AssociationId}{Character. The association ID.}
 
-\item{RouteTableId}{String. The ID of the new route table to associate with the subnet.}
+\item{RouteTableId}{Character. The ID of the new route table to associate with the subnet.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

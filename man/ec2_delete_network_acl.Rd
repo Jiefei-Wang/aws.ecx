@@ -12,7 +12,7 @@ ec2_delete_network_acl(
 )
 }
 \arguments{
-\item{NetworkAclId}{String. The ID of the network ACL.}
+\item{NetworkAclId}{Character. The ID of the network ACL.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

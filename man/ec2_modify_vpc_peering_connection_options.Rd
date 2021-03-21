@@ -14,7 +14,7 @@ ec2_modify_vpc_peering_connection_options(
 )
 }
 \arguments{
-\item{VpcPeeringConnectionId}{String. The ID of the VPC peering connection.}
+\item{VpcPeeringConnectionId}{Character. The ID of the VPC peering connection.}
 
 \item{AccepterPeeringConnectionOptions}{Object. The VPC peering connection options for the accepter VPC.[optional]}
 

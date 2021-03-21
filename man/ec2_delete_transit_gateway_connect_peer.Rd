@@ -12,7 +12,7 @@ ec2_delete_transit_gateway_connect_peer(
 )
 }
 \arguments{
-\item{TransitGatewayConnectPeerId}{String. The ID of the Connect peer.}
+\item{TransitGatewayConnectPeerId}{Character. The ID of the Connect peer.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

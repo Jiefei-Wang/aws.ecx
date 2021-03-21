@@ -13,11 +13,11 @@ ecs_update_container_instances_state(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance...}
 
 \item{containerInstances}{List. A list of container instance IDs or full ARN entries.}
 
-\item{status}{String. The container instance state with which to update the container instance.}
+\item{status}{Character. The container instance state with which to update the container instance.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

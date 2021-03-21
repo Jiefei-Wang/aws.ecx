@@ -19,17 +19,17 @@ ec2_create_network_insights_path(
 )
 }
 \arguments{
-\item{Source}{String. The AWS resource that is the source of the path.}
+\item{Source}{Character. The AWS resource that is the source of the path.}
 
-\item{Destination}{String. The AWS resource that is the destination of the path.}
+\item{Destination}{Character. The AWS resource that is the destination of the path.}
 
-\item{Protocol}{String. The protocol.}
+\item{Protocol}{Character. The protocol.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.}
 
-\item{SourceIp}{String. The IP address of the AWS resource that is the source of the path.[optional]}
+\item{SourceIp}{Character. The IP address of the AWS resource that is the source of the path.[optional]}
 
-\item{DestinationIp}{String. The IP address of the AWS resource that is the destination of the path.[optional]}
+\item{DestinationIp}{Character. The IP address of the AWS resource that is the destination of the path.[optional]}
 
 \item{DestinationPort}{Integer. The destination port.[optional]}
 

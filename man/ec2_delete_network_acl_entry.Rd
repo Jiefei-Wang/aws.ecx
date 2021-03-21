@@ -16,7 +16,7 @@ ec2_delete_network_acl_entry(
 \arguments{
 \item{Egress}{Logical. Indicates whether the rule is an egress rule.}
 
-\item{NetworkAclId}{String. The ID of the network ACL.}
+\item{NetworkAclId}{Character. The ID of the network ACL.}
 
 \item{RuleNumber}{Integer. The rule number of the entry to delete.}
 

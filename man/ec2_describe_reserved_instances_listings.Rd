@@ -16,9 +16,9 @@ ec2_describe_reserved_instances_listings(
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}
 
-\item{ReservedInstancesId}{String. One or more Reserved Instance IDs.[optional]}
+\item{ReservedInstancesId}{Character. One or more Reserved Instance IDs.[optional]}
 
-\item{ReservedInstancesListingId}{String. One or more Reserved Instance listing IDs.[optional]}
+\item{ReservedInstancesListingId}{Character. One or more Reserved Instance listing IDs.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -15,11 +15,11 @@ ec2_revoke_client_vpn_ingress(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint with which the authorization rule is associated.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint with which the authorization rule is associated.}
 
-\item{TargetNetworkCidr}{String. The IPv4 address range, in CIDR notation, of the network for which access is being removed.}
+\item{TargetNetworkCidr}{Character. The IPv4 address range, in CIDR notation, of the network for which access is being removed.}
 
-\item{AccessGroupId}{String. The ID of the Active Directory group for which to revoke access. [optional]}
+\item{AccessGroupId}{Character. The ID of the Active Directory group for which to revoke access. [optional]}
 
 \item{RevokeAllGroups}{Logical. Indicates whether access should be revoked for all clients.[optional]}
 

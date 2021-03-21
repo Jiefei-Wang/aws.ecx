@@ -21,9 +21,9 @@ ec2_create_network_interface(
 )
 }
 \arguments{
-\item{SubnetId}{String. The ID of the subnet to associate with the network interface.}
+\item{SubnetId}{Character. The ID of the subnet to associate with the network interface.}
 
-\item{Description}{String. A description for the network interface.[optional]}
+\item{Description}{Character. A description for the network interface.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
@@ -33,13 +33,13 @@ ec2_create_network_interface(
 
 \item{Ipv6Addresses}{List. One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.[optional]}
 
-\item{PrivateIpAddress}{String. The primary private IPv4 address of the network interface.[optional]}
+\item{PrivateIpAddress}{Character. The primary private IPv4 address of the network interface.[optional]}
 
 \item{PrivateIpAddresses}{List. One or more private IPv4 addresses.[optional]}
 
 \item{SecondaryPrivateIpAddressCount}{Integer.   The number of secondary private IPv4 addresses to assign to a network interface.[optional]}
 
-\item{InterfaceType}{String. Indicates the type of network interface.[optional]}
+\item{InterfaceType}{Character. Indicates the type of network interface.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the new network interface.[optional]}
 

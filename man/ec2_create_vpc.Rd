@@ -18,19 +18,19 @@ ec2_create_vpc(
 )
 }
 \arguments{
-\item{CidrBlock}{String. The IPv4 network range for the VPC, in CIDR notation.}
+\item{CidrBlock}{Character. The IPv4 network range for the VPC, in CIDR notation.}
 
 \item{AmazonProvidedIpv6CidrBlock}{Logical. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.[optional]}
 
-\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.[optional]}
+\item{Ipv6Pool}{Character. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.[optional]}
 
-\item{Ipv6CidrBlock}{String.   The IPv6 CIDR block from the IPv6 address pool.[optional]}
+\item{Ipv6CidrBlock}{Character.   The IPv6 CIDR block from the IPv6 address pool.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{InstanceTenancy}{String.   The tenancy options for instances launched into the VPC.[optional]}
+\item{InstanceTenancy}{Character.   The tenancy options for instances launched into the VPC.[optional]}
 
-\item{Ipv6CidrBlockNetworkBorderGroup}{String.   The name of the location from which we advertise the IPV6 CIDR block.[optional]}
+\item{Ipv6CidrBlockNetworkBorderGroup}{Character.   The name of the location from which we advertise the IPV6 CIDR block.[optional]}
 
 \item{TagSpecification}{List. The tags to assign to the VPC.[optional]}
 

@@ -13,9 +13,9 @@ ec2_attach_internet_gateway(
 )
 }
 \arguments{
-\item{InternetGatewayId}{String. The ID of the internet gateway.}
+\item{InternetGatewayId}{Character. The ID of the internet gateway.}
 
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

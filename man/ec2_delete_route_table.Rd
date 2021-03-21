@@ -12,7 +12,7 @@ ec2_delete_route_table(
 )
 }
 \arguments{
-\item{RouteTableId}{String. The ID of the route table.}
+\item{RouteTableId}{Character. The ID of the route table.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

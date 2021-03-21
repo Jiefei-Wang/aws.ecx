@@ -15,7 +15,7 @@ ec2_get_coip_pool_usage(
 )
 }
 \arguments{
-\item{PoolId}{String. The ID of the address pool.}
+\item{PoolId}{Character. The ID of the address pool.}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

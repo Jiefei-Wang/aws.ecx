@@ -14,11 +14,11 @@ ec2_delete_client_vpn_route(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint from which the route is to be deleted.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint from which the route is to be deleted.}
 
-\item{DestinationCidrBlock}{String. The IPv4 address range, in CIDR notation, of the route to be deleted.}
+\item{DestinationCidrBlock}{Character. The IPv4 address range, in CIDR notation, of the route to be deleted.}
 
-\item{TargetVpcSubnetId}{String. The ID of the target subnet used by the route.[optional]}
+\item{TargetVpcSubnetId}{Character. The ID of the target subnet used by the route.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

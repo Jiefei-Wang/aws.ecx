@@ -12,7 +12,7 @@ ecs_put_attributes(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply...}
 
 \item{attributes}{List. The attributes to apply to your resource.}
 

@@ -16,17 +16,17 @@ ec2_associate_vpc_cidr_block(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.}
+\item{VpcId}{Character. The ID of the VPC.}
 
 \item{AmazonProvidedIpv6CidrBlock}{Logical. Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.[optional]}
 
-\item{CidrBlock}{String. An IPv4 CIDR block to associate with the VPC.[optional]}
+\item{CidrBlock}{Character. An IPv4 CIDR block to associate with the VPC.[optional]}
 
-\item{Ipv6CidrBlockNetworkBorderGroup}{String.   The name of the location from which we advertise the IPV6 CIDR block.[optional]}
+\item{Ipv6CidrBlockNetworkBorderGroup}{Character.   The name of the location from which we advertise the IPV6 CIDR block.[optional]}
 
-\item{Ipv6Pool}{String. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.[optional]}
+\item{Ipv6Pool}{Character. The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.[optional]}
 
-\item{Ipv6CidrBlock}{String.   An IPv6 CIDR block from the IPv6 address pool.[optional]}
+\item{Ipv6CidrBlock}{Character.   An IPv6 CIDR block from the IPv6 address pool.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

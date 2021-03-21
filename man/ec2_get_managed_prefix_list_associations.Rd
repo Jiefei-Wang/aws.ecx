@@ -14,7 +14,7 @@ ec2_get_managed_prefix_list_associations(
 )
 }
 \arguments{
-\item{PrefixListId}{String. The ID of the prefix list.}
+\item{PrefixListId}{Character. The ID of the prefix list.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

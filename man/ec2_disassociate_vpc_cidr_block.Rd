@@ -11,7 +11,7 @@ ec2_disassociate_vpc_cidr_block(
 )
 }
 \arguments{
-\item{AssociationId}{String. The association ID for the CIDR block.}
+\item{AssociationId}{Character. The association ID for the CIDR block.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

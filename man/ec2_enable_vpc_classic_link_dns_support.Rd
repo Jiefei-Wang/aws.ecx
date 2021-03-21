@@ -11,7 +11,7 @@ ec2_enable_vpc_classic_link_dns_support(
 )
 }
 \arguments{
-\item{VpcId}{String. The ID of the VPC.[optional]}
+\item{VpcId}{Character. The ID of the VPC.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

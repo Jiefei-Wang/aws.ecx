@@ -12,7 +12,7 @@ ecs_tag_resource(
 )
 }
 \arguments{
-\item{resourceArn}{String. The Amazon Resource Name (ARN) of the resource to which to add tags.}
+\item{resourceArn}{Character. The Amazon Resource Name (ARN) of the resource to which to add tags.}
 
 \item{tags}{List.   The tags to add to the resource.}
 

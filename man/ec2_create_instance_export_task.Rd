@@ -17,11 +17,11 @@ ec2_create_instance_export_task(
 \arguments{
 \item{ExportToS3}{Object. The format and location for an export instance task.}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
-\item{TargetEnvironment}{String. The target virtualization environment.}
+\item{TargetEnvironment}{Character. The target virtualization environment.}
 
-\item{Description}{String. A description for the conversion task or the resource being exported.[optional]}
+\item{Description}{Character. A description for the conversion task or the resource being exported.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the export instance task during creation.[optional]}
 

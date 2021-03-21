@@ -14,7 +14,7 @@ ec2_modify_traffic_mirror_filter_network_services(
 )
 }
 \arguments{
-\item{TrafficMirrorFilterId}{String. The ID of the Traffic Mirror filter.}
+\item{TrafficMirrorFilterId}{Character. The ID of the Traffic Mirror filter.}
 
 \item{AddNetworkService}{List. The network service, for example Amazon DNS, that you want to mirror.[optional]}
 

@@ -28,15 +28,15 @@ ecs_run_task(
 \arguments{
 \item{capacityProviderStrategy}{List.   The capacity provider strategy to use for the task.}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task.}
 
 \item{count}{Integer. The number of instantiations of the specified task to place on your cluster.}
 
 \item{enableECSManagedTags}{Logical. Specifies whether to enable Amazon ECS managed tags for the task.}
 
-\item{group}{String. The name of the task group to associate with the task.}
+\item{group}{Character. The name of the task group to associate with the task.}
 
-\item{launchType}{String.   The launch type on which to run your task.}
+\item{launchType}{Character.   The launch type on which to run your task.}
 
 \item{networkConfiguration}{Object. The network configuration for the task.}
 
@@ -46,17 +46,17 @@ ecs_run_task(
 
 \item{placementStrategy}{List. The placement strategy objects to use for the task.}
 
-\item{platformVersion}{String. The platform version the task should run.}
+\item{platformVersion}{Character. The platform version the task should run.}
 
-\item{propagateTags}{String.   Specifies whether to propagate the tags from the task definition to the task.}
+\item{propagateTags}{Character.   Specifies whether to propagate the tags from the task definition to the task.}
 
-\item{referenceId}{String. The reference ID to use for the task.}
+\item{referenceId}{Character. The reference ID to use for the task.}
 
-\item{startedBy}{String.   An optional tag specified when a task is started.}
+\item{startedBy}{Character.   An optional tag specified when a task is started.}
 
 \item{tags}{List.   The metadata that you apply to the task to help you categorize and organize them.}
 
-\item{taskDefinition}{String. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run.}
+\item{taskDefinition}{Character. The \code{family} and \code{revision} (\code{family:revision}) or full ARN of the task definition to run.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

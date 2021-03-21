@@ -12,7 +12,7 @@ ec2_delete_traffic_mirror_session(
 )
 }
 \arguments{
-\item{TrafficMirrorSessionId}{String. The ID of the Traffic Mirror session.}
+\item{TrafficMirrorSessionId}{Character. The ID of the Traffic Mirror session.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

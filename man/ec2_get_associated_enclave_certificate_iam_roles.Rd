@@ -12,7 +12,7 @@ ec2_get_associated_enclave_certificate_iam_roles(
 )
 }
 \arguments{
-\item{CertificateArn}{String. The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon...[optional]}
+\item{CertificateArn}{Character. The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon...[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

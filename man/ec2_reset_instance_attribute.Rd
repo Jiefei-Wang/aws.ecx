@@ -13,9 +13,9 @@ ec2_reset_instance_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String.   The attribute to reset.}
+\item{Attribute}{Character.   The attribute to reset.}
 
-\item{InstanceId}{String. The ID of the instance.}
+\item{InstanceId}{Character. The ID of the instance.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

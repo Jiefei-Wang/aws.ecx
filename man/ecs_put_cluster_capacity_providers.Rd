@@ -13,7 +13,7 @@ ecs_put_cluster_capacity_providers(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider...}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider...}
 
 \item{capacityProviders}{List.   The name of one or more capacity providers to associate with the cluster.}
 

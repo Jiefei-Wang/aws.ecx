@@ -16,15 +16,15 @@ ec2_create_client_vpn_route(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint to which to add the route.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint to which to add the route.}
 
-\item{DestinationCidrBlock}{String.   The IPv4 address range, in CIDR notation, of the route destination.}
+\item{DestinationCidrBlock}{Character.   The IPv4 address range, in CIDR notation, of the route destination.}
 
-\item{TargetVpcSubnetId}{String.   The ID of the subnet through which you want to route traffic.}
+\item{TargetVpcSubnetId}{Character.   The ID of the subnet through which you want to route traffic.}
 
-\item{Description}{String. A brief description of the route.[optional]}
+\item{Description}{Character. A brief description of the route.[optional]}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

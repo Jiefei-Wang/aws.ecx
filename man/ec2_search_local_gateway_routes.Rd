@@ -15,7 +15,7 @@ ec2_search_local_gateway_routes(
 )
 }
 \arguments{
-\item{LocalGatewayRouteTableId}{String. The ID of the local gateway route table.}
+\item{LocalGatewayRouteTableId}{Character. The ID of the local gateway route table.}
 
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}

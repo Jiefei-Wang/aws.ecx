@@ -17,13 +17,13 @@ ec2_create_transit_gateway_connect_peer(
 )
 }
 \arguments{
-\item{TransitGatewayAttachmentId}{String. The ID of the Connect attachment.}
+\item{TransitGatewayAttachmentId}{Character. The ID of the Connect attachment.}
 
-\item{PeerAddress}{String. The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.}
+\item{PeerAddress}{Character. The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.}
 
 \item{InsideCidrBlocks}{List. The range of inside IP addresses that are used for BGP peering.}
 
-\item{TransitGatewayAddress}{String. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which...[optional]}
+\item{TransitGatewayAddress}{Character. The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which...[optional]}
 
 \item{BgpOptions}{Object. The BGP options for the Connect peer.[optional]}
 

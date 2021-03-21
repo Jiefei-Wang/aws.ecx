@@ -14,11 +14,11 @@ ec2_associate_client_vpn_target_network(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN endpoint.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN endpoint.}
 
-\item{SubnetId}{String. The ID of the subnet to associate with the Client VPN endpoint.}
+\item{SubnetId}{Character. The ID of the subnet to associate with the Client VPN endpoint.}
 
-\item{ClientToken}{String. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character. Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.[optional]}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

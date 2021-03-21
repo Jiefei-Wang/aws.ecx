@@ -13,11 +13,11 @@ ec2_reset_fpga_image_attribute(
 )
 }
 \arguments{
-\item{FpgaImageId}{String. The ID of the AFI.}
+\item{FpgaImageId}{Character. The ID of the AFI.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{Attribute}{String. The attribute.[optional]}
+\item{Attribute}{Character. The attribute.[optional]}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

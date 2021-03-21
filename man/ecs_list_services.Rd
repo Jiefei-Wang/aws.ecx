@@ -15,15 +15,15 @@ ecs_list_services(
 )
 }
 \arguments{
-\item{maxResults}{String. Pagination limit[optional]}
+\item{maxResults}{Character. Pagination limit[optional]}
 
 \item{nextToken}{Characters, The token for the next page of results[optional]}
 
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list.}
 
-\item{launchType}{String. The launch type for the services to list.}
+\item{launchType}{Character. The launch type for the services to list.}
 
-\item{schedulingStrategy}{String. The scheduling strategy for services to list.}
+\item{schedulingStrategy}{Character. The scheduling strategy for services to list.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -12,9 +12,9 @@ ecs_delete_account_setting(
 )
 }
 \arguments{
-\item{name}{String. The resource name for which to disable the account setting.}
+\item{name}{Character. The resource name for which to disable the account setting.}
 
-\item{principalArn}{String. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
+\item{principalArn}{Character. The ARN of the principal, which can be an IAM user, IAM role, or the root user.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

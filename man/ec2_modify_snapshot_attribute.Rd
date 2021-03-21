@@ -17,15 +17,15 @@ ec2_modify_snapshot_attribute(
 )
 }
 \arguments{
-\item{SnapshotId}{String. The ID of the snapshot.}
+\item{SnapshotId}{Character. The ID of the snapshot.}
 
-\item{Attribute}{String. The snapshot attribute to modify. Only volume creation permissions can be modified.[optional]}
+\item{Attribute}{Character. The snapshot attribute to modify. Only volume creation permissions can be modified.[optional]}
 
 \item{CreateVolumePermission}{Object. A JSON representation of the snapshot attribute modification.[optional]}
 
 \item{UserGroup}{List. The group to modify for the snapshot.[optional]}
 
-\item{OperationType}{String. The type of operation to perform to the attribute.[optional]}
+\item{OperationType}{Character. The type of operation to perform to the attribute.[optional]}
 
 \item{UserId}{List. The account ID to modify for the snapshot.[optional]}
 

@@ -13,9 +13,9 @@ ec2_modify_vpn_tunnel_certificate(
 )
 }
 \arguments{
-\item{VpnConnectionId}{String. The ID of the AWS Site-to-Site VPN connection.}
+\item{VpnConnectionId}{Character. The ID of the AWS Site-to-Site VPN connection.}
 
-\item{VpnTunnelOutsideIpAddress}{String. The external IP address of the VPN tunnel.}
+\item{VpnTunnelOutsideIpAddress}{Character. The external IP address of the VPN tunnel.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

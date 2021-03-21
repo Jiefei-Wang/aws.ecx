@@ -14,7 +14,7 @@ ec2_assign_private_ip_addresses(
 )
 }
 \arguments{
-\item{NetworkInterfaceId}{String. The ID of the network interface.}
+\item{NetworkInterfaceId}{Character. The ID of the network interface.}
 
 \item{AllowReassignment}{Logical. Indicates whether to allow an IP address that is already assigned to another network interface or...[optional]}
 

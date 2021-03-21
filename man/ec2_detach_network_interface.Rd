@@ -13,7 +13,7 @@ ec2_detach_network_interface(
 )
 }
 \arguments{
-\item{AttachmentId}{String. The ID of the attachment.}
+\item{AttachmentId}{Character. The ID of the attachment.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

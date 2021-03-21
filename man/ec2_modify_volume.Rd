@@ -17,13 +17,13 @@ ec2_modify_volume(
 )
 }
 \arguments{
-\item{VolumeId}{String. The ID of the volume.}
+\item{VolumeId}{Character. The ID of the volume.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
 \item{Size}{Integer.   The target size of the volume, in GiB.[optional]}
 
-\item{VolumeType}{String.   The target EBS volume type of the volume.[optional]}
+\item{VolumeType}{Character.   The target EBS volume type of the volume.[optional]}
 
 \item{Iops}{Integer.   The target IOPS rate of the volume.[optional]}
 

@@ -16,15 +16,15 @@ ec2_create_launch_template(
 )
 }
 \arguments{
-\item{LaunchTemplateName}{String. A name for the launch template.}
+\item{LaunchTemplateName}{Character. A name for the launch template.}
 
 \item{LaunchTemplateData}{Object. The information for the launch template.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
-\item{ClientToken}{String.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
+\item{ClientToken}{Character.   Unique, case-sensitive identifier you provide to ensure the idempotency of the request.[optional]}
 
-\item{VersionDescription}{String. A description for the first version of the launch template.[optional]}
+\item{VersionDescription}{Character. A description for the first version of the launch template.[optional]}
 
 \item{TagSpecification}{List. The tags to apply to the launch template during creation.[optional]}
 

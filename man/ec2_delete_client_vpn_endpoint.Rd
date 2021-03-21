@@ -12,7 +12,7 @@ ec2_delete_client_vpn_endpoint(
 )
 }
 \arguments{
-\item{ClientVpnEndpointId}{String. The ID of the Client VPN to be deleted.}
+\item{ClientVpnEndpointId}{Character. The ID of the Client VPN to be deleted.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

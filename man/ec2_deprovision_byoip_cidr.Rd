@@ -12,7 +12,7 @@ ec2_deprovision_byoip_cidr(
 )
 }
 \arguments{
-\item{Cidr}{String. The address range, in CIDR notation.}
+\item{Cidr}{Character. The address range, in CIDR notation.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

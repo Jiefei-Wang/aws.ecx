@@ -13,9 +13,9 @@ ec2_reset_address_attribute(
 )
 }
 \arguments{
-\item{AllocationId}{String. [EC2-VPC] The allocation ID.}
+\item{AllocationId}{Character. [EC2-VPC] The allocation ID.}
 
-\item{Attribute}{String. The attribute of the IP address.}
+\item{Attribute}{Character. The attribute of the IP address.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 

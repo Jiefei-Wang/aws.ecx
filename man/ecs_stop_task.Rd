@@ -13,11 +13,11 @@ ecs_stop_task(
 )
 }
 \arguments{
-\item{cluster}{String. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop.}
+\item{cluster}{Character. The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop.}
 
-\item{task}{String. The task ID or full Amazon Resource Name (ARN) of the task to stop.}
+\item{task}{Character. The task ID or full Amazon Resource Name (ARN) of the task to stop.}
 
-\item{reason}{String. An optional message specified when a task is stopped.}
+\item{reason}{Character. An optional message specified when a task is stopped.}
 
 \item{simplify}{Logical. Whether to simplify the result and handle \code{nextToken}
 in the response[optional]}

@@ -13,9 +13,9 @@ ec2_reset_snapshot_attribute(
 )
 }
 \arguments{
-\item{Attribute}{String. The attribute to reset.}
+\item{Attribute}{Character. The attribute to reset.}
 
-\item{SnapshotId}{String. The ID of the snapshot.}
+\item{SnapshotId}{Character. The ID of the snapshot.}
 
 \item{DryRun}{Logical. Checks whether you have the required permissions for the action, without actually making the request,...[optional]}
 
