@@ -13,9 +13,19 @@ in the response[optional]}
 \item{Filter}{Named list where the name is the filter name and the value is the
 filter's value. The value can be a vector or a list object (see below)[optional]}
 
-\item{NextToken}{Characters, The token for the next page of results[optional]}
+\item{NextToken}{Characters. The token for the next page of results[optional]}
 
-\item{nextToken}{Characters, The token for the next page of results[optional]}
+\item{nextToken}{Characters. The token for the next page of results[optional]}
+
+\item{print_on_error}{Logical. Whether to show an error message when a
+network error occurs.}
+
+\item{retry_time}{Integer. Number of retries for a REST request when encounter the
+network issue. If the request has been sent \code{retry_time} times but still not
+be able to get the response, an error will be thrown.}
+
+\item{network_timeout}{Numeric. Number of seconds to wait for a REST response
+until giving up. Can not be less than 1 ms.}
 }
 \value{
 No return value

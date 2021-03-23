@@ -1,3 +1,8 @@
-Changes in version 1.0.0
+                          Changes in version 1.0.1
+New features:
+    - Allow to temporary change the package setting through the function argument
+    - Internally do the list conversion if the function parameter should be a list
+      but the user provides a non-list object
 
+                          Changes in version 1.0.0
 First public release.

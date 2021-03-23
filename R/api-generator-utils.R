@@ -1,14 +1,24 @@
 excluded_response_names <- c("nextToken", "requestId", "RequestID")
 
 
-make_request <- function(service_request, action, parameters, simplify, token_name){
-    result <- service_request(action = action, parameters = parameters)
+make_request <- function(service_request,
+                         action, parameters, simplify, token_name,
+                         print_on_error,
+                         retry_time,
+                         network_timeout){
+    result <- service_request(action = action, parameters = parameters,
+                              print_on_error = print_on_error,
+                              retry_time = retry_time,
+                              network_timeout = network_timeout)
     if (simplify) {
         if(!is.null(token_name)){
             response <- result
             while (!is.null(response[["nextToken"]])) {
                 parameters[[token_name]] <- response[["nextToken"]]
-                response <- {{{service_request}}}(action = action, parameters = parameters)
+                response <- service_request(action = action, parameters = parameters,
+                                            print_on_error = print_on_error,
+                                            retry_time = retry_time,
+                                            network_timeout = network_timeout)
                 all_names <- unique(c(names(result), names(response)))
                 result <- lapply(all_names,
                                  function(x) c(result[[x]],response[[x]])

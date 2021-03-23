@@ -60,17 +60,31 @@ generate_function <- function(service, api_info){
     param_table <- api_info$parameters
     service_request <- paste0(service, "_request")
     function_name <- paste0(service, "_", pascal_to_camel(api_info$name))
+
+    ## Build the function parameter
     parameters <- paste0(
         c(paste0(
             param_table$name,ifelse(param_table$required, "", " = NULL")),
           "simplify = TRUE",
           "others = list()"),
         collapse = ", ")
+
+    ## Find the token parameter name(some are capitalized, some are not.)
     if(any(token_names%in%param_table$name)){
         token_name <- shQuote(token_names[token_names%in%param_table$name])
     }else{
         token_name <- "NULL"
     }
+
+    ## Convert the non-list argument to the list if they are documented as a list.
+    idx <- which(tolower(param_table$type)=="array")
+    if(length(idx)!=0){
+        parameters_conversion <- paste0(
+            param_table$name[idx],"<- as.list(",param_table$name[idx],")"
+        )
+        parameters_conversion <- paste0(parameters_conversion, collapse = "\n")
+    }
+
 
     if(service=="ec2"){
         array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]

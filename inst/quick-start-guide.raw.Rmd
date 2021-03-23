@@ -67,22 +67,58 @@ Each EC2 or ECS API has its own document. For example, you can find the help pag
 [AWS Documentation]: https://docs.aws.amazon.com/index.html
 
 ## A note for the AWS EC2 functions
+### Array
 
-While the AWS Documentation is very helpful in finding the API use cases. There are some inconsistencies between the AWS Documentation and the package functions. Certain request parameters will get special treatment in this package. For example, here is an example of `DescribeVpcs`from the [AWS Documentation][example] which describes the specified VPCs
+While the AWS Documentation is very helpful in finding the API use cases. There are some inconsistencies between the AWS Documentation and the package functions. To be more specific, the array type parameter will get a special treatment in this package. For example, here is an example for `DescribeVpcs` from the [AWS Documentation][example] which describes the specified VPCs
 ```
 https://ec2.amazonaws.com/?Action=DescribeVpcs
 &VpcId.1=vpc-081ec835f3EXAMPLE
 &vpcId.2=vpc-0ee975135dEXAMPLE
 &VpcId.3=vpc-06e4ab6c6cEXAMPLE
 ```
-The `VpcId` is an array object in the AWS Documentation. for the corresponding R function `ec2_describe_vpcs`, the VPCs are provided by a vector or a list object. For example, you can describe the same VPCs via
+The `VpcId` is so-called array object in the AWS Documentation. The package uses a vector or a list to represent the array object. The dot `.` in the array can be explained as `[[` and anything followed by the dot can be explained as the index. Therefore, the corresponding R expression for `VpcId` is
+```{r}
+## VpcId can also be a character vector
+VpcId <- list()
+VpcId[[1]] <- "vpc-081ec835f3EXAMPLE"
+VpcId[[2]] <- "vpc-0ee975135dEXAMPLE"
+VpcId[[3]] <- "vpc-06e4ab6c6cEXAMPLE"
+
+VpcId
 ```
-ec2_describe_vpcs(
-  VpcId = c("vpc-081ec835f3EXAMPLE",
-  "vpc-0ee975135dEXAMPLE",
-  "vpc-06e4ab6c6cEXAMPLE")
-)
+and the same request in R can be made by
 ```
+ec2_describe_vpcs(VpcId = VpcId)
+```
+Internally, `VpcId` will be converted to an array object using the function `list_to_array`, e.g.
+```{r}
+## The first argument is the parameter prefix
+## The second argument should be a (named) vector or list
+list_to_array("VpcId", VpcId)
+```
+Just like list can be nested, the array object can be nested as well. For example, if we have a `tags` array like
+```
+tags.1.name = name-example
+tags.1.value.1 = value-example1
+tags.1.value.2 = value-example2
+```
+Using the array rule we mentioned above, the corresponding R expression is
+```{r}
+tags <- list()
+tags[[1]] <- list()
+tags[[1]][["name"]] <- "name-example"
+tags[[1]][["value"]] <- list()
+tags[[1]][["value"]][[1]] <- "value-example1"
+tags[[1]][["value"]][[2]] <- "value-example2"
+
+tags
+```
+We can verify the request parameter using `list_to_array`
+```{r}
+list_to_array("tags", tags)
+```
+
+### Filter
 A even more aggressive change can be found on the `Filter` parameter. Here is an example of describing VPCs which satisfy some specific conditions from the [AWS Documentation][example]
 ```
 https://ec2.amazonaws.com/?Action=DescribeVpcs
@@ -92,7 +128,7 @@ https://ec2.amazonaws.com/?Action=DescribeVpcs
 &Filter.2.Name=state
 &Filter.2.Value.1=available
 ```
-The corresponding R function call is
+The `Filter` parameter is, of course, an array object in AWS documentation. However, it is clearly redundant to specify the filter's name and value separately. Therefore, the package allows users to provide the filter as a named list. The same request in R can be given by
 ```
 ec2_describe_vpcs(
   Filter = list(
@@ -101,7 +137,7 @@ ec2_describe_vpcs(
   )
 )
 ```
-The `Filter` parameter will be converted into a list object internally which meets the AWS format requirement. If you are unsure about whether you has specified the correct filter, you can check the converted filter values via
+The `Filter` parameter will be converted into a list object which meets the AWS filter requirement. If you are unsure about whether you has specified the correct filter, you can check the converted filter values via
 ```{R}
 filter <- list(
     `dhcp-options-id` = c("dopt-7a8b9c2d", "dopt-2b2a3d3c"),
@@ -114,7 +150,7 @@ list_to_filter(filter)
 
 
 ## A note for the AWS ECS functions
-The AWS ECS API uses JSON format to store the request parameter. Therefore, the ECS R functions will use `rjson::toJSON` to convert the request parameters into JSON objects. If you are not sure if you use the parameter correctly, you can manually run `rjson::toJSON` and compare the result with the example provided in AWS documentation. For example, the request syntax for the `tag` parameter in `CreateCluster` API is 
+The AWS ECS API uses JSON format to assemble the request parameter. Therefore, the ECS functions will call `rjson::toJSON` to convert the request parameters into JSON objects. If you are not sure if you use the parameter correctly, you can manually run `rjson::toJSON` and compare the result with the example provided in AWS documentation. For example, the request syntax for the `tags` parameter in `CreateCluster` API is 
 ```
 "tags": [ 
          { 
@@ -143,7 +179,7 @@ aws_get_retry_time()
 aws_get_print_on_error()
 aws_get_network_timeout()
 ```
-`retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`).
+`retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`). You can also temporary alter the setting by providing the package setting as a parameter in the EC2 or ECS function.
 
 # Session info
 ```{r}

@@ -1,18 +1,23 @@
 ec2_api_version <- "2016-11-15"
 ecs_service_id <- "AmazonEC2ContainerServiceV20141113"
 
-retry_on_error <- function(func, ..., n_try){
-  for(i in seq_len(n_try)){
+retry_on_error <- function(func, url, config, body, query, retry_time, print_on_error){
+  for(i in seq_len(retry_time+1)){
     response <- NULL
     response <- tryCatch(
-      func(...),
+      func(url=url,
+           config = config,
+           body=body,
+           query=query),
       error = function(e) e
     )
-    ## If the response is NULL, it means
-    ## the user sends a stop signal
+    ## If the response is NULL
+    ## It means user manually interrupted the code
+    ## Otherwise, an error should be given
     if(is.null(response)){
       break
     }
+    ## If the response is not an error, just return the result
     if(!is(response, "error")){
       return(response)
     }
@@ -20,26 +25,40 @@ retry_on_error <- function(func, ..., n_try){
     if(is(response, "interrupt")||identical(response$message, user_interrupt_msg)){
       stop(user_interrupt_msg)
     }
-    if(package_setting$print_on_error)
+    if(print_on_error)
       cat("REST request failed with the message:\n",
           response$message,"\n")
   }
   NULL
 }
 
-GET_EX <- function(..., n_try = 3){
-  retry_on_error(func = httr::GET, ..., n_try=package_setting$retry_time,
-                 timeout(package_setting$network_timeout))
-}
-POST_EX <- function(..., n_try = 3){
-  retry_on_error(func = httr::POST, ..., n_try=package_setting$retry_time,
-                 timeout(package_setting$network_timeout))
+GET_EX <- function(url, config, body, query,
+                   print_on_error = aws_get_print_on_error(),
+                   retry_time = aws_get_retry_time(),
+                   network_timeout = aws_get_network_timeout()){
+  retry_on_error(func = httr::GET,
+                 url=url,
+                 config=c(config,timeout(network_timeout)),
+                 body=body,
+                 query=query,
+                 retry_time=retry_time,
+                 print_on_error=print_on_error)
 }
 
-# ec2_request("DescribeVpcs",list(`Filter.1.tag`="vpc-0519332012da051c3"))
-# action <- "DescribeVpcs"
-# parameters <- list(`Filter.1.Name`="vpc-id",`Filter.1.Value`="vpc-aaa")
-ec2_request <- function(action, parameters = list()){
+POST_EX <- function(url, config, body, query,
+                    print_on_error = aws_get_print_on_error(),
+                    retry_time = aws_get_retry_time(),
+                    network_timeout = aws_get_network_timeout()){
+  retry_on_error(func = httr::POST,
+                 url=url,
+                 config=c(config,timeout(network_timeout)),
+                 body=body,
+                 query=query,
+                 retry_time=retry_time,
+                 print_on_error=print_on_error)
+}
+
+ec2_request <- function(action, parameters = list(),...){
   if(is.null(parameters) || length(parameters)==0){
     query <- list()
   }else{
@@ -53,7 +72,7 @@ ec2_request <- function(action, parameters = list()){
   query$Version <- ec2_api_version
   response <- aws_request(method = "GET",
                           service = "ec2",
-                          query = query)
+                          query = query,...)
   text_response <- gsub("\n\\s*", "", httr::content(response, "text", encoding = "UTF-8"))
   if (httr::http_error(response)) {
     x <- try(xml2::as_list(xml2::read_xml(text_response)), silent = TRUE)
@@ -72,9 +91,7 @@ ec2_request <- function(action, parameters = list()){
   x[[1]]
 }
 
-# action <- "ListClusters"
-# parameters <- NULL
-ecs_request <- function(action, parameters = list()){
+ecs_request <- function(action, parameters = list(),...){
   if(is.null(parameters)||length(parameters)==0){
     body = "{}"
   }else{
@@ -90,9 +107,9 @@ ecs_request <- function(action, parameters = list()){
     `X-Amz-Target` = amz_target
   )
   response <- aws_request(method = "POST",
-                       service = "ecs",
-                       headers=headers,
-                       body=body)
+                          service = "ecs",
+                          headers=headers,
+                          body=body,...)
   if(httr::http_error(response)){
     msg <-  content(response, type = "application/json", encoding  = "UTF-8")
     if(!is.null(msg$`__type`)&&!is.null(msg$message))
@@ -102,14 +119,15 @@ ecs_request <- function(action, parameters = list()){
   content(response, type = "application/json", encoding  = "UTF-8")
 }
 
-# query$Action = "DescribeVpcs"
-# query$Version <- ec2_api_version
-
 aws_request <- function(method = c("POST","GET"),
-                     service = "ecs",
-                     query = list(),
-                     headers = c(),
-                     body = ""){
+                        service = "ecs",
+                        query = list(),
+                        headers = c(),
+                        body = "",
+                        print_on_error = aws_get_print_on_error(),
+                        retry_time = aws_get_retry_time(),
+                        network_timeout = aws_get_network_timeout()){
+
   method <- match.arg(method)
   region <- aws_get_region()
   host <- paste0(service, ".", region,".amazonaws.com")
@@ -134,15 +152,21 @@ aws_request <- function(method = c("POST","GET"),
 
   # browser()
   response <- rest_func(
-    url,
-    add_headers(
+    url=url,
+    config = add_headers(
       `X-Amz-Date` = datetime,
       Authorization= sig$SignatureHeader,
       .headers = unlist(headers)
     ),
     body = sig$Body,
-    query = query
+    query = query,
+    print_on_error = print_on_error,
+    retry_time = retry_time,
+    network_timeout = network_timeout
   )
+  ## If the response is NULL, it means the request
+  ## has been resent `retry_time` times but still
+  ## not able to get the response
   if(is.null(response)){
     stop("Fail to connect to the server")
   }
