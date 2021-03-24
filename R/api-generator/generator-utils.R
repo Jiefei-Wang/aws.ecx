@@ -77,17 +77,25 @@ generate_function <- function(service, api_info){
     }
 
     ## Convert the non-list argument to the list if they are documented as a list.
-    idx <- which(tolower(param_table$type)=="array")
-    if(length(idx)!=0){
-        parameters_conversion <- paste0(
-            param_table$name[idx],"<- as.list(",param_table$name[idx],")"
-        )
-        parameters_conversion <- paste0(parameters_conversion, collapse = "\n")
+    parameters_conversion <- NULL
+    for(i in seq_along(type_conversion_list)){
+        idx <- which(isStrEqual(param_table$type, names(type_conversion_list)[i]))
+        parameters_conversion_tmp <- NULL
+        if(length(idx)!=0){
+            parameters_conversion_tmp <- paste0(
+                param_table$name[idx],"<- ", type_conversion_list[[i]],"(",param_table$name[idx],")"
+            )
+            parameters_conversion_tmp <- paste0(parameters_conversion_tmp, collapse = "\n")
+        }
+        parameters_conversion <- c(parameters_conversion, parameters_conversion_tmp)
     }
+    parameters_conversion <- paste0(parameters_conversion, collapse = "\n")
 
 
     if(service=="ec2"){
-        array_param <- param_table$name[param_table$type=="array"& param_table$name!="Filter"]
+        array_idx <- isStrEqual(param_table$type,"array")&
+            !isStrEqual(param_table$name,"Filter")
+        array_param <- param_table$name[array_idx]
         list_to_array_process_code <- paste0(
             vapply(array_param,
                    function(x)
@@ -108,23 +116,9 @@ generate_function <- function(service, api_info){
                 collapse = ", ")
         }
     }else{
-        array_idx <- param_table$type=="array"
-        parameters_combine1 <- NULL
-        parameters_combine2 <- NULL
-
-        if(any(!array_idx)){
-            parameters_combine1 <- paste0(
-                paste0(param_table$name[!array_idx],"=", param_table$name[!array_idx]),
-                collapse = ", ")
-        }
-        if(any(array_idx)){
-            parameters_combine2 <- paste0(
-                paste0(param_table$name[array_idx],"=as.list(", param_table$name[array_idx]),")",
-                collapse = ", ")
-        }
-        parameters_combine <- paste0(
-            c(parameters_combine1,parameters_combine2),
-            collapse = ", ")
+        array_idx <- isStrEqual(param_table$type,"array")
+        if(length(param_table$name)!=0)
+            parameters_combine <- paste0(param_table$name,"=", param_table$name)
     }
 
     x <- whisker::whisker.render(template)
@@ -345,4 +339,6 @@ simpleCap <- function(x) {
           sep="", collapse=" ")
 }
 
-
+isStrEqual <- function(x,y){
+    tolower(x)==tolower(y)
+}

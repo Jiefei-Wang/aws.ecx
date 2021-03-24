@@ -1,3 +1,8 @@
+                          Changes in version 1.0.2
+New features:
+    - Do the type conversion for all function parameter to make sure they are using
+    the correct data type
+
                           Changes in version 1.0.1
 New features:
     - Allow to temporary change the package setting through the function argument

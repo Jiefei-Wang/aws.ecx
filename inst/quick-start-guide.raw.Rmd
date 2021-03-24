@@ -186,7 +186,12 @@ aws_get_network_timeout()
 sessionInfo()
 ```
 
+# future work
+1. Convert parameter type if it does not meet the AWS type requirement
 
+2. add link to the function documentation
+
+3. Object type to list?
 
 
 

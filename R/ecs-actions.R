@@ -53,9 +53,11 @@
 ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, tags = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    name <- as.character(name)
+    autoScalingGroupProvider <- as.list(autoScalingGroupProvider)
     tags <- as.list(tags)
     parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider, 
-        tags = as.list(tags)))
+        tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "CreateCapacityProvider", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -166,12 +168,13 @@ ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL, capacityProviders = NULL, 
     defaultCapacityProviderStrategy = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    clusterName <- as.character(clusterName)
     tags <- as.list(tags)
     settings <- as.list(settings)
     capacityProviders <- as.list(capacityProviders)
     defaultCapacityProviderStrategy <- as.list(defaultCapacityProviderStrategy)
-    parameters <- c(others, list(clusterName = clusterName, tags = as.list(tags), settings = as.list(settings), 
-        capacityProviders = as.list(capacityProviders), defaultCapacityProviderStrategy = as.list(defaultCapacityProviderStrategy)))
+    parameters <- c(others, list(clusterName = clusterName, tags = tags, settings = settings, capacityProviders = capacityProviders, 
+        defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "CreateCluster", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -504,20 +507,35 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
     deploymentController = NULL, tags = NULL, enableECSManagedTags = NULL, propagateTags = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    serviceName <- as.character(serviceName)
+    taskDefinition <- as.character(taskDefinition)
+    clientToken <- as.character(clientToken)
+    launchType <- as.character(launchType)
+    platformVersion <- as.character(platformVersion)
+    role <- as.character(role)
+    schedulingStrategy <- as.character(schedulingStrategy)
+    propagateTags <- as.character(propagateTags)
+    deploymentConfiguration <- as.list(deploymentConfiguration)
+    networkConfiguration <- as.list(networkConfiguration)
+    deploymentController <- as.list(deploymentController)
     loadBalancers <- as.list(loadBalancers)
     serviceRegistries <- as.list(serviceRegistries)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     placementConstraints <- as.list(placementConstraints)
     placementStrategy <- as.list(placementStrategy)
     tags <- as.list(tags)
+    desiredCount <- as.integer(desiredCount)
+    healthCheckGracePeriodSeconds <- as.integer(healthCheckGracePeriodSeconds)
+    enableECSManagedTags <- as.logical(enableECSManagedTags)
     parameters <- c(others, list(cluster = cluster, serviceName = serviceName, taskDefinition = taskDefinition, 
-        desiredCount = desiredCount, clientToken = clientToken, launchType = launchType, platformVersion = platformVersion, 
-        role = role, deploymentConfiguration = deploymentConfiguration, networkConfiguration = networkConfiguration, 
+        loadBalancers = loadBalancers, serviceRegistries = serviceRegistries, desiredCount = desiredCount, 
+        clientToken = clientToken, launchType = launchType, capacityProviderStrategy = capacityProviderStrategy, 
+        platformVersion = platformVersion, role = role, deploymentConfiguration = deploymentConfiguration, 
+        placementConstraints = placementConstraints, placementStrategy = placementStrategy, networkConfiguration = networkConfiguration, 
         healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds, schedulingStrategy = schedulingStrategy, 
-        deploymentController = deploymentController, enableECSManagedTags = enableECSManagedTags, 
-        propagateTags = propagateTags, loadBalancers = as.list(loadBalancers), serviceRegistries = as.list(serviceRegistries), 
-        capacityProviderStrategy = as.list(capacityProviderStrategy), placementConstraints = as.list(placementConstraints), 
-        placementStrategy = as.list(placementStrategy), tags = as.list(tags)))
+        deploymentController = deploymentController, tags = tags, enableECSManagedTags = enableECSManagedTags, 
+        propagateTags = propagateTags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "CreateService", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -668,14 +686,21 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
     capacityProviderStrategy = NULL, platformVersion = NULL, scale = NULL, clientToken = NULL, tags = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    service <- as.character(service)
+    cluster <- as.character(cluster)
+    externalId <- as.character(externalId)
+    taskDefinition <- as.character(taskDefinition)
+    launchType <- as.character(launchType)
+    platformVersion <- as.character(platformVersion)
+    clientToken <- as.character(clientToken)
     loadBalancers <- as.list(loadBalancers)
     serviceRegistries <- as.list(serviceRegistries)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     tags <- as.list(tags)
     parameters <- c(others, list(service = service, cluster = cluster, externalId = externalId, taskDefinition = taskDefinition, 
-        networkConfiguration = networkConfiguration, launchType = launchType, platformVersion = platformVersion, 
-        scale = scale, clientToken = clientToken, loadBalancers = as.list(loadBalancers), serviceRegistries = as.list(serviceRegistries), 
-        capacityProviderStrategy = as.list(capacityProviderStrategy), tags = as.list(tags)))
+        networkConfiguration = networkConfiguration, loadBalancers = loadBalancers, serviceRegistries = serviceRegistries, 
+        launchType = launchType, capacityProviderStrategy = capacityProviderStrategy, platformVersion = platformVersion, 
+        scale = scale, clientToken = clientToken, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "CreateTaskSet", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -713,6 +738,8 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
 #' @export
 ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    name <- as.character(name)
+    principalArn <- as.character(principalArn)
     parameters <- c(others, list(name = name, principalArn = principalArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAccountSetting", parameters = parameters, 
@@ -745,8 +772,9 @@ ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplif
 #' @export
 ecs_delete_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     attributes <- as.list(attributes)
-    parameters <- c(others, list(cluster = cluster, attributes = as.list(attributes)))
+    parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAttributes", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -767,6 +795,7 @@ ecs_delete_attributes <- function(cluster = NULL, attributes = NULL, simplify = 
 #' @export
 ecs_delete_capacity_provider <- function(capacityProvider = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    capacityProvider <- as.character(capacityProvider)
     parameters <- c(others, list(capacityProvider = capacityProvider))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteCapacityProvider", parameters = parameters, 
@@ -787,6 +816,7 @@ ecs_delete_capacity_provider <- function(capacityProvider = NULL, simplify = TRU
 #' @export
 ecs_delete_cluster <- function(cluster = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     parameters <- c(others, list(cluster = cluster))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteCluster", parameters = parameters, 
@@ -819,6 +849,9 @@ ecs_delete_cluster <- function(cluster = NULL, simplify = TRUE, others = list(),
 #' @export
 ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
+    force <- as.logical(force)
     parameters <- c(others, list(cluster = cluster, service = service, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteService", parameters = parameters, 
@@ -862,6 +895,10 @@ ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, sim
 ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, force = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
+    taskSet <- as.character(taskSet)
+    force <- as.logical(force)
     parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteTaskSet", parameters = parameters, 
@@ -910,6 +947,9 @@ ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, 
 ecs_deregister_container_instance <- function(cluster = NULL, containerInstance = NULL, force = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    containerInstance <- as.character(containerInstance)
+    force <- as.logical(force)
     parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeregisterContainerInstance", parameters = parameters, 
@@ -931,6 +971,7 @@ ecs_deregister_container_instance <- function(cluster = NULL, containerInstance 
 #' @export
 ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    taskDefinition <- as.character(taskDefinition)
     parameters <- c(others, list(taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeregisterTaskDefinition", parameters = parameters, 
@@ -975,10 +1016,12 @@ ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRU
 ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = NULL, maxResults = NULL, 
     nextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    nextToken <- as.character(nextToken)
     capacityProviders <- as.list(capacityProviders)
     include <- as.list(include)
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, capacityProviders = as.list(capacityProviders), 
-        include = as.list(include)))
+    maxResults <- as.integer(maxResults)
+    parameters <- c(others, list(capacityProviders = capacityProviders, include = include, maxResults = maxResults, 
+        nextToken = nextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
@@ -1038,7 +1081,7 @@ ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TR
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     clusters <- as.list(clusters)
     include <- as.list(include)
-    parameters <- c(others, list(clusters = as.list(clusters), include = as.list(include)))
+    parameters <- c(others, list(clusters = clusters, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeClusters", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1079,10 +1122,10 @@ ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TR
 ecs_describe_container_instances <- function(cluster = NULL, containerInstances = NULL, include = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     containerInstances <- as.list(containerInstances)
     include <- as.list(include)
-    parameters <- c(others, list(cluster = cluster, containerInstances = as.list(containerInstances), 
-        include = as.list(include)))
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeContainerInstances", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1121,9 +1164,10 @@ ecs_describe_container_instances <- function(cluster = NULL, containerInstances 
 ecs_describe_services <- function(cluster = NULL, services = NULL, include = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     services <- as.list(services)
     include <- as.list(include)
-    parameters <- c(others, list(cluster = cluster, services = as.list(services), include = as.list(include)))
+    parameters <- c(others, list(cluster = cluster, services = services, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeServices", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1151,8 +1195,9 @@ ecs_describe_services <- function(cluster = NULL, services = NULL, include = NUL
 #' @export
 ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    taskDefinition <- as.character(taskDefinition)
     include <- as.list(include)
-    parameters <- c(others, list(taskDefinition = taskDefinition, include = as.list(include)))
+    parameters <- c(others, list(taskDefinition = taskDefinition, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1196,10 +1241,11 @@ ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, 
 ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NULL, include = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
     taskSets <- as.list(taskSets)
     include <- as.list(include)
-    parameters <- c(others, list(cluster = cluster, service = service, taskSets = as.list(taskSets), 
-        include = as.list(include)))
+    parameters <- c(others, list(cluster = cluster, service = service, taskSets = taskSets, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskSets", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1236,9 +1282,10 @@ ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NU
 #' @export
 ecs_describe_tasks <- function(cluster = NULL, tasks = NULL, include = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     tasks <- as.list(tasks)
     include <- as.list(include)
-    parameters <- c(others, list(cluster = cluster, tasks = as.list(tasks), include = as.list(include)))
+    parameters <- c(others, list(cluster = cluster, tasks = tasks, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTasks", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1266,9 +1313,10 @@ ecs_describe_tasks <- function(cluster = NULL, tasks = NULL, include = NULL, sim
 #' the container instance belongs.
 #' @return A list object or a character vector
 #' @export
-ecs_discover_poll_endpoint <- function(containerInstance = NULL, cluster = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_discover_poll_endpoint <- function(containerInstance = NULL, cluster = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    containerInstance <- as.character(containerInstance)
+    cluster <- as.character(cluster)
     parameters <- c(others, list(containerInstance = containerInstance, cluster = cluster))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DiscoverPollEndpoint", parameters = parameters, 
@@ -1317,6 +1365,12 @@ ecs_discover_poll_endpoint <- function(containerInstance = NULL, cluster = NULL,
 ecs_list_account_settings <- function(maxResults = NULL, nextToken = NULL, name = NULL, value = NULL, 
     principalArn = NULL, effectiveSettings = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    name <- as.character(name)
+    value <- as.character(value)
+    principalArn <- as.character(principalArn)
+    effectiveSettings <- as.logical(effectiveSettings)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, name = name, value = value, 
         principalArn = principalArn, effectiveSettings = effectiveSettings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1367,6 +1421,12 @@ ecs_list_account_settings <- function(maxResults = NULL, nextToken = NULL, name 
 ecs_list_attributes <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, targetType = NULL, 
     attributeName = NULL, attributeValue = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    cluster <- as.character(cluster)
+    targetType <- as.character(targetType)
+    attributeName <- as.character(attributeName)
+    attributeValue <- as.character(attributeValue)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
         targetType = targetType, attributeName = attributeName, attributeValue = attributeValue))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1391,11 +1451,12 @@ ecs_list_attributes <- function(maxResults = NULL, nextToken = NULL, cluster = N
 #' @export
 ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "ListClusters", parameters = parameters, 
-        simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "ListClusters", parameters = parameters, simplify = simplify, 
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
 }
 
 
@@ -1443,6 +1504,11 @@ ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TR
 ecs_list_container_instances <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, filter = NULL, 
     status = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    cluster <- as.character(cluster)
+    filter <- as.character(filter)
+    status <- as.character(status)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
         filter = filter, status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1482,12 +1548,16 @@ ecs_list_container_instances <- function(maxResults = NULL, nextToken = NULL, cl
 ecs_list_services <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, launchType = NULL, 
     schedulingStrategy = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    cluster <- as.character(cluster)
+    launchType <- as.character(launchType)
+    schedulingStrategy <- as.character(schedulingStrategy)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
         launchType = launchType, schedulingStrategy = schedulingStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "ListServices", parameters = parameters, 
-        simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "ListServices", parameters = parameters, simplify = simplify, 
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
 }
 
 
@@ -1508,6 +1578,7 @@ ecs_list_services <- function(maxResults = NULL, nextToken = NULL, cluster = NUL
 #' @export
 ecs_list_tags_for_resource <- function(resourceArn = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    resourceArn <- as.character(resourceArn)
     parameters <- c(others, list(resourceArn = resourceArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListTagsForResource", parameters = parameters, 
@@ -1547,6 +1618,10 @@ ecs_list_tags_for_resource <- function(resourceArn = NULL, simplify = TRUE, othe
 ecs_list_task_definition_families <- function(maxResults = NULL, nextToken = NULL, familyPrefix = NULL, 
     status = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    familyPrefix <- as.character(familyPrefix)
+    status <- as.character(status)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, familyPrefix = familyPrefix, 
         status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1599,6 +1674,11 @@ ecs_list_task_definition_families <- function(maxResults = NULL, nextToken = NUL
 ecs_list_task_definitions <- function(maxResults = NULL, nextToken = NULL, familyPrefix = NULL, status = NULL, 
     sort = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    familyPrefix <- as.character(familyPrefix)
+    status <- as.character(status)
+    sort <- as.character(sort)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, familyPrefix = familyPrefix, 
         status = status, sort = sort))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1667,9 +1747,18 @@ ecs_list_task_definitions <- function(maxResults = NULL, nextToken = NULL, famil
 #' @return A list object or a character vector
 #' @export
 ecs_list_tasks <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, containerInstance = NULL, 
-    family = NULL, startedBy = NULL, serviceName = NULL, desiredStatus = NULL, launchType = NULL, 
-    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
+    family = NULL, startedBy = NULL, serviceName = NULL, desiredStatus = NULL, launchType = NULL, simplify = TRUE, 
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    maxResults <- as.character(maxResults)
+    nextToken <- as.character(nextToken)
+    cluster <- as.character(cluster)
+    containerInstance <- as.character(containerInstance)
+    family <- as.character(family)
+    startedBy <- as.character(startedBy)
+    serviceName <- as.character(serviceName)
+    desiredStatus <- as.character(desiredStatus)
+    launchType <- as.character(launchType)
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
         containerInstance = containerInstance, family = family, startedBy = startedBy, serviceName = serviceName, 
         desiredStatus = desiredStatus, launchType = launchType))
@@ -1714,6 +1803,9 @@ ecs_list_tasks <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, 
 ecs_put_account_setting <- function(name = NULL, value = NULL, principalArn = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    name <- as.character(name)
+    value <- as.character(value)
+    principalArn <- as.character(principalArn)
     parameters <- c(others, list(name = name, value = value, principalArn = principalArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutAccountSetting", parameters = parameters, 
@@ -1753,6 +1845,8 @@ ecs_put_account_setting <- function(name = NULL, value = NULL, principalArn = NU
 #' @export
 ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    name <- as.character(name)
+    value <- as.character(value)
     parameters <- c(others, list(name = name, value = value))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutAccountSettingDefault", parameters = parameters, 
@@ -1788,8 +1882,9 @@ ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify 
 #' @export
 ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     attributes <- as.list(attributes)
-    parameters <- c(others, list(cluster = cluster, attributes = as.list(attributes)))
+    parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutAttributes", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1852,10 +1947,10 @@ ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRU
 ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders = NULL, defaultCapacityProviderStrategy = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     capacityProviders <- as.list(capacityProviders)
     defaultCapacityProviderStrategy <- as.list(defaultCapacityProviderStrategy)
-    parameters <- c(others, list(cluster = cluster, capacityProviders = as.list(capacityProviders), 
-        defaultCapacityProviderStrategy = as.list(defaultCapacityProviderStrategy)))
+    parameters <- c(others, list(cluster = cluster, capacityProviders = capacityProviders, defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutClusterCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -1948,14 +2043,19 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
     totalResources = NULL, versionInfo = NULL, containerInstanceArn = NULL, attributes = NULL, platformDevices = NULL, 
     tags = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    instanceIdentityDocument <- as.character(instanceIdentityDocument)
+    instanceIdentityDocumentSignature <- as.character(instanceIdentityDocumentSignature)
+    containerInstanceArn <- as.character(containerInstanceArn)
+    versionInfo <- as.list(versionInfo)
     totalResources <- as.list(totalResources)
     attributes <- as.list(attributes)
     platformDevices <- as.list(platformDevices)
     tags <- as.list(tags)
     parameters <- c(others, list(cluster = cluster, instanceIdentityDocument = instanceIdentityDocument, 
-        instanceIdentityDocumentSignature = instanceIdentityDocumentSignature, versionInfo = versionInfo, 
-        containerInstanceArn = containerInstanceArn, totalResources = as.list(totalResources), attributes = as.list(attributes), 
-        platformDevices = as.list(platformDevices), tags = as.list(tags)))
+        instanceIdentityDocumentSignature = instanceIdentityDocumentSignature, totalResources = totalResources, 
+        versionInfo = versionInfo, containerInstanceArn = containerInstanceArn, attributes = attributes, 
+        platformDevices = platformDevices, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterContainerInstance", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2235,10 +2335,18 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
 #' @return A list object or a character vector
 #' @export
 ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, executionRoleArn = NULL, 
-    networkMode = NULL, containerDefinitions = NULL, volumes = NULL, placementConstraints = NULL, 
-    requiresCompatibilities = NULL, cpu = NULL, memory = NULL, tags = NULL, pidMode = NULL, ipcMode = NULL, 
-    proxyConfiguration = NULL, inferenceAccelerators = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    networkMode = NULL, containerDefinitions = NULL, volumes = NULL, placementConstraints = NULL, requiresCompatibilities = NULL, 
+    cpu = NULL, memory = NULL, tags = NULL, pidMode = NULL, ipcMode = NULL, proxyConfiguration = NULL, 
+    inferenceAccelerators = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    family <- as.character(family)
+    taskRoleArn <- as.character(taskRoleArn)
+    executionRoleArn <- as.character(executionRoleArn)
+    networkMode <- as.character(networkMode)
+    cpu <- as.character(cpu)
+    memory <- as.character(memory)
+    pidMode <- as.character(pidMode)
+    ipcMode <- as.character(ipcMode)
     containerDefinitions <- as.list(containerDefinitions)
     volumes <- as.list(volumes)
     placementConstraints <- as.list(placementConstraints)
@@ -2246,10 +2354,10 @@ ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, exec
     tags <- as.list(tags)
     inferenceAccelerators <- as.list(inferenceAccelerators)
     parameters <- c(others, list(family = family, taskRoleArn = taskRoleArn, executionRoleArn = executionRoleArn, 
-        networkMode = networkMode, cpu = cpu, memory = memory, pidMode = pidMode, ipcMode = ipcMode, 
-        proxyConfiguration = proxyConfiguration, containerDefinitions = as.list(containerDefinitions), 
-        volumes = as.list(volumes), placementConstraints = as.list(placementConstraints), requiresCompatibilities = as.list(requiresCompatibilities), 
-        tags = as.list(tags), inferenceAccelerators = as.list(inferenceAccelerators)))
+        networkMode = networkMode, containerDefinitions = containerDefinitions, volumes = volumes, 
+        placementConstraints = placementConstraints, requiresCompatibilities = requiresCompatibilities, 
+        cpu = cpu, memory = memory, tags = tags, pidMode = pidMode, ipcMode = ipcMode, proxyConfiguration = proxyConfiguration, 
+        inferenceAccelerators = inferenceAccelerators))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2441,16 +2549,27 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
     placementStrategy = NULL, platformVersion = NULL, propagateTags = NULL, referenceId = NULL, startedBy = NULL, 
     tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    group <- as.character(group)
+    launchType <- as.character(launchType)
+    platformVersion <- as.character(platformVersion)
+    propagateTags <- as.character(propagateTags)
+    referenceId <- as.character(referenceId)
+    startedBy <- as.character(startedBy)
+    taskDefinition <- as.character(taskDefinition)
+    networkConfiguration <- as.list(networkConfiguration)
+    overrides <- as.list(overrides)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     placementConstraints <- as.list(placementConstraints)
     placementStrategy <- as.list(placementStrategy)
     tags <- as.list(tags)
-    parameters <- c(others, list(cluster = cluster, count = count, enableECSManagedTags = enableECSManagedTags, 
-        group = group, launchType = launchType, networkConfiguration = networkConfiguration, overrides = overrides, 
-        platformVersion = platformVersion, propagateTags = propagateTags, referenceId = referenceId, 
-        startedBy = startedBy, taskDefinition = taskDefinition, capacityProviderStrategy = as.list(capacityProviderStrategy), 
-        placementConstraints = as.list(placementConstraints), placementStrategy = as.list(placementStrategy), 
-        tags = as.list(tags)))
+    count <- as.integer(count)
+    enableECSManagedTags <- as.logical(enableECSManagedTags)
+    parameters <- c(others, list(capacityProviderStrategy = capacityProviderStrategy, cluster = cluster, 
+        count = count, enableECSManagedTags = enableECSManagedTags, group = group, launchType = launchType, 
+        networkConfiguration = networkConfiguration, overrides = overrides, placementConstraints = placementConstraints, 
+        placementStrategy = placementStrategy, platformVersion = platformVersion, propagateTags = propagateTags, 
+        referenceId = referenceId, startedBy = startedBy, tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RunTask", parameters = parameters, simplify = simplify, 
         token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
@@ -2572,12 +2691,20 @@ ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSM
     group = NULL, networkConfiguration = NULL, overrides = NULL, propagateTags = NULL, referenceId = NULL, 
     startedBy = NULL, tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    group <- as.character(group)
+    propagateTags <- as.character(propagateTags)
+    referenceId <- as.character(referenceId)
+    startedBy <- as.character(startedBy)
+    taskDefinition <- as.character(taskDefinition)
+    networkConfiguration <- as.list(networkConfiguration)
+    overrides <- as.list(overrides)
     containerInstances <- as.list(containerInstances)
     tags <- as.list(tags)
-    parameters <- c(others, list(cluster = cluster, enableECSManagedTags = enableECSManagedTags, group = group, 
-        networkConfiguration = networkConfiguration, overrides = overrides, propagateTags = propagateTags, 
-        referenceId = referenceId, startedBy = startedBy, taskDefinition = taskDefinition, containerInstances = as.list(containerInstances), 
-        tags = as.list(tags)))
+    enableECSManagedTags <- as.logical(enableECSManagedTags)
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, enableECSManagedTags = enableECSManagedTags, 
+        group = group, networkConfiguration = networkConfiguration, overrides = overrides, propagateTags = propagateTags, 
+        referenceId = referenceId, startedBy = startedBy, tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "StartTask", parameters = parameters, simplify = simplify, 
         token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
@@ -2610,6 +2737,9 @@ ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSM
 #' @export
 ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    task <- as.character(task)
+    reason <- as.character(reason)
     parameters <- c(others, list(cluster = cluster, task = task, reason = reason))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "StopTask", parameters = parameters, simplify = simplify, 
@@ -2635,8 +2765,9 @@ ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify =
 ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     attachments <- as.list(attachments)
-    parameters <- c(others, list(cluster = cluster, attachments = as.list(attachments)))
+    parameters <- c(others, list(cluster = cluster, attachments = attachments))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitAttachmentStateChanges", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2686,9 +2817,16 @@ ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NU
 ecs_submit_container_state_change <- function(cluster = NULL, task = NULL, containerName = NULL, runtimeId = NULL, 
     status = NULL, exitCode = NULL, reason = NULL, networkBindings = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    task <- as.character(task)
+    containerName <- as.character(containerName)
+    runtimeId <- as.character(runtimeId)
+    status <- as.character(status)
+    reason <- as.character(reason)
     networkBindings <- as.list(networkBindings)
+    exitCode <- as.integer(exitCode)
     parameters <- c(others, list(cluster = cluster, task = task, containerName = containerName, runtimeId = runtimeId, 
-        status = status, exitCode = exitCode, reason = reason, networkBindings = as.list(networkBindings)))
+        status = status, exitCode = exitCode, reason = reason, networkBindings = networkBindings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitContainerStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2744,11 +2882,18 @@ ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = N
     containers = NULL, attachments = NULL, pullStartedAt = NULL, pullStoppedAt = NULL, executionStoppedAt = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    task <- as.character(task)
+    status <- as.character(status)
+    reason <- as.character(reason)
+    pullStartedAt <- as.character(pullStartedAt)
+    pullStoppedAt <- as.character(pullStoppedAt)
+    executionStoppedAt <- as.character(executionStoppedAt)
     containers <- as.list(containers)
     attachments <- as.list(attachments)
     parameters <- c(others, list(cluster = cluster, task = task, status = status, reason = reason, 
-        pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, executionStoppedAt = executionStoppedAt, 
-        containers = as.list(containers), attachments = as.list(attachments)))
+        containers = containers, attachments = attachments, pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, 
+        executionStoppedAt = executionStoppedAt))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitTaskStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2806,8 +2951,9 @@ ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = N
 #' @export
 ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    resourceArn <- as.character(resourceArn)
     tags <- as.list(tags)
-    parameters <- c(others, list(resourceArn = resourceArn, tags = as.list(tags)))
+    parameters <- c(others, list(resourceArn = resourceArn, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "TagResource", parameters = parameters, simplify = simplify, 
         token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
@@ -2835,8 +2981,9 @@ ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, o
 #' @export
 ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    resourceArn <- as.character(resourceArn)
     tagKeys <- as.list(tagKeys)
-    parameters <- c(others, list(resourceArn = resourceArn, tagKeys = as.list(tagKeys)))
+    parameters <- c(others, list(resourceArn = resourceArn, tagKeys = tagKeys))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UntagResource", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2865,6 +3012,8 @@ ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TR
 ecs_update_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    name <- as.character(name)
+    autoScalingGroupProvider <- as.list(autoScalingGroupProvider)
     parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateCapacityProvider", parameters = parameters, 
@@ -2895,8 +3044,9 @@ ecs_update_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 #' @export
 ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
     settings <- as.list(settings)
-    parameters <- c(others, list(cluster = cluster, settings = as.list(settings)))
+    parameters <- c(others, list(cluster = cluster, settings = settings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateClusterSettings", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -2921,9 +3071,10 @@ ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplif
 #' Amazon ECS container agent.
 #' @return A list object or a character vector
 #' @export
-ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    containerInstance <- as.character(containerInstance)
     parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateContainerAgent", parameters = parameters, 
@@ -2960,8 +3111,10 @@ ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL,
 ecs_update_container_instances_state <- function(cluster = NULL, containerInstances = NULL, status = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    status <- as.character(status)
     containerInstances <- as.list(containerInstances)
-    parameters <- c(others, list(cluster = cluster, status = status, containerInstances = as.list(containerInstances)))
+    parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateContainerInstancesState", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -3094,18 +3247,25 @@ ecs_update_container_instances_state <- function(cluster = NULL, containerInstan
 #' @return A list object or a character vector
 #' @export
 ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NULL, taskDefinition = NULL, 
-    capacityProviderStrategy = NULL, deploymentConfiguration = NULL, networkConfiguration = NULL, 
-    placementConstraints = NULL, placementStrategy = NULL, platformVersion = NULL, forceNewDeployment = NULL, 
-    healthCheckGracePeriodSeconds = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    capacityProviderStrategy = NULL, deploymentConfiguration = NULL, networkConfiguration = NULL, placementConstraints = NULL, 
+    placementStrategy = NULL, platformVersion = NULL, forceNewDeployment = NULL, healthCheckGracePeriodSeconds = NULL, 
+    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
+    network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
+    taskDefinition <- as.character(taskDefinition)
+    platformVersion <- as.character(platformVersion)
+    deploymentConfiguration <- as.list(deploymentConfiguration)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     placementConstraints <- as.list(placementConstraints)
     placementStrategy <- as.list(placementStrategy)
+    desiredCount <- as.integer(desiredCount)
+    healthCheckGracePeriodSeconds <- as.integer(healthCheckGracePeriodSeconds)
+    forceNewDeployment <- as.logical(forceNewDeployment)
     parameters <- c(others, list(cluster = cluster, service = service, desiredCount = desiredCount, 
-        taskDefinition = taskDefinition, deploymentConfiguration = deploymentConfiguration, networkConfiguration = networkConfiguration, 
-        platformVersion = platformVersion, forceNewDeployment = forceNewDeployment, healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds, 
-        capacityProviderStrategy = as.list(capacityProviderStrategy), placementConstraints = as.list(placementConstraints), 
-        placementStrategy = as.list(placementStrategy)))
+        taskDefinition = taskDefinition, capacityProviderStrategy = capacityProviderStrategy, deploymentConfiguration = deploymentConfiguration, 
+        networkConfiguration = networkConfiguration, placementConstraints = placementConstraints, placementStrategy = placementStrategy, 
+        platformVersion = platformVersion, forceNewDeployment = forceNewDeployment, healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateService", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
@@ -3146,6 +3306,9 @@ ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NU
 ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, primaryTaskSet = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
+    primaryTaskSet <- as.character(primaryTaskSet)
     parameters <- c(others, list(cluster = cluster, service = service, primaryTaskSet = primaryTaskSet))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateServicePrimaryTaskSet", parameters = parameters, 
@@ -3186,6 +3349,9 @@ ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, 
 ecs_update_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, scale = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
+    cluster <- as.character(cluster)
+    service <- as.character(service)
+    taskSet <- as.character(taskSet)
     parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, scale = scale))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateTaskSet", parameters = parameters, 

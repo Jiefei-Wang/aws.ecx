@@ -4,6 +4,14 @@ type_map_list <- list(
     String = "Character"
 )
 
+type_conversion_list <- list(
+    string = "as.character",
+    object = "as.list",
+    array = "as.list",
+    integer = "as.integer",
+    boolean = "as.logical"
+)
+
 excluded_short_description <- c("others", "simplify", "Filter", "NextToken", "nextToken")
 excluded_request_names <- c("Action", "Version", "X-Amz-Target")
 token_names <- c("nextToken", "NextToken")
