@@ -6,7 +6,7 @@ type_map_list <- list(
 ## We cannot do the conversion for the other type
 ## as the yaml file contians error..
 type_conversion_list <- list(
-    string = "as.character",
+    array = "as.list",
     object = "as.list"
 )
 
