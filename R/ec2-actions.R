@@ -27,9 +27,6 @@
 ec2_accept_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, TargetConfiguration = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ReservedInstanceId <- as.list(ReservedInstanceId)
-    TargetConfiguration <- as.list(TargetConfiguration)
-    DryRun <- as.logical(DryRun)
     ReservedInstanceId <- list_to_array("ReservedInstanceId", ReservedInstanceId)
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
@@ -75,8 +72,6 @@ ec2_accept_transit_gateway_multicast_domain_associations <- function(TransitGate
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    SubnetIds <- as.list(SubnetIds)
-    DryRun <- as.logical(DryRun)
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -112,7 +107,6 @@ ec2_accept_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptTransitGatewayPeeringAttachment", parameters = parameters, 
@@ -142,7 +136,6 @@ ec2_accept_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptTransitGatewayVpcAttachment", parameters = parameters, 
@@ -179,8 +172,6 @@ ec2_accept_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
-    VpcEndpointId <- as.list(VpcEndpointId)
-    DryRun <- as.logical(DryRun)
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -212,7 +203,6 @@ ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectio
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun, VpcPeeringConnectionId = VpcPeeringConnectionId))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AcceptVpcPeeringConnection", parameters = parameters, 
@@ -242,7 +232,6 @@ ec2_accept_vpc_peering_connection <- function(DryRun = NULL, VpcPeeringConnectio
 ec2_advertise_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Cidr <- as.character(Cidr)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AdvertiseByoipCidr", parameters = parameters, 
@@ -318,8 +307,6 @@ ec2_allocate_address <- function(Domain = NULL, Address = NULL, PublicIpv4Pool =
     PublicIpv4Pool <- as.character(PublicIpv4Pool)
     NetworkBorderGroup <- as.character(NetworkBorderGroup)
     CustomerOwnedIpv4Pool <- as.character(CustomerOwnedIpv4Pool)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Domain = Domain, Address = Address, PublicIpv4Pool = PublicIpv4Pool, 
         NetworkBorderGroup = NetworkBorderGroup, CustomerOwnedIpv4Pool = CustomerOwnedIpv4Pool, DryRun = DryRun), 
@@ -418,8 +405,6 @@ ec2_allocate_hosts <- function(AvailabilityZone, Quantity, AutoPlacement = NULL,
     InstanceType <- as.character(InstanceType)
     InstanceFamily <- as.character(InstanceFamily)
     HostRecovery <- as.character(HostRecovery)
-    TagSpecification <- as.list(TagSpecification)
-    Quantity <- as.integer(Quantity)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Quantity = Quantity, AutoPlacement = AutoPlacement, 
         ClientToken = ClientToken, InstanceType = InstanceType, InstanceFamily = InstanceFamily, HostRecovery = HostRecovery), 
@@ -468,8 +453,6 @@ ec2_apply_security_groups_to_client_vpn_target_network <- function(ClientVpnEndp
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     VpcId <- as.character(VpcId)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    DryRun <- as.logical(DryRun)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, VpcId = VpcId, DryRun = DryRun), 
         SecurityGroupId)
@@ -508,8 +491,6 @@ ec2_assign_ipv6_addresses <- function(NetworkInterfaceId, Ipv6AddressCount = NUL
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    Ipv6Addresses <- as.list(Ipv6Addresses)
-    Ipv6AddressCount <- as.integer(Ipv6AddressCount)
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Ipv6AddressCount = Ipv6AddressCount), 
         Ipv6Addresses)
@@ -554,9 +535,6 @@ ec2_assign_private_ip_addresses <- function(NetworkInterfaceId, AllowReassignmen
     SecondaryPrivateIpAddressCount = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    PrivateIpAddress <- as.list(PrivateIpAddress)
-    SecondaryPrivateIpAddressCount <- as.integer(SecondaryPrivateIpAddressCount)
-    AllowReassignment <- as.logical(AllowReassignment)
     PrivateIpAddress <- list_to_array("PrivateIpAddress", PrivateIpAddress)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, AllowReassignment = AllowReassignment, 
         SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount), PrivateIpAddress)
@@ -630,8 +608,6 @@ ec2_associate_address <- function(AllocationId = NULL, InstanceId = NULL, Public
     PublicIp <- as.character(PublicIp)
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
     PrivateIpAddress <- as.character(PrivateIpAddress)
-    AllowReassociation <- as.logical(AllowReassociation)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AllocationId = AllocationId, InstanceId = InstanceId, PublicIp = PublicIp, 
         AllowReassociation = AllowReassociation, DryRun = DryRun, NetworkInterfaceId = NetworkInterfaceId, 
         PrivateIpAddress = PrivateIpAddress))
@@ -675,7 +651,6 @@ ec2_associate_client_vpn_target_network <- function(ClientVpnEndpointId, SubnetI
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     SubnetId <- as.character(SubnetId)
     ClientToken <- as.character(ClientToken)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, SubnetId = SubnetId, ClientToken = ClientToken, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -710,7 +685,6 @@ ec2_associate_dhcp_options <- function(DhcpOptionsId, VpcId, DryRun = NULL, simp
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     DhcpOptionsId <- as.character(DhcpOptionsId)
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DhcpOptionsId = DhcpOptionsId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AssociateDhcpOptions", parameters = parameters, 
@@ -747,7 +721,6 @@ ec2_associate_enclave_certificate_iam_role <- function(CertificateArn = NULL, Ro
     network_timeout = aws_get_network_timeout()) {
     CertificateArn <- as.character(CertificateArn)
     RoleArn <- as.character(RoleArn)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CertificateArn = CertificateArn, RoleArn = RoleArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AssociateEnclaveCertificateIamRole", parameters = parameters, 
@@ -817,7 +790,6 @@ ec2_associate_route_table <- function(RouteTableId, DryRun = NULL, SubnetId = NU
     RouteTableId <- as.character(RouteTableId)
     SubnetId <- as.character(SubnetId)
     GatewayId <- as.character(GatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(RouteTableId = RouteTableId, DryRun = DryRun, SubnetId = SubnetId, 
         GatewayId = GatewayId))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -889,8 +861,6 @@ ec2_associate_transit_gateway_multicast_domain <- function(TransitGatewayMultica
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    SubnetIds <- as.list(SubnetIds)
-    DryRun <- as.logical(DryRun)
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -931,7 +901,6 @@ ec2_associate_transit_gateway_route_table <- function(TransitGatewayRouteTableId
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -992,7 +961,6 @@ ec2_associate_vpc_cidr_block <- function(VpcId, AmazonProvidedIpv6CidrBlock = NU
     Ipv6CidrBlockNetworkBorderGroup <- as.character(Ipv6CidrBlockNetworkBorderGroup)
     Ipv6Pool <- as.character(Ipv6Pool)
     Ipv6CidrBlock <- as.character(Ipv6CidrBlock)
-    AmazonProvidedIpv6CidrBlock <- as.logical(AmazonProvidedIpv6CidrBlock)
     parameters <- c(others, list(VpcId = VpcId, AmazonProvidedIpv6CidrBlock = AmazonProvidedIpv6CidrBlock, 
         CidrBlock = CidrBlock, Ipv6CidrBlockNetworkBorderGroup = Ipv6CidrBlockNetworkBorderGroup, Ipv6Pool = Ipv6Pool, 
         Ipv6CidrBlock = Ipv6CidrBlock))
@@ -1034,8 +1002,6 @@ ec2_attach_classic_link_vpc <- function(SecurityGroupId, InstanceId, VpcId, DryR
     network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     VpcId <- as.character(VpcId)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    DryRun <- as.logical(DryRun)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun), SecurityGroupId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1076,7 +1042,6 @@ ec2_attach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InternetGatewayId <- as.character(InternetGatewayId)
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AttachInternetGateway", parameters = parameters, 
@@ -1124,9 +1089,6 @@ ec2_attach_network_interface <- function(DeviceIndex, InstanceId, NetworkInterfa
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    DeviceIndex <- as.integer(DeviceIndex)
-    NetworkCardIndex <- as.integer(NetworkCardIndex)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DeviceIndex = DeviceIndex, InstanceId = InstanceId, NetworkInterfaceId = NetworkInterfaceId, 
         DryRun = DryRun, NetworkCardIndex = NetworkCardIndex))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1167,7 +1129,6 @@ ec2_attach_volume <- function(Device, InstanceId, VolumeId, DryRun = NULL, simpl
     Device <- as.character(Device)
     InstanceId <- as.character(InstanceId)
     VolumeId <- as.character(VolumeId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Device = Device, InstanceId = InstanceId, VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AttachVolume", parameters = parameters, simplify = simplify, 
@@ -1200,7 +1161,6 @@ ec2_attach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     VpnGatewayId <- as.character(VpnGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "AttachVpnGateway", parameters = parameters, 
@@ -1268,8 +1228,6 @@ ec2_authorize_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkC
     AccessGroupId <- as.character(AccessGroupId)
     Description <- as.character(Description)
     ClientToken <- as.character(ClientToken)
-    AuthorizeAllGroups <- as.logical(AuthorizeAllGroups)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, TargetNetworkCidr = TargetNetworkCidr, 
         AccessGroupId = AccessGroupId, AuthorizeAllGroups = AuthorizeAllGroups, Description = Description, 
         ClientToken = ClientToken, DryRun = DryRun))
@@ -1337,10 +1295,6 @@ ec2_authorize_security_group_egress <- function(GroupId, DryRun = NULL, IpPermis
     IpProtocol <- as.character(IpProtocol)
     SourceSecurityGroupName <- as.character(SourceSecurityGroupName)
     SourceSecurityGroupOwnerId <- as.character(SourceSecurityGroupOwnerId)
-    IpPermissions <- as.list(IpPermissions)
-    FromPort <- as.integer(FromPort)
-    ToPort <- as.integer(ToPort)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(GroupId = GroupId, DryRun = DryRun, CidrIp = CidrIp, FromPort = FromPort, 
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
@@ -1454,10 +1408,6 @@ ec2_authorize_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL,
     IpProtocol <- as.character(IpProtocol)
     SourceSecurityGroupName <- as.character(SourceSecurityGroupName)
     SourceSecurityGroupOwnerId <- as.character(SourceSecurityGroupOwnerId)
-    IpPermissions <- as.list(IpPermissions)
-    FromPort <- as.integer(FromPort)
-    ToPort <- as.integer(ToPort)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, GroupName = GroupName, 
         IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
@@ -1503,7 +1453,6 @@ ec2_bundle_instance <- function(InstanceId, Storage, DryRun = NULL, simplify = T
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     Storage <- as.list(Storage)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, Storage = Storage, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "BundleInstance", parameters = parameters, 
@@ -1535,7 +1484,6 @@ ec2_bundle_instance <- function(InstanceId, Storage, DryRun = NULL, simplify = T
 ec2_cancel_bundle_task <- function(BundleId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     BundleId <- as.character(BundleId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(BundleId = BundleId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CancelBundleTask", parameters = parameters, 
@@ -1565,7 +1513,6 @@ ec2_cancel_capacity_reservation <- function(CapacityReservationId, DryRun = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     CapacityReservationId <- as.character(CapacityReservationId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CancelCapacityReservation", parameters = parameters, 
@@ -1600,7 +1547,6 @@ ec2_cancel_conversion_task <- function(ConversionTaskId, DryRun = NULL, ReasonMe
     network_timeout = aws_get_network_timeout()) {
     ConversionTaskId <- as.character(ConversionTaskId)
     ReasonMessage <- as.character(ReasonMessage)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ConversionTaskId = ConversionTaskId, DryRun = DryRun, ReasonMessage = ReasonMessage))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CancelConversionTask", parameters = parameters, 
@@ -1666,7 +1612,6 @@ ec2_cancel_import_task <- function(CancelReason = NULL, DryRun = NULL, ImportTas
     network_timeout = aws_get_network_timeout()) {
     CancelReason <- as.character(CancelReason)
     ImportTaskId <- as.character(ImportTaskId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CancelReason = CancelReason, DryRun = DryRun, ImportTaskId = ImportTaskId))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CancelImportTask", parameters = parameters, 
@@ -1721,9 +1666,6 @@ ec2_cancel_reserved_instances_listing <- function(ReservedInstancesListingId, si
 ec2_cancel_spot_fleet_requests <- function(SpotFleetRequestId, TerminateInstances, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    SpotFleetRequestId <- as.list(SpotFleetRequestId)
-    TerminateInstances <- as.logical(TerminateInstances)
-    DryRun <- as.logical(DryRun)
     SpotFleetRequestId <- list_to_array("SpotFleetRequestId", SpotFleetRequestId)
     parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), SpotFleetRequestId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1753,8 +1695,6 @@ ec2_cancel_spot_fleet_requests <- function(SpotFleetRequestId, TerminateInstance
 ec2_cancel_spot_instance_requests <- function(SpotInstanceRequestId, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    SpotInstanceRequestId <- as.list(SpotInstanceRequestId)
-    DryRun <- as.logical(DryRun)
     SpotInstanceRequestId <- list_to_array("SpotInstanceRequestId", SpotInstanceRequestId)
     parameters <- c(others, list(DryRun = DryRun), SpotInstanceRequestId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1795,7 +1735,6 @@ ec2_confirm_product_instance <- function(InstanceId, ProductCode, DryRun = NULL,
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     ProductCode <- as.character(ProductCode)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, ProductCode = ProductCode, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ConfirmProductInstance", parameters = parameters, 
@@ -1850,7 +1789,6 @@ ec2_copy_fpga_image <- function(SourceFpgaImageId, SourceRegion, DryRun = NULL, 
     Description <- as.character(Description)
     Name <- as.character(Name)
     ClientToken <- as.character(ClientToken)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SourceFpgaImageId = SourceFpgaImageId, SourceRegion = SourceRegion, 
         DryRun = DryRun, Description = Description, Name = Name, ClientToken = ClientToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -1959,8 +1897,6 @@ ec2_copy_image <- function(Name, SourceImageId, SourceRegion, ClientToken = NULL
     Description <- as.character(Description)
     KmsKeyId <- as.character(KmsKeyId)
     DestinationOutpostArn <- as.character(DestinationOutpostArn)
-    Encrypted <- as.logical(Encrypted)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Name = Name, SourceImageId = SourceImageId, SourceRegion = SourceRegion, 
         ClientToken = ClientToken, Description = Description, Encrypted = Encrypted, KmsKeyId = KmsKeyId, 
         DestinationOutpostArn = DestinationOutpostArn, DryRun = DryRun))
@@ -2089,9 +2025,6 @@ ec2_copy_snapshot <- function(SourceRegion, SourceSnapshotId, Description = NULL
     DestinationRegion <- as.character(DestinationRegion)
     KmsKeyId <- as.character(KmsKeyId)
     PresignedUrl <- as.character(PresignedUrl)
-    TagSpecification <- as.list(TagSpecification)
-    Encrypted <- as.logical(Encrypted)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(SourceRegion = SourceRegion, SourceSnapshotId = SourceSnapshotId, 
         Description = Description, DestinationOutpostArn = DestinationOutpostArn, DestinationRegion = DestinationRegion, 
@@ -2238,11 +2171,6 @@ ec2_create_capacity_reservation <- function(InstanceType, InstancePlatform, Inst
     EndDate <- as.character(EndDate)
     EndDateType <- as.character(EndDateType)
     InstanceMatchCriteria <- as.character(InstanceMatchCriteria)
-    TagSpecifications <- as.list(TagSpecifications)
-    InstanceCount <- as.integer(InstanceCount)
-    EbsOptimized <- as.logical(EbsOptimized)
-    EphemeralStorage <- as.logical(EphemeralStorage)
-    DryRun <- as.logical(DryRun)
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(InstanceType = InstanceType, InstancePlatform = InstancePlatform, 
         InstanceCount = InstanceCount, ClientToken = ClientToken, AvailabilityZone = AvailabilityZone, 
@@ -2293,8 +2221,6 @@ ec2_create_carrier_gateway <- function(VpcId, TagSpecification = NULL, DryRun = 
     network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, ClientToken = ClientToken), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -2447,13 +2373,6 @@ ec2_create_client_vpn_endpoint <- function(ClientCidrBlock, ServerCertificateArn
     SelfServicePortal <- as.character(SelfServicePortal)
     ConnectionLogOptions <- as.list(ConnectionLogOptions)
     ClientConnectOptions <- as.list(ClientConnectOptions)
-    Authentication <- as.list(Authentication)
-    DnsServers <- as.list(DnsServers)
-    TagSpecification <- as.list(TagSpecification)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    VpnPort <- as.integer(VpnPort)
-    SplitTunnel <- as.logical(SplitTunnel)
-    DryRun <- as.logical(DryRun)
     Authentication <- list_to_array("Authentication", Authentication)
     DnsServers <- list_to_array("DnsServers", DnsServers)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
@@ -2537,7 +2456,6 @@ ec2_create_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
     TargetVpcSubnetId <- as.character(TargetVpcSubnetId)
     Description <- as.character(Description)
     ClientToken <- as.character(ClientToken)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DestinationCidrBlock = DestinationCidrBlock, 
         TargetVpcSubnetId = TargetVpcSubnetId, Description = Description, ClientToken = ClientToken, 
         DryRun = DryRun))
@@ -2599,9 +2517,6 @@ ec2_create_customer_gateway <- function(BgpAsn, Type, IpAddress = NULL, Certific
     IpAddress <- as.character(IpAddress)
     CertificateArn <- as.character(CertificateArn)
     DeviceName <- as.character(DeviceName)
-    TagSpecification <- as.list(TagSpecification)
-    BgpAsn <- as.integer(BgpAsn)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(BgpAsn = BgpAsn, Type = Type, IpAddress = IpAddress, CertificateArn = CertificateArn, 
         DeviceName = DeviceName, DryRun = DryRun), TagSpecification)
@@ -2639,7 +2554,6 @@ ec2_create_customer_gateway <- function(BgpAsn, Type, IpAddress = NULL, Certific
 ec2_create_default_subnet <- function(AvailabilityZone, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     AvailabilityZone <- as.character(AvailabilityZone)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CreateDefaultSubnet", parameters = parameters, 
@@ -2663,7 +2577,6 @@ ec2_create_default_subnet <- function(AvailabilityZone, DryRun = NULL, simplify 
 #' @export
 ec2_create_default_vpc <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CreateDefaultVpc", parameters = parameters, 
@@ -2696,9 +2609,6 @@ ec2_create_default_vpc <- function(DryRun = NULL, simplify = TRUE, others = list
 ec2_create_dhcp_options <- function(DhcpConfiguration, TagSpecification = NULL, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    DhcpConfiguration <- as.list(DhcpConfiguration)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     DhcpConfiguration <- list_to_array("DhcpConfiguration", DhcpConfiguration)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun), DhcpConfiguration, TagSpecification)
@@ -2747,8 +2657,6 @@ ec2_create_egress_only_internet_gateway <- function(VpcId, ClientToken = NULL, D
     network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, ClientToken = ClientToken, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -2868,11 +2776,6 @@ ec2_create_fleet <- function(LaunchTemplateConfigs, TargetCapacitySpecification,
     TargetCapacitySpecification <- as.list(TargetCapacitySpecification)
     SpotOptions <- as.list(SpotOptions)
     OnDemandOptions <- as.list(OnDemandOptions)
-    LaunchTemplateConfigs <- as.list(LaunchTemplateConfigs)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    TerminateInstancesWithExpiration <- as.logical(TerminateInstancesWithExpiration)
-    ReplaceUnhealthyInstances <- as.logical(ReplaceUnhealthyInstances)
     LaunchTemplateConfigs <- list_to_array("LaunchTemplateConfigs", LaunchTemplateConfigs)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TargetCapacitySpecification = TargetCapacitySpecification, DryRun = DryRun, 
@@ -3020,10 +2923,6 @@ ec2_create_flow_logs <- function(ResourceId, ResourceType, TrafficType, DryRun =
     LogDestinationType <- as.character(LogDestinationType)
     LogDestination <- as.character(LogDestination)
     LogFormat <- as.character(LogFormat)
-    ResourceId <- as.list(ResourceId)
-    TagSpecification <- as.list(TagSpecification)
-    MaxAggregationInterval <- as.integer(MaxAggregationInterval)
-    DryRun <- as.logical(DryRun)
     ResourceId <- list_to_array("ResourceId", ResourceId)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(ResourceType = ResourceType, TrafficType = TrafficType, DryRun = DryRun, 
@@ -3085,8 +2984,6 @@ ec2_create_fpga_image <- function(InputStorageLocation, DryRun = NULL, LogsStora
     ClientToken <- as.character(ClientToken)
     InputStorageLocation <- as.list(InputStorageLocation)
     LogsStorageLocation <- as.list(LogsStorageLocation)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(InputStorageLocation = InputStorageLocation, DryRun = DryRun, LogsStorageLocation = LogsStorageLocation, 
         Description = Description, Name = Name, ClientToken = ClientToken), TagSpecification)
@@ -3165,10 +3062,6 @@ ec2_create_image <- function(InstanceId, Name, BlockDeviceMapping = NULL, Descri
     InstanceId <- as.character(InstanceId)
     Name <- as.character(Name)
     Description <- as.character(Description)
-    BlockDeviceMapping <- as.list(BlockDeviceMapping)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    NoReboot <- as.logical(NoReboot)
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(InstanceId = InstanceId, Name = Name, Description = Description, DryRun = DryRun, 
@@ -3213,7 +3106,6 @@ ec2_create_instance_export_task <- function(ExportToS3, InstanceId, TargetEnviro
     TargetEnvironment <- as.character(TargetEnvironment)
     Description <- as.character(Description)
     ExportToS3 <- as.list(ExportToS3)
-    TagSpecification <- as.list(TagSpecification)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(ExportToS3 = ExportToS3, InstanceId = InstanceId, TargetEnvironment = TargetEnvironment, 
         Description = Description), TagSpecification)
@@ -3243,8 +3135,6 @@ ec2_create_instance_export_task <- function(ExportToS3, InstanceId, TargetEnviro
 #' @export
 ec2_create_internet_gateway <- function(TagSpecification = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -3281,8 +3171,6 @@ ec2_create_internet_gateway <- function(TagSpecification = NULL, DryRun = NULL, 
 ec2_create_key_pair <- function(KeyName, DryRun = NULL, TagSpecification = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     KeyName <- as.character(KeyName)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(KeyName = KeyName, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -3345,8 +3233,6 @@ ec2_create_launch_template <- function(LaunchTemplateName, LaunchTemplateData, D
     ClientToken <- as.character(ClientToken)
     VersionDescription <- as.character(VersionDescription)
     LaunchTemplateData <- as.list(LaunchTemplateData)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(LaunchTemplateName = LaunchTemplateName, LaunchTemplateData = LaunchTemplateData, 
         DryRun = DryRun, ClientToken = ClientToken, VersionDescription = VersionDescription), TagSpecification)
@@ -3415,7 +3301,6 @@ ec2_create_launch_template_version <- function(LaunchTemplateData, DryRun = NULL
     SourceVersion <- as.character(SourceVersion)
     VersionDescription <- as.character(VersionDescription)
     LaunchTemplateData <- as.list(LaunchTemplateData)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(LaunchTemplateData = LaunchTemplateData, DryRun = DryRun, ClientToken = ClientToken, 
         LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, SourceVersion = SourceVersion, 
         VersionDescription = VersionDescription))
@@ -3461,7 +3346,6 @@ ec2_create_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     LocalGatewayRouteTableId <- as.character(LocalGatewayRouteTableId)
     LocalGatewayVirtualInterfaceGroupId <- as.character(LocalGatewayVirtualInterfaceGroupId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         LocalGatewayVirtualInterfaceGroupId = LocalGatewayVirtualInterfaceGroupId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -3504,8 +3388,6 @@ ec2_create_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
     network_timeout = aws_get_network_timeout()) {
     LocalGatewayRouteTableId <- as.character(LocalGatewayRouteTableId)
     VpcId <- as.character(VpcId)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(LocalGatewayRouteTableId = LocalGatewayRouteTableId, VpcId = VpcId, 
         DryRun = DryRun), TagSpecification)
@@ -3571,10 +3453,6 @@ ec2_create_managed_prefix_list <- function(PrefixListName, MaxEntries, AddressFa
     PrefixListName <- as.character(PrefixListName)
     AddressFamily <- as.character(AddressFamily)
     ClientToken <- as.character(ClientToken)
-    Entry <- as.list(Entry)
-    TagSpecification <- as.list(TagSpecification)
-    MaxEntries <- as.integer(MaxEntries)
-    DryRun <- as.logical(DryRun)
     Entry <- list_to_array("Entry", Entry)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(PrefixListName = PrefixListName, MaxEntries = MaxEntries, AddressFamily = AddressFamily, 
@@ -3637,8 +3515,6 @@ ec2_create_nat_gateway <- function(SubnetId, AllocationId, ClientToken = NULL, D
     SubnetId <- as.character(SubnetId)
     AllocationId <- as.character(AllocationId)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(SubnetId = SubnetId, AllocationId = AllocationId, ClientToken = ClientToken, 
         DryRun = DryRun), TagSpecification)
@@ -3674,8 +3550,6 @@ ec2_create_network_acl <- function(VpcId, DryRun = NULL, TagSpecification = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -3763,9 +3637,6 @@ ec2_create_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAct
     Ipv6CidrBlock <- as.character(Ipv6CidrBlock)
     Icmp <- as.list(Icmp)
     PortRange <- as.list(PortRange)
-    RuleNumber <- as.integer(RuleNumber)
-    Egress <- as.logical(Egress)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, Protocol = Protocol, 
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, Icmp = Icmp, 
         Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
@@ -3834,9 +3705,6 @@ ec2_create_network_insights_path <- function(Source, Destination, Protocol, Clie
     ClientToken <- as.character(ClientToken)
     SourceIp <- as.character(SourceIp)
     DestinationIp <- as.character(DestinationIp)
-    TagSpecification <- as.list(TagSpecification)
-    DestinationPort <- as.integer(DestinationPort)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Source = Source, Destination = Destination, Protocol = Protocol, ClientToken = ClientToken, 
         SourceIp = SourceIp, DestinationIp = DestinationIp, DestinationPort = DestinationPort, DryRun = DryRun), 
@@ -3935,13 +3803,6 @@ ec2_create_network_interface <- function(SubnetId, Description = NULL, DryRun = 
     Description <- as.character(Description)
     PrivateIpAddress <- as.character(PrivateIpAddress)
     InterfaceType <- as.character(InterfaceType)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    Ipv6Addresses <- as.list(Ipv6Addresses)
-    PrivateIpAddresses <- as.list(PrivateIpAddresses)
-    TagSpecification <- as.list(TagSpecification)
-    Ipv6AddressCount <- as.integer(Ipv6AddressCount)
-    SecondaryPrivateIpAddressCount <- as.integer(SecondaryPrivateIpAddressCount)
-    DryRun <- as.logical(DryRun)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     PrivateIpAddresses <- list_to_array("PrivateIpAddresses", PrivateIpAddresses)
@@ -3991,7 +3852,6 @@ ec2_create_network_interface_permission <- function(NetworkInterfaceId, Permissi
     Permission <- as.character(Permission)
     AwsAccountId <- as.character(AwsAccountId)
     AwsService <- as.character(AwsService)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Permission = Permission, 
         AwsAccountId = AwsAccountId, AwsService = AwsService, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -4039,9 +3899,6 @@ ec2_create_placement_group <- function(DryRun = NULL, GroupName = NULL, Strategy
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     GroupName <- as.character(GroupName)
     Strategy <- as.character(Strategy)
-    TagSpecification <- as.list(TagSpecification)
-    PartitionCount <- as.integer(PartitionCount)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun, GroupName = GroupName, Strategy = Strategy, PartitionCount = PartitionCount), 
         TagSpecification)
@@ -4085,8 +3942,6 @@ ec2_create_reserved_instances_listing <- function(ClientToken, InstanceCount, Pr
     network_timeout = aws_get_network_timeout()) {
     ClientToken <- as.character(ClientToken)
     ReservedInstancesId <- as.character(ReservedInstancesId)
-    PriceSchedules <- as.list(PriceSchedules)
-    InstanceCount <- as.integer(InstanceCount)
     PriceSchedules <- list_to_array("PriceSchedules", PriceSchedules)
     parameters <- c(others, list(ClientToken = ClientToken, InstanceCount = InstanceCount, ReservedInstancesId = ReservedInstancesId), 
         PriceSchedules)
@@ -4197,7 +4052,6 @@ ec2_create_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
     CarrierGatewayId <- as.character(CarrierGatewayId)
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(RouteTableId = RouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
         DestinationIpv6CidrBlock = DestinationIpv6CidrBlock, DestinationPrefixListId = DestinationPrefixListId, 
         DryRun = DryRun, VpcEndpointId = VpcEndpointId, EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, 
@@ -4235,8 +4089,6 @@ ec2_create_route_table <- function(VpcId, DryRun = NULL, TagSpecification = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -4297,8 +4149,6 @@ ec2_create_security_group <- function(GroupDescription, GroupName, VpcId = NULL,
     GroupDescription <- as.character(GroupDescription)
     GroupName <- as.character(GroupName)
     VpcId <- as.character(VpcId)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(GroupDescription = GroupDescription, GroupName = GroupName, VpcId = VpcId, 
         DryRun = DryRun), TagSpecification)
@@ -4361,8 +4211,6 @@ ec2_create_snapshot <- function(VolumeId, Description = NULL, OutpostArn = NULL,
     VolumeId <- as.character(VolumeId)
     Description <- as.character(Description)
     OutpostArn <- as.character(OutpostArn)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VolumeId = VolumeId, Description = Description, OutpostArn = OutpostArn, 
         DryRun = DryRun), TagSpecification)
@@ -4433,8 +4281,6 @@ ec2_create_snapshots <- function(InstanceSpecification, Description = NULL, Outp
     OutpostArn <- as.character(OutpostArn)
     CopyTagsFromSource <- as.character(CopyTagsFromSource)
     InstanceSpecification <- as.list(InstanceSpecification)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(InstanceSpecification = InstanceSpecification, Description = Description, 
         OutpostArn = OutpostArn, DryRun = DryRun, CopyTagsFromSource = CopyTagsFromSource), TagSpecification)
@@ -4480,7 +4326,6 @@ ec2_create_spot_datafeed_subscription <- function(Bucket, DryRun = NULL, Prefix 
     network_timeout = aws_get_network_timeout()) {
     Bucket <- as.character(Bucket)
     Prefix <- as.character(Prefix)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Bucket = Bucket, DryRun = DryRun, Prefix = Prefix))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "CreateSpotDatafeedSubscription", parameters = parameters, 
@@ -4556,8 +4401,6 @@ ec2_create_subnet <- function(VpcId, CidrBlock, TagSpecification = NULL, Availab
     AvailabilityZoneId <- as.character(AvailabilityZoneId)
     Ipv6CidrBlock <- as.character(Ipv6CidrBlock)
     OutpostArn <- as.character(OutpostArn)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(VpcId = VpcId, CidrBlock = CidrBlock, AvailabilityZone = AvailabilityZone, 
         AvailabilityZoneId = AvailabilityZoneId, Ipv6CidrBlock = Ipv6CidrBlock, OutpostArn = OutpostArn, 
@@ -4597,9 +4440,6 @@ ec2_create_subnet <- function(VpcId, CidrBlock, TagSpecification = NULL, Availab
 #' @export
 ec2_create_tags <- function(ResourceId, Tag, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    ResourceId <- as.list(ResourceId)
-    Tag <- as.list(Tag)
-    DryRun <- as.logical(DryRun)
     ResourceId <- list_to_array("ResourceId", ResourceId)
     Tag <- list_to_array("Tag", Tag)
     parameters <- c(others, list(DryRun = DryRun), ResourceId, Tag)
@@ -4641,8 +4481,6 @@ ec2_create_traffic_mirror_filter <- function(Description = NULL, TagSpecificatio
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Description <- as.character(Description)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Description = Description, DryRun = DryRun, ClientToken = ClientToken), 
         TagSpecification)
@@ -4733,9 +4571,6 @@ ec2_create_traffic_mirror_filter_rule <- function(TrafficMirrorFilterId, Traffic
     ClientToken <- as.character(ClientToken)
     DestinationPortRange <- as.list(DestinationPortRange)
     SourcePortRange <- as.list(SourcePortRange)
-    RuleNumber <- as.integer(RuleNumber)
-    Protocol <- as.integer(Protocol)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, TrafficDirection = TrafficDirection, 
         RuleNumber = RuleNumber, RuleAction = RuleAction, DestinationCidrBlock = DestinationCidrBlock, 
         SourceCidrBlock = SourceCidrBlock, DestinationPortRange = DestinationPortRange, SourcePortRange = SourcePortRange, 
@@ -4824,11 +4659,6 @@ ec2_create_traffic_mirror_session <- function(NetworkInterfaceId, TrafficMirrorT
     TrafficMirrorFilterId <- as.character(TrafficMirrorFilterId)
     Description <- as.character(Description)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    SessionNumber <- as.integer(SessionNumber)
-    PacketLength <- as.integer(PacketLength)
-    VirtualNetworkId <- as.integer(VirtualNetworkId)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, TrafficMirrorTargetId = TrafficMirrorTargetId, 
         TrafficMirrorFilterId = TrafficMirrorFilterId, SessionNumber = SessionNumber, PacketLength = PacketLength, 
@@ -4886,8 +4716,6 @@ ec2_create_traffic_mirror_target <- function(NetworkInterfaceId = NULL, NetworkL
     NetworkLoadBalancerArn <- as.character(NetworkLoadBalancerArn)
     Description <- as.character(Description)
     ClientToken <- as.character(ClientToken)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, NetworkLoadBalancerArn = NetworkLoadBalancerArn, 
         Description = Description, DryRun = DryRun, ClientToken = ClientToken), TagSpecification)
@@ -4928,8 +4756,6 @@ ec2_create_transit_gateway <- function(Description = NULL, Options = NULL, TagSp
     network_timeout = aws_get_network_timeout()) {
     Description <- as.character(Description)
     Options <- as.list(Options)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Description = Description, Options = Options, DryRun = DryRun), TagSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -4970,8 +4796,6 @@ ec2_create_transit_gateway_connect <- function(TransportTransitGatewayAttachment
     network_timeout = aws_get_network_timeout()) {
     TransportTransitGatewayAttachmentId <- as.character(TransportTransitGatewayAttachmentId)
     Options <- as.list(Options)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransportTransitGatewayAttachmentId = TransportTransitGatewayAttachmentId, 
         Options = Options, DryRun = DryRun), TagSpecification)
@@ -5035,9 +4859,6 @@ ec2_create_transit_gateway_connect_peer <- function(TransitGatewayAttachmentId, 
     PeerAddress <- as.character(PeerAddress)
     TransitGatewayAddress <- as.character(TransitGatewayAddress)
     BgpOptions <- as.list(BgpOptions)
-    InsideCidrBlocks <- as.list(InsideCidrBlocks)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     InsideCidrBlocks <- list_to_array("InsideCidrBlocks", InsideCidrBlocks)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, PeerAddress = PeerAddress, 
@@ -5080,8 +4901,6 @@ ec2_create_transit_gateway_multicast_domain <- function(TransitGatewayId, Option
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayId <- as.character(TransitGatewayId)
     Options <- as.list(Options)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Options = Options, DryRun = DryRun), 
         TagSpecification)
@@ -5133,8 +4952,6 @@ ec2_create_transit_gateway_peering_attachment <- function(TransitGatewayId, Peer
     PeerTransitGatewayId <- as.character(PeerTransitGatewayId)
     PeerAccountId <- as.character(PeerAccountId)
     PeerRegion <- as.character(PeerRegion)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, PeerTransitGatewayId = PeerTransitGatewayId, 
         PeerAccountId = PeerAccountId, PeerRegion = PeerRegion, DryRun = DryRun), TagSpecification)
@@ -5184,8 +5001,6 @@ ec2_create_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     PrefixListId <- as.character(PrefixListId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    Blackhole <- as.logical(Blackhole)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -5235,8 +5050,6 @@ ec2_create_transit_gateway_route <- function(DestinationCidrBlock, TransitGatewa
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    Blackhole <- as.logical(Blackhole)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -5274,8 +5087,6 @@ ec2_create_transit_gateway_route_table <- function(TransitGatewayId, TagSpecific
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayId <- as.character(TransitGatewayId)
-    TagSpecifications <- as.list(TagSpecifications)
-    DryRun <- as.logical(DryRun)
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun), TagSpecifications)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -5327,9 +5138,6 @@ ec2_create_transit_gateway_vpc_attachment <- function(TransitGatewayId, VpcId, S
     TransitGatewayId <- as.character(TransitGatewayId)
     VpcId <- as.character(VpcId)
     Options <- as.list(Options)
-    SubnetIds <- as.list(SubnetIds)
-    TagSpecifications <- as.list(TagSpecifications)
-    DryRun <- as.logical(DryRun)
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     TagSpecifications <- list_to_array("TagSpecifications", TagSpecifications)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, VpcId = VpcId, Options = Options, 
@@ -5502,13 +5310,6 @@ ec2_create_volume <- function(AvailabilityZone, Encrypted = NULL, Iops = NULL, K
     OutpostArn <- as.character(OutpostArn)
     SnapshotId <- as.character(SnapshotId)
     VolumeType <- as.character(VolumeType)
-    TagSpecification <- as.list(TagSpecification)
-    Iops <- as.integer(Iops)
-    Size <- as.integer(Size)
-    Throughput <- as.integer(Throughput)
-    Encrypted <- as.logical(Encrypted)
-    DryRun <- as.logical(DryRun)
-    MultiAttachEnabled <- as.logical(MultiAttachEnabled)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Encrypted = Encrypted, Iops = Iops, 
         KmsKeyId = KmsKeyId, OutpostArn = OutpostArn, Size = Size, SnapshotId = SnapshotId, VolumeType = VolumeType, 
@@ -5593,9 +5394,6 @@ ec2_create_vpc <- function(CidrBlock, AmazonProvidedIpv6CidrBlock = NULL, Ipv6Po
     Ipv6CidrBlock <- as.character(Ipv6CidrBlock)
     InstanceTenancy <- as.character(InstanceTenancy)
     Ipv6CidrBlockNetworkBorderGroup <- as.character(Ipv6CidrBlockNetworkBorderGroup)
-    TagSpecification <- as.list(TagSpecification)
-    AmazonProvidedIpv6CidrBlock <- as.logical(AmazonProvidedIpv6CidrBlock)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(CidrBlock = CidrBlock, AmazonProvidedIpv6CidrBlock = AmazonProvidedIpv6CidrBlock, 
         Ipv6Pool = Ipv6Pool, Ipv6CidrBlock = Ipv6CidrBlock, DryRun = DryRun, InstanceTenancy = InstanceTenancy, 
@@ -5694,12 +5492,6 @@ ec2_create_vpc_endpoint <- function(VpcId, ServiceName, DryRun = NULL, VpcEndpoi
     VpcEndpointType <- as.character(VpcEndpointType)
     PolicyDocument <- as.character(PolicyDocument)
     ClientToken <- as.character(ClientToken)
-    RouteTableId <- as.list(RouteTableId)
-    SubnetId <- as.list(SubnetId)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    PrivateDnsEnabled <- as.logical(PrivateDnsEnabled)
     RouteTableId <- list_to_array("RouteTableId", RouteTableId)
     SubnetId <- list_to_array("SubnetId", SubnetId)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
@@ -5757,8 +5549,6 @@ ec2_create_vpc_endpoint_connection_notification <- function(ConnectionNotificati
     ServiceId <- as.character(ServiceId)
     VpcEndpointId <- as.character(VpcEndpointId)
     ClientToken <- as.character(ClientToken)
-    ConnectionEvents <- as.list(ConnectionEvents)
-    DryRun <- as.logical(DryRun)
     ConnectionEvents <- list_to_array("ConnectionEvents", ConnectionEvents)
     parameters <- c(others, list(ConnectionNotificationArn = ConnectionNotificationArn, DryRun = DryRun, 
         ServiceId = ServiceId, VpcEndpointId = VpcEndpointId, ClientToken = ClientToken), ConnectionEvents)
@@ -5818,11 +5608,6 @@ ec2_create_vpc_endpoint_service_configuration <- function(DryRun = NULL, Accepta
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrivateDnsName <- as.character(PrivateDnsName)
     ClientToken <- as.character(ClientToken)
-    NetworkLoadBalancerArn <- as.list(NetworkLoadBalancerArn)
-    GatewayLoadBalancerArn <- as.list(GatewayLoadBalancerArn)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    AcceptanceRequired <- as.logical(AcceptanceRequired)
     NetworkLoadBalancerArn <- list_to_array("NetworkLoadBalancerArn", NetworkLoadBalancerArn)
     GatewayLoadBalancerArn <- list_to_array("GatewayLoadBalancerArn", GatewayLoadBalancerArn)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
@@ -5883,8 +5668,6 @@ ec2_create_vpc_peering_connection <- function(DryRun = NULL, PeerOwnerId = NULL,
     PeerVpcId <- as.character(PeerVpcId)
     VpcId <- as.character(VpcId)
     PeerRegion <- as.character(PeerRegion)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DryRun = DryRun, PeerOwnerId = PeerOwnerId, PeerVpcId = PeerVpcId, 
         VpcId = VpcId, PeerRegion = PeerRegion), TagSpecification)
@@ -5942,8 +5725,6 @@ ec2_create_vpn_connection <- function(CustomerGatewayId, Type, VpnGatewayId = NU
     VpnGatewayId <- as.character(VpnGatewayId)
     TransitGatewayId <- as.character(TransitGatewayId)
     Options <- as.list(Options)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(CustomerGatewayId = CustomerGatewayId, Type = Type, VpnGatewayId = VpnGatewayId, 
         TransitGatewayId = TransitGatewayId, DryRun = DryRun, Options = Options), TagSpecification)
@@ -6021,9 +5802,6 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
     network_timeout = aws_get_network_timeout()) {
     Type <- as.character(Type)
     AvailabilityZone <- as.character(AvailabilityZone)
-    TagSpecification <- as.list(TagSpecification)
-    AmazonSideAsn <- as.integer(AmazonSideAsn)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(Type = Type, AvailabilityZone = AvailabilityZone, AmazonSideAsn = AmazonSideAsn, 
         DryRun = DryRun), TagSpecification)
@@ -6054,7 +5832,6 @@ ec2_create_vpn_gateway <- function(Type, AvailabilityZone = NULL, TagSpecificati
 ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     CarrierGatewayId <- as.character(CarrierGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CarrierGatewayId = CarrierGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteCarrierGateway", parameters = parameters, 
@@ -6087,7 +5864,6 @@ ec2_delete_carrier_gateway <- function(CarrierGatewayId, DryRun = NULL, simplify
 ec2_delete_client_vpn_endpoint <- function(ClientVpnEndpointId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteClientVpnEndpoint", parameters = parameters, 
@@ -6135,7 +5911,6 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     TargetVpcSubnetId <- as.character(TargetVpcSubnetId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DestinationCidrBlock = DestinationCidrBlock, 
         TargetVpcSubnetId = TargetVpcSubnetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6169,7 +5944,6 @@ ec2_delete_client_vpn_route <- function(ClientVpnEndpointId, DestinationCidrBloc
 ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     CustomerGatewayId <- as.character(CustomerGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CustomerGatewayId = CustomerGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteCustomerGateway", parameters = parameters, 
@@ -6204,7 +5978,6 @@ ec2_delete_customer_gateway <- function(CustomerGatewayId, DryRun = NULL, simpli
 ec2_delete_dhcp_options <- function(DhcpOptionsId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     DhcpOptionsId <- as.character(DhcpOptionsId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DhcpOptionsId = DhcpOptionsId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteDhcpOptions", parameters = parameters, 
@@ -6237,7 +6010,6 @@ ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId,
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     EgressOnlyInternetGatewayId <- as.character(EgressOnlyInternetGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteEgressOnlyInternetGateway", parameters = parameters, 
@@ -6278,9 +6050,6 @@ ec2_delete_egress_only_internet_gateway <- function(EgressOnlyInternetGatewayId,
 #' @export
 ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    FleetId <- as.list(FleetId)
-    TerminateInstances <- as.logical(TerminateInstances)
-    DryRun <- as.logical(DryRun)
     FleetId <- list_to_array("FleetId", FleetId)
     parameters <- c(others, list(TerminateInstances = TerminateInstances, DryRun = DryRun), FleetId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6314,8 +6083,6 @@ ec2_delete_fleets <- function(FleetId, TerminateInstances, DryRun = NULL, simpli
 #' @export
 ec2_delete_flow_logs <- function(FlowLogId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    FlowLogId <- as.list(FlowLogId)
-    DryRun <- as.logical(DryRun)
     FlowLogId <- list_to_array("FlowLogId", FlowLogId)
     parameters <- c(others, list(DryRun = DryRun), FlowLogId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6348,7 +6115,6 @@ ec2_delete_flow_logs <- function(FlowLogId, DryRun = NULL, simplify = TRUE, othe
 ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     FpgaImageId <- as.character(FpgaImageId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(FpgaImageId = FpgaImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteFpgaImage", parameters = parameters, 
@@ -6381,7 +6147,6 @@ ec2_delete_fpga_image <- function(FpgaImageId, DryRun = NULL, simplify = TRUE, o
 ec2_delete_internet_gateway <- function(InternetGatewayId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InternetGatewayId <- as.character(InternetGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteInternetGateway", parameters = parameters, 
@@ -6418,7 +6183,6 @@ ec2_delete_key_pair <- function(KeyName = NULL, KeyPairId = NULL, DryRun = NULL,
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     KeyName <- as.character(KeyName)
     KeyPairId <- as.character(KeyPairId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(KeyName = KeyName, KeyPairId = KeyPairId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteKeyPair", parameters = parameters, 
@@ -6459,7 +6223,6 @@ ec2_delete_launch_template <- function(DryRun = NULL, LaunchTemplateId = NULL, L
     network_timeout = aws_get_network_timeout()) {
     LaunchTemplateId <- as.character(LaunchTemplateId)
     LaunchTemplateName <- as.character(LaunchTemplateName)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteLaunchTemplate", parameters = parameters, 
@@ -6508,8 +6271,6 @@ ec2_delete_launch_template_versions <- function(LaunchTemplateVersion, DryRun = 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     LaunchTemplateId <- as.character(LaunchTemplateId)
     LaunchTemplateName <- as.character(LaunchTemplateName)
-    LaunchTemplateVersion <- as.list(LaunchTemplateVersion)
-    DryRun <- as.logical(DryRun)
     LaunchTemplateVersion <- list_to_array("LaunchTemplateVersion", LaunchTemplateVersion)
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName), 
         LaunchTemplateVersion)
@@ -6551,7 +6312,6 @@ ec2_delete_local_gateway_route <- function(DestinationCidrBlock, LocalGatewayRou
     network_timeout = aws_get_network_timeout()) {
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     LocalGatewayRouteTableId <- as.character(LocalGatewayRouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, LocalGatewayRouteTableId = LocalGatewayRouteTableId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6585,7 +6345,6 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     LocalGatewayRouteTableVpcAssociationId <- as.character(LocalGatewayRouteTableVpcAssociationId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(LocalGatewayRouteTableVpcAssociationId = LocalGatewayRouteTableVpcAssociationId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6619,7 +6378,6 @@ ec2_delete_local_gateway_route_table_vpc_association <- function(LocalGatewayRou
 ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrefixListId <- as.character(PrefixListId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteManagedPrefixList", parameters = parameters, 
@@ -6654,7 +6412,6 @@ ec2_delete_managed_prefix_list <- function(PrefixListId, DryRun = NULL, simplify
 ec2_delete_nat_gateway <- function(NatGatewayId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NatGatewayId <- as.character(NatGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NatGatewayId = NatGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNatGateway", parameters = parameters, 
@@ -6687,7 +6444,6 @@ ec2_delete_nat_gateway <- function(NatGatewayId, DryRun = NULL, simplify = TRUE,
 ec2_delete_network_acl <- function(NetworkAclId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NetworkAclId <- as.character(NetworkAclId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkAclId = NetworkAclId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNetworkAcl", parameters = parameters, 
@@ -6729,9 +6485,6 @@ ec2_delete_network_acl_entry <- function(Egress, NetworkAclId, RuleNumber, DryRu
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkAclId <- as.character(NetworkAclId)
-    RuleNumber <- as.integer(RuleNumber)
-    Egress <- as.logical(Egress)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, RuleNumber = RuleNumber, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6765,7 +6518,6 @@ ec2_delete_network_insights_analysis <- function(NetworkInsightsAnalysisId, DryR
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkInsightsAnalysisId <- as.character(NetworkInsightsAnalysisId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInsightsAnalysisId = NetworkInsightsAnalysisId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNetworkInsightsAnalysis", parameters = parameters, 
@@ -6798,7 +6550,6 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkInsightsPathId <- as.character(NetworkInsightsPathId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNetworkInsightsPath", parameters = parameters, 
@@ -6831,7 +6582,6 @@ ec2_delete_network_insights_path <- function(NetworkInsightsPathId, DryRun = NUL
 ec2_delete_network_interface <- function(NetworkInterfaceId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteNetworkInterface", parameters = parameters, 
@@ -6872,8 +6622,6 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkInterfacePermissionId <- as.character(NetworkInterfacePermissionId)
-    Force <- as.logical(Force)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInterfacePermissionId = NetworkInterfacePermissionId, Force = Force, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6909,7 +6657,6 @@ ec2_delete_network_interface_permission <- function(NetworkInterfacePermissionId
 ec2_delete_placement_group <- function(GroupName, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     GroupName <- as.character(GroupName)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(GroupName = GroupName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeletePlacementGroup", parameters = parameters, 
@@ -6942,8 +6689,6 @@ ec2_delete_placement_group <- function(GroupName, DryRun = NULL, simplify = TRUE
 ec2_delete_queued_reserved_instances <- function(ReservedInstancesId, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ReservedInstancesId <- as.list(ReservedInstancesId)
-    DryRun <- as.logical(DryRun)
     ReservedInstancesId <- list_to_array("ReservedInstancesId", ReservedInstancesId)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstancesId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -6994,7 +6739,6 @@ ec2_delete_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     DestinationIpv6CidrBlock <- as.character(DestinationIpv6CidrBlock)
     DestinationPrefixListId <- as.character(DestinationPrefixListId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(RouteTableId = RouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
         DestinationIpv6CidrBlock = DestinationIpv6CidrBlock, DestinationPrefixListId = DestinationPrefixListId, 
         DryRun = DryRun))
@@ -7029,7 +6773,6 @@ ec2_delete_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destinat
 ec2_delete_route_table <- function(RouteTableId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     RouteTableId <- as.character(RouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteRouteTable", parameters = parameters, 
@@ -7065,7 +6808,6 @@ ec2_delete_security_group <- function(GroupId = NULL, GroupName = NULL, DryRun =
     network_timeout = aws_get_network_timeout()) {
     GroupId <- as.character(GroupId)
     GroupName <- as.character(GroupName)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(GroupId = GroupId, GroupName = GroupName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteSecurityGroup", parameters = parameters, 
@@ -7094,7 +6836,6 @@ ec2_delete_security_group <- function(GroupId = NULL, GroupName = NULL, DryRun =
 ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     SnapshotId <- as.character(SnapshotId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteSnapshot", parameters = parameters, 
@@ -7121,7 +6862,6 @@ ec2_delete_snapshot <- function(SnapshotId, DryRun = NULL, simplify = TRUE, othe
 #' @export
 ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteSpotDatafeedSubscription", parameters = parameters, 
@@ -7154,7 +6894,6 @@ ec2_delete_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE
 ec2_delete_subnet <- function(SubnetId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     SubnetId <- as.character(SubnetId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SubnetId = SubnetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteSubnet", parameters = parameters, simplify = simplify, 
@@ -7198,9 +6937,6 @@ ec2_delete_subnet <- function(SubnetId, DryRun = NULL, simplify = TRUE, others =
 #' @export
 ec2_delete_tags <- function(ResourceId, DryRun = NULL, Tag = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    ResourceId <- as.list(ResourceId)
-    Tag <- as.list(Tag)
-    DryRun <- as.logical(DryRun)
     ResourceId <- list_to_array("ResourceId", ResourceId)
     Tag <- list_to_array("Tag", Tag)
     parameters <- c(others, list(DryRun = DryRun), ResourceId, Tag)
@@ -7231,7 +6967,6 @@ ec2_delete_traffic_mirror_filter <- function(TrafficMirrorFilterId, DryRun = NUL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TrafficMirrorFilterId <- as.character(TrafficMirrorFilterId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilter", parameters = parameters, 
@@ -7264,7 +6999,6 @@ ec2_delete_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Dry
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TrafficMirrorFilterRuleId <- as.character(TrafficMirrorFilterRuleId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TrafficMirrorFilterRuleId = TrafficMirrorFilterRuleId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTrafficMirrorFilterRule", parameters = parameters, 
@@ -7297,7 +7031,6 @@ ec2_delete_traffic_mirror_session <- function(TrafficMirrorSessionId, DryRun = N
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TrafficMirrorSessionId <- as.character(TrafficMirrorSessionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TrafficMirrorSessionId = TrafficMirrorSessionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTrafficMirrorSession", parameters = parameters, 
@@ -7327,7 +7060,6 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TrafficMirrorTargetId <- as.character(TrafficMirrorTargetId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TrafficMirrorTargetId = TrafficMirrorTargetId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTrafficMirrorTarget", parameters = parameters, 
@@ -7359,7 +7091,6 @@ ec2_delete_traffic_mirror_target <- function(TrafficMirrorTargetId, DryRun = NUL
 ec2_delete_transit_gateway <- function(TransitGatewayId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayId <- as.character(TransitGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGateway", parameters = parameters, 
@@ -7393,7 +7124,6 @@ ec2_delete_transit_gateway_connect <- function(TransitGatewayAttachmentId, DryRu
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnect", parameters = parameters, 
@@ -7426,7 +7156,6 @@ ec2_delete_transit_gateway_connect_peer <- function(TransitGatewayConnectPeerId,
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayConnectPeerId <- as.character(TransitGatewayConnectPeerId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayConnectPeerId = TransitGatewayConnectPeerId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayConnectPeer", parameters = parameters, 
@@ -7459,7 +7188,6 @@ ec2_delete_transit_gateway_multicast_domain <- function(TransitGatewayMulticastD
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7493,7 +7221,6 @@ ec2_delete_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayPeeringAttachment", parameters = parameters, 
@@ -7532,7 +7259,6 @@ ec2_delete_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     PrefixListId <- as.character(PrefixListId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7572,7 +7298,6 @@ ec2_delete_transit_gateway_route <- function(TransitGatewayRouteTableId, Destina
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7608,7 +7333,6 @@ ec2_delete_transit_gateway_route_table <- function(TransitGatewayRouteTableId, D
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayRouteTable", parameters = parameters, 
@@ -7641,7 +7365,6 @@ ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteTransitGatewayVpcAttachment", parameters = parameters, 
@@ -7670,7 +7393,6 @@ ec2_delete_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
 ec2_delete_volume <- function(VolumeId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VolumeId <- as.character(VolumeId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteVolume", parameters = parameters, simplify = simplify, 
@@ -7705,7 +7427,6 @@ ec2_delete_volume <- function(VolumeId, DryRun = NULL, simplify = TRUE, others =
 ec2_delete_vpc <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteVpc", parameters = parameters, simplify = simplify, 
@@ -7737,8 +7458,6 @@ ec2_delete_vpc <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list(
 ec2_delete_vpc_endpoint_connection_notifications <- function(ConnectionNotificationId, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ConnectionNotificationId <- as.list(ConnectionNotificationId)
-    DryRun <- as.logical(DryRun)
     ConnectionNotificationId <- list_to_array("ConnectionNotificationId", ConnectionNotificationId)
     parameters <- c(others, list(DryRun = DryRun), ConnectionNotificationId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7774,8 +7493,6 @@ ec2_delete_vpc_endpoint_connection_notifications <- function(ConnectionNotificat
 ec2_delete_vpc_endpoint_service_configurations <- function(ServiceId, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ServiceId <- as.list(ServiceId)
-    DryRun <- as.logical(DryRun)
     ServiceId <- list_to_array("ServiceId", ServiceId)
     parameters <- c(others, list(DryRun = DryRun), ServiceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7804,8 +7521,6 @@ ec2_delete_vpc_endpoint_service_configurations <- function(ServiceId, DryRun = N
 #' @export
 ec2_delete_vpc_endpoints <- function(VpcEndpointId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    VpcEndpointId <- as.list(VpcEndpointId)
-    DryRun <- as.logical(DryRun)
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -7843,7 +7558,6 @@ ec2_delete_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteVpcPeeringConnection", parameters = parameters, 
@@ -7872,7 +7586,6 @@ ec2_delete_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
 ec2_delete_vpn_connection <- function(VpnConnectionId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpnConnectionId <- as.character(VpnConnectionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteVpnConnection", parameters = parameters, 
@@ -7940,7 +7653,6 @@ ec2_delete_vpn_connection_route <- function(DestinationCidrBlock, VpnConnectionI
 ec2_delete_vpn_gateway <- function(VpnGatewayId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpnGatewayId <- as.character(VpnGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeleteVpnGateway", parameters = parameters, 
@@ -7970,7 +7682,6 @@ ec2_delete_vpn_gateway <- function(VpnGatewayId, DryRun = NULL, simplify = TRUE,
 ec2_deprovision_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Cidr <- as.character(Cidr)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeprovisionByoipCidr", parameters = parameters, 
@@ -7999,7 +7710,6 @@ ec2_deprovision_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, oth
 ec2_deregister_image <- function(ImageId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ImageId <- as.character(ImageId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeregisterImage", parameters = parameters, 
@@ -8033,7 +7743,6 @@ ec2_deregister_instance_event_notification_attributes <- function(DryRun = NULL,
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     InstanceTagAttribute <- as.list(InstanceTagAttribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun, InstanceTagAttribute = InstanceTagAttribute))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DeregisterInstanceEventNotificationAttributes", 
@@ -8076,8 +7785,6 @@ ec2_deregister_transit_gateway_multicast_group_members <- function(TransitGatewa
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     GroupIpAddress <- as.character(GroupIpAddress)
-    NetworkInterfaceIds <- as.list(NetworkInterfaceIds)
-    DryRun <- as.logical(DryRun)
     NetworkInterfaceIds <- list_to_array("NetworkInterfaceIds", NetworkInterfaceIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
@@ -8123,8 +7830,6 @@ ec2_deregister_transit_gateway_multicast_group_sources <- function(TransitGatewa
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     GroupIpAddress <- as.character(GroupIpAddress)
-    NetworkInterfaceIds <- as.list(NetworkInterfaceIds)
-    DryRun <- as.logical(DryRun)
     NetworkInterfaceIds <- list_to_array("NetworkInterfaceIds", NetworkInterfaceIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
@@ -8154,8 +7859,6 @@ ec2_deregister_transit_gateway_multicast_group_sources <- function(TransitGatewa
 #' @export
 ec2_describe_account_attributes <- function(AttributeName = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    AttributeName <- as.list(AttributeName)
-    DryRun <- as.logical(DryRun)
     AttributeName <- list_to_array("AttributeName", AttributeName)
     parameters <- c(others, list(DryRun = DryRun), AttributeName)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -8229,10 +7932,6 @@ ec2_describe_account_attributes <- function(AttributeName = NULL, DryRun = NULL,
 ec2_describe_addresses <- function(Filter = NULL, PublicIp = NULL, AllocationId = NULL, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    PublicIp <- as.list(PublicIp)
-    AllocationId <- as.list(AllocationId)
-    DryRun <- as.logical(DryRun)
     PublicIp <- list_to_array("PublicIp", PublicIp)
     AllocationId <- list_to_array("AllocationId", AllocationId)
     Filter <- list_to_filter(Filter)
@@ -8279,9 +7978,6 @@ ec2_describe_addresses_attribute <- function(AllocationId = NULL, Attribute = NU
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     NextToken <- as.character(NextToken)
-    AllocationId <- as.list(AllocationId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     AllocationId <- list_to_array("AllocationId", AllocationId)
     parameters <- c(others, list(Attribute = Attribute, NextToken = NextToken, MaxResults = MaxResults, 
         DryRun = DryRun), AllocationId)
@@ -8307,7 +8003,6 @@ ec2_describe_addresses_attribute <- function(AllocationId = NULL, Attribute = NU
 #' @export
 ec2_describe_aggregate_id_format <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeAggregateIdFormat", parameters = parameters, 
@@ -8391,11 +8086,6 @@ ec2_describe_aggregate_id_format <- function(DryRun = NULL, simplify = TRUE, oth
 ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, ZoneId = NULL, AllAvailabilityZones = NULL, 
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    ZoneName <- as.list(ZoneName)
-    ZoneId <- as.list(ZoneId)
-    AllAvailabilityZones <- as.logical(AllAvailabilityZones)
-    DryRun <- as.logical(DryRun)
     ZoneName <- list_to_array("ZoneName", ZoneName)
     ZoneId <- list_to_array("ZoneId", ZoneId)
     Filter <- list_to_filter(Filter)
@@ -8459,9 +8149,6 @@ ec2_describe_availability_zones <- function(Filter = NULL, ZoneName = NULL, Zone
 ec2_describe_bundle_tasks <- function(BundleId = NULL, Filter = NULL, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    BundleId <- as.list(BundleId)
-    Filter <- as.list(Filter)
-    DryRun <- as.logical(DryRun)
     BundleId <- list_to_array("BundleId", BundleId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), BundleId, Filter)
@@ -8495,8 +8182,6 @@ ec2_describe_byoip_cidrs <- function(MaxResults, DryRun = NULL, NextToken = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeByoipCidrs", parameters = parameters, 
@@ -8618,10 +8303,6 @@ ec2_describe_capacity_reservations <- function(CapacityReservationId = NULL, Nex
     Filter = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    CapacityReservationId <- as.list(CapacityReservationId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     CapacityReservationId <- list_to_array("CapacityReservationId", CapacityReservationId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun), 
@@ -8685,10 +8366,6 @@ ec2_describe_carrier_gateways <- function(CarrierGatewayId = NULL, Filter = NULL
     NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    CarrierGatewayId <- as.list(CarrierGatewayId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     CarrierGatewayId <- list_to_array("CarrierGatewayId", CarrierGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -8761,10 +8438,6 @@ ec2_describe_classic_link_instances <- function(Filter = NULL, DryRun = NULL, In
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    InstanceId <- as.list(InstanceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -8818,9 +8491,6 @@ ec2_describe_client_vpn_authorization_rules <- function(ClientVpnEndpointId, Dry
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun, NextToken = NextToken, 
         MaxResults = MaxResults), Filter)
@@ -8873,9 +8543,6 @@ ec2_describe_client_vpn_connections <- function(ClientVpnEndpointId, Filter = NU
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun), Filter)
@@ -8924,10 +8591,6 @@ ec2_describe_client_vpn_endpoints <- function(ClientVpnEndpointId = NULL, MaxRes
     Filter = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    ClientVpnEndpointId <- as.list(ClientVpnEndpointId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ClientVpnEndpointId <- list_to_array("ClientVpnEndpointId", ClientVpnEndpointId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -8981,9 +8644,6 @@ ec2_describe_client_vpn_routes <- function(ClientVpnEndpointId, Filter = NULL, M
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -9041,10 +8701,6 @@ ec2_describe_client_vpn_target_networks <- function(ClientVpnEndpointId, Associa
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     NextToken <- as.character(NextToken)
-    AssociationIds <- as.list(AssociationIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     AssociationIds <- list_to_array("AssociationIds", AssociationIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, MaxResults = MaxResults, 
@@ -9097,10 +8753,6 @@ ec2_describe_coip_pools <- function(PoolId = NULL, Filter = NULL, MaxResults = N
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    PoolId <- as.list(PoolId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     PoolId <- list_to_array("PoolId", PoolId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -9132,8 +8784,6 @@ ec2_describe_coip_pools <- function(PoolId = NULL, Filter = NULL, MaxResults = N
 ec2_describe_conversion_tasks <- function(ConversionTaskId = NULL, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ConversionTaskId <- as.list(ConversionTaskId)
-    DryRun <- as.logical(DryRun)
     ConversionTaskId <- list_to_array("ConversionTaskId", ConversionTaskId)
     parameters <- c(others, list(DryRun = DryRun), ConversionTaskId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -9194,9 +8844,6 @@ ec2_describe_conversion_tasks <- function(ConversionTaskId = NULL, DryRun = NULL
 ec2_describe_customer_gateways <- function(CustomerGatewayId = NULL, Filter = NULL, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    CustomerGatewayId <- as.list(CustomerGatewayId)
-    Filter <- as.list(Filter)
-    DryRun <- as.logical(DryRun)
     CustomerGatewayId <- list_to_array("CustomerGatewayId", CustomerGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), CustomerGatewayId, Filter)
@@ -9259,10 +8906,6 @@ ec2_describe_dhcp_options <- function(DhcpOptionsId = NULL, Filter = NULL, DryRu
     MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    DhcpOptionsId <- as.list(DhcpOptionsId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     DhcpOptionsId <- list_to_array("DhcpOptionsId", DhcpOptionsId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -9318,10 +8961,6 @@ ec2_describe_egress_only_internet_gateways <- function(DryRun = NULL, EgressOnly
     MaxResults = NULL, NextToken = NULL, Filter = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    EgressOnlyInternetGatewayId <- as.list(EgressOnlyInternetGatewayId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     EgressOnlyInternetGatewayId <- list_to_array("EgressOnlyInternetGatewayId", EgressOnlyInternetGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -9384,10 +9023,6 @@ ec2_describe_elastic_gpus <- function(ElasticGpuId = NULL, DryRun = NULL, Filter
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    ElasticGpuId <- as.list(ElasticGpuId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ElasticGpuId <- list_to_array("ElasticGpuId", ElasticGpuId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -9432,10 +9067,6 @@ ec2_describe_export_image_tasks <- function(DryRun = NULL, Filter = NULL, Export
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    ExportImageTaskId <- as.list(ExportImageTaskId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ExportImageTaskId <- list_to_array("ExportImageTaskId", ExportImageTaskId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -9465,8 +9096,6 @@ ec2_describe_export_image_tasks <- function(DryRun = NULL, Filter = NULL, Export
 #' @export
 ec2_describe_export_tasks <- function(ExportTaskId = NULL, Filter = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    ExportTaskId <- as.list(ExportTaskId)
-    Filter <- as.list(Filter)
     ExportTaskId <- list_to_array("ExportTaskId", ExportTaskId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(), ExportTaskId, Filter)
@@ -9517,9 +9146,6 @@ ec2_describe_fast_snapshot_restores <- function(Filter = NULL, MaxResults = NULL
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter)
@@ -9570,8 +9196,6 @@ ec2_describe_fleet_history <- function(FleetId, StartTime, DryRun = NULL, EventT
     StartTime <- as.character(StartTime)
     EventType <- as.character(EventType)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(FleetId = FleetId, StartTime = StartTime, DryRun = DryRun, EventType = EventType, 
         MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -9616,9 +9240,6 @@ ec2_describe_fleet_instances <- function(FleetId, DryRun = NULL, MaxResults = NU
     network_timeout = aws_get_network_timeout()) {
     FleetId <- as.character(FleetId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(FleetId = FleetId, DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
@@ -9677,10 +9298,6 @@ ec2_describe_fleets <- function(DryRun = NULL, MaxResults = NULL, NextToken = NU
     Filter = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    FleetId <- as.list(FleetId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     FleetId <- list_to_array("FleetId", FleetId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -9756,10 +9373,6 @@ ec2_describe_flow_logs <- function(DryRun = NULL, Filter = NULL, FlowLogId = NUL
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    FlowLogId <- as.list(FlowLogId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     FlowLogId <- list_to_array("FlowLogId", FlowLogId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -9799,7 +9412,6 @@ ec2_describe_fpga_image_attribute <- function(FpgaImageId, Attribute, DryRun = N
     network_timeout = aws_get_network_timeout()) {
     FpgaImageId <- as.character(FpgaImageId)
     Attribute <- as.character(Attribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(FpgaImageId = FpgaImageId, Attribute = Attribute, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeFpgaImageAttribute", parameters = parameters, 
@@ -9878,11 +9490,6 @@ ec2_describe_fpga_images <- function(DryRun = NULL, FpgaImageId = NULL, Owner = 
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    FpgaImageId <- as.list(FpgaImageId)
-    Owner <- as.list(Owner)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     FpgaImageId <- list_to_array("FpgaImageId", FpgaImageId)
     Owner <- list_to_array("Owner", Owner)
     Filter <- list_to_filter(Filter)
@@ -9943,10 +9550,6 @@ ec2_describe_host_reservation_offerings <- function(Filter = NULL, MaxDuration =
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
     OfferingId <- as.character(OfferingId)
-    Filter <- as.list(Filter)
-    MaxDuration <- as.integer(MaxDuration)
-    MaxResults <- as.integer(MaxResults)
-    MinDuration <- as.integer(MinDuration)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxDuration = MaxDuration, MaxResults = MaxResults, MinDuration = MinDuration, 
         NextToken = NextToken, OfferingId = OfferingId), Filter)
@@ -10003,9 +9606,6 @@ ec2_describe_host_reservations <- function(Filter = NULL, HostReservationIdSet =
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    HostReservationIdSet <- as.list(HostReservationIdSet)
-    MaxResults <- as.integer(MaxResults)
     HostReservationIdSet <- list_to_array("HostReservationIdSet", HostReservationIdSet)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostReservationIdSet)
@@ -10067,9 +9667,6 @@ ec2_describe_hosts <- function(Filter = NULL, HostId = NULL, MaxResults = NULL, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    HostId <- as.list(HostId)
-    MaxResults <- as.integer(MaxResults)
     HostId <- list_to_array("HostId", HostId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), Filter, HostId)
@@ -10111,9 +9708,6 @@ ec2_describe_iam_instance_profile_associations <- function(AssociationId = NULL,
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    AssociationId <- as.list(AssociationId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
     AssociationId <- list_to_array("AssociationId", AssociationId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), AssociationId, Filter)
@@ -10224,7 +9818,6 @@ ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simp
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     ImageId <- as.character(ImageId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeImageAttribute", parameters = parameters, 
@@ -10363,11 +9956,6 @@ ec2_describe_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simp
 ec2_describe_images <- function(ExecutableBy = NULL, Filter = NULL, ImageId = NULL, Owner = NULL, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ExecutableBy <- as.list(ExecutableBy)
-    Filter <- as.list(Filter)
-    ImageId <- as.list(ImageId)
-    Owner <- as.list(Owner)
-    DryRun <- as.logical(DryRun)
     ExecutableBy <- list_to_array("ExecutableBy", ExecutableBy)
     ImageId <- list_to_array("ImageId", ImageId)
     Owner <- list_to_array("Owner", Owner)
@@ -10414,10 +10002,6 @@ ec2_describe_import_image_tasks <- function(DryRun = NULL, Filters = NULL, Impor
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filters <- as.list(Filters)
-    ImportTaskId <- as.list(ImportTaskId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filters <- list_to_array("Filters", Filters)
     ImportTaskId <- list_to_array("ImportTaskId", ImportTaskId)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -10462,10 +10046,6 @@ ec2_describe_import_snapshot_tasks <- function(DryRun = NULL, Filters = NULL, Im
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filters <- as.list(Filters)
-    ImportTaskId <- as.list(ImportTaskId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filters <- list_to_array("Filters", Filters)
     ImportTaskId <- list_to_array("ImportTaskId", ImportTaskId)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -10513,7 +10093,6 @@ ec2_describe_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL
     network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeInstanceAttribute", parameters = parameters, 
@@ -10561,10 +10140,6 @@ ec2_describe_instance_credit_specifications <- function(DryRun = NULL, Filter = 
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    InstanceId <- as.list(InstanceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -10595,7 +10170,6 @@ ec2_describe_instance_credit_specifications <- function(DryRun = NULL, Filter = 
 #' @export
 ec2_describe_instance_event_notification_attributes <- function(DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeInstanceEventNotificationAttributes", 
@@ -10695,11 +10269,6 @@ ec2_describe_instance_status <- function(Filter = NULL, InstanceId = NULL, MaxRe
     DryRun = NULL, IncludeAllInstances = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    InstanceId <- as.list(InstanceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
-    IncludeAllInstances <- as.logical(IncludeAllInstances)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun, IncludeAllInstances = IncludeAllInstances), 
@@ -10753,9 +10322,6 @@ ec2_describe_instance_type_offerings <- function(DryRun = NULL, LocationType = N
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     LocationType <- as.character(LocationType)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, LocationType = LocationType, MaxResults = MaxResults, 
         NextToken = NextToken), Filter)
@@ -10932,10 +10498,6 @@ ec2_describe_instance_types <- function(DryRun = NULL, InstanceType = NULL, Filt
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    InstanceType <- as.list(InstanceType)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InstanceType <- list_to_array("InstanceType", InstanceType)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -11254,10 +10816,6 @@ ec2_describe_instances <- function(Filter = NULL, InstanceId = NULL, DryRun = NU
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    InstanceId <- as.list(InstanceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -11326,10 +10884,6 @@ ec2_describe_internet_gateways <- function(Filter = NULL, DryRun = NULL, Interne
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    InternetGatewayId <- as.list(InternetGatewayId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InternetGatewayId <- list_to_array("InternetGatewayId", InternetGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -11384,10 +10938,6 @@ ec2_describe_ipv6_pools <- function(PoolId = NULL, NextToken = NULL, MaxResults 
     Filter = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    PoolId <- as.list(PoolId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     PoolId <- list_to_array("PoolId", PoolId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun), 
@@ -11446,10 +10996,6 @@ ec2_describe_ipv6_pools <- function(PoolId = NULL, NextToken = NULL, MaxResults 
 ec2_describe_key_pairs <- function(Filter = NULL, KeyName = NULL, KeyPairId = NULL, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    KeyName <- as.list(KeyName)
-    KeyPairId <- as.list(KeyPairId)
-    DryRun <- as.logical(DryRun)
     KeyName <- list_to_array("KeyName", KeyName)
     KeyPairId <- list_to_array("KeyPairId", KeyPairId)
     Filter <- list_to_filter(Filter)
@@ -11556,10 +11102,6 @@ ec2_describe_launch_template_versions <- function(DryRun = NULL, LaunchTemplateI
     MinVersion <- as.character(MinVersion)
     MaxVersion <- as.character(MaxVersion)
     NextToken <- as.character(NextToken)
-    LaunchTemplateVersion <- as.list(LaunchTemplateVersion)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LaunchTemplateVersion <- list_to_array("LaunchTemplateVersion", LaunchTemplateVersion)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, LaunchTemplateId = LaunchTemplateId, LaunchTemplateName = LaunchTemplateName, 
@@ -11624,11 +11166,6 @@ ec2_describe_launch_templates <- function(DryRun = NULL, LaunchTemplateId = NULL
     Filter = NULL, NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LaunchTemplateId <- as.list(LaunchTemplateId)
-    LaunchTemplateName <- as.list(LaunchTemplateName)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LaunchTemplateId <- list_to_array("LaunchTemplateId", LaunchTemplateId)
     LaunchTemplateName <- list_to_array("LaunchTemplateName", LaunchTemplateName)
     Filter <- list_to_filter(Filter)
@@ -11688,10 +11225,6 @@ ec2_describe_local_gateway_route_table_virtual_interface_group_associations <- f
     Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociationId <- as.list(LocalGatewayRouteTableVirtualInterfaceGroupAssociationId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId <- list_to_array("LocalGatewayRouteTableVirtualInterfaceGroupAssociationId", 
         LocalGatewayRouteTableVirtualInterfaceGroupAssociationId)
     Filter <- list_to_filter(Filter)
@@ -11749,10 +11282,6 @@ ec2_describe_local_gateway_route_table_vpc_associations <- function(LocalGateway
     Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayRouteTableVpcAssociationId <- as.list(LocalGatewayRouteTableVpcAssociationId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayRouteTableVpcAssociationId <- list_to_array("LocalGatewayRouteTableVpcAssociationId", 
         LocalGatewayRouteTableVpcAssociationId)
     Filter <- list_to_filter(Filter)
@@ -11809,10 +11338,6 @@ ec2_describe_local_gateway_route_tables <- function(LocalGatewayRouteTableId = N
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayRouteTableId <- as.list(LocalGatewayRouteTableId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayRouteTableId <- list_to_array("LocalGatewayRouteTableId", LocalGatewayRouteTableId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -11865,10 +11390,6 @@ ec2_describe_local_gateway_virtual_interface_groups <- function(LocalGatewayVirt
     Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayVirtualInterfaceGroupId <- as.list(LocalGatewayVirtualInterfaceGroupId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayVirtualInterfaceGroupId <- list_to_array("LocalGatewayVirtualInterfaceGroupId", LocalGatewayVirtualInterfaceGroupId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -11912,10 +11433,6 @@ ec2_describe_local_gateway_virtual_interfaces <- function(LocalGatewayVirtualInt
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayVirtualInterfaceId <- as.list(LocalGatewayVirtualInterfaceId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayVirtualInterfaceId <- list_to_array("LocalGatewayVirtualInterfaceId", LocalGatewayVirtualInterfaceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -11976,10 +11493,6 @@ ec2_describe_local_gateways <- function(LocalGatewayId = NULL, Filter = NULL, Ma
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    LocalGatewayId <- as.list(LocalGatewayId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     LocalGatewayId <- list_to_array("LocalGatewayId", LocalGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -12027,10 +11540,6 @@ ec2_describe_managed_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxR
     PrefixListId = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    PrefixListId <- as.list(PrefixListId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     PrefixListId <- list_to_array("PrefixListId", PrefixListId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -12087,10 +11596,6 @@ ec2_describe_moving_addresses <- function(Filter = NULL, DryRun = NULL, MaxResul
     PublicIp = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    PublicIp <- as.list(PublicIp)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     PublicIp <- list_to_array("PublicIp", PublicIp)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -12154,10 +11659,6 @@ ec2_describe_nat_gateways <- function(DryRun = NULL, Filter = NULL, MaxResults =
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    NatGatewayId <- as.list(NatGatewayId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     NatGatewayId <- list_to_array("NatGatewayId", NatGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -12253,10 +11754,6 @@ ec2_describe_network_acls <- function(Filter = NULL, DryRun = NULL, NetworkAclId
     MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    NetworkAclId <- as.list(NetworkAclId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     NetworkAclId <- list_to_array("NetworkAclId", NetworkAclId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -12324,10 +11821,6 @@ ec2_describe_network_insights_analyses <- function(NetworkInsightsAnalysisId = N
     AnalysisStartTime <- as.character(AnalysisStartTime)
     AnalysisEndTime <- as.character(AnalysisEndTime)
     NextToken <- as.character(NextToken)
-    NetworkInsightsAnalysisId <- as.list(NetworkInsightsAnalysisId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     NetworkInsightsAnalysisId <- list_to_array("NetworkInsightsAnalysisId", NetworkInsightsAnalysisId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, AnalysisStartTime = AnalysisStartTime, 
@@ -12383,10 +11876,6 @@ ec2_describe_network_insights_paths <- function(NetworkInsightsPathId = NULL, Fi
     DryRun = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    NetworkInsightsPathId <- as.list(NetworkInsightsPathId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     NetworkInsightsPathId <- list_to_array("NetworkInsightsPathId", NetworkInsightsPathId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, DryRun = DryRun, NextToken = NextToken), 
@@ -12427,7 +11916,6 @@ ec2_describe_network_interface_attribute <- function(NetworkInterfaceId, Attribu
     network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
     Attribute <- as.character(Attribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attribute = Attribute, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeNetworkInterfaceAttribute", parameters = parameters, 
@@ -12476,9 +11964,6 @@ ec2_describe_network_interface_permissions <- function(NetworkInterfacePermissio
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    NetworkInterfacePermissionId <- as.list(NetworkInterfacePermissionId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
     NetworkInterfacePermissionId <- list_to_array("NetworkInterfacePermissionId", NetworkInterfacePermissionId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), NetworkInterfacePermissionId, 
@@ -12634,10 +12119,6 @@ ec2_describe_network_interfaces <- function(Filter = NULL, DryRun = NULL, Networ
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    NetworkInterfaceId <- as.list(NetworkInterfaceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     NetworkInterfaceId <- list_to_array("NetworkInterfaceId", NetworkInterfaceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -12704,10 +12185,6 @@ ec2_describe_network_interfaces <- function(Filter = NULL, DryRun = NULL, Networ
 ec2_describe_placement_groups <- function(Filter = NULL, DryRun = NULL, GroupName = NULL, GroupId = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    GroupName <- as.list(GroupName)
-    GroupId <- as.list(GroupId)
-    DryRun <- as.logical(DryRun)
     GroupName <- list_to_array("GroupName", GroupName)
     GroupId <- list_to_array("GroupId", GroupId)
     Filter <- list_to_filter(Filter)
@@ -12753,10 +12230,6 @@ ec2_describe_prefix_lists <- function(DryRun = NULL, Filter = NULL, MaxResults =
     PrefixListId = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    PrefixListId <- as.list(PrefixListId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     PrefixListId <- list_to_array("PrefixListId", PrefixListId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -12804,9 +12277,6 @@ ec2_describe_principal_id_format <- function(DryRun = NULL, Resource = NULL, Max
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Resource <- as.list(Resource)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Resource <- list_to_array("Resource", Resource)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Resource)
@@ -12853,9 +12323,6 @@ ec2_describe_public_ipv4_pools <- function(PoolId = NULL, NextToken = NULL, MaxR
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    PoolId <- as.list(PoolId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
     PoolId <- list_to_array("PoolId", PoolId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken, MaxResults = MaxResults), PoolId, Filter)
@@ -12904,10 +12371,6 @@ ec2_describe_public_ipv4_pools <- function(PoolId = NULL, NextToken = NULL, MaxR
 ec2_describe_regions <- function(Filter = NULL, RegionName = NULL, DryRun = NULL, AllRegions = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    RegionName <- as.list(RegionName)
-    DryRun <- as.logical(DryRun)
-    AllRegions <- as.logical(AllRegions)
     RegionName <- list_to_array("RegionName", RegionName)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, AllRegions = AllRegions), Filter, RegionName)
@@ -13011,9 +12474,6 @@ ec2_describe_reserved_instances <- function(Filter = NULL, OfferingClass = NULL,
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     OfferingClass <- as.character(OfferingClass)
     OfferingType <- as.character(OfferingType)
-    Filter <- as.list(Filter)
-    ReservedInstancesId <- as.list(ReservedInstancesId)
-    DryRun <- as.logical(DryRun)
     ReservedInstancesId <- list_to_array("ReservedInstancesId", ReservedInstancesId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(OfferingClass = OfferingClass, DryRun = DryRun, OfferingType = OfferingType), 
@@ -13058,7 +12518,6 @@ ec2_describe_reserved_instances_listings <- function(Filter = NULL, ReservedInst
     network_timeout = aws_get_network_timeout()) {
     ReservedInstancesId <- as.character(ReservedInstancesId)
     ReservedInstancesListingId <- as.character(ReservedInstancesListingId)
-    Filter <- as.list(Filter)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ReservedInstancesId = ReservedInstancesId, ReservedInstancesListingId = ReservedInstancesListingId), 
         Filter)
@@ -13123,8 +12582,6 @@ ec2_describe_reserved_instances_modifications <- function(Filter = NULL, Reserve
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    ReservedInstancesModificationId <- as.list(ReservedInstancesModificationId)
     ReservedInstancesModificationId <- list_to_array("ReservedInstancesModificationId", ReservedInstancesModificationId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(NextToken = NextToken), Filter, ReservedInstancesModificationId)
@@ -13283,14 +12740,6 @@ ec2_describe_reserved_instances_offerings <- function(AvailabilityZone = NULL, F
     InstanceTenancy <- as.character(InstanceTenancy)
     NextToken <- as.character(NextToken)
     OfferingType <- as.character(OfferingType)
-    Filter <- as.list(Filter)
-    ReservedInstancesOfferingId <- as.list(ReservedInstancesOfferingId)
-    MaxDuration <- as.integer(MaxDuration)
-    MaxInstanceCount <- as.integer(MaxInstanceCount)
-    MinDuration <- as.integer(MinDuration)
-    MaxResults <- as.integer(MaxResults)
-    IncludeMarketplace <- as.logical(IncludeMarketplace)
-    DryRun <- as.logical(DryRun)
     ReservedInstancesOfferingId <- list_to_array("ReservedInstancesOfferingId", ReservedInstancesOfferingId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, IncludeMarketplace = IncludeMarketplace, 
@@ -13405,10 +12854,6 @@ ec2_describe_route_tables <- function(Filter = NULL, DryRun = NULL, RouteTableId
     MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    RouteTableId <- as.list(RouteTableId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     RouteTableId <- list_to_array("RouteTableId", RouteTableId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -13480,11 +12925,6 @@ ec2_describe_scheduled_instance_availability <- function(FirstSlotStartTimeRange
     NextToken <- as.character(NextToken)
     FirstSlotStartTimeRange <- as.list(FirstSlotStartTimeRange)
     Recurrence <- as.list(Recurrence)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    MaxSlotDurationInHours <- as.integer(MaxSlotDurationInHours)
-    MinSlotDurationInHours <- as.integer(MinSlotDurationInHours)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(FirstSlotStartTimeRange = FirstSlotStartTimeRange, Recurrence = Recurrence, 
         DryRun = DryRun, MaxResults = MaxResults, MaxSlotDurationInHours = MaxSlotDurationInHours, 
@@ -13545,10 +12985,6 @@ ec2_describe_scheduled_instances <- function(DryRun = NULL, Filter = NULL, MaxRe
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
     SlotStartTimeRange <- as.list(SlotStartTimeRange)
-    Filter <- as.list(Filter)
-    ScheduledInstanceId <- as.list(ScheduledInstanceId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ScheduledInstanceId <- list_to_array("ScheduledInstanceId", ScheduledInstanceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken, SlotStartTimeRange = SlotStartTimeRange), 
@@ -13584,8 +13020,6 @@ ec2_describe_scheduled_instances <- function(DryRun = NULL, Filter = NULL, MaxRe
 #' @export
 ec2_describe_security_group_references <- function(GroupId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    GroupId <- as.list(GroupId)
-    DryRun <- as.logical(DryRun)
     GroupId <- list_to_array("GroupId", GroupId)
     parameters <- c(others, list(DryRun = DryRun), GroupId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -13720,11 +13154,6 @@ ec2_describe_security_groups <- function(Filter = NULL, GroupId = NULL, GroupNam
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    GroupId <- as.list(GroupId)
-    GroupName <- as.list(GroupName)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     GroupId <- list_to_array("GroupId", GroupId)
     GroupName <- list_to_array("GroupName", GroupName)
     Filter <- list_to_filter(Filter)
@@ -13763,7 +13192,6 @@ ec2_describe_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL
     network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     SnapshotId <- as.character(SnapshotId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeSnapshotAttribute", parameters = parameters, 
@@ -13860,12 +13288,6 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
     RestorableBy = NULL, SnapshotId = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    Owner <- as.list(Owner)
-    RestorableBy <- as.list(RestorableBy)
-    SnapshotId <- as.list(SnapshotId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Owner <- list_to_array("Owner", Owner)
     RestorableBy <- list_to_array("RestorableBy", RestorableBy)
     SnapshotId <- list_to_array("SnapshotId", SnapshotId)
@@ -13900,7 +13322,6 @@ ec2_describe_snapshots <- function(Filter = NULL, MaxResults = NULL, NextToken =
 #' @export
 ec2_describe_spot_datafeed_subscription <- function(DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeSpotDatafeedSubscription", parameters = parameters, 
@@ -13941,8 +13362,6 @@ ec2_describe_spot_fleet_instances <- function(SpotFleetRequestId, DryRun = NULL,
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     SpotFleetRequestId <- as.character(SpotFleetRequestId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -13992,8 +13411,6 @@ ec2_describe_spot_fleet_request_history <- function(SpotFleetRequestId, StartTim
     StartTime <- as.character(StartTime)
     EventType <- as.character(EventType)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, StartTime = StartTime, DryRun = DryRun, 
         EventType = EventType, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -14031,9 +13448,6 @@ ec2_describe_spot_fleet_requests <- function(DryRun = NULL, MaxResults = NULL, N
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    SpotFleetRequestId <- as.list(SpotFleetRequestId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     SpotFleetRequestId <- list_to_array("SpotFleetRequestId", SpotFleetRequestId)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         SpotFleetRequestId)
@@ -14191,10 +13605,6 @@ ec2_describe_spot_instance_requests <- function(Filter = NULL, DryRun = NULL, Sp
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    SpotInstanceRequestId <- as.list(SpotInstanceRequestId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     SpotInstanceRequestId <- list_to_array("SpotInstanceRequestId", SpotInstanceRequestId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -14281,11 +13691,6 @@ ec2_describe_spot_price_history <- function(Filter = NULL, AvailabilityZone = NU
     EndTime <- as.character(EndTime)
     NextToken <- as.character(NextToken)
     StartTime <- as.character(StartTime)
-    Filter <- as.list(Filter)
-    InstanceType <- as.list(InstanceType)
-    ProductDescription <- as.list(ProductDescription)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     InstanceType <- list_to_array("InstanceType", InstanceType)
     ProductDescription <- list_to_array("ProductDescription", ProductDescription)
     Filter <- list_to_filter(Filter)
@@ -14333,8 +13738,6 @@ ec2_describe_stale_security_groups <- function(VpcId, DryRun = NULL, MaxResults 
     network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeStaleSecurityGroups", parameters = parameters, 
@@ -14423,10 +13826,6 @@ ec2_describe_subnets <- function(Filter = NULL, SubnetId = NULL, DryRun = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    SubnetId <- as.list(SubnetId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     SubnetId <- list_to_array("SubnetId", SubnetId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -14486,9 +13885,6 @@ ec2_describe_tags <- function(DryRun = NULL, Filter = NULL, MaxResults = NULL, N
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
@@ -14535,10 +13931,6 @@ ec2_describe_traffic_mirror_filters <- function(TrafficMirrorFilterId = NULL, Dr
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TrafficMirrorFilterId <- as.list(TrafficMirrorFilterId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TrafficMirrorFilterId <- list_to_array("TrafficMirrorFilterId", TrafficMirrorFilterId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -14606,10 +13998,6 @@ ec2_describe_traffic_mirror_sessions <- function(TrafficMirrorSessionId = NULL, 
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TrafficMirrorSessionId <- as.list(TrafficMirrorSessionId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TrafficMirrorSessionId <- list_to_array("TrafficMirrorSessionId", TrafficMirrorSessionId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -14667,10 +14055,6 @@ ec2_describe_traffic_mirror_targets <- function(TrafficMirrorTargetId = NULL, Dr
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TrafficMirrorTargetId <- as.list(TrafficMirrorTargetId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TrafficMirrorTargetId <- list_to_array("TrafficMirrorTargetId", TrafficMirrorTargetId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -14744,10 +14128,6 @@ ec2_describe_transit_gateway_attachments <- function(TransitGatewayAttachmentIds
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayAttachmentIds <- as.list(TransitGatewayAttachmentIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -14799,10 +14179,6 @@ ec2_describe_transit_gateway_connect_peers <- function(TransitGatewayConnectPeer
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayConnectPeerIds <- as.list(TransitGatewayConnectPeerIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayConnectPeerIds <- list_to_array("TransitGatewayConnectPeerIds", TransitGatewayConnectPeerIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -14861,10 +14237,6 @@ ec2_describe_transit_gateway_connects <- function(TransitGatewayAttachmentIds = 
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayAttachmentIds <- as.list(TransitGatewayAttachmentIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -14917,10 +14289,6 @@ ec2_describe_transit_gateway_multicast_domains <- function(TransitGatewayMultica
     Filter = NULL, MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayMulticastDomainIds <- as.list(TransitGatewayMulticastDomainIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayMulticastDomainIds <- list_to_array("TransitGatewayMulticastDomainIds", TransitGatewayMulticastDomainIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -14990,10 +14358,6 @@ ec2_describe_transit_gateway_peering_attachments <- function(TransitGatewayAttac
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayAttachmentIds <- as.list(TransitGatewayAttachmentIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -15056,10 +14420,6 @@ ec2_describe_transit_gateway_route_tables <- function(TransitGatewayRouteTableId
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayRouteTableIds <- as.list(TransitGatewayRouteTableIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayRouteTableIds <- list_to_array("TransitGatewayRouteTableIds", TransitGatewayRouteTableIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -15116,10 +14476,6 @@ ec2_describe_transit_gateway_vpc_attachments <- function(TransitGatewayAttachmen
     MaxResults = NULL, NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayAttachmentIds <- as.list(TransitGatewayAttachmentIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayAttachmentIds <- list_to_array("TransitGatewayAttachmentIds", TransitGatewayAttachmentIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -15200,10 +14556,6 @@ ec2_describe_transit_gateways <- function(TransitGatewayIds = NULL, Filter = NUL
     NextToken = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    TransitGatewayIds <- as.list(TransitGatewayIds)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     TransitGatewayIds <- list_to_array("TransitGatewayIds", TransitGatewayIds)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -15240,7 +14592,6 @@ ec2_describe_volume_attribute <- function(Attribute, VolumeId, DryRun = NULL, si
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     VolumeId <- as.character(VolumeId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeVolumeAttribute", parameters = parameters, 
@@ -15321,10 +14672,6 @@ ec2_describe_volume_status <- function(Filter = NULL, MaxResults = NULL, NextTok
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    VolumeId <- as.list(VolumeId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VolumeId <- list_to_array("VolumeId", VolumeId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
@@ -15425,10 +14772,6 @@ ec2_describe_volumes <- function(Filter = NULL, VolumeId = NULL, DryRun = NULL, 
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    VolumeId <- as.list(VolumeId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VolumeId <- list_to_array("VolumeId", VolumeId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -15497,10 +14840,6 @@ ec2_describe_volumes_modifications <- function(DryRun = NULL, VolumeId = NULL, F
     MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    VolumeId <- as.list(VolumeId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VolumeId <- list_to_array("VolumeId", VolumeId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -15540,7 +14879,6 @@ ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DescribeVpcAttribute", parameters = parameters, 
@@ -15589,9 +14927,6 @@ ec2_describe_vpc_attribute <- function(Attribute, VpcId, DryRun = NULL, simplify
 ec2_describe_vpc_classic_link <- function(Filter = NULL, DryRun = NULL, VpcId = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    VpcId <- as.list(VpcId)
-    DryRun <- as.logical(DryRun)
     VpcId <- list_to_array("VpcId", VpcId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpcId)
@@ -15632,8 +14967,6 @@ ec2_describe_vpc_classic_link_dns_support <- function(MaxResults = NULL, NextTok
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    VpcIds <- as.list(VpcIds)
-    MaxResults <- as.integer(MaxResults)
     VpcIds <- list_to_array("VpcIds", VpcIds)
     parameters <- c(others, list(MaxResults = MaxResults, NextToken = NextToken), VpcIds)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -15691,9 +15024,6 @@ ec2_describe_vpc_endpoint_connection_notifications <- function(DryRun = NULL, Co
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ConnectionNotificationId <- as.character(ConnectionNotificationId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, ConnectionNotificationId = ConnectionNotificationId, 
         MaxResults = MaxResults, NextToken = NextToken), Filter)
@@ -15749,9 +15079,6 @@ ec2_describe_vpc_endpoint_connections <- function(DryRun = NULL, Filter = NULL, 
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
@@ -15816,10 +15143,6 @@ ec2_describe_vpc_endpoint_service_configurations <- function(DryRun = NULL, Serv
     MaxResults = NULL, NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    ServiceId <- as.list(ServiceId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ServiceId <- list_to_array("ServiceId", ServiceId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -15874,9 +15197,6 @@ ec2_describe_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NU
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
         Filter)
@@ -15936,10 +15256,6 @@ ec2_describe_vpc_endpoint_services <- function(DryRun = NULL, ServiceName = NULL
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    ServiceName <- as.list(ServiceName)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     ServiceName <- list_to_array("ServiceName", ServiceName)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -16012,10 +15328,6 @@ ec2_describe_vpc_endpoints <- function(DryRun = NULL, VpcEndpointId = NULL, Filt
     NextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    VpcEndpointId <- as.list(VpcEndpointId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, MaxResults = MaxResults, NextToken = NextToken), 
@@ -16101,10 +15413,6 @@ ec2_describe_vpc_peering_connections <- function(Filter = NULL, DryRun = NULL, V
     NextToken = NULL, MaxResults = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    VpcPeeringConnectionId <- as.list(VpcPeeringConnectionId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VpcPeeringConnectionId <- list_to_array("VpcPeeringConnectionId", VpcPeeringConnectionId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -16198,10 +15506,6 @@ ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextTo
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    VpcId <- as.list(VpcId)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     VpcId <- list_to_array("VpcId", VpcId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun, NextToken = NextToken, MaxResults = MaxResults), 
@@ -16279,9 +15583,6 @@ ec2_describe_vpcs <- function(Filter = NULL, VpcId = NULL, DryRun = NULL, NextTo
 ec2_describe_vpn_connections <- function(Filter = NULL, VpnConnectionId = NULL, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    VpnConnectionId <- as.list(VpnConnectionId)
-    DryRun <- as.logical(DryRun)
     VpnConnectionId <- list_to_array("VpnConnectionId", VpnConnectionId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpnConnectionId)
@@ -16349,9 +15650,6 @@ ec2_describe_vpn_connections <- function(Filter = NULL, VpnConnectionId = NULL, 
 ec2_describe_vpn_gateways <- function(Filter = NULL, VpnGatewayId = NULL, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    Filter <- as.list(Filter)
-    VpnGatewayId <- as.list(VpnGatewayId)
-    DryRun <- as.logical(DryRun)
     VpnGatewayId <- list_to_array("VpnGatewayId", VpnGatewayId)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(DryRun = DryRun), Filter, VpnGatewayId)
@@ -16392,7 +15690,6 @@ ec2_detach_classic_link_vpc <- function(InstanceId, VpcId, DryRun = NULL, simpli
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DetachClassicLinkVpc", parameters = parameters, 
@@ -16431,7 +15728,6 @@ ec2_detach_internet_gateway <- function(InternetGatewayId, VpcId, DryRun = NULL,
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InternetGatewayId <- as.character(InternetGatewayId)
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InternetGatewayId = InternetGatewayId, VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DetachInternetGateway", parameters = parameters, 
@@ -16484,8 +15780,6 @@ ec2_detach_network_interface <- function(AttachmentId, DryRun = NULL, Force = NU
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     AttachmentId <- as.character(AttachmentId)
-    DryRun <- as.logical(DryRun)
-    Force <- as.logical(Force)
     parameters <- c(others, list(AttachmentId = AttachmentId, DryRun = DryRun, Force = Force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DetachNetworkInterface", parameters = parameters, 
@@ -16535,8 +15829,6 @@ ec2_detach_volume <- function(VolumeId, Device = NULL, Force = NULL, InstanceId 
     VolumeId <- as.character(VolumeId)
     Device <- as.character(Device)
     InstanceId <- as.character(InstanceId)
-    Force <- as.logical(Force)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VolumeId = VolumeId, Device = Device, Force = Force, InstanceId = InstanceId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -16570,7 +15862,6 @@ ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     VpnGatewayId <- as.character(VpnGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DetachVpnGateway", parameters = parameters, 
@@ -16594,7 +15885,6 @@ ec2_detach_vpn_gateway <- function(VpcId, VpnGatewayId, DryRun = NULL, simplify 
 #' @export
 ec2_disable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisableEbsEncryptionByDefault", parameters = parameters, 
@@ -16632,9 +15922,6 @@ ec2_disable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE
 ec2_disable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotId, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    AvailabilityZone <- as.list(AvailabilityZone)
-    SourceSnapshotId <- as.list(SourceSnapshotId)
-    DryRun <- as.logical(DryRun)
     AvailabilityZone <- list_to_array("AvailabilityZone", AvailabilityZone)
     SourceSnapshotId <- list_to_array("SourceSnapshotId", SourceSnapshotId)
     parameters <- c(others, list(DryRun = DryRun), AvailabilityZone, SourceSnapshotId)
@@ -16675,7 +15962,6 @@ ec2_disable_transit_gateway_route_table_propagation <- function(TransitGatewayRo
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -16715,7 +16001,6 @@ ec2_disable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = 
     network_timeout = aws_get_network_timeout()) {
     GatewayId <- as.character(GatewayId)
     RouteTableId <- as.character(RouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(GatewayId = GatewayId, RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisableVgwRoutePropagation", parameters = parameters, 
@@ -16748,7 +16033,6 @@ ec2_disable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = 
 ec2_disable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisableVpcClassicLink", parameters = parameters, 
@@ -16804,7 +16088,6 @@ ec2_disassociate_address <- function(AssociationId = NULL, PublicIp = NULL, DryR
     network_timeout = aws_get_network_timeout()) {
     AssociationId <- as.character(AssociationId)
     PublicIp <- as.character(PublicIp)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AssociationId = AssociationId, PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisassociateAddress", parameters = parameters, 
@@ -16840,7 +16123,6 @@ ec2_disassociate_client_vpn_target_network <- function(ClientVpnEndpointId, Asso
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     AssociationId <- as.character(AssociationId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, AssociationId = AssociationId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -16885,7 +16167,6 @@ ec2_disassociate_enclave_certificate_iam_role <- function(CertificateArn = NULL,
     network_timeout = aws_get_network_timeout()) {
     CertificateArn <- as.character(CertificateArn)
     RoleArn <- as.character(RoleArn)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CertificateArn = CertificateArn, RoleArn = RoleArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisassociateEnclaveCertificateIamRole", parameters = parameters, 
@@ -16936,7 +16217,6 @@ ec2_disassociate_iam_instance_profile <- function(AssociationId, simplify = TRUE
 ec2_disassociate_route_table <- function(AssociationId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     AssociationId <- as.character(AssociationId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AssociationId = AssociationId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "DisassociateRouteTable", parameters = parameters, 
@@ -17004,8 +16284,6 @@ ec2_disassociate_transit_gateway_multicast_domain <- function(TransitGatewayMult
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    SubnetIds <- as.list(SubnetIds)
-    DryRun <- as.logical(DryRun)
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -17045,7 +16323,6 @@ ec2_disassociate_transit_gateway_route_table <- function(TransitGatewayRouteTabl
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -17091,7 +16368,6 @@ ec2_disassociate_vpc_cidr_block <- function(AssociationId, simplify = TRUE, othe
 #' @export
 ec2_enable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "EnableEbsEncryptionByDefault", parameters = parameters, 
@@ -17126,9 +16402,6 @@ ec2_enable_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE,
 ec2_enable_fast_snapshot_restores <- function(AvailabilityZone, SourceSnapshotId, DryRun = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    AvailabilityZone <- as.list(AvailabilityZone)
-    SourceSnapshotId <- as.list(SourceSnapshotId)
-    DryRun <- as.logical(DryRun)
     AvailabilityZone <- list_to_array("AvailabilityZone", AvailabilityZone)
     SourceSnapshotId <- list_to_array("SourceSnapshotId", SourceSnapshotId)
     parameters <- c(others, list(DryRun = DryRun), AvailabilityZone, SourceSnapshotId)
@@ -17169,7 +16442,6 @@ ec2_enable_transit_gateway_route_table_propagation <- function(TransitGatewayRou
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, TransitGatewayAttachmentId = TransitGatewayAttachmentId, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -17212,7 +16484,6 @@ ec2_enable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = N
     network_timeout = aws_get_network_timeout()) {
     GatewayId <- as.character(GatewayId)
     RouteTableId <- as.character(RouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(GatewayId = GatewayId, RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "EnableVgwRoutePropagation", parameters = parameters, 
@@ -17245,7 +16516,6 @@ ec2_enable_vgw_route_propagation <- function(GatewayId, RouteTableId, DryRun = N
 ec2_enable_volume_io <- function(VolumeId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VolumeId <- as.character(VolumeId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "EnableVolumeIO", parameters = parameters, 
@@ -17284,7 +16554,6 @@ ec2_enable_volume_io <- function(VolumeId, DryRun = NULL, simplify = TRUE, other
 ec2_enable_vpc_classic_link <- function(VpcId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "EnableVpcClassicLink", parameters = parameters, 
@@ -17338,7 +16607,6 @@ ec2_export_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ExportClientVpnClientCertificateRevocationList", 
@@ -17375,7 +16643,6 @@ ec2_export_client_vpn_client_configuration <- function(ClientVpnEndpointId, DryR
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ExportClientVpnClientConfiguration", parameters = parameters, 
@@ -17445,8 +16712,6 @@ ec2_export_image <- function(DiskImageFormat, ImageId, S3ExportLocation, ClientT
     Description <- as.character(Description)
     RoleName <- as.character(RoleName)
     S3ExportLocation <- as.list(S3ExportLocation)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(DiskImageFormat = DiskImageFormat, ImageId = ImageId, S3ExportLocation = S3ExportLocation, 
         ClientToken = ClientToken, Description = Description, DryRun = DryRun, RoleName = RoleName), 
@@ -17514,8 +16779,6 @@ ec2_export_transit_gateway_routes <- function(TransitGatewayRouteTableId, S3Buck
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     S3Bucket <- as.character(S3Bucket)
-    Filter <- as.list(Filter)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, S3Bucket = S3Bucket, 
         DryRun = DryRun), Filter)
@@ -17556,7 +16819,6 @@ ec2_get_associated_enclave_certificate_iam_roles <- function(CertificateArn = NU
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     CertificateArn <- as.character(CertificateArn)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CertificateArn = CertificateArn, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetAssociatedEnclaveCertificateIamRoles", 
@@ -17595,8 +16857,6 @@ ec2_get_associated_ipv6_pool_cidrs <- function(PoolId, NextToken = NULL, MaxResu
     network_timeout = aws_get_network_timeout()) {
     PoolId <- as.character(PoolId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PoolId = PoolId, NextToken = NextToken, MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetAssociatedIpv6PoolCidrs", parameters = parameters, 
@@ -17645,8 +16905,6 @@ ec2_get_capacity_reservation_usage <- function(CapacityReservationId, NextToken 
     network_timeout = aws_get_network_timeout()) {
     CapacityReservationId <- as.character(CapacityReservationId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -17707,9 +16965,6 @@ ec2_get_coip_pool_usage <- function(PoolId, Filter = NULL, MaxResults = NULL, Ne
     network_timeout = aws_get_network_timeout()) {
     PoolId <- as.character(PoolId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(PoolId = PoolId, MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), 
         Filter)
@@ -17747,8 +17002,6 @@ ec2_get_coip_pool_usage <- function(PoolId, Filter = NULL, MaxResults = NULL, Ne
 ec2_get_console_output <- function(InstanceId, DryRun = NULL, Latest = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
-    Latest <- as.logical(Latest)
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun, Latest = Latest))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetConsoleOutput", parameters = parameters, 
@@ -17781,8 +17034,6 @@ ec2_get_console_output <- function(InstanceId, DryRun = NULL, Latest = NULL, sim
 ec2_get_console_screenshot <- function(InstanceId, DryRun = NULL, WakeUp = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
-    WakeUp <- as.logical(WakeUp)
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun, WakeUp = WakeUp))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetConsoleScreenshot", parameters = parameters, 
@@ -17811,7 +17062,6 @@ ec2_get_console_screenshot <- function(InstanceId, DryRun = NULL, WakeUp = NULL,
 ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceFamily <- as.character(InstanceFamily)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceFamily = InstanceFamily, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetDefaultCreditSpecification", parameters = parameters, 
@@ -17835,7 +17085,6 @@ ec2_get_default_credit_specification <- function(InstanceFamily, DryRun = NULL, 
 #' @export
 ec2_get_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetEbsDefaultKmsKeyId", parameters = parameters, 
@@ -17859,7 +17108,6 @@ ec2_get_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, other
 #' @export
 ec2_get_ebs_encryption_by_default <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetEbsEncryptionByDefault", parameters = parameters, 
@@ -17900,8 +17148,6 @@ ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextT
     network_timeout = aws_get_network_timeout()) {
     CapacityReservationId <- as.character(CapacityReservationId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, NextToken = NextToken, 
         MaxResults = MaxResults, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -17929,7 +17175,6 @@ ec2_get_groups_for_capacity_reservation <- function(CapacityReservationId, NextT
 ec2_get_host_reservation_purchase_preview <- function(HostIdSet, OfferingId, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     OfferingId <- as.character(OfferingId)
-    HostIdSet <- as.list(HostIdSet)
     HostIdSet <- list_to_array("HostIdSet", HostIdSet)
     parameters <- c(others, list(OfferingId = OfferingId), HostIdSet)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -17959,7 +17204,6 @@ ec2_get_host_reservation_purchase_preview <- function(HostIdSet, OfferingId, sim
 ec2_get_launch_template_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetLaunchTemplateData", parameters = parameters, 
@@ -18000,8 +17244,6 @@ ec2_get_managed_prefix_list_associations <- function(PrefixListId, DryRun = NULL
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrefixListId <- as.character(PrefixListId)
     NextToken <- as.character(NextToken)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, MaxResults = MaxResults, 
         NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -18046,9 +17288,6 @@ ec2_get_managed_prefix_list_entries <- function(PrefixListId, DryRun = NULL, Tar
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrefixListId <- as.character(PrefixListId)
     NextToken <- as.character(NextToken)
-    TargetVersion <- as.integer(TargetVersion)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, TargetVersion = TargetVersion, 
         MaxResults = MaxResults, NextToken = NextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -18078,7 +17317,6 @@ ec2_get_managed_prefix_list_entries <- function(PrefixListId, DryRun = NULL, Tar
 ec2_get_password_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "GetPasswordData", parameters = parameters, 
@@ -18119,9 +17357,6 @@ ec2_get_password_data <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 ec2_get_reserved_instances_exchange_quote <- function(ReservedInstanceId, DryRun = NULL, TargetConfiguration = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    ReservedInstanceId <- as.list(ReservedInstanceId)
-    TargetConfiguration <- as.list(TargetConfiguration)
-    DryRun <- as.logical(DryRun)
     ReservedInstanceId <- list_to_array("ReservedInstanceId", ReservedInstanceId)
     TargetConfiguration <- list_to_array("TargetConfiguration", TargetConfiguration)
     parameters <- c(others, list(DryRun = DryRun), ReservedInstanceId, TargetConfiguration)
@@ -18170,9 +17405,6 @@ ec2_get_transit_gateway_attachment_propagations <- function(TransitGatewayAttach
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -18230,9 +17462,6 @@ ec2_get_transit_gateway_multicast_domain_associations <- function(TransitGateway
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
@@ -18298,9 +17527,6 @@ ec2_get_transit_gateway_prefix_list_references <- function(TransitGatewayRouteTa
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -18353,9 +17579,6 @@ ec2_get_transit_gateway_route_table_associations <- function(TransitGatewayRoute
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -18408,9 +17631,6 @@ ec2_get_transit_gateway_route_table_propagations <- function(TransitGatewayRoute
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -18451,7 +17671,6 @@ ec2_import_client_vpn_client_certificate_revocation_list <- function(ClientVpnEn
     network_timeout = aws_get_network_timeout()) {
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     CertificateRevocationList <- as.character(CertificateRevocationList)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, CertificateRevocationList = CertificateRevocationList, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -18606,11 +17825,6 @@ ec2_import_image <- function(Architecture = NULL, ClientData = NULL, ClientToken
     Platform <- as.character(Platform)
     RoleName <- as.character(RoleName)
     ClientData <- as.list(ClientData)
-    DiskContainer <- as.list(DiskContainer)
-    LicenseSpecifications <- as.list(LicenseSpecifications)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    Encrypted <- as.logical(Encrypted)
     DiskContainer <- list_to_array("DiskContainer", DiskContainer)
     LicenseSpecifications <- list_to_array("LicenseSpecifications", LicenseSpecifications)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
@@ -18658,8 +17872,6 @@ ec2_import_instance <- function(Platform, Description = NULL, DiskImage = NULL, 
     Platform <- as.character(Platform)
     Description <- as.character(Description)
     LaunchSpecification <- as.list(LaunchSpecification)
-    DiskImage <- as.list(DiskImage)
-    DryRun <- as.logical(DryRun)
     DiskImage <- list_to_array("DiskImage", DiskImage)
     parameters <- c(others, list(Platform = Platform, Description = Description, DryRun = DryRun, LaunchSpecification = LaunchSpecification), 
         DiskImage)
@@ -18701,8 +17913,6 @@ ec2_import_key_pair <- function(KeyName, PublicKeyMaterial, DryRun = NULL, TagSp
     network_timeout = aws_get_network_timeout()) {
     KeyName <- as.character(KeyName)
     PublicKeyMaterial <- as.character(PublicKeyMaterial)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(KeyName = KeyName, PublicKeyMaterial = PublicKeyMaterial, DryRun = DryRun), 
         TagSpecification)
@@ -18810,9 +18020,6 @@ ec2_import_snapshot <- function(ClientData = NULL, ClientToken = NULL, Descripti
     RoleName <- as.character(RoleName)
     ClientData <- as.list(ClientData)
     DiskContainer <- as.list(DiskContainer)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
-    Encrypted <- as.logical(Encrypted)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(ClientData = ClientData, ClientToken = ClientToken, Description = Description, 
         DiskContainer = DiskContainer, DryRun = DryRun, Encrypted = Encrypted, KmsKeyId = KmsKeyId, 
@@ -18859,7 +18066,6 @@ ec2_import_volume <- function(AvailabilityZone, Image, Volume, Description = NUL
     Description <- as.character(Description)
     Image <- as.list(Image)
     Volume <- as.list(Volume)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AvailabilityZone = AvailabilityZone, Image = Image, Volume = Volume, 
         Description = Description, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -18898,7 +18104,6 @@ ec2_modify_address_attribute <- function(AllocationId, DomainName = NULL, DryRun
     network_timeout = aws_get_network_timeout()) {
     AllocationId <- as.character(AllocationId)
     DomainName <- as.character(DomainName)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AllocationId = AllocationId, DomainName = DomainName, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyAddressAttribute", parameters = parameters, 
@@ -18938,7 +18143,6 @@ ec2_modify_availability_zone_group <- function(GroupName, OptInStatus, DryRun = 
     network_timeout = aws_get_network_timeout()) {
     GroupName <- as.character(GroupName)
     OptInStatus <- as.character(OptInStatus)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(GroupName = GroupName, OptInStatus = OptInStatus, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyAvailabilityZoneGroup", parameters = parameters, 
@@ -19016,9 +18220,6 @@ ec2_modify_capacity_reservation <- function(CapacityReservationId, InstanceCount
     CapacityReservationId <- as.character(CapacityReservationId)
     EndDate <- as.character(EndDate)
     EndDateType <- as.character(EndDateType)
-    InstanceCount <- as.integer(InstanceCount)
-    Accept <- as.logical(Accept)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(CapacityReservationId = CapacityReservationId, InstanceCount = InstanceCount, 
         EndDate = EndDate, EndDateType = EndDateType, Accept = Accept, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -19130,10 +18331,6 @@ ec2_modify_client_vpn_endpoint <- function(ClientVpnEndpointId, ServerCertificat
     ConnectionLogOptions <- as.list(ConnectionLogOptions)
     DnsServers <- as.list(DnsServers)
     ClientConnectOptions <- as.list(ClientConnectOptions)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    VpnPort <- as.integer(VpnPort)
-    SplitTunnel <- as.logical(SplitTunnel)
-    DryRun <- as.logical(DryRun)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ServerCertificateArn = ServerCertificateArn, 
         ConnectionLogOptions = ConnectionLogOptions, DnsServers = DnsServers, VpnPort = VpnPort, Description = Description, 
@@ -19175,7 +18372,6 @@ ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, 
     network_timeout = aws_get_network_timeout()) {
     InstanceFamily <- as.character(InstanceFamily)
     CpuCredits <- as.character(CpuCredits)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceFamily = InstanceFamily, CpuCredits = CpuCredits, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyDefaultCreditSpecification", parameters = parameters, 
@@ -19226,7 +18422,6 @@ ec2_modify_default_credit_specification <- function(InstanceFamily, CpuCredits, 
 ec2_modify_ebs_default_kms_key_id <- function(KmsKeyId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     KmsKeyId <- as.character(KmsKeyId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(KmsKeyId = KmsKeyId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyEbsDefaultKmsKeyId", parameters = parameters, 
@@ -19272,8 +18467,6 @@ ec2_modify_fleet <- function(FleetId, DryRun = NULL, ExcessCapacityTerminationPo
     FleetId <- as.character(FleetId)
     ExcessCapacityTerminationPolicy <- as.character(ExcessCapacityTerminationPolicy)
     TargetCapacitySpecification <- as.list(TargetCapacitySpecification)
-    LaunchTemplateConfig <- as.list(LaunchTemplateConfig)
-    DryRun <- as.logical(DryRun)
     LaunchTemplateConfig <- list_to_array("LaunchTemplateConfig", LaunchTemplateConfig)
     parameters <- c(others, list(FleetId = FleetId, DryRun = DryRun, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
         TargetCapacitySpecification = TargetCapacitySpecification), LaunchTemplateConfig)
@@ -19347,10 +18540,6 @@ ec2_modify_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribut
     Description <- as.character(Description)
     Name <- as.character(Name)
     LoadPermission <- as.list(LoadPermission)
-    UserId <- as.list(UserId)
-    UserGroup <- as.list(UserGroup)
-    ProductCode <- as.list(ProductCode)
-    DryRun <- as.logical(DryRun)
     UserId <- list_to_array("UserId", UserId)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     ProductCode <- list_to_array("ProductCode", ProductCode)
@@ -19416,7 +18605,6 @@ ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, 
     HostRecovery <- as.character(HostRecovery)
     InstanceType <- as.character(InstanceType)
     InstanceFamily <- as.character(InstanceFamily)
-    HostId <- as.list(HostId)
     HostId <- list_to_array("HostId", HostId)
     parameters <- c(others, list(AutoPlacement = AutoPlacement, HostRecovery = HostRecovery, InstanceType = InstanceType, 
         InstanceFamily = InstanceFamily), HostId)
@@ -19456,7 +18644,6 @@ ec2_modify_hosts <- function(HostId, AutoPlacement = NULL, HostRecovery = NULL, 
 ec2_modify_id_format <- function(Resource, UseLongIds, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Resource <- as.character(Resource)
-    UseLongIds <- as.logical(UseLongIds)
     parameters <- c(others, list(Resource = Resource, UseLongIds = UseLongIds))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyIdFormat", parameters = parameters, 
@@ -19502,7 +18689,6 @@ ec2_modify_identity_id_format <- function(PrincipalArn, Resource, UseLongIds, si
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrincipalArn <- as.character(PrincipalArn)
     Resource <- as.character(Resource)
-    UseLongIds <- as.logical(UseLongIds)
     parameters <- c(others, list(PrincipalArn = PrincipalArn, Resource = Resource, UseLongIds = UseLongIds))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyIdentityIdFormat", parameters = parameters, 
@@ -19576,10 +18762,6 @@ ec2_modify_image_attribute <- function(ImageId, Attribute = NULL, Description = 
     Value <- as.character(Value)
     Description <- as.list(Description)
     LaunchPermission <- as.list(LaunchPermission)
-    ProductCode <- as.list(ProductCode)
-    UserGroup <- as.list(UserGroup)
-    UserId <- as.list(UserId)
-    DryRun <- as.logical(DryRun)
     ProductCode <- list_to_array("ProductCode", ProductCode)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     UserId <- list_to_array("UserId", UserId)
@@ -19731,9 +18913,6 @@ ec2_modify_instance_attribute <- function(InstanceId, SourceDestCheck = NULL, At
     Ramdisk <- as.list(Ramdisk)
     SriovNetSupport <- as.list(SriovNetSupport)
     UserData <- as.list(UserData)
-    BlockDeviceMapping <- as.list(BlockDeviceMapping)
-    GroupId <- as.list(GroupId)
-    DryRun <- as.logical(DryRun)
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     GroupId <- list_to_array("GroupId", GroupId)
     parameters <- c(others, list(InstanceId = InstanceId, SourceDestCheck = SourceDestCheck, Attribute = Attribute, 
@@ -19780,7 +18959,6 @@ ec2_modify_instance_capacity_reservation_attributes <- function(InstanceId, Capa
     network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
     CapacityReservationSpecification <- as.list(CapacityReservationSpecification)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, CapacityReservationSpecification = CapacityReservationSpecification, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -19817,8 +18995,6 @@ ec2_modify_instance_credit_specification <- function(InstanceCreditSpecification
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ClientToken <- as.character(ClientToken)
-    InstanceCreditSpecification <- as.list(InstanceCreditSpecification)
-    DryRun <- as.logical(DryRun)
     InstanceCreditSpecification <- list_to_array("InstanceCreditSpecification", InstanceCreditSpecification)
     parameters <- c(others, list(DryRun = DryRun, ClientToken = ClientToken), InstanceCreditSpecification)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -19863,7 +19039,6 @@ ec2_modify_instance_event_start_time <- function(InstanceId, InstanceEventId, No
     InstanceId <- as.character(InstanceId)
     InstanceEventId <- as.character(InstanceEventId)
     NotBefore <- as.character(NotBefore)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, InstanceEventId = InstanceEventId, NotBefore = NotBefore, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -19944,8 +19119,6 @@ ec2_modify_instance_metadata_options <- function(InstanceId, HttpTokens = NULL, 
     InstanceId <- as.character(InstanceId)
     HttpTokens <- as.character(HttpTokens)
     HttpEndpoint <- as.character(HttpEndpoint)
-    HttpPutResponseHopLimit <- as.integer(HttpPutResponseHopLimit)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, HttpTokens = HttpTokens, HttpPutResponseHopLimit = HttpPutResponseHopLimit, 
         HttpEndpoint = HttpEndpoint, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20005,7 +19178,6 @@ ec2_modify_instance_placement <- function(InstanceId, Affinity = NULL, GroupName
     HostId <- as.character(HostId)
     Tenancy <- as.character(Tenancy)
     HostResourceGroupArn <- as.character(HostResourceGroupArn)
-    PartitionNumber <- as.integer(PartitionNumber)
     parameters <- c(others, list(InstanceId = InstanceId, Affinity = Affinity, GroupName = GroupName, 
         HostId = HostId, Tenancy = Tenancy, PartitionNumber = PartitionNumber, HostResourceGroupArn = HostResourceGroupArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20063,7 +19235,6 @@ ec2_modify_launch_template <- function(DryRun = NULL, ClientToken = NULL, Launch
     LaunchTemplateId <- as.character(LaunchTemplateId)
     LaunchTemplateName <- as.character(LaunchTemplateName)
     SetDefaultVersion <- as.character(SetDefaultVersion)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun, ClientToken = ClientToken, LaunchTemplateId = LaunchTemplateId, 
         LaunchTemplateName = LaunchTemplateName, SetDefaultVersion = SetDefaultVersion))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20111,10 +19282,6 @@ ec2_modify_managed_prefix_list <- function(PrefixListId, DryRun = NULL, CurrentV
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PrefixListId <- as.character(PrefixListId)
     PrefixListName <- as.character(PrefixListName)
-    AddEntry <- as.list(AddEntry)
-    RemoveEntry <- as.list(RemoveEntry)
-    CurrentVersion <- as.integer(CurrentVersion)
-    DryRun <- as.logical(DryRun)
     AddEntry <- list_to_array("AddEntry", AddEntry)
     RemoveEntry <- list_to_array("RemoveEntry", RemoveEntry)
     parameters <- c(others, list(PrefixListId = PrefixListId, DryRun = DryRun, CurrentVersion = CurrentVersion, 
@@ -20181,8 +19348,6 @@ ec2_modify_network_interface_attribute <- function(NetworkInterfaceId, Attachmen
     Attachment <- as.list(Attachment)
     Description <- as.list(Description)
     SourceDestCheck <- as.list(SourceDestCheck)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    DryRun <- as.logical(DryRun)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, Attachment = Attachment, 
         Description = Description, DryRun = DryRun, SourceDestCheck = SourceDestCheck), SecurityGroupId)
@@ -20217,8 +19382,6 @@ ec2_modify_reserved_instances <- function(ReservedInstancesId, ReservedInstances
     ClientToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ClientToken <- as.character(ClientToken)
-    ReservedInstancesId <- as.list(ReservedInstancesId)
-    ReservedInstancesConfigurationSetItemType <- as.list(ReservedInstancesConfigurationSetItemType)
     ReservedInstancesId <- list_to_array("ReservedInstancesId", ReservedInstancesId)
     ReservedInstancesConfigurationSetItemType <- list_to_array("ReservedInstancesConfigurationSetItemType", 
         ReservedInstancesConfigurationSetItemType)
@@ -20275,9 +19438,6 @@ ec2_modify_snapshot_attribute <- function(SnapshotId, Attribute = NULL, CreateVo
     Attribute <- as.character(Attribute)
     OperationType <- as.character(OperationType)
     CreateVolumePermission <- as.list(CreateVolumePermission)
-    UserGroup <- as.list(UserGroup)
-    UserId <- as.list(UserId)
-    DryRun <- as.logical(DryRun)
     UserGroup <- list_to_array("UserGroup", UserGroup)
     UserId <- list_to_array("UserId", UserId)
     parameters <- c(others, list(SnapshotId = SnapshotId, Attribute = Attribute, CreateVolumePermission = CreateVolumePermission, 
@@ -20326,9 +19486,6 @@ ec2_modify_spot_fleet_request <- function(SpotFleetRequestId, ExcessCapacityTerm
     network_timeout = aws_get_network_timeout()) {
     SpotFleetRequestId <- as.character(SpotFleetRequestId)
     ExcessCapacityTerminationPolicy <- as.character(ExcessCapacityTerminationPolicy)
-    LaunchTemplateConfig <- as.list(LaunchTemplateConfig)
-    TargetCapacity <- as.integer(TargetCapacity)
-    OnDemandTargetCapacity <- as.integer(OnDemandTargetCapacity)
     LaunchTemplateConfig <- list_to_array("LaunchTemplateConfig", LaunchTemplateConfig)
     parameters <- c(others, list(SpotFleetRequestId = SpotFleetRequestId, ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy, 
         TargetCapacity = TargetCapacity, OnDemandTargetCapacity = OnDemandTargetCapacity), LaunchTemplateConfig)
@@ -20434,9 +19591,6 @@ ec2_modify_traffic_mirror_filter_network_services <- function(TrafficMirrorFilte
     RemoveNetworkService = NULL, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TrafficMirrorFilterId <- as.character(TrafficMirrorFilterId)
-    AddNetworkService <- as.list(AddNetworkService)
-    RemoveNetworkService <- as.list(RemoveNetworkService)
-    DryRun <- as.logical(DryRun)
     AddNetworkService <- list_to_array("AddNetworkService", AddNetworkService)
     RemoveNetworkService <- list_to_array("RemoveNetworkService", RemoveNetworkService)
     parameters <- c(others, list(TrafficMirrorFilterId = TrafficMirrorFilterId, DryRun = DryRun), AddNetworkService, 
@@ -20526,10 +19680,6 @@ ec2_modify_traffic_mirror_filter_rule <- function(TrafficMirrorFilterRuleId, Tra
     Description <- as.character(Description)
     DestinationPortRange <- as.list(DestinationPortRange)
     SourcePortRange <- as.list(SourcePortRange)
-    RemoveField <- as.list(RemoveField)
-    RuleNumber <- as.integer(RuleNumber)
-    Protocol <- as.integer(Protocol)
-    DryRun <- as.logical(DryRun)
     RemoveField <- list_to_array("RemoveField", RemoveField)
     parameters <- c(others, list(TrafficMirrorFilterRuleId = TrafficMirrorFilterRuleId, TrafficDirection = TrafficDirection, 
         RuleNumber = RuleNumber, RuleAction = RuleAction, DestinationPortRange = DestinationPortRange, 
@@ -20612,11 +19762,6 @@ ec2_modify_traffic_mirror_session <- function(TrafficMirrorSessionId, TrafficMir
     TrafficMirrorTargetId <- as.character(TrafficMirrorTargetId)
     TrafficMirrorFilterId <- as.character(TrafficMirrorFilterId)
     Description <- as.character(Description)
-    RemoveField <- as.list(RemoveField)
-    PacketLength <- as.integer(PacketLength)
-    SessionNumber <- as.integer(SessionNumber)
-    VirtualNetworkId <- as.integer(VirtualNetworkId)
-    DryRun <- as.logical(DryRun)
     RemoveField <- list_to_array("RemoveField", RemoveField)
     parameters <- c(others, list(TrafficMirrorSessionId = TrafficMirrorSessionId, TrafficMirrorTargetId = TrafficMirrorTargetId, 
         TrafficMirrorFilterId = TrafficMirrorFilterId, PacketLength = PacketLength, SessionNumber = SessionNumber, 
@@ -20664,7 +19809,6 @@ ec2_modify_transit_gateway <- function(TransitGatewayId, Description = NULL, Opt
     TransitGatewayId <- as.character(TransitGatewayId)
     Description <- as.character(Description)
     Options <- as.list(Options)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayId = TransitGatewayId, Description = Description, Options = Options, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20713,8 +19857,6 @@ ec2_modify_transit_gateway_prefix_list_reference <- function(TransitGatewayRoute
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     PrefixListId <- as.character(PrefixListId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    Blackhole <- as.logical(Blackhole)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, PrefixListId = PrefixListId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20765,9 +19907,6 @@ ec2_modify_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
     Options <- as.list(Options)
-    AddSubnetIds <- as.list(AddSubnetIds)
-    RemoveSubnetIds <- as.list(RemoveSubnetIds)
-    DryRun <- as.logical(DryRun)
     AddSubnetIds <- list_to_array("AddSubnetIds", AddSubnetIds)
     RemoveSubnetIds <- list_to_array("RemoveSubnetIds", RemoveSubnetIds)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, Options = Options, 
@@ -20867,11 +20006,6 @@ ec2_modify_volume <- function(VolumeId, DryRun = NULL, Size = NULL, VolumeType =
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VolumeId <- as.character(VolumeId)
     VolumeType <- as.character(VolumeType)
-    Size <- as.integer(Size)
-    Iops <- as.integer(Iops)
-    Throughput <- as.integer(Throughput)
-    DryRun <- as.logical(DryRun)
-    MultiAttachEnabled <- as.logical(MultiAttachEnabled)
     parameters <- c(others, list(VolumeId = VolumeId, DryRun = DryRun, Size = Size, VolumeType = VolumeType, 
         Iops = Iops, Throughput = Throughput, MultiAttachEnabled = MultiAttachEnabled))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -20906,7 +20040,6 @@ ec2_modify_volume_attribute <- function(VolumeId, AutoEnableIO = NULL, DryRun = 
     network_timeout = aws_get_network_timeout()) {
     VolumeId <- as.character(VolumeId)
     AutoEnableIO <- as.list(AutoEnableIO)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VolumeId = VolumeId, AutoEnableIO = AutoEnableIO, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyVolumeAttribute", parameters = parameters, 
@@ -21041,15 +20174,6 @@ ec2_modify_vpc_endpoint <- function(VpcEndpointId, DryRun = NULL, ResetPolicy = 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcEndpointId <- as.character(VpcEndpointId)
     PolicyDocument <- as.character(PolicyDocument)
-    AddRouteTableId <- as.list(AddRouteTableId)
-    RemoveRouteTableId <- as.list(RemoveRouteTableId)
-    AddSubnetId <- as.list(AddSubnetId)
-    RemoveSubnetId <- as.list(RemoveSubnetId)
-    AddSecurityGroupId <- as.list(AddSecurityGroupId)
-    RemoveSecurityGroupId <- as.list(RemoveSecurityGroupId)
-    DryRun <- as.logical(DryRun)
-    ResetPolicy <- as.logical(ResetPolicy)
-    PrivateDnsEnabled <- as.logical(PrivateDnsEnabled)
     AddRouteTableId <- list_to_array("AddRouteTableId", AddRouteTableId)
     RemoveRouteTableId <- list_to_array("RemoveRouteTableId", RemoveRouteTableId)
     AddSubnetId <- list_to_array("AddSubnetId", AddSubnetId)
@@ -21101,8 +20225,6 @@ ec2_modify_vpc_endpoint_connection_notification <- function(ConnectionNotificati
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ConnectionNotificationId <- as.character(ConnectionNotificationId)
     ConnectionNotificationArn <- as.character(ConnectionNotificationArn)
-    ConnectionEvents <- as.list(ConnectionEvents)
-    DryRun <- as.logical(DryRun)
     ConnectionEvents <- list_to_array("ConnectionEvents", ConnectionEvents)
     parameters <- c(others, list(ConnectionNotificationId = ConnectionNotificationId, DryRun = DryRun, 
         ConnectionNotificationArn = ConnectionNotificationArn), ConnectionEvents)
@@ -21170,13 +20292,6 @@ ec2_modify_vpc_endpoint_service_configuration <- function(ServiceId, DryRun = NU
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
     PrivateDnsName <- as.character(PrivateDnsName)
-    AddNetworkLoadBalancerArn <- as.list(AddNetworkLoadBalancerArn)
-    RemoveNetworkLoadBalancerArn <- as.list(RemoveNetworkLoadBalancerArn)
-    AddGatewayLoadBalancerArn <- as.list(AddGatewayLoadBalancerArn)
-    RemoveGatewayLoadBalancerArn <- as.list(RemoveGatewayLoadBalancerArn)
-    DryRun <- as.logical(DryRun)
-    RemovePrivateDnsName <- as.logical(RemovePrivateDnsName)
-    AcceptanceRequired <- as.logical(AcceptanceRequired)
     AddNetworkLoadBalancerArn <- list_to_array("AddNetworkLoadBalancerArn", AddNetworkLoadBalancerArn)
     RemoveNetworkLoadBalancerArn <- list_to_array("RemoveNetworkLoadBalancerArn", RemoveNetworkLoadBalancerArn)
     AddGatewayLoadBalancerArn <- list_to_array("AddGatewayLoadBalancerArn", AddGatewayLoadBalancerArn)
@@ -21223,9 +20338,6 @@ ec2_modify_vpc_endpoint_service_permissions <- function(ServiceId, DryRun = NULL
     RemoveAllowedPrincipals = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
-    AddAllowedPrincipals <- as.list(AddAllowedPrincipals)
-    RemoveAllowedPrincipals <- as.list(RemoveAllowedPrincipals)
-    DryRun <- as.logical(DryRun)
     AddAllowedPrincipals <- list_to_array("AddAllowedPrincipals", AddAllowedPrincipals)
     RemoveAllowedPrincipals <- list_to_array("RemoveAllowedPrincipals", RemoveAllowedPrincipals)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), AddAllowedPrincipals, RemoveAllowedPrincipals)
@@ -21267,7 +20379,6 @@ ec2_modify_vpc_peering_connection_options <- function(VpcPeeringConnectionId, Ac
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
     AccepterPeeringConnectionOptions <- as.list(AccepterPeeringConnectionOptions)
     RequesterPeeringConnectionOptions <- as.list(RequesterPeeringConnectionOptions)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, AccepterPeeringConnectionOptions = AccepterPeeringConnectionOptions, 
         DryRun = DryRun, RequesterPeeringConnectionOptions = RequesterPeeringConnectionOptions))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21302,7 +20413,6 @@ ec2_modify_vpc_tenancy <- function(VpcId, InstanceTenancy, DryRun = NULL, simpli
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     VpcId <- as.character(VpcId)
     InstanceTenancy <- as.character(InstanceTenancy)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcId = VpcId, InstanceTenancy = InstanceTenancy, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ModifyVpcTenancy", parameters = parameters, 
@@ -21348,7 +20458,6 @@ ec2_modify_vpn_connection <- function(VpnConnectionId, TransitGatewayId = NULL, 
     TransitGatewayId <- as.character(TransitGatewayId)
     CustomerGatewayId <- as.character(CustomerGatewayId)
     VpnGatewayId <- as.character(VpnGatewayId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, TransitGatewayId = TransitGatewayId, 
         CustomerGatewayId = CustomerGatewayId, VpnGatewayId = VpnGatewayId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21413,7 +20522,6 @@ ec2_modify_vpn_connection_options <- function(VpnConnectionId, LocalIpv4NetworkC
     RemoteIpv4NetworkCidr <- as.character(RemoteIpv4NetworkCidr)
     LocalIpv6NetworkCidr <- as.character(LocalIpv6NetworkCidr)
     RemoteIpv6NetworkCidr <- as.character(RemoteIpv6NetworkCidr)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, LocalIpv4NetworkCidr = LocalIpv4NetworkCidr, 
         RemoteIpv4NetworkCidr = RemoteIpv4NetworkCidr, LocalIpv6NetworkCidr = LocalIpv6NetworkCidr, 
         RemoteIpv6NetworkCidr = RemoteIpv6NetworkCidr, DryRun = DryRun))
@@ -21453,7 +20561,6 @@ ec2_modify_vpn_tunnel_certificate <- function(VpnConnectionId, VpnTunnelOutsideI
     network_timeout = aws_get_network_timeout()) {
     VpnConnectionId <- as.character(VpnConnectionId)
     VpnTunnelOutsideIpAddress <- as.character(VpnTunnelOutsideIpAddress)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, VpnTunnelOutsideIpAddress = VpnTunnelOutsideIpAddress, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21502,7 +20609,6 @@ ec2_modify_vpn_tunnel_options <- function(VpnConnectionId, VpnTunnelOutsideIpAdd
     VpnConnectionId <- as.character(VpnConnectionId)
     VpnTunnelOutsideIpAddress <- as.character(VpnTunnelOutsideIpAddress)
     TunnelOptions <- as.list(TunnelOptions)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpnConnectionId = VpnConnectionId, VpnTunnelOutsideIpAddress = VpnTunnelOutsideIpAddress, 
         TunnelOptions = TunnelOptions, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21531,8 +20637,6 @@ ec2_modify_vpn_tunnel_options <- function(VpnConnectionId, VpnTunnelOutsideIpAdd
 #' @export
 ec2_monitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    InstanceId <- as.list(InstanceId)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21571,7 +20675,6 @@ ec2_monitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, ot
 ec2_move_address_to_vpc <- function(PublicIp, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PublicIp <- as.character(PublicIp)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "MoveAddressToVpc", parameters = parameters, 
@@ -21627,9 +20730,6 @@ ec2_provision_byoip_cidr <- function(Cidr, CidrAuthorizationContext = NULL, Publ
     Cidr <- as.character(Cidr)
     Description <- as.character(Description)
     CidrAuthorizationContext <- as.list(CidrAuthorizationContext)
-    PoolTagSpecification <- as.list(PoolTagSpecification)
-    PubliclyAdvertisable <- as.logical(PubliclyAdvertisable)
-    DryRun <- as.logical(DryRun)
     PoolTagSpecification <- list_to_array("PoolTagSpecification", PoolTagSpecification)
     parameters <- c(others, list(Cidr = Cidr, CidrAuthorizationContext = CidrAuthorizationContext, 
         PubliclyAdvertisable = PubliclyAdvertisable, Description = Description, DryRun = DryRun), PoolTagSpecification)
@@ -21693,8 +20793,6 @@ ec2_purchase_host_reservation <- function(HostIdSet, OfferingId, ClientToken = N
     ClientToken <- as.character(ClientToken)
     CurrencyCode <- as.character(CurrencyCode)
     LimitPrice <- as.character(LimitPrice)
-    HostIdSet <- as.list(HostIdSet)
-    TagSpecification <- as.list(TagSpecification)
     HostIdSet <- list_to_array("HostIdSet", HostIdSet)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(OfferingId = OfferingId, ClientToken = ClientToken, CurrencyCode = CurrencyCode, 
@@ -21744,8 +20842,6 @@ ec2_purchase_reserved_instances_offering <- function(InstanceCount, ReservedInst
     ReservedInstancesOfferingId <- as.character(ReservedInstancesOfferingId)
     PurchaseTime <- as.character(PurchaseTime)
     LimitPrice <- as.list(LimitPrice)
-    InstanceCount <- as.integer(InstanceCount)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceCount = InstanceCount, ReservedInstancesOfferingId = ReservedInstancesOfferingId, 
         DryRun = DryRun, LimitPrice = LimitPrice, PurchaseTime = PurchaseTime))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21782,8 +20878,6 @@ ec2_purchase_scheduled_instances <- function(PurchaseRequest, ClientToken = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ClientToken <- as.character(ClientToken)
-    PurchaseRequest <- as.list(PurchaseRequest)
-    DryRun <- as.logical(DryRun)
     PurchaseRequest <- list_to_array("PurchaseRequest", PurchaseRequest)
     parameters <- c(others, list(ClientToken = ClientToken, DryRun = DryRun), PurchaseRequest)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21812,8 +20906,6 @@ ec2_purchase_scheduled_instances <- function(PurchaseRequest, ClientToken = NULL
 #' @export
 ec2_reboot_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    InstanceId <- as.list(InstanceId)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -21938,10 +21030,6 @@ ec2_register_image <- function(Name, ImageLocation = NULL, Architecture = NULL, 
     RootDeviceName <- as.character(RootDeviceName)
     SriovNetSupport <- as.character(SriovNetSupport)
     VirtualizationType <- as.character(VirtualizationType)
-    BlockDeviceMapping <- as.list(BlockDeviceMapping)
-    BillingProduct <- as.list(BillingProduct)
-    DryRun <- as.logical(DryRun)
-    EnaSupport <- as.logical(EnaSupport)
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     BillingProduct <- list_to_array("BillingProduct", BillingProduct)
     parameters <- c(others, list(Name = Name, ImageLocation = ImageLocation, Architecture = Architecture, 
@@ -21976,7 +21064,6 @@ ec2_register_instance_event_notification_attributes <- function(DryRun = NULL, I
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     InstanceTagAttribute <- as.list(InstanceTagAttribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun, InstanceTagAttribute = InstanceTagAttribute))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RegisterInstanceEventNotificationAttributes", 
@@ -22016,8 +21103,6 @@ ec2_register_transit_gateway_multicast_group_members <- function(TransitGatewayM
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     GroupIpAddress <- as.character(GroupIpAddress)
-    NetworkInterfaceIds <- as.list(NetworkInterfaceIds)
-    DryRun <- as.logical(DryRun)
     NetworkInterfaceIds <- list_to_array("NetworkInterfaceIds", NetworkInterfaceIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
@@ -22059,8 +21144,6 @@ ec2_register_transit_gateway_multicast_group_sources <- function(TransitGatewayM
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     GroupIpAddress <- as.character(GroupIpAddress)
-    NetworkInterfaceIds <- as.list(NetworkInterfaceIds)
-    DryRun <- as.logical(DryRun)
     NetworkInterfaceIds <- list_to_array("NetworkInterfaceIds", NetworkInterfaceIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         GroupIpAddress = GroupIpAddress, DryRun = DryRun), NetworkInterfaceIds)
@@ -22106,8 +21189,6 @@ ec2_reject_transit_gateway_multicast_domain_associations <- function(TransitGate
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    SubnetIds <- as.list(SubnetIds)
-    DryRun <- as.logical(DryRun)
     SubnetIds <- list_to_array("SubnetIds", SubnetIds)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun), SubnetIds)
@@ -22142,7 +21223,6 @@ ec2_reject_transit_gateway_peering_attachment <- function(TransitGatewayAttachme
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RejectTransitGatewayPeeringAttachment", parameters = parameters, 
@@ -22172,7 +21252,6 @@ ec2_reject_transit_gateway_vpc_attachment <- function(TransitGatewayAttachmentId
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(TransitGatewayAttachmentId = TransitGatewayAttachmentId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RejectTransitGatewayVpcAttachment", parameters = parameters, 
@@ -22209,8 +21288,6 @@ ec2_reject_vpc_endpoint_connections <- function(ServiceId, VpcEndpointId, DryRun
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
-    VpcEndpointId <- as.list(VpcEndpointId)
-    DryRun <- as.logical(DryRun)
     VpcEndpointId <- list_to_array("VpcEndpointId", VpcEndpointId)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun), VpcEndpointId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -22249,7 +21326,6 @@ ec2_reject_vpc_peering_connection <- function(VpcPeeringConnectionId, DryRun = N
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(VpcPeeringConnectionId = VpcPeeringConnectionId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RejectVpcPeeringConnection", parameters = parameters, 
@@ -22300,7 +21376,6 @@ ec2_release_address <- function(AllocationId = NULL, PublicIp = NULL, NetworkBor
     AllocationId <- as.character(AllocationId)
     PublicIp <- as.character(PublicIp)
     NetworkBorderGroup <- as.character(NetworkBorderGroup)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AllocationId = AllocationId, PublicIp = PublicIp, NetworkBorderGroup = NetworkBorderGroup, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -22322,7 +21397,6 @@ ec2_release_address <- function(AllocationId = NULL, PublicIp = NULL, NetworkBor
 #' @export
 ec2_release_hosts <- function(HostId, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    HostId <- as.list(HostId)
     HostId <- list_to_array("HostId", HostId)
     parameters <- c(others, list(), HostId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -22385,7 +21459,6 @@ ec2_replace_network_acl_association <- function(AssociationId, NetworkAclId, Dry
     network_timeout = aws_get_network_timeout()) {
     AssociationId <- as.character(AssociationId)
     NetworkAclId <- as.character(NetworkAclId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AssociationId = AssociationId, NetworkAclId = NetworkAclId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ReplaceNetworkAclAssociation", parameters = parameters, 
@@ -22471,9 +21544,6 @@ ec2_replace_network_acl_entry <- function(Egress, NetworkAclId, Protocol, RuleAc
     Ipv6CidrBlock <- as.character(Ipv6CidrBlock)
     Icmp <- as.list(Icmp)
     PortRange <- as.list(PortRange)
-    RuleNumber <- as.integer(RuleNumber)
-    Egress <- as.logical(Egress)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Egress = Egress, NetworkAclId = NetworkAclId, Protocol = Protocol, 
         RuleAction = RuleAction, RuleNumber = RuleNumber, CidrBlock = CidrBlock, DryRun = DryRun, Icmp = Icmp, 
         Ipv6CidrBlock = Ipv6CidrBlock, PortRange = PortRange))
@@ -22581,8 +21651,6 @@ ec2_replace_route <- function(RouteTableId, DestinationCidrBlock = NULL, Destina
     CarrierGatewayId <- as.character(CarrierGatewayId)
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
     VpcPeeringConnectionId <- as.character(VpcPeeringConnectionId)
-    DryRun <- as.logical(DryRun)
-    LocalTarget <- as.logical(LocalTarget)
     parameters <- c(others, list(RouteTableId = RouteTableId, DestinationCidrBlock = DestinationCidrBlock, 
         DestinationIpv6CidrBlock = DestinationIpv6CidrBlock, DestinationPrefixListId = DestinationPrefixListId, 
         DryRun = DryRun, VpcEndpointId = VpcEndpointId, EgressOnlyInternetGatewayId = EgressOnlyInternetGatewayId, 
@@ -22621,7 +21689,6 @@ ec2_replace_route_table_association <- function(AssociationId, RouteTableId, Dry
     network_timeout = aws_get_network_timeout()) {
     AssociationId <- as.character(AssociationId)
     RouteTableId <- as.character(RouteTableId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AssociationId = AssociationId, RouteTableId = RouteTableId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ReplaceRouteTableAssociation", parameters = parameters, 
@@ -22669,8 +21736,6 @@ ec2_replace_transit_gateway_route <- function(DestinationCidrBlock, TransitGatew
     DestinationCidrBlock <- as.character(DestinationCidrBlock)
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
     TransitGatewayAttachmentId <- as.character(TransitGatewayAttachmentId)
-    Blackhole <- as.logical(Blackhole)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DestinationCidrBlock = DestinationCidrBlock, TransitGatewayRouteTableId = TransitGatewayRouteTableId, 
         TransitGatewayAttachmentId = TransitGatewayAttachmentId, Blackhole = Blackhole, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -22750,9 +21815,6 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
     Description <- as.character(Description)
     EndTime <- as.character(EndTime)
     StartTime <- as.character(StartTime)
-    InstanceId <- as.list(InstanceId)
-    ReasonCode <- as.list(ReasonCode)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     ReasonCode <- list_to_array("ReasonCode", ReasonCode)
     parameters <- c(others, list(Status = Status, Description = Description, DryRun = DryRun, EndTime = EndTime, 
@@ -22784,7 +21846,6 @@ ec2_report_instance_status <- function(InstanceId, ReasonCode, Status, Descripti
 ec2_request_spot_fleet <- function(SpotFleetRequestConfig, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     SpotFleetRequestConfig <- as.list(SpotFleetRequestConfig)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(SpotFleetRequestConfig = SpotFleetRequestConfig, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RequestSpotFleet", parameters = parameters, 
@@ -22943,10 +22004,6 @@ ec2_request_spot_instances <- function(AvailabilityZoneGroup = NULL, BlockDurati
     ValidUntil <- as.character(ValidUntil)
     InstanceInterruptionBehavior <- as.character(InstanceInterruptionBehavior)
     LaunchSpecification <- as.list(LaunchSpecification)
-    TagSpecification <- as.list(TagSpecification)
-    BlockDurationMinutes <- as.integer(BlockDurationMinutes)
-    InstanceCount <- as.integer(InstanceCount)
-    DryRun <- as.logical(DryRun)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(AvailabilityZoneGroup = AvailabilityZoneGroup, BlockDurationMinutes = BlockDurationMinutes, 
         ClientToken = ClientToken, DryRun = DryRun, InstanceCount = InstanceCount, LaunchGroup = LaunchGroup, 
@@ -22988,7 +22045,6 @@ ec2_reset_address_attribute <- function(AllocationId, Attribute, DryRun = NULL, 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     AllocationId <- as.character(AllocationId)
     Attribute <- as.character(Attribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(AllocationId = AllocationId, Attribute = Attribute, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetAddressAttribute", parameters = parameters, 
@@ -23012,7 +22068,6 @@ ec2_reset_address_attribute <- function(AllocationId, Attribute, DryRun = NULL, 
 #' @export
 ec2_reset_ebs_default_kms_key_id <- function(DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetEbsDefaultKmsKeyId", parameters = parameters, 
@@ -23051,7 +22106,6 @@ ec2_reset_fpga_image_attribute <- function(FpgaImageId, DryRun = NULL, Attribute
     network_timeout = aws_get_network_timeout()) {
     FpgaImageId <- as.character(FpgaImageId)
     Attribute <- as.character(Attribute)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(FpgaImageId = FpgaImageId, DryRun = DryRun, Attribute = Attribute))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetFpgaImageAttribute", parameters = parameters, 
@@ -23085,7 +22139,6 @@ ec2_reset_image_attribute <- function(Attribute, ImageId, DryRun = NULL, simplif
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     ImageId <- as.character(ImageId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, ImageId = ImageId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetImageAttribute", parameters = parameters, 
@@ -23123,7 +22176,6 @@ ec2_reset_instance_attribute <- function(Attribute, InstanceId, DryRun = NULL, s
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetInstanceAttribute", parameters = parameters, 
@@ -23161,7 +22213,6 @@ ec2_reset_network_interface_attribute <- function(NetworkInterfaceId, DryRun = N
     network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
     SourceDestCheck <- as.character(SourceDestCheck)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId, DryRun = DryRun, SourceDestCheck = SourceDestCheck))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetNetworkInterfaceAttribute", parameters = parameters, 
@@ -23196,7 +22247,6 @@ ec2_reset_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL, s
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Attribute <- as.character(Attribute)
     SnapshotId <- as.character(SnapshotId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Attribute = Attribute, SnapshotId = SnapshotId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "ResetSnapshotAttribute", parameters = parameters, 
@@ -23231,7 +22281,6 @@ ec2_reset_snapshot_attribute <- function(Attribute, SnapshotId, DryRun = NULL, s
 ec2_restore_address_to_classic <- function(PublicIp, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     PublicIp <- as.character(PublicIp)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PublicIp = PublicIp, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "RestoreAddressToClassic", parameters = parameters, 
@@ -23273,9 +22322,6 @@ ec2_restore_managed_prefix_list_version <- function(PrefixListId, PreviousVersio
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     PrefixListId <- as.character(PrefixListId)
-    PreviousVersion <- as.integer(PreviousVersion)
-    CurrentVersion <- as.integer(CurrentVersion)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(PrefixListId = PrefixListId, PreviousVersion = PreviousVersion, CurrentVersion = CurrentVersion, 
         DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -23325,8 +22371,6 @@ ec2_revoke_client_vpn_ingress <- function(ClientVpnEndpointId, TargetNetworkCidr
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     TargetNetworkCidr <- as.character(TargetNetworkCidr)
     AccessGroupId <- as.character(AccessGroupId)
-    RevokeAllGroups <- as.logical(RevokeAllGroups)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, TargetNetworkCidr = TargetNetworkCidr, 
         AccessGroupId = AccessGroupId, RevokeAllGroups = RevokeAllGroups, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -23393,10 +22437,6 @@ ec2_revoke_security_group_egress <- function(GroupId, DryRun = NULL, IpPermissio
     IpProtocol <- as.character(IpProtocol)
     SourceSecurityGroupName <- as.character(SourceSecurityGroupName)
     SourceSecurityGroupOwnerId <- as.character(SourceSecurityGroupOwnerId)
-    IpPermissions <- as.list(IpPermissions)
-    FromPort <- as.integer(FromPort)
-    ToPort <- as.integer(ToPort)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(GroupId = GroupId, DryRun = DryRun, CidrIp = CidrIp, FromPort = FromPort, 
         IpProtocol = IpProtocol, ToPort = ToPort, SourceSecurityGroupName = SourceSecurityGroupName, 
@@ -23488,10 +22528,6 @@ ec2_revoke_security_group_ingress <- function(CidrIp = NULL, FromPort = NULL, Gr
     IpProtocol <- as.character(IpProtocol)
     SourceSecurityGroupName <- as.character(SourceSecurityGroupName)
     SourceSecurityGroupOwnerId <- as.character(SourceSecurityGroupOwnerId)
-    IpPermissions <- as.list(IpPermissions)
-    FromPort <- as.integer(FromPort)
-    ToPort <- as.integer(ToPort)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(CidrIp = CidrIp, FromPort = FromPort, GroupId = GroupId, GroupName = GroupName, 
         IpProtocol = IpProtocol, SourceSecurityGroupName = SourceSecurityGroupName, SourceSecurityGroupOwnerId = SourceSecurityGroupOwnerId, 
@@ -23872,21 +22908,6 @@ ec2_run_instances <- function(MaxCount, MinCount, BlockDeviceMapping = NULL, Ima
     HibernationOptions <- as.list(HibernationOptions)
     MetadataOptions <- as.list(MetadataOptions)
     EnclaveOptions <- as.list(EnclaveOptions)
-    BlockDeviceMapping <- as.list(BlockDeviceMapping)
-    Ipv6Address <- as.list(Ipv6Address)
-    SecurityGroupId <- as.list(SecurityGroupId)
-    SecurityGroup <- as.list(SecurityGroup)
-    NetworkInterface <- as.list(NetworkInterface)
-    ElasticGpuSpecification <- as.list(ElasticGpuSpecification)
-    ElasticInferenceAccelerator <- as.list(ElasticInferenceAccelerator)
-    TagSpecification <- as.list(TagSpecification)
-    LicenseSpecification <- as.list(LicenseSpecification)
-    MaxCount <- as.integer(MaxCount)
-    MinCount <- as.integer(MinCount)
-    Ipv6AddressCount <- as.integer(Ipv6AddressCount)
-    DisableApiTermination <- as.logical(DisableApiTermination)
-    DryRun <- as.logical(DryRun)
-    EbsOptimized <- as.logical(EbsOptimized)
     BlockDeviceMapping <- list_to_array("BlockDeviceMapping", BlockDeviceMapping)
     Ipv6Address <- list_to_array("Ipv6Address", Ipv6Address)
     SecurityGroupId <- list_to_array("SecurityGroupId", SecurityGroupId)
@@ -23952,8 +22973,6 @@ ec2_run_scheduled_instances <- function(LaunchSpecification, ScheduledInstanceId
     ScheduledInstanceId <- as.character(ScheduledInstanceId)
     ClientToken <- as.character(ClientToken)
     LaunchSpecification <- as.list(LaunchSpecification)
-    InstanceCount <- as.integer(InstanceCount)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(LaunchSpecification = LaunchSpecification, ScheduledInstanceId = ScheduledInstanceId, 
         ClientToken = ClientToken, DryRun = DryRun, InstanceCount = InstanceCount))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -23996,9 +23015,6 @@ ec2_search_local_gateway_routes <- function(LocalGatewayRouteTableId, Filter, Ma
     network_timeout = aws_get_network_timeout()) {
     LocalGatewayRouteTableId <- as.character(LocalGatewayRouteTableId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(LocalGatewayRouteTableId = LocalGatewayRouteTableId, MaxResults = MaxResults, 
         NextToken = NextToken, DryRun = DryRun), Filter)
@@ -24072,9 +23088,6 @@ ec2_search_transit_gateway_multicast_groups <- function(TransitGatewayMulticastD
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     TransitGatewayMulticastDomainId <- as.character(TransitGatewayMulticastDomainId)
     NextToken <- as.character(NextToken)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayMulticastDomainId = TransitGatewayMulticastDomainId, 
         MaxResults = MaxResults, NextToken = NextToken, DryRun = DryRun), Filter)
@@ -24148,9 +23161,6 @@ ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter
     DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     TransitGatewayRouteTableId <- as.character(TransitGatewayRouteTableId)
-    Filter <- as.list(Filter)
-    MaxResults <- as.integer(MaxResults)
-    DryRun <- as.logical(DryRun)
     Filter <- list_to_filter(Filter)
     parameters <- c(others, list(TransitGatewayRouteTableId = TransitGatewayRouteTableId, MaxResults = MaxResults, 
         DryRun = DryRun), Filter)
@@ -24181,7 +23191,6 @@ ec2_search_transit_gateway_routes <- function(TransitGatewayRouteTableId, Filter
 ec2_send_diagnostic_interrupt <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     InstanceId <- as.character(InstanceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(InstanceId = InstanceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "SendDiagnosticInterrupt", parameters = parameters, 
@@ -24214,8 +23223,6 @@ ec2_start_instances <- function(InstanceId, AdditionalInfo = NULL, DryRun = NULL
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     AdditionalInfo <- as.character(AdditionalInfo)
-    InstanceId <- as.list(InstanceId)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(AdditionalInfo = AdditionalInfo, DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24266,9 +23273,6 @@ ec2_start_network_insights_analysis <- function(NetworkInsightsPathId, ClientTok
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NetworkInsightsPathId <- as.character(NetworkInsightsPathId)
     ClientToken <- as.character(ClientToken)
-    FilterInArn <- as.list(FilterInArn)
-    TagSpecification <- as.list(TagSpecification)
-    DryRun <- as.logical(DryRun)
     FilterInArn <- list_to_array("FilterInArn", FilterInArn)
     TagSpecification <- list_to_array("TagSpecification", TagSpecification)
     parameters <- c(others, list(NetworkInsightsPathId = NetworkInsightsPathId, ClientToken = ClientToken, 
@@ -24301,7 +23305,6 @@ ec2_start_vpc_endpoint_service_private_dns_verification <- function(ServiceId, D
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     ServiceId <- as.character(ServiceId)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ServiceId = ServiceId, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "StartVpcEndpointServicePrivateDnsVerification", 
@@ -24351,10 +23354,6 @@ ec2_start_vpc_endpoint_service_private_dns_verification <- function(ServiceId, D
 ec2_stop_instances <- function(InstanceId, Hibernate = NULL, DryRun = NULL, Force = NULL, simplify = TRUE, 
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
-    InstanceId <- as.list(InstanceId)
-    Hibernate <- as.logical(Hibernate)
-    DryRun <- as.logical(DryRun)
-    Force <- as.logical(Force)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(Hibernate = Hibernate, DryRun = DryRun, Force = Force), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24401,7 +23400,6 @@ ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, Connection
     ClientVpnEndpointId <- as.character(ClientVpnEndpointId)
     ConnectionId <- as.character(ConnectionId)
     Username <- as.character(Username)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(ClientVpnEndpointId = ClientVpnEndpointId, ConnectionId = ConnectionId, 
         Username = Username, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24434,8 +23432,6 @@ ec2_terminate_client_vpn_connections <- function(ClientVpnEndpointId, Connection
 #' @export
 ec2_terminate_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    InstanceId <- as.list(InstanceId)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24465,7 +23461,6 @@ ec2_terminate_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, 
 ec2_unassign_ipv6_addresses <- function(Ipv6Addresses, NetworkInterfaceId, simplify = TRUE, others = list(), 
     print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    Ipv6Addresses <- as.list(Ipv6Addresses)
     Ipv6Addresses <- list_to_array("Ipv6Addresses", Ipv6Addresses)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId), Ipv6Addresses)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24498,7 +23493,6 @@ ec2_unassign_private_ip_addresses <- function(NetworkInterfaceId, PrivateIpAddre
     others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
     network_timeout = aws_get_network_timeout()) {
     NetworkInterfaceId <- as.character(NetworkInterfaceId)
-    PrivateIpAddress <- as.list(PrivateIpAddress)
     PrivateIpAddress <- list_to_array("PrivateIpAddress", PrivateIpAddress)
     parameters <- c(others, list(NetworkInterfaceId = NetworkInterfaceId), PrivateIpAddress)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24533,8 +23527,6 @@ ec2_unassign_private_ip_addresses <- function(NetworkInterfaceId, PrivateIpAddre
 #' @export
 ec2_unmonitor_instances <- function(InstanceId, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    InstanceId <- as.list(InstanceId)
-    DryRun <- as.logical(DryRun)
     InstanceId <- list_to_array("InstanceId", InstanceId)
     parameters <- c(others, list(DryRun = DryRun), InstanceId)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24578,8 +23570,6 @@ ec2_update_security_group_rule_descriptions_egress <- function(IpPermissions, Dr
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     GroupId <- as.character(GroupId)
     GroupName <- as.character(GroupName)
-    IpPermissions <- as.list(IpPermissions)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24623,8 +23613,6 @@ ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, D
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     GroupId <- as.character(GroupId)
     GroupName <- as.character(GroupName)
-    IpPermissions <- as.list(IpPermissions)
-    DryRun <- as.logical(DryRun)
     IpPermissions <- list_to_array("IpPermissions", IpPermissions)
     parameters <- c(others, list(DryRun = DryRun, GroupId = GroupId, GroupName = GroupName), IpPermissions)
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
@@ -24654,7 +23642,6 @@ ec2_update_security_group_rule_descriptions_ingress <- function(IpPermissions, D
 ec2_withdraw_byoip_cidr <- function(Cidr, DryRun = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
     retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
     Cidr <- as.character(Cidr)
-    DryRun <- as.logical(DryRun)
     parameters <- c(others, list(Cidr = Cidr, DryRun = DryRun))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ec2_request, action = "WithdrawByoipCidr", parameters = parameters, 

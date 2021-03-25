@@ -3,13 +3,11 @@ type_map_list <- list(
     Boolean = "Logical",
     String = "Character"
 )
-
+## We cannot do the conversion for the other type
+## as the yaml file contians error..
 type_conversion_list <- list(
     string = "as.character",
-    object = "as.list",
-    array = "as.list",
-    integer = "as.integer",
-    boolean = "as.logical"
+    object = "as.list"
 )
 
 excluded_short_description <- c("others", "simplify", "Filter", "NextToken", "nextToken")
