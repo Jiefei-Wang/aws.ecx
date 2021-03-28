@@ -26,6 +26,8 @@ be able to get the response, an error will be thrown.}
 
 \item{network_timeout}{Numeric. Number of seconds to wait for a REST response
 until giving up. Can not be less than 1 ms.}
+
+\item{region}{Character. The region of the AWS service.}
 }
 \value{
 No return value

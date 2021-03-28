@@ -1,3 +1,8 @@
+                          Changes in version 1.0.3
+New features:
+    - Add setter/getter for the keys and region
+    - add region to the function parameter to temporary overwrite the global setting
+
                           Changes in version 1.0.2
 New features:
     - Do the type conversion for the object type parameter

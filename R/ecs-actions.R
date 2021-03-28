@@ -50,17 +50,16 @@
 #' 
 #' @return A list object or a character vector
 #' @export
-ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, tags = NULL, 
-    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, tags = NULL, simplify = TRUE, 
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     tags <- as.list(tags)
     autoScalingGroupProvider <- as.list(autoScalingGroupProvider)
-    parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider, 
-        tags = tags))
+    parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "CreateCapacityProvider", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -166,7 +165,7 @@ ecs_create_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 #' @export
 ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL, capacityProviders = NULL, 
     defaultCapacityProviderStrategy = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     tags <- as.list(tags)
     settings <- as.list(settings)
     capacityProviders <- as.list(capacityProviders)
@@ -174,9 +173,9 @@ ecs_create_cluster <- function(clusterName = NULL, tags = NULL, settings = NULL,
     parameters <- c(others, list(clusterName = clusterName, tags = tags, settings = settings, capacityProviders = capacityProviders, 
         defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "CreateCluster", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "CreateCluster", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -503,8 +502,8 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
     platformVersion = NULL, role = NULL, deploymentConfiguration = NULL, placementConstraints = NULL, 
     placementStrategy = NULL, networkConfiguration = NULL, healthCheckGracePeriodSeconds = NULL, schedulingStrategy = NULL, 
     deploymentController = NULL, tags = NULL, enableECSManagedTags = NULL, propagateTags = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     loadBalancers <- as.list(loadBalancers)
     serviceRegistries <- as.list(serviceRegistries)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
@@ -523,9 +522,9 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
         deploymentController = deploymentController, tags = tags, enableECSManagedTags = enableECSManagedTags, 
         propagateTags = propagateTags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "CreateService", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "CreateService", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -668,10 +667,10 @@ ecs_create_service <- function(cluster = NULL, serviceName = NULL, taskDefinitio
 #' @return A list object or a character vector
 #' @export
 ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NULL, taskDefinition = NULL, 
-    networkConfiguration = NULL, loadBalancers = NULL, serviceRegistries = NULL, launchType = NULL, 
-    capacityProviderStrategy = NULL, platformVersion = NULL, scale = NULL, clientToken = NULL, tags = NULL, 
-    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    networkConfiguration = NULL, loadBalancers = NULL, serviceRegistries = NULL, launchType = NULL, capacityProviderStrategy = NULL, 
+    platformVersion = NULL, scale = NULL, clientToken = NULL, tags = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     loadBalancers <- as.list(loadBalancers)
     serviceRegistries <- as.list(serviceRegistries)
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
@@ -681,9 +680,9 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
         launchType = launchType, capacityProviderStrategy = capacityProviderStrategy, platformVersion = platformVersion, 
         scale = scale, clientToken = clientToken, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "CreateTaskSet", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "CreateTaskSet", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -716,12 +715,13 @@ ecs_create_task_set <- function(service = NULL, cluster = NULL, externalId = NUL
 #' @return A list object or a character vector
 #' @export
 ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(name = name, principalArn = principalArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAccountSetting", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -748,13 +748,14 @@ ecs_delete_account_setting <- function(name = NULL, principalArn = NULL, simplif
 #' @return A list object or a character vector
 #' @export
 ecs_delete_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     attributes <- as.list(attributes)
     parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteAttributes", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -769,13 +770,13 @@ ecs_delete_attributes <- function(cluster = NULL, attributes = NULL, simplify = 
 #' delete.
 #' @return A list object or a character vector
 #' @export
-ecs_delete_capacity_provider <- function(capacityProvider = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_delete_capacity_provider <- function(capacityProvider = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(capacityProvider = capacityProvider))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeleteCapacityProvider", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -790,12 +791,12 @@ ecs_delete_capacity_provider <- function(capacityProvider = NULL, simplify = TRU
 #' @return A list object or a character vector
 #' @export
 ecs_delete_cluster <- function(cluster = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "DeleteCluster", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "DeleteCluster", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -822,12 +823,13 @@ ecs_delete_cluster <- function(cluster = NULL, simplify = TRUE, others = list(),
 #' @return A list object or a character vector
 #' @export
 ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, service = service, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "DeleteService", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "DeleteService", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -864,13 +866,13 @@ ecs_delete_service <- function(cluster = NULL, service = NULL, force = NULL, sim
 #' @return A list object or a character vector
 #' @export
 ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, force = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "DeleteTaskSet", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "DeleteTaskSet", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -913,12 +915,12 @@ ecs_delete_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, 
 #' @export
 ecs_deregister_container_instance <- function(cluster = NULL, containerInstance = NULL, force = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance, force = force))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeregisterContainerInstance", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -933,13 +935,13 @@ ecs_deregister_container_instance <- function(cluster = NULL, containerInstance 
 #' You must specify a `revision`.
 #' @return A list object or a character vector
 #' @export
-ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DeregisterTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -977,8 +979,8 @@ ecs_deregister_task_definition <- function(taskDefinition = NULL, simplify = TRU
 #' @return A list object or a character vector
 #' @export
 ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = NULL, maxResults = NULL, 
-    nextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    nextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     capacityProviders <- as.list(capacityProviders)
     include <- as.list(include)
     parameters <- c(others, list(capacityProviders = capacityProviders, include = include, maxResults = maxResults, 
@@ -986,7 +988,7 @@ ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = 
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1038,15 +1040,15 @@ ecs_describe_capacity_providers <- function(capacityProviders = NULL, include = 
 #' 
 #' @return A list object or a character vector
 #' @export
-ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     clusters <- as.list(clusters)
     include <- as.list(include)
     parameters <- c(others, list(clusters = clusters, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeClusters", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1082,14 +1084,14 @@ ecs_describe_clusters <- function(clusters = NULL, include = NULL, simplify = TR
 #' @export
 ecs_describe_container_instances <- function(cluster = NULL, containerInstances = NULL, include = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     containerInstances <- as.list(containerInstances)
     include <- as.list(include)
     parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeContainerInstances", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1121,16 +1123,16 @@ ecs_describe_container_instances <- function(cluster = NULL, containerInstances 
 #' included in the response.
 #' @return A list object or a character vector
 #' @export
-ecs_describe_services <- function(cluster = NULL, services = NULL, include = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_describe_services <- function(cluster = NULL, services = NULL, include = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     services <- as.list(services)
     include <- as.list(include)
     parameters <- c(others, list(cluster = cluster, services = services, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeServices", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1153,13 +1155,14 @@ ecs_describe_services <- function(cluster = NULL, services = NULL, include = NUL
 #' @return A list object or a character vector
 #' @export
 ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     include <- as.list(include)
     parameters <- c(others, list(taskDefinition = taskDefinition, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1196,16 +1199,16 @@ ecs_describe_task_definition <- function(taskDefinition = NULL, include = NULL, 
 #' included in the response.
 #' @return A list object or a character vector
 #' @export
-ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NULL, include = NULL, 
-    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NULL, include = NULL, simplify = TRUE, 
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     taskSets <- as.list(taskSets)
     include <- as.list(include)
     parameters <- c(others, list(cluster = cluster, service = service, taskSets = taskSets, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DescribeTaskSets", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1237,14 +1240,15 @@ ecs_describe_task_sets <- function(cluster = NULL, service = NULL, taskSets = NU
 #' @return A list object or a character vector
 #' @export
 ecs_describe_tasks <- function(cluster = NULL, tasks = NULL, include = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     tasks <- as.list(tasks)
     include <- as.list(include)
     parameters <- c(others, list(cluster = cluster, tasks = tasks, include = include))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "DescribeTasks", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "DescribeTasks", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1269,12 +1273,13 @@ ecs_describe_tasks <- function(cluster = NULL, tasks = NULL, include = NULL, sim
 #' @return A list object or a character vector
 #' @export
 ecs_discover_poll_endpoint <- function(containerInstance = NULL, cluster = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(containerInstance = containerInstance, cluster = cluster))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "DiscoverPollEndpoint", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1317,13 +1322,13 @@ ecs_discover_poll_endpoint <- function(containerInstance = NULL, cluster = NULL,
 #' @export
 ecs_list_account_settings <- function(maxResults = NULL, nextToken = NULL, name = NULL, value = NULL, 
     principalArn = NULL, effectiveSettings = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, name = name, value = value, 
         principalArn = principalArn, effectiveSettings = effectiveSettings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListAccountSettings", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1367,13 +1372,13 @@ ecs_list_account_settings <- function(maxResults = NULL, nextToken = NULL, name 
 #' @export
 ecs_list_attributes <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, targetType = NULL, 
     attributeName = NULL, attributeValue = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
-        targetType = targetType, attributeName = attributeName, attributeValue = attributeValue))
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
+    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, targetType = targetType, 
+        attributeName = attributeName, attributeValue = attributeValue))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "ListAttributes", parameters = parameters, 
-        simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "ListAttributes", parameters = parameters, simplify = simplify, 
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1390,12 +1395,13 @@ ecs_list_attributes <- function(maxResults = NULL, nextToken = NULL, cluster = N
 #' limit
 #' @return A list object or a character vector
 #' @export
-ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListClusters", parameters = parameters, simplify = simplify, 
-        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1442,13 +1448,13 @@ ecs_list_clusters <- function(maxResults = NULL, nextToken = NULL, simplify = TR
 #' @export
 ecs_list_container_instances <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, filter = NULL, 
     status = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
-        filter = filter, status = status))
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
+    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, filter = filter, 
+        status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListContainerInstances", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1481,12 +1487,13 @@ ecs_list_container_instances <- function(maxResults = NULL, nextToken = NULL, cl
 #' @export
 ecs_list_services <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, launchType = NULL, 
     schedulingStrategy = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
-        launchType = launchType, schedulingStrategy = schedulingStrategy))
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
+    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, launchType = launchType, 
+        schedulingStrategy = schedulingStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListServices", parameters = parameters, simplify = simplify, 
-        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1506,12 +1513,12 @@ ecs_list_services <- function(maxResults = NULL, nextToken = NULL, cluster = NUL
 #' @return A list object or a character vector
 #' @export
 ecs_list_tags_for_resource <- function(resourceArn = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(resourceArn = resourceArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListTagsForResource", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1545,13 +1552,13 @@ ecs_list_tags_for_resource <- function(resourceArn = NULL, simplify = TRUE, othe
 #' @export
 ecs_list_task_definition_families <- function(maxResults = NULL, nextToken = NULL, familyPrefix = NULL, 
     status = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, familyPrefix = familyPrefix, 
         status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListTaskDefinitionFamilies", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1597,13 +1604,13 @@ ecs_list_task_definition_families <- function(maxResults = NULL, nextToken = NUL
 #' @export
 ecs_list_task_definitions <- function(maxResults = NULL, nextToken = NULL, familyPrefix = NULL, status = NULL, 
     sort = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, familyPrefix = familyPrefix, 
         status = status, sort = sort))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListTaskDefinitions", parameters = parameters, 
         simplify = simplify, token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1667,14 +1674,15 @@ ecs_list_task_definitions <- function(maxResults = NULL, nextToken = NULL, famil
 #' @export
 ecs_list_tasks <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, containerInstance = NULL, 
     family = NULL, startedBy = NULL, serviceName = NULL, desiredStatus = NULL, launchType = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
-    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, 
-        containerInstance = containerInstance, family = family, startedBy = startedBy, serviceName = serviceName, 
-        desiredStatus = desiredStatus, launchType = launchType))
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
+    parameters <- c(others, list(maxResults = maxResults, nextToken = nextToken, cluster = cluster, containerInstance = containerInstance, 
+        family = family, startedBy = startedBy, serviceName = serviceName, desiredStatus = desiredStatus, 
+        launchType = launchType))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "ListTasks", parameters = parameters, simplify = simplify, 
-        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = "nextToken", print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1710,14 +1718,14 @@ ecs_list_tasks <- function(maxResults = NULL, nextToken = NULL, cluster = NULL, 
 #' for the authenticated user.
 #' @return A list object or a character vector
 #' @export
-ecs_put_account_setting <- function(name = NULL, value = NULL, principalArn = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_put_account_setting <- function(name = NULL, value = NULL, principalArn = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(name = name, value = value, principalArn = principalArn))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutAccountSetting", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1751,12 +1759,13 @@ ecs_put_account_setting <- function(name = NULL, value = NULL, principalArn = NU
 #' @return A list object or a character vector
 #' @export
 ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(name = name, value = value))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutAccountSettingDefault", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1785,14 +1794,14 @@ ecs_put_account_setting_default <- function(name = NULL, value = NULL, simplify 
 #' up to 10 attributes in a single call.
 #' @return A list object or a character vector
 #' @export
-ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     attributes <- as.list(attributes)
     parameters <- c(others, list(cluster = cluster, attributes = attributes))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "PutAttributes", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "PutAttributes", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -1850,14 +1859,14 @@ ecs_put_attributes <- function(cluster = NULL, attributes = NULL, simplify = TRU
 #' @export
 ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders = NULL, defaultCapacityProviderStrategy = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     capacityProviders <- as.list(capacityProviders)
     defaultCapacityProviderStrategy <- as.list(defaultCapacityProviderStrategy)
     parameters <- c(others, list(cluster = cluster, capacityProviders = capacityProviders, defaultCapacityProviderStrategy = defaultCapacityProviderStrategy))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "PutClusterCapacityProviders", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -1945,7 +1954,7 @@ ecs_put_cluster_capacity_providers <- function(cluster = NULL, capacityProviders
 ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocument = NULL, instanceIdentityDocumentSignature = NULL, 
     totalResources = NULL, versionInfo = NULL, containerInstanceArn = NULL, attributes = NULL, platformDevices = NULL, 
     tags = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     totalResources <- as.list(totalResources)
     attributes <- as.list(attributes)
     platformDevices <- as.list(platformDevices)
@@ -1958,7 +1967,7 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterContainerInstance", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2233,11 +2242,11 @@ ecs_register_container_instance <- function(cluster = NULL, instanceIdentityDocu
 #' accelerators to use for the containers in the task.
 #' @return A list object or a character vector
 #' @export
-ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, executionRoleArn = NULL, 
-    networkMode = NULL, containerDefinitions = NULL, volumes = NULL, placementConstraints = NULL, requiresCompatibilities = NULL, 
+ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, executionRoleArn = NULL, networkMode = NULL, 
+    containerDefinitions = NULL, volumes = NULL, placementConstraints = NULL, requiresCompatibilities = NULL, 
     cpu = NULL, memory = NULL, tags = NULL, pidMode = NULL, ipcMode = NULL, proxyConfiguration = NULL, 
     inferenceAccelerators = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     containerDefinitions <- as.list(containerDefinitions)
     volumes <- as.list(volumes)
     placementConstraints <- as.list(placementConstraints)
@@ -2245,14 +2254,13 @@ ecs_register_task_definition <- function(family = NULL, taskRoleArn = NULL, exec
     tags <- as.list(tags)
     inferenceAccelerators <- as.list(inferenceAccelerators)
     parameters <- c(others, list(family = family, taskRoleArn = taskRoleArn, executionRoleArn = executionRoleArn, 
-        networkMode = networkMode, containerDefinitions = containerDefinitions, volumes = volumes, 
-        placementConstraints = placementConstraints, requiresCompatibilities = requiresCompatibilities, 
-        cpu = cpu, memory = memory, tags = tags, pidMode = pidMode, ipcMode = ipcMode, proxyConfiguration = proxyConfiguration, 
-        inferenceAccelerators = inferenceAccelerators))
+        networkMode = networkMode, containerDefinitions = containerDefinitions, volumes = volumes, placementConstraints = placementConstraints, 
+        requiresCompatibilities = requiresCompatibilities, cpu = cpu, memory = memory, tags = tags, pidMode = pidMode, 
+        ipcMode = ipcMode, proxyConfiguration = proxyConfiguration, inferenceAccelerators = inferenceAccelerators))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RegisterTaskDefinition", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2439,7 +2447,7 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
     group = NULL, launchType = NULL, networkConfiguration = NULL, overrides = NULL, placementConstraints = NULL, 
     placementStrategy = NULL, platformVersion = NULL, propagateTags = NULL, referenceId = NULL, startedBy = NULL, 
     tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     placementConstraints <- as.list(placementConstraints)
     placementStrategy <- as.list(placementStrategy)
@@ -2453,7 +2461,8 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
         referenceId = referenceId, startedBy = startedBy, tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "RunTask", parameters = parameters, simplify = simplify, 
-        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -2568,10 +2577,10 @@ ecs_run_task <- function(capacityProviderStrategy = NULL, cluster = NULL, count 
 #' specified, the latest `ACTIVE` revision is used.
 #' @return A list object or a character vector
 #' @export
-ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSManagedTags = NULL, 
-    group = NULL, networkConfiguration = NULL, overrides = NULL, propagateTags = NULL, referenceId = NULL, 
-    startedBy = NULL, tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSManagedTags = NULL, group = NULL, 
+    networkConfiguration = NULL, overrides = NULL, propagateTags = NULL, referenceId = NULL, startedBy = NULL, 
+    tags = NULL, taskDefinition = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     containerInstances <- as.list(containerInstances)
     tags <- as.list(tags)
     networkConfiguration <- as.list(networkConfiguration)
@@ -2581,7 +2590,8 @@ ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSM
         referenceId = referenceId, startedBy = startedBy, tags = tags, taskDefinition = taskDefinition))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "StartTask", parameters = parameters, simplify = simplify, 
-        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -2610,11 +2620,13 @@ ecs_start_task <- function(cluster = NULL, containerInstances = NULL, enableECSM
 #' @return A list object or a character vector
 #' @export
 ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, task = task, reason = reason))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "StopTask", parameters = parameters, simplify = simplify, 
-        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -2633,15 +2645,15 @@ ecs_stop_task <- function(cluster = NULL, task = NULL, reason = NULL, simplify =
 #' request.
 #' @return A list object or a character vector
 #' @export
-ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NULL, simplify = TRUE, others = list(), 
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     attachments <- as.list(attachments)
     parameters <- c(others, list(cluster = cluster, attachments = attachments))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitAttachmentStateChanges", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2686,14 +2698,15 @@ ecs_submit_attachment_state_changes <- function(cluster = NULL, attachments = NU
 #' @export
 ecs_submit_container_state_change <- function(cluster = NULL, task = NULL, containerName = NULL, runtimeId = NULL, 
     status = NULL, exitCode = NULL, reason = NULL, networkBindings = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     networkBindings <- as.list(networkBindings)
     parameters <- c(others, list(cluster = cluster, task = task, containerName = containerName, runtimeId = runtimeId, 
         status = status, exitCode = exitCode, reason = reason, networkBindings = networkBindings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitContainerStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2741,19 +2754,18 @@ ecs_submit_container_state_change <- function(cluster = NULL, task = NULL, conta
 #' stopped.
 #' @return A list object or a character vector
 #' @export
-ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = NULL, reason = NULL, 
-    containers = NULL, attachments = NULL, pullStartedAt = NULL, pullStoppedAt = NULL, executionStoppedAt = NULL, 
-    simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = NULL, reason = NULL, containers = NULL, 
+    attachments = NULL, pullStartedAt = NULL, pullStoppedAt = NULL, executionStoppedAt = NULL, simplify = TRUE, 
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     containers <- as.list(containers)
     attachments <- as.list(attachments)
-    parameters <- c(others, list(cluster = cluster, task = task, status = status, reason = reason, 
-        containers = containers, attachments = attachments, pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, 
-        executionStoppedAt = executionStoppedAt))
+    parameters <- c(others, list(cluster = cluster, task = task, status = status, reason = reason, containers = containers, 
+        attachments = attachments, pullStartedAt = pullStartedAt, pullStoppedAt = pullStoppedAt, executionStoppedAt = executionStoppedAt))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "SubmitTaskStateChange", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2806,12 +2818,13 @@ ecs_submit_task_state_change <- function(cluster = NULL, task = NULL, status = N
 #' @return A list object or a character vector
 #' @export
 ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
-    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     tags <- as.list(tags)
     parameters <- c(others, list(resourceArn = resourceArn, tags = tags))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "TagResource", parameters = parameters, simplify = simplify, 
-        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout)
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -2834,14 +2847,14 @@ ecs_tag_resource <- function(resourceArn = NULL, tags = NULL, simplify = TRUE, o
 #' removed.
 #' @return A list object or a character vector
 #' @export
-ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), 
+    retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     tagKeys <- as.list(tagKeys)
     parameters <- c(others, list(resourceArn = resourceArn, tagKeys = tagKeys))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "UntagResource", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "UntagResource", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -2864,14 +2877,14 @@ ecs_untag_resource <- function(resourceArn = NULL, tagKeys = NULL, simplify = TR
 #' @return A list object or a character vector
 #' @export
 ecs_update_capacity_provider <- function(name = NULL, autoScalingGroupProvider = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     autoScalingGroupProvider <- as.list(autoScalingGroupProvider)
     parameters <- c(others, list(name = name, autoScalingGroupProvider = autoScalingGroupProvider))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateCapacityProvider", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2896,13 +2909,14 @@ ecs_update_capacity_provider <- function(name = NULL, autoScalingGroupProvider =
 #' @return A list object or a character vector
 #' @export
 ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     settings <- as.list(settings)
     parameters <- c(others, list(cluster = cluster, settings = settings))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateClusterSettings", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2924,12 +2938,13 @@ ecs_update_cluster_settings <- function(cluster = NULL, settings = NULL, simplif
 #' @return A list object or a character vector
 #' @export
 ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL, simplify = TRUE, others = list(), 
-    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout()) {
+    print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, containerInstance = containerInstance))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateContainerAgent", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -2960,13 +2975,13 @@ ecs_update_container_agent <- function(cluster = NULL, containerInstance = NULL,
 #' @export
 ecs_update_container_instances_state <- function(cluster = NULL, containerInstances = NULL, status = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     containerInstances <- as.list(containerInstances)
     parameters <- c(others, list(cluster = cluster, containerInstances = containerInstances, status = status))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateContainerInstancesState", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -3098,19 +3113,19 @@ ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NU
     capacityProviderStrategy = NULL, deploymentConfiguration = NULL, networkConfiguration = NULL, placementConstraints = NULL, 
     placementStrategy = NULL, platformVersion = NULL, forceNewDeployment = NULL, healthCheckGracePeriodSeconds = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     capacityProviderStrategy <- as.list(capacityProviderStrategy)
     placementConstraints <- as.list(placementConstraints)
     placementStrategy <- as.list(placementStrategy)
     deploymentConfiguration <- as.list(deploymentConfiguration)
-    parameters <- c(others, list(cluster = cluster, service = service, desiredCount = desiredCount, 
-        taskDefinition = taskDefinition, capacityProviderStrategy = capacityProviderStrategy, deploymentConfiguration = deploymentConfiguration, 
+    parameters <- c(others, list(cluster = cluster, service = service, desiredCount = desiredCount, taskDefinition = taskDefinition, 
+        capacityProviderStrategy = capacityProviderStrategy, deploymentConfiguration = deploymentConfiguration, 
         networkConfiguration = networkConfiguration, placementConstraints = placementConstraints, placementStrategy = placementStrategy, 
         platformVersion = platformVersion, forceNewDeployment = forceNewDeployment, healthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "UpdateService", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "UpdateService", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 
 
@@ -3146,12 +3161,12 @@ ecs_update_service <- function(cluster = NULL, service = NULL, desiredCount = NU
 #' @export
 ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, primaryTaskSet = NULL, 
     simplify = TRUE, others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    network_timeout = aws_get_network_timeout(), region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, service = service, primaryTaskSet = primaryTaskSet))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
     make_request(service_request = ecs_request, action = "UpdateServicePrimaryTaskSet", parameters = parameters, 
         simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+        network_timeout = network_timeout, region = region)
 }
 
 
@@ -3185,12 +3200,12 @@ ecs_update_service_primary_task_set <- function(cluster = NULL, service = NULL, 
 #' @return A list object or a character vector
 #' @export
 ecs_update_task_set <- function(cluster = NULL, service = NULL, taskSet = NULL, scale = NULL, simplify = TRUE, 
-    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), 
-    network_timeout = aws_get_network_timeout()) {
+    others = list(), print_on_error = aws_get_print_on_error(), retry_time = aws_get_retry_time(), network_timeout = aws_get_network_timeout(), 
+    region = aws_get_region()) {
     parameters <- c(others, list(cluster = cluster, service = service, taskSet = taskSet, scale = scale))
     parameters <- parameters[!vapply(parameters, is.empty, logical(1))]
-    make_request(service_request = ecs_request, action = "UpdateTaskSet", parameters = parameters, 
-        simplify = simplify, token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, 
-        network_timeout = network_timeout)
+    make_request(service_request = ecs_request, action = "UpdateTaskSet", parameters = parameters, simplify = simplify, 
+        token_name = NULL, print_on_error = print_on_error, retry_time = retry_time, network_timeout = network_timeout, 
+        region = region)
 }
 

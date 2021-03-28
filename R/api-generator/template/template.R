@@ -1,7 +1,8 @@
 {{{function_name}}} <- function({{{parameters}}},
                                 print_on_error = aws_get_print_on_error(),
                                 retry_time = aws_get_retry_time(),
-                                network_timeout = aws_get_network_timeout()) {
+                                network_timeout = aws_get_network_timeout(),
+                                region = aws_get_region()) {
     {{{parameters_conversion}}}
     {{{list_to_array_process_code}}}
     {{{list_to_filter_process_code}}}
@@ -14,5 +15,6 @@
                  token_name = {{{token_name}}},
                  print_on_error = print_on_error,
                  retry_time = retry_time,
-                 network_timeout = network_timeout)
+                 network_timeout = network_timeout,
+                 region=region)
 }

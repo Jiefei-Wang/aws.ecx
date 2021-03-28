@@ -126,10 +126,9 @@ aws_request <- function(method = c("POST","GET"),
                         body = "",
                         print_on_error = aws_get_print_on_error(),
                         retry_time = aws_get_retry_time(),
-                        network_timeout = aws_get_network_timeout()){
-
+                        network_timeout = aws_get_network_timeout(),
+                        region = aws_get_region()){
   method <- match.arg(method)
-  region <- aws_get_region()
   host <- paste0(service, ".", region,".amazonaws.com")
   url <- paste0("https://",host)
   datetime <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")

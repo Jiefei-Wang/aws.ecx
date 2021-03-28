@@ -44,6 +44,12 @@ aws_credentials$region <- NULL
 #' `aws_get_secret_access_key` : The secret access key
 #'
 #' `aws_get_region` : The region
+#'
+#' `aws_set_access_key_id` : NULL
+#'
+#' `aws_set_secret_access_key` : NULL
+#'
+#' `aws_set_region` : The old region
 #' @examples
 #' ## Get your credentials from the environment variables or AWS cli
 #' aws_set_credentials()
@@ -107,6 +113,25 @@ aws_get_secret_access_key <- function(){
 #' @export
 aws_get_region<-function(){
   aws_credentials$region
+}
+#' @rdname credentials
+#' @export
+aws_set_access_key_id <- function(access_key_id){
+  aws_credentials$access_key_id <- access_key_id
+  invisible(NULL)
+}
+#' @rdname credentials
+#' @export
+aws_set_secret_access_key <- function(secret_access_key){
+  aws_credentials$secret_access_key <- secret_access_key
+  invisible(NULL)
+}
+#' @rdname credentials
+#' @export
+aws_set_region<-function(region){
+  old_value <- aws_credentials$region
+  aws_credentials$region <- region
+  old_value
 }
 
 aws_has_credentials <- function(){
