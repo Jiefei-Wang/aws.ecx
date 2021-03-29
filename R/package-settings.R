@@ -1,7 +1,7 @@
 package_setting<-new.env()
 package_setting$print_on_error <- TRUE
 package_setting$retry_time <- 5
-package_setting$network_timeout <- 10
+package_setting$network_timeout <- 2
 
 #' Get or set the package settings
 #'

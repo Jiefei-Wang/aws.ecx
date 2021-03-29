@@ -1,6 +1,7 @@
 context("test ec2 functions")
 
 if(aws_has_credentials()){
+    aws_set_network_timeout(10)
     vpc_id <- NULL
     CidrBlock <- "100.68.0.0/18"
     test_that("Create an vpc",{

@@ -1,6 +1,7 @@
 context("test ecs functions")
 
 if(aws_has_credentials()){
+    aws_set_network_timeout(10)
     cluster_names <- paste0("unit-test-cluster", 1:4)
     tags <- list(
         list( key = "unit-test-cluster",
@@ -10,8 +11,10 @@ if(aws_has_credentials()){
         expect_error(response <- ecs_list_clusters(),NA)
 
         idx <- c()
-        for(i in cluster_names){
-            idx <- c(idx,  which(endsWith(response,paste0("/",i))))
+        if(!is.null(response)){
+            for(i in cluster_names){
+                idx <- c(idx,  which(endsWith(response,paste0("/",i))))
+            }
         }
         if(length(idx)!=0){
             expect_error(response <- ecs_delete_cluster(cluster = i),NA)
@@ -53,7 +56,7 @@ if(aws_has_credentials()){
         expect_equal(
             response$clusters[[1]]$tags,
             list(list(key = "unit-test-cluster", value = "unit-test-cluster"))
-            )
+        )
     })
 
     test_that("Delete the cluster",{
@@ -65,8 +68,10 @@ if(aws_has_credentials()){
     test_that("list the cluster again",{
         expect_error(response <- ecs_list_clusters(),NA)
         idx <- c()
-        for(i in cluster_names){
-            idx <- c(idx,  which(endsWith(response,paste0("/",i))))
+        if(!is.null(response)){
+            for(i in cluster_names){
+                idx <- c(idx,  which(endsWith(response,paste0("/",i))))
+            }
         }
         expect_true(length(idx)==0)
     })
