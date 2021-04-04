@@ -1,3 +1,7 @@
+                          Changes in version 1.0.4
+New features:
+    - Add `aws_list_regions` function
+
                           Changes in version 1.0.3
 New features:
     - Add setter/getter for the keys and region

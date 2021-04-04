@@ -45,13 +45,17 @@ Credentials must be provided for using the package. The package uses `access key
 ```{r}
 aws_set_credentials()
 ```
-You can either explicitly provide the credentials by the function arguments or rely on the locator to automatically find your credentials. There are many ways to locate the credentials but the most important methods are as follow(sorted by the search order):
+The function `aws_set_credentials` sets both the credentials and the region of the AWS service. You can either explicitly provide them by the function arguments or rely on the locator to automatically find your credentials. There are many ways to locate the credentials but the most important methods are as follow(sorted by the search order):
 
 1. environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`, and `AWS_SESSION_TOKEN`
 
 2. a profile in a global credentials dot file in a location set by `AWS_SHARED_CREDENTIALS_FILE` or defaulting typically to `"~/.aws/credentials"` (or another OS-specific location), using the profile specified by `AWS_PROFILE`
 
-Users can find the details on how the credentials are located from `?aws.signature::locate_credentials`.
+Users can find the details on how the credentials are located from `?aws.signature::locate_credentials`. A list of AWS regions can be found by calling the function `aws_list_regions`. 
+```{r}
+aws_list_regions()
+```
+
 
 [AWS user guide]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
 

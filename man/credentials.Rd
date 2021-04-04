@@ -9,6 +9,7 @@
 \alias{aws_set_access_key_id}
 \alias{aws_set_secret_access_key}
 \alias{aws_set_region}
+\alias{aws_list_regions}
 \title{Set or get AWS credentials}
 \usage{
 aws_set_credentials(
@@ -32,6 +33,8 @@ aws_set_access_key_id(access_key_id)
 aws_set_secret_access_key(secret_access_key)
 
 aws_set_region(region)
+
+aws_list_regions()
 }
 \arguments{
 \item{key_file}{The csv credential file that is downloaded from AWS}
@@ -63,6 +66,8 @@ file. By default, the profile named in \code{AWS_PROFILE} is used, otherwise the
 \code{aws_set_secret_access_key} : NULL
 
 \code{aws_set_region} : The old region
+
+\code{aws_list_regions}: A vector of available regions
 }
 \description{
 Set or get AWS credentials. This function will be called by the package
