@@ -61,6 +61,8 @@ Calling the EC2 or ECS function is simple, for example, you can list all ECS clu
 
 ```r
 ecs_list_clusters()
+#> REST request failed with the message:
+#>  Timeout was reached: [ecs.ap-southeast-1.amazonaws.com] Send failure: Connection was aborted
 #> [1] "arn:aws:ecs:ap-southeast-1:020007817719:cluster/R-worker-cluster"
 #> [2] "arn:aws:ecs:ap-southeast-1:020007817719:cluster/test"
 ```
@@ -235,7 +237,6 @@ cat(rjson::toJSON(tags, indent = 1))
 #> ]
 ```
 
-
 # Package settings
 The package handles the network issue via the parameter `retry_time`, `print_on_error` and `network_timeout`.
 
@@ -249,6 +250,10 @@ aws_get_network_timeout()
 #> [1] 2
 ```
 `retry_time` determines the number of time the function will retry when network error occurs before throwing an error. If `print_on_error` is set to `False`, no message will be given when the network error has occurred and the package will silently resend the REST request. `network_timeout` decides how long the function will wait before it fails. They can be changed via the corresponding setters(e.g. `aws_set_retry_time`). You can also temporary alter the setting by providing the package setting as a parameter in the EC2 or ECS function.
+
+# Warning
+Not all AWS APIs are idempotent, especially for the functions that need to allocate resources on AWS(e.g. `ecs_start_task`). If you plan to use the AWS function in your package, special handle for the network issue is required for the non-idempotent API to avoid a double allocation. 
+
 
 # Session info
 
@@ -294,11 +299,9 @@ sessionInfo()
 ```
 
 # future work
-1. Convert parameter type if it does not meet the AWS type requirement
+1. Convert parameter type if it does not meet the AWS type requirement. Done
 
 2. add link to the function documentation
-
-3. Object type to list?
 
 
 
