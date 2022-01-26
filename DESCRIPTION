@@ -7,7 +7,7 @@ Authors@R: c(
         email = "szwjf08@gmail.com",
         role = c("aut", "cre")
     ),
-    person("Jeffrey", "Miecznikowski", role = "aut"))
+    person("Martin", "Morgan", role = "aut"))
 Description: 
     Providing the functions for communicating with Amazon Web Services(AWS)
     Elastic Compute Cloud(EC2) and Elastic Container Service(ECS).
